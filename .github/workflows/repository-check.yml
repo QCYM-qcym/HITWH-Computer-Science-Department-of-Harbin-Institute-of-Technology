@@ -10,5 +10,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python tools/repository/check_repository.py --worktree
+      - name: 仓库维护工具契约测试
+        run: python -X utf8 -m unittest discover -s tests/repository -p "test_*.py"
+      - name: 隐私、当前入口与首页进度
+        run: python -X utf8 tools/repository/check_repository.py --worktree
 

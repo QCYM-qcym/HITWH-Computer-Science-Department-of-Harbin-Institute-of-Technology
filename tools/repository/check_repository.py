@@ -4,14 +4,17 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import posixpath
 import re
 import subprocess
 import sys
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
 TOP_FILES = {"README.md", "CONTRIBUTING.md", "CHANGELOG.md", ".gitignore", ".gitattributes"}
 TOP_DIRS = {"docs", "src", "tests", "configs", "experiments", "data", "tools", ".github", ".githooks"}
 TEXT_EXTENSIONS = {".md", ".py", ".json", ".yaml", ".yml", ".toml", ".txt", ".svg", ".ps1", ".sh", ".mjs", ".js", ".ts", ".tsx", ".vue", ".css", ".html", ".sql"}
+PUBLIC_REPOSITORY_URL = "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology"
 RULES = {
     "个人目录": re.compile(r"(?i)[A-Z]:[\\/](?:Users|obsdian|Study|BaiduNetdiskDownload)[\\/]"),
     "联系方式": re.compile(r"(?<![\w])1[3-9]\d{9}(?!\d)|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}"),
@@ -50,11 +53,29 @@ def inspect(name: str, content: bytes, terms: list[str]) -> list[str]:
     for label, pattern in RULES.items():
         if pattern.search(combined):
             reasons.append(label)
-    if any(term and term.casefold() in combined.casefold() for term in terms):
+    # 用户指定的公开仓库地址属于发布目标；仅豁免完整地址，禁止项本身仍保留。
+    public_link = re.compile(re.escape(PUBLIC_REPOSITORY_URL) + r"(?=/|[\s\"'<>)]|$)", re.I)
+    term_text = public_link.sub("[公开仓库地址]", combined)
+    if any(term and term.casefold() in term_text.casefold() for term in terms):
         reasons.append("本地禁止项")
     if len(content) > 5 * 1024 * 1024:
         reasons.append("超出文本大小限额")
     return reasons
+
+
+def check_links(name: str, content: str, files: set[str]) -> list[str]:
+    """核对当前入口的行内Markdown文件目标；不请求网络或解释Wiki。"""
+    content = re.sub(r"(?ms)^\s*```.*?^\s*```[^\n]*", "", content)
+    reasons = []
+    for match in re.finditer(r"\[[^\]\n]*\]\((<[^>]+>|[^\s)]+)(?:\s+[^)]*)?\)", content):
+        target = match.group(1).strip("<>")
+        parsed = urlsplit(target)
+        if parsed.scheme or parsed.netloc or not parsed.path:
+            continue
+        resolved = posixpath.normpath(posixpath.join(posixpath.dirname(name), unquote(parsed.path)))
+        if resolved.startswith("../") or resolved.startswith("/") or resolved not in files:
+            reasons.append("当前入口链接缺失或越界")
+    return sorted(set(reasons))
 
 
 def main() -> int:
@@ -76,8 +97,17 @@ def main() -> int:
         names += [n for n in TOP_FILES if (ROOT / n).exists()]
         reader = lambda name: (ROOT / name).read_bytes()
     failures = []
+    files = set(filter(None, names))
     for name in sorted(set(filter(None, names))):
-        reasons = inspect(name, reader(name), terms)
+        content = reader(name)
+        reasons = inspect(name, content, terms)
+        active = (name in TOP_FILES or name.startswith("docs/project/")
+                  or (Path(name).name == "README.md" and not name.startswith("docs/baseline/")))
+        if active and name.endswith(".md"):
+            try:
+                reasons += check_links(name, content.decode("utf-8"), files)
+            except (UnicodeDecodeError, ValueError):
+                reasons.append("入口文本或链接无法解析")
         if reasons:
             # 只打印类别，避免把发现的敏感内容复制到日志。
             failures.append((name if not any(t.casefold() in name.casefold() for t in terms) else "[受保护文件名]", reasons))
@@ -90,7 +120,11 @@ def main() -> int:
     for name, reasons in failures:
         print(f"FAIL {name}: {', '.join(reasons)}")
     print(f"检查 {len(set(filter(None, names)))} 个文件，问题 {len(failures)} 项。")
-    return 1 if failures else 0
+    progress = [sys.executable, "-X", "utf8", str(ROOT / "tools/repository/update_progress.py"), "--check"]
+    if args.staged:
+        progress.append("--staged")
+    result = subprocess.run(progress, cwd=ROOT)
+    return 1 if failures or result.returncode else 0
 
 
 if __name__ == "__main__":

@@ -1,10 +1,13 @@
 # 开发与提交规范
 
+用途：每次维护、开发与发布的执行入口。修订2026-10-11；状态：按用户维护要求执行。适用公开仓库及本地公开副本，不自动授权数据下载、训练或业务实现。依据：[路线图](docs/project/ROADMAP.md)、[文件管理](docs/project/REPOSITORY_LAYOUT.md)、[隐私规则](docs/project/PRIVACY.md)。
+
 ## 开始工作
 
-1. 在 GitHub Desktop 选择本仓库，先 Fetch origin，存在远端更新时 Pull origin。
-2. 修改前阅读 [项目规划](docs/project/ROADMAP.md) 和对应分区 README。历史方案与当前提案有差异时，先登记差异再修改。
-3. 文档修改直接在对应分区进行；业务开发使用 `feat/<主题>`，修复使用 `fix/<主题>`，文档使用 `docs/<主题>`。
+1. 读取本地AGENTS及指定上下文，核对工作区、分支、远端与未提交修改，保留其他工作的改动。
+2. Desktop Fetch；比较本地/远端，确认可安全合并才Pull，冲突先解决和验证，不破坏性重置。
+3. 阅读README、路线图、文件/隐私规则和相关材料；确定任务编号、依赖、范围和验收。研究范围变化、破坏性操作或缺关键决定时说明影响，取得所需决定。
+4. 持续开发使用`feat/<主题>`、`fix/<主题>`、`docs/<主题>`，单次维护按规模选分支；main保持可读、可验证，需要评审沿用PR流程。
 
 ## 文件与实验
 
@@ -12,17 +15,41 @@
 
 同一实验协议下比较方法，保持标签独立、时间顺序和阈值校准边界。未执行的验收项写 `NOT_RUN`；失败和负结果也登记。
 
+业务开发先确定需求、输入输出、边界和验收；数据到评分闭环优先。core由CLI和后端共享，参数进configs，凭据只放本地环境变量。实际采用后维护依赖锁，候选不写成已采用。接口/Schema/模型格式改变登记兼容性和迁移。测试覆盖时间、泄漏、重载、错误、任务状态和输出一致性；实现模块提供真实运行说明，缺条件明确列出。
+
+重要文档写用途、日期/版本、状态、范围、依据和关联文件；有确认记录才称已确认基线。需求/设计/接口/实验/测试/论文同步，暂未同步登记[差异与任务](docs/project/DECISIONS.md)。图形保留源和图号映射，引用保留真实来源与必要署名。计划、假设、结果分开；普通修订用Git历史，正式基线/送审/交付才另存快照，不删除原始材料。
+
+## 每次提交更新首页
+
+每一次助手提交，包括文档、修复、配置和测试，都更新[status.json](docs/project/status.json)修订摘要并生成README进度区。未推进阶段也写保持不变。首页最近三至五条，完整记录进入CHANGELOG或维护日志。
+
+```bash
+python -X utf8 tools/repository/update_progress.py --write
+python -X utf8 tools/repository/update_progress.py --check
+python -X utf8 -m unittest discover -s tests/repository -p "test_*.py"
+python -X utf8 tools/repository/check_repository.py --worktree --check-author
+```
+
+满足验收并有证据才升级状态；分母来自清单，调整记录原因，不显示总体百分比。未知截止写待确定，不做假日期甘特。摘要不填本次未产生的提交哈希；CI未运行写待远端检查，结果由工作流显示，不为回填哈希循环提交。About保留简短研究主题，进度只维护首页。
+
 ## 使用 GitHub Desktop 提交
 
-1. 仅勾选本次相关文件，逐项检查 diff，运行 `python tools/repository/check_repository.py --worktree`。
+1. 完成范围内测试、当前链接/产物及隐私检查；只勾选本次文件并逐项看diff。代码、文档、状态与首页描述同一情况。
 2. 检查提交作者：使用本仓库约定的通用维护身份和非个人邮箱。真实姓名或个人邮箱出现时先修正本仓库配置。
-3. 填写中文 Summary，如 `docs: 补充数据审计计划`；Description 写变化原因与验证结果。
+3. 一次提交一个清楚主题；中文Summary用`docs:`、`feat:`、`fix:`、`test:`、`chore:`；Description写目的、变化、验证及限制。拆分时每次都更新README进度。
 4. 点击 Commit，再点击 Push origin。遇到冲突先解决并检查，保持正常快进推送。
-5. 确认 GitHub Desktop 显示无待推送提交，远端页面可见新文件。每项已完成的相关工作按此流程同步；推送失败时记录原因和未同步状态。
+5. Desktop无待推送提交、远端分支与本地哈希一致后，检查远端README及实际CI。失败修复/重验/同步，无法解决登记阻塞。Desktop/认证/网络不可用保留本地工作，不改用命令行/API提交推送。
+6. 分别报告本地完成、Desktop提交、远端推送及CI状态，给关键链接与下一步；Commit、Push、CI通过不能混为一项。
 
 本地 hook 位于 `.githooks/pre-commit`。新克隆仓库执行 `git config core.hooksPath .githooks` 启用；GitHub Desktop 会调用该检查。安装 Python 后需确保 Desktop 的环境可以找到 `python` 或 `py`。hook 和 CI 是辅助检查，正文、图像及元数据仍需人工复核。
 
 ## 文档发布
+
+hook核对Git索引中的隐私、身份、状态与README。本次暂存必须含README且进度区相对HEAD改变，仅改其他正文不满足约定。CLI用于检查/生成/测试，不代替Desktop Commit/Push。
+
+每周首次相关工作复核任务/阻塞/证据并滚动两周；每月首次或阶段末核对范围、数据/实验复现、链接/分区、技术债及远期依赖，登记维护日志。无人值守自动化须用户明确要求。
+
+重要交付分别标识文档/程序/实验版本，形成清单；实际恢复环境并跑关键流程，登记成功/失败；核对源码/配置/图形源/引用/结果及脱敏，准备演示异常恢复。缺验收不得称完成，归档保留公开/私有边界。
 
 旧原稿保留本地，只将脱敏版本加入仓库。Office/PDF/图片需要检查正文、页眉页脚、讲者备注、隐藏页、批注、修订、作者属性、嵌入文件和图像，再新增明确发布规则与检查支持。当前默认阻止这些二进制文件提交。
 
