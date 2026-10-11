@@ -1,0 +1,9 @@
+#!/bin/sh
+if command -v python >/dev/null 2>&1; then
+  exec python tools/repository/check_repository.py --staged --check-author
+elif command -v py >/dev/null 2>&1; then
+  exec py -3 tools/repository/check_repository.py --staged --check-author
+else
+  echo '提交检查需要 Python 3.10+，请在 GitHub Desktop 环境配置 python 或 py。' >&2
+  exit 1
+fi
