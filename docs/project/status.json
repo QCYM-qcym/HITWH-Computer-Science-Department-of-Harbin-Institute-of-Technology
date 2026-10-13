@@ -1,96 +1,361 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-11",
+  "updated": "2026-10-13",
   "current_stage": "S0",
-  "theme": "建立长期滚动路线图、验收证据与首页进度维护",
+  "theme": "更新三分钟答辩V0.6，突出方法、测试与个人工作量",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "补齐近期两周、中期一至两个月及半年以上远期路线，按依赖和进入条件推进。",
-    "建立结构化阶段状态，生成并核对首页阶段图与验收项计数。",
-    "登记旧SRS/HLD与最新开题提案的差异，保留既有基线和决策历史。",
-    "补充长期维护和实验记录约定；13项维护契约测试本地通过，研究与业务状态保持不变。"
+    "形成7页主讲与6页备用的V0.6答辩文本，讲述预算160秒，实际排练待登记。",
+    "应用指定网页演示技能，加入离线动效与演讲者提词；学校模板PPTX保留本地。",
+    "依据最新通知登记任务期2026-10-15至2027-05-31及开题到场节点。",
+    "数据、训练、实验和业务实现均保持NOT_RUN；报告V0.21未修改。"
   ],
   "blockers": [
     "最新材料送审、评审反馈、个人理解与实际计时未登记；研究问题与具体选型尚未冻结。",
-    "旧需求/HLD与当前提案仍有差异；最终截止日期、每周投入及运行资源预算待确定。",
+    "旧需求/HLD与当前提案仍有差异；每周投入、资源预算及最终答辩日期待确定。",
     "数据、模型、实验、原型及业务验收均NOT_RUN；尚无实验结论、业务运行版本或演示。"
   ],
   "next_tasks": [
-    {"id": "REV-01", "text": "登记最新材料的实际送审与评审反馈，并追踪修订影响。", "path": "docs/project/ROADMAP.md"},
-    {"id": "REQ-01", "text": "对齐当前提案与旧需求、概要设计及验收矩阵；范围改变须有确认记录。", "path": "docs/project/DECISIONS.md"},
-    {"id": "DATA-01", "text": "形成数据审计计划与启动条件，待获准后才获取数据并运行审计。", "path": "data/README.md"}
+    {
+      "id": "REV-01",
+      "text": "登记最新材料的实际送审与评审反馈，并追踪修订影响。",
+      "path": "docs/project/ROADMAP.md"
+    },
+    {
+      "id": "REQ-01",
+      "text": "对齐当前提案与旧需求、概要设计及验收矩阵；范围改变须有确认记录。",
+      "path": "docs/project/DECISIONS.md"
+    },
+    {
+      "id": "DATA-01",
+      "text": "形成数据审计计划与启动条件，待获准后才获取数据并运行审计。",
+      "path": "data/README.md"
+    }
   ],
   "entrypoints": [
-    {"label": "开题报告V0.21公开文本（草稿，待审阅）", "path": "docs/reports/开题报告-V0.21-公开文本.md"},
-    {"label": "答辩V0.5公开文本与讲稿入口（草稿，实际计时待登记）", "path": "docs/README.md"},
-    {"label": "滚动路线图、任务验收与依赖", "path": "docs/project/ROADMAP.md"},
-    {"label": "本轮复核证据与检查限制", "path": "docs/project/MAINTENANCE_LOG.md"}
+    {
+      "label": "开题报告V0.21公开文本（草稿，待审阅）",
+      "path": "docs/reports/开题报告-V0.21-公开文本.md"
+    },
+    {
+      "label": "答辩V0.6公开文本与讲稿（160秒计划，实际计时待登记）",
+      "path": "docs/README.md"
+    },
+    {
+      "label": "滚动路线图、任务验收与依赖",
+      "path": "docs/project/ROADMAP.md"
+    },
+    {
+      "label": "本轮复核证据与检查限制",
+      "path": "docs/project/MAINTENANCE_LOG.md"
+    }
   ],
   "stages": [
-    {"id": "S0", "name": "需求与研究问题", "status": "IN_PROGRESS", "entry": "docs/project/ROADMAP.md", "next": "登记评审并对齐旧需求",
+    {
+      "id": "S0",
+      "name": "需求与研究问题",
+      "status": "IN_PROGRESS",
+      "entry": "docs/project/ROADMAP.md",
+      "next": "登记评审并对齐旧需求",
       "criteria": [
-        {"id": "S0-C1", "text": "当前研究问题与开题草稿可阅读", "met": true, "evidence": ["docs/reports/开题报告-V0.21-公开文本.md", "docs/reports/开题答辩-V0.5-公开文本.md"]},
-        {"id": "S0-C2", "text": "研究边界、任务书及最新方案有可追踪确认记录", "met": false, "evidence": []},
-        {"id": "S0-C3", "text": "当前需求、设计、验收与RQ映射一致且完成评审", "met": false, "evidence": []}
-      ]},
-    {"id": "S1", "name": "文献与方案", "status": "IN_PROGRESS", "entry": "docs/README.md", "next": "精读并核对方法差异",
+        {
+          "id": "S0-C1",
+          "text": "当前研究问题与开题草稿可阅读",
+          "met": true,
+          "evidence": [
+            "docs/reports/开题报告-V0.21-公开文本.md",
+            "docs/reports/开题答辩-V0.6-公开文本.md"
+          ]
+        },
+        {
+          "id": "S0-C2",
+          "text": "研究边界、任务书及最新方案有可追踪确认记录",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S0-C3",
+          "text": "当前需求、设计、验收与RQ映射一致且完成评审",
+          "met": false,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "name": "文献与方案",
+      "status": "IN_PROGRESS",
+      "entry": "docs/README.md",
+      "next": "精读并核对方法差异",
       "criteria": [
-        {"id": "S1-C1", "text": "调研资料与来源索引已形成", "met": true, "evidence": ["docs/research/2026-10-08-毕设相关开源项目与论文调研.md", "docs/research/2026-10-08-literature-matrix-v1.json"]},
-        {"id": "S1-C2", "text": "个人精读与可独立解释成果已登记，LITERATURE_READY有通过记录", "met": false, "evidence": []},
-        {"id": "S1-C3", "text": "研究空缺、对照适配与方案选择有证据和确认记录", "met": false, "evidence": []}
-      ]},
-    {"id": "S2", "name": "数据审计", "status": "NOT_RUN", "entry": "data/README.md", "next": "审计计划与阶段授权",
+        {
+          "id": "S1-C1",
+          "text": "调研资料与来源索引已形成",
+          "met": true,
+          "evidence": [
+            "docs/research/2026-10-08-毕设相关开源项目与论文调研.md",
+            "docs/research/2026-10-08-literature-matrix-v1.json"
+          ]
+        },
+        {
+          "id": "S1-C2",
+          "text": "个人精读与可独立解释成果已登记，LITERATURE_READY有通过记录",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S1-C3",
+          "text": "研究空缺、对照适配与方案选择有证据和确认记录",
+          "met": false,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "数据审计",
+      "status": "NOT_RUN",
+      "entry": "data/README.md",
+      "next": "审计计划与阶段授权",
       "criteria": [
-        {"id": "S2-C1", "text": "核验数据版本、来源、许可与校验值", "met": false, "evidence": []},
-        {"id": "S2-C2", "text": "字段、时间连续性、标签与分钟对应通过审计", "met": false, "evidence": []},
-        {"id": "S2-C3", "text": "训练、验证、校准、测试边界及泄漏检查通过", "met": false, "evidence": []},
-        {"id": "S2-C4", "text": "审计脚本可复跑并保存报告与失败记录", "met": false, "evidence": []}
-      ]},
-    {"id": "S3", "name": "最小基线", "status": "NOT_RUN", "entry": "src/README.md", "next": "数据通过后获准实现",
+        {
+          "id": "S2-C1",
+          "text": "核验数据版本、来源、许可与校验值",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S2-C2",
+          "text": "字段、时间连续性、标签与分钟对应通过审计",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S2-C3",
+          "text": "训练、验证、校准、测试边界及泄漏检查通过",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S2-C4",
+          "text": "审计脚本可复跑并保存报告与失败记录",
+          "met": false,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "最小基线",
+      "status": "NOT_RUN",
+      "entry": "src/README.md",
+      "next": "数据通过后获准实现",
       "criteria": [
-        {"id": "S3-C1", "text": "统计/IF/当前AE候选按一致协议完成最小运行", "met": false, "evidence": []},
-        {"id": "S3-C2", "text": "输入到评分及模型保存重载闭环通过", "met": false, "evidence": []},
-        {"id": "S3-C3", "text": "运行配置、依赖、随机种子与资源成本有记录", "met": false, "evidence": []},
-        {"id": "S3-C4", "text": "标签隔离、分数方向及重载一致性测试通过", "met": false, "evidence": []}
-      ]},
-    {"id": "S4", "name": "时间感知方法", "status": "NOT_RUN", "entry": "src/README.md", "next": "依基线证据确定窗口",
+        {
+          "id": "S3-C1",
+          "text": "统计/IF/当前AE候选按一致协议完成最小运行",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S3-C2",
+          "text": "输入到评分及模型保存重载闭环通过",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S3-C3",
+          "text": "运行配置、依赖、随机种子与资源成本有记录",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S3-C4",
+          "text": "标签隔离、分数方向及重载一致性测试通过",
+          "met": false,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "时间感知方法",
+      "status": "NOT_RUN",
+      "entry": "src/README.md",
+      "next": "依基线证据确定窗口",
       "criteria": [
-        {"id": "S4-C1", "text": "因果历史先评分后更新并有边界测试", "met": false, "evidence": []},
-        {"id": "S4-C2", "text": "预热、缺测、断点和污染策略可复核", "met": false, "evidence": []},
-        {"id": "S4-C3", "text": "历史增强方法可保存、重载与评分", "met": false, "evidence": []},
-        {"id": "S4-C4", "text": "窗口与参数选择仅使用开发区段且有记录", "met": false, "evidence": []}
-      ]},
-    {"id": "S5", "name": "对比与消融", "status": "NOT_RUN", "entry": "experiments/README.md", "next": "冻结统一评价协议",
+        {
+          "id": "S4-C1",
+          "text": "因果历史先评分后更新并有边界测试",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S4-C2",
+          "text": "预热、缺测、断点和污染策略可复核",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S4-C3",
+          "text": "历史增强方法可保存、重载与评分",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S4-C4",
+          "text": "窗口与参数选择仅使用开发区段且有记录",
+          "met": false,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "对比与消融",
+      "status": "NOT_RUN",
+      "entry": "experiments/README.md",
+      "next": "冻结统一评价协议",
       "criteria": [
-        {"id": "S5-C1", "text": "一致切分、标签边界与阈值校准协议已冻结", "met": false, "evidence": []},
-        {"id": "S5-C2", "text": "对照、表示、窗口和模块消融运行有原始记录", "met": false, "evidence": []},
-        {"id": "S5-C3", "text": "负结果、失败、效率和不确定性评价齐备", "met": false, "evidence": []},
-        {"id": "S5-C4", "text": "研究结论可追溯到原始分数和复算指标", "met": false, "evidence": []}
-      ]},
-    {"id": "S6", "name": "展示原型", "status": "NOT_RUN", "entry": "src/README.md", "next": "确定共享核心契约",
+        {
+          "id": "S5-C1",
+          "text": "一致切分、标签边界与阈值校准协议已冻结",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S5-C2",
+          "text": "对照、表示、窗口和模块消融运行有原始记录",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S5-C3",
+          "text": "负结果、失败、效率和不确定性评价齐备",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S5-C4",
+          "text": "研究结论可追溯到原始分数和复算指标",
+          "met": false,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "name": "展示原型",
+      "status": "NOT_RUN",
+      "entry": "src/README.md",
+      "next": "确定共享核心契约",
       "criteria": [
-        {"id": "S6-C1", "text": "共享核心、后端和前端职责与接口对齐", "met": false, "evidence": []},
-        {"id": "S6-C2", "text": "任务状态、查询、失败与恢复可执行", "met": false, "evidence": []},
-        {"id": "S6-C3", "text": "页面、命令行与产物输出一致", "met": false, "evidence": []},
-        {"id": "S6-C4", "text": "目标环境离线回放及演示流程可运行", "met": false, "evidence": []}
-      ]},
-    {"id": "S7", "name": "综合测试", "status": "NOT_RUN", "entry": "tests/README.md", "next": "实现后风险契约验收",
+        {
+          "id": "S6-C1",
+          "text": "共享核心、后端和前端职责与接口对齐",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S6-C2",
+          "text": "任务状态、查询、失败与恢复可执行",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S6-C3",
+          "text": "页面、命令行与产物输出一致",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S6-C4",
+          "text": "目标环境离线回放及演示流程可运行",
+          "met": false,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "name": "综合测试",
+      "status": "NOT_RUN",
+      "entry": "tests/README.md",
+      "next": "实现后风险契约验收",
       "criteria": [
-        {"id": "S7-C1", "text": "时间、泄漏、模型、错误及任务状态契约通过", "met": false, "evidence": []},
-        {"id": "S7-C2", "text": "独立恢复环境和关键流程复现已尝试并登记", "met": false, "evidence": []},
-        {"id": "S7-C3", "text": "缺陷与资源验收按确认标准关闭或接受", "met": false, "evidence": []}
-      ]},
-    {"id": "S8", "name": "论文与答辩", "status": "NOT_STARTED", "entry": "docs/README.md", "next": "基于实验证据撰写",
+        {
+          "id": "S7-C1",
+          "text": "时间、泄漏、模型、错误及任务状态契约通过",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S7-C2",
+          "text": "独立恢复环境和关键流程复现已尝试并登记",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S7-C3",
+          "text": "缺陷与资源验收按确认标准关闭或接受",
+          "met": false,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "name": "论文与答辩",
+      "status": "NOT_STARTED",
+      "entry": "docs/README.md",
+      "next": "基于实验证据撰写",
       "criteria": [
-        {"id": "S8-C1", "text": "毕业论文结论、引用及图号对应实测证据", "met": false, "evidence": []},
-        {"id": "S8-C2", "text": "学校版式与公开脱敏版本审阅通过", "met": false, "evidence": []},
-        {"id": "S8-C3", "text": "最终答辩演练、异常恢复与材料交付完成", "met": false, "evidence": []}
-      ]},
-    {"id": "S9", "name": "归档与维护", "status": "NOT_STARTED", "entry": "docs/project/ROADMAP.md", "next": "交付后复核版本清单",
+        {
+          "id": "S8-C1",
+          "text": "毕业论文结论、引用及图号对应实测证据",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S8-C2",
+          "text": "学校版式与公开脱敏版本审阅通过",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S8-C3",
+          "text": "最终答辩演练、异常恢复与材料交付完成",
+          "met": false,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "name": "归档与维护",
+      "status": "NOT_STARTED",
+      "entry": "docs/project/ROADMAP.md",
+      "next": "交付后复核版本清单",
       "criteria": [
-        {"id": "S9-C1", "text": "文档、程序、实验版本与正式交付清单对应", "met": false, "evidence": []},
-        {"id": "S9-C2", "text": "公开资产、私有原稿及大产物索引边界复核", "met": false, "evidence": []},
-        {"id": "S9-C3", "text": "复现指南、已知限制与后续维护入口完整", "met": false, "evidence": []}
-      ]}
+        {
+          "id": "S9-C1",
+          "text": "文档、程序、实验版本与正式交付清单对应",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S9-C2",
+          "text": "公开资产、私有原稿及大产物索引边界复核",
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "S9-C3",
+          "text": "复现指南、已知限制与后续维护入口完整",
+          "met": false,
+          "evidence": []
+        }
+      ]
+    }
   ]
 }
