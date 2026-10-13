@@ -14,6 +14,7 @@
 | 范围/风险 | [差异](project/DECISIONS.md) · [风险](project/RISKS.md) | 待对齐不当作已确认 |
 | 维护证据 | [复核日志](project/MAINTENANCE_LOG.md) | 本地与远端检查分开 |
 | 配图规范 | [项目作图规范](baseline/00-规范与模板/项目作图规范.md) | 沿用项目配色、字体、层级及导出检查 |
+| 文字规范 | [报告与 PPT 文字规范](project/WRITING_STYLE.md) | 默认成稿检查，保留事实和学校模板 |
 | 当前图形源 | [图集说明](figures/README.md) | V4.0方案图和V5.0补充图 |
 
 ## 前期设计基线
