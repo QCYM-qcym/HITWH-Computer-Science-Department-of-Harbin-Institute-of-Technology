@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 FIG-14-检测指标计算与实验评价流程.svg FIG-14-检测指标计算与实验评价流程 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="16in" height="7.86667in" viewBox="0 0 1152 566.4"
+		xml:space="preserve" color-interpolation-filters="sRGB" class="st13">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#d9e8fb;stroke:#527a9b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st2 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st3 {fill:#414750;font-family:微软雅黑;font-size:2.02666em}
+		.st4 {fill:#e2d5e7;stroke:#877293;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st5 {stroke:#527a9b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.92}
+		.st6 {marker-end:url(#mrkr4-25);stroke:#527a9b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.92}
+		.st7 {fill:#527a9b;fill-opacity:1;stroke:#527a9b;stroke-opacity:1;stroke-width:0.51612903225806}
+		.st8 {fill:#f3fef6;stroke:#528373;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st9 {fill:#414750;font-family:Arial;font-size:2.02666em}
+		.st10 {font-family:微软雅黑;font-size:1em}
+		.st11 {font-family:Arial;font-size:1em}
+		.st12 {fill:#fff5c4;stroke:#9b824c;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st13 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-25" class="st7" v:arrowType="4" v:arrowSize="1" v:setback="3.875" refX="-3.875" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-1.9375,-1.9375) "/>
+		</marker>
+	</defs>
+	<g v:mID="16" v:index="14" v:groupContext="foregroundPage">
+		<title>FIG-14-检测指标计算与实验评价流程</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="group3-1" transform="translate(19.2,-486.4)" v:mID="3" v:groupContext="group">
+			<title>cell0</title>
+			<g id="shape1-2" v:mID="1" v:groupContext="shape">
+				<title>工作表.1</title>
+				<rect x="0" y="502.4" width="473.6" height="64" class="st1"/>
+			</g>
+			<g id="shape2-4" v:mID="2" v:groupContext="shape" transform="translate(39.7312,-15.7056)">
+				<title>工作表.2</title>
+				<desc>逐分钟连续分数与固定阈值报警</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="197.069" cy="549.376" width="394.14" height="34.048"/>
+				<rect x="0" y="532.352" width="394.138" height="34.048" class="st2"/>
+				<text x="26.83" y="556.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>逐分钟连续分数与固定阈值报警</text>			</g>
+		</g>
+		<g id="group6-7" transform="translate(659.2,-486.4)" v:mID="6" v:groupContext="group">
+			<title>cell2</title>
+			<g id="shape4-8" v:mID="4" v:groupContext="shape">
+				<title>工作表.4</title>
+				<rect x="0" y="502.4" width="473.6" height="64" class="st4"/>
+			</g>
+			<g id="shape5-10" v:mID="5" v:groupContext="shape" transform="translate(80.5888,-15.7056)">
+				<title>工作表.5</title>
+				<desc>独立标签与有效分钟记录</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="156.211" cy="549.376" width="312.43" height="34.048"/>
+				<rect x="0" y="532.352" width="312.422" height="34.048" class="st2"/>
+				<text x="22.45" y="556.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>独立标签与有效分钟记录</text>			</g>
+		</g>
+		<g id="group18-13" transform="translate(256,-284.8)" v:mID="18" v:groupContext="group">
+			<title>edges</title>
+			<g id="shape7-14" v:mID="7" v:groupContext="shape" transform="translate(566.4,364.8) rotate(90)">
+				<title>工作表.7</title>
+				<path d="M0 566.4 L38.4 566.4" class="st5"/>
+			</g>
+			<g id="shape8-17" v:mID="8" v:groupContext="shape" transform="translate(0,-163.2)">
+				<title>工作表.8</title>
+				<path d="M0 566.4 L320 566.4" class="st5"/>
+			</g>
+			<g id="shape9-20" v:mID="9" v:groupContext="shape" transform="translate(886.4,403.2) rotate(90)">
+				<title>工作表.9</title>
+				<path d="M0 566.4 L24.56 566.4" class="st6"/>
+			</g>
+			<g id="shape10-26" v:mID="10" v:groupContext="shape" transform="translate(1206.4,364.8) rotate(90)">
+				<title>工作表.10</title>
+				<path d="M0 566.4 L38.4 566.4" class="st5"/>
+			</g>
+			<g id="shape11-29" v:mID="11" v:groupContext="shape" transform="translate(640,969.6) rotate(180)">
+				<title>工作表.11</title>
+				<path d="M0 566.4 L320 566.4" class="st5"/>
+			</g>
+			<g id="shape12-32" v:mID="12" v:groupContext="shape" transform="translate(886.4,502.4) rotate(90)">
+				<title>工作表.12</title>
+				<path d="M0 566.4 L32 566.4" class="st5"/>
+			</g>
+			<g id="shape13-35" v:mID="13" v:groupContext="shape" transform="translate(320,1100.8) rotate(180)">
+				<title>工作表.13</title>
+				<path d="M0 566.4 L304 566.4" class="st5"/>
+			</g>
+			<g id="shape14-38" v:mID="14" v:groupContext="shape" transform="translate(582.4,534.4) rotate(90)">
+				<title>工作表.14</title>
+				<path d="M0 566.4 L24.56 566.4" class="st6"/>
+			</g>
+			<g id="shape15-43" v:mID="15" v:groupContext="shape" transform="translate(886.4,502.4) rotate(90)">
+				<title>工作表.15</title>
+				<path d="M0 566.4 L32 566.4" class="st5"/>
+			</g>
+			<g id="shape16-46" v:mID="16" v:groupContext="shape" transform="translate(320,-32)">
+				<title>工作表.16</title>
+				<path d="M0 566.4 L304 566.4" class="st5"/>
+			</g>
+			<g id="shape17-49" v:mID="17" v:groupContext="shape" transform="translate(1190.4,534.4) rotate(90)">
+				<title>工作表.17</title>
+				<path d="M0 566.4 L24.56 566.4" class="st6"/>
+			</g>
+		</g>
+		<g id="group22-54" transform="translate(217.6,-348.474)" v:mID="22" v:groupContext="group">
+			<title>cell6</title>
+			<g id="shape19-55" v:mID="19" v:groupContext="shape" transform="translate(0,-0.3264)">
+				<title>工作表.19</title>
+				<rect x="0" y="499.2" width="716.8" height="67.2" class="st8"/>
+			</g>
+			<g id="shape20-57" v:mID="20" v:groupContext="shape" transform="translate(215.808,-35.264)">
+				<title>工作表.20</title>
+				<desc>按时间与记录索引对齐</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="142.592" cy="549.376" width="285.19" height="34.048"/>
+				<rect x="0" y="532.352" width="285.184" height="34.048" class="st2"/>
+				<text x="20.99" y="556.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>按时间与记录索引对齐</text>			</g>
+			<g id="shape21-60" v:mID="21" v:groupContext="shape" transform="translate(174.95,0)">
+				<title>工作表.21</title>
+				<desc>排除预热、缺失和不确定记录</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="183.45" cy="549.376" width="366.9" height="34.048"/>
+				<rect x="0" y="532.352" width="366.899" height="34.048" class="st2"/>
+				<text x="25.37" y="556.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>排除预热、缺失和不确定记录</text>			</g>
+		</g>
+		<g id="group27-63" transform="translate(19.2,-163.2)" v:mID="27" v:groupContext="group">
+			<title>cell11</title>
+			<g id="shape23-64" v:mID="23" v:groupContext="shape">
+				<title>工作表.23</title>
+				<rect x="0" y="444.8" width="505.6" height="121.6" class="st1"/>
+			</g>
+			<g id="shape24-66" v:mID="24" v:groupContext="shape" transform="translate(151.066,-79.7696)">
+				<title>工作表.24</title>
+				<desc>固定阈值二分类</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="101.734" cy="549.376" width="203.47" height="34.048"/>
+				<rect x="0" y="532.352" width="203.469" height="34.048" class="st2"/>
+				<text x="16.61" y="556.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>固定阈值二分类</text>			</g>
+			<g id="shape25-69" v:mID="25" v:groupContext="shape" transform="translate(136.73,-44.5056)">
+				<title>工作表.25</title>
+				<desc>TP / FP / FN / TN</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="116.07" cy="549.376" width="232.15" height="34.048"/>
+				<rect x="0" y="532.352" width="232.141" height="34.048" class="st2"/>
+				<text x="22.17" y="556.67" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>TP / FP / FN / TN</text>			</g>
+			<g id="shape26-72" v:mID="26" v:groupContext="shape" transform="translate(52.5168,-9.2416)">
+				<title>工作表.26</title>
+				<desc>Precision / Recall / F1 / 误报率</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="200.283" cy="549.376" width="400.57" height="34.048"/>
+				<rect x="0" y="532.352" width="400.566" height="34.048" class="st2"/>
+				<text x="35.41" y="556.77" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Precision / Recall / F1 / <tspan
+							class="st10">误报率</tspan></text>			</g>
+		</g>
+		<g id="group32-76" transform="translate(627.2,-163.2)" v:mID="32" v:groupContext="group">
+			<title>cell15</title>
+			<g id="shape28-77" v:mID="28" v:groupContext="shape">
+				<title>工作表.28</title>
+				<rect x="0" y="444.8" width="505.6" height="121.6" class="st4"/>
+			</g>
+			<g id="shape29-79" v:mID="29" v:groupContext="shape" transform="translate(164.685,-79.7696)">
+				<title>工作表.29</title>
+				<desc>连续分数排序</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="88.1152" cy="549.376" width="176.24" height="34.048"/>
+				<rect x="0" y="532.352" width="176.23" height="34.048" class="st2"/>
+				<text x="15.16" y="556.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>连续分数排序</text>			</g>
+			<g id="shape30-82" v:mID="30" v:groupContext="shape" transform="translate(156.442,-44.5056)">
+				<title>工作表.30</title>
+				<desc>平均精确率 AP</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="96.3584" cy="549.376" width="192.72" height="34.048"/>
+				<rect x="0" y="532.352" width="192.717" height="34.048" class="st2"/>
+				<text x="15.96" y="556.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>平均精确率<tspan
+							class="st11"> </tspan><tspan class="st11">AP</tspan></text>			</g>
+			<g id="shape31-87" v:mID="31" v:groupContext="shape" transform="translate(82.9696,-9.2416)">
+				<title>工作表.31</title>
+				<desc>逐分钟评价不作整段调整</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="169.83" cy="549.376" width="339.67" height="34.048"/>
+				<rect x="0" y="532.352" width="339.661" height="34.048" class="st2"/>
+				<text x="23.91" y="556.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>逐分钟评价，不作整段调整</text>			</g>
+		</g>
+		<g id="group36-90" transform="translate(19.2,-25.6)" v:mID="36" v:groupContext="group">
+			<title>cell19</title>
+			<g id="shape33-91" v:mID="33" v:groupContext="shape">
+				<title>工作表.33</title>
+				<rect x="0" y="473.6" width="1113.6" height="92.8" class="st12"/>
+			</g>
+			<g id="shape34-93" v:mID="34" v:groupContext="shape" transform="translate(287.334,-47.7376)">
+				<title>工作表.34</title>
+				<desc>分组检查正常高负载误报 + 各类攻击召回</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="269.466" cy="549.376" width="538.94" height="34.048"/>
+				<rect x="0" y="532.352" width="538.931" height="34.048" class="st2"/>
+				<text x="36.73" y="556.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>分组检查：正常高负载误报<tspan
+							class="st11"> </tspan><tspan class="st11">+ </tspan>各类攻击召回</text>			</g>
+			<g id="shape35-98" v:mID="35" v:groupContext="shape" transform="translate(155.443,-12.4736)">
+				<title>工作表.35</title>
+				<desc>误报下降且召回不降才支持该测试范围内的改善否则报告取舍</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="401.357" cy="549.376" width="802.72" height="34.048"/>
+				<rect x="0" y="532.352" width="802.714" height="34.048" class="st2"/>
+				<text x="48.72" y="556.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>误报下降且召回不降，才支持该测试范围内的改善；否则报告取舍</text>			</g>
+		</g>
+	</g>
+</svg>

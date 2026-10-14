@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 FIG-12-报警字段解释双通道.svg FIG-12-报警字段解释双通道 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="16in" height="5.86667in" viewBox="0 0 1152 422.4"
+		xml:space="preserve" color-interpolation-filters="sRGB" class="st14">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#fff5c4;stroke:#9b824c;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st2 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st3 {fill:#414750;font-family:微软雅黑;font-size:2.02666em;font-weight:bold}
+		.st4 {stroke:#527a9b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.92}
+		.st5 {marker-end:url(#mrkr4-19);stroke:#527a9b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.92}
+		.st6 {fill:#527a9b;fill-opacity:1;stroke:#527a9b;stroke-opacity:1;stroke-width:0.51612903225806}
+		.st7 {fill:#ffffff;stroke:#528373;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st8 {fill:#f3fef6;stroke:#528373;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st9 {fill:#ffffff;stroke:#877293;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st10 {fill:#e2d5e7;stroke:#877293;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st11 {fill:#414750;font-family:微软雅黑;font-size:2.24em;font-weight:bold}
+		.st12 {fill:#414750;font-family:微软雅黑;font-size:2.02666em}
+		.st13 {font-family:Arial;font-size:1em}
+		.st14 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-19" class="st6" v:arrowType="4" v:arrowSize="1" v:setback="3.875" refX="-3.875" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-1.9375,-1.9375) "/>
+		</marker>
+	</defs>
+	<g v:mID="14" v:index="12" v:groupContext="foregroundPage">
+		<title>FIG-12-报警字段解释双通道</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="group3-1" transform="translate(332.8,-352)" v:mID="3" v:groupContext="group">
+			<title>cell0</title>
+			<g id="shape1-2" v:mID="1" v:groupContext="shape">
+				<title>工作表.1</title>
+				<rect x="0" y="368" width="486.4" height="54.4" class="st1"/>
+			</g>
+			<g id="shape2-4" v:mID="2" v:groupContext="shape" transform="translate(127.846,-10.9056)">
+				<title>工作表.2</title>
+				<desc>选定一个报警分钟</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="115.354" cy="405.376" width="230.71" height="34.048"/>
+				<rect x="0" y="388.352" width="230.707" height="34.048" class="st2"/>
+				<text x="18.07" y="412.77" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>选定一个报警分钟</text>			</g>
+		</g>
+		<g id="group10-7" transform="translate(281.6,-281.6)" v:mID="10" v:groupContext="group">
+			<title>edges</title>
+			<g id="shape4-8" v:mID="4" v:groupContext="shape" transform="translate(716.8,352) rotate(90)">
+				<title>工作表.4</title>
+				<path d="M0 422.4 L28.8 422.4" class="st4"/>
+			</g>
+			<g id="shape5-11" v:mID="5" v:groupContext="shape" transform="translate(294.4,803.2) rotate(180)">
+				<title>工作表.5</title>
+				<path d="M0 422.4 L294.4 422.4" class="st4"/>
+			</g>
+			<g id="shape6-14" v:mID="6" v:groupContext="shape" transform="translate(422.4,380.8) rotate(90)">
+				<title>工作表.6</title>
+				<path d="M0 422.4 L34.16 422.4" class="st5"/>
+			</g>
+			<g id="shape7-20" v:mID="7" v:groupContext="shape" transform="translate(716.8,352) rotate(90)">
+				<title>工作表.7</title>
+				<path d="M0 422.4 L28.8 422.4" class="st4"/>
+			</g>
+			<g id="shape8-23" v:mID="8" v:groupContext="shape" transform="translate(294.4,-41.6)">
+				<title>工作表.8</title>
+				<path d="M0 422.4 L294.4 422.4" class="st4"/>
+			</g>
+			<g id="shape9-26" v:mID="9" v:groupContext="shape" transform="translate(1011.2,380.8) rotate(90)">
+				<title>工作表.9</title>
+				<path d="M0 422.4 L34.16 422.4" class="st5"/>
+			</g>
+		</g>
+		<g id="group15-31" transform="translate(25.6,-83.2)" v:mID="15" v:groupContext="group">
+			<title>frames</title>
+			<g id="shape11-32" v:mID="11" v:groupContext="shape">
+				<title>工作表.11</title>
+				<rect x="0" y="224" width="512" height="198.4" class="st7"/>
+			</g>
+			<g id="shape12-34" v:mID="12" v:groupContext="shape" transform="translate(-6.39488E-14,-147.2)">
+				<title>工作表.12</title>
+				<rect x="0" y="371.2" width="512" height="51.2" class="st8"/>
+			</g>
+			<g id="shape13-36" v:mID="13" v:groupContext="shape" transform="translate(588.8,5.68434E-14)">
+				<title>工作表.13</title>
+				<rect x="0" y="224" width="512" height="198.4" class="st9"/>
+			</g>
+			<g id="shape14-38" v:mID="14" v:groupContext="shape" transform="translate(588.8,-147.2)">
+				<title>工作表.14</title>
+				<rect x="0" y="371.2" width="512" height="51.2" class="st10"/>
+			</g>
+		</g>
+		<g id="group18-40" transform="translate(184.883,-238.438)" v:mID="18" v:groupContext="group">
+			<title>labels</title>
+			<g id="shape16-41" v:mID="16" v:groupContext="shape">
+				<title>工作表.16</title>
+				<desc>历史偏离通道</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="96.7168" cy="403.584" width="193.44" height="37.632"/>
+				<rect x="0" y="384.768" width="193.434" height="37.632" class="st2"/>
+				<text x="16.08" y="411.76" class="st11" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>历史偏离通道</text>			</g>
+			<g id="shape17-44" v:mID="17" v:groupContext="shape" transform="translate(588.8,5.68434E-14)">
+				<title>工作表.17</title>
+				<desc>重构误差通道</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="96.7168" cy="403.584" width="193.44" height="37.632"/>
+				<rect x="0" y="384.768" width="193.434" height="37.632" class="st2"/>
+				<text x="16.08" y="411.76" class="st11" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>重构误差通道</text>			</g>
+		</g>
+		<g id="group22-47" transform="translate(41.6,-115.2)" v:mID="22" v:groupContext="group">
+			<title>cell10</title>
+			<g id="shape19-48" v:mID="19" v:groupContext="shape">
+				<title>工作表.19</title>
+				<rect x="0" y="326.4" width="480" height="96" class="st8"/>
+			</g>
+			<g id="shape20-50" v:mID="20" v:groupContext="shape" transform="translate(83.8112,-49.3376)">
+				<title>工作表.20</title>
+				<desc>按残差绝对值列出 Top 5</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="156.189" cy="405.376" width="312.38" height="34.048"/>
+				<rect x="0" y="388.352" width="312.378" height="34.048" class="st2"/>
+				<text x="24.44" y="412.77" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>按残差绝对值列出<tspan
+							class="st13"> </tspan><tspan class="st13">Top 5</tspan></text>			</g>
+			<g id="shape21-55" v:mID="21" v:groupContext="shape" transform="translate(56.5504,-14.0736)">
+				<title>工作表.21</title>
+				<desc>保留正负方向比较近期水平</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="183.45" cy="405.376" width="366.9" height="34.048"/>
+				<rect x="0" y="388.352" width="366.899" height="34.048" class="st2"/>
+				<text x="25.37" y="412.77" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>保留正负方向，比较近期水平</text>			</g>
+		</g>
+		<g id="group26-58" transform="translate(630.4,-115.2)" v:mID="26" v:groupContext="group">
+			<title>cell13</title>
+			<g id="shape23-59" v:mID="23" v:groupContext="shape">
+				<title>工作表.23</title>
+				<rect x="0" y="326.4" width="480" height="96" class="st10"/>
+			</g>
+			<g id="shape24-61" v:mID="24" v:groupContext="shape" transform="translate(42.9536,-49.3376)">
+				<title>工作表.24</title>
+				<desc>按当前特征重构误差列出 Top 5</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="197.046" cy="405.376" width="394.1" height="34.048"/>
+				<rect x="0" y="388.352" width="394.093" height="34.048" class="st2"/>
+				<text x="28.81" y="412.77" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>按当前特征重构误差列出<tspan
+							class="st13"> </tspan><tspan class="st13">Top 5</tspan></text>			</g>
+			<g id="shape25-66" v:mID="25" v:groupContext="shape" transform="translate(56.5504,-14.0736)">
+				<title>工作表.25</title>
+				<desc>历史残差通道的误差单独列示</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="183.45" cy="405.376" width="366.9" height="34.048"/>
+				<rect x="0" y="388.352" width="366.899" height="34.048" class="st2"/>
+				<text x="25.37" y="412.77" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>历史残差通道的误差单独列示</text>			</g>
+		</g>
+		<g id="group29-69" transform="translate(25.6,-9.6)" v:mID="29" v:groupContext="group">
+			<title>cell16</title>
+			<g id="shape27-70" v:mID="27" v:groupContext="shape">
+				<title>工作表.27</title>
+				<rect x="0" y="377.6" width="1100.8" height="44.8" class="st1"/>
+			</g>
+			<g id="shape28-72" v:mID="28" v:groupContext="shape" transform="translate(146.534,-6.1056)">
+				<title>工作表.28</title>
+				<desc>分别展示两类解释辅助回放不直接证明攻击原因或定位攻击 IP</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="403.866" cy="405.376" width="807.74" height="34.048"/>
+				<rect x="0" y="388.352" width="807.731" height="34.048" class="st2"/>
+				<text x="48.52" y="412.77" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>分别展示两类解释，辅助回放；不直接证明攻击原因或定位攻击<tspan
+							class="st13"> </tspan><tspan class="st13">IP</tspan></text>			</g>
+		</g>
+	</g>
+</svg>

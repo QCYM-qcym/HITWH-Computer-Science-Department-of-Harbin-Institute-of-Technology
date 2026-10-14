@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 FIG-13-三项研究对照设计.svg FIG-13-三项研究对照设计 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="16in" height="6.62222in" viewBox="0 0 1152 476.8"
+		xml:space="preserve" color-interpolation-filters="sRGB" class="st14">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#527a9b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st2 {fill:#d9e8fb;stroke:#527a9b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st3 {fill:#ffffff;stroke:#528373;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st4 {fill:#f3fef6;stroke:#528373;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st5 {fill:#ffffff;stroke:#877293;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st6 {fill:#e2d5e7;stroke:#877293;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st7 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st8 {fill:#414750;font-family:微软雅黑;font-size:2.24em;font-weight:bold}
+		.st9 {fill:#414750;font-family:微软雅黑;font-size:2.02666em}
+		.st10 {font-family:Arial;font-size:1em}
+		.st11 {fill:#414750;font-family:Arial;font-size:2.02666em}
+		.st12 {font-family:微软雅黑;font-size:1em}
+		.st13 {fill:#fff5c4;stroke:#9b824c;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st14 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="15" v:index="13" v:groupContext="foregroundPage">
+		<title>FIG-13-三项研究对照设计</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="group7-1" transform="translate(19.2,-185.6)" v:mID="7" v:groupContext="group">
+			<title>frames</title>
+			<g id="shape1-2" v:mID="1" v:groupContext="shape">
+				<title>工作表.1</title>
+				<rect x="0" y="201.6" width="358.4" height="275.2" class="st1"/>
+			</g>
+			<g id="shape2-4" v:mID="2" v:groupContext="shape" transform="translate(0,-224)">
+				<title>工作表.2</title>
+				<rect x="0" y="425.6" width="358.4" height="51.2" class="st2"/>
+			</g>
+			<g id="shape3-6" v:mID="3" v:groupContext="shape" transform="translate(377.6,0)">
+				<title>工作表.3</title>
+				<rect x="0" y="201.6" width="358.4" height="275.2" class="st3"/>
+			</g>
+			<g id="shape4-8" v:mID="4" v:groupContext="shape" transform="translate(377.6,-224)">
+				<title>工作表.4</title>
+				<rect x="0" y="425.6" width="358.4" height="51.2" class="st4"/>
+			</g>
+			<g id="shape5-10" v:mID="5" v:groupContext="shape" transform="translate(755.2,0)">
+				<title>工作表.5</title>
+				<rect x="0" y="201.6" width="358.4" height="275.2" class="st5"/>
+			</g>
+			<g id="shape6-12" v:mID="6" v:groupContext="shape" transform="translate(755.2,-224)">
+				<title>工作表.6</title>
+				<rect x="0" y="425.6" width="358.4" height="51.2" class="st6"/>
+			</g>
+		</g>
+		<g id="group11-14" transform="translate(86.6304,-417.638)" v:mID="11" v:groupContext="group">
+			<title>labels</title>
+			<g id="shape8-15" v:mID="8" v:groupContext="shape">
+				<title>工作表.8</title>
+				<desc>方法与历史对照</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="111.77" cy="457.984" width="223.54" height="37.632"/>
+				<rect x="0" y="439.168" width="223.539" height="37.632" class="st7"/>
+				<text x="17.69" y="466.16" class="st8" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>方法与历史对照</text>			</g>
+			<g id="shape9-18" v:mID="9" v:groupContext="shape" transform="translate(377.6,0)">
+				<title>工作表.9</title>
+				<desc>特征与窗口对照</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="111.77" cy="457.984" width="223.54" height="37.632"/>
+				<rect x="0" y="439.168" width="223.539" height="37.632" class="st7"/>
+				<text x="17.69" y="466.16" class="st8" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>特征与窗口对照</text>			</g>
+			<g id="shape10-21" v:mID="10" v:groupContext="shape" transform="translate(755.2,0)">
+				<title>工作表.10</title>
+				<desc>表示敏感性检查</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="111.77" cy="457.984" width="223.54" height="37.632"/>
+				<rect x="0" y="439.168" width="223.539" height="37.632" class="st7"/>
+				<text x="17.69" y="466.16" class="st8" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>表示敏感性检查</text>			</g>
+		</g>
+		<g id="group14-24" transform="translate(28.8,-336)" v:mID="14" v:groupContext="group">
+			<title>cell3</title>
+			<g id="shape12-25" v:mID="12" v:groupContext="shape">
+				<title>工作表.12</title>
+				<rect x="0" y="428.8" width="339.2" height="48" class="st2"/>
+			</g>
+			<g id="shape13-27" v:mID="13" v:groupContext="shape" transform="translate(49.2288,-7.7056)">
+				<title>工作表.13</title>
+				<desc>统计 / IF / 当前 AE</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="120.371" cy="459.776" width="240.75" height="34.048"/>
+				<rect x="0" y="442.752" width="240.742" height="34.048" class="st7"/>
+				<text x="21.06" y="467.17" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>统计<tspan
+							class="st10"> </tspan><tspan class="st10">/ IF / </tspan>当前<tspan class="st10"> </tspan><tspan
+							class="st10">AE</tspan></text>			</g>
+		</g>
+		<g id="group17-34" transform="translate(28.8,-275.2)" v:mID="17" v:groupContext="group">
+			<title>cell5</title>
+			<g id="shape15-35" v:mID="15" v:groupContext="shape">
+				<title>工作表.15</title>
+				<rect x="0" y="428.8" width="339.2" height="48" class="st2"/>
+			</g>
+			<g id="shape16-37" v:mID="16" v:groupContext="shape" transform="translate(35.968,-7.7056)">
+				<title>工作表.16</title>
+				<desc>历史增强 AE / USAD</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="133.632" cy="459.776" width="267.27" height="34.048"/>
+				<rect x="0" y="442.752" width="267.264" height="34.048" class="st7"/>
+				<text x="21.47" y="467.17" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>历史增强<tspan
+							class="st10"> </tspan><tspan class="st10">AE / USAD</tspan></text>			</g>
+		</g>
+		<g id="group20-42" transform="translate(28.8,-214.4)" v:mID="20" v:groupContext="group">
+			<title>cell7</title>
+			<g id="shape18-43" v:mID="18" v:groupContext="shape">
+				<title>工作表.18</title>
+				<rect x="0" y="428.8" width="339.2" height="48" class="st2"/>
+			</g>
+			<g id="shape19-45" v:mID="19" v:groupContext="shape" transform="translate(13.3888,-7.7056)">
+				<title>工作表.19</title>
+				<desc>补充接近的参数预算对照</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="156.211" cy="459.776" width="312.43" height="34.048"/>
+				<rect x="0" y="442.752" width="312.422" height="34.048" class="st7"/>
+				<text x="22.45" y="467.17" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>补充接近的参数预算对照</text>			</g>
+		</g>
+		<g id="group23-48" transform="translate(406.4,-336)" v:mID="23" v:groupContext="group">
+			<title>cell12</title>
+			<g id="shape21-49" v:mID="21" v:groupContext="shape">
+				<title>工作表.21</title>
+				<rect x="0" y="428.8" width="339.2" height="48" class="st4"/>
+			</g>
+			<g id="shape22-51" v:mID="22" v:groupContext="shape" transform="translate(11.608,-7.7056)">
+				<title>工作表.22</title>
+				<desc>移除端口组 / TCP 标志组</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="157.992" cy="459.776" width="315.99" height="34.048"/>
+				<rect x="0" y="442.752" width="315.984" height="34.048" class="st7"/>
+				<text x="22.88" y="467.17" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>移除端口组<tspan
+							class="st10"> </tspan><tspan class="st10">/ TCP </tspan>标志组</text>			</g>
+		</g>
+		<g id="group26-56" transform="translate(406.4,-275.2)" v:mID="26" v:groupContext="group">
+			<title>cell14</title>
+			<g id="shape24-57" v:mID="24" v:groupContext="shape">
+				<title>工作表.24</title>
+				<rect x="0" y="428.8" width="339.2" height="48" class="st4"/>
+			</g>
+			<g id="shape25-59" v:mID="25" v:groupContext="shape" transform="translate(27.008,-7.7056)">
+				<title>工作表.25</title>
+				<desc>增强模型同步移除残差</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="142.592" cy="459.776" width="285.19" height="34.048"/>
+				<rect x="0" y="442.752" width="285.184" height="34.048" class="st7"/>
+				<text x="20.99" y="467.17" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>增强模型同步移除残差</text>			</g>
+		</g>
+		<g id="group29-62" transform="translate(385.741,-214.4)" v:mID="29" v:groupContext="group">
+			<title>cell16</title>
+			<g id="shape27-63" v:mID="27" v:groupContext="shape" transform="translate(20.6592,0)">
+				<title>工作表.27</title>
+				<rect x="0" y="428.8" width="339.2" height="48" class="st4"/>
+			</g>
+			<g id="shape28-65" v:mID="28" v:groupContext="shape" transform="translate(0,-7.7056)">
+				<title>工作表.28</title>
+				<desc>窗口15 / 30 / 60 / 120 分钟</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="190.259" cy="459.776" width="380.52" height="34.048"/>
+				<rect x="0" y="442.752" width="380.518" height="34.048" class="st7"/>
+				<text x="34.81" y="467.17" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>窗口：<tspan
+							class="st10">15 / 30 / 60 / 120 </tspan>分钟</text>			</g>
+		</g>
+		<g id="group32-69" transform="translate(784,-336)" v:mID="32" v:groupContext="group">
+			<title>cell21</title>
+			<g id="shape30-70" v:mID="30" v:groupContext="shape">
+				<title>工作表.30</title>
+				<rect x="0" y="428.8" width="339.2" height="48" class="st6"/>
+			</g>
+			<g id="shape31-72" v:mID="31" v:groupContext="shape" transform="translate(29.8752,-7.7056)">
+				<title>工作表.31</title>
+				<desc>v3 双向流 / v4 单向流</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="139.725" cy="459.776" width="279.45" height="34.048"/>
+				<rect x="0" y="442.752" width="279.45" height="34.048" class="st7"/>
+				<text x="24.19" y="467.17" class="st11" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>v3 <tspan
+							class="st12">双向流</tspan> / v4 <tspan class="st12">单向流</tspan></text>			</g>
+		</g>
+		<g id="group35-77" transform="translate(783.77,-275.2)" v:mID="35" v:groupContext="group">
+			<title>cell23</title>
+			<g id="shape33-78" v:mID="33" v:groupContext="shape" transform="translate(0.2304,0)">
+				<title>工作表.33</title>
+				<rect x="0" y="428.8" width="339.2" height="48" class="st6"/>
+			</g>
+			<g id="shape34-80" v:mID="34" v:groupContext="shape" transform="translate(0,-7.7056)">
+				<title>工作表.34</title>
+				<desc>可靠对齐版本、时间与标签</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="169.83" cy="459.776" width="339.67" height="34.048"/>
+				<rect x="0" y="442.752" width="339.661" height="34.048" class="st7"/>
+				<text x="23.91" y="467.17" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>可靠对齐版本、时间与标签</text>			</g>
+		</g>
+		<g id="group38-83" transform="translate(784,-214.4)" v:mID="38" v:groupContext="group">
+			<title>cell25</title>
+			<g id="shape36-84" v:mID="36" v:groupContext="shape">
+				<title>工作表.36</title>
+				<rect x="0" y="428.8" width="339.2" height="48" class="st6"/>
+			</g>
+			<g id="shape37-86" v:mID="37" v:groupContext="shape" transform="translate(27.008,-7.7056)">
+				<title>工作表.37</title>
+				<desc>不能对齐时不开展比较</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="142.592" cy="459.776" width="285.19" height="34.048"/>
+				<rect x="0" y="442.752" width="285.184" height="34.048" class="st7"/>
+				<text x="20.99" y="467.17" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>不能对齐时不开展比较</text>			</g>
+		</g>
+		<g id="group41-89" transform="translate(19.2,-92.8)" v:mID="41" v:groupContext="group">
+			<title>cell27</title>
+			<g id="shape39-90" v:mID="39" v:groupContext="shape">
+				<title>工作表.39</title>
+				<rect x="0" y="419.2" width="1113.6" height="57.6" class="st13"/>
+			</g>
+			<g id="shape40-92" v:mID="40" v:groupContext="shape" transform="translate(141.824,-12.5056)">
+				<title>工作表.40</title>
+				<desc>共同条件同数据划分 / 同评价分钟 / 固定阈值规则 / 三个随机种子</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="414.976" cy="459.776" width="829.96" height="34.048"/>
+				<rect x="0" y="442.752" width="829.952" height="34.048" class="st7"/>
+				<text x="56.25" y="467.17" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>共同条件：同数据划分<tspan
+							class="st10"> </tspan><tspan class="st10">/ </tspan>同评价分钟<tspan class="st10"> </tspan><tspan
+							class="st10">/ </tspan>固定阈值规则<tspan class="st10"> </tspan><tspan class="st10">/ </tspan>三个随机种子</text>			</g>
+		</g>
+		<g id="group44-101" transform="translate(19.2,-16)" v:mID="44" v:groupContext="group">
+			<title>cell29</title>
+			<g id="shape42-102" v:mID="42" v:groupContext="shape">
+				<title>工作表.42</title>
+				<rect x="0" y="419.2" width="1113.6" height="57.6" class="st13"/>
+			</g>
+			<g id="shape43-104" v:mID="43" v:groupContext="shape" transform="translate(182.682,-12.5056)">
+				<title>工作表.43</title>
+				<desc>比较高负载误报 / 各类攻击召回 / 持续异常表现 / 运行成本</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="374.118" cy="459.776" width="748.24" height="34.048"/>
+				<rect x="0" y="442.752" width="748.237" height="34.048" class="st7"/>
+				<text x="51.87" y="467.17" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>比较：高负载误报<tspan
+							class="st10"> </tspan><tspan class="st10">/ </tspan>各类攻击召回<tspan class="st10"> </tspan><tspan
+							class="st10">/ </tspan>持续异常表现<tspan class="st10"> </tspan><tspan class="st10">/ </tspan>运行成本</text>			</g>
+		</g>
+	</g>
+</svg>
