@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 FIG-ARCH-05-项目部署拓扑.svg FIG-ARCH-05-项目部署拓扑 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="16in" height="10.6667in" viewBox="0 0 1152 768"
+		xml:space="preserve" color-interpolation-filters="sRGB" class="st22">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {fill:#202329;font-family:微软雅黑;font-size:1.97333em;font-weight:bold}
+		.st3 {fill:#f3fef6;stroke:#528373;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st4 {fill:#414750;font-family:微软雅黑;font-size:1.28em}
+		.st5 {fill:#ffffff;stroke:#528373;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st6 {fill:#414750;font-family:微软雅黑;font-size:1.6em;font-weight:bold}
+		.st7 {font-family:Arial;font-size:1em}
+		.st8 {fill:#fff5c4;stroke:#9b824c;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st9 {fill:#414750;font-family:微软雅黑;font-size:1.44001em}
+		.st10 {fill:#414750;font-family:Arial;font-size:1.44001em}
+		.st11 {font-family:微软雅黑;font-size:1em}
+		.st12 {fill:#d9e8fb;stroke:#527a9b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st13 {fill:#414750;font-family:Arial;font-size:1.49334em}
+		.st14 {fill:#414750;font-family:微软雅黑;font-size:1.49334em}
+		.st15 {fill:#e2d5e7;stroke:#877293;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.152}
+		.st16 {marker-end:url(#mrkr4-73);stroke:#527a9b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.408}
+		.st17 {fill:#527a9b;fill-opacity:1;stroke:#527a9b;stroke-opacity:1;stroke-width:0.43890274314214}
+		.st18 {marker-end:url(#mrkr4-73);stroke:#527a9b;stroke-dasharray:9.856,7.04;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.408}
+		.st19 {fill:#414750;font-family:Arial;font-size:1.33333em}
+		.st20 {fill:#414750;font-family:微软雅黑;font-size:1.33333em}
+		.st21 {stroke:#527a9b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.408}
+		.st22 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-73" class="st17" v:arrowType="4" v:arrowSize="1" v:setback="4.55682" refX="-4.5568181818182"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-2.2784090909091,-2.2784090909091) "/>
+		</marker>
+	</defs>
+	<g v:mID="7" v:index="5" v:groupContext="foregroundPage">
+		<title>FIG-ARCH-05-项目部署拓扑</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(35.2,-722.022)">
+			<title>工作表.1</title>
+			<desc>项目部署拓扑</desc>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+			<v:textRect cx="85.9648" cy="751.424" width="171.93" height="33.152"/>
+			<rect x="0" y="734.848" width="171.93" height="33.152" class="st1"/>
+			<text x="0" y="758.62" class="st2" v:langID="2052"><v:paragraph/><v:tabList/>项目部署拓扑</text>		</g>
+		<g id="group4-4" transform="translate(976,-723.2)" v:mID="4" v:groupContext="group">
+			<title>status</title>
+			<g id="shape2-5" v:mID="2" v:groupContext="shape">
+				<title>工作表.2</title>
+				<rect x="0" y="737.28" width="140.8" height="30.72" class="st3"/>
+			</g>
+			<g id="shape3-7" v:mID="3" v:groupContext="shape" transform="translate(29.5936,-5.0688)">
+				<title>工作表.3</title>
+				<desc>方案设计</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="40.8064" cy="757.248" width="81.62" height="21.504"/>
+				<rect x="0" y="746.496" width="81.6128" height="21.504" class="st1"/>
+				<text x="10.09" y="761.92" class="st4" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>方案设计</text>			</g>
+		</g>
+		<g id="group7-10" transform="translate(35.2,-38.4)" v:mID="7" v:groupContext="group">
+			<title>本地单机部署 · 单用户、单任务</title>
+			<g id="shape5-11" v:mID="5" v:groupContext="shape">
+				<title>工作表.5</title>
+				<rect x="0" y="115.2" width="1081.6" height="652.8" class="st5"/>
+			</g>
+			<g id="shape6-13" v:mID="6" v:groupContext="shape" transform="translate(16,-617.856)">
+				<title>工作表.6</title>
+				<desc>本地单机部署 · 单用户、单任务</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="157.286" cy="754.56" width="314.58" height="26.88"/>
+				<rect x="0" y="741.12" width="314.573" height="26.88" class="st1"/>
+				<text x="0" y="760.4" class="st6" v:langID="2052"><v:paragraph/><v:tabList/>本地单机部署<tspan class="st7"> </tspan><tspan
+							class="st7">· </tspan>单用户、单任务</text>			</g>
+		</g>
+		<g id="group12-18" transform="translate(57.6,-518.4)" v:mID="12" v:groupContext="group">
+			<title>cell5</title>
+			<g id="shape8-19" v:mID="8" v:groupContext="shape">
+				<title>工作表.8</title>
+				<rect x="0" y="659.2" width="256" height="108.8" class="st8"/>
+			</g>
+			<g id="shape9-21" v:mID="9" v:groupContext="shape" transform="translate(92.5696,-67.8784)">
+				<title>工作表.9</title>
+				<desc>浏览器</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="35.4304" cy="755.904" width="70.87" height="24.192"/>
+				<rect x="0" y="743.808" width="70.8608" height="24.192" class="st1"/>
+				<text x="9.51" y="761.16" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>浏览器</text>			</g>
+			<g id="shape10-24" v:mID="10" v:groupContext="shape" transform="translate(72.8632,-42.8224)">
+				<title>工作表.10</title>
+				<desc>Vue 3 页面</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="55.1368" cy="755.904" width="110.28" height="24.192"/>
+				<rect x="0" y="743.808" width="110.274" height="24.192" class="st1"/>
+				<text x="12.88" y="761.16" class="st10" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Vue 3 <tspan
+							class="st11">页面</tspan></text>			</g>
+			<g id="shape11-28" v:mID="11" v:groupContext="shape" transform="translate(24.1152,-17.7664)">
+				<title>工作表.11</title>
+				<desc>数据检查 / 比较 / 回放</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="103.885" cy="755.904" width="207.77" height="24.192"/>
+				<rect x="0" y="743.808" width="207.77" height="24.192" class="st1"/>
+				<text x="20.36" y="761.16" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>数据检查<tspan
+							class="st7"> </tspan><tspan class="st7">/ </tspan>比较<tspan class="st7"> </tspan><tspan class="st7">/ </tspan>回放</text>			</g>
+		</g>
+		<g id="group17-35" transform="translate(428.8,-518.4)" v:mID="17" v:groupContext="group">
+			<title>cell9</title>
+			<g id="shape13-36" v:mID="13" v:groupContext="shape">
+				<title>工作表.13</title>
+				<rect x="0" y="659.2" width="288" height="108.8" class="st12"/>
+			</g>
+			<g id="shape14-38" v:mID="14" v:groupContext="shape" transform="translate(78.464,-68.3776)">
+				<title>工作表.14</title>
+				<desc>API 服务进程</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="65.536" cy="755.456" width="131.08" height="25.088"/>
+				<rect x="0" y="742.912" width="131.072" height="25.088" class="st1"/>
+				<text x="12.76" y="760.91" class="st13" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>API <tspan
+							class="st11">服务进程</tspan></text>			</g>
+			<g id="shape15-42" v:mID="15" v:groupContext="shape" transform="translate(55.532,-42.3936)">
+				<title>工作表.15</title>
+				<desc>FastAPI / Uvicorn</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="88.468" cy="755.456" width="176.94" height="25.088"/>
+				<rect x="0" y="742.912" width="176.936" height="25.088" class="st1"/>
+				<text x="18.76" y="760.83" class="st13" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>FastAPI / Uvicorn</text>			</g>
+			<g id="shape16-45" v:mID="16" v:groupContext="shape" transform="translate(47.2832,-16.4096)">
+				<title>工作表.16</title>
+				<desc>参数校验 / 任务查询</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="96.7168" cy="755.456" width="193.44" height="25.088"/>
+				<rect x="0" y="742.912" width="193.434" height="25.088" class="st1"/>
+				<text x="17.57" y="760.91" class="st14" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>参数校验<tspan
+							class="st7"> </tspan><tspan class="st7">/ </tspan>任务查询</text>			</g>
+		</g>
+		<g id="group22-50" transform="translate(832,-518.4)" v:mID="22" v:groupContext="group">
+			<title>cell13</title>
+			<g id="shape18-51" v:mID="18" v:groupContext="shape">
+				<title>工作表.18</title>
+				<rect x="0" y="659.2" width="259.2" height="108.8" class="st15"/>
+			</g>
+			<g id="shape19-53" v:mID="19" v:groupContext="shape" transform="translate(48.6528,-67.8784)">
+				<title>工作表.19</title>
+				<desc>Python 工作进程</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="80.9472" cy="755.904" width="161.9" height="24.192"/>
+				<rect x="0" y="743.808" width="161.894" height="24.192" class="st1"/>
+				<text x="17.09" y="761.16" class="st10" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Python <tspan
+							class="st11">工作进程</tspan></text>			</g>
+			<g id="shape20-57" v:mID="20" v:groupContext="shape" transform="translate(45.0688,-42.8224)">
+				<title>工作表.20</title>
+				<desc>训练 / 评分 / 评价</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="84.5312" cy="755.904" width="169.07" height="24.192"/>
+				<rect x="0" y="743.808" width="169.062" height="24.192" class="st1"/>
+				<text x="18.29" y="761.16" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>训练<tspan
+							class="st7"> </tspan><tspan class="st7">/ </tspan>评分<tspan class="st7"> </tspan><tspan class="st7">/ </tspan>评价</text>			</g>
+			<g id="shape21-64" v:mID="21" v:groupContext="shape" transform="translate(45.7856,-17.7664)">
+				<title>工作表.21</title>
+				<desc>执行共享检测核心</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="83.8144" cy="755.904" width="167.63" height="24.192"/>
+				<rect x="0" y="743.808" width="167.629" height="24.192" class="st1"/>
+				<text x="14.69" y="761.16" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>执行共享检测核心</text>			</g>
+		</g>
+		<g id="group27-67" transform="translate(313.6,-544)" v:mID="27" v:groupContext="group">
+			<title>edges</title>
+			<g id="shape23-68" v:mID="23" v:groupContext="shape" transform="translate(7.99361E-14,-51.2)">
+				<title>工作表.23</title>
+				<path d="M0 768 L108.78 768" class="st16"/>
+			</g>
+			<g id="shape24-74" v:mID="24" v:groupContext="shape" transform="translate(115.2,1532.8) rotate(180)">
+				<title>工作表.24</title>
+				<path d="M0 768 L108.78 768" class="st18"/>
+			</g>
+			<g id="shape25-79" v:mID="25" v:groupContext="shape" transform="translate(403.2,-48)">
+				<title>工作表.25</title>
+				<path d="M0 768 L108.78 768" class="st16"/>
+			</g>
+			<g id="shape26-84" v:mID="26" v:groupContext="shape" transform="translate(518.4,1536) rotate(180)">
+				<title>工作表.26</title>
+				<path d="M0 768 L108.78 768" class="st18"/>
+			</g>
+		</g>
+		<g id="group36-89" transform="translate(321.434,-331.52)" v:mID="36" v:groupContext="group">
+			<title>labels</title>
+			<g id="shape28-90" v:mID="28" v:groupContext="shape" transform="translate(0.7112,-276.48)">
+				<title>工作表.28</title>
+				<desc>HTTP 请求</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="49.0552" cy="756.8" width="98.12" height="22.4"/>
+				<rect x="0" y="745.6" width="98.1104" height="22.4" class="st1"/>
+				<text x="9.95" y="761.67" class="st19" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>HTTP <tspan
+							class="st11">请求</tspan></text>			</g>
+			<g id="shape29-94" v:mID="29" v:groupContext="shape" transform="translate(0,-220.16)">
+				<title>工作表.29</title>
+				<desc>JSON 返回</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="49.7664" cy="756.8" width="99.54" height="22.4"/>
+				<rect x="0" y="745.6" width="99.5328" height="22.4" class="st1"/>
+				<text x="10.21" y="761.67" class="st19" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>JSON <tspan
+							class="st11">返回</tspan></text>			</g>
+			<g id="shape30-98" v:mID="30" v:groupContext="shape" transform="translate(410.726,-274.56)">
+				<title>工作表.30</title>
+				<desc>任务调度</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="42.24" cy="756.8" width="84.49" height="22.4"/>
+				<rect x="0" y="745.6" width="84.48" height="22.4" class="st1"/>
+				<text x="10.24" y="761.67" class="st20" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>任务调度</text>			</g>
+			<g id="shape31-101" v:mID="31" v:groupContext="shape" transform="translate(410.726,-220.8)">
+				<title>工作表.31</title>
+				<desc>状态回报</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="42.24" cy="756.8" width="84.49" height="22.4"/>
+				<rect x="0" y="745.6" width="84.48" height="22.4" class="st1"/>
+				<text x="10.24" y="761.67" class="st20" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>状态回报</text>			</g>
+			<g id="shape32-104" v:mID="32" v:groupContext="shape" transform="translate(76.6464,-86.4)">
+				<title>工作表.32</title>
+				<desc>调用</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="24.32" cy="756.8" width="48.64" height="22.4"/>
+				<rect x="0" y="745.6" width="48.64" height="22.4" class="st1"/>
+				<text x="8.32" y="761.67" class="st20" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>调用</text>			</g>
+			<g id="shape33-107" v:mID="33" v:groupContext="shape" transform="translate(77.1584,-163.405)">
+				<title>工作表.33</title>
+				<desc>登记与查询</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="49.408" cy="757.248" width="98.82" height="21.504"/>
+				<rect x="0" y="746.496" width="98.816" height="21.504" class="st1"/>
+				<text x="11.01" y="761.92" class="st4" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>登记与查询</text>			</g>
+			<g id="shape34-110" v:mID="34" v:groupContext="shape" transform="translate(275.046,0)">
+				<title>工作表.34</title>
+				<desc>读写特征与评分</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="69.12" cy="756.8" width="138.24" height="22.4"/>
+				<rect x="0" y="745.6" width="138.24" height="22.4" class="st1"/>
+				<text x="13.12" y="761.67" class="st20" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>读写特征与评分</text>			</g>
+			<g id="shape35-113" v:mID="35" v:groupContext="shape" transform="translate(619.366,0)">
+				<title>工作表.35</title>
+				<desc>保存 / 加载</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="51.2" cy="756.8" width="102.41" height="22.4"/>
+				<rect x="0" y="745.6" width="102.4" height="22.4" class="st1"/>
+				<text x="12.53" y="761.67" class="st20" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>保存<tspan
+							class="st7"> </tspan><tspan class="st7">/ </tspan>加载</text>			</g>
+		</g>
+		<g id="group40-118" transform="translate(57.6,-374.4)" v:mID="40" v:groupContext="group">
+			<title>cell25</title>
+			<g id="shape37-119" v:mID="37" v:groupContext="shape">
+				<title>工作表.37</title>
+				<rect x="0" y="697.6" width="256" height="70.4" class="st8"/>
+			</g>
+			<g id="shape38-121" v:mID="38" v:groupContext="shape" transform="translate(65.6896,-36.1504)">
+				<title>工作表.38</title>
+				<desc>CLI 实验入口</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="62.3104" cy="755.904" width="124.63" height="24.192"/>
+				<rect x="0" y="743.808" width="124.621" height="24.192" class="st1"/>
+				<text x="11.9" y="761.16" class="st10" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>CLI <tspan
+							class="st11">实验入口</tspan></text>			</g>
+			<g id="shape39-125" v:mID="39" v:groupContext="shape" transform="translate(53.8624,-11.0944)">
+				<title>工作表.39</title>
+				<desc>相同配置与模型</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="74.1376" cy="755.904" width="148.28" height="24.192"/>
+				<rect x="0" y="743.808" width="148.275" height="24.192" class="st1"/>
+				<text x="13.66" y="761.16" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>相同配置与模型</text>			</g>
+		</g>
+		<g id="group44-128" transform="translate(531.2,-374.4)" v:mID="44" v:groupContext="group">
+			<title>cell28</title>
+			<g id="shape41-129" v:mID="41" v:groupContext="shape">
+				<title>工作表.41</title>
+				<rect x="0" y="697.6" width="422.4" height="70.4" class="st15"/>
+			</g>
+			<g id="shape42-131" v:mID="42" v:groupContext="shape" transform="translate(105.165,-36.1856)">
+				<title>工作表.42</title>
+				<desc>共享 Python 检测核心</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="106.035" cy="755.456" width="212.08" height="25.088"/>
+				<rect x="0" y="742.912" width="212.07" height="25.088" class="st1"/>
+				<text x="19.4" y="760.91" class="st14" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>共享<tspan
+							class="st7"> </tspan><tspan class="st7">Python </tspan>检测核心</text>			</g>
+			<g id="shape43-136" v:mID="43" v:groupContext="shape" transform="translate(96.9216,-10.2016)">
+				<title>工作表.43</title>
+				<desc>CLI 与工作进程共同调用</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="114.278" cy="755.456" width="228.56" height="25.088"/>
+				<rect x="0" y="742.912" width="228.557" height="25.088" class="st1"/>
+				<text x="17.21" y="760.91" class="st13" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>CLI <tspan
+							class="st11">与工作进程共同调用</tspan></text>			</g>
+		</g>
+		<g id="group48-140" transform="translate(742.4,-444.8)" v:mID="48" v:groupContext="group">
+			<title>worker-core</title>
+			<g id="shape45-141" v:mID="45" v:groupContext="shape" transform="translate(985.6,694.4) rotate(90)">
+				<title>工作表.45</title>
+				<path d="M0 768 L38.4 768" class="st21"/>
+			</g>
+			<g id="shape46-144" v:mID="46" v:groupContext="shape" transform="translate(217.6,1500.8) rotate(180)">
+				<title>工作表.46</title>
+				<path d="M0 768 L217.6 768" class="st21"/>
+			</g>
+			<g id="shape47-147" v:mID="47" v:groupContext="shape" transform="translate(768,732.8) rotate(90)">
+				<title>工作表.47</title>
+				<path d="M0 768 L28.78 768" class="st16"/>
+			</g>
+		</g>
+		<g id="shape49-152" v:mID="49" v:groupContext="shape" transform="translate(313.6,-409.6)">
+			<title>工作表.49</title>
+			<path d="M0 768 L211.18 768" class="st16"/>
+		</g>
+		<g id="group52-157" transform="translate(57.6,-80)" v:mID="52" v:groupContext="group">
+			<title>本地持久化存储</title>
+			<g id="shape50-158" v:mID="50" v:groupContext="shape">
+				<title>工作表.50</title>
+				<rect x="0" y="544" width="1033.6" height="224" class="st5"/>
+			</g>
+			<g id="shape51-160" v:mID="51" v:groupContext="shape" transform="translate(16,-189.056)">
+				<title>工作表.51</title>
+				<desc>本地持久化存储</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="81.664" cy="754.56" width="163.33" height="26.88"/>
+				<rect x="0" y="741.12" width="163.328" height="26.88" class="st1"/>
+				<text x="0" y="760.4" class="st6" v:langID="2052"><v:paragraph/><v:tabList/>本地持久化存储</text>			</g>
+		</g>
+		<g id="group57-163" transform="translate(76.8,-128)" v:mID="57" v:groupContext="group">
+			<title>cell36</title>
+			<g id="shape53-164" v:mID="53" v:groupContext="shape">
+				<title>工作表.53</title>
+				<rect x="0" y="652.8" width="294.4" height="115.2" class="st3"/>
+			</g>
+			<g id="shape54-166" v:mID="54" v:groupContext="shape" transform="translate(77.0048,-71.5776)">
+				<title>工作表.54</title>
+				<desc>SQLite 元数据</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="70.1952" cy="755.456" width="140.4" height="25.088"/>
+				<rect x="0" y="742.912" width="140.39" height="25.088" class="st1"/>
+				<text x="13.43" y="760.91" class="st13" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>SQLite <tspan
+							class="st11">元数据</tspan></text>			</g>
+			<g id="shape55-170" v:mID="55" v:groupContext="shape" transform="translate(40.448,-45.5936)">
+				<title>工作表.55</title>
+				<desc>版本 / 片段 / 任务状态</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="106.752" cy="755.456" width="213.51" height="25.088"/>
+				<rect x="0" y="742.912" width="213.504" height="25.088" class="st1"/>
+				<text x="20.14" y="760.91" class="st14" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>版本<tspan
+							class="st7"> </tspan><tspan class="st7">/ </tspan>片段<tspan class="st7"> </tspan><tspan class="st7">/ </tspan>任务状态</text>			</g>
+			<g id="shape56-177" v:mID="56" v:groupContext="shape" transform="translate(70.5536,-19.6096)">
+				<title>工作表.56</title>
+				<desc>产物索引 / 指标</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="76.6464" cy="755.456" width="153.3" height="25.088"/>
+				<rect x="0" y="742.912" width="153.293" height="25.088" class="st1"/>
+				<text x="15.42" y="760.91" class="st14" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>产物索引<tspan
+							class="st7"> </tspan><tspan class="st7">/ </tspan>指标</text>			</g>
+		</g>
+		<g id="group62-182" transform="translate(419.2,-128)" v:mID="62" v:groupContext="group">
+			<title>cell40</title>
+			<g id="shape58-183" v:mID="58" v:groupContext="shape">
+				<title>工作表.58</title>
+				<rect x="0" y="652.8" width="294.4" height="115.2" class="st3"/>
+			</g>
+			<g id="shape59-185" v:mID="59" v:groupContext="shape" transform="translate(80.5944,-71.5776)">
+				<title>工作表.59</title>
+				<desc>Parquet 文件</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="66.6056" cy="755.456" width="133.22" height="25.088"/>
+				<rect x="0" y="742.912" width="133.211" height="25.088" class="st1"/>
+				<text x="14.81" y="760.91" class="st13" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Parquet <tspan
+							class="st11">文件</tspan></text>			</g>
+			<g id="shape60-189" v:mID="60" v:groupContext="shape" transform="translate(100.659,-45.5936)">
+				<title>工作表.60</title>
+				<desc>特征矩阵</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="46.5408" cy="755.456" width="93.09" height="25.088"/>
+				<rect x="0" y="742.912" width="93.0816" height="25.088" class="st1"/>
+				<text x="10.7" y="760.91" class="st14" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>特征矩阵</text>			</g>
+			<g id="shape61-192" v:mID="61" v:groupContext="shape" transform="translate(90.624,-19.6096)">
+				<title>工作表.61</title>
+				<desc>逐分钟评分</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.576" cy="755.456" width="113.16" height="25.088"/>
+				<rect x="0" y="742.912" width="113.152" height="25.088" class="st1"/>
+				<text x="11.78" y="760.91" class="st14" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>逐分钟评分</text>			</g>
+		</g>
+		<g id="group67-195" transform="translate(761.6,-128)" v:mID="67" v:groupContext="group">
+			<title>cell44</title>
+			<g id="shape63-196" v:mID="63" v:groupContext="shape">
+				<title>工作表.63</title>
+				<rect x="0" y="652.8" width="307.2" height="115.2" class="st3"/>
+			</g>
+			<g id="shape64-198" v:mID="64" v:groupContext="shape" transform="translate(67.6352,-71.0784)">
+				<title>工作表.64</title>
+				<desc>模型与 JSON 文件</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="85.9648" cy="755.904" width="171.93" height="24.192"/>
+				<rect x="0" y="743.808" width="171.93" height="24.192" class="st1"/>
+				<text x="14.92" y="761.16" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>模型与<tspan
+							class="st7"> </tspan><tspan class="st7">JSON </tspan>文件</text>			</g>
+			<g id="shape65-203" v:mID="65" v:groupContext="shape" transform="translate(59.7504,-46.0224)">
+				<title>工作表.65</title>
+				<desc>模型权重 / 缩放参数</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="93.8496" cy="755.904" width="187.7" height="24.192"/>
+				<rect x="0" y="743.808" width="187.699" height="24.192" class="st1"/>
+				<text x="17.53" y="761.16" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>模型权重<tspan
+							class="st7"> </tspan><tspan class="st7">/ </tspan>缩放参数</text>			</g>
+			<g id="shape66-208" v:mID="66" v:groupContext="shape" transform="translate(49.7152,-20.9664)">
+				<title>工作表.66</title>
+				<desc>阈值 / 配置 / 运行记录</desc>
+				<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+				<v:textRect cx="103.885" cy="755.904" width="207.77" height="24.192"/>
+				<rect x="0" y="743.808" width="207.77" height="24.192" class="st1"/>
+				<text x="20.36" y="761.16" class="st9" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>阈值<tspan
+							class="st7"> </tspan><tspan class="st7">/ </tspan>配置<tspan class="st7"> </tspan><tspan class="st7">/ </tspan>运行记录</text>			</g>
+		</g>
+		<g id="group73-215" transform="translate(44.8,-64)" v:mID="73" v:groupContext="group">
+			<title>api-store</title>
+			<g id="shape68-216" v:mID="68" v:groupContext="shape" transform="translate(1296,313.6) rotate(90)">
+				<title>工作表.68</title>
+				<path d="M0 768 L25.6 768" class="st21"/>
+			</g>
+			<g id="shape69-219" v:mID="69" v:groupContext="shape" transform="translate(528,1107.2) rotate(180)">
+				<title>工作表.69</title>
+				<path d="M0 768 L528 768" class="st21"/>
+			</g>
+			<g id="shape70-222" v:mID="70" v:groupContext="shape" transform="translate(768,339.2) rotate(90)">
+				<title>工作表.70</title>
+				<path d="M0 768 L428.8 768" class="st21"/>
+			</g>
+			<g id="shape71-225" v:mID="71" v:groupContext="shape">
+				<title>工作表.71</title>
+				<path d="M0 768 L179.2 768" class="st21"/>
+			</g>
+			<g id="shape72-228" v:mID="72" v:groupContext="shape" transform="translate(-588.8,768) rotate(-90)">
+				<title>工作表.72</title>
+				<path d="M0 768 L57.58 768" class="st16"/>
+			</g>
+		</g>
+		<g id="group77-233" transform="translate(566.4,-243.2)" v:mID="77" v:groupContext="group">
+			<title>worker-parquet</title>
+			<g id="shape74-234" v:mID="74" v:groupContext="shape" transform="translate(944,636.8) rotate(90)">
+				<title>工作表.74</title>
+				<path d="M0 768 L48 768" class="st21"/>
+			</g>
+			<g id="shape75-237" v:mID="75" v:groupContext="shape" transform="translate(176,1452.8) rotate(180)">
+				<title>工作表.75</title>
+				<path d="M0 768 L176 768" class="st21"/>
+			</g>
+			<g id="shape76-240" v:mID="76" v:groupContext="shape" transform="translate(768,684.8) rotate(90)">
+				<title>工作表.76</title>
+				<path d="M0 768 L76.78 768" class="st16"/>
+			</g>
+		</g>
+		<g id="group82-245" transform="translate(915.2,-243.2)" v:mID="82" v:groupContext="group">
+			<title>worker-files</title>
+			<g id="shape78-246" v:mID="78" v:groupContext="shape" transform="translate(38.4,-166.4)">
+				<title>工作表.78</title>
+				<path d="M0 768 L150.4 768" class="st21"/>
+			</g>
+			<g id="shape79-249" v:mID="79" v:groupContext="shape" transform="translate(956.8,601.6) rotate(90)">
+				<title>工作表.79</title>
+				<path d="M0 768 L83.2 768" class="st21"/>
+			</g>
+			<g id="shape80-252" v:mID="80" v:groupContext="shape" transform="translate(188.8,1452.8) rotate(180)">
+				<title>工作表.80</title>
+				<path d="M0 768 L188.8 768" class="st21"/>
+			</g>
+			<g id="shape81-255" v:mID="81" v:groupContext="shape" transform="translate(768,684.8) rotate(90)">
+				<title>工作表.81</title>
+				<path d="M0 768 L76.78 768" class="st16"/>
+			</g>
+		</g>
+	</g>
+</svg>
