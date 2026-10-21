@@ -129,3 +129,18 @@ def test_unavailable_dataset_differs_from_malformed_configuration(settings, fixt
         response = client.post('/api/v1/runs', json=fixture_data['request'])
         assert response.status_code == 422
         assert response.json()['error']['details'] == ['DATASET_UNAVAILABLE']
+
+
+def test_frozen_http_time_parameter_patterns_match_core_minute_type():
+    import re
+    from traffic_anomaly.contracts import TimeRange
+    spec = yaml.safe_load((ROOT / 'docs/design/openapi-v1.yaml').read_text(encoding='utf-8'))
+    core_pattern = TimeRange.model_json_schema()['properties']['start']['pattern']
+    parameters = [parameter for path in spec['paths'].values() for operation in path.values()
+                  for parameter in operation.get('parameters', []) if parameter['name'] in ('start', 'end', 'timestamp')]
+    assert len(parameters) == 5
+    for parameter in parameters:
+        pattern = parameter['schema']['pattern']
+        assert pattern == core_pattern
+        assert re.fullmatch(pattern, '2026-01-01T00:00:00Z')
+        assert re.fullmatch(pattern, '2026-01-01T00:00:01Z') is None

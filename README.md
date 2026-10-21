@@ -62,21 +62,21 @@ flowchart TB
 
 - 从74f163b共同契约基点建立独立W2分支，实现FastAPI与SQLite单worker任务管理。
 - 完成活动任务409拒绝、重启恢复、统一安全错误、分页与完整白名单导出。
-- 70项后端与核心契约测试通过，含真实HTTP进程中断恢复；全部SYNTHETIC_ONLY。
+- 71项后端与核心契约测试通过，含真实HTTP进程中断恢复；全部SYNTHETIC_ONLY。
 - 独立审查的线程退出及缺失资源原因问题已修复；核心34个锁定依赖版本保持兼容。
-- W2-02真实核心接入、Data Gate、真实训练及研究评价仍NOT_RUN；本轮推送和CI待远端核对。
+- W0/W2复核5处时间参数正则与UtcMinute一致，已更正转义误读并补回归；W2-02及真实研究仍NOT_RUN。
 
 **当前阻塞或待验证事项**
 
 - 真实数据尚未通过Data Gate；W2-02等待W1的IF真实闭环。
-- 冻结OpenAPI时间查询参数正则差异已交W0核查，W2未修改公共契约。
+- W2目前仅SYNTHETIC_ONLY；真实模型接入、网页联调及实际性能尚未验收。
 - 开题实际反馈、GPU兼容与每周投入仍待登记。
 
 **接下来最重要的三项任务**
 
 1. [W2-02](<src/backend/README.md>)：等待W1经Data Gate的IF闭环，接入共享核心并核对CLI/API/导出。
 2. [W0-02](<docs/superpowers/plans/2026-10-21-parallel-development.md>)：由主控串行集成W2/W3，复跑后端及已有集成检查。
-3. [CONTRACT-REVIEW](<docs/design/openapi-v1.yaml>)：由W0核对时间参数正则，发布契约修正同步点。
+3. [W3-SYNTHETIC](<src/backend/README.md>)：在主控安排下，按统一fixture与W2 API进行模拟联调。
 
 **最新成果入口**
 
