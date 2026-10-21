@@ -42,6 +42,91 @@ def test_feature_width_and_label_separation():
             batch(names=tuple(names))
 
 
+def test_duplicate_feature_names_and_label_axis_are_rejected():
+    c = contracts()
+    good = batch()
+    names = list(good.feature_names)
+    names[-1] = names[0]
+    with pytest.raises(ValueError):
+        batch(names=tuple(names))
+    labels = {name: np.zeros(2, dtype=np.int64) for name in c.LABEL_NAMES}
+    labels["dos"] = np.zeros(1, dtype=np.int64)
+    with pytest.raises(ValueError):
+        c.LabelBatch(good.timestamps, labels)
+
+
+def test_model_compatibility_checks_order_method_and_saved_transform():
+    c = contracts()
+    assert hasattr(c, "validate_model_compatibility"), "W1 needs a shared compatibility check"
+    fixture = json.loads((ROOT / "tests/fixtures/contracts-v1.json").read_text(encoding="utf-8"))
+    metadata = c.ModelMetadata.model_validate(next(s["body"] for s in fixture["responses"] if s["schema"] == "ModelMetadata"))
+    state = c.PreprocessState.model_validate(next(s["body"] for s in fixture["responses"] if s["schema"] == "PreprocessState"))
+    config = c.RunConfig(dataset_id="synthetic-v1", split_id="split-v1", method="iforest")
+    c.validate_model_compatibility(metadata, batch().feature_names, state, config)
+    reordered = tuple(reversed(batch().feature_names))
+    for names, saved, requested in ((reordered, state, config),
+                                    (batch().feature_names, state.model_copy(update={"feature_names": reordered}), config),
+                                    (batch().feature_names, state, config.model_copy(update={"method": "current_ae"}))):
+        with pytest.raises(ValueError):
+            c.validate_model_compatibility(metadata, names, saved, requested)
+    for model, value in ((c.ModelMetadata, metadata.model_dump() | {"schema_version": "2.0"}),
+                         (c.PreprocessState, state.model_dump() | {"version": "unknown"})):
+        with pytest.raises(ValidationError):
+            model.model_validate(value)
+
+
+def test_openapi_embeds_schema_valid_request_and_error_examples():
+    spec = yaml.safe_load((ROOT / "docs/design/openapi-v1.yaml").read_text(encoding="utf-8"))
+    request = spec["paths"]["/api/v1/runs"]["post"]["requestBody"]["content"]["application/json"]
+    assert "example" in request, "OpenAPI needs an executable synthetic request example"
+    contracts().RunRequest.model_validate(request["example"])
+    expected_codes = {"404": "NOT_FOUND", "409": "RUN_BUSY", "422": "VALIDATION_ERROR", "500": "EXECUTION_FAILED"}
+    for path, operations in spec["paths"].items():
+        for operation in operations.values():
+            for status, response in operation["responses"].items():
+                if status not in expected_codes:
+                    continue
+                media = response["content"]["application/json"]
+                assert media.get("examples"), (path, status)
+                for example in media["examples"].values():
+                    c = contracts()
+                    c.ErrorResponse.model_validate(example["value"])
+                    schema = media["schema"] | {"components": spec["components"]}
+                    Draft202012Validator(schema).validate(example["value"])
+                if path == "/api/v1/runs":
+                    assert next(iter(media["examples"].values()))["value"]["error"]["code"] == expected_codes[status]
+
+
+def test_shared_fixture_has_separate_normal_attack_and_invalid_minutes():
+    c = contracts()
+    fixture = json.loads((ROOT / "tests/fixtures/contracts-v1.json").read_text(encoding="utf-8"))
+    assert "core_sample" in fixture, "all worktrees need an aligned feature/label sample"
+    raw = fixture["core_sample"]
+    timestamps = np.array([value.removesuffix("Z") for value in raw["timestamps"]], dtype="datetime64[ns]")
+    minutes = c.MinuteBatch(timestamps, np.array(raw["features"], dtype=np.float32), tuple(raw["feature_names"]),
+                            np.array(raw["row_valid"], dtype=bool), np.array(raw["segment_ids"], dtype=np.int64))
+    labels = c.LabelBatch(timestamps, {name: np.array(values, dtype=np.int64) for name, values in raw["labels"].items()})
+    page = next(s["body"] for s in fixture["responses"] if s["schema"] == "SeriesPage" and s["body"]["total"] > 0)
+    assert len(minutes.timestamps) == len(page["items"])
+    normal = np.all(np.stack(list(labels.labels.values())) == 0, axis=0)
+    assert any(normal[i] and point["valid"] and point["alarm"] is False for i, point in enumerate(page["items"]))
+    assert any(normal[i] and point["alarm"] is True for i, point in enumerate(page["items"]))
+    assert any(labels.labels["dos"][i] > 0 and point["valid"] and point["alarm"] is False for i, point in enumerate(page["items"]))
+    assert any(not point["valid"] and point["score"] is None for point in page["items"])
+
+
+def test_alarms_examples_contain_only_valid_alarm_minutes():
+    spec = yaml.safe_load((ROOT / "docs/design/openapi-v1.yaml").read_text(encoding="utf-8"))
+    media = spec["paths"]["/api/v1/runs/{run_id}/alarms"]["get"]["responses"]["200"]["content"]["application/json"]
+    for example in media["examples"].values():
+        page = example["value"]
+        assert all(row["valid"] and row["alarm"] is True for row in page["items"])
+        assert page["total"] == len(page["items"])
+    populated = next(example["value"] for example in media["examples"].values() if example["value"]["total"] > 0)
+    assert populated["total"] == 1
+    assert populated["items"][0]["timestamp"] == "2026-01-01T00:02:00Z"
+
+
 def test_time_axis_and_array_integrity():
     from dataclasses import replace
     good = batch()

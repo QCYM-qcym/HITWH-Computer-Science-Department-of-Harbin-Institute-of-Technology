@@ -26,9 +26,19 @@ execute_run(config: RunConfig, workspace: Path) -> RunResult
 
 `Detector.fit(x_train, x_val=None)`、`score(x)`、`save(directory)`、`load(directory)`；score 一维且越大越异常。输入134或268维由方法决定。模型加载须同时核对特征顺序、变换版本和方法；容差 rtol=1e-5、atol=1e-6，报警须一致。
 
+模型包的`ModelMetadata.schema_version`固定1.0，未知版本解析时拒绝。`validate_model_compatibility(metadata, feature_names, preprocessing, config)`已实际实现：检查审计后字段顺序与模型、预处理完全相同，方法、输入宽度、预处理版本及配置版本一致，失败抛ValueError，不自动重排或重新拟合。W1后续加载时先按类型解析JSON、核对manifest摘要及产物完整性，调用该检查，再调用具体Detector.load；W0没有实现模型加载/执行流水线。
+
 ## 数值及配置
 
 初版顺序：原始非负计数→log1p→StandardScaler（训练正常候选拟合）→按完整时间轴构造历史中位数/MAD偏离→当前通道与偏离通道拼接。残差 `(current-median)/(MAD+epsilon)`，保留符号；不额外裁剪或二次缩放。epsilon 默认 1e-6 仅供合成开发，真实数据检查数值范围与零 MAD 后固定；不得将默认值视为已验证。候选 H=15/30，每次运行必须记录 H，即使当前 AE/IF 也用同一 H 确定共同分钟。多窗口比较在所有窗口交集评价。
+
+| 身份 | 项目 | 当前含义 |
+|---|---|---|
+| 报告约束 | 134/268维、连续中位数/MAD、独立99%校准、共同分钟 | 依V0.40保留，不由合成结果调整 |
+| W0实现决定 | log1p→StandardScaler→历史、SQLite/Parquet、API状态与产物格式、linear分位数 | 用于共同实现；变更先记录兼容影响 |
+| 待验证配置 | H候选15/30、epsilon=1e-6、seed=42、隐藏层[64,16]、epochs=10、batch_size=128、learning_rate=0.001、IF树数100/max_samples=256 | 均为开发默认或候选，不是最优或已验证设置；真实参数仅在参数验证段检查后固定 |
+
+统一fixture使用H=1便于手工核对预热和分钟身份。样例中的分数为手工指定，未由模型预测；不能由这些数值反推真实参数或效果。
 
 RunConfig 包含 schema_version、dataset_id、split_id、method、window_minutes、seed、preprocess 和 model；请求只含 dataset_id、split_id、method、config_id，后端从可信登记表解析完整配置。不接受网页的任意路径或任意模型参数。99% 校准分位数采用 linear，严格 `score > threshold`。
 
@@ -48,6 +58,8 @@ RunConfig 包含 schema_version、dataset_id、split_id、method、window_minute
 | GET /api/v1/runs/{run_id}/exports/{kind} | scores: Parquet；metrics/config: JSON |
 
 异常统一 ErrorResponse：`error.code/message/details`。包括 RUN_BUSY、WORKER_INTERRUPTED、NOT_FOUND、VALIDATION_ERROR、RESULT_NOT_READY、EXECUTION_FAILED。FastAPI 默认422需由 W2 转换到此结构。`queued→running→succeeded/failed`；排队登记失败也可 queued→failed。终态不可回退；单 worker 的 queued/running 均占活动名额，事务内检查并登记。运行中重启标 failed/WORKER_INTERRUPTED；此前已持久化 queued 可重新排队，但不得创建第二 worker。
+
+OpenAPI内嵌请求、成功响应和404/409/422/500错误样例，均来自统一SYNTHETIC_ONLY fixture。W2异常处理只返回固定公共错误信息和经允许的字段说明，禁止把异常str/repr、内部堆栈、数据库连接串、绝对私人路径或凭据放进message/details；详细诊断留在本地日志。缺失ID返回NOT_FOUND，不回显内部文件位置。
 
 SeriesPoint.valid=False 时 score/threshold/alarm 都为 null，invalid_reason 必填；有效时三值非空、分数有限、alarm 必须与严格阈值判断一致。flow_count 未核实为 null。曲线分页不能更改完整评价。标签在 Evaluation 与 MinuteDetail 中出现，绝不在模型输入中出现。
 

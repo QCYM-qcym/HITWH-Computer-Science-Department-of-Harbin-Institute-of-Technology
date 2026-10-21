@@ -13,30 +13,80 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DatasetList'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    items:
+                    - dataset_id: synthetic-v1
+                      version: manual-v1
+                      evidence_kind: SYNTHETIC_ONLY
+                      available: true
+                      unavailable_reason: null
+                      time_range:
+                        start: '2026-01-01T00:00:00Z'
+                        end: '2026-01-01T00:04:00Z'
+                      feature_count: 134
+                      split_ids:
+                      - split-v1
+                      config_ids:
+                      - smoke-v1
         '404':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: &id001
+                    error:
+                      code: NOT_FOUND
+                      message: Synthetic example
+                      details: []
         '409':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: &id004
+                    error:
+                      code: RESULT_NOT_READY
+                      message: Synthetic example
+                      details: []
         '422':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: &id002
+                    error:
+                      code: VALIDATION_ERROR
+                      message: Synthetic example
+                      details: []
         '500':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: &id003
+                    error:
+                      code: EXECUTION_FAILED
+                      message: Synthetic example
+                      details: []
   /api/v1/runs:
     post:
       operationId: RunAccepted
@@ -47,36 +97,67 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RunAccepted'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-run
+                    status: queued
         '404':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id001
         '409':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    error:
+                      code: RUN_BUSY
+                      message: Synthetic example
+                      details: []
         '422':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id002
         '500':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id003
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/RunRequest'
+            example:
+              dataset_id: synthetic-v1
+              split_id: split-v1
+              method: iforest
+              config_id: smoke-v1
   /api/v1/runs/{run_id}:
     get:
       operationId: RunStatus
@@ -87,32 +168,120 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RunStatus'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-queued
+                    status: queued
+                    evidence_kind: SYNTHETIC_ONLY
+                    created_at: '2026-01-01T00:00:00Z'
+                    started_at: null
+                    finished_at: null
+                    config:
+                      schema_version: '1.0'
+                      dataset_id: synthetic-v1
+                      split_id: split-v1
+                      method: iforest
+                      window_minutes: 1
+                      seed: 42
+                    error: null
+                synthetic_2:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-running
+                    status: running
+                    evidence_kind: SYNTHETIC_ONLY
+                    created_at: '2026-01-01T00:00:00Z'
+                    started_at: '2026-01-01T00:01:00Z'
+                    finished_at: null
+                    config:
+                      schema_version: '1.0'
+                      dataset_id: synthetic-v1
+                      split_id: split-v1
+                      method: iforest
+                      window_minutes: 1
+                      seed: 42
+                    error: null
+                synthetic_3:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-succeeded
+                    status: succeeded
+                    evidence_kind: SYNTHETIC_ONLY
+                    created_at: '2026-01-01T00:00:00Z'
+                    started_at: '2026-01-01T00:01:00Z'
+                    finished_at: '2026-01-01T00:02:00Z'
+                    config:
+                      schema_version: '1.0'
+                      dataset_id: synthetic-v1
+                      split_id: split-v1
+                      method: iforest
+                      window_minutes: 1
+                      seed: 42
+                    error: null
+                synthetic_4:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-failed
+                    status: failed
+                    evidence_kind: SYNTHETIC_ONLY
+                    created_at: '2026-01-01T00:00:00Z'
+                    started_at: '2026-01-01T00:01:00Z'
+                    finished_at: '2026-01-01T00:02:00Z'
+                    config:
+                      schema_version: '1.0'
+                      dataset_id: synthetic-v1
+                      split_id: split-v1
+                      method: iforest
+                      window_minutes: 1
+                      seed: 42
+                    error:
+                      code: WORKER_INTERRUPTED
+                      message: Synthetic interrupted worker
+                      details: []
         '404':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id001
         '409':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id004
         '422':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id002
         '500':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id003
       parameters:
-      - &id001
+      - &id005
         name: run_id
         in: path
         required: true
@@ -129,33 +298,97 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesPage'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-run
+                    evidence_kind: SYNTHETIC_ONLY
+                    items:
+                    - timestamp: '2026-01-01T00:00:00Z'
+                      score: null
+                      threshold: null
+                      alarm: null
+                      valid: false
+                      invalid_reason: warmup
+                      flow_count: null
+                    - timestamp: '2026-01-01T00:01:00Z'
+                      score: 1.0
+                      threshold: 1.0
+                      alarm: false
+                      valid: true
+                      invalid_reason: null
+                      flow_count: 20.0
+                    - &id007
+                      timestamp: '2026-01-01T00:02:00Z'
+                      score: 1.5
+                      threshold: 1.0
+                      alarm: true
+                      valid: true
+                      invalid_reason: null
+                      flow_count: 30.0
+                    - timestamp: '2026-01-01T00:03:00Z'
+                      score: 0.25
+                      threshold: 1.0
+                      alarm: false
+                      valid: true
+                      invalid_reason: null
+                      flow_count: 10.0
+                    total: 4
+                    page: 1
+                    page_size: 100
+                synthetic_2:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-empty
+                    evidence_kind: SYNTHETIC_ONLY
+                    items: []
+                    total: 0
+                    page: 1
+                    page_size: 100
         '404':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id001
         '409':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id004
         '422':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id002
         '500':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id003
       parameters:
-      - *id001
-      - &id003
+      - *id005
+      - &id008
         name: page
         in: query
         required: false
@@ -163,7 +396,7 @@ paths:
           type: integer
           minimum: 1
           default: 1
-      - &id004
+      - &id009
         name: page_size
         in: query
         required: false
@@ -172,19 +405,19 @@ paths:
           minimum: 1
           maximum: 1000
           default: 100
-      - &id005
+      - &id010
         name: start
         in: query
         required: false
-        schema: &id002
+        schema: &id006
           format: date-time
           pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:00Z$
           type: string
-      - &id006
+      - &id011
         name: end
         in: query
         required: false
-        schema: *id002
+        schema: *id006
   /api/v1/runs/{run_id}/alarms:
     get:
       operationId: SeriesPageAlarms
@@ -195,36 +428,72 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SeriesPage'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-run
+                    evidence_kind: SYNTHETIC_ONLY
+                    items:
+                    - *id007
+                    total: 1
+                    page: 1
+                    page_size: 100
+                synthetic_2:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-empty
+                    evidence_kind: SYNTHETIC_ONLY
+                    items: []
+                    total: 0
+                    page: 1
+                    page_size: 100
         '404':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id001
         '409':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id004
         '422':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id002
         '500':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id003
       parameters:
-      - *id001
-      - *id003
-      - *id004
       - *id005
-      - *id006
+      - *id008
+      - *id009
+      - *id010
+      - *id011
   /api/v1/runs/{run_id}/evaluation:
     get:
       operationId: Evaluation
@@ -235,32 +504,104 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Evaluation'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-run
+                    evidence_kind: SYNTHETIC_ONLY
+                    available: true
+                    reason: null
+                    metrics:
+                      tp: 0
+                      fp: 1
+                      tn: 1
+                      fn: 1
+                      precision: 0.0
+                      recall: 0.0
+                      f1: 0.0
+                      fpr: 0.5
+                      undefined_reasons: []
+                    normal_coverage:
+                      eligible: 2
+                      total: 2
+                    attack_coverage:
+                      eligible: 1
+                      total: 2
+                    excluded_attack_minutes: 1
+                    background_only_minutes: 0
+                    intervals:
+                    - start: '2026-01-01T00:01:00Z'
+                      end: '2026-01-01T00:02:00Z'
+                      kind: missed_attack
+                      minute_count: 1
+                    - start: '2026-01-01T00:02:00Z'
+                      end: '2026-01-01T00:03:00Z'
+                      kind: false_positive
+                      minute_count: 1
+                    high_load_metrics: null
+                    high_load_unavailable_reason: Protocol counts have not been verified
+                synthetic_2:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-run
+                    evidence_kind: SYNTHETIC_ONLY
+                    available: false
+                    reason: No labels
+                    metrics: null
+                    normal_coverage:
+                      eligible: 0
+                      total: 0
+                    attack_coverage:
+                      eligible: 0
+                      total: 0
+                    excluded_attack_minutes: 0
+                    background_only_minutes: 0
+                    intervals: []
+                    high_load_metrics: null
+                    high_load_unavailable_reason: Protocol counts have not been verified
         '404':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id001
         '409':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id004
         '422':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id002
         '500':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id003
       parameters:
-      - *id001
+      - *id005
   /api/v1/runs/{run_id}/minutes/{timestamp}:
     get:
       operationId: MinuteDetail
@@ -271,41 +612,648 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MinuteDetail'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-run
+                    evidence_kind: SYNTHETIC_ONLY
+                    point:
+                      timestamp: '2026-01-01T00:01:00Z'
+                      score: 1.0
+                      threshold: 1.0
+                      alarm: false
+                      valid: true
+                      invalid_reason: null
+                      flow_count: 20.0
+                    feature_names:
+                    - feature_000
+                    - feature_001
+                    - feature_002
+                    - feature_003
+                    - feature_004
+                    - feature_005
+                    - feature_006
+                    - feature_007
+                    - feature_008
+                    - feature_009
+                    - feature_010
+                    - feature_011
+                    - feature_012
+                    - feature_013
+                    - feature_014
+                    - feature_015
+                    - feature_016
+                    - feature_017
+                    - feature_018
+                    - feature_019
+                    - feature_020
+                    - feature_021
+                    - feature_022
+                    - feature_023
+                    - feature_024
+                    - feature_025
+                    - feature_026
+                    - feature_027
+                    - feature_028
+                    - feature_029
+                    - feature_030
+                    - feature_031
+                    - feature_032
+                    - feature_033
+                    - feature_034
+                    - feature_035
+                    - feature_036
+                    - feature_037
+                    - feature_038
+                    - feature_039
+                    - feature_040
+                    - feature_041
+                    - feature_042
+                    - feature_043
+                    - feature_044
+                    - feature_045
+                    - feature_046
+                    - feature_047
+                    - feature_048
+                    - feature_049
+                    - feature_050
+                    - feature_051
+                    - feature_052
+                    - feature_053
+                    - feature_054
+                    - feature_055
+                    - feature_056
+                    - feature_057
+                    - feature_058
+                    - feature_059
+                    - feature_060
+                    - feature_061
+                    - feature_062
+                    - feature_063
+                    - feature_064
+                    - feature_065
+                    - feature_066
+                    - feature_067
+                    - feature_068
+                    - feature_069
+                    - feature_070
+                    - feature_071
+                    - feature_072
+                    - feature_073
+                    - feature_074
+                    - feature_075
+                    - feature_076
+                    - feature_077
+                    - feature_078
+                    - feature_079
+                    - feature_080
+                    - feature_081
+                    - feature_082
+                    - feature_083
+                    - feature_084
+                    - feature_085
+                    - feature_086
+                    - feature_087
+                    - feature_088
+                    - feature_089
+                    - feature_090
+                    - feature_091
+                    - feature_092
+                    - feature_093
+                    - feature_094
+                    - feature_095
+                    - feature_096
+                    - feature_097
+                    - feature_098
+                    - feature_099
+                    - feature_100
+                    - feature_101
+                    - feature_102
+                    - feature_103
+                    - feature_104
+                    - feature_105
+                    - feature_106
+                    - feature_107
+                    - feature_108
+                    - feature_109
+                    - feature_110
+                    - feature_111
+                    - feature_112
+                    - feature_113
+                    - feature_114
+                    - feature_115
+                    - feature_116
+                    - feature_117
+                    - feature_118
+                    - feature_119
+                    - feature_120
+                    - feature_121
+                    - feature_122
+                    - feature_123
+                    - feature_124
+                    - feature_125
+                    - feature_126
+                    - feature_127
+                    - feature_128
+                    - feature_129
+                    - feature_130
+                    - feature_131
+                    - feature_132
+                    - feature_133
+                    current:
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    history_residual: null
+                    reconstruction_error_current: null
+                    reconstruction_error_history: null
+                    labels:
+                      dos: 1
+                      scan11: 0
+                      scan44: 0
+                      botnet: 0
+                      blacklist: 0
+                      udpscan: 0
+                      sshscan: 0
+                      spam: 0
+                synthetic_2:
+                  summary: SYNTHETIC_ONLY
+                  value:
+                    run_id: synthetic-run
+                    evidence_kind: SYNTHETIC_ONLY
+                    point:
+                      timestamp: '2026-01-01T00:03:00Z'
+                      score: 0.25
+                      threshold: 1.0
+                      alarm: false
+                      valid: true
+                      invalid_reason: null
+                      flow_count: 10.0
+                    feature_names:
+                    - feature_000
+                    - feature_001
+                    - feature_002
+                    - feature_003
+                    - feature_004
+                    - feature_005
+                    - feature_006
+                    - feature_007
+                    - feature_008
+                    - feature_009
+                    - feature_010
+                    - feature_011
+                    - feature_012
+                    - feature_013
+                    - feature_014
+                    - feature_015
+                    - feature_016
+                    - feature_017
+                    - feature_018
+                    - feature_019
+                    - feature_020
+                    - feature_021
+                    - feature_022
+                    - feature_023
+                    - feature_024
+                    - feature_025
+                    - feature_026
+                    - feature_027
+                    - feature_028
+                    - feature_029
+                    - feature_030
+                    - feature_031
+                    - feature_032
+                    - feature_033
+                    - feature_034
+                    - feature_035
+                    - feature_036
+                    - feature_037
+                    - feature_038
+                    - feature_039
+                    - feature_040
+                    - feature_041
+                    - feature_042
+                    - feature_043
+                    - feature_044
+                    - feature_045
+                    - feature_046
+                    - feature_047
+                    - feature_048
+                    - feature_049
+                    - feature_050
+                    - feature_051
+                    - feature_052
+                    - feature_053
+                    - feature_054
+                    - feature_055
+                    - feature_056
+                    - feature_057
+                    - feature_058
+                    - feature_059
+                    - feature_060
+                    - feature_061
+                    - feature_062
+                    - feature_063
+                    - feature_064
+                    - feature_065
+                    - feature_066
+                    - feature_067
+                    - feature_068
+                    - feature_069
+                    - feature_070
+                    - feature_071
+                    - feature_072
+                    - feature_073
+                    - feature_074
+                    - feature_075
+                    - feature_076
+                    - feature_077
+                    - feature_078
+                    - feature_079
+                    - feature_080
+                    - feature_081
+                    - feature_082
+                    - feature_083
+                    - feature_084
+                    - feature_085
+                    - feature_086
+                    - feature_087
+                    - feature_088
+                    - feature_089
+                    - feature_090
+                    - feature_091
+                    - feature_092
+                    - feature_093
+                    - feature_094
+                    - feature_095
+                    - feature_096
+                    - feature_097
+                    - feature_098
+                    - feature_099
+                    - feature_100
+                    - feature_101
+                    - feature_102
+                    - feature_103
+                    - feature_104
+                    - feature_105
+                    - feature_106
+                    - feature_107
+                    - feature_108
+                    - feature_109
+                    - feature_110
+                    - feature_111
+                    - feature_112
+                    - feature_113
+                    - feature_114
+                    - feature_115
+                    - feature_116
+                    - feature_117
+                    - feature_118
+                    - feature_119
+                    - feature_120
+                    - feature_121
+                    - feature_122
+                    - feature_123
+                    - feature_124
+                    - feature_125
+                    - feature_126
+                    - feature_127
+                    - feature_128
+                    - feature_129
+                    - feature_130
+                    - feature_131
+                    - feature_132
+                    - feature_133
+                    current:
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    - 0.0
+                    history_residual: null
+                    reconstruction_error_current: null
+                    reconstruction_error_history: null
+                    labels:
+                      dos: 0
+                      scan11: 0
+                      scan44: 0
+                      botnet: 0
+                      blacklist: 0
+                      udpscan: 0
+                      sshscan: 0
+                      spam: 0
         '404':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id001
         '409':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id004
         '422':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id002
         '500':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id003
       parameters:
-      - *id001
+      - *id005
       - name: timestamp
         in: path
         required: true
-        schema: *id002
+        schema: *id006
   /api/v1/runs/{run_id}/exports/{kind}:
     get:
       operationId: ExportRun
       parameters:
-      - *id001
+      - *id005
       - name: kind
         in: path
         required: true
@@ -335,24 +1283,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id001
         '409':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id004
         '422':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id002
         '500':
           description: ErrorResponse
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                synthetic_1:
+                  summary: SYNTHETIC_ONLY
+                  value: *id003
 components:
   schemas:
     RunRequest:

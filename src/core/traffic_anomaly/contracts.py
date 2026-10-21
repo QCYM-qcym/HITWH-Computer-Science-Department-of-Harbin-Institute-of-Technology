@@ -517,6 +517,33 @@ class ModelMetadata(ContractModel):
         return self
 
 
+def validate_model_compatibility(
+    metadata: ModelMetadata,
+    feature_names: tuple[str, ...],
+    preprocessing: PreprocessState,
+    config: RunConfig,
+) -> None:
+    """Reject incompatible saved packages before W1 loads a detector payload.
+
+    Deserialize metadata/state/config using model_validate first. This check
+    compares the incoming audited field order to both saved artifacts; it never
+    reorders columns or silently refits a transform. File integrity is checked
+    by W1's artifact loader before invoking the detector's load method.
+    """
+    _feature_names(feature_names)
+    if metadata.schema_version != SCHEMA_VERSION or config.schema_version != SCHEMA_VERSION:
+        raise ValueError("unsupported model or config schema version")
+    if tuple(feature_names) != metadata.feature_names or tuple(feature_names) != preprocessing.feature_names:
+        raise ValueError("feature order does not match saved model and preprocessing")
+    if metadata.method != config.method:
+        raise ValueError("requested method differs from saved model")
+    expected_width = 268 if config.method == "history_ae" else 134
+    if metadata.input_width != expected_width:
+        raise ValueError("model input width differs from requested method")
+    if metadata.preprocess_version != preprocessing.version or metadata.preprocess_version != config.preprocess.version:
+        raise ValueError("preprocessing versions differ")
+
+
 class RunSummary(ContractModel):
     schema_version: Literal["1.0"] = "1.0"
     run_id: Identifier

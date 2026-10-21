@@ -1,5 +1,6 @@
 """Generate OpenAPI from shared contracts; --check detects schema drift."""
 import argparse
+import json
 from pathlib import Path
 import sys
 
@@ -12,6 +13,7 @@ from traffic_anomaly import contracts as c
 
 
 def document():
+    fixture = json.loads((ROOT / "tests/fixtures/contracts-v1.json").read_text(encoding="utf-8"))
     schemas = {}
     for model in (c.RunRequest, c.RunAccepted, c.RunStatus, c.DatasetList, c.SeriesPage,
                   c.Evaluation, c.MinuteDetail, c.ErrorResponse, c.Manifest, c.RunResult,
@@ -21,8 +23,24 @@ def document():
         schemas.update(schema.pop("$defs", {}))
         schemas[model.__name__] = schema
 
-    def response(name):
-        return {"description": name, "content": {"application/json": {"schema": {"$ref": f"#/components/schemas/{name}"}}}}
+    def response(name, error_code=None, alarms_only=False):
+        samples = [sample["body"] for sample in fixture["responses"] if sample["schema"] == name]
+        if error_code is not None:
+            samples = [body for body in samples if body["error"]["code"] == error_code]
+        if alarms_only:
+            samples = [body | {"items": [row for row in body["items"] if row["valid"] and row["alarm"] is True],
+                               "total": sum(row["valid"] and row["alarm"] is True for row in body["items"])}
+                       for body in samples]
+        media = {"schema": {"$ref": f"#/components/schemas/{name}"}}
+        if samples:
+            media["examples"] = {f"synthetic_{index + 1}": {"summary": "SYNTHETIC_ONLY", "value": body}
+                                 for index, body in enumerate(samples)}
+        return {"description": name, "content": {"application/json": media}}
+
+    def errors(submit=False):
+        codes = {404: "NOT_FOUND", 409: "RUN_BUSY" if submit else "RESULT_NOT_READY",
+                 422: "VALIDATION_ERROR", 500: "EXECUTION_FAILED"}
+        return {str(status): response("ErrorResponse", code) for status, code in codes.items()}
 
     def parameter(name, where, schema, required=False):
         return {"name": name, "in": where, "required": required, "schema": schema}
@@ -42,8 +60,8 @@ def document():
               ("/runs/{run_id}/minutes/{timestamp}", "get", "MinuteDetail")]
     for path, method, model in routes:
         operation = {"operationId": model + ("Alarms" if path.endswith("alarms") else ""),
-                     "responses": {"202" if method == "post" else "200": response(model),
-                                   **{str(code): response("ErrorResponse") for code in (404, 409, 422, 500)}}}
+                     "responses": {"202" if method == "post" else "200": response(model, alarms_only=path.endswith("/alarms")),
+                                   **errors(submit=method == "post")}}
         parameters = [run_id] if "{run_id}" in path else []
         if model == "SeriesPage":
             parameters += paging
@@ -52,14 +70,15 @@ def document():
         if parameters:
             operation["parameters"] = parameters
         if method == "post":
-            operation["requestBody"] = {"required": True, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/RunRequest"}}}}
+            operation["requestBody"] = {"required": True, "content": {"application/json": {
+                "schema": {"$ref": "#/components/schemas/RunRequest"}, "example": fixture["request"]}}}
         paths["/api/v1" + path] = {method: operation}
     paths["/api/v1/runs/{run_id}/exports/{kind}"] = {"get": {
         "operationId": "ExportRun", "parameters": [run_id, parameter("kind", "path", {"enum": ["scores", "metrics", "config"], "type": "string"}, True)],
         "responses": {"200": {"description": "Complete-minute Parquet scores, or JSON metrics/config. Content-Disposition attachment.",
                                "content": {"application/vnd.apache.parquet": {"schema": {"type": "string", "format": "binary"}},
                                            "application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Evaluation"}, {"$ref": "#/components/schemas/RunConfig"}]}}}},
-                      **{str(code): response("ErrorResponse") for code in (404, 409, 422, 500)}}}}
+                      **errors()}}}
     return {"openapi": "3.1.0", "info": {"title": "Offline Traffic Anomaly API", "version": "1.0"},
             "paths": paths, "components": {"schemas": schemas}}
 
