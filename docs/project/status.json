@@ -2,10 +2,10 @@
   "schema_version": 1,
   "updated": "2026-10-21",
   "current_stage": "S2",
-  "theme": "W0顺序合成集成：已合入W1/W2，端到端验证进行中",
+  "theme": "W0顺序合成集成：已合入W1/W2/W3，端到端验证进行中",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "按顺序通过Desktop合入W1/W2业务文件；公共进度冲突按已核验事实整合。",
+    "按顺序通过Desktop合入W1/W2/W3业务文件；公共进度冲突按已核验事实整合。",
     "保留各分支独立合成测试与交付入口；集成适配和端到端验收尚未完成。",
     "真实Data Gate仍阻塞，真实IF/AE、正式比较和性能验收NOT_RUN。"
   ],
@@ -72,6 +72,10 @@
     {
       "label": "W2-01后端运行与验证说明（SYNTHETIC_ONLY）",
       "path": "src/backend/README.md"
+    },
+    {
+      "label": "W3前端安装、验证与NOT_RUN清单",
+      "path": "src/frontend/README.md"
     }
   ],
   "stages": [
@@ -386,6 +390,7 @@
   ],
   "integration_merges": [
     "W1",
-    "W2"
+    "W2",
+    "W3"
   ]
 }

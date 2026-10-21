@@ -1,0 +1,26 @@
+<script setup lang="ts">
+import { computed, ref, watch } from 'vue'
+import { useWorkspaceStore } from '../stores/workspace'
+import { methodName, statusName, time } from '../components/format'
+import type { RunRequest } from '../types'
+const store = useWorkspaceStore()
+const datasetId = computed({ get: () => store.selectedDatasetId, set: value => { store.selectedDatasetId = value } })
+const splitId = ref(''), configId = ref(''), method = ref<RunRequest['method']>('iforest'), runId = ref('')
+const dataset = computed(() => store.datasets.find(x => x.dataset_id === datasetId.value))
+watch(() => store.datasets, items => { if (!items.some(x => x.dataset_id === datasetId.value)) datasetId.value = items.find(x => x.available)?.dataset_id ?? '' }, { immediate: true })
+watch(dataset, value => { splitId.value = value?.split_ids[0] ?? ''; configId.value = value?.config_ids[0] ?? '' }, { immediate: true })
+const canSubmit = computed(() => dataset.value?.available && splitId.value && configId.value && !store.busy)
+const submit = () => store.submit({ dataset_id: datasetId.value, split_id: splitId.value, config_id: configId.value, method: method.value })
+defineEmits<{ navigate: [page: 'analysis'] }>()
+</script>
+<template>
+  <div class="section-heading"><div><span class="eyebrow">DETECTION RUNS</span><h2>一次任务，一份完整记录</h2><p>首版单任务执行，使用登记 ID 提交。</p></div><button v-if="store.mode === 'mock'" class="secondary" @click="store.openRun('synthetic-succeeded')">查看完成样例 ↗</button></div>
+  <div class="task-grid"><form class="panel" @submit.prevent="submit"><h3>新建检测任务</h3><div class="form-grid">
+    <label>数据版本<select v-model="datasetId" required><option v-for="d in store.datasets" :value="d.dataset_id" :disabled="!d.available">{{ d.dataset_id }} · {{ d.version }}</option></select></label>
+    <label>时间划分<select v-model="splitId" required><option v-for="s in dataset?.split_ids" :value="s">{{ s }}</option></select></label>
+    <label>检测方法<select v-model="method"><option value="iforest">隔离森林</option><option value="current_ae" :disabled="store.mode === 'mock'">当前特征 AE</option><option value="history_ae" :disabled="store.mode === 'mock'">历史增强 AE</option></select></label>
+    <label>登记配置<select v-model="configId" required><option v-for="c in dataset?.config_ids" :value="c">{{ c }}</option></select></label>
+  </div><p class="hint">{{ store.mode === 'mock' ? '统一样例仅提供隔离森林手工分数；AE 结果等待实际产物。' : '模型参数由服务端登记配置解析。' }}</p><button class="wide" :disabled="!canSubmit">{{ store.submitting ? '提交中…' : '提交检测任务 →' }}</button></form>
+  <article class="panel task-state"><h3>当前任务</h3><template v-if="store.activeRun"><div class="run-line"><span class="badge" :class="store.activeRun.status">{{ statusName[store.activeRun.status] }}</span><span class="mono">{{ store.activeRun.run_id }}</span></div><dl class="facts"><div><dt>检测方法</dt><dd>{{ methodName[store.activeRun.config.method] }}</dd></div><div><dt>创建时间</dt><dd>{{ time(store.activeRun.created_at) }}</dd></div><div><dt>开始时间</dt><dd>{{ time(store.activeRun.started_at) }}</dd></div><div><dt>结束时间</dt><dd>{{ time(store.activeRun.finished_at) }}</dd></div><div><dt>窗口 / 种子</dt><dd>{{ store.activeRun.config.window_minutes }} 分钟 / {{ store.activeRun.config.seed }}</dd></div></dl><p v-if="store.activeRun.error" class="failure-message" role="alert">{{ store.activeRun.error.code }}<br>{{ store.activeRun.error.message }}</p><button v-if="store.activeRun.status === 'succeeded'" @click="$emit('navigate', 'analysis')">打开结果分析 ↗</button><button v-if="store.tracking" class="secondary" @click="store.stopTracking">停止追踪</button><button v-else-if="store.busy" class="secondary" @click="store.openRun(store.activeRun.run_id)">恢复追踪</button><p v-if="!store.tracking && store.busy" class="hint">已停止页面轮询，后台任务没有被取消。</p></template><div v-else-if="store.acceptedRunIds.length" class="empty compact"><p>任务已受理，状态待查询。</p><p class="mono">{{ store.acceptedRunIds.at(-1) }}</p><button v-if="store.tracking" class="secondary" @click="store.stopTracking">停止追踪</button><button v-else data-test="retry-status" class="secondary" @click="store.openRun(store.acceptedRunIds.at(-1)!)">重试状态查询</button><p class="hint">后台任务没有被取消；可用已受理编号找回。</p></div><div v-else class="empty compact">提交新任务或输入编号查看。</div></article></div>
+  <article class="panel"><div class="panel-heading"><h3>按编号找回任务</h3><span class="hint">接口 v1 不提供全量任务列表</span></div><form class="inline-form" @submit.prevent="store.openRun(runId)"><label class="grow">任务编号<input v-model="runId" placeholder="输入已有 run_id" required pattern="[a-zA-Z0-9][a-zA-Z0-9_\-]{0,95}"></label><button type="submit" class="secondary">查询任务</button></form><div v-if="store.acceptedRunIds.length" class="button-row"><button v-for="id in store.acceptedRunIds" :key="id" class="text-button mono" @click="store.openRun(id)">已受理 {{ id }} ↗</button></div><div class="table-scroll" v-if="store.runs.length"><table><thead><tr><th>本次会话任务</th><th>方法</th><th>状态</th><th>操作</th></tr></thead><tbody><tr v-for="run in store.runs" :key="run.run_id"><td class="mono">{{ run.run_id }}</td><td>{{ methodName[run.config.method] }}</td><td><span class="badge" :class="run.status">{{ statusName[run.status] }}</span></td><td><button class="text-button" @click="store.openRun(run.run_id)">查看 ↗</button></td></tr></tbody></table></div></article>
+</template>

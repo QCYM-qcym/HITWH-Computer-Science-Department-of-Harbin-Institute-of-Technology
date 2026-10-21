@@ -1,0 +1,1517 @@
+{
+  "RunRequest": {
+    "additionalProperties": false,
+    "properties": {
+      "dataset_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Dataset Id",
+        "type": "string"
+      },
+      "split_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Split Id",
+        "type": "string"
+      },
+      "method": {
+        "enum": [
+          "iforest",
+          "current_ae",
+          "history_ae"
+        ],
+        "title": "Method",
+        "type": "string"
+      },
+      "config_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Config Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "dataset_id",
+      "split_id",
+      "method",
+      "config_id"
+    ],
+    "title": "RunRequest",
+    "type": "object"
+  },
+  "RunAccepted": {
+    "additionalProperties": false,
+    "properties": {
+      "run_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Run Id",
+        "type": "string"
+      },
+      "status": {
+        "const": "queued",
+        "title": "Status",
+        "type": "string"
+      }
+    },
+    "required": [
+      "run_id",
+      "status"
+    ],
+    "title": "RunAccepted",
+    "type": "object"
+  },
+  "ErrorDetail": {
+    "additionalProperties": false,
+    "properties": {
+      "code": {
+        "enum": [
+          "RUN_BUSY",
+          "WORKER_INTERRUPTED",
+          "NOT_FOUND",
+          "VALIDATION_ERROR",
+          "RESULT_NOT_READY",
+          "EXECUTION_FAILED"
+        ],
+        "title": "Code",
+        "type": "string"
+      },
+      "message": {
+        "minLength": 1,
+        "title": "Message",
+        "type": "string"
+      },
+      "details": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Details",
+        "type": "array"
+      }
+    },
+    "required": [
+      "code",
+      "message"
+    ],
+    "title": "ErrorDetail",
+    "type": "object"
+  },
+  "ModelConfig": {
+    "additionalProperties": false,
+    "properties": {
+      "hidden_widths": {
+        "items": {
+          "type": "integer"
+        },
+        "minItems": 1,
+        "title": "Hidden Widths",
+        "type": "array"
+      },
+      "epochs": {
+        "default": 10,
+        "exclusiveMinimum": 0,
+        "title": "Epochs",
+        "type": "integer"
+      },
+      "batch_size": {
+        "default": 128,
+        "exclusiveMinimum": 0,
+        "title": "Batch Size",
+        "type": "integer"
+      },
+      "learning_rate": {
+        "default": 0.001,
+        "exclusiveMinimum": 0,
+        "title": "Learning Rate",
+        "type": "number"
+      },
+      "n_estimators": {
+        "default": 100,
+        "exclusiveMinimum": 0,
+        "title": "N Estimators",
+        "type": "integer"
+      },
+      "max_samples": {
+        "default": 256,
+        "exclusiveMinimum": 0,
+        "title": "Max Samples",
+        "type": "integer"
+      }
+    },
+    "title": "ModelConfig",
+    "type": "object"
+  },
+  "PreprocessConfig": {
+    "additionalProperties": false,
+    "properties": {
+      "version": {
+        "const": "log1p-standard-v1",
+        "default": "log1p-standard-v1",
+        "title": "Version",
+        "type": "string"
+      },
+      "epsilon": {
+        "default": 0.000001,
+        "exclusiveMinimum": 0,
+        "title": "Epsilon",
+        "type": "number"
+      },
+      "quantile": {
+        "const": 0.99,
+        "default": 0.99,
+        "title": "Quantile",
+        "type": "number"
+      },
+      "quantile_method": {
+        "const": "linear",
+        "default": "linear",
+        "title": "Quantile Method",
+        "type": "string"
+      }
+    },
+    "title": "PreprocessConfig",
+    "type": "object"
+  },
+  "RunConfig": {
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": "1.0",
+        "default": "1.0",
+        "title": "Schema Version",
+        "type": "string"
+      },
+      "dataset_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Dataset Id",
+        "type": "string"
+      },
+      "split_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Split Id",
+        "type": "string"
+      },
+      "method": {
+        "enum": [
+          "iforest",
+          "current_ae",
+          "history_ae"
+        ],
+        "title": "Method",
+        "type": "string"
+      },
+      "window_minutes": {
+        "default": 15,
+        "exclusiveMinimum": 0,
+        "title": "Window Minutes",
+        "type": "integer"
+      },
+      "seed": {
+        "default": 42,
+        "minimum": 0,
+        "title": "Seed",
+        "type": "integer"
+      },
+      "preprocess": {
+        "$ref": "#/components/schemas/PreprocessConfig"
+      },
+      "model": {
+        "$ref": "#/components/schemas/ModelConfig"
+      }
+    },
+    "required": [
+      "dataset_id",
+      "split_id",
+      "method"
+    ],
+    "title": "RunConfig",
+    "type": "object"
+  },
+  "RunStatus": {
+    "additionalProperties": false,
+    "properties": {
+      "run_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Run Id",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "queued",
+          "running",
+          "succeeded",
+          "failed"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "evidence_kind": {
+        "enum": [
+          "SYNTHETIC_ONLY",
+          "REAL_DATA"
+        ],
+        "title": "Evidence Kind",
+        "type": "string"
+      },
+      "created_at": {
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$",
+        "title": "Created At",
+        "type": "string"
+      },
+      "started_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Started At"
+      },
+      "finished_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Finished At"
+      },
+      "config": {
+        "$ref": "#/components/schemas/RunConfig"
+      },
+      "error": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ErrorDetail"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "required": [
+      "run_id",
+      "status",
+      "evidence_kind",
+      "created_at",
+      "started_at",
+      "finished_at",
+      "config",
+      "error"
+    ],
+    "title": "RunStatus",
+    "type": "object"
+  },
+  "DatasetInfo": {
+    "additionalProperties": false,
+    "properties": {
+      "dataset_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Dataset Id",
+        "type": "string"
+      },
+      "version": {
+        "title": "Version",
+        "type": "string"
+      },
+      "evidence_kind": {
+        "enum": [
+          "SYNTHETIC_ONLY",
+          "REAL_DATA"
+        ],
+        "title": "Evidence Kind",
+        "type": "string"
+      },
+      "available": {
+        "title": "Available",
+        "type": "boolean"
+      },
+      "unavailable_reason": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Unavailable Reason"
+      },
+      "time_range": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/TimeRange"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "feature_count": {
+        "const": 134,
+        "title": "Feature Count",
+        "type": "integer"
+      },
+      "split_ids": {
+        "items": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+          "type": "string"
+        },
+        "title": "Split Ids",
+        "type": "array"
+      },
+      "config_ids": {
+        "items": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+          "type": "string"
+        },
+        "title": "Config Ids",
+        "type": "array"
+      }
+    },
+    "required": [
+      "dataset_id",
+      "version",
+      "evidence_kind",
+      "available",
+      "unavailable_reason",
+      "time_range",
+      "feature_count",
+      "split_ids",
+      "config_ids"
+    ],
+    "title": "DatasetInfo",
+    "type": "object"
+  },
+  "TimeRange": {
+    "additionalProperties": false,
+    "properties": {
+      "start": {
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:00Z$",
+        "title": "Start",
+        "type": "string"
+      },
+      "end": {
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:00Z$",
+        "title": "End",
+        "type": "string"
+      }
+    },
+    "required": [
+      "start",
+      "end"
+    ],
+    "title": "TimeRange",
+    "type": "object"
+  },
+  "DatasetList": {
+    "additionalProperties": false,
+    "properties": {
+      "items": {
+        "items": {
+          "$ref": "#/components/schemas/DatasetInfo"
+        },
+        "title": "Items",
+        "type": "array"
+      }
+    },
+    "required": [
+      "items"
+    ],
+    "title": "DatasetList",
+    "type": "object"
+  },
+  "SeriesPoint": {
+    "additionalProperties": false,
+    "properties": {
+      "timestamp": {
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:00Z$",
+        "title": "Timestamp",
+        "type": "string"
+      },
+      "score": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Score"
+      },
+      "threshold": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Threshold"
+      },
+      "alarm": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Alarm"
+      },
+      "valid": {
+        "title": "Valid",
+        "type": "boolean"
+      },
+      "invalid_reason": {
+        "anyOf": [
+          {
+            "enum": [
+              "warmup",
+              "gap",
+              "invalid_input",
+              "not_common",
+              "nonfinite_score"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Invalid Reason"
+      },
+      "flow_count": {
+        "anyOf": [
+          {
+            "minimum": 0,
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Flow Count"
+      }
+    },
+    "required": [
+      "timestamp",
+      "score",
+      "threshold",
+      "alarm",
+      "valid",
+      "invalid_reason",
+      "flow_count"
+    ],
+    "title": "SeriesPoint",
+    "type": "object"
+  },
+  "SeriesPage": {
+    "additionalProperties": false,
+    "properties": {
+      "run_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Run Id",
+        "type": "string"
+      },
+      "evidence_kind": {
+        "enum": [
+          "SYNTHETIC_ONLY",
+          "REAL_DATA"
+        ],
+        "title": "Evidence Kind",
+        "type": "string"
+      },
+      "items": {
+        "items": {
+          "$ref": "#/components/schemas/SeriesPoint"
+        },
+        "title": "Items",
+        "type": "array"
+      },
+      "total": {
+        "minimum": 0,
+        "title": "Total",
+        "type": "integer"
+      },
+      "page": {
+        "minimum": 1,
+        "title": "Page",
+        "type": "integer"
+      },
+      "page_size": {
+        "maximum": 1000,
+        "minimum": 1,
+        "title": "Page Size",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "run_id",
+      "evidence_kind",
+      "items",
+      "total",
+      "page",
+      "page_size"
+    ],
+    "title": "SeriesPage",
+    "type": "object"
+  },
+  "Coverage": {
+    "additionalProperties": false,
+    "properties": {
+      "eligible": {
+        "minimum": 0,
+        "title": "Eligible",
+        "type": "integer"
+      },
+      "total": {
+        "minimum": 0,
+        "title": "Total",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "eligible",
+      "total"
+    ],
+    "title": "Coverage",
+    "type": "object"
+  },
+  "EvaluationInterval": {
+    "additionalProperties": false,
+    "properties": {
+      "start": {
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:00Z$",
+        "title": "Start",
+        "type": "string"
+      },
+      "end": {
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:00Z$",
+        "title": "End",
+        "type": "string"
+      },
+      "kind": {
+        "enum": [
+          "false_positive",
+          "missed_attack"
+        ],
+        "title": "Kind",
+        "type": "string"
+      },
+      "minute_count": {
+        "exclusiveMinimum": 0,
+        "title": "Minute Count",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "start",
+      "end",
+      "kind",
+      "minute_count"
+    ],
+    "title": "EvaluationInterval",
+    "type": "object"
+  },
+  "Metrics": {
+    "additionalProperties": false,
+    "properties": {
+      "tp": {
+        "minimum": 0,
+        "title": "Tp",
+        "type": "integer"
+      },
+      "fp": {
+        "minimum": 0,
+        "title": "Fp",
+        "type": "integer"
+      },
+      "tn": {
+        "minimum": 0,
+        "title": "Tn",
+        "type": "integer"
+      },
+      "fn": {
+        "minimum": 0,
+        "title": "Fn",
+        "type": "integer"
+      },
+      "precision": {
+        "anyOf": [
+          {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Precision"
+      },
+      "recall": {
+        "anyOf": [
+          {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Recall"
+      },
+      "f1": {
+        "anyOf": [
+          {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "F1"
+      },
+      "fpr": {
+        "anyOf": [
+          {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Fpr"
+      },
+      "undefined_reasons": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Undefined Reasons",
+        "type": "array"
+      }
+    },
+    "required": [
+      "tp",
+      "fp",
+      "tn",
+      "fn",
+      "precision",
+      "recall",
+      "f1",
+      "fpr",
+      "undefined_reasons"
+    ],
+    "title": "Metrics",
+    "type": "object"
+  },
+  "Evaluation": {
+    "additionalProperties": false,
+    "properties": {
+      "run_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Run Id",
+        "type": "string"
+      },
+      "evidence_kind": {
+        "enum": [
+          "SYNTHETIC_ONLY",
+          "REAL_DATA"
+        ],
+        "title": "Evidence Kind",
+        "type": "string"
+      },
+      "available": {
+        "title": "Available",
+        "type": "boolean"
+      },
+      "reason": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Reason"
+      },
+      "metrics": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/Metrics"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "normal_coverage": {
+        "$ref": "#/components/schemas/Coverage"
+      },
+      "attack_coverage": {
+        "$ref": "#/components/schemas/Coverage"
+      },
+      "excluded_attack_minutes": {
+        "minimum": 0,
+        "title": "Excluded Attack Minutes",
+        "type": "integer"
+      },
+      "background_only_minutes": {
+        "minimum": 0,
+        "title": "Background Only Minutes",
+        "type": "integer"
+      },
+      "intervals": {
+        "items": {
+          "$ref": "#/components/schemas/EvaluationInterval"
+        },
+        "title": "Intervals",
+        "type": "array"
+      },
+      "high_load_metrics": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/Metrics"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "high_load_unavailable_reason": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "High Load Unavailable Reason"
+      }
+    },
+    "required": [
+      "run_id",
+      "evidence_kind",
+      "available",
+      "reason",
+      "metrics",
+      "normal_coverage",
+      "attack_coverage",
+      "excluded_attack_minutes",
+      "background_only_minutes",
+      "intervals",
+      "high_load_metrics",
+      "high_load_unavailable_reason"
+    ],
+    "title": "Evaluation",
+    "type": "object"
+  },
+  "MinuteDetail": {
+    "additionalProperties": false,
+    "properties": {
+      "current": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 134,
+            "minItems": 134,
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Current"
+      },
+      "history_residual": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 134,
+            "minItems": 134,
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "History Residual"
+      },
+      "reconstruction_error_current": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 134,
+            "minItems": 134,
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Reconstruction Error Current"
+      },
+      "reconstruction_error_history": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 134,
+            "minItems": 134,
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Reconstruction Error History"
+      },
+      "run_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Run Id",
+        "type": "string"
+      },
+      "evidence_kind": {
+        "enum": [
+          "SYNTHETIC_ONLY",
+          "REAL_DATA"
+        ],
+        "title": "Evidence Kind",
+        "type": "string"
+      },
+      "point": {
+        "$ref": "#/components/schemas/SeriesPoint"
+      },
+      "feature_names": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 134,
+        "minItems": 134,
+        "title": "Feature Names",
+        "type": "array"
+      },
+      "labels": {
+        "anyOf": [
+          {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Labels"
+      }
+    },
+    "required": [
+      "current",
+      "history_residual",
+      "reconstruction_error_current",
+      "reconstruction_error_history",
+      "run_id",
+      "evidence_kind",
+      "point",
+      "feature_names",
+      "labels"
+    ],
+    "title": "MinuteDetail",
+    "type": "object"
+  },
+  "ErrorResponse": {
+    "additionalProperties": false,
+    "properties": {
+      "error": {
+        "$ref": "#/components/schemas/ErrorDetail"
+      }
+    },
+    "required": [
+      "error"
+    ],
+    "title": "ErrorResponse",
+    "type": "object"
+  },
+  "ArtifactFile": {
+    "additionalProperties": false,
+    "properties": {
+      "path": {
+        "title": "Path",
+        "type": "string"
+      },
+      "sha256": {
+        "pattern": "^[0-9a-f]{64}$",
+        "title": "Sha256",
+        "type": "string"
+      }
+    },
+    "required": [
+      "path",
+      "sha256"
+    ],
+    "title": "ArtifactFile",
+    "type": "object"
+  },
+  "Manifest": {
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": "1.0",
+        "default": "1.0",
+        "title": "Schema Version",
+        "type": "string"
+      },
+      "run_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Run Id",
+        "type": "string"
+      },
+      "evidence_kind": {
+        "enum": [
+          "SYNTHETIC_ONLY",
+          "REAL_DATA"
+        ],
+        "title": "Evidence Kind",
+        "type": "string"
+      },
+      "config": {
+        "$ref": "#/components/schemas/RunConfig"
+      },
+      "code_commit": {
+        "pattern": "^[0-9a-f]{40}$",
+        "title": "Code Commit",
+        "type": "string"
+      },
+      "dataset_version": {
+        "title": "Dataset Version",
+        "type": "string"
+      },
+      "feature_version": {
+        "title": "Feature Version",
+        "type": "string"
+      },
+      "split_version": {
+        "title": "Split Version",
+        "type": "string"
+      },
+      "seed": {
+        "minimum": 0,
+        "title": "Seed",
+        "type": "integer"
+      },
+      "dependency_lock_sha256": {
+        "pattern": "^[0-9a-f]{64}$",
+        "title": "Dependency Lock Sha256",
+        "type": "string"
+      },
+      "files": {
+        "items": {
+          "$ref": "#/components/schemas/ArtifactFile"
+        },
+        "minItems": 1,
+        "title": "Files",
+        "type": "array"
+      }
+    },
+    "required": [
+      "run_id",
+      "evidence_kind",
+      "config",
+      "code_commit",
+      "dataset_version",
+      "feature_version",
+      "split_version",
+      "seed",
+      "dependency_lock_sha256",
+      "files"
+    ],
+    "title": "Manifest",
+    "type": "object"
+  },
+  "RunResult": {
+    "additionalProperties": false,
+    "properties": {
+      "run_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Run Id",
+        "type": "string"
+      },
+      "manifest_path": {
+        "title": "Manifest Path",
+        "type": "string"
+      },
+      "summary_path": {
+        "title": "Summary Path",
+        "type": "string"
+      },
+      "scores_path": {
+        "title": "Scores Path",
+        "type": "string"
+      }
+    },
+    "required": [
+      "run_id",
+      "manifest_path",
+      "summary_path",
+      "scores_path"
+    ],
+    "title": "RunResult",
+    "type": "object"
+  },
+  "DatasetSchema": {
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": "1.0",
+        "default": "1.0",
+        "title": "Schema Version",
+        "type": "string"
+      },
+      "dataset_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Dataset Id",
+        "type": "string"
+      },
+      "dataset_version": {
+        "minLength": 1,
+        "title": "Dataset Version",
+        "type": "string"
+      },
+      "feature_names": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Feature Names",
+        "type": "array"
+      },
+      "source_timezone": {
+        "minLength": 1,
+        "title": "Source Timezone",
+        "type": "string"
+      },
+      "time_basis_source": {
+        "minLength": 1,
+        "title": "Time Basis Source",
+        "type": "string"
+      },
+      "label_names": {
+        "default": [
+          "dos",
+          "scan11",
+          "scan44",
+          "botnet",
+          "blacklist",
+          "udpscan",
+          "sshscan",
+          "spam"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Label Names",
+        "type": "array"
+      }
+    },
+    "required": [
+      "dataset_id",
+      "dataset_version",
+      "feature_names",
+      "source_timezone",
+      "time_basis_source"
+    ],
+    "title": "DatasetSchema",
+    "type": "object"
+  },
+  "SplitBoundaries": {
+    "additionalProperties": false,
+    "properties": {
+      "split_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Split Id",
+        "type": "string"
+      },
+      "train": {
+        "$ref": "#/components/schemas/TimeRange"
+      },
+      "validation": {
+        "$ref": "#/components/schemas/TimeRange"
+      },
+      "calibration": {
+        "$ref": "#/components/schemas/TimeRange"
+      },
+      "test": {
+        "$ref": "#/components/schemas/TimeRange"
+      }
+    },
+    "required": [
+      "split_id",
+      "train",
+      "validation",
+      "calibration",
+      "test"
+    ],
+    "title": "SplitBoundaries",
+    "type": "object"
+  },
+  "RunSummary": {
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": "1.0",
+        "default": "1.0",
+        "title": "Schema Version",
+        "type": "string"
+      },
+      "run_id": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$",
+        "title": "Run Id",
+        "type": "string"
+      },
+      "evidence_kind": {
+        "enum": [
+          "SYNTHETIC_ONLY",
+          "REAL_DATA"
+        ],
+        "title": "Evidence Kind",
+        "type": "string"
+      },
+      "config": {
+        "$ref": "#/components/schemas/RunConfig"
+      },
+      "feature_names": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Feature Names",
+        "type": "array"
+      },
+      "row_count": {
+        "minimum": 0,
+        "title": "Row Count",
+        "type": "integer"
+      },
+      "valid_count": {
+        "minimum": 0,
+        "title": "Valid Count",
+        "type": "integer"
+      },
+      "elapsed_seconds": {
+        "minimum": 0,
+        "title": "Elapsed Seconds",
+        "type": "number"
+      },
+      "peak_memory_bytes": {
+        "minimum": 0,
+        "title": "Peak Memory Bytes",
+        "type": "integer"
+      },
+      "labels_available": {
+        "title": "Labels Available",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "run_id",
+      "evidence_kind",
+      "config",
+      "feature_names",
+      "row_count",
+      "valid_count",
+      "elapsed_seconds",
+      "peak_memory_bytes",
+      "labels_available"
+    ],
+    "title": "RunSummary",
+    "type": "object"
+  },
+  "ChannelRow": {
+    "additionalProperties": false,
+    "properties": {
+      "current": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 134,
+            "minItems": 134,
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Current"
+      },
+      "history_residual": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 134,
+            "minItems": 134,
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "History Residual"
+      },
+      "reconstruction_error_current": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 134,
+            "minItems": 134,
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Reconstruction Error Current"
+      },
+      "reconstruction_error_history": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 134,
+            "minItems": 134,
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Reconstruction Error History"
+      },
+      "timestamp": {
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:00Z$",
+        "title": "Timestamp",
+        "type": "string"
+      }
+    },
+    "required": [
+      "current",
+      "history_residual",
+      "reconstruction_error_current",
+      "reconstruction_error_history",
+      "timestamp"
+    ],
+    "title": "ChannelRow",
+    "type": "object"
+  },
+  "LabelRow": {
+    "additionalProperties": false,
+    "properties": {
+      "timestamp": {
+        "format": "date-time",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:00Z$",
+        "title": "Timestamp",
+        "type": "string"
+      },
+      "dos": {
+        "minimum": 0,
+        "title": "Dos",
+        "type": "integer"
+      },
+      "scan11": {
+        "minimum": 0,
+        "title": "Scan11",
+        "type": "integer"
+      },
+      "scan44": {
+        "minimum": 0,
+        "title": "Scan44",
+        "type": "integer"
+      },
+      "botnet": {
+        "minimum": 0,
+        "title": "Botnet",
+        "type": "integer"
+      },
+      "blacklist": {
+        "minimum": 0,
+        "title": "Blacklist",
+        "type": "integer"
+      },
+      "udpscan": {
+        "minimum": 0,
+        "title": "Udpscan",
+        "type": "integer"
+      },
+      "sshscan": {
+        "minimum": 0,
+        "title": "Sshscan",
+        "type": "integer"
+      },
+      "spam": {
+        "minimum": 0,
+        "title": "Spam",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "timestamp",
+      "dos",
+      "scan11",
+      "scan44",
+      "botnet",
+      "blacklist",
+      "udpscan",
+      "sshscan",
+      "spam"
+    ],
+    "title": "LabelRow",
+    "type": "object"
+  },
+  "ModelMetadata": {
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": "1.0",
+        "default": "1.0",
+        "title": "Schema Version",
+        "type": "string"
+      },
+      "method": {
+        "enum": [
+          "iforest",
+          "current_ae",
+          "history_ae"
+        ],
+        "title": "Method",
+        "type": "string"
+      },
+      "input_width": {
+        "enum": [
+          134,
+          268
+        ],
+        "title": "Input Width",
+        "type": "integer"
+      },
+      "feature_names": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Feature Names",
+        "type": "array"
+      },
+      "preprocess_version": {
+        "const": "log1p-standard-v1",
+        "title": "Preprocess Version",
+        "type": "string"
+      },
+      "threshold": {
+        "title": "Threshold",
+        "type": "number"
+      },
+      "parameter_count": {
+        "minimum": 0,
+        "title": "Parameter Count",
+        "type": "integer"
+      },
+      "payload": {
+        "$ref": "#/components/schemas/ArtifactFile"
+      }
+    },
+    "required": [
+      "method",
+      "input_width",
+      "feature_names",
+      "preprocess_version",
+      "threshold",
+      "parameter_count",
+      "payload"
+    ],
+    "title": "ModelMetadata",
+    "type": "object"
+  },
+  "PreprocessState": {
+    "additionalProperties": false,
+    "properties": {
+      "version": {
+        "const": "log1p-standard-v1",
+        "default": "log1p-standard-v1",
+        "title": "Version",
+        "type": "string"
+      },
+      "feature_names": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Feature Names",
+        "type": "array"
+      },
+      "mean": {
+        "items": {
+          "type": "number"
+        },
+        "maxItems": 134,
+        "minItems": 134,
+        "title": "Mean",
+        "type": "array"
+      },
+      "scale": {
+        "items": {
+          "type": "number"
+        },
+        "maxItems": 134,
+        "minItems": 134,
+        "title": "Scale",
+        "type": "array"
+      },
+      "n_samples_seen": {
+        "exclusiveMinimum": 0,
+        "title": "N Samples Seen",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "feature_names",
+      "mean",
+      "scale",
+      "n_samples_seen"
+    ],
+    "title": "PreprocessState",
+    "type": "object"
+  }
+}

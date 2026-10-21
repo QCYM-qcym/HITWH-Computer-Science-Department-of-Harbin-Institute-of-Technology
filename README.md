@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-21**。当前阶段：**数据审计**；本轮主题：W0顺序合成集成：已合入W1/W2，端到端验证进行中。
+最近更新：**2026-10-21**。当前阶段：**数据审计**；本轮主题：W0顺序合成集成：已合入W1/W2/W3，端到端验证进行中。
 
 ```mermaid
 flowchart TB
@@ -60,7 +60,7 @@ flowchart TB
 
 **本次完成事项**
 
-- 按顺序通过Desktop合入W1/W2业务文件；公共进度冲突按已核验事实整合。
+- 按顺序通过Desktop合入W1/W2/W3业务文件；公共进度冲突按已核验事实整合。
 - 保留各分支独立合成测试与交付入口；集成适配和端到端验收尚未完成。
 - 真实Data Gate仍阻塞，真实IF/AE、正式比较和性能验收NOT_RUN。
 
@@ -89,6 +89,7 @@ flowchart TB
 - [W1交付、命令、真实审计与NOT_RUN边界](<experiments/W1-HANDOFF.md>)
 - [滚动路线图、任务验收与依赖](<docs/project/ROADMAP.md>)
 - [W2-01后端运行与验证说明（SYNTHETIC_ONLY）](<src/backend/README.md>)
+- [W3前端安装、验证与NOT_RUN清单](<src/frontend/README.md>)
 
 业务可运行版本与演示：**尚无，NOT_RUN**。仓库维护工具的可运行入口见[工具说明](tools/README.md)。远端自动检查以工作流徽章和实际运行记录为准；本轮提交前为**待远端检查**。
 <!-- PROJECT-PROGRESS:END -->
