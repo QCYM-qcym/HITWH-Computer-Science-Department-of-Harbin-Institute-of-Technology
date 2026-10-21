@@ -1,10 +1,3 @@
-# 程序源码
+# 程序入口
 
-当前执行入口为[并行开发计划](../docs/superpowers/plans/2026-10-21-parallel-development.md)。用户已表达启动开发的意向；本轮完成任务规划，以下业务模块仍未实现。先由主控建立契约，再分三个独立worktree并行开发，真实训练先满足Data Gate。
-
-- `core/`：数据适配、特征处理、检测器、时间窗口、评分及评价；共享于命令行与服务。
-- `backend/`：任务管理、结果查询和API契约。
-- `frontend/`：任务提交、方法比较、报警回放与字段展示。
-
-每个模块建立入口、依赖和最小运行说明。先完成数据审计和最小检测闭环，再接入页面。
-
+W0-01已建立`src/core`可安装包和共享契约，见[契约](../docs/design/contracts-v1.md)与[环境](../docs/guides/development.md)。当前仅契约与CPU环境合成检查；检测流水线、后端和前端业务仍NOT_RUN。W1/W2/W3从主控发布的同一contract-v1提交建立独立worktree。

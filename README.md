@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-21**。当前阶段：**需求与研究问题**；本轮主题：依据开题报告V0.40制定并行开发计划。
+最近更新：**2026-10-21**。当前阶段：**需求与研究问题**；本轮主题：W0-01需求对齐、契约v1与CPU合成环境检查。
 
 ```mermaid
 flowchart TB
@@ -45,7 +45,7 @@ flowchart TB
 
 | 阶段 | 状态 | 已完成/总验收项 | 证据入口 | 下一步 |
 |---|---|---|---|---|
-| 需求与研究问题 | 进行中 | 1/3 | [清单与证据](<docs/project/ROADMAP.md>) | W0-01对齐V0.40需求与契约 |
+| 需求与研究问题 | 进行中 | 1/3 | [清单与证据](<docs/project/ROADMAP.md>) | 契约v1已建立，待最新方案确认与评审 |
 | 文献与方案 | 进行中 | 1/3 | [清单与证据](<docs/README.md>) | 精读并核对方法差异 |
 | 数据审计 | 未运行 NOT_RUN | 0/4 | [清单与证据](<data/README.md>) | 契约固定后执行数据审计 |
 | 最小基线 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | Data Gate通过后运行IF短片段闭环 |
@@ -60,25 +60,26 @@ flowchart TB
 
 **本次完成事项**
 
-- 形成开发计划V1.0，明确主控与三个独立worktree的任务和目录边界。
-- 补充数据、模型、任务API和产物契约，以及可分发的work提示。
-- 按V0.40安排IF、当前AE与历史增强AE，USAD保持补充身份。
-- 本轮为计划交付；数据、模型、实验与业务实现仍NOT_RUN。
+- 建立当前需求及旧17FR/8NFR映射，七项成果继续保留验收入口。
+- 建立共享类型、OpenAPI和合成样例，覆盖标签隔离、无效值、任务状态与漏报片段。
+- CPU小张量训练、保存重载、IF及Parquet环境检查通过，证据仅为SYNTHETIC_ONLY。
+- 独立审查问题已修复，16项契约及13项维护测试通过；真实数据、研究实验及前后端仍NOT_RUN。
 
 **当前阻塞或待验证事项**
 
-- 开题实际反馈尚待登记；旧需求/HLD与V0.40的对齐和契约定义由W0-01处理。
+- 开题实际反馈尚待登记；当前需求与契约不代表导师已确认。
 - 真实数据版本、时间标签、正常候选和切分尚未通过Data Gate。
-- 每周投入、依赖兼容及最终答辩日期待登记；业务代码与实验尚未运行。
+- GPU兼容与每周投入待登记；W1/W2/W3须从经远端核对的共同契约提交开始。
 
 **接下来最重要的三项任务**
 
-1. [W0-01](<docs/superpowers/plans/2026-10-21-parallel-development.md>)：对齐当前需求并建立接口、合成样例和环境基点。
-2. [W1-01](<docs/superpowers/plans/2026-10-21-parallel-development.md>)：契约固定后审计分钟数据，再建立隔离森林最小闭环。
-3. [W2/W3](<docs/superpowers/plans/2026-10-21-parallel-development.md>)：从同一契约基点并行开发后端任务API和模拟页面。
+1. [W0-01](<docs/project/W0-01-HANDOFF.md>)：通过Desktop提交推送并核对共同契约基点，远端CI另行确认。
+2. [W1-01](<docs/superpowers/plans/2026-10-21-parallel-development.md>)：从共同基点实现并核验数据审计，保留真实实验边界。
+3. [W2/W3](<docs/design/contracts-v1.md>)：从共同基点按OpenAPI及合成样例开发任务API和页面。
 
 **最新成果入口**
 
+- [W0-01契约交接与开发环境](<docs/project/W0-01-HANDOFF.md>)
 - [并行开发计划V1.0与各work启动提示](<docs/superpowers/plans/2026-10-21-parallel-development.md>)
 - [开题报告V0.40公开文本（15页、完整10图）](<docs/reports/开题报告-V0.40-公开文本.md>)
 - [V0.40学习手册与十图讲解](<docs/reports/开题报告-V0.40-学习与答辩准备手册.md>)

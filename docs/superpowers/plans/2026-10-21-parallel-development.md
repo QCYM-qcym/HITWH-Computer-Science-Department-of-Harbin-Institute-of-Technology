@@ -10,7 +10,7 @@
 
 **Spec:** [开题报告V0.40公开文本](../../reports/开题报告-V0.40-公开文本.md)，重点为§3、§4.1.1—4.1.7及§5；[提交规范](../../../CONTRIBUTING.md)、[仓库分区](../../project/REPOSITORY_LAYOUT.md)、[隐私规则](../../project/PRIVACY.md)。
 
-日期：2026-10-21。版本：V1.0。状态：开发计划，待审阅；所有下述任务未执行。依据现有仓库，业务目录只有说明文件，没有可复用的业务程序、依赖锁或真实实验结果。用户已表达启动开发及并行work的意向；本轮交付计划，不将该意向登记为导师批准或任何研究Gate通过。
+日期：2026-10-21。版本：V1.0。状态：W0-01本地契约与合成检查已执行，待Desktop共同基点与远端CI核对；W1/W2/W3及真实研究未执行。依据现有仓库，业务目录只有说明文件，没有可复用的业务程序、依赖锁或真实实验结果。用户已表达启动开发及并行work的意向；本轮交付计划，不将该意向登记为导师批准或任何研究Gate通过。
 
 ## Global Constraints
 
@@ -150,12 +150,13 @@ HTTP契约v1：
 
 **Interfaces:** 消费V0.40；产出上文全部数据/HTTP类型、合成样例和各模块安装/测试约定。模型类型不得在导入契约时加载PyTorch或执行训练。
 
-- [ ] 对齐旧17FR/8NFR与V0.40，逐项标保留、替代或延期；七项预期成果映射到本计划任务。登记已知开题反馈，未知反馈保持待登记，不阻断可逆环境与契约准备。
-- [ ] 编写`test_feature_width_and_label_separation`：134维被接受，133/135维及夹带标签列被拒绝；`test_mock_sample_matches_api_schema`核对字段、枚举、null及错误结构。
-- [ ] 运行`python -m pytest tests/core/test_contracts.py -q`，确认新测试先失败；再实现contracts和最小包配置，重复运行通过。
-- [ ] 在开发说明确定Python/Node及依赖版本，先验证CPU的张量训练、保存和重载；GPU单独检查，失败仍可用CPU推进，不等待CUDA阻塞前后端。
-- [ ] 冻结初版预处理顺序、配置字段、artifact格式及API；建立synthetic样例，明确其不能用于研究结论。选择SQLite/Parquet时在设计记录说明。
+- [x] 对齐旧17FR/8NFR与V0.40，逐项标保留、替代或延期；七项预期成果映射到本计划任务。登记已知开题反馈，未知反馈保持待登记，不阻断可逆环境与契约准备。
+- [x] 编写`test_feature_width_and_label_separation`：134维被接受，133/135维及夹带标签列被拒绝；`test_mock_sample_matches_api_schema`核对字段、枚举、null及错误结构。
+- [x] 运行`python -m pytest tests/core/test_contracts.py -q`，确认新测试先失败；再实现contracts和最小包配置，重复运行通过。
+- [x] 在开发说明确定Python/Node及依赖版本，先验证CPU的张量训练、保存和重载；GPU单独检查，失败仍可用CPU推进，不等待CUDA阻塞前后端。
+- [x] 冻结初版预处理顺序、配置字段、artifact格式及API；建立synthetic样例，明确其不能用于研究结论。选择SQLite/Parquet时在设计记录说明。
 - [ ] Desktop提交契约基点，检查远端哈希；W1/W2/W3从该基点出发。此任务不升级Data/Model/Experiment Gate。
+
 
 ### W1-01：数据审计与时间切分
 

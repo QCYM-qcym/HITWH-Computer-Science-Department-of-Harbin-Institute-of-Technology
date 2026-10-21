@@ -1,0 +1,79 @@
+"""Generate OpenAPI from shared contracts; --check detects schema drift."""
+import argparse
+from pathlib import Path
+import sys
+
+import yaml
+from pydantic import TypeAdapter
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "src/core"))
+from traffic_anomaly import contracts as c
+
+
+def document():
+    schemas = {}
+    for model in (c.RunRequest, c.RunAccepted, c.RunStatus, c.DatasetList, c.SeriesPage,
+                  c.Evaluation, c.MinuteDetail, c.ErrorResponse, c.Manifest, c.RunResult,
+                  c.DatasetSchema, c.SplitBoundaries, c.RunSummary, c.ChannelRow, c.LabelRow, c.ModelMetadata,
+                  c.PreprocessState):
+        schema = model.model_json_schema(ref_template="#/components/schemas/{model}")
+        schemas.update(schema.pop("$defs", {}))
+        schemas[model.__name__] = schema
+
+    def response(name):
+        return {"description": name, "content": {"application/json": {"schema": {"$ref": f"#/components/schemas/{name}"}}}}
+
+    def parameter(name, where, schema, required=False):
+        return {"name": name, "in": where, "required": required, "schema": schema}
+
+    run_id = parameter("run_id", "path", {"type": "string", "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,95}$"}, True)
+    minute_schema = TypeAdapter(c.UtcMinute).json_schema()
+    paging = [parameter("page", "query", {"type": "integer", "minimum": 1, "default": 1}),
+              parameter("page_size", "query", {"type": "integer", "minimum": 1, "maximum": 1000, "default": 100}),
+              parameter("start", "query", minute_schema),
+              parameter("end", "query", minute_schema)]
+    paths = {}
+    routes = [("/datasets", "get", "DatasetList"), ("/runs", "post", "RunAccepted"),
+              ("/runs/{run_id}", "get", "RunStatus"),
+              ("/runs/{run_id}/series", "get", "SeriesPage"),
+              ("/runs/{run_id}/alarms", "get", "SeriesPage"),
+              ("/runs/{run_id}/evaluation", "get", "Evaluation"),
+              ("/runs/{run_id}/minutes/{timestamp}", "get", "MinuteDetail")]
+    for path, method, model in routes:
+        operation = {"operationId": model + ("Alarms" if path.endswith("alarms") else ""),
+                     "responses": {"202" if method == "post" else "200": response(model),
+                                   **{str(code): response("ErrorResponse") for code in (404, 409, 422, 500)}}}
+        parameters = [run_id] if "{run_id}" in path else []
+        if model == "SeriesPage":
+            parameters += paging
+        if "{timestamp}" in path:
+            parameters += [parameter("timestamp", "path", minute_schema, True)]
+        if parameters:
+            operation["parameters"] = parameters
+        if method == "post":
+            operation["requestBody"] = {"required": True, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/RunRequest"}}}}
+        paths["/api/v1" + path] = {method: operation}
+    paths["/api/v1/runs/{run_id}/exports/{kind}"] = {"get": {
+        "operationId": "ExportRun", "parameters": [run_id, parameter("kind", "path", {"enum": ["scores", "metrics", "config"], "type": "string"}, True)],
+        "responses": {"200": {"description": "Complete-minute Parquet scores, or JSON metrics/config. Content-Disposition attachment.",
+                               "content": {"application/vnd.apache.parquet": {"schema": {"type": "string", "format": "binary"}},
+                                           "application/json": {"schema": {"oneOf": [{"$ref": "#/components/schemas/Evaluation"}, {"$ref": "#/components/schemas/RunConfig"}]}}}},
+                      **{str(code): response("ErrorResponse") for code in (404, 409, 422, 500)}}}}
+    return {"openapi": "3.1.0", "info": {"title": "Offline Traffic Anomaly API", "version": "1.0"},
+            "paths": paths, "components": {"schemas": schemas}}
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args()
+    target = ROOT / "docs/design/openapi-v1.yaml"
+    rendered = yaml.safe_dump(document(), sort_keys=False, allow_unicode=True)
+    if args.check:
+        if not target.exists() or target.read_text(encoding="utf-8") != rendered:
+            raise SystemExit("OpenAPI drift: rerun tools/contracts/export_openapi.py")
+        print("OpenAPI matches contracts")
+    else:
+        target.write_text(rendered, encoding="utf-8")
+        print("Wrote docs/design/openapi-v1.yaml")
