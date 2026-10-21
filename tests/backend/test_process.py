@@ -56,7 +56,10 @@ uvicorn.run(create_app(settings, fixture_path=Path(sys.argv[2]), executor=Block(
             run_id = request('/runs', fixture_data['request'])['run_id']
             until(lambda: request('/runs/' + run_id)['status'] == 'running')
         finally:
-            child.terminate()
+            # This test simulates a crash. On POSIX terminate() sends SIGTERM,
+            # which Uvicorn handles gracefully and then waits for Block forever.
+            # kill() is abrupt on POSIX and Windows, leaving running to recover.
+            child.kill()
             child.wait(timeout=10)
         child = launch(['-m', 'traffic_api.app', '--settings', str(settings_path), '--fixture', str(FIXTURE), '--port', str(port)], log)
         try:
