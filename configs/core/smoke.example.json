@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "synthetic-w1",
+  "split_id": "synthetic-split",
+  "method": "iforest",
+  "window_minutes": 3,
+  "seed": 42,
+  "preprocess": {
+    "version": "log1p-standard-v1",
+    "epsilon": 1e-06,
+    "quantile": 0.99,
+    "quantile_method": "linear"
+  },
+  "model": {
+    "hidden_widths": [
+      4
+    ],
+    "epochs": 1,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "n_estimators": 10,
+    "max_samples": 16
+  }
+}
