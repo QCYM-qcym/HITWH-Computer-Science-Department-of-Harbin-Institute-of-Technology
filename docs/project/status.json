@@ -1,38 +1,42 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-16",
+  "updated": "2026-10-21",
   "current_stage": "S0",
-  "theme": "答辩V0.24三分钟口语讲稿Word版",
+  "theme": "依据开题报告V0.40制定并行开发计划",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "生成两页口语讲稿Word，按PPT V0.24页码分段。",
-    "围绕六个模块说明拟做工作、解决的问题及开发技术。",
-    "两页渲染检查通过，三分钟为目标而非实测排练结果。",
-    "原报告、PPT和历史稿保留，数据、实验及业务实现仍NOT_RUN。"
+    "形成开发计划V1.0，明确主控与三个独立worktree的任务和目录边界。",
+    "补充数据、模型、任务API和产物契约，以及可分发的work提示。",
+    "按V0.40安排IF、当前AE与历史增强AE，USAD保持补充身份。",
+    "本轮为计划交付；数据、模型、实验与业务实现仍NOT_RUN。"
   ],
   "blockers": [
-    "报告V0.40与PPT V0.24待实际送审反馈；长版计时排练、完整数据核验及具体配置仍待开展。",
-    "旧需求/HLD与当前提案仍有差异；每周投入、资源预算及最终答辩日期待确定。",
-    "数据、模型、实验、原型及业务验收均NOT_RUN；尚无实验结论、业务运行版本或演示。"
+    "开题实际反馈尚待登记；旧需求/HLD与V0.40的对齐和契约定义由W0-01处理。",
+    "真实数据版本、时间标签、正常候选和切分尚未通过Data Gate。",
+    "每周投入、依赖兼容及最终答辩日期待登记；业务代码与实验尚未运行。"
   ],
   "next_tasks": [
     {
-      "id": "REV-01",
-      "text": "登记最新材料的实际送审与评审反馈，并追踪修订影响。",
-      "path": "docs/project/ROADMAP.md"
+      "id": "W0-01",
+      "text": "对齐当前需求并建立接口、合成样例和环境基点。",
+      "path": "docs/superpowers/plans/2026-10-21-parallel-development.md"
     },
     {
-      "id": "REQ-01",
-      "text": "对齐当前提案与旧需求、概要设计及验收矩阵；范围改变须有确认记录。",
-      "path": "docs/project/DECISIONS.md"
+      "id": "W1-01",
+      "text": "契约固定后审计分钟数据，再建立隔离森林最小闭环。",
+      "path": "docs/superpowers/plans/2026-10-21-parallel-development.md"
     },
     {
-      "id": "DATA-01",
-      "text": "形成数据审计计划与启动条件，待获准后才获取数据并运行审计。",
-      "path": "data/README.md"
+      "id": "W2/W3",
+      "text": "从同一契约基点并行开发后端任务API和模拟页面。",
+      "path": "docs/superpowers/plans/2026-10-21-parallel-development.md"
     }
   ],
   "entrypoints": [
+    {
+      "label": "并行开发计划V1.0与各work启动提示",
+      "path": "docs/superpowers/plans/2026-10-21-parallel-development.md"
+    },
     {
       "label": "开题报告V0.40公开文本（15页、完整10图）",
       "path": "docs/reports/开题报告-V0.40-公开文本.md"
@@ -52,10 +56,6 @@
     {
       "label": "滚动路线图、任务验收与依赖",
       "path": "docs/project/ROADMAP.md"
-    },
-    {
-      "label": "本轮复核证据与检查限制",
-      "path": "docs/project/MAINTENANCE_LOG.md"
     }
   ],
   "stages": [
@@ -64,7 +64,7 @@
       "name": "需求与研究问题",
       "status": "IN_PROGRESS",
       "entry": "docs/project/ROADMAP.md",
-      "next": "登记评审并对齐旧需求",
+      "next": "W0-01对齐V0.40需求与契约",
       "criteria": [
         {
           "id": "S0-C1",
@@ -124,7 +124,7 @@
       "name": "数据审计",
       "status": "NOT_RUN",
       "entry": "data/README.md",
-      "next": "审计计划与阶段授权",
+      "next": "契约固定后执行数据审计",
       "criteria": [
         {
           "id": "S2-C1",
@@ -157,7 +157,7 @@
       "name": "最小基线",
       "status": "NOT_RUN",
       "entry": "src/README.md",
-      "next": "数据通过后获准实现",
+      "next": "Data Gate通过后运行IF短片段闭环",
       "criteria": [
         {
           "id": "S3-C1",
