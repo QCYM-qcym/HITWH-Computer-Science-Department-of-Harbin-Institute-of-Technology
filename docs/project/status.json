@@ -2,38 +2,42 @@
   "schema_version": 1,
   "updated": "2026-10-21",
   "current_stage": "S0",
-  "theme": "W0-01开发基点验收与并行交接准备",
+  "theme": "W2-01后端任务管理与合成接口验收",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "逐项补充17FR/8NFR的V0.40出处、七项目标验收位置及未知反馈登记。",
-    "加入可执行模型兼容检查、OpenAPI内嵌请求与错误样例、对齐的四分钟独立标签样例。",
-    "21项合成契约测试通过；核心包重新安装、CPU前向训练及保存重载检查通过。",
-    "补齐目录所有权、端口/数据库/运行目录隔离和串行集成规则；W1/W2/W3尚未由主控启动。",
-    "真实数据审计、研究模型训练及正式效果实验仍NOT_RUN；本轮提交与CI由远端实际核对。"
+    "从74f163b共同契约基点建立独立W2分支，实现FastAPI与SQLite单worker任务管理。",
+    "完成活动任务409拒绝、重启恢复、统一安全错误、分页与完整白名单导出。",
+    "70项后端与核心契约测试通过，含真实HTTP进程中断恢复；全部SYNTHETIC_ONLY。",
+    "独立审查的线程退出及缺失资源原因问题已修复；核心34个锁定依赖版本保持兼容。",
+    "W2-02真实核心接入、Data Gate、真实训练及研究评价仍NOT_RUN；本轮推送和CI待远端核对。"
   ],
   "blockers": [
-    "开题实际反馈尚待登记；当前需求与契约不代表导师已确认。",
-    "真实数据版本、时间标签、正常候选和切分尚未通过Data Gate。",
-    "GPU兼容与每周投入待登记；W1/W2/W3须从经远端核对的共同契约提交开始。"
+    "真实数据尚未通过Data Gate；W2-02等待W1的IF真实闭环。",
+    "冻结OpenAPI时间查询参数正则差异已交W0核查，W2未修改公共契约。",
+    "开题实际反馈、GPU兼容与每周投入仍待登记。"
   ],
   "next_tasks": [
     {
-      "id": "W1-01",
-      "text": "待后续启动指令，从最终共同基点实施数据审计。",
-      "path": "docs/guides/development.md"
+      "id": "W2-02",
+      "text": "等待W1经Data Gate的IF闭环，接入共享核心并核对CLI/API/导出。",
+      "path": "src/backend/README.md"
     },
     {
-      "id": "W2-01",
-      "text": "待后续启动指令，按固定契约使用假执行器开发后端。",
+      "id": "W0-02",
+      "text": "由主控串行集成W2/W3，复跑后端及已有集成检查。",
+      "path": "docs/superpowers/plans/2026-10-21-parallel-development.md"
+    },
+    {
+      "id": "CONTRACT-REVIEW",
+      "text": "由W0核对时间参数正则，发布契约修正同步点。",
       "path": "docs/design/openapi-v1.yaml"
-    },
-    {
-      "id": "W3-01",
-      "text": "待后续启动指令，按统一合成样例开发页面。",
-      "path": "tests/fixtures/contracts-v1.json"
     }
   ],
   "entrypoints": [
+    {
+      "label": "W2-01后端运行与验证说明（SYNTHETIC_ONLY）",
+      "path": "src/backend/README.md"
+    },
     {
       "label": "W0-01契约交接与开发环境",
       "path": "docs/project/W0-01-HANDOFF.md"
@@ -261,7 +265,7 @@
       "name": "展示原型",
       "status": "NOT_RUN",
       "entry": "src/README.md",
-      "next": "待启动指令后按统一契约开发前后端",
+      "next": "W2合成任务API已验证；真实核心接入与网页联调待执行",
       "criteria": [
         {
           "id": "S6-C1",

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "traffic-anomaly-api"
+version = "0.1.0"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+  "traffic-anomaly-core==0.1.0", "fastapi==0.156.6", "uvicorn==0.54.0",
+  "pyarrow==26.0.0", "filelock==4.2.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "httpx==0.28.1"]
+
+[project.scripts]
+traffic-api = "traffic_api.app:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["traffic_api*"]

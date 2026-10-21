@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-21**。当前阶段：**需求与研究问题**；本轮主题：W0-01开发基点验收与并行交接准备。
+最近更新：**2026-10-21**。当前阶段：**需求与研究问题**；本轮主题：W2-01后端任务管理与合成接口验收。
 
 ```mermaid
 flowchart TB
@@ -51,7 +51,7 @@ flowchart TB
 | 最小基线 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | Data Gate通过后运行IF短片段闭环 |
 | 时间感知方法 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 依基线证据确定窗口 |
 | 对比与消融 | 未运行 NOT_RUN | 0/4 | [清单与证据](<experiments/README.md>) | 冻结统一评价协议 |
-| 展示原型 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 待启动指令后按统一契约开发前后端 |
+| 展示原型 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | W2合成任务API已验证；真实核心接入与网页联调待执行 |
 | 综合测试 | 未运行 NOT_RUN | 0/3 | [清单与证据](<tests/README.md>) | 实现后风险契约验收 |
 | 论文与答辩 | 待开始 | 0/3 | [清单与证据](<docs/README.md>) | 基于实验证据撰写 |
 | 归档与维护 | 待开始 | 0/3 | [清单与证据](<docs/project/ROADMAP.md>) | 交付后复核版本清单 |
@@ -60,26 +60,27 @@ flowchart TB
 
 **本次完成事项**
 
-- 逐项补充17FR/8NFR的V0.40出处、七项目标验收位置及未知反馈登记。
-- 加入可执行模型兼容检查、OpenAPI内嵌请求与错误样例、对齐的四分钟独立标签样例。
-- 21项合成契约测试通过；核心包重新安装、CPU前向训练及保存重载检查通过。
-- 补齐目录所有权、端口/数据库/运行目录隔离和串行集成规则；W1/W2/W3尚未由主控启动。
-- 真实数据审计、研究模型训练及正式效果实验仍NOT_RUN；本轮提交与CI由远端实际核对。
+- 从74f163b共同契约基点建立独立W2分支，实现FastAPI与SQLite单worker任务管理。
+- 完成活动任务409拒绝、重启恢复、统一安全错误、分页与完整白名单导出。
+- 70项后端与核心契约测试通过，含真实HTTP进程中断恢复；全部SYNTHETIC_ONLY。
+- 独立审查的线程退出及缺失资源原因问题已修复；核心34个锁定依赖版本保持兼容。
+- W2-02真实核心接入、Data Gate、真实训练及研究评价仍NOT_RUN；本轮推送和CI待远端核对。
 
 **当前阻塞或待验证事项**
 
-- 开题实际反馈尚待登记；当前需求与契约不代表导师已确认。
-- 真实数据版本、时间标签、正常候选和切分尚未通过Data Gate。
-- GPU兼容与每周投入待登记；W1/W2/W3须从经远端核对的共同契约提交开始。
+- 真实数据尚未通过Data Gate；W2-02等待W1的IF真实闭环。
+- 冻结OpenAPI时间查询参数正则差异已交W0核查，W2未修改公共契约。
+- 开题实际反馈、GPU兼容与每周投入仍待登记。
 
 **接下来最重要的三项任务**
 
-1. [W1-01](<docs/guides/development.md>)：待后续启动指令，从最终共同基点实施数据审计。
-2. [W2-01](<docs/design/openapi-v1.yaml>)：待后续启动指令，按固定契约使用假执行器开发后端。
-3. [W3-01](<tests/fixtures/contracts-v1.json>)：待后续启动指令，按统一合成样例开发页面。
+1. [W2-02](<src/backend/README.md>)：等待W1经Data Gate的IF闭环，接入共享核心并核对CLI/API/导出。
+2. [W0-02](<docs/superpowers/plans/2026-10-21-parallel-development.md>)：由主控串行集成W2/W3，复跑后端及已有集成检查。
+3. [CONTRACT-REVIEW](<docs/design/openapi-v1.yaml>)：由W0核对时间参数正则，发布契约修正同步点。
 
 **最新成果入口**
 
+- [W2-01后端运行与验证说明（SYNTHETIC_ONLY）](<src/backend/README.md>)
 - [W0-01契约交接与开发环境](<docs/project/W0-01-HANDOFF.md>)
 - [并行开发计划V1.0与各work启动提示](<docs/superpowers/plans/2026-10-21-parallel-development.md>)
 - [开题报告V0.40公开文本（15页、完整10图）](<docs/reports/开题报告-V0.40-公开文本.md>)
