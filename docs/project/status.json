@@ -1,39 +1,44 @@
 {
   "schema_version": 1,
   "updated": "2026-10-21",
-  "current_stage": "S0",
-  "theme": "W0-01开发基点验收与并行交接准备",
+  "current_stage": "S2",
+  "theme": "W0核验三个模块交付，真实Data Gate阻塞，尚未集成",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "逐项补充17FR/8NFR的V0.40出处、七项目标验收位置及未知反馈登记。",
-    "加入可执行模型兼容检查、OpenAPI内嵌请求与错误样例、对齐的四分钟独立标签样例。",
-    "21项合成契约测试通过；核心包重新安装、CPU前向训练及保存重载检查通过。",
-    "补齐目录所有权、端口/数据库/运行目录隔离和串行集成规则；W1/W2/W3尚未由主控启动。",
-    "真实数据审计、研究模型训练及正式效果实验仍NOT_RUN；本轮提交与CI由远端实际核对。"
+    "核对W1/W2/W3远端SHA与干净工作区，公共契约均保持74f163b内容。",
+    "主控复跑W1 73项、W2 71项、W3 22项及前端类型/构建检查，均通过；各计数包含不同公共测试，不相加。",
+    "用已有真实载荷复跑审计：训练正常候选2874、测试正常候选0，时区未知，Data Gate未通过。",
+    "只读验证W2可读取W1既有合成IF产物及详情；执行器任务ID适配与HTTP/页面联调尚未实现。",
+    "本轮接收并记录候选交付，不合并业务分支或main；真实模型训练与正式研究仍NOT_RUN。"
   ],
   "blockers": [
-    "开题实际反馈尚待登记；当前需求与契约不代表导师已确认。",
-    "真实数据版本、时间标签、正常候选和切分尚未通过Data Gate。",
-    "GPU兼容与每周投入待登记；W1/W2/W3须从经远端核对的共同契约提交开始。"
+    "冻结标签政策下测试正常分母为0，无法评价主要误报目标；不能自动将背景改为正常。",
+    "源时区、四段边界、使用条件及高负载计数口径仍待核验，真实Data Gate阻塞。",
+    "业务分支尚未合入；W1运行ID与W2任务ID需通过执行器适配统一，CLI/API/页面联调NOT_RUN。",
+    "开题实际反馈与最新方案确认仍待登记，代码交付不代表导师批准。"
   ],
   "next_tasks": [
     {
-      "id": "W1-01",
-      "text": "待后续启动指令，从最终共同基点实施数据审计。",
-      "path": "docs/guides/development.md"
+      "id": "SYNTHETIC-INTEGRATION",
+      "text": "候选下一步：单独安排模块合入与合成联调，本轮未启动。",
+      "path": "docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md"
     },
     {
-      "id": "W2-01",
-      "text": "待后续启动指令，按固定契约使用假执行器开发后端。",
-      "path": "docs/design/openapi-v1.yaml"
+      "id": "DATA-EVIDENCE",
+      "text": "核验时区与标签来源；涉及正常定义或测试范围变更时另行决定。",
+      "path": "docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md"
     },
     {
-      "id": "W3-01",
-      "text": "待后续启动指令，按统一合成样例开发页面。",
-      "path": "tests/fixtures/contracts-v1.json"
+      "id": "INTEGRATION-CI",
+      "text": "业务合入后增加模块/集成CI，通用CI不替代业务验收。",
+      "path": "docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md"
     }
   ],
   "entrypoints": [
+    {
+      "label": "W0三个模块交付接收与Data Gate复核",
+      "path": "docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md"
+    },
     {
       "label": "W0-01契约交接与开发环境",
       "path": "docs/project/W0-01-HANDOFF.md"
@@ -57,10 +62,6 @@
     {
       "label": "业务问题与研究主线及版本关系",
       "path": "docs/reports/开题答辩-V0.24-结构与版本记录.md"
-    },
-    {
-      "label": "滚动路线图、任务验收与依赖",
-      "path": "docs/project/ROADMAP.md"
     }
   ],
   "stages": [
@@ -127,9 +128,9 @@
     {
       "id": "S2",
       "name": "数据审计",
-      "status": "NOT_RUN",
-      "entry": "data/README.md",
-      "next": "契约固定后执行数据审计",
+      "status": "BLOCKED",
+      "entry": "docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md",
+      "next": "真实审计已执行但未通过：测试正常候选0、时区未知",
       "criteria": [
         {
           "id": "S2-C1",
@@ -152,8 +153,10 @@
         {
           "id": "S2-C4",
           "text": "审计脚本可复跑并保存报告与失败记录",
-          "met": false,
-          "evidence": []
+          "met": true,
+          "evidence": [
+            "docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md"
+          ]
         }
       ]
     },
@@ -162,7 +165,7 @@
       "name": "最小基线",
       "status": "NOT_RUN",
       "entry": "src/README.md",
-      "next": "Data Gate通过后运行IF短片段闭环",
+      "next": "合成核心已在W1交付；真实最小基线等待Data Gate",
       "criteria": [
         {
           "id": "S3-C1",
@@ -261,7 +264,7 @@
       "name": "展示原型",
       "status": "NOT_RUN",
       "entry": "src/README.md",
-      "next": "待启动指令后按统一契约开发前后端",
+      "next": "前后端合成交付已核验；集成和真实回放尚未执行",
       "criteria": [
         {
           "id": "S6-C1",
