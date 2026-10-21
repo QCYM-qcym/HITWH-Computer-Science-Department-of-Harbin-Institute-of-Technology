@@ -19,10 +19,12 @@ from .worker import FakeExecutor, Worker
 LOG = logging.getLogger(__name__)
 
 
-def create_app(settings: Settings, *, fixture_path: Path, executor=None):
+def create_app(settings: Settings, *, fixture_path: Path, executor=None, registration=None):
+    if registration is not None and executor is not None:
+        raise ValueError('select one registered core executor or a test executor')
     repository = Repository(settings.database)
-    worker = Worker(repository, executor if executor is not None else FakeExecutor(fixture_path), settings.output)
-    service = Service(repository, worker, fixture_path)
+    worker = Worker(repository, registration if registration is not None else executor if executor is not None else FakeExecutor(fixture_path), settings.output)
+    service = Service(repository, worker, fixture_path, registration)
 
     @asynccontextmanager
     async def lifespan(app):
@@ -107,10 +109,19 @@ def main():
     parser.add_argument('--settings', type=Path, required=True)
     parser.add_argument('--fixture', type=Path, required=True)
     parser.add_argument('--port', type=int, default=8101)
+    parser.add_argument('--core-workspace', type=Path, help='Local SYNTHETIC_ONLY registry workspace')
+    parser.add_argument('--core-config', type=Path, help='Local frozen RunConfig JSON')
+    parser.add_argument('--config-id', default='smoke-v1')
     args = parser.parse_args()
     settings = Settings.model_validate_json(args.settings.read_bytes())
+    if (args.core_workspace is None) != (args.core_config is None):
+        parser.error('--core-workspace and --core-config must be provided together')
+    registration = None
+    if args.core_workspace is not None:
+        from .core_executor import CoreRegistration
+        registration = CoreRegistration(args.core_workspace, c.RunConfig.model_validate_json(args.core_config.read_bytes()), config_id=args.config_id)
     logging.basicConfig(level=logging.INFO)
-    uvicorn.run(create_app(settings, fixture_path=args.fixture), host='127.0.0.1', port=args.port, workers=1)
+    uvicorn.run(create_app(settings, fixture_path=args.fixture, registration=registration), host='127.0.0.1', port=args.port, workers=1)
 
 
 if __name__ == '__main__':

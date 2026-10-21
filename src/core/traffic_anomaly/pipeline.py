@@ -10,9 +10,10 @@ import subprocess
 import time
 import tracemalloc
 from uuid import uuid4
+from pydantic import TypeAdapter
 import numpy as np
 from .contracts import (DatasetSchema, SplitBoundaries, RunResult, RunSummary, Manifest,
-                        ArtifactFile, ModelMetadata, MinuteBatch, LabelRow, LABEL_NAMES)
+                        ArtifactFile, ModelMetadata, MinuteBatch, LabelRow, LABEL_NAMES, Identifier)
 from .data.reader import load_minutes, load_labels
 from .data.splits import split_minutes
 from .data.audit import audit_dataset, file_sha256
@@ -52,15 +53,20 @@ def transformed_history(part, preprocess, config):
 def model_input(history, method):
     return np.hstack([history.current, history.residual]) if method == "history_ae" else history.current
 
-def execute_run(config, workspace) -> RunResult:
-    return _execute(config, Path(workspace), None)
+def execute_run(config, workspace, *, run_id=None) -> RunResult:
+    return _execute(config, Path(workspace), None, run_id)
 
-def score_run(config, workspace, model) -> RunResult:
+def score_run(config, workspace, model, *, run_id=None) -> RunResult:
     model = Path(model)
     if model.name != "model": raise ValueError("model must identify a complete run model/ directory")
-    return _execute(config, Path(workspace), model.parent)
+    return _execute(config, Path(workspace), model.parent, run_id)
 
-def _execute(config, workspace, saved):
+def _execute(config, workspace, saved, run_id):
+    # Execution identity is assigned before any fit or write, never rewritten
+    # into completed artifacts. RunConfig remains the research configuration.
+    run_id = TypeAdapter(Identifier).validate_python(run_id if run_id is not None else 'w1-' + uuid4().hex)
+    if (workspace / 'runs' / run_id).exists() or (workspace / 'runs' / ('.' + run_id + '.tmp')).exists():
+        raise FileExistsError('run identity already exists')
     started = time.perf_counter()
     batch, labels, schema, boundaries, evidence, audit = registered_input(config, workspace)
     parts = split_minutes(batch, boundaries)
@@ -93,7 +99,6 @@ def _execute(config, workspace, saved):
     nonfinite = valid & ~np.isfinite(scores)
     valid[nonfinite] = False
     alarms = valid & (scores > threshold)
-    run_id = "w1-" + uuid4().hex
     rows, channels = [], []
     errors = None
     if config.method != "iforest":

@@ -89,3 +89,9 @@ MinuteDetail 的 current、history_residual、reconstruction_error_current、rec
 Parquet 时间序列均升序无重复，转换为 JSON 时生成 RFC3339 整分钟 Z。scores 与 channels 时间轴及行数完全一致；labels 可缺时间行但不能冲突，缺标签分钟不进入评价。渠道文件的 feature_names 取 summary，模型的 feature_names 须一致。读取前核对文件摘要、config/summary/manifest/run_id/seed和模型维度；summary 有标签则清单必须含 labels.parquet。W1 的产物编排负责跨文件一致性与原子性，W2 从保存文件服务详情，不重算通道。
 
 先临时写入，检查完整清单与摘要，再原子重命名完成目录，最后提交 succeeded 状态；半成品不可被成功接口读取。仅按 run_id 和导出 kind 查清单，不拼接任意路径。
+
+## 2026-10-21 合成核心集成补充
+
+execute_run(config, workspace, *, run_id=None) 和 score_run(config, workspace, model, *, run_id=None) 支持可选运行身份；原两参数执行口继续兼容。显式ID遵守Identifier、已有输出拒绝覆盖，省略时仍自动生成。该关键字属于执行上下文，不放入研究RunConfig，不修改HTTP/模型格式1.0。后端在worker调用前已分配ID；核心所有产物直接使用它。每任务workspace内保存runs/<run_id>/，RunResult路径相对workspace，manifest文件路径相对该run目录；不能混用两个相对根。
+
+CoreRegistration启动时审计并快照可信小型合成输入、配置及登记ID，每任务输出根隔离。仅接收SYNTHETIC_ONLY，且仍经过registered_input；此适配不支持真实数据，也不能以调用者伪造AuditReport放行。前端、API和导出只读保存结果。研究数据Gate及四段真实时间边界保持原要求。

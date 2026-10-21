@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-21**。当前阶段：**数据审计**；本轮主题：W0顺序合成集成：已合入W1/W2/W3，端到端验证进行中。
+最近更新：**2026-10-21**。当前阶段：**数据审计**；本轮主题：W0合成集成通过：CLI/API/网页/导出一致；真实Data Gate仍阻塞。
 
 ```mermaid
 flowchart TB
@@ -51,7 +51,7 @@ flowchart TB
 | 最小基线 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 合成核心已在W1交付；真实最小基线等待Data Gate |
 | 时间感知方法 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 依基线证据确定窗口 |
 | 对比与消融 | 未运行 NOT_RUN | 0/4 | [清单与证据](<experiments/README.md>) | 冻结统一评价协议 |
-| 展示原型 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 前后端合成交付已核验；集成和真实回放尚未执行 |
+| 展示原型 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 合成CLI/API/网页回放与导出一致；真实联调待Data Gate，研究验收不升级 |
 | 综合测试 | 未运行 NOT_RUN | 0/3 | [清单与证据](<tests/README.md>) | 实现后风险契约验收 |
 | 论文与答辩 | 待开始 | 0/3 | [清单与证据](<docs/README.md>) | 基于实验证据撰写 |
 | 归档与维护 | 待开始 | 0/3 | [清单与证据](<docs/project/ROADMAP.md>) | 交付后复核版本清单 |
@@ -60,25 +60,28 @@ flowchart TB
 
 **本次完成事项**
 
-- 按顺序通过Desktop合入W1/W2/W3业务文件；公共进度冲突按已核验事实整合。
-- 保留各分支独立合成测试与交付入口；集成适配和端到端验收尚未完成。
-- 真实Data Gate仍阻塞，真实IF/AE、正式比较和性能验收NOT_RUN。
+- Desktop按W1→W2→W3合并；统一run_id，人工数据共享核心、HTTP、网页和三类导出一致。
+- 核心/后端/集成116项、前端22项及类型/构建/契约检查通过；页面漏报与重启恢复已核对。
+- 新增合成系统CI与quickstart；真实时区未核验、测试正常候选为0，真实训练和正式比较NOT_RUN。
 
 **当前阻塞或待验证事项**
 
-- 冻结标签政策下测试正常分母为0，无法评价主要误报目标；不能自动将背景改为正常。
-- 源时区、四段边界、使用条件及高负载计数口径仍待核验，真实Data Gate阻塞。
-- 顺序合并及任务ID适配进行中，CLI/API/页面端到端尚未验证。
-- 开题实际反馈与最新方案确认仍待登记，代码交付不代表导师批准。
+- 冻结政策下全部测试分钟blacklist>0，八标签全零正常分母为0；不自动重标。
+- 源时区未核验、四段UTC边界未冻结，数据许可第一方声明不一致；真实Data Gate仍BLOCKED。
+- 高负载计数口径、GPU、性能及异机恢复未验证；研究训练与正式比较NOT_RUN。
+- 开题反馈及方案确认仍待登记，不编造导师批准。
 
 **接下来最重要的三项任务**
 
-1. [SYNTHETIC-INTEGRATION](<docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md>)：候选下一步：单独安排模块合入与合成联调，本轮未启动。
-2. [DATA-EVIDENCE](<docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md>)：核验时区与标签来源；涉及正常定义或测试范围变更时另行决定。
-3. [INTEGRATION-CI](<docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md>)：业务合入后增加模块/集成CI，通用CI不替代业务验收。
+1. [DATA-EVIDENCE](<docs/research/2026-10-21-UGR16v3-provenance.md>)：补充v3生成链时区和许可证据；只读核查，不自动转换时钟。
+2. [PROTOCOL-DECISION](<docs/research/2026-10-21-UGR16v3-provenance.md>)：对测试无正常候选形成明确方案供用户决定；批准前保持现协议和真实Gate阻塞。
+3. [REAL-INTEGRATION](<docs/guides/quickstart.md>)：真实Data Gate通过后才安排真实短片段和W2-02；当前仅合成通过。
 
 **最新成果入口**
 
+- [W0合成CLI/API/网页/导出联调证据](<docs/project/W0-SYNTHETIC-INTEGRATION-2026-10-21.md>)
+- [合成系统快速运行](<docs/guides/quickstart.md>)
+- [UGR16v3来源、标签与时区核验](<docs/research/2026-10-21-UGR16v3-provenance.md>)
 - [W0三个模块交付接收与Data Gate复核](<docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md>)
 - [W0-01契约交接与开发环境](<docs/project/W0-01-HANDOFF.md>)
 - [并行开发计划V1.0与各work启动提示](<docs/superpowers/plans/2026-10-21-parallel-development.md>)

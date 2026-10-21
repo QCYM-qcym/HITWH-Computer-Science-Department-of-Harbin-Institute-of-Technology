@@ -12,8 +12,11 @@ LOG = logging.getLogger(__name__)
 
 
 class Service:
-    def __init__(self, repository, worker, fixture_path):
+    def __init__(self, repository, worker, fixture_path, registration=None):
         self.repository, self.worker = repository, worker
+        if registration is not None:
+            self.datasets, self.request, self.config = registration.datasets, registration.request, registration.config
+            return
         fixture = json.loads(fixture_path.read_text(encoding='utf-8'))
         self.datasets = c.DatasetList.model_validate(next(row['body'] for row in fixture['responses'] if row['schema'] == 'DatasetList'))
         self.request = c.RunRequest.model_validate(fixture['request'])

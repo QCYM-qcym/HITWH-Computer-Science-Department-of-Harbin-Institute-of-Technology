@@ -4,15 +4,17 @@
 
 ## 当前材料
 
+当前程序见[合成快速运行](guides/quickstart.md)、[W0联调记录](project/W0-SYNTHETIC-INTEGRATION-2026-10-21.md)和[UGR16v3证据核验](research/2026-10-21-UGR16v3-provenance.md)。
+
 | 用途 | 入口 | 状态 |
 |---|---|---|
-| 开发执行 | [并行开发计划V1.0](superpowers/plans/2026-10-21-parallel-development.md) | 依据V0.40；主控＋三个worktree，含任务验收和启动提示；W0已建立开发基点，业务work待后续启动 |
+| 开发执行 | [并行开发计划V1.0](superpowers/plans/2026-10-21-parallel-development.md) | 依据V0.40；主控＋三个worktree已交付并顺序合成集成；真实Gate仍阻塞 |
 | 开题报告 | [报告V0.40](reports/开题报告-V0.40-公开文本.md) | 公开正文抽取版；草稿，待评审 |
 | 报告学习 | [V0.40学习与答辩准备手册](reports/开题报告-V0.40-学习与答辩准备手册.md) | 对应54页Word V1.1，保留原基础内容，新增十图深讲与80项追问 |
 | 简短文献综述 | [综述V1.0](reports/时间感知网络流量异常检测文献综述-V1.0.md) | 约千字正文，6篇参考文献 |
 | 答辩内容 | [答辩V0.24](reports/开题答辩-V0.24-公开文本.md) | HIT模板；16页主讲＋9页隐藏备用；实际排练待开展 |
 | 讲述准备 | [V0.24逐页讲述](reports/开题答辩-V0.24-公开文本.md) | 包含逐页讲稿；实际时长另行登记 |
-| 后续工作 | [项目规划](project/ROADMAP.md) | 数据、模型、实验及系统均NOT_RUN |
+| 后续工作 | [项目规划](project/ROADMAP.md) | 真实数据Gate阻塞；合成系统已联调，真实训练与实验NOT_RUN |
 | 当前进度 | [状态源](project/status.json) | 验收及证据；README由此生成 |
 | 范围/风险 | [差异](project/DECISIONS.md) · [风险](project/RISKS.md) | 待对齐不当作已确认 |
 | 维护证据 | [复核日志](project/MAINTENANCE_LOG.md) | 本地与远端检查分开 |

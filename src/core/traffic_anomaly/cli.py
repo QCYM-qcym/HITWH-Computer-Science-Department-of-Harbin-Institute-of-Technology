@@ -13,6 +13,7 @@ def main(argv=None):
         p = commands.add_parser(command)
         p.add_argument("--config", type=Path, required=True)
         p.add_argument("--workspace", type=Path, required=True)
+        p.add_argument("--run-id", help="Optional execution identifier; existing identifiers are refused")
         if command == "score": p.add_argument("--model", type=Path, required=True)
     verify = commands.add_parser("verify"); verify.add_argument("--run", type=Path, required=True)
     audit = commands.add_parser("audit")
@@ -30,7 +31,7 @@ def main(argv=None):
         elif args.command in ("run", "score"):
             from .pipeline import execute_run, score_run
             config = RunConfig.model_validate_json(args.config.read_text(encoding="utf-8"))
-            output = (execute_run(config, args.workspace) if args.command == "run" else score_run(config, args.workspace, args.model)).model_dump(mode="json")
+            output = (execute_run(config, args.workspace, run_id=args.run_id) if args.command == "run" else score_run(config, args.workspace, args.model, run_id=args.run_id)).model_dump(mode="json")
         elif args.command == "verify":
             from .artifacts import verify_run
             manifest, summary = verify_run(args.run)

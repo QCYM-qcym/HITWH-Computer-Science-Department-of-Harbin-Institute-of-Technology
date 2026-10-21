@@ -45,3 +45,9 @@ W0 独占 contracts.py、OpenAPI、需求及根级配置；W1 独占其余 core�
 W0串行合入：契约→数据/历史→IF闭环→API→页面→AE/增强与评价。每次合并运行受影响模块测试和已有集成测试，并检查CLI/API/保存结果的一致性，再将经验证的集成提交同步给仍在工作的分支。不得在其他work未提交时切换、重置其工作区。
 
 各work按CONTRIBUTING维护本分支README/status并经Desktop提交推送。公共进度文件发生冲突时，由W0逐项核对任务、真实命令和证据，保留各自已验证进展，不简单选择ours/theirs；未经执行的研究阶段继续NOT_RUN。交付须附依赖SHA、改动文件、命令和结果、未执行项及风险。后续启动提示见主控最终交付；本说明不构成自动启动授权。
+
+## 2026-10-21 W0合成集成现状（替代上文当时的业务NOT_RUN描述）
+
+W1/W2/W3已按序通过Desktop合入codex/integration-mvp，实际入口见[快速运行](quickstart.md)与[联调记录](../project/W0-SYNTHETIC-INTEGRATION-2026-10-21.md)。本轮CPU人工数据完成共享核心、HTTP、网页与导出一致性，旧契约四分钟mock仍保留；真实W2-02和研究模型NOT_RUN。集成网页实用5175，避免占用已运行的5173；后端8102，使用TRAFFIC_API_TARGET选择代理目标。
+
+tests/core与tests/backend使用包内相对辅助导入，可在同一次pytest中收集。共同CPU依赖采用后端requirements-lock（包含核心）；前端沿用package-lock与Node24.18.x。公共契约未改字段/含义，execute_run仅新增可选执行ID，变更说明见contracts-v1补充。主控最终提交与远端核对后作为下一共同起点；不在其他work未提交时替其更新checkout。
