@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-21**。当前阶段：**数据审计**；本轮主题：W0合成集成通过：CLI/API/网页/导出一致；真实Data Gate仍阻塞。
+最近更新：**2026-10-21**。当前阶段：**数据审计**；本轮主题：Data Gate阻塞核查完成：真实计数不变、解析防御已修复；真实短片段NOT_RUN。
 
 ```mermaid
 flowchart TB
@@ -47,7 +47,7 @@ flowchart TB
 |---|---|---|---|---|
 | 需求与研究问题 | 进行中 | 1/3 | [清单与证据](<docs/project/ROADMAP.md>) | W0契约基点具备，最新开题反馈及方案确认待登记 |
 | 文献与方案 | 进行中 | 1/3 | [清单与证据](<docs/README.md>) | 精读并核对方法差异 |
-| 数据审计 | 阻塞 | 1/4 | [清单与证据](<docs/project/W0-DELIVERY-ACCEPTANCE-2026-10-21.md>) | 真实审计已执行但未通过：测试正常候选0、时区未知 |
+| 数据审计 | 阻塞 | 1/4 | [清单与证据](<docs/project/DATA-GATE-2026-10-21.md>) | 结构与连接已核实；绝对时间/许可未清、正常分母0，四段未冻结 |
 | 最小基线 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 合成核心已在W1交付；真实最小基线等待Data Gate |
 | 时间感知方法 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 依基线证据确定窗口 |
 | 对比与消融 | 未运行 NOT_RUN | 0/4 | [清单与证据](<experiments/README.md>) | 冻结统一评价协议 |
@@ -60,26 +60,29 @@ flowchart TB
 
 **本次完成事项**
 
-- 远端首次集成CI暴露POSIX崩溃测试使用SIGTERM导致等待阻塞；改用硬终止模拟崩溃，本地回归通过，等待新CI。
-- Desktop按W1→W2→W3合并；统一run_id，人工数据共享核心、HTTP、网页和三类导出一致。
-- 核心/后端/集成116项、前端22项及类型/构建/契约检查通过；页面漏报与重启恢复已核对。
-- 新增合成系统CI与quickstart；真实时区未核验、测试正常候选为0，真实训练和正式比较NOT_RUN。
+- A标签/B时间/C来源三并行独立复核，五文件与官方blob一致；测试正常0确认属于载荷与既有政策。
+- 修复非法标签/错序、纳秒截断、等价偏移去重、ns越界切分及原序审计；真实计数不变。
+- 本轮核心/集成79项、前端23项及类型/契约检查通过；零正常FPR保留null与原因。
+- 时区与v3桶端点未确认，许可声明重叠差异未解决，四段NOT_DEFINED；Data Gate BLOCKED，真实训练和正式比较NOT_RUN。
 
 **当前阻塞或待验证事项**
 
-- 冻结政策下全部测试分钟blacklist>0，八标签全零正常分母为0；不自动重标。
-- 源时区未核验、四段UTC边界未冻结，数据许可第一方声明不一致；真实Data Gate仍BLOCKED。
-- 高负载计数口径、GPU、性能及异机恢复未验证；研究训练与正式比较NOT_RUN。
-- 开题反馈及方案确认仍待登记，不编造导师批准。
+- 测试全部blacklist>0，冻结八标签政策下正常候选0，正式正常FPR不可估计；不得自动重标。
+- v3时区/DST、桶端点与四段UTC边界未确定；代码修复不提供真实时间证据。
+- DMP数据GPL3与论文数据CC-BY-NC覆盖同一派生数据，声明关系与CC版本仍待确认；不再分发载荷。
+- 高负载口径、GPU、性能、异机恢复及最新开题反馈仍待核验；真实训练和正式实验NOT_RUN。
 
 **接下来最重要的三项任务**
 
-1. [DATA-EVIDENCE](<docs/research/2026-10-21-UGR16v3-provenance.md>)：补充v3生成链时区和许可证据；只读核查，不自动转换时钟。
-2. [PROTOCOL-DECISION](<docs/research/2026-10-21-UGR16v3-provenance.md>)：对测试无正常候选形成明确方案供用户决定；批准前保持现协议和真实Gate阻塞。
-3. [REAL-INTEGRATION](<docs/guides/quickstart.md>)：真实Data Gate通过后才安排真实短片段和W2-02；当前仅合成通过。
+1. [DATA-CLARIFICATION](<docs/guides/real-validation-preflight.md>)：补充版本特定的时区、桶端点、许可关系及blacklist全覆盖官方说明；不自行发信。
+2. [RQ-DECISION](<docs/project/DATA-GATE-2026-10-21.md>)：推荐保留现协议待证据；背景报警率补充或更换数据须用户明确决定后实施。
+3. [REAL-SHORT-PREFLIGHT](<docs/guides/real-validation-preflight.md>)：相关Gate满足后才冻结四段/配置/资源并先做真实IF短片段，本轮未执行。
 
 **最新成果入口**
 
+- [Data Gate本轮分项判定与待决方案](<docs/project/DATA-GATE-2026-10-21.md>)
+- [真实短片段准备与下一阶段完整提示](<docs/guides/real-validation-preflight.md>)
+- [标签、时间与来源许可核查](<docs/research/2026-10-21-data-gate-label-audit.md>)
 - [W0合成CLI/API/网页/导出联调证据](<docs/project/W0-SYNTHETIC-INTEGRATION-2026-10-21.md>)
 - [合成系统快速运行](<docs/guides/quickstart.md>)
 - [UGR16v3来源、标签与时区核验](<docs/research/2026-10-21-UGR16v3-provenance.md>)

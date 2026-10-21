@@ -49,3 +49,29 @@ def test_missing_columns_or_fractional_labels_rejected(tmp_path, schema):
     p.write_text("timestamp,value\n2026-01-01T00:00:00Z,1\n", encoding="utf-8")
     with pytest.raises(ValueError, match="columns"):
         load_minutes(p, schema)
+
+def test_nonzero_submicrosecond_timestamp_cannot_be_truncated(tmp_path, schema):
+    p = write_csv(tmp_path / 'precision.csv', [('2026-01-01T00:00:00.000000001Z', 1, {})])
+    with pytest.raises(ValueError, match='minute'):
+        load_minutes(p, schema)
+    assert not audit_dataset(p, schema).passed
+
+def test_equivalent_explicit_offsets_deduplicate_by_instant(tmp_path, schema):
+    p = write_csv(tmp_path / 'offsets.csv', [('2026-01-01T00:00:00Z', 1, {}),
+        ('2026-01-01T01:00:00+01:00', 1, {})])
+    b = load_minutes(p, schema)
+    assert len(b.timestamps) == 1 and b.row_valid.tolist() == [True]
+    assert load_labels(p, schema).labels['dos'].tolist() == [0]
+    assert audit_dataset(p, schema).passed
+
+def test_audit_retains_original_order_before_sorting(tmp_path, schema):
+    p = write_csv(tmp_path / 'order.csv', [
+        ('2026-01-01T00:02:00Z', 1, {}), ('2026-01-01T00:00:00Z', 1, {}),
+        ('2026-01-01T00:01:00Z', 1, {}), ('2026-01-01T00:00:00Z', 1, {})])
+    assert 'original_reverse_steps=2' in audit_dataset(p, schema).findings
+
+def test_source_outside_ns_range_fails_before_grouping(tmp_path, schema):
+    from traffic_anomaly.data.reader import read_rows
+    p = write_csv(tmp_path / 'range.csv', [('2500-01-01T00:00:00Z', 1, {})])
+    with pytest.raises(ValueError, match='range'):
+        read_rows(p, schema)

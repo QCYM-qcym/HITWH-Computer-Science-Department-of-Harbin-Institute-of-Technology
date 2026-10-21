@@ -1,11 +1,13 @@
 """Read canonical CSV, never infer UGR timestamps from row numbers."""
 import csv
+import re
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 import numpy as np
 from ..contracts import DatasetSchema, MinuteBatch, LabelBatch, LABEL_NAMES
+from .clock import utc_nanosecond_minute
 
-def read_rows(source, schema: DatasetSchema):
+def read_rows(source, schema: DatasetSchema, *, include_order=False):
     try:
         zone = timezone.utc if schema.source_timezone == "UTC" else ZoneInfo(schema.source_timezone)
     except (ValueError, KeyError) as exc:
@@ -20,9 +22,14 @@ def read_rows(source, schema: DatasetSchema):
             raise ValueError("columns must match timestamp, ordered 134 features, optional eight labels")
         has_labels = fields == expected + list(LABEL_NAMES)
         grouped = {}
+        source_axis = []
         for row in reader:
             if None in row or any(value is None for value in row.values()):
                 raise ValueError("incomplete columns")
+            # datetime discards digits beyond microseconds; inspect the original
+            # fractional text before parsing, so 1ns cannot silently become 0.
+            if any(int(digits) for digits in re.findall(r'[.,](\d+)', row['timestamp'])):
+                raise ValueError('timestamps must identify a whole minute')
             stamp = datetime.fromisoformat(row["timestamp"])
             if stamp.second or stamp.microsecond:
                 raise ValueError("timestamps must identify a whole minute")
@@ -32,9 +39,18 @@ def read_rows(source, schema: DatasetSchema):
                 if a.utcoffset() != b.utcoffset():
                     raise ValueError("ambiguous timezone offset")
                 stamp = a
-            stamp = np.datetime64(stamp.astimezone(timezone.utc).replace(tzinfo=None), "ns")
+            stamp = utc_nanosecond_minute(stamp)
+            source_axis.append(stamp)
             grouped.setdefault(stamp, []).append(row)
+    if include_order:
+        return grouped, has_labels, np.array(source_axis, dtype='datetime64[ns]')
     return grouped, has_labels
+
+def conflicting_rows(rows):
+    # Time aliases already share one UTC key; preserve original strings in rows
+    # while comparing the actual feature/label payload for deduplication.
+    payloads = [{key: value for key, value in row.items() if key != 'timestamp'} for row in rows]
+    return any(value != payloads[0] for value in payloads[1:])
 
 def segments(timestamps, valid):
     ids = np.zeros(len(timestamps), np.int64)
@@ -49,7 +65,7 @@ def load_minutes(source, schema: DatasetSchema) -> MinuteBatch:
     valid = np.zeros(len(times), bool)
     for i, t in enumerate(times):
         rows = grouped[t]
-        if any(row != rows[0] for row in rows[1:]):
+        if conflicting_rows(rows):
             continue
         try:
             with np.errstate(over="ignore", invalid="ignore"):
@@ -67,7 +83,7 @@ def load_labels(source, schema: DatasetSchema) -> LabelBatch:
     labels = {k: np.zeros(len(times), np.int64) for k in LABEL_NAMES}
     for i, t in enumerate(times):
         rows = grouped[t]
-        if any(row != rows[0] for row in rows[1:]):
+        if conflicting_rows(rows):
             raise ValueError("conflicting minute cannot be assigned labels")
         for k in LABEL_NAMES:
             try:

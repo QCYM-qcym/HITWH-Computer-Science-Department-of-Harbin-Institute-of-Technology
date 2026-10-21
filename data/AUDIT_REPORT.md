@@ -48,3 +48,9 @@
 ```
 
 预期返回码2，表示 Data Gate 未通过；完整 JSON 保存在本地。此命令实际执行，结果不是计划或模拟值。规范 CSV 审计另用 `audit --source <CSV> --schema <DatasetSchema JSON> --report <本地JSON>`。
+
+## 2026-10-21 W0阻塞复核增量
+
+本轮重新运行provider-audit-v2，对五文件逐值/时间轴和官方Git blob复核，计数及SHA256与上表一致；structure_trusted=true仅指结构，gate_passed=false、退出码2。新增未知标签、逐标签/重叠、未匹配和四段NOT_DEFINED/null审计。未运行真实模型。详见[标签核查](../docs/research/2026-10-21-data-gate-label-audit.md)、[时间证据](../docs/research/2026-10-21-data-gate-time-semantics.md)、[许可对照](../docs/research/2026-10-21-data-gate-source-license.md)与[统一Gate决定](../docs/project/DATA-GATE-2026-10-21.md)。
+
+旧提供方审计对损坏标签和错序缺少保护，本轮最小失败测试后修复；原始真实载荷没有触发，修复前后分类无差异。classM辅助字段实为HHMM编码，不能用来作分钟差。UTC、许可关系、三开发段和正式FPR目标继续阻塞。

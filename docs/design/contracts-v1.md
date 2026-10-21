@@ -95,3 +95,7 @@ Parquet 时间序列均升序无重复，转换为 JSON 时生成 RFC3339 整分
 execute_run(config, workspace, *, run_id=None) 和 score_run(config, workspace, model, *, run_id=None) 支持可选运行身份；原两参数执行口继续兼容。显式ID遵守Identifier、已有输出拒绝覆盖，省略时仍自动生成。该关键字属于执行上下文，不放入研究RunConfig，不修改HTTP/模型格式1.0。后端在worker调用前已分配ID；核心所有产物直接使用它。每任务workspace内保存runs/<run_id>/，RunResult路径相对workspace，manifest文件路径相对该run目录；不能混用两个相对根。
 
 CoreRegistration启动时审计并快照可信小型合成输入、配置及登记ID，每任务输出根隔离。仅接收SYNTHETIC_ONLY，且仍经过registered_input；此适配不支持真实数据，也不能以调用者伪造AuditReport放行。前端、API和导出只读保存结果。研究数据Gate及四段真实时间边界保持原要求。
+
+## Data Gate重审补充（字段版本不变）
+
+现有Metrics的null及undefined_reasons继续表达无分母，不新增0分占位或私有枚举。provider-audit-v2是CLI聚合审计报告版本，不是HTTP/模型契约版本；其structure_trusted仅说明字段/计数/文件对齐，不证明UTC或整体Gate。作者train/test与project_splits四段严格区分；后者未冻结时status=NOT_DEFINED、计数null。审计细项见[公开聚合报告](../research/data-gate-2026-10-21-audit.json)。

@@ -4,6 +4,8 @@
 
 ## 当前材料
 
+Data Gate最新判定：[阻塞核查](project/DATA-GATE-2026-10-21.md)，真实验证准备与下一完整提示见[preflight](guides/real-validation-preflight.md)。
+
 当前程序见[合成快速运行](guides/quickstart.md)、[W0联调记录](project/W0-SYNTHETIC-INTEGRATION-2026-10-21.md)和[UGR16v3证据核验](research/2026-10-21-UGR16v3-provenance.md)。
 
 | 用途 | 入口 | 状态 |

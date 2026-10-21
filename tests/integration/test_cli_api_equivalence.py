@@ -116,3 +116,39 @@ def test_core_registration_cannot_enable_real_data(tmp_path):
     config = RunConfig.model_validate_json((ROOT / 'configs/core/smoke.example.json').read_bytes())
     with pytest.raises(ValueError, match='synthetic'):
         CoreRegistration(tmp_path, config, config_id='smoke-v1')
+
+
+def test_no_normal_test_minutes_keep_fpr_null_in_cli_http_and_export(tmp_path):
+    import csv
+    from traffic_api.core_executor import CoreRegistration
+    source = tmp_path / 'source'; create_demo_workspace(source)
+    data = source / 'synthetic.csv'
+    with data.open(newline='') as f:
+        reader = csv.DictReader(f); fields = reader.fieldnames; rows = list(reader)
+    # Only artificial test labels change; training/calibration remain independent.
+    for row in rows[120:]: row['blacklist'] = '1'
+    with data.open('w', newline='') as f:
+        writer = csv.DictWriter(f, fields); writer.writeheader(); writer.writerows(rows)
+    config_path = ROOT / 'configs/core/smoke.example.json'
+    config = RunConfig.model_validate_json(config_path.read_bytes())
+    registration = CoreRegistration(source, config, config_id='smoke-v1')
+    settings = Settings(database=tmp_path / 'tasks.sqlite3', output=tmp_path / 'output')
+    with TestClient(create_app(settings, fixture_path=FIXTURE, registration=registration)) as client:
+        rid = client.post('/api/v1/runs', json=registration.request.model_dump()).json()['run_id']
+        deadline = time.monotonic() + 20
+        while time.monotonic() < deadline:
+            state = client.get(f'/api/v1/runs/{rid}').json()
+            if state['status'] in ('failed', 'succeeded'): break
+            time.sleep(.02)
+        assert state['status'] == 'succeeded', state
+        evaluation = client.get(f'/api/v1/runs/{rid}/evaluation').json()
+        assert evaluation['normal_coverage'] == {'eligible': 0, 'total': 0}
+        assert evaluation['metrics']['fpr'] is None
+        assert 'fpr' in evaluation['metrics']['undefined_reasons']
+        assert client.get(f'/api/v1/runs/{rid}/exports/metrics').json() == evaluation
+        cli = subprocess.run([sys.executable, '-m', 'traffic_anomaly.cli', 'run',
+            '--workspace', str(source), '--config', str(config_path), '--run-id', rid],
+            capture_output=True, text=True, check=True)
+        result = json.loads(cli.stdout)
+        saved = (source / result['manifest_path']).parent
+        assert json.loads((saved / 'metrics.json').read_bytes()) == evaluation

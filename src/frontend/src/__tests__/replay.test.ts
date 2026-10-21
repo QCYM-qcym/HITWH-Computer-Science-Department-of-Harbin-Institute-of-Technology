@@ -7,6 +7,24 @@ import { chartData } from '../components/chart-data'
 import App from '../App.vue'
 
 describe('replay and evaluation UI', () => {
+  it('shows zero-normal FPR as unavailable with its denominator reason, never zero percent', async () => {
+    const api = createMockApi(), original = api.evaluation
+    api.evaluation = async id => ({ ...await original(id),
+      normal_coverage: { eligible: 0, total: 0 },
+      metrics: { tp: 0, fp: 0, tn: 0, fn: 1, precision: null,
+        recall: 0, f1: 0, fpr: null, undefined_reasons: ['precision', 'fpr'] },
+    })
+    const pinia = createPinia(), store = useWorkspaceStore(pinia); store.setApi(api)
+    const wrapper = mount(App, { global: { plugins: [pinia] } })
+    await flushPromises(); await store.openRun('synthetic-succeeded'); await flushPromises()
+    await wrapper.get('[data-nav="comparison"]').trigger('click')
+    const card = wrapper.findAll('.metric-strip article').find(x => x.text().includes('正常误报率'))!
+    expect(card.text()).toContain('不可评价')
+    expect(card.text()).not.toContain('0.0%')
+    expect(wrapper.text()).toContain('precision、fpr')
+    expect(store.evaluation?.metrics?.fpr).toBeNull()
+    wrapper.unmount()
+  })
   it('keeps warmup / missing time as gaps and preserves alarms while sampling', async () => {
     const page = await createMockApi().series('synthetic-run', {})
     const data = chartData(page.items, 2)

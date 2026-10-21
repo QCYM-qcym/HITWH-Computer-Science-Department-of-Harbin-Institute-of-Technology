@@ -13,7 +13,8 @@ def file_sha256(path):
 def audit_dataset(source, schema) -> AuditReport:
     findings, passed, count = [], False, 0
     try:
-        grouped, has_labels = read_rows(source, schema)
+        grouped, has_labels, source_axis = read_rows(source, schema, include_order=True)
+        findings.append(f'original_reverse_steps={int((np.diff(source_axis) < np.timedelta64(0, "ns")).sum())}')
         b = load_minutes(source, schema)
         count = len(b.timestamps)
         duplicates = sum(len(rows) - 1 for rows in grouped.values())
