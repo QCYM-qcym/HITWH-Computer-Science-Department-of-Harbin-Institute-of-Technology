@@ -1,0 +1,35 @@
+{
+  "name": "traffic-anomaly-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "24.18.x" },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
+    "preview": "vite preview --host 127.0.0.1 --port 5173 --strictPort",
+    "test": "vitest",
+    "typecheck": "vue-tsc --noEmit",
+    "build": "vite build",
+    "contracts:generate": "node scripts/contracts.mjs",
+    "contracts:check": "node scripts/contracts.mjs --check"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "echarts": "6.1.0",
+    "pinia": "4.1.0",
+    "vue": "3.5.44"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "@vitejs/plugin-vue": "6.0.10",
+    "@vue/test-utils": "2.5.1",
+    "jsdom": "30.1.3",
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.9.3",
+    "vite": "8.3.5",
+    "vitest": "5.0.5",
+    "vue-tsc": "3.3.13",
+    "yaml": "2.9.1"
+  }
+}

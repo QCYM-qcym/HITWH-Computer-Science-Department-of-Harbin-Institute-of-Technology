@@ -2,38 +2,42 @@
   "schema_version": 1,
   "updated": "2026-10-21",
   "current_stage": "S0",
-  "theme": "W0-01开发基点验收与并行交接准备",
+  "theme": "W3-01前端与合成结果展示验收",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "逐项补充17FR/8NFR的V0.40出处、七项目标验收位置及未知反馈登记。",
-    "加入可执行模型兼容检查、OpenAPI内嵌请求与错误样例、对齐的四分钟独立标签样例。",
-    "21项合成契约测试通过；核心包重新安装、CPU前向训练及保存重载检查通过。",
-    "补齐目录所有权、端口/数据库/运行目录隔离和串行集成规则；W1/W2/W3尚未由主控启动。",
-    "真实数据审计、研究模型训练及正式效果实验仍NOT_RUN；本轮提交与CI由远端实际核对。"
+    "从指定W0基点建立独立前端分支，实现数据、任务、异常分析和实验对比四个页面。",
+    "沿用统一OpenAPI和四分钟合成样例，锁定Node24.18下依赖并通过npm ci恢复。",
+    "页面保留预热空值、独立漏报入口和分开的解释通道；指标读取完整任务评价。",
+    "已完成前端测试、类型检查、构建及桌面/窄屏核查；最终验证与限制见前端说明。",
+    "当前仅SYNTHETIC_ONLY；真实HTTP、CLI一致性、数据与研究实验仍NOT_RUN。"
   ],
   "blockers": [
-    "开题实际反馈尚待登记；当前需求与契约不代表导师已确认。",
-    "真实数据版本、时间标签、正常候选和切分尚未通过Data Gate。",
-    "GPU兼容与每周投入待登记；W1/W2/W3须从经远端核对的共同契约提交开始。"
+    "W3真实接入等待W2接口与W1经核验产物；合成页面不代表系统端到端验收。",
+    "真实数据和研究Gate尚未通过，开题反馈、每周投入与GPU兼容按主控记录继续登记。",
+    "公共进度由W0合入时逐项整合；本分支不替其他work升级状态或合并main。"
   ],
   "next_tasks": [
     {
-      "id": "W1-01",
-      "text": "待后续启动指令，从最终共同基点实施数据审计。",
-      "path": "docs/guides/development.md"
+      "id": "W3-HTTP",
+      "text": "W2接口和W1产物就绪后切换HTTP模式，复跑页面与导出核查。",
+      "path": "src/frontend/README.md"
     },
     {
-      "id": "W2-01",
-      "text": "待后续启动指令，按固定契约使用假执行器开发后端。",
-      "path": "docs/design/openapi-v1.yaml"
+      "id": "W0-02",
+      "text": "由主控串行集成，核对CLI/API/页面的完整分钟及导出一致性。",
+      "path": "docs/superpowers/plans/2026-10-21-parallel-development.md"
     },
     {
-      "id": "W3-01",
-      "text": "待后续启动指令，按统一合成样例开发页面。",
-      "path": "tests/fixtures/contracts-v1.json"
+      "id": "W1-04",
+      "text": "真实数据通过Gate后验证历史增强与共同分钟评价，页面仅消费产物。",
+      "path": "docs/superpowers/plans/2026-10-21-parallel-development.md"
     }
   ],
   "entrypoints": [
+    {
+      "label": "W3前端安装、验证与NOT_RUN清单",
+      "path": "src/frontend/README.md"
+    },
     {
       "label": "W0-01契约交接与开发环境",
       "path": "docs/project/W0-01-HANDOFF.md"
@@ -261,7 +265,7 @@
       "name": "展示原型",
       "status": "NOT_RUN",
       "entry": "src/README.md",
-      "next": "待启动指令后按统一契约开发前后端",
+      "next": "W3合成页面已实现；真实任务、持久化和CLI一致性等待W1/W2与集成验收",
       "criteria": [
         {
           "id": "S6-C1",
