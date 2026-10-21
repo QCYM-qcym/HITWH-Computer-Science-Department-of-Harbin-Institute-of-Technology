@@ -1,5 +1,5 @@
 import numpy as np
-from conftest import batch, labels_for
+from .conftest import batch, labels_for
 from traffic_anomaly.evaluation.metrics import evaluate
 
 def test_confusion_coverage_background_and_completely_missed_episode():

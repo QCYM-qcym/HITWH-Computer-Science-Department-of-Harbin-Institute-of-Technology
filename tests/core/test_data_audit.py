@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from conftest import write_csv
+from .conftest import write_csv
 from traffic_anomaly.data.reader import load_minutes, load_labels
 from traffic_anomaly.data.audit import audit_dataset
 

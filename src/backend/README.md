@@ -1,0 +1,52 @@
+# W2-01 后端与任务管理
+
+日期：2026-10-21。版本：0.1.0。状态：**SYNTHETIC_ONLY**。共同基点为 `codex/integration-mvp` 的 `74f163bf69559f02ad70ae1d5bb730e1f10d15bf`，开发分支为 `codex/backend-tasks`。仅实现 W2-01，不合并 main。
+
+后端使用冻结的核心类型与统一 fixture：FastAPI 接收登记 ID，SQLite 事务及唯一索引限制一个 queued/running 任务，独立后台线程执行，文件锁限制同一数据库只有一个服务拥有 worker。请求不等待执行完成。状态只按 queued→running→succeeded/failed 转移，queued 登记后失败可直接 failed；终态不能回退。重启将旧 running 标为 failed/WORKER_INTERRUPTED，持久化 queued 继续处理。线程异常退出会记录失败；短暂存储错误会暂停接收并重试失败状态写入。持久性存储故障仍需要恢复存储或重启服务。
+
+## 安装与运行
+
+从本 worktree 根目录执行，Python 3.14，每个 worktree 独立环境。锁文件包含核心 CPU 锁的全部固定版本与后端新增依赖；不含 editable 路径。首次从完整锁安装，再安装两个本地包。
+
+```powershell
+python -m venv .venv
+.venv\Scripts\python -m pip install -r src/backend/requirements-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu
+.venv\Scripts\python -m pip install -e src/core -e src/backend --no-build-isolation
+.venv\Scripts\python -m pip check
+.venv\Scripts\python -m traffic_api.app --settings configs/backend/settings.example.json --fixture tests/fixtures/contracts-v1.json --port 8101
+```
+
+仅监听 127.0.0.1，单 Uvicorn worker。示例设置使用忽略的 `.runtime/w2/` 存数据库、运行目录与锁。启动命令从工作区根目录执行；自定义设置可保存到忽略的 `configs/backend/settings.local.json`，参数路径按启动目录解析。不要与 W0/W1/W3 共享可写数据库、输出目录或环境。端口占用时另选空闲端口。关闭服务会等待当前执行结束后释放锁；异常进程终止则在下一次启动时恢复任务状态，不继续半成品。
+
+```powershell
+$body = @{ dataset_id='synthetic-v1'; split_id='split-v1'; method='iforest'; config_id='smoke-v1' } | ConvertTo-Json
+$task = Invoke-RestMethod http://127.0.0.1:8101/api/v1/runs -Method Post -ContentType application/json -Body $body
+Invoke-RestMethod "http://127.0.0.1:8101/api/v1/runs/$($task.run_id)"
+Invoke-RestMethod "http://127.0.0.1:8101/api/v1/runs/$($task.run_id)/series?page=1&page_size=2"
+```
+
+## 接口与产物
+
+实现 datasets、提交/状态、series、alarms、evaluation、minutes/{timestamp}、exports/{kind}。分页从 1 开始，page_size 默认 100、最大 1000；按整分钟 UTC timestamp 升序，范围 [start,end)，total 为筛选后总记录数。空结果为空列表，预热分数保持 null。alarms 只返回有效报警。评价与详情通道直接读取保存文件，后端不重算指标、历史偏离或模型分数。scores 导出完整 Parquet，metrics/config 导出保存 JSON；导出忽略页面分页，kind 严格白名单，不接受服务器路径。
+
+读取前核验清单全部摘要、文件类型、任务/配置/种子/模型一致性、完整分钟轴与行数。FakeExecutor 在临时目录写入并验证后重命名，再允许 succeeded。失败或半成品无法作为成功结果读取，成功后损坏的文件也拒绝服务。日志保留本地诊断；公共响应统一 error.code/message/details，禁止异常原文、堆栈或私人路径。
+
+既有错误码保持：404 NOT_FOUND，409 RUN_BUSY/RESULT_NOT_READY，422 VALIDATION_ERROR，500 EXECUTION_FAILED。重启原因 WORKER_INTERRUPTED 存于任务错误。固定 details 标签区分 DATASET_UNAVAILABLE、MODEL_NOT_FOUND、RESULT_MISSING、ARTIFACT_INVALID、WORKER_UNAVAILABLE；标签来自代码内白名单，不能来自异常文本。
+
+FakeExecutor 只复制统一 fixture 的手工分数、配置与评价，模型载荷是显式 SYNTHETIC_ONLY 的 JSON 占位，未训练任何模型。首版只接受 fixture 的 synthetic-v1/split-v1/iforest/smoke-v1 组合，H=1。其余方法需待注册与真实核心接入，不能生成假 AE 结果。manifest 的 code_commit 为本轮共同基点，用于合成开发身份；不作为真实实验溯源。
+
+## 验证与交接
+
+```powershell
+.venv\Scripts\python -m pytest tests/backend tests/core/test_contracts.py -q
+.venv\Scripts\python -m unittest discover -s tests/repository -p 'test_*.py'
+.venv\Scripts\python tools/contracts/export_openapi.py --check
+.venv\Scripts\python -X utf8 tools/repository/update_progress.py --check
+.venv\Scripts\python -X utf8 tools/repository/check_repository.py --worktree --check-author
+```
+
+后端测试覆盖生命周期、8 个并发提交只接受 1 个、统一 404/409/422/500、执行失败、SystemExit、短暂数据库读写故障、终态不可回退、单服务所有权、分页和范围、保存评价/详情、完整导出、空结果/缺标签、清单损坏及半成品拒绝。进程级测试启动真实 localhost HTTP 服务，在 running 时终止进程，再启动确认失败与新任务成功；测试使用临时空闲端口及独立数据库。仅测试合成流程，不加载研究模型。
+
+独立审查的两项重要问题已通过失败测试复现并修复：线程异常终止与缺失资源原因区分。Starlette 对 httpx TestClient 给出弃用警告，当前接口测试通过，未来依赖升级再处理。此前对冻结 OpenAPI 时间参数转义的怀疑，经 W0 与 W2 的字符码及匹配检查确认是展示误读，5 处正则均与 UtcMinute 一致，无需修改契约；已新增回归检查。公共契约文件保持基点内容。最终测试数与提交/远端状态以本轮交付回复为准。
+
+W2-02、真实数据 Data Gate、IF 真实闭环、CLI/API 数值等价、真实网页联调、真实研究指标及性能验收均 **NOT_RUN**。W1 满足 Data Gate 并交付 IF 后才接 execute_run；后端不会另写评分或评价算法。W0 集成时需运行后端测试；当前仓库远端 CI 只检查仓库规范与核心契约，不能将其通过当作后端测试已在远端运行。

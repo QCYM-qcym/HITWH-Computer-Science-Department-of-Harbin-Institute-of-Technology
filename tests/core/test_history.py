@@ -1,5 +1,5 @@
 import numpy as np
-from conftest import batch
+from .conftest import batch
 from traffic_anomaly.features.history import build_history
 
 def test_median_mad_causal_and_signed():

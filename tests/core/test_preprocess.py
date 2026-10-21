@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from conftest import NAMES
+from .conftest import NAMES
 from traffic_anomaly.features.preprocess import Preprocessor
 
 def test_log_then_train_only_scale_and_reload(tmp_path):

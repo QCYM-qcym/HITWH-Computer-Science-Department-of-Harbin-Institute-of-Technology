@@ -1,7 +1,7 @@
 import json
 import numpy as np
 import pytest
-from conftest import NAMES
+from .conftest import NAMES
 from traffic_anomaly.contracts import RunConfig
 from traffic_anomaly.pipeline import execute_run, score_run
 from traffic_anomaly.artifacts import verify_run, load_model, read_table, SCORES_SCHEMA

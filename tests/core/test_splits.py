@@ -1,5 +1,5 @@
 import numpy as np
-from conftest import batch
+from .conftest import batch
 from traffic_anomaly.contracts import SplitBoundaries
 from traffic_anomaly.data.splits import split_minutes
 

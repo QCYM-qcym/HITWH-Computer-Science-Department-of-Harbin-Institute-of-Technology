@@ -1,4 +1,4 @@
-from conftest import batch, labels_for
+from .conftest import batch, labels_for
 from traffic_anomaly.data.labels import classify_labels, align_labels
 
 def test_normal_background_overlap_and_missing_label_identity():

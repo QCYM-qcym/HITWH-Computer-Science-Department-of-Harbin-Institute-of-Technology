@@ -1,4 +1,4 @@
-from conftest import batch, labels_for
+from .conftest import batch, labels_for
 from traffic_anomaly.features.history import build_history
 from traffic_anomaly.features.eligibility import eligible_normals, common_minutes
 
