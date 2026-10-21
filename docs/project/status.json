@@ -1,39 +1,43 @@
 {
   "schema_version": 1,
   "updated": "2026-10-21",
-  "current_stage": "S0",
-  "theme": "W0-01开发基点验收与并行交接准备",
+  "current_stage": "S2",
+  "theme": "W1真实数据审计失败记录与合成检测核心",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "逐项补充17FR/8NFR的V0.40出处、七项目标验收位置及未知反馈登记。",
-    "加入可执行模型兼容检查、OpenAPI内嵌请求与错误样例、对齐的四分钟独立标签样例。",
-    "21项合成契约测试通过；核心包重新安装、CPU前向训练及保存重载检查通过。",
-    "补齐目录所有权、端口/数据库/运行目录隔离和串行集成规则；W1/W2/W3尚未由主控启动。",
-    "真实数据审计、研究模型训练及正式效果实验仍NOT_RUN；本轮提交与CI由远端实际核对。"
+    "从准确契约基点建立W1独立分支，公共类型与统一fixture保持。",
+    "实现数据/连续中位数MAD历史、三方法合成闭环与产物检查；核心60项、完整73项及7个subtests通过。",
+    "核验UGR16v3真实MAT与四份CSV逐值对应；测试正常候选为零、时区未知，Data Gate未通过。",
+    "合成训练和重载可执行；真实IF/AE、跨窗口研究比较与效率测量继续NOT_RUN。",
+    "独立环境与缓存/输出目录隔离；Desktop提交推送与CI按实际结果核对。"
   ],
   "blockers": [
-    "开题实际反馈尚待登记；当前需求与契约不代表导师已确认。",
-    "真实数据版本、时间标签、正常候选和切分尚未通过Data Gate。",
-    "GPU兼容与每周投入待登记；W1/W2/W3须从经远端核对的共同契约提交开始。"
+    "真实v3测试范围八标签零分钟为0，无法评价目标误报率；背景标签政策不自行改变。",
+    "源时钟时区未核实，四段UTC边界未冻结；训练正常候选仅集中在作者训练范围末尾。",
+    "正式窗口、epsilon、容量匹配和研究比较未执行；真实执行入口保持关闭。"
   ],
   "next_tasks": [
     {
-      "id": "W1-01",
-      "text": "待后续启动指令，从最终共同基点实施数据审计。",
-      "path": "docs/guides/development.md"
+      "id": "W1-DATA-GATE",
+      "text": "W0汇总数据证据，处理零正常分母与时区/来源使用条件。",
+      "path": "data/AUDIT_REPORT.md"
     },
     {
-      "id": "W2-01",
-      "text": "待后续启动指令，按固定契约使用假执行器开发后端。",
-      "path": "docs/design/openapi-v1.yaml"
+      "id": "W1-03-REAL",
+      "text": "Data Gate满足并完成审阅后实施真实IF、AE短片段技术验证。",
+      "path": "experiments/W1-HANDOFF.md"
     },
     {
-      "id": "W3-01",
-      "text": "待后续启动指令，按统一合成样例开发页面。",
-      "path": "tests/fixtures/contracts-v1.json"
+      "id": "W1-04-REAL",
+      "text": "随后建立多窗口共同训练校准和容量匹配比较；当前NOT_RUN。",
+      "path": "experiments/PROTOCOL.md"
     }
   ],
   "entrypoints": [
+    {
+      "label": "W1交付、命令、真实审计与NOT_RUN边界",
+      "path": "experiments/W1-HANDOFF.md"
+    },
     {
       "label": "W0-01契约交接与开发环境",
       "path": "docs/project/W0-01-HANDOFF.md"
@@ -127,9 +131,9 @@
     {
       "id": "S2",
       "name": "数据审计",
-      "status": "NOT_RUN",
-      "entry": "data/README.md",
-      "next": "契约固定后执行数据审计",
+      "status": "IN_PROGRESS",
+      "entry": "data/AUDIT_REPORT.md",
+      "next": "处理零正常分母、时区和四段边界，Data Gate未通过",
       "criteria": [
         {
           "id": "S2-C1",
@@ -152,8 +156,12 @@
         {
           "id": "S2-C4",
           "text": "审计脚本可复跑并保存报告与失败记录",
-          "met": false,
-          "evidence": []
+          "met": true,
+          "evidence": [
+            "data/AUDIT_REPORT.md",
+            "src/core/traffic_anomaly/data/provider.py",
+            "tests/core/test_provider.py"
+          ]
         }
       ]
     },

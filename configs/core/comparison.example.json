@@ -1,0 +1,19 @@
+{
+  "status": "NOT_RUN",
+  "purpose": "research candidates; no multi-window orchestration implemented",
+  "windows": [
+    15,
+    30
+  ],
+  "seeds": [
+    42,
+    2024,
+    3407
+  ],
+  "methods": [
+    "iforest",
+    "current_ae",
+    "history_ae"
+  ],
+  "capacity_matched_control": "NOT_RUN"
+}
