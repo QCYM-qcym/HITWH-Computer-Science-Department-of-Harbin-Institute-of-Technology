@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-22**。当前阶段：**数据审计**；本轮主题：研究协议三路径已比较，用户选择C主数据替换可行性核查；具体数据/表示未定，Data Gate仍BLOCKED。
+最近更新：**2026-10-23**。当前阶段：**数据审计**；本轮主题：C方向数据与表示决定包已形成：条件化推荐C17-G12、2018备选；具体采用与下载待批准，Data Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,26 +60,29 @@ flowchart TB
 
 **本次完成事项**
 
-- 官方版本/许可/时间增量核查未取得解阻证据；沿用既有审计，未重复全量载荷核查。
-- 完成A收缩目标、B独立补充数据、C更换主数据十维对照及八项Gate；明确单类Precision/F1退化。
-- 用户明确选择C可行性方向，保留误报—漏报核心问题；具体主数据与表示审计后再定。
-- 两个官方候选仅METADATA_ONLY；更新询问稿与有界样本核查提案。真实工程验证/正式实验NOT_RUN，四段NOT_DEFINED。
+- 从8e6c6ad续接，核查本地文件及两个候选的官方来源、许可、时间与标签证据；没有新载荷下载。
+- 形成C17-G12具体提案：GeneratedLabelledFlows、12/24维完成流分钟表示、四段候选及指标分母，未采用生产契约。
+- 核实2018四个备选CSV共1396786510字节，提出16MiB结构样本和独立全表审计方案，均待批准。
+- 区分首包、末包、导出和可用时刻；四段实测计数均null，真实工程与正式比较保持NOT_RUN。
 
 **当前阻塞或待验证事项**
 
-- UGR16测试正常分母0；时区或许可澄清不会增加正常样本，原FPR仍不可估计。
-- 原v3时区/DST、桶端点、许可关系及四段供应未核清；旧研究Gate保持BLOCKED。
-- C方向已选但具体新主数据/分钟表示未定；候选仅官方元数据，时间/标签/正常供应待审计。
-- CICIDS2017官方获取入口本轮显示资料表单及错误，未提交信息；候选包内字段/大小未核验，真实运行NOT_RUN。
+- 2017官方包的有效获取入口、大小、校验与成员清单未取得；旧URL返回HTML，不能当作ZIP。
+- 两个候选的真实字段、时区/精度、标签质量及四段连续正常供应未审计；短校准段尾部信息可能不足。
+- C17-G12具体数据采用、12/24维表示、结束代理与高负载含义仍待批准；下载授权独立。
+- UGR16正常测试分母0及旧时间/许可阻塞保留，新方案不自动通过Data Gate。
 
 **接下来最重要的三项任务**
 
-1. [C-M1-M2](<docs/guides/real-validation-preflight.md>)：按已选C核查两个候选的确切发行物、使用条件及时间字段；不重复询问方向，不默认候选适用。
-2. [C-M3-M4](<docs/guides/real-validation-preflight.md>)：形成明确文件及上限的有界样本核查方案，审计四段正常/攻击及连续历史供给；未获证据不冻结日期。
-3. [C-M5](<docs/project/RESEARCH-PROTOCOL-OPTIONS.md>)：根据审计提交具体主数据/表示/维度及兼容迁移决定包；获准并满足准入后才先做IF工程验证。
+1. [C-D1](<docs/project/CANDIDATE-DATA-DECISION-2026-10-23.md>)：审阅C17-G12表示及范围提案；先补官方包清单，具体采用须有载荷审计证据。
+2. [C-D2](<docs/research/2026-10-23-candidate-manifest.json>)：单独决定有界获取；2018四文件16MiB结构样本不含全表审计或训练授权。
+3. [C-D3](<docs/guides/real-validation-preflight.md>)：获准并取得数据后核唯一时间、采集覆盖、标签及四段历史供应，再决定迁移，不按模型效果改边界。
 
 **最新成果入口**
 
+- [10月23日C方向具体数据与表示决定包](<docs/project/CANDIDATE-DATA-DECISION-2026-10-23.md>)
+- [CIC发行物、许可、时间与标签证据](<docs/research/2026-10-23-cic-candidate-evidence.md>)
+- [候选文件、资源上限与未审计计数清单](<docs/research/2026-10-23-candidate-manifest.json>)
 - [研究协议A/B/C对照与用户已选C方向](<docs/project/RESEARCH-PROTOCOL-OPTIONS.md>)
 - [10月22日增量证据与候选元数据](<docs/research/2026-10-22-data-gate-evidence-update.md>)
 - [Data Gate本轮分项判定与待决方案](<docs/project/DATA-GATE-2026-10-21.md>)

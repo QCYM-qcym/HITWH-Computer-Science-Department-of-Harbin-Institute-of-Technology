@@ -1,8 +1,10 @@
 # 文档导航
 
-修订2026-10-22；用途：当前公开材料与版本对应。报告/答辩均为草稿，待审阅；没有最新稿确认记录。公开文本对应同版本本地原稿，私人路径映射保留本地。
+修订2026-10-23；用途：当前公开材料与版本对应。报告/答辩均为草稿，待审阅；没有最新稿确认记录。公开文本对应同版本本地原稿，私人路径映射保留本地。
 
 ## 当前材料
+
+当前可审阅：[C17-G12数据与表示决定包](project/CANDIDATE-DATA-DECISION-2026-10-23.md)、[CIC证据](research/2026-10-23-cic-candidate-evidence.md)、[文件与资源清单](research/2026-10-23-candidate-manifest.json)。仅方案完成，具体采用/下载待批准，载荷审计NOT_RUN。
 
 用户已选C主数据替换可行性方向，具体数据/表示待审计：[协议三路径与决定](project/RESEARCH-PROTOCOL-OPTIONS.md)、[增量证据与候选筛选](research/2026-10-22-data-gate-evidence-update.md)。
 
