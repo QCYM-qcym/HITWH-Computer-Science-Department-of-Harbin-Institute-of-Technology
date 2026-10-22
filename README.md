@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-21**。当前阶段：**数据审计**；本轮主题：Data Gate阻塞核查完成：真实计数不变、解析防御已修复；真实短片段NOT_RUN。
+最近更新：**2026-10-22**。当前阶段：**数据审计**；本轮主题：研究协议三路径已比较，用户选择C主数据替换可行性核查；具体数据/表示未定，Data Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -45,9 +45,9 @@ flowchart TB
 
 | 阶段 | 状态 | 已完成/总验收项 | 证据入口 | 下一步 |
 |---|---|---|---|---|
-| 需求与研究问题 | 进行中 | 1/3 | [清单与证据](<docs/project/ROADMAP.md>) | W0契约基点具备，最新开题反馈及方案确认待登记 |
+| 需求与研究问题 | 进行中 | 1/3 | [清单与证据](<docs/project/ROADMAP.md>) | 用户选择C可行性方向；具体主数据/表示与导师审阅仍待登记 |
 | 文献与方案 | 进行中 | 1/3 | [清单与证据](<docs/README.md>) | 精读并核对方法差异 |
-| 数据审计 | 阻塞 | 1/4 | [清单与证据](<docs/project/DATA-GATE-2026-10-21.md>) | 结构与连接已核实；绝对时间/许可未清、正常分母0，四段未冻结 |
+| 数据审计 | 阻塞 | 1/4 | [清单与证据](<docs/project/DATA-GATE-2026-10-21.md>) | 按C核查候选发行物及四段供给；原UGR阻塞保持，不把方向决定当Data Gate通过 |
 | 最小基线 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 合成核心已在W1交付；真实最小基线等待Data Gate |
 | 时间感知方法 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 依基线证据确定窗口 |
 | 对比与消融 | 未运行 NOT_RUN | 0/4 | [清单与证据](<experiments/README.md>) | 冻结统一评价协议 |
@@ -60,26 +60,28 @@ flowchart TB
 
 **本次完成事项**
 
-- A标签/B时间/C来源三并行独立复核，五文件与官方blob一致；测试正常0确认属于载荷与既有政策。
-- 修复非法标签/错序、纳秒截断、等价偏移去重、ns越界切分及原序审计；真实计数不变。
-- 本轮核心/集成79项、前端23项及类型/契约检查通过；零正常FPR保留null与原因。
-- 时区与v3桶端点未确认，许可声明重叠差异未解决，四段NOT_DEFINED；Data Gate BLOCKED，真实训练和正式比较NOT_RUN。
+- 官方版本/许可/时间增量核查未取得解阻证据；沿用既有审计，未重复全量载荷核查。
+- 完成A收缩目标、B独立补充数据、C更换主数据十维对照及八项Gate；明确单类Precision/F1退化。
+- 用户明确选择C可行性方向，保留误报—漏报核心问题；具体主数据与表示审计后再定。
+- 两个官方候选仅METADATA_ONLY；更新询问稿与有界样本核查提案。真实工程验证/正式实验NOT_RUN，四段NOT_DEFINED。
 
 **当前阻塞或待验证事项**
 
-- 测试全部blacklist>0，冻结八标签政策下正常候选0，正式正常FPR不可估计；不得自动重标。
-- v3时区/DST、桶端点与四段UTC边界未确定；代码修复不提供真实时间证据。
-- DMP数据GPL3与论文数据CC-BY-NC覆盖同一派生数据，声明关系与CC版本仍待确认；不再分发载荷。
-- 高负载口径、GPU、性能、异机恢复及最新开题反馈仍待核验；真实训练和正式实验NOT_RUN。
+- UGR16测试正常分母0；时区或许可澄清不会增加正常样本，原FPR仍不可估计。
+- 原v3时区/DST、桶端点、许可关系及四段供应未核清；旧研究Gate保持BLOCKED。
+- C方向已选但具体新主数据/分钟表示未定；候选仅官方元数据，时间/标签/正常供应待审计。
+- CICIDS2017官方获取入口本轮显示资料表单及错误，未提交信息；候选包内字段/大小未核验，真实运行NOT_RUN。
 
 **接下来最重要的三项任务**
 
-1. [DATA-CLARIFICATION](<docs/guides/real-validation-preflight.md>)：补充版本特定的时区、桶端点、许可关系及blacklist全覆盖官方说明；不自行发信。
-2. [RQ-DECISION](<docs/project/DATA-GATE-2026-10-21.md>)：推荐保留现协议待证据；背景报警率补充或更换数据须用户明确决定后实施。
-3. [REAL-SHORT-PREFLIGHT](<docs/guides/real-validation-preflight.md>)：相关Gate满足后才冻结四段/配置/资源并先做真实IF短片段，本轮未执行。
+1. [C-M1-M2](<docs/guides/real-validation-preflight.md>)：按已选C核查两个候选的确切发行物、使用条件及时间字段；不重复询问方向，不默认候选适用。
+2. [C-M3-M4](<docs/guides/real-validation-preflight.md>)：形成明确文件及上限的有界样本核查方案，审计四段正常/攻击及连续历史供给；未获证据不冻结日期。
+3. [C-M5](<docs/project/RESEARCH-PROTOCOL-OPTIONS.md>)：根据审计提交具体主数据/表示/维度及兼容迁移决定包；获准并满足准入后才先做IF工程验证。
 
 **最新成果入口**
 
+- [研究协议A/B/C对照与用户已选C方向](<docs/project/RESEARCH-PROTOCOL-OPTIONS.md>)
+- [10月22日增量证据与候选元数据](<docs/research/2026-10-22-data-gate-evidence-update.md>)
 - [Data Gate本轮分项判定与待决方案](<docs/project/DATA-GATE-2026-10-21.md>)
 - [真实短片段准备与下一阶段完整提示](<docs/guides/real-validation-preflight.md>)
 - [标签、时间与来源许可核查](<docs/research/2026-10-21-data-gate-label-audit.md>)

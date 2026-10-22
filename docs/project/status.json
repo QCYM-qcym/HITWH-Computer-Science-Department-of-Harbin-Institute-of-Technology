@@ -1,39 +1,47 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-21",
+  "updated": "2026-10-22",
   "current_stage": "S2",
-  "theme": "Data Gate阻塞核查完成：真实计数不变、解析防御已修复；真实短片段NOT_RUN",
+  "theme": "研究协议三路径已比较，用户选择C主数据替换可行性核查；具体数据/表示未定，Data Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "A标签/B时间/C来源三并行独立复核，五文件与官方blob一致；测试正常0确认属于载荷与既有政策。",
-    "修复非法标签/错序、纳秒截断、等价偏移去重、ns越界切分及原序审计；真实计数不变。",
-    "本轮核心/集成79项、前端23项及类型/契约检查通过；零正常FPR保留null与原因。",
-    "时区与v3桶端点未确认，许可声明重叠差异未解决，四段NOT_DEFINED；Data Gate BLOCKED，真实训练和正式比较NOT_RUN。"
+    "官方版本/许可/时间增量核查未取得解阻证据；沿用既有审计，未重复全量载荷核查。",
+    "完成A收缩目标、B独立补充数据、C更换主数据十维对照及八项Gate；明确单类Precision/F1退化。",
+    "用户明确选择C可行性方向，保留误报—漏报核心问题；具体主数据与表示审计后再定。",
+    "两个官方候选仅METADATA_ONLY；更新询问稿与有界样本核查提案。真实工程验证/正式实验NOT_RUN，四段NOT_DEFINED。"
   ],
   "blockers": [
-    "测试全部blacklist>0，冻结八标签政策下正常候选0，正式正常FPR不可估计；不得自动重标。",
-    "v3时区/DST、桶端点与四段UTC边界未确定；代码修复不提供真实时间证据。",
-    "DMP数据GPL3与论文数据CC-BY-NC覆盖同一派生数据，声明关系与CC版本仍待确认；不再分发载荷。",
-    "高负载口径、GPU、性能、异机恢复及最新开题反馈仍待核验；真实训练和正式实验NOT_RUN。"
+    "UGR16测试正常分母0；时区或许可澄清不会增加正常样本，原FPR仍不可估计。",
+    "原v3时区/DST、桶端点、许可关系及四段供应未核清；旧研究Gate保持BLOCKED。",
+    "C方向已选但具体新主数据/分钟表示未定；候选仅官方元数据，时间/标签/正常供应待审计。",
+    "CICIDS2017官方获取入口本轮显示资料表单及错误，未提交信息；候选包内字段/大小未核验，真实运行NOT_RUN。"
   ],
   "next_tasks": [
     {
-      "id": "DATA-CLARIFICATION",
-      "text": "补充版本特定的时区、桶端点、许可关系及blacklist全覆盖官方说明；不自行发信。",
+      "id": "C-M1-M2",
+      "text": "按已选C核查两个候选的确切发行物、使用条件及时间字段；不重复询问方向，不默认候选适用。",
       "path": "docs/guides/real-validation-preflight.md"
     },
     {
-      "id": "RQ-DECISION",
-      "text": "推荐保留现协议待证据；背景报警率补充或更换数据须用户明确决定后实施。",
-      "path": "docs/project/DATA-GATE-2026-10-21.md"
+      "id": "C-M3-M4",
+      "text": "形成明确文件及上限的有界样本核查方案，审计四段正常/攻击及连续历史供给；未获证据不冻结日期。",
+      "path": "docs/guides/real-validation-preflight.md"
     },
     {
-      "id": "REAL-SHORT-PREFLIGHT",
-      "text": "相关Gate满足后才冻结四段/配置/资源并先做真实IF短片段，本轮未执行。",
-      "path": "docs/guides/real-validation-preflight.md"
+      "id": "C-M5",
+      "text": "根据审计提交具体主数据/表示/维度及兼容迁移决定包；获准并满足准入后才先做IF工程验证。",
+      "path": "docs/project/RESEARCH-PROTOCOL-OPTIONS.md"
     }
   ],
   "entrypoints": [
+    {
+      "label": "研究协议A/B/C对照与用户已选C方向",
+      "path": "docs/project/RESEARCH-PROTOCOL-OPTIONS.md"
+    },
+    {
+      "label": "10月22日增量证据与候选元数据",
+      "path": "docs/research/2026-10-22-data-gate-evidence-update.md"
+    },
     {
       "label": "Data Gate本轮分项判定与待决方案",
       "path": "docs/project/DATA-GATE-2026-10-21.md"
@@ -109,7 +117,7 @@
       "name": "需求与研究问题",
       "status": "IN_PROGRESS",
       "entry": "docs/project/ROADMAP.md",
-      "next": "W0契约基点具备，最新开题反馈及方案确认待登记",
+      "next": "用户选择C可行性方向；具体主数据/表示与导师审阅仍待登记",
       "criteria": [
         {
           "id": "S0-C1",
@@ -169,7 +177,7 @@
       "name": "数据审计",
       "status": "BLOCKED",
       "entry": "docs/project/DATA-GATE-2026-10-21.md",
-      "next": "结构与连接已核实；绝对时间/许可未清、正常分母0，四段未冻结",
+      "next": "按C核查候选发行物及四段供给；原UGR阻塞保持，不把方向决定当Data Gate通过",
       "criteria": [
         {
           "id": "S2-C1",
@@ -447,6 +455,32 @@
     "local_tests": {
       "core_integration": 79,
       "frontend": 23
+    },
+    "last_full_payload_audit": "2026-10-21"
+  },
+  "protocol_review": {
+    "date": "2026-10-22",
+    "selected_path": "C",
+    "approval_status": "DIRECTION_APPROVED",
+    "approval_source": "用户在本轮三选项问题中明确选择C",
+    "dataset_selection": "NOT_SELECTED",
+    "representation": "NOT_DEFINED",
+    "report_baseline": "V0.40",
+    "upstream_blocker_resolved": false,
+    "full_payload_reaudit": "NOT_RUN",
+    "business_code_changed": false,
+    "real_short_validation": "NOT_RUN",
+    "formal_evaluation": "NOT_RUN",
+    "evidence": "docs/research/2026-10-22-data-gate-evidence-update.md",
+    "options": "docs/project/RESEARCH-PROTOCOL-OPTIONS.md",
+    "verification": {
+      "repository_tests": 13,
+      "worktree_checked_files": 359,
+      "worktree_issues": 0,
+      "local_markdown_links": 172,
+      "stage_criteria_unchanged": true,
+      "synthetic_metric_arithmetic": "PASS_NO_FIT",
+      "remote_ci": "PENDING_AFTER_PUSH"
     }
   }
 }
