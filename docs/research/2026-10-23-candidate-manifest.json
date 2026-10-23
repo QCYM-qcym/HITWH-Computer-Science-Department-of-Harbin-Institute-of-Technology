@@ -6,8 +6,8 @@
   "direction_approval": "DIRECTION_APPROVED",
   "dataset_adoption": "NOT_APPROVED",
   "representation_adoption": "NOT_APPROVED",
-  "download_approval": "C18-S_ONLY_APPROVED_EXECUTED",
-  "payload_bytes_read_this_stage": 16777216,
+  "download_approval": "C18_S_AND_C17_I1_SEPARATE_APPROVALS_EXECUTED",
+  "payload_bytes_read_this_stage": 343549013,
   "real_training": "NOT_RUN",
   "formal_evaluation": "NOT_RUN",
   "primary_proposal": {
@@ -266,8 +266,8 @@
   },
   "gate": {
     "overall": "NOT_PASSED",
-    "payload_audit": "NOT_RUN",
-    "four_split_supply": "NOT_VERIFIED",
+    "payload_audit": "EXECUTED_REAL_C17_I1",
+    "four_split_supply": "INSUFFICIENT_CURRENT_G12_H15_H30_COMMON_ALL_ZERO",
     "real_short_validation": "NOT_RUN",
     "old_ugr_gate": "BLOCKED",
     "structure_prefix_audit": "EXECUTED_LIMITED_SCOPE"
@@ -296,15 +296,33 @@
     "new_dataset_payload_bytes": 0,
     "status": "FORM_IDENTIFIED_ARCHIVE_IDENTITY_UNRESOLVED"
   },
-  "payload_bytes_read_this_stage_scope": "C18-S acquisition recorded at base 480c57f; no additional payload this review",
+  "payload_bytes_read_this_stage_scope": "CURRENT_C17_I1_GET_ONLY; historical C18_S_16777216 recorded separately; no C18/PCAP/mirror GET this stage",
   "active_audit_target": "CICIDS2017_improved.zip",
   "active_audit_priority_approval": "APPROVED_BY_USER_2026-10-23_CURRENT_REQUEST",
   "improved_proposal": {
-    "status": "AUDIT_PREPARATION_APPROVED_PAYLOAD_NOT_APPROVED",
+    "status": "REAL_OFFLINE_AUDIT_COMPLETE_CURRENT_G12_INSUFFICIENT",
     "identity_and_budget_ref": "docs/research/2026-10-23-c17-improved-preparation.json",
     "source_commit": "07e5cf2dbb1021c893a9c56abac245b2ae79efb9",
-    "payload_bytes_read_this_stage": 0,
-    "actual_supply": null
+    "payload_bytes_read_this_stage": 343549013,
+    "actual_supply": {
+      "ref": "docs/research/2026-10-23-c17-i1-payload-audit.json",
+      "strict": null,
+      "conditional_H15_H30_common_per_segment": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "latest_payload_base_commit": "bb221eac45a235b5d4c5180ccc365ee1064e9bad",
+    "local_sha256": "97fdb91d339e2d8cf5627f981b831e5e7e400b981c58181c451a38fd03c48883",
+    "official_checksum": null,
+    "report": "docs/research/2026-10-23-c17-i1-payload-audit.md",
+    "next_audit_candidate": "C17-I1-G13U",
+    "next_audit_design_approval": "NOT_APPROVED"
   },
   "original_generated_mirror_role": "BACKUP_NOT_DOWNLOADED_NOT_ADOPTED"
 }

@@ -1,5 +1,17 @@
 # 仓库维护复核记录
 
+## 2026-10-23 C17-I1获准获取与真实离线审计
+
+从已同步且干净bb221ea在既有W0隔离worktree建立codex/c17-improved-payload-audit，Desktop Fetch完成；保留其他worktree及main。主控独占获取、公共文件与集成，三个子任务分别复核来源/预算、时间/标签及有界审计工具，不新建用户聊天。
+
+执行明确批准的唯一作者ZIP：HEAD/条件GET身份一致，1GET/0重试，实际343549013字节，本地流式/独立及子任务SHA一致；无官方校验和。五CSV总1152270765字节、目录硬限通过、流读CRC通过，源只读；未获取PCAP、镜像或2018。实际资源、文件身份、91字段、全量2099976行和新Protocol0证据见[本轮报告](../research/2026-10-23-c17-i1-payload-audit.md)及[聚合JSON](../research/2026-10-23-c17-i1-payload-audit.json)。
+
+先标签盲法时间扫描/登记，再profile与minutes两遍真实CLI各exit0。5条rate异常不删G12行；1510条Protocol0不能归已知other，每段最长连续有效2分钟，H15/H30/common全0、高完成流门槛/子组null。1510中1508源BENIGN、2 Portscan，1184与公开artifact反向端点匹配而326不匹配，不能整体删流。P_U/P_B/P_A只审计未批准；当前分类不代替共同模型分母。结论为调整协议后再审，G13U13/26待批，未应用或重算，未改窗口/切分/分位点。
+
+新增两遍标准库工具/25测试；先失败再实现。独立审查复现盘写后上限与首遍hash窗口后已修，主控另核空桶/未知协议/测试当前normal分母。实际根回归83项、42subtests通过；仓库13项通过，相关code独立审查clear。未改生产src/configs/公共契约，不额外重复本地前后端套件；远端CI按推送后实况。知识库复用CICIDS2017页，新增本轮研究日志并更新四入口；不把源CSV/原行/IP/Flow ID/私人路径公开。
+
+S0—S9阶段及验收清单分母保持，S2 BLOCKED、原UGR判定不变；真实训练/评分/阈值校准、真实联调与正式实验NOT_RUN。状态/README、路线图及决定同步；进度write/check、仓库13项复跑、worktree隐私/作者383文件0问题、diff格式、254个本轮Markdown本地链接及新日志5个Wiki Links通过。主控程序核聚合与本地真实结果相同、阶段清单及生产文件无差异；两项最终来源/科学边界复核clear。暂存检查、Desktop提交推送、远端准确SHA和本提交CI在完成后另报，不预填成功，不合并main。
+
 ## 2026-10-23 作者修订版获取准备与隔离审计工具
 
 从干净且与远端一致的07e5cf2，在既有W0隔离worktree建立codex/c17-improved-audit-prep；核五个已知工作区及既有获取目录，未发现合法现存improved包，不扫描其他私人目录。用户本轮明确作者修订版优先、原Generated镜像备选，主控与来源/时间标签/工具三独立任务并行，公共决定/状态统一主控维护。Desktop窗口缓存恢复后完成Fetch，未改其他worktree或main。

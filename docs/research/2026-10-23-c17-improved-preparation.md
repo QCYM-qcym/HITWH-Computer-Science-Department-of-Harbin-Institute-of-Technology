@@ -1,5 +1,7 @@
 # CICIDS2017作者修订版：获取准备与适用性审计
 
+后继状态：用户已明确批准C17-I1并完成唯一对象获取；[实际载荷审计](2026-10-23-c17-i1-payload-audit.md)接续本方案。本文和JSON保留获取前的事实、预算及未批准边界，不将后续批准回写成既往已获准。
+
 日期：2026-10-23；续接：`07e5cf2dbb1021c893a9c56abac245b2ae79efb9`。范围：来源/HTTP元信息、版本特定适配与隔离审计工具准备。**用户已决定优先审计CICIDS2017_improved，原Generated镜像备选；未批准本对象下载、最终采用、Attempted映射或生产迁移。** C17-G12保留为参考设计，报告V0.40及生产契约不变。候选NOT_PASSED，Data Gate/S2仍BLOCKED。
 
 关联：[机读身份与预算](2026-10-23-c17-improved-preparation.json)、[工具指南及下一完整提示](../guides/c17-improved-audit.md)、[实施记录](../superpowers/plans/2026-10-23-improved-audit-prep.md)、[原适用性分析](2026-10-23-cicids-suitability-analysis.md)、[旧C17-G12决定包](../project/CANDIDATE-DATA-DECISION-2026-10-23.md)。旧分析的“助手建议”是当时状态，由本次用户明确决定更新为审计优先级批准，不回写成既往已批准。

@@ -2,38 +2,50 @@
   "schema_version": 1,
   "updated": "2026-10-23",
   "current_stage": "S2",
-  "theme": "作者修订版对象和有界方案已核；隔离审计人工验证通过，载荷获取未批准，Data Gate保持BLOCKED",
+  "theme": "C17-I1已获准获取并完成真实离线审计；Protocol0使H15/H30全0，需决定表示修订，Data Gate保持BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "从07e5cf2续接，用户明确作者CICIDS2017_improved优先审计、原Generated镜像备选；不再询问A/B/C或优先级。",
-    "作者来源链及唯一HEAD核得ZIP343549013字节；ETag/Last-Modified已记，作者校验/解压量/精确生成绑定未知，新增数据载荷0字节。",
-    "隔离审计新增48项测试；含58项数据审计的Python回归187项及34个subtests通过，仓库13项通过；均不构成真实数据证据。",
-    "四段与正常高完成流组实际计数仍null；主数据采用、生产迁移未批准，真实拟合/联调和正式实验NOT_RUN。"
+    "从bb221ea续接，按明确批准的C17-I1仅获取作者ZIP343549013字节，1GET/0重试；双重本地SHA一致，5成员CRC通过，不称官方校验。",
+    "真实两遍审计2099976条/91列；5条未使用rate非有限保留，Protocol0共1510条，含1508条源BENIGN和2条Portscan，不能整体删除或归正常。",
+    "七段最长连续有效仅2分钟，H15/H30/common输入全部0；高完成流Q90/子组null。建议调整协议后再审G13U13/26，尚未批准或应用。",
+    "新增25项先失败再实现回归；数据审计83项及42个subtests、仓库13项通过。未改生产契约，真实模型/联调/正式实验NOT_RUN，CI待推送后核。"
   ],
   "blockers": [
-    "作者improved获取尚未获对象与预算的明确批准，载荷未取得；成员/解压规模及本地SHA待获准下载后检查。",
-    "修订包实际字段/时间/单位与生成绑定未审；上游dropna覆盖、Attempted政策、四段及正常高完成流供应仍未知。",
-    "improved优先是审计决定，主数据/表示正式采用与生产迁移未批准；旧09—17源钟面不能直接改UTC。",
-    "UGR正常测试分母0及旧时间/许可阻塞保持；准备工具与合成CI不能解除Data Gate。"
+    "现G12不将Protocol0认证为合法other；1510条未解析记录散布污染分钟，当前四段H15/H30及共同输入供给均0，门槛与高完成流组不可计算。",
+    "修订包UTC/us与作者说明相容但精确生成commit/配置、真实导出延迟、上游筛除及采集覆盖未认证；不能把发布记录供应称完整网络供给。",
+    "G13U13/26或G12U12/24表示/人口变更、最终Attempted政策、四段冻结、主数据采用及生产迁移仍待明确决定；不自动删流或缩窗口。",
+    "原UGR正常测试分母0、旧时间及许可阻塞保持。新载荷审计不等于Gate、真实模型或研究效果通过。"
   ],
   "next_tasks": [
     {
-      "id": "C-I1",
-      "text": "审阅单对象343549013字节的C17-I1预算，独立批准后才获取；当前停在ZIP载荷前。",
-      "path": "docs/research/2026-10-23-c17-improved-preparation.md"
+      "id": "C-I3A",
+      "text": "审阅G13U13/26与发布记录人口的具体审计修订及代价；当前未批准、未应用，不预称历史供应恢复。",
+      "path": "docs/research/2026-10-23-c17-i1-payload-audit.md"
     },
     {
-      "id": "C-I2",
-      "text": "获准取得后先本地ZIP目录安全检查，按显式字段/时间/覆盖依据审计；Attempted三方案保留待决，禁止拟合。",
-      "path": "docs/guides/c17-improved-audit.md"
+      "id": "C-I3B",
+      "text": "明确批准新审计设计后才复用本地文件做独立再审，保留原G12失败结果；不下载、不训练或迁生产。",
+      "path": "docs/guides/c17-i1-protocol-next.md"
     },
     {
-      "id": "C-I3",
-      "text": "核四段/H15,H30共同资格及训练Q90固定测试子组；供应不足先给协议修订代价，再决定主数据/迁移。",
-      "path": "docs/project/CANDIDATE-DATA-DECISION-2026-10-23.md"
+      "id": "C-I4",
+      "text": "再审后依据真实分母决定标签/四段/主数据与表示，随后另行处理契约迁移和真实最小链路；当前均NOT_RUN。",
+      "path": "docs/project/DATA-GATE-2026-10-21.md"
     }
   ],
   "entrypoints": [
+    {
+      "label": "C17-I1实际获取、Protocol0阻塞与协议修订建议",
+      "path": "docs/research/2026-10-23-c17-i1-payload-audit.md"
+    },
+    {
+      "label": "实际字段/标签/四段/连续性与资源聚合证据",
+      "path": "docs/research/2026-10-23-c17-i1-payload-audit.json"
+    },
+    {
+      "label": "审计后的完整续接提示词与批准边界",
+      "path": "docs/guides/c17-i1-protocol-next.md"
+    },
     {
       "label": "作者修订版获取方案、字段时间适配与Attempted待决",
       "path": "docs/research/2026-10-23-c17-improved-preparation.md"
@@ -522,12 +534,34 @@
     "backup": "C18-G12",
     "dataset_adoption": "NOT_APPROVED",
     "representation_adoption": "NOT_APPROVED",
-    "download_approval": "C18-S_ONLY_APPROVED_EXECUTED",
-    "payload_download_bytes": 16777216,
-    "payload_audit": "C18_PREFIX_STRUCTURE_EXECUTED_FULL_AUDIT_NOT_RUN",
+    "download_approval": "C18_S_AND_C17_I1_SEPARATELY_APPROVED_EXECUTED",
+    "payload_download_bytes": 360326229,
+    "payload_audit": "C17_I1_FULL_RELEASE_CSV_OFFLINE_AUDIT_EXECUTED_G12_SUPPLY_INSUFFICIENT",
     "production_contract_changed": false,
-    "four_splits": "PROPOSED_NOT_FROZEN",
-    "four_split_counts": null,
+    "four_splits": "AUDIT_CANDIDATES_PREREGISTERED_NOT_FROZEN",
+    "four_split_counts": {
+      "scope": "CONDITIONAL_G12_NOT_PHYSICAL_CAPTURE_OR_MODEL_VALIDITY",
+      "H15_input": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "H30_input": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "model_common_valid_minutes": null,
+      "ref": "docs/research/2026-10-23-c17-i1-payload-audit.json"
+    },
     "real_short_validation": "NOT_RUN",
     "formal_evaluation": "NOT_RUN",
     "gate": "NOT_PASSED",
@@ -588,7 +622,8 @@
       "four_split_supply": null,
       "normal_minute_count": null,
       "dataset_adoption": "NOT_APPROVED"
-    }
+    },
+    "payload_download_bytes_scope": "CUMULATIVE_C18_S_16777216_PLUS_C17_I1_343549013_NOT_ONE_AUTHORIZATION"
   },
   "github_source_review": {
     "date": "2026-10-23",
@@ -621,6 +656,64 @@
     ],
     "assumptions": "180/120/180 continuous complete normal minutes; independent history reset; H15/30 common eligibility",
     "real_training": "NOT_RUN",
-    "gate": "BLOCKED"
+    "gate": "BLOCKED",
+    "historical_arithmetic_superseded_by_actual_payload_evidence": "docs/research/2026-10-23-c17-i1-payload-audit.json"
+  },
+  "improved_payload_audit": {
+    "date": "2026-10-23",
+    "base_commit": "bb221eac45a235b5d4c5180ccc365ee1064e9bad",
+    "status": "REAL_OFFLINE_AUDIT_COMPLETE_CURRENT_PROTOCOL_BLOCKED",
+    "acquisition_authorization": "C17-I1_EXPLICIT_APPROVED_EXECUTED",
+    "new_body_bytes": 343549013,
+    "get_attempts": 1,
+    "automatic_retries": 0,
+    "sha256": "97fdb91d339e2d8cf5627f981b831e5e7e400b981c58181c451a38fd03c48883",
+    "official_checksum": null,
+    "uncompressed_bytes": 1152270765,
+    "members": 5,
+    "columns": 91,
+    "rows": 2099976,
+    "protocol0_rows": 1510,
+    "protocol0_source_benign": 1508,
+    "protocol0_source_portscan": 2,
+    "strict_actual_supply": null,
+    "conditional_common_input_per_segment": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "high_completion_threshold": null,
+    "high_completion_subgroup": null,
+    "recommendation": "ADJUST_PROTOCOL_THEN_REAUDIT",
+    "next_audit_candidate": "C17-I1-G13U",
+    "next_design_approval": "NOT_APPROVED",
+    "dataset_adoption": "NOT_APPROVED",
+    "production_migration": "NOT_APPROVED",
+    "production_contract_changed": false,
+    "real_training": "NOT_RUN",
+    "real_scoring": "NOT_RUN",
+    "score_threshold_calibration": "NOT_RUN",
+    "real_integration": "NOT_RUN",
+    "formal_evaluation": "NOT_RUN",
+    "data_gate": "BLOCKED",
+    "report": "docs/research/2026-10-23-c17-i1-payload-audit.md",
+    "evidence": "docs/research/2026-10-23-c17-i1-payload-audit.json",
+    "local_verification": {
+      "data_audit_tests": 83,
+      "subtests": 42,
+      "repository_tests": 13,
+      "remote_ci": "PENDING_AFTER_PUSH",
+      "worktree_checked_files": 383,
+      "worktree_issues": 0,
+      "changed_markdown_file_links": 254,
+      "new_vault_wiki_links": 5,
+      "stage_criteria_unchanged": true,
+      "production_files_unchanged": true,
+      "independent_reviews": "CLEAR"
+    }
   }
 }

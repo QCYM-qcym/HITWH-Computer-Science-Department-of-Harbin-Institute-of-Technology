@@ -7,6 +7,8 @@
 
 - `repository/check_repository.py`：检查公开分区或Git索引，不输出敏感匹配值。
 - `data_audit/c18_prefix.py`：仅离线核查获准C18-S前缀，拒绝大于4MiB的单文件，复核获取清单及片段SHA256，输出字段、时间钟面和标签汇总；没有下载或模型入口。用法与实际结果见[结构样本记录](../docs/research/2026-10-23-c18-structure-sample.md)。
+- `data_audit/c17_improved.py`：隔离人工契约审计与有界ZIP中央目录检查；不解压、不联网、不训练。原逐流对象实现不用于百万流载荷扫描。
+- `data_audit/c17_payload.py`：实际发布CSV的两遍流式审计，使用限额SQLite指纹索引，分开报告严格覆盖未知与条件性发布记录供应；不改变生产契约、不生成模型分数。见[实际证据](../docs/research/2026-10-23-c17-i1-payload-audit.md)和[显式审计配置](../docs/research/2026-10-23-c17-i1-audit-config.json)。
 - `documentation/export_office_text.py`：用Python标准库从Office原稿抽取脱敏Markdown文本。它不处理图像，也不声称原Office文件已脱敏。
 
 示例：

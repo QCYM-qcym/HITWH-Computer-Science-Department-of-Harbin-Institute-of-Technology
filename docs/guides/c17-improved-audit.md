@@ -1,8 +1,30 @@
 # 作者修订版离线审计工具与续接说明
 
-日期：2026-10-23。性质：**隔离审计准备，SYNTHETIC_ONLY验证；不是生产适配器或真实研究结果。** 依据[本轮证据及C17-I1预算](../research/2026-10-23-c17-improved-preparation.md)。用户已批准improved优先审计与工具准备；本对象下载、正式采用、标签映射、四段和生产迁移未批准。
+日期：2026-10-23。最新阶段：C17-I1已由用户明确批准并完成单对象获取；实际载荷审计见[获取与供应记录](../research/2026-10-23-c17-i1-payload-audit.md)及[机读证据](../research/2026-10-23-c17-i1-payload-audit.json)。正式采用、最终标签政策、四段冻结和生产迁移仍未批准。下方原工具准备/人工用法保留其阶段身份；合成验证不是实际载荷证据或研究效果。
 
-## 工具边界
+## 实际载荷工具与运行
+
+[c17_payload.py](../../tools/data_audit/c17_payload.py)为百万流文件新增两遍流式入口：`profile_csv`只建全字段聚合与限额指纹索引，`audit_minutes`复用原索引并核对提取回执、原文件大小/SHA和核心配置；只用标准库，未导入模型。指纹包括全部源字段及id，只检查全行精确重复，不代表语义Flow ID唯一性。
+
+真实配置为[审计专用JSON](../research/2026-10-23-c17-i1-audit-config.json)。字段、词表、协议集合、资源限额和标签盲法候选均显式指定，非生产运行配置。只按编码的名义微秒网格算结束桶，不伪填TRUNCATION/物理精度证据；严格覆盖保持未知，条件性发布记录人口假设单列。未用rate异常不删G12合法流；空完成桶为unknown且input invalid、历史断开。
+
+在本地已获准的只读五文件及既有任务目录上实际执行了以下两条CLI；不要重新下载，不覆盖已存在的索引/输出。`${task}`表示忽略目录中的实际任务根，公开记录不写绝对私人位置。
+
+```powershell
+$task = '.runtime/c17-improved-i1-20261023'
+$inputs = @('monday.csv','tuesday.csv','wednesday.csv','thursday.csv','friday.csv')
+$auditArgs = @()
+foreach ($inputName in $inputs) { $auditArgs += @('--input', "$task/extracted/$inputName") }
+.venv\Scripts\python -X utf8 tools/data_audit/c17_payload.py --profile-only @auditArgs --config docs/research/2026-10-23-c17-i1-audit-config.json --audit-dir "$task/audit" --output "$task/audit/profile.json"
+.venv\Scripts\python -X utf8 tools/data_audit/c17_payload.py --minutes-only @auditArgs --config docs/research/2026-10-23-c17-i1-audit-config.json --audit-dir "$task/audit" --output "$task/audit/minutes.json"
+.venv\Scripts\python -X utf8 -m pytest tests/data_audit -q
+```
+
+输出必须在指定audit目录内且不存在，失败exit2、安全错误不输出路径或原行。索引上限512MiB、临时与日志总1GiB、任务6GiB；SQLite创建前按剩余预算/输出预留限制页数，后续输出也先核预算。真实文件均只读，第二遍前后核SHA。当前临时SQLite不存IP/原行，仅存指纹、计数及聚合metadata。
+
+最新结果与限制见[实际报告](../research/2026-10-23-c17-i1-payload-audit.md)。下一步采用[审计后的完整续接提示](c17-i1-protocol-next.md)，下方获取前提示保留历史身份。
+
+## 原准备工具的边界
 
 [c17_improved.py](../../tools/data_audit/c17_improved.py)只用标准库，提供`audit_csv(paths, config)`和`check_archive(path, limits)`，不导入检测核心、不联网、不解压、不训练、不评分。需要既有Python；W0实际测试使用`.venv`中的3.14。人工输入为[fixture JSON](../../tests/fixtures/data_audit/c17_improved_synthetic.json)，测试为[test_c17_improved.py](../../tests/data_audit/test_c17_improved.py)。
 
@@ -65,7 +87,7 @@ H窗口只看当前之前连续输入分钟；分区、缺采/无效桶重置，
 
 归档检查只读EOCD/中央目录，在批量解析前有界核真实中央目录条数，不只相信EOCD声明；拒绝多卷/ZIP64、危险/碰撞路径、特殊类型/加密/不支持压缩及超限；不读成员内容、不验CRC或认证来源。目录检查通过后，未来解压仍须白名单、逐块实际解压计数和CRC检查，不能直接无界extractall。本轮没有对真实归档执行任何读取。
 
-## 下一阶段完整提示词
+## 历史续接提示词（bb221ea 获取前基点）
 
 > 请继续毕业设计“CICIDS2017_improved有界获取与载荷适用性审计”。从W0最终交付的准确分支/提交续接，先按AGENTS读取Vault四入口及仓库规范，核工作区、改动、远端。读取c17-improved-preparation的Markdown/JSON、candidate-manifest、C17-G12参考、当前Gate及本指南。用户已决定improved优先、原Generated镜像备选，不重问A/B/C或审计优先级。
 >

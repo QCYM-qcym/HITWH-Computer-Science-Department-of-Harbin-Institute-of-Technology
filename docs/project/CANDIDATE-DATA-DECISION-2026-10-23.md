@@ -1,5 +1,7 @@
 # C方向：候选主数据与分钟表示决定包
 
+最新后继：用户另行批准C17-I1，作者修订包已完成受限获取并进入[真实离线供应审计](../research/2026-10-23-c17-i1-payload-audit.md)。下方原Generated提案、C18-S及准备阶段按原身份保留；本次获取不批准主数据、Attempted最终政策、生产迁移或真实模型实验。
+
 日期：2026-10-23。版本：提案1及审计设计/结构样本执行记录。状态：**AUDIT_DESIGN_APPROVED / MAIN_DATASET_NOT_ADOPTED / PRODUCTION_MIGRATION_NOT_APPROVED**。提案从`8e6c6ad`建立；本次从`9b52c00`续接，用户明确接受C17-G12作为审计与设计方案，另行批准C18-S四前缀合计16MiB。C18-S已在上限内执行；主数据正式采用、完整文件获取和生产契约迁移仍未批准。依据：[当前需求](../requirements/current-requirements.md)、[上轮选择](RESEARCH-PROTOCOL-OPTIONS.md)、[本轮证据](../research/2026-10-23-cic-candidate-evidence.md)、[八项Gate](DATA-GATE-2026-10-21.md)。完整载荷/四段供应审计和真实运行均NOT_RUN。
 
 ## 推荐及可决定范围
