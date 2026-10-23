@@ -25,7 +25,10 @@
     "actual_header": null,
     "old_url_observation": "REDIRECT_TO_HTML_NOT_PAYLOAD",
     "proposed_compressed_cap_bytes": 1073741824,
-    "proposed_uncompressed_cap_bytes": 4294967296
+    "proposed_uncompressed_cap_bytes": 4294967296,
+    "current_entry_status": "FORM_READABLE_NOT_SUBMITTED_ANONYMOUS_BROWSE_403",
+    "generation_binding": "NOT_VERIFIED_CODE_SNAPSHOTS_ONLY",
+    "budget_scope": "HISTORICAL_STOP_CAP_NOT_EXPECTED_SIZE_OR_AUTHORIZATION"
   },
   "backup_proposal": {
     "id": "C18-G12",
@@ -285,5 +288,12 @@
       "数据下载",
       "真实训练或正式比较"
     ]
-  }
+  },
+  "latest_metadata_review": {
+    "source_commit": "480c57fdeceb345e526f19f0923dbb8518e0bc55",
+    "report": "docs/research/2026-10-23-c17-source-metadata.json",
+    "new_dataset_payload_bytes": 0,
+    "status": "FORM_IDENTIFIED_ARCHIVE_IDENTITY_UNRESOLVED"
+  },
+  "payload_bytes_read_this_stage_scope": "C18-S acquisition recorded at base 480c57f; no additional payload this review"
 }

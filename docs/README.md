@@ -4,6 +4,8 @@
 
 ## 当前材料
 
+最新增量：[C17官方入口、生成版本及既有C18-S一致性](research/2026-10-23-c17-source-metadata.md)；表单可读，归档身份仍未知。更正隐藏错误文本的旧解释，无新增数据载荷或Gate升级。
+
 当前入口：[C17-G12审计设计及批准](project/CANDIDATE-DATA-DECISION-2026-10-23.md)、[C18-S四前缀16MiB实际核查](research/2026-10-23-c18-structure-sample.md)、[文件与资源清单](research/2026-10-23-candidate-manifest.json)。设计及C18-S获取已分别获准；主数据采用、生产迁移和完整文件获取仍待决定，四段供应审计NOT_RUN。
 
 用户已选C主数据替换可行性方向，具体数据/表示待审计：[协议三路径与决定](project/RESEARCH-PROTOCOL-OPTIONS.md)、[增量证据与候选筛选](research/2026-10-22-data-gate-evidence-update.md)。

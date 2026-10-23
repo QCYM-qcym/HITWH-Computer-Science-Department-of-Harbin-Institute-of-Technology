@@ -1,0 +1,1072 @@
+{
+  "artifact_kind": "SOURCE_METADATA_AND_LOCAL_PREFIX_EVIDENCE_NOT_RUNTIME_CONFIG",
+  "date": "2026-10-23",
+  "source_commit": "480c57fdeceb345e526f19f0923dbb8518e0bc55",
+  "new_dataset_payload_bytes": 0,
+  "new_c18_network_requests": 0,
+  "form_submitted": false,
+  "training": "NOT_RUN",
+  "dataset_adoption": "NOT_APPROVED",
+  "production_migration": "NOT_APPROVED",
+  "official_page": "https://www.unb.ca/cic/datasets/ids-2017.html",
+  "http_metadata": [
+    {
+      "time_utc": "2026-10-23T08:55:39Z",
+      "method": "HEAD",
+      "url": "http://cicresearch.ca/CICDataset/CIC-IDS-2017/",
+      "status": 301,
+      "content_type": "text/html; charset=iso-8859-1",
+      "content_length": null,
+      "location": "https://cicresearch.ca/CICDataset/CIC-IDS-2017/"
+    },
+    {
+      "time_utc": "2026-10-23T08:55:40Z",
+      "method": "HEAD",
+      "url": "https://cicresearch.ca/CICDataset/CIC-IDS-2017/",
+      "status": 200,
+      "content_type": "text/html",
+      "content_length": 10535,
+      "location": null,
+      "last_modified": "Sat, 21 Feb 2026 23:06:02 GMT",
+      "etag": "\"2927-64b5d94dfca80\"",
+      "identity_scope": "FORM_HTML_ONLY"
+    },
+    {
+      "time_utc": "2026-10-23T08:55:40Z",
+      "method": "HEAD",
+      "url": "https://cicresearch.ca/CICDataset/CIC-IDS-2017/browse.php",
+      "status": 403,
+      "content_type": "text/html; charset=UTF-8",
+      "content_length": null,
+      "location": null
+    },
+    {
+      "time_utc": "2026-10-23T08:55:41Z",
+      "method": "HEAD",
+      "url": "https://cicresearch.ca/CICDataset/CIC-IDS-2017/Dataset/CSVs/GeneratedLabelledFlows.zip",
+      "status": 302,
+      "content_type": "text/html; charset=iso-8859-1",
+      "content_length": null,
+      "location": "https://www.unb.ca/cic/datasets/index.html"
+    },
+    {
+      "time_utc": "2026-10-23T08:55:42Z",
+      "method": "HEAD",
+      "url": "https://cicresearch.ca/CICDataset/CIC-IDS-2017/Dataset/CSVs/MachineLearningCSV.zip",
+      "status": 302,
+      "content_type": "text/html; charset=iso-8859-1",
+      "content_length": null,
+      "location": "https://www.unb.ca/cic/datasets/index.html"
+    },
+    {
+      "time_utc": "2026-10-23T08:55:43Z",
+      "method": "HEAD",
+      "url": "https://www.unb.ca/cic/datasets/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "content_length": 108784,
+      "location": null,
+      "identity_scope": "DATASETS_INDEX_HTML_ONLY"
+    }
+  ],
+  "form_observation": {
+    "status": "READABLE_NOT_SUBMITTED",
+    "server_error_node_initially_hidden": true,
+    "previous_actual_server_error_inference": "WITHDRAWN_TEXT_EXTRACTION_INCLUDED_HIDDEN_NODE",
+    "action": "insert.php",
+    "method": "POST",
+    "success_redirect": "data.redirect or browse.php",
+    "payload_links_in_read_html": false
+  },
+  "generated_archive": {
+    "verified_payload_url": null,
+    "version": null,
+    "compressed_bytes": null,
+    "uncompressed_bytes": null,
+    "members": null,
+    "actual_header": null,
+    "last_modified": null,
+    "etag": null,
+    "official_sha256": null,
+    "official_md5": null,
+    "generator_commit": null,
+    "generator_binary_checksum": null,
+    "generator_config": null,
+    "source_timezone": null,
+    "dst_rules": null,
+    "actual_export_times": null
+  },
+  "repositories": [
+    {
+      "url": "https://github.com/ahlashkari/CICFlowMeter",
+      "old_alias": "ISCX/CICFlowMeter",
+      "repository_id": 121274905,
+      "fork": false
+    },
+    {
+      "url": "https://github.com/UNBCIC/CICFlowMeter",
+      "old_alias": "CanadianInstituteForCybersecurity/CICFlowMeter",
+      "repository_id": 238022807,
+      "fork": true,
+      "parent": "ahlashkari/CICFlowMeter"
+    }
+  ],
+  "inspected_commits": [
+    {
+      "sha": "98a5ebad0df579cc8b43eedd3421b3ae87699901",
+      "committed_at": "2022-01-05T15:41:44Z",
+      "message": "Update LICENSE.txt",
+      "binds_generated_archive": false
+    },
+    {
+      "sha": "eaa853dd82f08ba5288bb7f295b471de7313f883",
+      "committed_at": "2018-02-13T16:27:18Z",
+      "message": "Add files via upload",
+      "basic_flow_normal_format": "dd/MM/yyyy hh:mm:ss",
+      "basic_flow_ex_format": "dd/MM/yyyy hh:mm:ss",
+      "binds_generated_archive": false
+    },
+    {
+      "sha": "1d4e34eee43fd2e5fc37bf37dbae0558ca7c17fe",
+      "committed_at": "2018-07-04T15:50:28Z",
+      "basic_flow_normal_format": "dd/MM/yyyy hh:mm:ss",
+      "basic_flow_ex_format": "dd/MM/yyyy hh:mm:ss a",
+      "binds_generated_archive": false
+    }
+  ],
+  "source_code_hints_not_archive_facts": {
+    "timestamp": "first_packet_start",
+    "duration": "last_seen_minus_start",
+    "ipv4_clock": "timestampInMicros",
+    "ipv6_clock": "timestampInMillis",
+    "timezone": "default_runtime_zone_in_inspected_paths",
+    "actual_runtime_zone": null,
+    "actual_export_latency": null,
+    "realtime_availability_verified": false
+  },
+  "c18_local_reuse": {
+    "scope": "FOUR_AUTHORIZED_LOCAL_PREFIXES_ONLY_NO_NETWORK_NO_TRAINING",
+    "python": "3.14.0",
+    "audit_script_sha256": "b8f95cd337a828b379d2c636c0679da695455830120760b09837d298f2f7cf4d",
+    "rtol_sensitivity": [
+      1e-09,
+      1e-08,
+      1e-07,
+      1e-06
+    ],
+    "atol": 1e-08,
+    "criterion": "abs(observed-predicted) <= max(atol, rtol*max(abs(observed),abs(predicted)))",
+    "formula": "rate_encoded = count * 1000000 / Flow Duration; numeric implied encoding factor = rate*Duration/count",
+    "sum_formula": "Flow Pkts/s = Fwd Pkts/s + Bwd Pkts/s",
+    "objects": [
+      {
+        "filename": "Wednesday-14-02-2018_TrafficForML_CICFlowMeter.csv",
+        "sha256": "49b1d3044f19df9e05a0b9e0cae8ee8f2a589be0a3e34a34177c47f06fb0ed6a",
+        "sha256_matches_two_manifests": true,
+        "prefix_bytes": 4194304,
+        "complete_rows": 18935,
+        "discarded_tail_bytes": 89,
+        "checks": {
+          "flow_packets": {
+            "scanned": 18935,
+            "calculable": 18935,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 18935,
+              "1e-08": 18935,
+              "1e-07": 18935,
+              "1e-06": 18935
+            },
+            "matched_relative_only": {
+              "1e-09": 18917,
+              "1e-08": 18935,
+              "1e-07": 18935,
+              "1e-06": 18935
+            },
+            "max_abs_error": 4.0745362639427185e-10,
+            "max_relative_error": 1.8523894492006274e-09,
+            "positive_ratio_count": 18935,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": 999999.9981476106,
+            "ratio_max": 1000000.001691691,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "fwd_packets": {
+            "scanned": 18935,
+            "calculable": 18935,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 18935,
+              "1e-08": 18935,
+              "1e-07": 18935,
+              "1e-06": 18935
+            },
+            "matched_relative_only": {
+              "1e-09": 18917,
+              "1e-08": 18935,
+              "1e-07": 18935,
+              "1e-06": 18935
+            },
+            "max_abs_error": 3.4924596548080444e-10,
+            "max_relative_error": 1.8523894492006274e-09,
+            "positive_ratio_count": 18935,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": 999999.9981476106,
+            "ratio_max": 1000000.001691691,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "bwd_packets": {
+            "scanned": 18935,
+            "calculable": 18935,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 18935,
+              "1e-08": 18935,
+              "1e-07": 18935,
+              "1e-06": 18935
+            },
+            "matched_relative_only": {
+              "1e-09": 18935,
+              "1e-08": 18935,
+              "1e-07": 18935,
+              "1e-06": 18935
+            },
+            "max_abs_error": 3.4924596548080444e-10,
+            "max_relative_error": 2.218234446088596e-11,
+            "positive_ratio_count": 18886,
+            "zero_numerator_rows": 49,
+            "zero_observed_rows": 49,
+            "ratio_min": 999999.9999778176,
+            "ratio_max": 1000000.0000140605,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "flow_bytes": {
+            "scanned": 18935,
+            "calculable": 18935,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 18935,
+              "1e-08": 18935,
+              "1e-07": 18935,
+              "1e-06": 18935
+            },
+            "matched_relative_only": {
+              "1e-09": 18935,
+              "1e-08": 18935,
+              "1e-07": 18935,
+              "1e-06": 18935
+            },
+            "max_abs_error": 1.1641532182693481e-09,
+            "max_relative_error": 2.1690218836688146e-13,
+            "positive_ratio_count": 49,
+            "zero_numerator_rows": 18886,
+            "zero_observed_rows": 18886,
+            "ratio_min": 999999.999999852,
+            "ratio_max": 1000000.0000002169,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "direction_rate_sum": {
+            "scanned": 18935,
+            "calculable": 18935,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 18935,
+              "1e-08": 18935,
+              "1e-07": 18935,
+              "1e-06": 18935
+            },
+            "matched_relative_only": {
+              "1e-09": 18935,
+              "1e-08": 18935,
+              "1e-07": 18935,
+              "1e-06": 18935
+            },
+            "max_abs_error": 9.89530235528946e-10,
+            "max_relative_error": 6.574700543968485e-12,
+            "positive_ratio_count": 0,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": null,
+            "ratio_max": null,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          }
+        },
+        "numeric": {
+          "duration_zero": 0,
+          "duration_negative": 0
+        },
+        "timestamp": {
+          "exact_DMY_HMS_no_suffix": 18935,
+          "AM_PM_marker": 0,
+          "timezone_marker": 0,
+          "fractional_second_marker": 0,
+          "hour_01_to_12": 18935
+        }
+      },
+      {
+        "filename": "Thursday-15-02-2018_TrafficForML_CICFlowMeter.csv",
+        "sha256": "4e6c4ac752adcff1358046a8d0cf81a029bcbf402fb66ae3592b1d7f6b1f2410",
+        "sha256_matches_two_manifests": true,
+        "prefix_bytes": 4194304,
+        "complete_rows": 9125,
+        "discarded_tail_bytes": 23,
+        "checks": {
+          "flow_packets": {
+            "scanned": 9125,
+            "calculable": 9125,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 9125,
+              "1e-08": 9125,
+              "1e-07": 9125,
+              "1e-06": 9125
+            },
+            "matched_relative_only": {
+              "1e-09": 9112,
+              "1e-08": 9125,
+              "1e-07": 9125,
+              "1e-06": 9125
+            },
+            "max_abs_error": 1.1641532182693481e-10,
+            "max_relative_error": 1.6326360029199813e-09,
+            "positive_ratio_count": 9125,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": 999999.998367364,
+            "ratio_max": 1000000.0016231239,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "fwd_packets": {
+            "scanned": 9125,
+            "calculable": 9125,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 9125,
+              "1e-08": 9125,
+              "1e-07": 9125,
+              "1e-06": 9125
+            },
+            "matched_relative_only": {
+              "1e-09": 9112,
+              "1e-08": 9125,
+              "1e-07": 9125,
+              "1e-06": 9125
+            },
+            "max_abs_error": 1.1641532182693481e-10,
+            "max_relative_error": 1.6326360029199813e-09,
+            "positive_ratio_count": 9125,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": 999999.998367364,
+            "ratio_max": 1000000.0016231239,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "bwd_packets": {
+            "scanned": 9125,
+            "calculable": 9125,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 9125,
+              "1e-08": 9125,
+              "1e-07": 9125,
+              "1e-06": 9125
+            },
+            "matched_relative_only": {
+              "1e-09": 9125,
+              "1e-08": 9125,
+              "1e-07": 9125,
+              "1e-06": 9125
+            },
+            "max_abs_error": 4.9987458616840286e-11,
+            "max_relative_error": 6.132426922292815e-10,
+            "positive_ratio_count": 9088,
+            "zero_numerator_rows": 37,
+            "zero_observed_rows": 37,
+            "ratio_min": 999999.9994689317,
+            "ratio_max": 1000000.0006132427,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "flow_bytes": {
+            "scanned": 9125,
+            "calculable": 9125,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 9125,
+              "1e-08": 9125,
+              "1e-07": 9125,
+              "1e-06": 9125
+            },
+            "matched_relative_only": {
+              "1e-09": 9125,
+              "1e-08": 9125,
+              "1e-07": 9125,
+              "1e-06": 9125
+            },
+            "max_abs_error": 4.470348358154297e-08,
+            "max_relative_error": 9.483086729770156e-13,
+            "positive_ratio_count": 9089,
+            "zero_numerator_rows": 36,
+            "zero_observed_rows": 36,
+            "ratio_min": 999999.9999990517,
+            "ratio_max": 1000000.0000006635,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "direction_rate_sum": {
+            "scanned": 9125,
+            "calculable": 9125,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 9125,
+              "1e-08": 9125,
+              "1e-07": 9125,
+              "1e-06": 9125
+            },
+            "matched_relative_only": {
+              "1e-09": 9125,
+              "1e-08": 9125,
+              "1e-07": 9125,
+              "1e-06": 9125
+            },
+            "max_abs_error": 1.000444171950221e-10,
+            "max_relative_error": 3.0524858520424957e-10,
+            "positive_ratio_count": 0,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": null,
+            "ratio_max": null,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          }
+        },
+        "numeric": {
+          "duration_zero": 0,
+          "duration_negative": 0
+        },
+        "timestamp": {
+          "exact_DMY_HMS_no_suffix": 9125,
+          "AM_PM_marker": 0,
+          "timezone_marker": 0,
+          "fractional_second_marker": 0,
+          "hour_01_to_12": 9125
+        }
+      },
+      {
+        "filename": "Friday-16-02-2018_TrafficForML_CICFlowMeter.csv",
+        "sha256": "be8b94fbc0caa6c1a3e71a7f4a98d52dc9fbc82552912af99ac8ba4740bae5b3",
+        "sha256_matches_two_manifests": true,
+        "prefix_bytes": 4194304,
+        "complete_rows": 18059,
+        "discarded_tail_bytes": 138,
+        "checks": {
+          "flow_packets": {
+            "scanned": 18059,
+            "calculable": 18059,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 18059,
+              "1e-08": 18059,
+              "1e-07": 18059,
+              "1e-06": 18059
+            },
+            "matched_relative_only": {
+              "1e-09": 18020,
+              "1e-08": 18045,
+              "1e-07": 18059,
+              "1e-06": 18059
+            },
+            "max_abs_error": 4.6153843868523836e-05,
+            "max_relative_error": 1.8351130354698145e-08,
+            "positive_ratio_count": 18059,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": 999999.9852159439,
+            "ratio_max": 1000000.0183511307,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "fwd_packets": {
+            "scanned": 18059,
+            "calculable": 18059,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 18059,
+              "1e-08": 18059,
+              "1e-07": 18059,
+              "1e-06": 18059
+            },
+            "matched_relative_only": {
+              "1e-09": 18020,
+              "1e-08": 18045,
+              "1e-07": 18059,
+              "1e-06": 18059
+            },
+            "max_abs_error": 4.285713657736778e-05,
+            "max_relative_error": 1.8351130354698145e-08,
+            "positive_ratio_count": 18059,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": 999999.9852159439,
+            "ratio_max": 1000000.0183511307,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "bwd_packets": {
+            "scanned": 18059,
+            "calculable": 18059,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 18059,
+              "1e-08": 18059,
+              "1e-07": 18059,
+              "1e-06": 18059
+            },
+            "matched_relative_only": {
+              "1e-09": 18058,
+              "1e-08": 18059,
+              "1e-07": 18059,
+              "1e-06": 18059
+            },
+            "max_abs_error": 4.285713657736778e-05,
+            "max_relative_error": 9.399117282198047e-09,
+            "positive_ratio_count": 18003,
+            "zero_numerator_rows": 56,
+            "zero_observed_rows": 56,
+            "ratio_min": 999999.9995427551,
+            "ratio_max": 1000000.0093991174,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "flow_bytes": {
+            "scanned": 18059,
+            "calculable": 18059,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 18059,
+              "1e-08": 18059,
+              "1e-07": 18059,
+              "1e-06": 18059
+            },
+            "matched_relative_only": {
+              "1e-09": 18059,
+              "1e-08": 18059,
+              "1e-07": 18059,
+              "1e-06": 18059
+            },
+            "max_abs_error": 0.0004946492845192552,
+            "max_relative_error": 4.905660946706292e-10,
+            "positive_ratio_count": 58,
+            "zero_numerator_rows": 18001,
+            "zero_observed_rows": 18001,
+            "ratio_min": 999999.999509434,
+            "ratio_max": 1000000.0004720181,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "direction_rate_sum": {
+            "scanned": 18059,
+            "calculable": 18059,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 18059,
+              "1e-08": 18059,
+              "1e-07": 18059,
+              "1e-06": 18059
+            },
+            "matched_relative_only": {
+              "1e-09": 18059,
+              "1e-08": 18059,
+              "1e-07": 18059,
+              "1e-06": 18059
+            },
+            "max_abs_error": 0.00010000000474974513,
+            "max_relative_error": 4.825426868398112e-10,
+            "positive_ratio_count": 0,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": null,
+            "ratio_max": null,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          }
+        },
+        "numeric": {
+          "duration_zero": 0,
+          "duration_negative": 0
+        },
+        "timestamp": {
+          "exact_DMY_HMS_no_suffix": 18059,
+          "AM_PM_marker": 0,
+          "timezone_marker": 0,
+          "fractional_second_marker": 0,
+          "hour_01_to_12": 18059
+        }
+      },
+      {
+        "filename": "Wednesday-21-02-2018_TrafficForML_CICFlowMeter.csv",
+        "sha256": "79bda8235121bd51e1a296063175bc41ebf784954fa5b8073aeabe5994838cce",
+        "sha256_matches_two_manifests": true,
+        "prefix_bytes": 4194304,
+        "complete_rows": 12489,
+        "discarded_tail_bytes": 374,
+        "checks": {
+          "flow_packets": {
+            "scanned": 12489,
+            "calculable": 12489,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 12489,
+              "1e-08": 12489,
+              "1e-07": 12489,
+              "1e-06": 12489
+            },
+            "matched_relative_only": {
+              "1e-09": 10963,
+              "1e-08": 12461,
+              "1e-07": 12489,
+              "1e-06": 12489
+            },
+            "max_abs_error": 4.285713657736778e-05,
+            "max_relative_error": 1.9309477926898987e-08,
+            "positive_ratio_count": 12489,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": 999999.9806905221,
+            "ratio_max": 1000000.0177951334,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "fwd_packets": {
+            "scanned": 12489,
+            "calculable": 12489,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 12489,
+              "1e-08": 12489,
+              "1e-07": 12489,
+              "1e-06": 12489
+            },
+            "matched_relative_only": {
+              "1e-09": 10959,
+              "1e-08": 12459,
+              "1e-07": 12489,
+              "1e-06": 12489
+            },
+            "max_abs_error": 3.333334461785853e-05,
+            "max_relative_error": 1.9466936100391074e-08,
+            "positive_ratio_count": 12489,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": 999999.9805330639,
+            "ratio_max": 1000000.0177951334,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "bwd_packets": {
+            "scanned": 12489,
+            "calculable": 12489,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 12489,
+              "1e-08": 12489,
+              "1e-07": 12489,
+              "1e-06": 12489
+            },
+            "matched_relative_only": {
+              "1e-09": 12476,
+              "1e-08": 12488,
+              "1e-07": 12489,
+              "1e-06": 12489
+            },
+            "max_abs_error": 3.333331551402807e-05,
+            "max_relative_error": 4.2320238253617666e-08,
+            "positive_ratio_count": 4554,
+            "zero_numerator_rows": 7935,
+            "zero_observed_rows": 7935,
+            "ratio_min": 999999.992088882,
+            "ratio_max": 1000000.04232024,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "flow_bytes": {
+            "scanned": 12489,
+            "calculable": 12489,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 12489,
+              "1e-08": 12489,
+              "1e-07": 12489,
+              "1e-06": 12489
+            },
+            "matched_relative_only": {
+              "1e-09": 12489,
+              "1e-08": 12489,
+              "1e-07": 12489,
+              "1e-06": 12489
+            },
+            "max_abs_error": 0.0004864863585680723,
+            "max_relative_error": 4.845188375222439e-10,
+            "positive_ratio_count": 7961,
+            "zero_numerator_rows": 4528,
+            "zero_observed_rows": 4528,
+            "ratio_min": 999999.9995154812,
+            "ratio_max": 1000000.0004843972,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          },
+          "direction_rate_sum": {
+            "scanned": 12489,
+            "calculable": 12489,
+            "not_calculable": 0,
+            "reasons": {},
+            "matched_by_rtol": {
+              "1e-09": 12489,
+              "1e-08": 12489,
+              "1e-07": 12489,
+              "1e-06": 12489
+            },
+            "matched_relative_only": {
+              "1e-09": 12480,
+              "1e-08": 12489,
+              "1e-07": 12489,
+              "1e-06": 12489
+            },
+            "max_abs_error": 9.999994654208422e-05,
+            "max_relative_error": 5.594172468241763e-09,
+            "positive_ratio_count": 0,
+            "zero_numerator_rows": 0,
+            "zero_observed_rows": 0,
+            "ratio_min": null,
+            "ratio_max": null,
+            "mismatched_by_rtol": {
+              "1e-09": 0,
+              "1e-08": 0,
+              "1e-07": 0,
+              "1e-06": 0
+            }
+          }
+        },
+        "numeric": {
+          "duration_zero": 0,
+          "duration_negative": 0
+        },
+        "timestamp": {
+          "exact_DMY_HMS_no_suffix": 12489,
+          "AM_PM_marker": 0,
+          "timezone_marker": 0,
+          "fractional_second_marker": 0,
+          "hour_01_to_12": 12489
+        }
+      }
+    ],
+    "aggregate": {
+      "flow_packets": {
+        "scanned": 58608,
+        "calculable": 58608,
+        "not_calculable": 0,
+        "positive_ratio_count": 58608,
+        "zero_numerator_rows": 0,
+        "zero_observed_rows": 0,
+        "matched_by_rtol": {
+          "1e-09": 58608,
+          "1e-08": 58608,
+          "1e-07": 58608,
+          "1e-06": 58608
+        },
+        "mismatched_by_rtol": {
+          "1e-09": 0,
+          "1e-08": 0,
+          "1e-07": 0,
+          "1e-06": 0
+        },
+        "matched_relative_only": {
+          "1e-09": 57012,
+          "1e-08": 58566,
+          "1e-07": 58608,
+          "1e-06": 58608
+        },
+        "max_abs_error": 4.6153843868523836e-05,
+        "max_relative_error": 1.9309477926898987e-08,
+        "ratio_min": 999999.9806905221,
+        "ratio_max": 1000000.0183511307
+      },
+      "fwd_packets": {
+        "scanned": 58608,
+        "calculable": 58608,
+        "not_calculable": 0,
+        "positive_ratio_count": 58608,
+        "zero_numerator_rows": 0,
+        "zero_observed_rows": 0,
+        "matched_by_rtol": {
+          "1e-09": 58608,
+          "1e-08": 58608,
+          "1e-07": 58608,
+          "1e-06": 58608
+        },
+        "mismatched_by_rtol": {
+          "1e-09": 0,
+          "1e-08": 0,
+          "1e-07": 0,
+          "1e-06": 0
+        },
+        "matched_relative_only": {
+          "1e-09": 57008,
+          "1e-08": 58564,
+          "1e-07": 58608,
+          "1e-06": 58608
+        },
+        "max_abs_error": 4.285713657736778e-05,
+        "max_relative_error": 1.9466936100391074e-08,
+        "ratio_min": 999999.9805330639,
+        "ratio_max": 1000000.0183511307
+      },
+      "bwd_packets": {
+        "scanned": 58608,
+        "calculable": 58608,
+        "not_calculable": 0,
+        "positive_ratio_count": 50531,
+        "zero_numerator_rows": 8077,
+        "zero_observed_rows": 8077,
+        "matched_by_rtol": {
+          "1e-09": 58608,
+          "1e-08": 58608,
+          "1e-07": 58608,
+          "1e-06": 58608
+        },
+        "mismatched_by_rtol": {
+          "1e-09": 0,
+          "1e-08": 0,
+          "1e-07": 0,
+          "1e-06": 0
+        },
+        "matched_relative_only": {
+          "1e-09": 58594,
+          "1e-08": 58607,
+          "1e-07": 58608,
+          "1e-06": 58608
+        },
+        "max_abs_error": 4.285713657736778e-05,
+        "max_relative_error": 4.2320238253617666e-08,
+        "ratio_min": 999999.992088882,
+        "ratio_max": 1000000.04232024
+      },
+      "flow_bytes": {
+        "scanned": 58608,
+        "calculable": 58608,
+        "not_calculable": 0,
+        "positive_ratio_count": 17157,
+        "zero_numerator_rows": 41451,
+        "zero_observed_rows": 41451,
+        "matched_by_rtol": {
+          "1e-09": 58608,
+          "1e-08": 58608,
+          "1e-07": 58608,
+          "1e-06": 58608
+        },
+        "mismatched_by_rtol": {
+          "1e-09": 0,
+          "1e-08": 0,
+          "1e-07": 0,
+          "1e-06": 0
+        },
+        "matched_relative_only": {
+          "1e-09": 58608,
+          "1e-08": 58608,
+          "1e-07": 58608,
+          "1e-06": 58608
+        },
+        "max_abs_error": 0.0004946492845192552,
+        "max_relative_error": 4.905660946706292e-10,
+        "ratio_min": 999999.999509434,
+        "ratio_max": 1000000.0004843972
+      },
+      "direction_rate_sum": {
+        "scanned": 58608,
+        "calculable": 58608,
+        "not_calculable": 0,
+        "positive_ratio_count": 0,
+        "zero_numerator_rows": 0,
+        "zero_observed_rows": 0,
+        "matched_by_rtol": {
+          "1e-09": 58608,
+          "1e-08": 58608,
+          "1e-07": 58608,
+          "1e-06": 58608
+        },
+        "mismatched_by_rtol": {
+          "1e-09": 0,
+          "1e-08": 0,
+          "1e-07": 0,
+          "1e-06": 0
+        },
+        "matched_relative_only": {
+          "1e-09": 58599,
+          "1e-08": 58608,
+          "1e-07": 58608,
+          "1e-06": 58608
+        },
+        "max_abs_error": 0.00010000000474974513,
+        "max_relative_error": 5.594172468241763e-09,
+        "ratio_min": null,
+        "ratio_max": null
+      }
+    },
+    "total_complete_rows": 58608,
+    "header_time_fields": [
+      "Timestamp",
+      "Flow Duration",
+      "Flow IAT Mean",
+      "Flow IAT Std",
+      "Flow IAT Max",
+      "Flow IAT Min",
+      "Fwd IAT Tot",
+      "Fwd IAT Mean",
+      "Fwd IAT Std",
+      "Fwd IAT Max",
+      "Fwd IAT Min",
+      "Bwd IAT Tot",
+      "Bwd IAT Mean",
+      "Bwd IAT Std",
+      "Bwd IAT Max",
+      "Bwd IAT Min",
+      "Active Mean",
+      "Active Std",
+      "Active Max",
+      "Active Min",
+      "Idle Mean",
+      "Idle Std",
+      "Idle Max",
+      "Idle Min"
+    ],
+    "independent_export_or_availability_field_present": false,
+    "timezone_or_ampm_field_present": false,
+    "duration_elapsed_unit_independently_verified": false,
+    "unchanged_source_hash_after": true,
+    "summary_wording_note": "Formula label clarified from dimensionless to numeric; numerical fields unchanged from local audit summary."
+  },
+  "next_payload_plan": {
+    "status": "NOT_EXECUTABLE_MISSING_VERIFIED_URL_AND_SIZES",
+    "authorization": "NOT_APPROVED",
+    "required_before_proposal": [
+      "official post-registration file identity",
+      "verified URL without publishing credentials",
+      "compressed bytes",
+      "member list and uncompressed bytes or explicitly unresolved limits",
+      "available official checksums",
+      "exact bounded transfer and local storage plan"
+    ]
+  },
+  "gate": {
+    "project_s2": "BLOCKED",
+    "candidate": "NOT_PASSED",
+    "c17_payload_audit": "NOT_RUN",
+    "four_split_supply": "NOT_VERIFIED",
+    "real_short_validation": "NOT_RUN",
+    "formal_evaluation": "NOT_RUN"
+  }
+}

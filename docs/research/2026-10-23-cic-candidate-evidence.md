@@ -13,7 +13,7 @@
 | 对象/入口 | 本轮事实 | 可作何种判断 |
 |---|---|---|
 | [UNB数据页](https://www.unb.ca/cic/datasets/ids-2017.html) | License明确列`GeneratedLabelledFlows.zip`、`MachineLearningCSV.zip`，另有PCAP及profiles | 两包为不同发行物；无法由介绍认证某包表头或列数 |
-| [官方下载入口](https://cicresearch.ca/CICDataset/CIC-IDS-2017/) | 返回资料表单及Server error；未填写或提交 | 未取得匿名可读文件清单 |
+| [官方下载入口](https://cicresearch.ca/CICDataset/CIC-IDS-2017/) | 返回资料表单；Server error是初始隐藏节点，旧故障解释已撤回；未提交（见文末复核） | 未取得匿名可读文件清单 |
 | [browse.php](https://cicresearch.ca/CICDataset/CIC-IDS-2017/browse.php) | 普通GET返回403 | 没有构造会话或绕过访问流程 |
 | [旧Generated包URL](https://cicresearch.ca/CICDataset/CIC-IDS-2017/Dataset/CSVs/GeneratedLabelledFlows.zip) | HEAD跟随重定向到UNB总页，200、text/html、Content-Length=108784 | **108784是HTML大小，不是ZIP大小**；不能以200声称可下载 |
 | [旧学习包URL](https://cicresearch.ca/CICDataset/CIC-IDS-2017/Dataset/CSVs/MachineLearningCSV.zip) | 同上 | 不证明ZIP支持Range或身份稳定 |
@@ -69,7 +69,7 @@ HEAD未返回version-id或独立checksum（包括请求checksum-mode后）；保
 | 问题 | 固定代码/研究依据 | 对目标发行物的限制 |
 |---|---|---|
 | Timestamp/Duration | [BasicFlow](https://github.com/UNBCIC/CICFlowMeter/blob/1d4e34eee43fd2e5fc37bf37dbae0558ca7c17fe/src/main/java/cic/cs/unb/ca/jnetpcap/BasicFlow.java)：首包设start，duration=lastSeen−start；[PacketReader](https://github.com/UNBCIC/CICFlowMeter/blob/1d4e34eee43fd2e5fc37bf37dbae0558ca7c17fe/src/main/java/cic/cs/unb/ca/jnetpcap/PacketReader.java)：IPv4微秒路径 | 开始/结束代理的候选解释，不认证CSV单位/格式；其他读取路径不能混用 |
-| 日期/AM-PM | BasicFlow普通输出`dd/MM/yyyy hh:mm:ss`，Ex路径加`a` | 两条不同路径；不能声称所有文件都缺AM/PM或都已消歧 |
+| 日期/AM-PM | 此处固定较晚快照的普通输出`dd/MM/yyyy hh:mm:ss`，Ex加`a`；早期2018-02快照两路均无`a`，见文末复核 | 两条不同路径；不能声称所有文件都缺AM/PM或都已消歧 |
 | 时区/DST | [DateFormatter](https://github.com/UNBCIC/CICFlowMeter/blob/1d4e34eee43fd2e5fc37bf37dbae0558ca7c17fe/src/main/java/cic/cs/unb/ca/jnetpcap/DateFormatter.java)依赖默认时区 | 未找到目标发行物的明确时区/DST声明；不按机构所在地或存储区推断 |
 | 导出/可用时点 | [FlowGenerator](https://github.com/UNBCIC/CICFlowMeter/blob/1d4e34eee43fd2e5fc37bf37dbae0558ca7c17fe/src/main/java/cic/cs/unb/ca/jnetpcap/FlowGenerator.java)后续包触发超时/FIN处理；[Cmd](https://github.com/UNBCIC/CICFlowMeter/blob/1d4e34eee43fd2e5fc37bf37dbae0558ca7c17fe/src/main/java/cic/cs/unb/ca/ifm/Cmd.java)在EOF导出剩余流 | 最后包可早于导出；120秒默认值不等于每条流的可认证导出延迟 |
 | 包长及协议 | [作者PacketReader](https://github.com/ahlashkari/CICFlowMeter/blob/98a5ebad0df579cc8b43eedd3421b3ae87699901/src/main/java/cic/cs/unb/ca/jnetpcap/PacketReader.java)TCP/UDP取payload长度；[CNS2022工具说明](https://intrusion-detection.distrinet-research.be/CNS2022/Tools_Documentation.html)把ICMP支持列作新增 | 不将包长叫线路总字节，不将原表无ICMP当作网络没有ICMP；主控12维提案取消ICMP专列，改用duration_max_s |
@@ -95,3 +95,9 @@ HEAD未返回version-id或独立checksum（包括请求checksum-mode后）；保
 官方核查限三个对象：[UGR main元信息](https://api.github.com/repos/josecamachop/UGR16_FeatureData/commits/main)仍为`760863d31413739a129b3be2d1d52cde217962e8`；[DMP](https://codas.ugr.es/animalicos/doc/deliverable3.pdf)仍标2024-11-20，F.3及数据GPL-3.0文字与已有证据一致，未做历史PDF字节对比；[原始论文](https://nesg.ugr.es/nesg-ugr16/dataset_AuthorVersionFinal.pdf)直接403，未取得新正文。本范围未发现能解除UGR时区/DST/桶端点、许可关系或零正常分母阻塞的新证据；不声称所有渠道都无更新。真实计数沿用10月21日审计，未重算。
 
 本次新增的用户决定为接受C17-G12作为审计与设计方案，明确按其12/24维、结束时间离线代理和高负载限定核验可行性；主数据正式采用及生产迁移仍未批准。随后C18-S另获明确批准并执行，新增的载荷结构证据及离线审计器修复见[实际结果](2026-10-23-c18-structure-sample.md)。仅此四前缀的传输与检查完成，未扩大获取或启动真实运行，Gate维持原判定。
+
+## 从480c57f续接：入口勘误与生成版本边界
+
+[本轮原始来源对照及聚合证据](2026-10-23-c17-source-metadata.md)明确：表单可读、错误节点初始隐藏，旧“发生Server error”推断撤回；匿名browse为403、旧ZIP重定向HTML，注册后有效归档尚未取得。成员、大小及官方校验继续null，不用HTML身份填ZIP字段。
+
+98a5ebad是2022许可提交，eaa853dd为当前可见历史2018早期文件上传；所查快照均未绑定2017包。Ex的AM/PM有版本差异，默认时区/单位分支仅为源码线索。C18-S复用58608行通过五项内部公式检查，不独立证明实际时间单位。没有新增数据载荷、采用/迁移决定或研究Gate升级。

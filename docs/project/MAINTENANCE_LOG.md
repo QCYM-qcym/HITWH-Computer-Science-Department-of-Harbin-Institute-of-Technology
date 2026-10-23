@@ -1,5 +1,15 @@
 # 仓库维护复核记录
 
+## 2026-10-23 C17官方入口与生成版本复核
+
+从干净且本地/远端一致的480c57f，在已有W0隔离worktree新建codex/c17-source-metadata；Desktop Fetch后继续，主工作区和其他worktree保留。三个并行只读任务核官方入口、生成版本、本地C18-S一致性，主控统一[证据Markdown](../research/2026-10-23-c17-source-metadata.md)、[聚合JSON](../research/2026-10-23-c17-source-metadata.json)、既有决定/清单/preflight及公共状态。
+
+官方表单可读；旧Server error文本是隐藏节点，撤回实际故障解释；匿名browse403、旧ZIP302至HTML，成员/大小/官方校验仍null。98a5ebad为2022许可更新，2018快照与原2017包无生成绑定，AM/PM须限定版本路径。C18-S四前缀哈希不变，58608行五项内部公式按明确容差一致，不能独立认证elapsed单位；报告更严容差差异及0/0比例分母。三项独立复审通过，微调公式说明为numeric encoding factor，不改数值。没有新增CSV/ZIP/PCAP载荷、训练、采用2018、生产契约或代码修改。
+
+实际本地验证：data_audit unittest 10项、repository unittest 13项通过；既有四前缀结构工具重审成功，16MiB及表头一致。进度write/check通过；工作树检查368文件0问题，通用作者/hook正确；203个本地Markdown链接与新日志5个Wiki链接有效。机读证据核对五项总数、四前缀SHA、归档未知字段null、S0—S9及旧Gate与480c57f一致，无src/configs/生产设计差异。隐私只公开元信息和聚合计数，不含原始行、个人路径/凭据。未扩大本地业务测试；完整C17载荷/四段供应、真实短片段、训练及正式比较NOT_RUN，候选NOT_PASSED、S2 BLOCKED。
+
+知识库新增本轮研究日志，复用两候选旧页并追加四入口，保留历史和设计批准边界。确切URL/字节未知前不虚构下载方案，下一阶段先正规流程交接非私人目录元信息，再另提有界获取。最终暂存检查、GitHub Desktop提交/推送、远端SHA及本提交CI以完成后实际核对为准，不预填成功或提交号，不合并main。
+
 ## 2026-10-23 C17设计接受与C18-S获准结构核查
 
 从已同步且干净的9b52c00在现有W0隔离worktree建立codex/c17-audit-decision，保留其他worktree。用户再次提供旧阶段提示后，两个只读任务核对要求覆盖和限定增量证据，复用已有A/B/C十维、八项Gate、作者草稿和准备清单。UGR main/DMP/原论文入口的有限复核未发现解除阻塞的新依据，没有重复全量UGR审计。用户随后分别接受C17-G12审计设计、明确批准C18-S四前缀16MiB；主控统一记录，未采用2018或授权生产迁移。
