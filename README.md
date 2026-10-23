@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-23**。当前阶段：**数据审计**；本轮主题：C17官方表单及生成版本边界已复核；归档身份与时间仍缺证，复用C18-S无新增载荷，Data Gate保持BLOCKED。
+最近更新：**2026-10-23**。当前阶段：**数据审计**；本轮主题：GitHub检索找到原包非官方镜像与作者修订版目录；只核元信息，Data Gate保持BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 从480c57f续接，仅核官方元信息与既有C18-S前缀；新增CSV/ZIP/PCAP载荷0字节，没有训练或改用2018。
-- C17正规表单可读；更正隐藏Server error文本的旧解释，匿名browse仍403，目标ZIP成员/大小/官方校验继续null。
-- 98a5ebad为2022许可更新，早期可见文件上传为2018；源码快照和AM/PM路径差异不能认证2017原包生成版本。
-- C18-S的58608完整流记录通过五项内部公式检查及哈希复核；同源公式不能证明实际时间单位或四段分钟供应。
+- GitHub只读检索区分仅代码/旧外链与实际数据来源；没有下载CSV、ZIP或PCAP载荷。
+- HF非官方Generated镜像元信息为283876488字节及LFS SHA256，固定提交811c007；尚未证明与UNB原包一致。
+- CNS2022作者目录列CICIDS2017_improved.zip为328M，工具文档说明UTC微秒；独立修订版和Attempted标签需单独审计。
+- 当前C17-G12设计、生产契约和四段供应状态不变；真实验证、训练及正式实验NOT_RUN。
 
 **当前阻塞或待验证事项**
 
@@ -74,12 +74,13 @@ flowchart TB
 
 **接下来最重要的三项任务**
 
-1. [C-D1](<docs/research/2026-10-23-c17-source-metadata.md>)：通过正规官方流程补交Generated项非私人元信息，再按实际URL/字节提出独立有界载荷方案，不据旧预算启动。
+1. [C-D1](<docs/research/2026-10-23-github-dataset-search.md>)：核对原包镜像与作者修订版的适用证据，选择具体获取对象并制定有界方案；不将检索请求视为载荷下载批准。
 2. [C-D2](<docs/research/2026-10-23-candidate-manifest.json>)：澄清原包生成版本/参数、小时制、时区和可用时刻；C18-S仅复用，不新增传输或以同源rate认证单位。
 3. [C-D3](<docs/guides/real-validation-preflight.md>)：获准并取得数据后核唯一时间、采集覆盖、标签及四段历史供应，再决定迁移，不按模型效果改边界。
 
 **最新成果入口**
 
+- [GitHub数据来源检索与可获取镜像元信息](<docs/research/2026-10-23-github-dataset-search.md>)
 - [C17官方入口、生成版本与C18-S本地一致性复核](<docs/research/2026-10-23-c17-source-metadata.md>)
 - [10月23日C方向具体数据与表示决定包](<docs/project/CANDIDATE-DATA-DECISION-2026-10-23.md>)
 - [CIC发行物、许可、时间与标签证据](<docs/research/2026-10-23-cic-candidate-evidence.md>)

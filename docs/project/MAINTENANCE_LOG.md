@@ -1,5 +1,11 @@
 # 仓库维护复核记录
 
+## 2026-10-23 GitHub数据来源检索
+
+复用已有W0隔离worktree，从6c0a637建立codex/github-dataset-search。两个并行只读核查分别检查镜像与论文作者修订版，主控独立读取HF元信息API、镜像卡和作者目录/工具说明。公开记录见[本轮检索](../research/2026-10-23-github-dataset-search.md)。Generated镜像283876488字节及LFS SHA256已核；该哈希只绑定镜像，不等于官方校验。作者improved包328M为页面原样单位；工具文档不替代当前ZIP字段审计。没有下载数据载荷、运行真实模型、修改src或生产契约；S2 BLOCKED、正式采用与四段审计状态保持。知识库复用CICIDS2017页，新增本轮来源日志并追加当前上下文；保留旧记录。
+
+本地仓库unittest 13项通过；进度write/check一致，worktree隐私与作者检查369文件0问题，diff格式检查通过。无生产代码变化，未重复业务套件。Desktop提交推送与远端CI以实际完成后报告为准，不预填成功。
+
 ## 2026-10-23 C17官方入口与生成版本复核
 
 从干净且本地/远端一致的480c57f，在已有W0隔离worktree新建codex/c17-source-metadata；Desktop Fetch后继续，主工作区和其他worktree保留。三个并行只读任务核官方入口、生成版本、本地C18-S一致性，主控统一[证据Markdown](../research/2026-10-23-c17-source-metadata.md)、[聚合JSON](../research/2026-10-23-c17-source-metadata.json)、既有决定/清单/preflight及公共状态。

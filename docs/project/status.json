@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-10-23",
   "current_stage": "S2",
-  "theme": "C17官方表单及生成版本边界已复核；归档身份与时间仍缺证，复用C18-S无新增载荷，Data Gate保持BLOCKED",
+  "theme": "GitHub检索找到原包非官方镜像与作者修订版目录；只核元信息，Data Gate保持BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "从480c57f续接，仅核官方元信息与既有C18-S前缀；新增CSV/ZIP/PCAP载荷0字节，没有训练或改用2018。",
-    "C17正规表单可读；更正隐藏Server error文本的旧解释，匿名browse仍403，目标ZIP成员/大小/官方校验继续null。",
-    "98a5ebad为2022许可更新，早期可见文件上传为2018；源码快照和AM/PM路径差异不能认证2017原包生成版本。",
-    "C18-S的58608完整流记录通过五项内部公式检查及哈希复核；同源公式不能证明实际时间单位或四段分钟供应。"
+    "GitHub只读检索区分仅代码/旧外链与实际数据来源；没有下载CSV、ZIP或PCAP载荷。",
+    "HF非官方Generated镜像元信息为283876488字节及LFS SHA256，固定提交811c007；尚未证明与UNB原包一致。",
+    "CNS2022作者目录列CICIDS2017_improved.zip为328M，工具文档说明UTC微秒；独立修订版和Attempted标签需单独审计。",
+    "当前C17-G12设计、生产契约和四段供应状态不变；真实验证、训练及正式实验NOT_RUN。"
   ],
   "blockers": [
     "C17表单可读，但注册后官方文件目录尚未取得；有效ZIP URL、成员/大小/校验与精确生成绑定仍null。",
@@ -19,8 +19,8 @@
   "next_tasks": [
     {
       "id": "C-D1",
-      "text": "通过正规官方流程补交Generated项非私人元信息，再按实际URL/字节提出独立有界载荷方案，不据旧预算启动。",
-      "path": "docs/research/2026-10-23-c17-source-metadata.md"
+      "text": "核对原包镜像与作者修订版的适用证据，选择具体获取对象并制定有界方案；不将检索请求视为载荷下载批准。",
+      "path": "docs/research/2026-10-23-github-dataset-search.md"
     },
     {
       "id": "C-D2",
@@ -34,6 +34,10 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "GitHub数据来源检索与可获取镜像元信息",
+      "path": "docs/research/2026-10-23-github-dataset-search.md"
+    },
     {
       "label": "C17官方入口、生成版本与C18-S本地一致性复核",
       "path": "docs/research/2026-10-23-c17-source-metadata.md"
@@ -573,5 +577,20 @@
       "normal_minute_count": null,
       "dataset_adoption": "NOT_APPROVED"
     }
+  },
+  "github_source_review": {
+    "date": "2026-10-23",
+    "status": "METADATA_ONLY",
+    "report": "docs/research/2026-10-23-github-dataset-search.md",
+    "new_dataset_payload_bytes": 0,
+    "mirror_archive_bytes": 283876488,
+    "mirror_sha256": "7bdbef286f8893f31c6db12105fa097fa5c2dcc6733179037a08129d150ea27a",
+    "mirror_commit": "811c007f08d693a8a8b4226c197c138391806ce6",
+    "official_archive_equality": "UNVERIFIED",
+    "researcher_revision": "CNS2022_CICIDS2017_improved",
+    "dataset_adoption_changed": false,
+    "production_contract_changed": false,
+    "real_training": "NOT_RUN",
+    "formal_comparison": "NOT_RUN"
   }
 }
