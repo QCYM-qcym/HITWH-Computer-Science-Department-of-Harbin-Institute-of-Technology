@@ -6,8 +6,8 @@
   "direction_approval": "DIRECTION_APPROVED",
   "dataset_adoption": "NOT_APPROVED",
   "representation_adoption": "NOT_APPROVED",
-  "download_approval": "NOT_GRANTED",
-  "payload_bytes_read_this_stage": 0,
+  "download_approval": "C18-S_ONLY_APPROVED_EXECUTED",
+  "payload_bytes_read_this_stage": 16777216,
   "real_training": "NOT_RUN",
   "formal_evaluation": "NOT_RUN",
   "primary_proposal": {
@@ -15,7 +15,7 @@
     "dataset": "CICIDS2017",
     "archive": "GeneratedLabelledFlows.zip",
     "official_page": "https://www.unb.ca/cic/datasets/ids-2017.html",
-    "status": "CONDITIONAL_AUDIT_RECOMMENDATION",
+    "status": "AUDIT_DESIGN_APPROVED_PENDING_PAYLOAD",
     "verified_payload_url": null,
     "version": null,
     "compressed_bytes": null,
@@ -30,7 +30,7 @@
   "backup_proposal": {
     "id": "C18-G12",
     "dataset": "CSE-CIC-IDS2018",
-    "status": "BACKUP_METADATA_ONLY",
+    "status": "FOUR_BYTE_PREFIXES_INSPECTED_NOT_ADOPTED",
     "processed_directory_object_count": 11,
     "processed_csv_count": 10,
     "processed_csv_total_bytes": 6886649507,
@@ -45,10 +45,19 @@
         "etag_is_asserted_md5": false,
         "version_id": null,
         "sha256": null,
-        "actual_header": null,
         "head_status": 200,
         "head_accept_ranges": "bytes",
-        "range_get_executed": false
+        "range_get_executed": true,
+        "prefix_sample": {
+          "range": "bytes=0-4194303",
+          "get_status": 206,
+          "body_bytes": 4194304,
+          "sha256": "49b1d3044f19df9e05a0b9e0cae8ee8f2a589be0a3e34a34177c47f06fb0ed6a",
+          "complete_flow_records": 18935,
+          "discarded_tail_bytes": 89,
+          "is_full_file_hash": false
+        },
+        "actual_header_ref": "docs/research/2026-10-23-c18-structure-sample.json#/header"
       },
       {
         "filename": "Thursday-15-02-2018_TrafficForML_CICFlowMeter.csv",
@@ -59,10 +68,19 @@
         "etag_is_asserted_md5": false,
         "version_id": null,
         "sha256": null,
-        "actual_header": null,
         "head_status": 200,
         "head_accept_ranges": "bytes",
-        "range_get_executed": false
+        "range_get_executed": true,
+        "prefix_sample": {
+          "range": "bytes=0-4194303",
+          "get_status": 206,
+          "body_bytes": 4194304,
+          "sha256": "4e6c4ac752adcff1358046a8d0cf81a029bcbf402fb66ae3592b1d7f6b1f2410",
+          "complete_flow_records": 9125,
+          "discarded_tail_bytes": 23,
+          "is_full_file_hash": false
+        },
+        "actual_header_ref": "docs/research/2026-10-23-c18-structure-sample.json#/header"
       },
       {
         "filename": "Friday-16-02-2018_TrafficForML_CICFlowMeter.csv",
@@ -73,10 +91,19 @@
         "etag_is_asserted_md5": false,
         "version_id": null,
         "sha256": null,
-        "actual_header": null,
         "head_status": 200,
         "head_accept_ranges": "bytes",
-        "range_get_executed": false
+        "range_get_executed": true,
+        "prefix_sample": {
+          "range": "bytes=0-4194303",
+          "get_status": 206,
+          "body_bytes": 4194304,
+          "sha256": "be8b94fbc0caa6c1a3e71a7f4a98d52dc9fbc82552912af99ac8ba4740bae5b3",
+          "complete_flow_records": 18059,
+          "discarded_tail_bytes": 138,
+          "is_full_file_hash": false
+        },
+        "actual_header_ref": "docs/research/2026-10-23-c18-structure-sample.json#/header"
       },
       {
         "filename": "Wednesday-21-02-2018_TrafficForML_CICFlowMeter.csv",
@@ -87,28 +114,40 @@
         "etag_is_asserted_md5": false,
         "version_id": null,
         "sha256": null,
-        "actual_header": null,
         "head_status": 200,
         "head_accept_ranges": "bytes",
-        "range_get_executed": false
+        "range_get_executed": true,
+        "prefix_sample": {
+          "range": "bytes=0-4194303",
+          "get_status": 206,
+          "body_bytes": 4194304,
+          "sha256": "79bda8235121bd51e1a296063175bc41ebf784954fa5b8073aeabe5994838cce",
+          "complete_flow_records": 12489,
+          "discarded_tail_bytes": 374,
+          "is_full_file_hash": false
+        },
+        "actual_header_ref": "docs/research/2026-10-23-c18-structure-sample.json#/header"
       }
     ],
     "structure_sample_request": {
-      "status": "PENDING_APPROVAL",
+      "status": "APPROVED_EXECUTED_WITHIN_16_MIB",
       "range": "bytes=0-4194303",
       "per_object_body_cap_bytes": 4194304,
       "total_body_cap_bytes": 16777216,
       "uncompressed_body_bytes_cap": 16777216,
       "required_response": 206,
       "accept_200_body": false,
-      "can_estimate_four_split_supply": false
+      "can_estimate_four_split_supply": false,
+      "actual_body_bytes": 16777216,
+      "audit_report": "docs/research/2026-10-23-c18-structure-sample.json"
     },
     "full_four_file_request": {
       "status": "SEPARATE_APPROVAL_REQUIRED",
       "expected_bytes": 1396786510,
       "network_cap_bytes": 1503238553,
       "workspace_cap_bytes": 4294967296
-    }
+    },
+    "verified_prefix_header_ref": "docs/research/2026-10-23-c18-structure-sample.json#/header"
   },
   "representation_proposal": {
     "name": "cic-flow-end-12-proposal1",
@@ -226,6 +265,25 @@
     "payload_audit": "NOT_RUN",
     "four_split_supply": "NOT_VERIFIED",
     "real_short_validation": "NOT_RUN",
-    "old_ugr_gate": "BLOCKED"
+    "old_ugr_gate": "BLOCKED",
+    "structure_prefix_audit": "EXECUTED_LIMITED_SCOPE"
+  },
+  "audit_design_approval": {
+    "status": "APPROVED",
+    "proposal": "C17-G12",
+    "proposal_commit": "9b52c007081bae4f2aea68d43b23661ba42a2192",
+    "date": "2026-10-23",
+    "source": "用户明确回复接受，按此方案核验可行性",
+    "scope": [
+      "12/24维完成流事件分钟表示",
+      "流结束时间离线可用性代理",
+      "已完成流记录数高负载限定"
+    ],
+    "does_not_authorize": [
+      "主数据正式采用",
+      "生产迁移",
+      "数据下载",
+      "真实训练或正式比较"
+    ]
   }
 }

@@ -2,29 +2,29 @@
   "schema_version": 1,
   "updated": "2026-10-23",
   "current_stage": "S2",
-  "theme": "C方向数据与表示决定包已形成：条件化推荐C17-G12、2018备选；具体采用与下载待批准，Data Gate仍BLOCKED",
+  "theme": "C17-G12审计设计获准；C18-S四个结构前缀16MiB已核查，未采用2018，Data Gate保持BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "从8e6c6ad续接，核查本地文件及两个候选的官方来源、许可、时间与标签证据；没有新载荷下载。",
-    "形成C17-G12具体提案：GeneratedLabelledFlows、12/24维完成流分钟表示、四段候选及指标分母，未采用生产契约。",
-    "核实2018四个备选CSV共1396786510字节，提出16MiB结构样本和独立全表审计方案，均待批准。",
-    "区分首包、末包、导出和可用时刻；四段实测计数均null，真实工程与正式比较保持NOT_RUN。"
+    "从9b52c00续接，复用完整A/B/C与八项Gate；用户接受C17-G12审计设计，主数据采用与生产迁移仍待证据。",
+    "用户单独批准C18-S；四个指定官方CSV各取4MiB，总16777216字节，4次206/ETag/片段哈希一致，无重复GET。",
+    "前缀共58608完整流记录、80列，原Benign2476行；小时制、时区、单位生成绑定与Protocol0仍未认证。",
+    "离线审计工具新增10项先失败后通过的合成边界测试；没有分钟供应结论、真实训练或生产契约迁移。"
   ],
   "blockers": [
     "2017官方包的有效获取入口、大小、校验与成员清单未取得；旧URL返回HTML，不能当作ZIP。",
-    "两个候选的真实字段、时区/精度、标签质量及四段连续正常供应未审计；短校准段尾部信息可能不足。",
-    "C17-G12具体数据采用、12/24维表示、结束代理与高负载含义仍待批准；下载授权独立。",
+    "CIC前缀字段已局部读取；小时制/时区、单位生成绑定、标签分钟真值与四段连续正常供应未核实。",
+    "C17-G12审计设计已批准，2018仍仅备选结构样本；主数据正式采用、生产迁移与完整文件获取均未批准。",
     "UGR16正常测试分母0及旧时间/许可阻塞保留，新方案不自动通过Data Gate。"
   ],
   "next_tasks": [
     {
       "id": "C-D1",
-      "text": "审阅C17-G12表示及范围提案；先补官方包清单，具体采用须有载荷审计证据。",
+      "text": "按已获准C17-G12方案补官方包清单及时间证据；主数据采用须等待载荷审计。",
       "path": "docs/project/CANDIDATE-DATA-DECISION-2026-10-23.md"
     },
     {
       "id": "C-D2",
-      "text": "单独决定有界获取；2018四文件16MiB结构样本不含全表审计或训练授权。",
+      "text": "复用已取得C18-S结构证据；完整四日文件或其他载荷若确需获取，另提确切范围，不续传补齐。",
       "path": "docs/research/2026-10-23-candidate-manifest.json"
     },
     {
@@ -502,9 +502,9 @@
     "backup": "C18-G12",
     "dataset_adoption": "NOT_APPROVED",
     "representation_adoption": "NOT_APPROVED",
-    "download_approval": "NOT_GRANTED",
-    "payload_download_bytes": 0,
-    "payload_audit": "NOT_RUN",
+    "download_approval": "C18-S_ONLY_APPROVED_EXECUTED",
+    "payload_download_bytes": 16777216,
+    "payload_audit": "C18_PREFIX_STRUCTURE_EXECUTED_FULL_AUDIT_NOT_RUN",
     "production_contract_changed": false,
     "four_splits": "PROPOSED_NOT_FROZEN",
     "four_split_counts": null,
@@ -520,6 +520,54 @@
       "decision_arithmetic": "PASS_NO_PAYLOAD_OR_TRAINING",
       "stage_criteria_unchanged": true,
       "independent_reviews": "PASS_AFTER_TWO_DOCUMENT_CORRECTIONS"
+    },
+    "audit_design_approval": {
+      "status": "APPROVED",
+      "proposal": "C17-G12",
+      "proposal_commit": "9b52c007081bae4f2aea68d43b23661ba42a2192",
+      "date": "2026-10-23",
+      "source": "用户明确回复接受，按此方案核验可行性",
+      "scope": [
+        "12/24维完成流事件分钟表示",
+        "流结束时间离线可用性代理",
+        "已完成流记录数高负载限定"
+      ],
+      "does_not_authorize": [
+        "主数据正式采用",
+        "生产迁移",
+        "数据下载",
+        "真实训练或正式比较"
+      ]
+    },
+    "followup_review": {
+      "base_commit": "9b52c007081bae4f2aea68d43b23661ba42a2192",
+      "requirements_coverage": "VERIFIED_REUSE_EXISTING_DOCUMENTS",
+      "new_upstream_unblocking_evidence": false,
+      "business_code_changed": false,
+      "full_payload_reaudit": "NOT_RUN",
+      "c18_s_download_question": "EXPLICITLY_APPROVED_AND_EXECUTED_WITHIN_CAP",
+      "verification": {
+        "python_workflow_suite": 139,
+        "prefix_synthetic_tests_included": 10,
+        "repository_tests": 13,
+        "worktree_checked_files": 366,
+        "worktree_issues": 0,
+        "independent_budget_and_scientific_reviews": "PASS",
+        "production_contracts_and_stage_criteria_unchanged": true
+      },
+      "remote_ci": "PENDING_AFTER_PUSH",
+      "audit_tool_added": true
+    },
+    "c18_structure_sample": {
+      "status": "EXECUTED_WITHIN_APPROVAL",
+      "body_bytes": 16777216,
+      "complete_flow_records": 58608,
+      "source_benign_flow_records": 2476,
+      "columns": 80,
+      "report": "docs/research/2026-10-23-c18-structure-sample.md",
+      "four_split_supply": null,
+      "normal_minute_count": null,
+      "dataset_adoption": "NOT_APPROVED"
     }
   }
 }

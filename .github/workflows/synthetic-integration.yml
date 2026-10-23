@@ -12,7 +12,7 @@ jobs:
           python-version: '3.14'
       - run: python -m pip install -r src/backend/requirements-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu
       - run: python -m pip install --no-deps -e src/core -e src/backend
-      - run: python -m pytest tests/core tests/backend tests/integration -q
+      - run: python -m pytest tests/core tests/backend tests/integration tests/data_audit -q
   frontend:
     runs-on: ubuntu-latest
     defaults:

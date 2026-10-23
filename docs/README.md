@@ -4,7 +4,7 @@
 
 ## 当前材料
 
-当前可审阅：[C17-G12数据与表示决定包](project/CANDIDATE-DATA-DECISION-2026-10-23.md)、[CIC证据](research/2026-10-23-cic-candidate-evidence.md)、[文件与资源清单](research/2026-10-23-candidate-manifest.json)。仅方案完成，具体采用/下载待批准，载荷审计NOT_RUN。
+当前入口：[C17-G12审计设计及批准](project/CANDIDATE-DATA-DECISION-2026-10-23.md)、[C18-S四前缀16MiB实际核查](research/2026-10-23-c18-structure-sample.md)、[文件与资源清单](research/2026-10-23-candidate-manifest.json)。设计及C18-S获取已分别获准；主数据采用、生产迁移和完整文件获取仍待决定，四段供应审计NOT_RUN。
 
 用户已选C主数据替换可行性方向，具体数据/表示待审计：[协议三路径与决定](project/RESEARCH-PROTOCOL-OPTIONS.md)、[增量证据与候选筛选](research/2026-10-22-data-gate-evidence-update.md)。
 
@@ -84,3 +84,7 @@ Data Gate最新判定：[阻塞核查](project/DATA-GATE-2026-10-21.md)，真实
 - 当前答辩版本：[V0.23业务问题与研究主线与讲稿](reports/开题答辩-V0.23-公开文本.md)、[结构与版本记录](reports/开题答辩-V0.23-结构与版本记录.md)；配套报告仍为V0.40。
 
 - 当前答辩：[V0.24公开文本](reports/开题答辩-V0.24-公开文本.md)、[版本记录](reports/开题答辩-V0.24-结构与版本记录.md)。
+
+## 最新有界载荷核查
+
+- [C18-S四前缀16MiB：实际获取、字段、时间与标签](research/2026-10-23-c18-structure-sample.md)：仅结构样本，不认证四段供应，不采用2018为主数据。
