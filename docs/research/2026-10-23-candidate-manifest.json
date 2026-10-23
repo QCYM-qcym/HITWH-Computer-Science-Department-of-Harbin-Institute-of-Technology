@@ -28,7 +28,8 @@
     "proposed_uncompressed_cap_bytes": 4294967296,
     "current_entry_status": "FORM_READABLE_NOT_SUBMITTED_ANONYMOUS_BROWSE_403",
     "generation_binding": "NOT_VERIFIED_CODE_SNAPSHOTS_ONLY",
-    "budget_scope": "HISTORICAL_STOP_CAP_NOT_EXPECTED_SIZE_OR_AUTHORIZATION"
+    "budget_scope": "HISTORICAL_STOP_CAP_NOT_EXPECTED_SIZE_OR_AUTHORIZATION",
+    "role": "HISTORICAL_ACCEPTED_REFERENCE_DESIGN_ORIGINAL_GENERATED_PACKAGE"
   },
   "backup_proposal": {
     "id": "C18-G12",
@@ -295,5 +296,15 @@
     "new_dataset_payload_bytes": 0,
     "status": "FORM_IDENTIFIED_ARCHIVE_IDENTITY_UNRESOLVED"
   },
-  "payload_bytes_read_this_stage_scope": "C18-S acquisition recorded at base 480c57f; no additional payload this review"
+  "payload_bytes_read_this_stage_scope": "C18-S acquisition recorded at base 480c57f; no additional payload this review",
+  "active_audit_target": "CICIDS2017_improved.zip",
+  "active_audit_priority_approval": "APPROVED_BY_USER_2026-10-23_CURRENT_REQUEST",
+  "improved_proposal": {
+    "status": "AUDIT_PREPARATION_APPROVED_PAYLOAD_NOT_APPROVED",
+    "identity_and_budget_ref": "docs/research/2026-10-23-c17-improved-preparation.json",
+    "source_commit": "07e5cf2dbb1021c893a9c56abac245b2ae79efb9",
+    "payload_bytes_read_this_stage": 0,
+    "actual_supply": null
+  },
+  "original_generated_mirror_role": "BACKUP_NOT_DOWNLOADED_NOT_ADOPTED"
 }

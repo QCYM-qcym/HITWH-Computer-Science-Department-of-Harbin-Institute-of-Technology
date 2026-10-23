@@ -2,38 +2,46 @@
   "schema_version": 1,
   "updated": "2026-10-23",
   "current_stage": "S2",
-  "theme": "完成CICIDS2017适配性分析；建议优先审作者修订版，四段及高负载供应未验证，Data Gate保持BLOCKED",
+  "theme": "作者修订版对象和有界方案已核；隔离审计人工验证通过，载荷获取未批准，Data Gate保持BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "对照论文核心问题分析原包镜像与CNS2022修订版；仅文档和来源证据，新增数据载荷0字节。",
-    "研究建议优先审计有时间及标注说明的作者修订版；属于助手建议，未改变已批准C17-G12对象或标签政策。",
-    "预热后的理想训练/验证/校准共同分钟上界为150/90/150；99%尾部阈值及正常高完成流组供应是核心风险，非实测计数。",
-    "真实载荷审计、模型训练及正式比较NOT_RUN；没有修改生产契约或报告基线。"
+    "从07e5cf2续接，用户明确作者CICIDS2017_improved优先审计、原Generated镜像备选；不再询问A/B/C或优先级。",
+    "作者来源链及唯一HEAD核得ZIP343549013字节；ETag/Last-Modified已记，作者校验/解压量/精确生成绑定未知，新增数据载荷0字节。",
+    "隔离审计新增48项测试；含58项数据审计的Python回归187项及34个subtests通过，仓库13项通过；均不构成真实数据证据。",
+    "四段与正常高完成流组实际计数仍null；主数据采用、生产迁移未批准，真实拟合/联调和正式实验NOT_RUN。"
   ],
   "blockers": [
-    "C17表单可读，但注册后官方文件目录尚未取得；有效ZIP URL、成员/大小/校验与精确生成绑定仍null。",
-    "CIC前缀字段已局部读取；小时制/时区、单位生成绑定、标签分钟真值与四段连续正常供应未核实。",
-    "C17-G12审计设计已批准，2018仍仅备选结构样本；主数据正式采用、生产迁移与完整文件获取均未批准。",
-    "UGR16正常测试分母0及旧时间/许可阻塞保留，新方案不自动通过Data Gate。"
+    "作者improved获取尚未获对象与预算的明确批准，载荷未取得；成员/解压规模及本地SHA待获准下载后检查。",
+    "修订包实际字段/时间/单位与生成绑定未审；上游dropna覆盖、Attempted政策、四段及正常高完成流供应仍未知。",
+    "improved优先是审计决定，主数据/表示正式采用与生产迁移未批准；旧09—17源钟面不能直接改UTC。",
+    "UGR正常测试分母0及旧时间/许可阻塞保持；准备工具与合成CI不能解除Data Gate。"
   ],
   "next_tasks": [
     {
-      "id": "C-D1",
-      "text": "依据适配性分析确定具体待获取发行物及有界审计方案；优先审修订版为助手建议，非下载或正式采用决定。",
-      "path": "docs/research/2026-10-23-cicids-suitability-analysis.md"
+      "id": "C-I1",
+      "text": "审阅单对象343549013字节的C17-I1预算，独立批准后才获取；当前停在ZIP载荷前。",
+      "path": "docs/research/2026-10-23-c17-improved-preparation.md"
     },
     {
-      "id": "C-D2",
-      "text": "澄清原包生成版本/参数、小时制、时区和可用时刻；C18-S仅复用，不新增传输或以同源rate认证单位。",
-      "path": "docs/research/2026-10-23-candidate-manifest.json"
+      "id": "C-I2",
+      "text": "获准取得后先本地ZIP目录安全检查，按显式字段/时间/覆盖依据审计；Attempted三方案保留待决，禁止拟合。",
+      "path": "docs/guides/c17-improved-audit.md"
     },
     {
-      "id": "C-D3",
-      "text": "获准并取得数据后核唯一时间、采集覆盖、标签及四段历史供应，再决定迁移，不按模型效果改边界。",
-      "path": "docs/guides/real-validation-preflight.md"
+      "id": "C-I3",
+      "text": "核四段/H15,H30共同资格及训练Q90固定测试子组；供应不足先给协议修订代价，再决定主数据/迁移。",
+      "path": "docs/project/CANDIDATE-DATA-DECISION-2026-10-23.md"
     }
   ],
   "entrypoints": [
+    {
+      "label": "作者修订版获取方案、字段时间适配与Attempted待决",
+      "path": "docs/research/2026-10-23-c17-improved-preparation.md"
+    },
+    {
+      "label": "隔离审计工具、合成验证和下一完整提示",
+      "path": "docs/guides/c17-improved-audit.md"
+    },
     {
       "label": "CICIDS2017适配性、样本风险与审计取舍",
       "path": "docs/research/2026-10-23-cicids-suitability-analysis.md"

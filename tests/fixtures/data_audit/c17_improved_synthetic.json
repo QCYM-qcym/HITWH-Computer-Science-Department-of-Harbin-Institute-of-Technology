@@ -1,0 +1,60 @@
+{
+  "identity": "SYNTHETIC_ONLY",
+  "description": "Hand-authored arbitrary columns and UTC clocks; no actual distribution schema, capture or supply evidence. Generate temporary CSV from header and rows; pass config to the offline CLI.",
+  "header": ["s", "d", "y", "a"],
+  "rows": [
+    ["2017-07-03 00:00:00.000000", 1, "BENIGN", ""],
+    ["2017-07-03 00:30:00.000000", 1, "BENIGN", ""],
+    ["2017-07-03 00:39:00.000000", 1, "BENIGN", ""],
+    ["2017-07-03 00:39:01.000000", 1, "BENIGN", ""],
+    ["2017-07-03 00:50:00.000000", 1, "BENIGN", ""],
+    ["2017-07-03 00:50:01.000000", 1, "ATTACK", ""],
+    ["2017-07-03 02:02:00.000000", 1, "Attempted", "scan"],
+    ["2017-07-03 02:03:00.000000", 1, "unknown-word", ""],
+    ["2017-07-03 02:04:00.000000", 1, "BENIGN", ""],
+    ["2017-07-03 02:04:01.000000", 1, "ATTACK", ""],
+    ["2017-07-03 02:32:00.000000", 1, "BENIGN", ""],
+    ["2017-07-03 02:32:01.000000", 1, "BENIGN", ""]
+  ],
+  "config": {
+    "schema": "C17_IMPROVED_AUDIT_V1",
+    "identity": "SYNTHETIC_ONLY",
+    "columns": {"start": "s", "duration": "d", "label": "y", "attempted": "a"},
+    "time": {
+      "format": "%Y-%m-%d %H:%M:%S.%f",
+      "timezone": "UTC",
+      "utc_evidence": "SYNTHETIC_ONLY fixture definition",
+      "timestamp_precision_us": 1,
+      "duration_precision_us": 1,
+      "precision_model": "TRUNCATION",
+      "precision_evidence": "SYNTHETIC_ONLY fixture known exact microsecond quanta",
+      "duration_unit": "us",
+      "duration_unit_evidence": "SYNTHETIC_ONLY fixture definition"
+    },
+    "labels": {
+      "normal": ["BENIGN"], "attack": ["ATTACK"], "attempted": ["Attempted"],
+      "attempted_empty": [""], "attempted_categories": ["scan"],
+      "policy": {"status": "AUDIT_ONLY", "attempted": "unknown"}
+    },
+    "segments": [
+      {"id": "train", "role": "train", "start": "2017-07-03 00:00:00", "end": "2017-07-03 00:40:00"},
+      {"id": "validation", "role": "validation", "start": "2017-07-03 00:40:00", "end": "2017-07-03 01:20:00"},
+      {"id": "calibration", "role": "calibration", "start": "2017-07-03 01:20:00", "end": "2017-07-03 02:00:00"},
+      {"id": "test", "role": "test", "start": "2017-07-03 02:00:00", "end": "2017-07-03 02:40:00"}
+    ],
+    "capture": [
+      {"start": "2017-07-03 00:00:00", "end": "2017-07-03 02:40:00", "status": "complete", "evidence": "SYNTHETIC_ONLY known complete fixture generation"}
+    ],
+    "empty_normal": [
+      {"start": "2017-07-03 00:00:00", "end": "2017-07-03 02:40:00", "normal_evidence": "SYNTHETIC_ONLY independent construction: all minutes without generated records contain no attacks; this is not inferred from capture completeness"}
+    ],
+    "limits": {"max_total_input_bytes": 1048576, "max_rows": 10000, "max_minutes": 1000, "max_field_chars": 1024, "max_duration_seconds": 3600},
+    "archive_limits": {
+      "max_archive_bytes": 377487360,
+      "max_members": 100,
+      "max_member_bytes": 2147483648,
+      "max_total_uncompressed_bytes": 4294967296,
+      "max_compression_ratio": 200
+    }
+  }
+}

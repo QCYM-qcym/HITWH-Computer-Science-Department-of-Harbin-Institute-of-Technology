@@ -1,5 +1,17 @@
 # 仓库维护复核记录
 
+## 2026-10-23 作者修订版获取准备与隔离审计工具
+
+从干净且与远端一致的07e5cf2，在既有W0隔离worktree建立codex/c17-improved-audit-prep；核五个已知工作区及既有获取目录，未发现合法现存improved包，不扫描其他私人目录。用户本轮明确作者修订版优先、原Generated镜像备选，主控与来源/时间标签/工具三独立任务并行，公共决定/状态统一主控维护。Desktop窗口缓存恢复后完成Fetch，未改其他worktree或main。
+
+实际唯一目标HEAD为200无重定向、application/zip、343549013字节、指定ETag/Last-Modified；没有CSV/ZIP/PCAP GET/Range/包内预览，新增数据载荷0字节。作者公开科研发布、源码/标签、标准再分发未知边界和上游dropna风险见[本轮证据](../research/2026-10-23-c17-improved-preparation.md)及[机读预算](../research/2026-10-23-c17-improved-preparation.json)。C17-I1明确360MiB累计HTTP体/0重试、单对象、归档和解压/临时/6GiB目录硬预算；未批准即不获取，成员未知列为下载后解压前检查，不制造循环前提。Attempted P_U推荐仍待决定，P_B/P_A只审计对照；旧源钟面不能直接迁UTC，未改生产src/configs/设计契约或V0.40。
+
+新增标准库隔离工具、48项C17测试和人工JSON fixture；初始25项因实现缺失失败，标签/精度回归6fail后修正，独立复核新增9fail后修正。实际修复空桶默认normal、跨采集epoch/gap污染、异常安全、伪EOCD资源预检及配置备注回显；无训练资格的高/普通组null。两个独立复核重现原反例并验证修复；连续epoch跨午夜不擅自强断，不新增研究协议。源码语义/12维、真实覆盖及模型级共同分钟尚未认证，工具如实保留NOT_VERIFIED/null，不能当生产适配器。
+
+主控最终用现有venv运行Python工作流命令：187 passed、34 subtests、1项既有TestClient弃用警告；含58项数据审计（48新C17+10旧C18）。仓库13项通过；按指南独立生成12条人工流和单成员文本ZIP，两条CLI exit0并核合成身份、H15/H30和Q90计数，归档无解压/读成员/CRC。仅系统Python未装pytest的一次启动失败不属于业务测试失败，未安装依赖，改用既有venv完成。前端未改，不额外本地重复；真实/正式实验和真实联调NOT_RUN。
+
+进度write/check、worktree隐私/作者检查377文件0问题、diff格式和预算/null/阶段相等核对通过；221个本地Markdown链接及新研究日志Wiki Links有效。使用通用维护身份和既有hook。公开只含独立代码、人工数据/聚合和元信息，无原始数据/身份明细/私人路径/凭据。Vault新增本轮研究日志、复用CICIDS2017页和四入口，保留旧决定。S0—S9验收项及旧UGR Gate与07e5cf2一致，S2 BLOCKED、候选NOT_PASSED；实际四段/高完成流计数null。最终staged检查、Desktop提交推送、准确远端SHA及本提交CI在完成后另报，不预填成功或哈希，不合并main。
+
 ## 2026-10-23 CICIDS2017适配性分析
 
 从8736ee3在既有W0隔离worktree建立codex/cicids-suitability-analysis。并行核查作者一手文档与分钟协议算术，主控对照V0.40及C17-G12决定包，汇总[适配性分析](../research/2026-10-23-cicids-suitability-analysis.md)。建议从研究可解释性优先审作者修订版，原包镜像保留备选；建议不自动变更既有批准对象、标签、下载范围或生产契约。UTC微秒只绑定作者工具/流程说明，当前ZIP未实测；同底层采集不构成独立跨数据复现。开发段理想共同上界150/90/150是算术，非载荷结果；99%尾部、高完成流计数正常分钟供应和流结束代理均保留限制。无新增载荷或训练，S2/Gate及正式采用状态保持。知识库复用候选页与当前上下文，新增适配性日志。
