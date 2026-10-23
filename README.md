@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-23**。当前阶段：**数据审计**；本轮主题：GitHub检索找到原包非官方镜像与作者修订版目录；只核元信息，Data Gate保持BLOCKED。
+最近更新：**2026-10-23**。当前阶段：**数据审计**；本轮主题：完成CICIDS2017适配性分析；建议优先审作者修订版，四段及高负载供应未验证，Data Gate保持BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- GitHub只读检索区分仅代码/旧外链与实际数据来源；没有下载CSV、ZIP或PCAP载荷。
-- HF非官方Generated镜像元信息为283876488字节及LFS SHA256，固定提交811c007；尚未证明与UNB原包一致。
-- CNS2022作者目录列CICIDS2017_improved.zip为328M，工具文档说明UTC微秒；独立修订版和Attempted标签需单独审计。
-- 当前C17-G12设计、生产契约和四段供应状态不变；真实验证、训练及正式实验NOT_RUN。
+- 对照论文核心问题分析原包镜像与CNS2022修订版；仅文档和来源证据，新增数据载荷0字节。
+- 研究建议优先审计有时间及标注说明的作者修订版；属于助手建议，未改变已批准C17-G12对象或标签政策。
+- 预热后的理想训练/验证/校准共同分钟上界为150/90/150；99%尾部阈值及正常高完成流组供应是核心风险，非实测计数。
+- 真实载荷审计、模型训练及正式比较NOT_RUN；没有修改生产契约或报告基线。
 
 **当前阻塞或待验证事项**
 
@@ -74,12 +74,13 @@ flowchart TB
 
 **接下来最重要的三项任务**
 
-1. [C-D1](<docs/research/2026-10-23-github-dataset-search.md>)：核对原包镜像与作者修订版的适用证据，选择具体获取对象并制定有界方案；不将检索请求视为载荷下载批准。
+1. [C-D1](<docs/research/2026-10-23-cicids-suitability-analysis.md>)：依据适配性分析确定具体待获取发行物及有界审计方案；优先审修订版为助手建议，非下载或正式采用决定。
 2. [C-D2](<docs/research/2026-10-23-candidate-manifest.json>)：澄清原包生成版本/参数、小时制、时区和可用时刻；C18-S仅复用，不新增传输或以同源rate认证单位。
 3. [C-D3](<docs/guides/real-validation-preflight.md>)：获准并取得数据后核唯一时间、采集覆盖、标签及四段历史供应，再决定迁移，不按模型效果改边界。
 
 **最新成果入口**
 
+- [CICIDS2017适配性、样本风险与审计取舍](<docs/research/2026-10-23-cicids-suitability-analysis.md>)
 - [GitHub数据来源检索与可获取镜像元信息](<docs/research/2026-10-23-github-dataset-search.md>)
 - [C17官方入口、生成版本与C18-S本地一致性复核](<docs/research/2026-10-23-c17-source-metadata.md>)
 - [10月23日C方向具体数据与表示决定包](<docs/project/CANDIDATE-DATA-DECISION-2026-10-23.md>)

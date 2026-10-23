@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-10-23",
   "current_stage": "S2",
-  "theme": "GitHub检索找到原包非官方镜像与作者修订版目录；只核元信息，Data Gate保持BLOCKED",
+  "theme": "完成CICIDS2017适配性分析；建议优先审作者修订版，四段及高负载供应未验证，Data Gate保持BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "GitHub只读检索区分仅代码/旧外链与实际数据来源；没有下载CSV、ZIP或PCAP载荷。",
-    "HF非官方Generated镜像元信息为283876488字节及LFS SHA256，固定提交811c007；尚未证明与UNB原包一致。",
-    "CNS2022作者目录列CICIDS2017_improved.zip为328M，工具文档说明UTC微秒；独立修订版和Attempted标签需单独审计。",
-    "当前C17-G12设计、生产契约和四段供应状态不变；真实验证、训练及正式实验NOT_RUN。"
+    "对照论文核心问题分析原包镜像与CNS2022修订版；仅文档和来源证据，新增数据载荷0字节。",
+    "研究建议优先审计有时间及标注说明的作者修订版；属于助手建议，未改变已批准C17-G12对象或标签政策。",
+    "预热后的理想训练/验证/校准共同分钟上界为150/90/150；99%尾部阈值及正常高完成流组供应是核心风险，非实测计数。",
+    "真实载荷审计、模型训练及正式比较NOT_RUN；没有修改生产契约或报告基线。"
   ],
   "blockers": [
     "C17表单可读，但注册后官方文件目录尚未取得；有效ZIP URL、成员/大小/校验与精确生成绑定仍null。",
@@ -19,8 +19,8 @@
   "next_tasks": [
     {
       "id": "C-D1",
-      "text": "核对原包镜像与作者修订版的适用证据，选择具体获取对象并制定有界方案；不将检索请求视为载荷下载批准。",
-      "path": "docs/research/2026-10-23-github-dataset-search.md"
+      "text": "依据适配性分析确定具体待获取发行物及有界审计方案；优先审修订版为助手建议，非下载或正式采用决定。",
+      "path": "docs/research/2026-10-23-cicids-suitability-analysis.md"
     },
     {
       "id": "C-D2",
@@ -34,6 +34,10 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "CICIDS2017适配性、样本风险与审计取舍",
+      "path": "docs/research/2026-10-23-cicids-suitability-analysis.md"
+    },
     {
       "label": "GitHub数据来源检索与可获取镜像元信息",
       "path": "docs/research/2026-10-23-github-dataset-search.md"
@@ -592,5 +596,23 @@
     "production_contract_changed": false,
     "real_training": "NOT_RUN",
     "formal_comparison": "NOT_RUN"
+  },
+  "dataset_suitability_review": {
+    "date": "2026-10-23",
+    "evidence_status": "DOCUMENTS_AND_ARITHMETIC_ONLY",
+    "report": "docs/research/2026-10-23-cicids-suitability-analysis.md",
+    "recommended_audit_priority": "CNS2022_IMPROVED_ADVISORY_ONLY",
+    "approved_dataset_changed": false,
+    "production_contract_changed": false,
+    "new_payload_bytes": 0,
+    "four_split_actual_counts": null,
+    "ideal_common_development_minutes": [
+      150,
+      90,
+      150
+    ],
+    "assumptions": "180/120/180 continuous complete normal minutes; independent history reset; H15/30 common eligibility",
+    "real_training": "NOT_RUN",
+    "gate": "BLOCKED"
   }
 }

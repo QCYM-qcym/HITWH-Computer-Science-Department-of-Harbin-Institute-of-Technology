@@ -4,6 +4,8 @@
 
 ## 当前材料
 
+适配性分析：[CICIDS2017候选与论文要求对照](research/2026-10-23-cicids-suitability-analysis.md)。给出审计优先级建议及150/90/150理想上界；未替代数据采用决定，真实供应未知。
+
 新增来源：[GitHub数据检索与镜像元信息](research/2026-10-23-github-dataset-search.md)。已核非官方原包镜像的对象大小/哈希及作者修订版目录；未下载载荷，未改变选型或Gate。
 
 最新增量：[C17官方入口、生成版本及既有C18-S一致性](research/2026-10-23-c17-source-metadata.md)；表单可读，归档身份仍未知。更正隐藏错误文本的旧解释，无新增数据载荷或Gate升级。
