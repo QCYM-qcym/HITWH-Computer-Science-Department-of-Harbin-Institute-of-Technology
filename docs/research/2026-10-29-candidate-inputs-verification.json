@@ -1,0 +1,112 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_CANDIDATE_INPUT_COMPUTATION",
+  "date": "2026-10-29",
+  "base_commit": "e70ca065adf24726d6303adbb8a28d7381a98ce4",
+  "new_payload_download_bytes": 0,
+  "real_csv_reads": 0,
+  "real_preprocessing": "NOT_RUN",
+  "real_models": "NOT_RUN",
+  "Data_Gate": "BLOCKED",
+  "fixture": {
+    "local_byte_sha256": "ea86c6786f5ca0c2f07cbb2fd1f922f6d1183a06fb8b82a204c00feebd950b82",
+    "lf_normalized_sha256": "868268db7b6ff0d9a0752e2e373bcd9b614a39b4682fc5f269052195552a756a",
+    "byte_count": 54960
+  },
+  "runtime_artifact_identities": {
+    "candidate-inputs.json": {
+      "byte_count": 425725,
+      "sha256": "d2a5e2ed52b2a10a0da44e1239b271bce3ad9c0df06bbfb159afe85ec8622dff"
+    },
+    "preprocess.json": {
+      "byte_count": 1282,
+      "sha256": "138d19b97a82cae1a7df2b76cd1c8804ae959af1d2239aabde2df8f6821bfa95"
+    }
+  },
+  "runtime_hash_scope": "LOCAL_WINDOWS_RUN_BYTES_NOT_OFFICIAL_OR_CROSS_PLATFORM_HASHES",
+  "dimensions": {
+    "current": 13,
+    "joined": 26
+  },
+  "partition_summary": {
+    "calibration": {
+      "calibration_normal_count": 6,
+      "common_valid_count": 6,
+      "input_valid_count": 36,
+      "minute_count": 36,
+      "test_normal_count": 0,
+      "training_normal_count": 0,
+      "window_valid_counts": {
+        "15": 21,
+        "30": 6
+      }
+    },
+    "test": {
+      "calibration_normal_count": 0,
+      "common_valid_count": 6,
+      "input_valid_count": 36,
+      "minute_count": 36,
+      "test_normal_count": 6,
+      "training_normal_count": 0,
+      "window_valid_counts": {
+        "15": 21,
+        "30": 6
+      }
+    },
+    "train": {
+      "calibration_normal_count": 0,
+      "common_valid_count": 6,
+      "input_valid_count": 36,
+      "minute_count": 36,
+      "test_normal_count": 0,
+      "training_normal_count": 6,
+      "window_valid_counts": {
+        "15": 21,
+        "30": 6
+      }
+    },
+    "validation": {
+      "calibration_normal_count": 0,
+      "common_valid_count": 6,
+      "input_valid_count": 36,
+      "minute_count": 36,
+      "test_normal_count": 0,
+      "training_normal_count": 0,
+      "window_valid_counts": {
+        "15": 21,
+        "30": 6
+      }
+    }
+  },
+  "fit_minutes": 6,
+  "common_minutes": 24,
+  "independent_standard_library_numeric_checks": 1404,
+  "protected_files_unchanged": 11,
+  "stage_criteria_unchanged": true,
+  "verification": {
+    "new_numeric_tests": 24,
+    "new_CLI_tests": 42,
+    "python_workflow_tests": 305,
+    "subtests": 56,
+    "warnings": "ONE_PREEXISTING_TESTCLIENT_DEPRECATION",
+    "independent_review": "SPEC_PASS_QUALITY_PASS",
+    "repository_checks": "PASS",
+    "remote_ci": "PENDING_AFTER_PUSH",
+    "unresolved_review_findings": 0,
+    "repository_tests": 13,
+    "worktree_checked_files": 397,
+    "worktree_issues": 0,
+    "candidate_import_without_torch": "PASS",
+    "changed_files": 16,
+    "changed_markdown_links": 252,
+    "vault_wiki_links": 5,
+    "privacy_and_links": "PASS",
+    "production_contracts_and_original_audits_unchanged": true,
+    "stage_criteria_unchanged": true
+  },
+  "fixed_defects": [
+    "exact_constant_column_mean_and_unit_scale",
+    "nonfinite_history_intermediates_cannot_look_like_valid_zero",
+    "failed_manifest_creation_cannot_leave_complete_marker"
+  ],
+  "failed_artifact_preserved": "LOCAL_SYNTHETIC_V1_CONSTANT_SCALE_FAILURE"
+}

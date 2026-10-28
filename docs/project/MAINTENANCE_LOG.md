@@ -1,5 +1,15 @@
 # 仓库维护复核记录
 
+## 2026-10-29 自主规划的候选输入计算开发
+
+从干净且已同步e70ca06，在既有W0隔离worktree建立codex/candidate-inputs；核其他worktree/远端并保留main。读取Vault入口、V0.40及现有实现，主控自行定计划，独立子任务实现CLI，主控负责数值模块/集成及记录，另派独立整体审查；未创建新聊天。
+
+基线26契约/历史/预处理测试通过。数值22项缺模块RED、CLI37失败/1样例PASS后实现；首轮完整303通过。标准库复核发现常数std残差，独立审查发现MAD分母溢出，新2反例RED后修复；失败manifest追加反例修复。最终新增66通过，完整Python305项/56subtests通过，1项既有TestClient弃用警告；不改无关后端警告。独立Spec/Quality PASS，无遗留问题。
+
+实际CLI人工144分钟，四段H15各21、H30共同各6；train/cal/test normal各6，状态SYNTHETIC_ONLY。原v1失败产物保留，新v2独立运行exit0；标准库按固定训练索引复算1404个字段，SHA/重载/JSON通过。旧11项关键审计/契约文件保持，真实CSV读取0、下载0；候选原始聚合语义仍依原审计，不声称源物理协议或真实数值认证。实际[验证证据](../research/2026-10-29-candidate-inputs-verification.json)与[指南](../guides/candidate-inputs.md)可复查。
+
+状态/README/计划/路线图/Gate与Vault同步；阶段验收清单不变。仓库13项、进度write/check、worktree隐私/作者397文件0问题、252个本轮Markdown链接及新日志5个Wiki Links通过；导入不初始化torch。暂存与远端结果按实际完成另报；所有Commit/Push用Desktop，不合并main。公开仓库不包含虚拟环境、权重、数据库或运行数组。
+
 ## 2026-10-28 G13U获准设计与真实本地供应复算
 
 在已同步6f30dfc的W0隔离worktree建立codex/c17-g13u-supply-audit，10月24日完成独立配置与人工RED后中断，28日核现状和Vault四入口续接。保留未提交的三份阶段草稿/测试，重新派三个内部子任务独占实现/只读科学/只读资源复核，主控独占配置与公共状态；Desktop启动后Fetch完成，原项目及其他worktree不改，不创建新用户聊天。

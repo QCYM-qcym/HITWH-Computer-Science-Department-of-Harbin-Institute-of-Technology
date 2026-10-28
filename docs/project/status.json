@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "current_stage": "S2",
-  "theme": "G13U获准发布记录供应复算完成：共同开发150/88/148、测试1831分钟；供应有限，Data Gate仍BLOCKED",
+  "theme": "候选13/26维输入计算已实现并合成验证；训练隔离、因果历史及产物可复跑，Data Gate保持BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "G13U审计设计及发布CSV人口已获明确批准；复用本地文件完成2099976条真实复算，新增数据下载0，旧26项G12证据与源文件逐字节保持。",
-    "独立未解析通道保留1510条Protocol0及1508源BENIGN/2Portscan标签，其他未知码仍拒绝；共同历史由G12全0恢复至150/88/148及四日测试1831分钟。",
-    "训练完成记录数Q90为1687.8，P_U共同测试正常1128/攻击266/未知437，高正常组27分钟、最长3分钟；不是模型分数/误报率。",
-    "新G13U人工27项/14subtests及全部审计110项/56subtests通过，独立身份/资源/科学复核CLEAR；最终标签、主数据采用、生产迁移和真实模型均未批准。"
+    "依据V0.40自行安排候选输入计算开发，独立实现13维log1p/训练缩放、H15/H30中位数MAD偏离和26维拼接，原134/268生产链保留。",
+    "完成有界SYNTHETIC_ONLY命令行、四段144分钟人工fixture、全轴有效性与正常资格导出，参数保存重载和manifest完整性检查。",
+    "先失败测试后实现；新增66项通过，独立审查修复常数缩放与历史分母溢出，标准库1404项逐字段复算通过，首轮负面产物保留。",
+    "完整Python回归305项及56subtests通过，只有既有TestClient弃用警告；未读取真实CSV、下载或启动真实拟合/模型，阶段验收项保持。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,18 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "候选输入运行、计算规则与验证",
+      "path": "docs/guides/candidate-inputs.md"
+    },
+    {
+      "label": "10月29日自主开发计划与报告映射",
+      "path": "docs/superpowers/plans/2026-10-29-candidate-inputs.md"
+    },
+    {
+      "label": "人工CLI产物与1404项独立数值验证",
+      "path": "docs/research/2026-10-29-candidate-inputs-verification.json"
+    },
     {
       "label": "G13U真实供应、标签分母与有限试点待决",
       "path": "docs/research/2026-10-24-c17-g13u-audit.md"
@@ -816,6 +828,59 @@
       "new_vault_wiki_links": 5,
       "stage_criteria_unchanged": true,
       "production_files_unchanged": true
+    }
+  },
+  "candidate_input_development": {
+    "date": "2026-10-29",
+    "base_commit": "e70ca065adf24726d6303adbb8a28d7381a98ce4",
+    "status": "SYNTHETIC_ONLY",
+    "report_sections": [
+      "4.1.1",
+      "4.1.2",
+      "4.1.7"
+    ],
+    "current_width": 13,
+    "joined_width": 26,
+    "history_windows": [
+      15,
+      30
+    ],
+    "manual_minutes": 144,
+    "manual_common": 24,
+    "manual_train_fit": 6,
+    "manual_calibration_normal": 6,
+    "manual_test_normal": 6,
+    "actual_real_counts_changed": false,
+    "real_csv_reads": 0,
+    "new_payload_download_bytes": 0,
+    "real_preprocessing": "NOT_RUN",
+    "real_models": "NOT_RUN",
+    "real_integration": "NOT_RUN",
+    "formal_experiments": "NOT_RUN",
+    "production_contract_changed": false,
+    "final_label_policy_changed": false,
+    "data_gate": "BLOCKED",
+    "guide": "docs/guides/candidate-inputs.md",
+    "verification": {
+      "new_numeric_tests": 24,
+      "new_CLI_tests": 42,
+      "python_workflow_tests": 305,
+      "subtests": 56,
+      "warnings": "ONE_PREEXISTING_TESTCLIENT_DEPRECATION",
+      "independent_review": "SPEC_PASS_QUALITY_PASS",
+      "repository_checks": "PASS",
+      "remote_ci": "PENDING_AFTER_PUSH",
+      "unresolved_review_findings": 0,
+      "repository_tests": 13,
+      "worktree_checked_files": 397,
+      "worktree_issues": 0,
+      "candidate_import_without_torch": "PASS",
+      "changed_files": 16,
+      "changed_markdown_links": 252,
+      "vault_wiki_links": 5,
+      "privacy_and_links": "PASS",
+      "production_contracts_and_original_audits_unchanged": true,
+      "stage_criteria_unchanged": true
     }
   }
 }
