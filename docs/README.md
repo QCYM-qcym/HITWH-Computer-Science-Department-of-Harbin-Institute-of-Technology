@@ -1,22 +1,22 @@
 # 文档导航
 
-最新执行入口：[C17-I1实际获取与离线供应审计](research/2026-10-23-c17-i1-payload-audit.md)、[聚合证据](research/2026-10-23-c17-i1-payload-audit.json)、[隔离工具指南](guides/c17-improved-audit.md)。用户已批准单对象获取与离线审计；最终标签政策、主数据采用和生产迁移仍未批准，真实模型及正式实验NOT_RUN。历史推荐及原包证据保留。
+最新执行入口：[G13U获准发布记录供应复算](research/2026-10-24-c17-g13u-audit.md)、[完整聚合](research/2026-10-24-c17-g13u-audit.json)、[独立运行与续接](guides/c17-g13u-supply.md)。10月28日已完成本地真实复算：共同开发资格150/88/148、测试1831分钟，供应仍有限；最终标签政策、主数据采用和生产迁移未批准，真实模型及正式实验NOT_RUN。原G12失败证据逐字保留。
 
-修订2026-10-23；用途：当前公开材料与版本对应。报告/答辩均为草稿，待审阅；没有最新稿确认记录。公开文本对应同版本本地原稿，私人路径映射保留本地。
+修订2026-10-28；用途：当前公开材料与版本对应。报告/答辩均为草稿，待审阅；没有最新稿确认记录。公开文本对应同版本本地原稿，私人路径映射保留本地。
 
 ## 当前材料
 
-适配性分析：[CICIDS2017候选与论文要求对照](research/2026-10-23-cicids-suitability-analysis.md)。给出审计优先级建议及150/90/150理想上界；未替代数据采用决定，真实供应未知。
+历史设计记录：[CICIDS2017候选与论文要求对照](research/2026-10-23-cicids-suitability-analysis.md)。当时给出150/90/150理想上界；现已由G12失败证据和本轮G13U实际150/88/148供应补充，未替代数据采用决定。
 
-新增来源：[GitHub数据检索与镜像元信息](research/2026-10-23-github-dataset-search.md)。已核非官方原包镜像的对象大小/哈希及作者修订版目录；未下载载荷，未改变选型或Gate。
+历史来源记录：[GitHub数据检索与镜像元信息](research/2026-10-23-github-dataset-search.md)。该次只核元信息；随后C17-I1获准获取作者修订版，本轮只复用本地载荷，未改变正式选型或Gate。
 
-最新增量：[C17官方入口、生成版本及既有C18-S一致性](research/2026-10-23-c17-source-metadata.md)；表单可读，归档身份仍未知。更正隐藏错误文本的旧解释，无新增数据载荷或Gate升级。
+历史入口核查：[C17官方入口、生成版本及既有C18-S一致性](research/2026-10-23-c17-source-metadata.md)。原官方归档身份待确认，不与后续实际获取的作者修订版混同；该次无新增载荷或Gate升级。
 
-当前入口：[C17-G12审计设计及批准](project/CANDIDATE-DATA-DECISION-2026-10-23.md)、[C18-S四前缀16MiB实际核查](research/2026-10-23-c18-structure-sample.md)、[文件与资源清单](research/2026-10-23-candidate-manifest.json)。设计及C18-S获取已分别获准；主数据采用、生产迁移和完整文件获取仍待决定，四段供应审计NOT_RUN。
+设计与获取历史：[C17-G12决定包](project/CANDIDATE-DATA-DECISION-2026-10-23.md)、[C18-S四前缀16MiB核查](research/2026-10-23-c18-structure-sample.md)。当前[文件与资源清单](research/2026-10-23-candidate-manifest.json)已登记C17-I1获取及G13U复算，供应审计完成；主数据采用、最终标签和生产迁移仍待决定。
 
-用户已选C主数据替换可行性方向，具体数据/表示待审计：[协议三路径与决定](project/RESEARCH-PROTOCOL-OPTIONS.md)、[增量证据与候选筛选](research/2026-10-22-data-gate-evidence-update.md)。
+方向选择历史：[协议三路径与决定](project/RESEARCH-PROTOCOL-OPTIONS.md)、[增量证据与候选筛选](research/2026-10-22-data-gate-evidence-update.md)。C方向与G13U审计设计已获准，具体主数据/表示正式采用仍待决定。
 
-Data Gate最新判定：[阻塞核查](project/DATA-GATE-2026-10-21.md)，真实验证准备与下一完整提示见[preflight](guides/real-validation-preflight.md)。
+Data Gate最新判定：[阻塞核查](project/DATA-GATE-2026-10-21.md)。本轮之后的完整提示见[G13U续接指南](guides/c17-g13u-supply.md)；[preflight](guides/real-validation-preflight.md)保留早期真实验证准备记录。
 
 当前程序见[合成快速运行](guides/quickstart.md)、[W0联调记录](project/W0-SYNTHETIC-INTEGRATION-2026-10-21.md)和[UGR16v3证据核验](research/2026-10-21-UGR16v3-provenance.md)。
 

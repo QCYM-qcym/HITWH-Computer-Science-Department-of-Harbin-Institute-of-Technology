@@ -7,7 +7,7 @@
   "dataset_adoption": "NOT_APPROVED",
   "representation_adoption": "NOT_APPROVED",
   "download_approval": "C18_S_AND_C17_I1_SEPARATE_APPROVALS_EXECUTED",
-  "payload_bytes_read_this_stage": 343549013,
+  "payload_bytes_read_this_stage": 0,
   "real_training": "NOT_RUN",
   "formal_evaluation": "NOT_RUN",
   "primary_proposal": {
@@ -266,8 +266,8 @@
   },
   "gate": {
     "overall": "NOT_PASSED",
-    "payload_audit": "EXECUTED_REAL_C17_I1",
-    "four_split_supply": "INSUFFICIENT_CURRENT_G12_H15_H30_COMMON_ALL_ZERO",
+    "payload_audit": "G13U_REAL_LOCAL_SUPPLY_RECOMPUTED",
+    "four_split_supply": "RECOVERED_LIMITED_G13U_SOURCE_HISTORY_NOT_MODEL_OR_FINAL_PROTOCOL",
     "real_short_validation": "NOT_RUN",
     "old_ugr_gate": "BLOCKED",
     "structure_prefix_audit": "EXECUTED_LIMITED_SCOPE"
@@ -296,9 +296,9 @@
     "new_dataset_payload_bytes": 0,
     "status": "FORM_IDENTIFIED_ARCHIVE_IDENTITY_UNRESOLVED"
   },
-  "payload_bytes_read_this_stage_scope": "CURRENT_C17_I1_GET_ONLY; historical C18_S_16777216 recorded separately; no C18/PCAP/mirror GET this stage",
-  "active_audit_target": "CICIDS2017_improved.zip",
-  "active_audit_priority_approval": "APPROVED_BY_USER_2026-10-23_CURRENT_REQUEST",
+  "payload_bytes_read_this_stage_scope": "CURRENT_G13U_LOCAL_RECOMPUTATION_ONLY; historical C17_I1 and C18_S bytes remain in separate prior records",
+  "active_audit_target": "C17-I1-G13U_HASH_BOUND_RELEASED_CSV_RECORDS",
+  "active_audit_priority_approval": "G13U_AUDIT_DESIGN_AND_HASH_BOUND_RELEASE_RECORD_POPULATION_EXPLICITLY_APPROVED",
   "improved_proposal": {
     "status": "REAL_OFFLINE_AUDIT_COMPLETE_CURRENT_G12_INSUFFICIENT",
     "identity_and_budget_ref": "docs/research/2026-10-23-c17-improved-preparation.json",
@@ -322,7 +322,31 @@
     "official_checksum": null,
     "report": "docs/research/2026-10-23-c17-i1-payload-audit.md",
     "next_audit_candidate": "C17-I1-G13U",
-    "next_audit_design_approval": "NOT_APPROVED"
+    "next_audit_design_approval": "NOT_APPROVED",
+    "historical_status_as_of": "2026-10-23",
+    "approved_followup_current_status": "g13u_review"
   },
-  "original_generated_mirror_role": "BACKUP_NOT_DOWNLOADED_NOT_ADOPTED"
+  "original_generated_mirror_role": "BACKUP_NOT_DOWNLOADED_NOT_ADOPTED",
+  "g13u_review": {
+    "approval": "AUDIT_DESIGN_AND_RELEASE_RECORD_POPULATION_APPROVED_EXECUTED",
+    "date": "2026-10-28",
+    "new_payload_bytes": 0,
+    "config": "docs/research/2026-10-24-c17-g13u-config.json",
+    "evidence": "docs/research/2026-10-24-c17-g13u-audit.json",
+    "common_source_history": [
+      150,
+      88,
+      148,
+      454,
+      475,
+      452,
+      450
+    ],
+    "model_common_valid_minutes": null,
+    "main_dataset_adoption": "NOT_APPROVED",
+    "final_label_policy": "NOT_APPROVED",
+    "production_migration": "NOT_APPROVED",
+    "gate": "NOT_PASSED"
+  },
+  "active_approval_recorded_date": "2026-10-24"
 }

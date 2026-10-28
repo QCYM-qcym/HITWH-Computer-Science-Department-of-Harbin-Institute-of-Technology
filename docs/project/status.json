@@ -1,39 +1,51 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-23",
+  "updated": "2026-10-28",
   "current_stage": "S2",
-  "theme": "C17-I1已获准获取并完成真实离线审计；Protocol0使H15/H30全0，需决定表示修订，Data Gate保持BLOCKED",
+  "theme": "G13U获准发布记录供应复算完成：共同开发150/88/148、测试1831分钟；供应有限，Data Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "从bb221ea续接，按明确批准的C17-I1仅获取作者ZIP343549013字节，1GET/0重试；双重本地SHA一致，5成员CRC通过，不称官方校验。",
-    "真实两遍审计2099976条/91列；5条未使用rate非有限保留，Protocol0共1510条，含1508条源BENIGN和2条Portscan，不能整体删除或归正常。",
-    "七段最长连续有效仅2分钟，H15/H30/common输入全部0；高完成流Q90/子组null。建议调整协议后再审G13U13/26，尚未批准或应用。",
-    "新增25项先失败再实现回归；数据审计83项及42个subtests、仓库13项通过。未改生产契约，真实模型/联调/正式实验NOT_RUN，CI待推送后核。"
+    "G13U审计设计及发布CSV人口已获明确批准；复用本地文件完成2099976条真实复算，新增数据下载0，旧26项G12证据与源文件逐字节保持。",
+    "独立未解析通道保留1510条Protocol0及1508源BENIGN/2Portscan标签，其他未知码仍拒绝；共同历史由G12全0恢复至150/88/148及四日测试1831分钟。",
+    "训练完成记录数Q90为1687.8，P_U共同测试正常1128/攻击266/未知437，高正常组27分钟、最长3分钟；不是模型分数/误报率。",
+    "新G13U人工27项/14subtests及全部审计110项/56subtests通过，独立身份/资源/科学复核CLEAR；最终标签、主数据采用、生产迁移和真实模型均未批准。"
   ],
   "blockers": [
-    "现G12不将Protocol0认证为合法other；1510条未解析记录散布污染分钟，当前四段H15/H30及共同输入供给均0，门槛与高完成流组不可计算。",
-    "修订包UTC/us与作者说明相容但精确生成commit/配置、真实导出延迟、上游筛除及采集覆盖未认证；不能把发布记录供应称完整网络供给。",
-    "G13U13/26或G12U12/24表示/人口变更、最终Attempted政策、四段冻结、主数据采用及生产迁移仍待明确决定；不自动删流或缩窗口。",
-    "原UGR正常测试分母0、旧时间及许可阻塞保持。新载荷审计不等于Gate、真实模型或研究效果通过。"
+    "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
+    "共同正常训练/验证/独立校准仅150/88/148分钟，验证无攻击、校准历史重叠，99%尾部稳定性未验证；不按测试效果改参数或切分。",
+    "高完成流正常组P_U仅27分钟、最长3分钟；所有合格历史均含未解析源记录，持续高负载及artifact模型影响未验证。",
+    "G13U只审计发布记录人口，精确生成/导出与物理协议不作认证；主数据采用、生产迁移、真实模型运行未获准，原UGR阻塞保持。"
   ],
   "next_tasks": [
     {
-      "id": "C-I3A",
-      "text": "审阅G13U13/26与发布记录人口的具体审计修订及代价；当前未批准、未应用，不预称历史供应恢复。",
-      "path": "docs/research/2026-10-23-c17-i1-payload-audit.md"
+      "id": "C-I5",
+      "text": "依据真实分母决定最终Attempted口径和有限试点约束；接受或修订小样本/短高计数组结论范围，先固定协议。",
+      "path": "docs/research/2026-10-24-c17-g13u-audit.md"
     },
     {
-      "id": "C-I3B",
-      "text": "明确批准新审计设计后才复用本地文件做独立再审，保留原G12失败结果；不下载、不训练或迁生产。",
-      "path": "docs/guides/c17-i1-protocol-next.md"
+      "id": "C-I6",
+      "text": "协议决定后分别处理主数据正式采用与生产契约迁移；G13U审计批准不自动包含二者。",
+      "path": "docs/guides/c17-g13u-supply.md"
     },
     {
-      "id": "C-I4",
-      "text": "再审后依据真实分母决定标签/四段/主数据与表示，随后另行处理契约迁移和真实最小链路；当前均NOT_RUN。",
+      "id": "C-I7",
+      "text": "仅在相应批准和Gate证据满足后安排真实IF最小工程链路；本阶段训练/评分/阈值校准和正式实验继续NOT_RUN。",
       "path": "docs/project/DATA-GATE-2026-10-21.md"
     }
   ],
   "entrypoints": [
+    {
+      "label": "G13U真实供应、标签分母与有限试点待决",
+      "path": "docs/research/2026-10-24-c17-g13u-audit.md"
+    },
+    {
+      "label": "G13U完整聚合、守恒/身份与历史资格证据",
+      "path": "docs/research/2026-10-24-c17-g13u-audit.json"
+    },
+    {
+      "label": "G13U独立运行、人工门与下一阶段提示",
+      "path": "docs/guides/c17-g13u-supply.md"
+    },
     {
       "label": "C17-I1实际获取、Protocol0阻塞与协议修订建议",
       "path": "docs/research/2026-10-23-c17-i1-payload-audit.md"
@@ -528,39 +540,39 @@
     }
   },
   "candidate_review": {
-    "date": "2026-10-23",
-    "status": "DECISION_PACKAGE_READY",
-    "recommended_audit_proposal": "C17-G12",
+    "date": "2026-10-28",
+    "status": "G13U_AUDIT_COMPLETE_PENDING_FINAL_PROTOCOL",
+    "recommended_audit_proposal": "C17-I1-G13U",
     "backup": "C18-G12",
     "dataset_adoption": "NOT_APPROVED",
     "representation_adoption": "NOT_APPROVED",
     "download_approval": "C18_S_AND_C17_I1_SEPARATELY_APPROVED_EXECUTED",
     "payload_download_bytes": 360326229,
-    "payload_audit": "C17_I1_FULL_RELEASE_CSV_OFFLINE_AUDIT_EXECUTED_G12_SUPPLY_INSUFFICIENT",
+    "payload_audit": "G13U_RELEASE_RECORD_FULL_LOCAL_RECOMPUTATION_COMPLETE",
     "production_contract_changed": false,
-    "four_splits": "AUDIT_CANDIDATES_PREREGISTERED_NOT_FROZEN",
+    "four_splits": "REUSED_AUDIT_CANDIDATES_NOT_FROZEN_FOR_MODEL_EXPERIMENTS",
     "four_split_counts": {
-      "scope": "CONDITIONAL_G12_NOT_PHYSICAL_CAPTURE_OR_MODEL_VALIDITY",
+      "scope": "G13U_RELEASE_RECORD_SOURCE_QUALIFICATION_NOT_MODEL_INPUT_CERTIFICATION",
       "H15_input": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        165,
+        103,
+        163,
+        469,
+        490,
+        467,
+        465
       ],
       "H30_input": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        150,
+        88,
+        148,
+        454,
+        475,
+        452,
+        450
       ],
       "model_common_valid_minutes": null,
-      "ref": "docs/research/2026-10-23-c17-i1-payload-audit.json"
+      "ref": "docs/research/2026-10-24-c17-g13u-audit.json"
     },
     "real_short_validation": "NOT_RUN",
     "formal_evaluation": "NOT_RUN",
@@ -573,7 +585,9 @@
       "worktree_issues": 0,
       "decision_arithmetic": "PASS_NO_PAYLOAD_OR_TRAINING",
       "stage_criteria_unchanged": true,
-      "independent_reviews": "PASS_AFTER_TWO_DOCUMENT_CORRECTIONS"
+      "independent_reviews": "PASS_AFTER_TWO_DOCUMENT_CORRECTIONS",
+      "historical_status_as_of": "2026-10-23",
+      "approved_followup_current_verification": "g13u_supply_audit.verification"
     },
     "audit_design_approval": {
       "status": "APPROVED",
@@ -714,6 +728,94 @@
       "stage_criteria_unchanged": true,
       "production_files_unchanged": true,
       "independent_reviews": "CLEAR"
+    },
+    "historical_status_as_of": "2026-10-23",
+    "approved_followup_current_status": "g13u_supply_audit"
+  },
+  "g13u_supply_audit": {
+    "date": "2026-10-28",
+    "started_date": "2026-10-24",
+    "base_commit": "6f30dfc768d3909bec1850787917b2041d67f2bd",
+    "audit_design_and_population": "APPROVED_EXECUTED",
+    "population": "HASH_BOUND_RELEASED_CSV_RECORDS",
+    "new_dataset_download_bytes": 0,
+    "rows": 2099976,
+    "protocol0_preserved": 1510,
+    "original_labels_preserved": true,
+    "G12_evidence_unchanged": true,
+    "input_valid": [
+      180,
+      118,
+      178,
+      485,
+      505,
+      482,
+      481
+    ],
+    "H15": [
+      165,
+      103,
+      163,
+      469,
+      490,
+      467,
+      465
+    ],
+    "common_source_history": [
+      150,
+      88,
+      148,
+      454,
+      475,
+      452,
+      450
+    ],
+    "model_common_valid_minutes": null,
+    "test_common": 1831,
+    "P_U_current_normal_attack_unknown": [
+      1128,
+      266,
+      437
+    ],
+    "P_B_current_normal_attack_unknown": [
+      1421,
+      410,
+      0
+    ],
+    "P_A_current_normal_attack_unknown": [
+      1128,
+      703,
+      0
+    ],
+    "completed_count_Q90": 1687.8,
+    "P_U_high_normal": 27,
+    "P_U_high_longest_minutes": 3,
+    "history_supply": "RECOVERED_LIMITED_AUDIT_ONLY",
+    "next_issue": "FINAL_LABEL_ESTIMAND_AND_LIMITED_PILOT_PROTOCOL",
+    "final_label_policy": "NOT_APPROVED",
+    "dataset_adoption": "NOT_APPROVED",
+    "production_migration": "NOT_APPROVED",
+    "real_training": "NOT_RUN",
+    "real_scoring": "NOT_RUN",
+    "score_calibration": "NOT_RUN",
+    "formal_experiments": "NOT_RUN",
+    "data_gate": "BLOCKED",
+    "report": "docs/research/2026-10-24-c17-g13u-audit.md",
+    "evidence": "docs/research/2026-10-24-c17-g13u-audit.json",
+    "verification": {
+      "G13U_tests": 27,
+      "G13U_subtests": 14,
+      "all_data_audit_tests": 110,
+      "all_subtests": 56,
+      "independent_reviews": "CLEAR",
+      "remote_ci": "PENDING_AFTER_PUSH",
+      "repository_tests": 13,
+      "worktree_checked_files": 389,
+      "worktree_issues": 0,
+      "changed_markdown_file_links": 239,
+      "new_vault_wiki_links": 5,
+      "stage_criteria_unchanged": true,
+      "production_files_unchanged": true
     }
   }
 }
