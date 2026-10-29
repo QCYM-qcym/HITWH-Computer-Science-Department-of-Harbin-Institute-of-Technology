@@ -98,7 +98,7 @@
   "Data_Gate": "BLOCKED",
   "verification": {
     "adapter_tests": 26,
-    "CLI_tests": "PENDING_FINAL",
+    "CLI_tests": 86,
     "python_tests": 375,
     "independent_review": "SPEC_PASS_QUALITY_PASS",
     "repository_checks": "PASS",
@@ -123,5 +123,6 @@
     "privacy_and_links": "PASS",
     "production_and_frozen_audits_unchanged": true,
     "stage_criteria_unchanged": true
-  }
+  },
+  "metadata_completion_note": "补齐原38项记录CLI和48项数值CLI的已执行结果；未重写真实供应或失败证据。"
 }

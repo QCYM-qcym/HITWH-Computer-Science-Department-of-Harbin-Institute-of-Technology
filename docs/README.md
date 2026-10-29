@@ -1,5 +1,9 @@
 # 文档导航
 
+## 自主开发第二批入口
+
+[候选产物只读复查](guides/candidate-artifacts.md)、[实际验证](research/2026-10-30-candidate-artifacts-verification.json)及[实施记录](superpowers/plans/2026-10-30-candidate-artifact-verifier.md)。人工产物三政策有/无源6次复查通过；保存参数不重新拟合，缺源不冒称核验。真实Gate仍BLOCKED。
+
 当前自主迭代：[源记录到分钟整链](guides/candidate-records.md)、[具体有限试点建议](research/2026-10-30-limited-pilot-proposal.md)、[10月30日合成证据](research/2026-10-30-candidate-records-verification.json)。仅工程SYNTHETIC_ONLY，真实Gate仍BLOCKED；下方保留前批与真实审计入口。
 
 最近开发：[候选13/26输入计算](guides/candidate-inputs.md)、[自主实施计划](superpowers/plans/2026-10-29-candidate-inputs.md)、[合成数值证据](research/2026-10-29-candidate-inputs-verification.json)。10月29日程序与人工验证完成；真实审计结果及其研究边界见下方，Data Gate仍BLOCKED。

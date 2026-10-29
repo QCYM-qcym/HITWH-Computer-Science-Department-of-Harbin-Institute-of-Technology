@@ -1,0 +1,90 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_READONLY_ARTIFACT_VERIFICATION",
+  "date": "2026-10-30",
+  "base_commit": "0d69b54ec8ce09b5bc57d6d8b0855c6e08750168",
+  "profile_id": "c17-i1-g13u-artifact-verifier-v1",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "status": "VERIFIED",
+  "verification_scope": "INTERNAL_CONSISTENCY_NOT_SOURCE_AUTHENTICATION_OR_RESEARCH_VALIDATION",
+  "source_replay_without_fixture": "NOT_PROVIDED",
+  "fit_parameters": "NOT_REESTIMATED",
+  "calls_fit_or_prepare": false,
+  "file_payload_cap_bytes": 86130688,
+  "numerical_tolerance": {
+    "rtol": 1e-12,
+    "atol": 1e-12
+  },
+  "configuration_comparison": "EXACT",
+  "manual": {
+    "invocations": 6,
+    "policies": [
+      "P_U",
+      "P_B",
+      "P_A"
+    ],
+    "with_and_without_source": true,
+    "all_exit_zero": true,
+    "runtime_files_unchanged": 18,
+    "minute_count": 144,
+    "common_valid": 24,
+    "normal_train_fit": 6,
+    "normal_calibration": 6,
+    "test_current_normal": {
+      "P_U": 4,
+      "P_B": 5,
+      "P_A": 4
+    },
+    "fixture_local_sha256": "6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2"
+  },
+  "tests": {
+    "core_passed": 54,
+    "CLI_passed": 22,
+    "new_passed": 76,
+    "new_skipped": 1,
+    "skip_reason": "WINDOWS_HOST_DENIES_UNPRIVILEGED_REAL_SYMLINK_CREATION",
+    "deterministic_reparse_guards": "PASS_INCLUDING_ANCESTOR",
+    "full_python_passed": 451,
+    "full_python_subtests": 56,
+    "warnings": 1,
+    "warning_kind": "PREEXISTING_TESTCLIENT_DEPRECATION",
+    "independent_review": "SPEC_PASS_QUALITY_PASS",
+    "unresolved_findings": 0,
+    "independent_targeted_tests": 14,
+    "repository_checks": "PASS",
+    "repository_tests": 13,
+    "worktree_checked_files": 413,
+    "worktree_issues": 0,
+    "changed_files": 19,
+    "changed_markdown_links": 303,
+    "vault_wiki_links": 5,
+    "privacy_and_links": "PASS",
+    "production_and_frozen_audits_unchanged": true,
+    "stage_criteria_unchanged": true
+  },
+  "TDD": {
+    "initial_core": "35_FAILED_1_SKIPPED_MISSING_MODULE",
+    "initial_CLI": "22_FAILED_MISSING_ENTRYPOINT",
+    "review_red_regressions": {
+      "equivalent_minute_timestamp": 2,
+      "coverage_config_ancestor": 6,
+      "aggregation_invariants": 3,
+      "source_sum_bound": 1
+    },
+    "final": "76_PASSED_1_SKIPPED"
+  },
+  "fixed_findings": [
+    "minute_vs_second_source_clock_format",
+    "epsilon_configuration_requires_exact_comparison",
+    "all_lexical_ancestors_checked_for_links",
+    "audit_and_bounded_record_aggregation_invariants"
+  ],
+  "production_contract_changed": false,
+  "new_payload_download_bytes": 0,
+  "real_csv_reads": 0,
+  "real_preprocessing": "NOT_RUN",
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "final_label_policy": "NOT_APPROVED",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

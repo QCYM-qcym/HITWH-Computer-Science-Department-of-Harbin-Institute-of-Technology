@@ -1,5 +1,15 @@
 # 仓库维护复核记录
 
+## 2026-10-30 自主迭代第二批：合成产物只读复查
+
+从已同步0d69b54在同一隔离分支继续，未创建新聊天或修改其他worktree。主控实现有界只读核心，独立任务实现CLI、另一任务独立Spec/Quality审查。manifest固定白名单、跨目录fixture精确哈希、schema/profile/config和13/26结构保持；可选源缺失时明确NOT_PROVIDED，保存参数只重放不重新拟合，不能认证train-only拟合来源。
+
+核心35缺模块失败/1权限skip、CLI22缺入口失败后实现。独立审查四类P2：等价分钟/秒文本误拒、epsilon误用数值容差、父路径链接遗漏、审计与聚合不变量；分别增加失败回归并修复。最终新增76通过/1本机真实链接权限skip，确定性Windows重解析点及祖先测试通过；完整Python451项/56subtests、1既有TestClient警告。独立审查14项针对验证通过，Spec/Quality PASS，无未解决发现。
+
+实际复查上一批三个政策有/无源各一次，6次exit0，18文件SHA快照不变；24共同、拟合/校准正常各6和测试normal4/5/4保持。补齐上一批CLI结果占位为实际38+48=86，不重写原真实证据。见[只读运行指南](../guides/candidate-artifacts.md)和[实际验证](../research/2026-10-30-candidate-artifacts-verification.json)。仓库13项、进度write/check及worktree413文件零问题通过，19改动文件/303 Markdown链接/5知识库链接检查通过。Desktop/远端/CI按实际完成登记；不预填未产生提交。
+
+新下载/真实CSV读取0；真实拟合、模型、评分、Q99、正式实验NOT_RUN，最终标签/主数据/迁移仍待研究决定，Data Gate/S2 BLOCKED。
+
 ## 2026-10-30 自主迭代首批：候选源记录适配
 
 26df256与远端一致且干净，在既有W0 worktree建立codex/candidate-flow-adapter；其他worktree与main保留。用户要求立即自主开发到10月31日12:00，已有当前聊天自动续接绑定本地可恢复台账；主控实现适配器，原CLI任务独占实现有界入口和null兼容，另一任务整理协议包，独立审查验证代码与标签边界，不新建用户聊天。

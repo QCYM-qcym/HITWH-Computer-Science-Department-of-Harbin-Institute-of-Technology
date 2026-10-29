@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-10-30",
   "current_stage": "S2",
-  "theme": "自主迭代：人工源记录到13/26输入整链完成，标签政策独立审计；真实研究Gate仍BLOCKED",
+  "theme": "自主迭代：记录到13/26链路及只读产物复查完成；真实研究Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "从26df256建立候选记录适配器，人工start+duration完成分钟、Protocol0独立通道、known-other、记录守恒和标签隔离已实现。",
-    "显式P_U/B/A三政策记录CLI到原13/26数值CLI均实际跑通，576记录/144分钟/24共同，三政策数值与历史相同；全程SYNTHETIC_ONLY。",
-    "新增70项测试、完整Python375项及56subtests通过；独立审查修复下游1MiB互操作边界，352标签政策对照和1872个原始坐标独立核验通过。",
-    "形成具体有限试点决定包；原实际供应、报告、134/268生产契约保持，真实CSV读取/新下载0，最终标签与主数据采用仍未冻结。"
+    "新增只读候选产物CLI，固定文件白名单、哈希与跨目录输入血缘，加载保存参数重放13/26及H15/H30，不重新拟合。",
+    "上一批三政策有/无源6次复查全部exit0，18文件保持原字节；缺源明确NOT_PROVIDED，保存参数来源不冒称认证。",
+    "本批新增76通过/1本机链接权限skip，完整Python451项及56subtests通过；独立审查修复时间文本、配置容差、父路径链接及审计守恒边界。",
+    "具体有限试点建议仍待研究决定；旧真实审计和134/268契约保持，新下载/真实CSV读取0，真实模型及正式实验NOT_RUN。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "候选合成产物只读校验与搬迁复查",
+      "path": "docs/guides/candidate-artifacts.md"
+    },
+    {
+      "label": "只读复查实际结果、失败回归与范围",
+      "path": "docs/research/2026-10-30-candidate-artifacts-verification.json"
+    },
     {
       "label": "记录到分钟与13/26合成链路运行",
       "path": "docs/guides/candidate-records.md"
@@ -920,7 +928,7 @@
     "data_gate": "BLOCKED",
     "verification": {
       "adapter_tests": 26,
-      "CLI_tests": "PENDING_FINAL",
+      "CLI_tests": 86,
       "python_tests": 375,
       "independent_review": "SPEC_PASS_QUALITY_PASS",
       "repository_checks": "PASS",
@@ -948,5 +956,96 @@
     },
     "guide": "docs/guides/candidate-records.md",
     "protocol_proposal": "docs/research/2026-10-30-limited-pilot-proposal.md"
+  },
+  "candidate_artifact_verification": {
+    "artifact_kind": "SYNTHETIC_ONLY_READONLY_ARTIFACT_VERIFICATION",
+    "date": "2026-10-30",
+    "base_commit": "0d69b54ec8ce09b5bc57d6d8b0855c6e08750168",
+    "profile_id": "c17-i1-g13u-artifact-verifier-v1",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "status": "VERIFIED",
+    "verification_scope": "INTERNAL_CONSISTENCY_NOT_SOURCE_AUTHENTICATION_OR_RESEARCH_VALIDATION",
+    "source_replay_without_fixture": "NOT_PROVIDED",
+    "fit_parameters": "NOT_REESTIMATED",
+    "calls_fit_or_prepare": false,
+    "file_payload_cap_bytes": 86130688,
+    "numerical_tolerance": {
+      "rtol": 1e-12,
+      "atol": 1e-12
+    },
+    "configuration_comparison": "EXACT",
+    "manual": {
+      "invocations": 6,
+      "policies": [
+        "P_U",
+        "P_B",
+        "P_A"
+      ],
+      "with_and_without_source": true,
+      "all_exit_zero": true,
+      "runtime_files_unchanged": 18,
+      "minute_count": 144,
+      "common_valid": 24,
+      "normal_train_fit": 6,
+      "normal_calibration": 6,
+      "test_current_normal": {
+        "P_U": 4,
+        "P_B": 5,
+        "P_A": 4
+      },
+      "fixture_local_sha256": "6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2"
+    },
+    "tests": {
+      "core_passed": 54,
+      "CLI_passed": 22,
+      "new_passed": 76,
+      "new_skipped": 1,
+      "skip_reason": "WINDOWS_HOST_DENIES_UNPRIVILEGED_REAL_SYMLINK_CREATION",
+      "deterministic_reparse_guards": "PASS_INCLUDING_ANCESTOR",
+      "full_python_passed": 451,
+      "full_python_subtests": 56,
+      "warnings": 1,
+      "warning_kind": "PREEXISTING_TESTCLIENT_DEPRECATION",
+      "independent_review": "SPEC_PASS_QUALITY_PASS",
+      "unresolved_findings": 0,
+      "independent_targeted_tests": 14,
+      "repository_checks": "PASS",
+      "repository_tests": 13,
+      "worktree_checked_files": 413,
+      "worktree_issues": 0,
+      "changed_files": 19,
+      "changed_markdown_links": 303,
+      "vault_wiki_links": 5,
+      "privacy_and_links": "PASS",
+      "production_and_frozen_audits_unchanged": true,
+      "stage_criteria_unchanged": true
+    },
+    "TDD": {
+      "initial_core": "35_FAILED_1_SKIPPED_MISSING_MODULE",
+      "initial_CLI": "22_FAILED_MISSING_ENTRYPOINT",
+      "review_red_regressions": {
+        "equivalent_minute_timestamp": 2,
+        "coverage_config_ancestor": 6,
+        "aggregation_invariants": 3,
+        "source_sum_bound": 1
+      },
+      "final": "76_PASSED_1_SKIPPED"
+    },
+    "fixed_findings": [
+      "minute_vs_second_source_clock_format",
+      "epsilon_configuration_requires_exact_comparison",
+      "all_lexical_ancestors_checked_for_links",
+      "audit_and_bounded_record_aggregation_invariants"
+    ],
+    "production_contract_changed": false,
+    "new_payload_download_bytes": 0,
+    "real_csv_reads": 0,
+    "real_preprocessing": "NOT_RUN",
+    "real_models": "NOT_RUN",
+    "formal_experiments": "NOT_RUN",
+    "final_label_policy": "NOT_APPROVED",
+    "data_gate": "BLOCKED",
+    "remote_CI": "PENDING_AFTER_PUSH",
+    "guide": "docs/guides/candidate-artifacts.md"
   }
 }
