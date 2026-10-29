@@ -1,5 +1,9 @@
 # 文档导航
 
+## 候选产物消费接缝
+
+[不可变快照接口](guides/candidate-snapshots.md)、[实际验证](research/2026-10-30-candidate-snapshots-verification.json)及[第三批计划](superpowers/plans/2026-10-30-candidate-verified-snapshot.md)。同次读取、实际值保留、数组和元数据隔离已经验证；独立候选13维IF尚未实现，真实Gate仍BLOCKED。
+
 ## 自主开发第二批入口
 
 [候选产物只读复查](guides/candidate-artifacts.md)、[实际验证](research/2026-10-30-candidate-artifacts-verification.json)及[实施记录](superpowers/plans/2026-10-30-candidate-artifact-verifier.md)。人工产物三政策有/无源6次复查通过；保存参数不重新拟合，缺源不冒称核验。真实Gate仍BLOCKED。

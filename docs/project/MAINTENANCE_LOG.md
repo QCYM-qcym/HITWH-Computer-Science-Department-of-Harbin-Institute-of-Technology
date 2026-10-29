@@ -1,5 +1,15 @@
 # 仓库维护复核记录
 
+## 2026-10-30 自主第三批：不可变候选快照
+
+从已同步62d6b16在同一隔离分支继续。主控先选IF前置的载荷接缝，不实现模型；独立任务先写22项测试，另一任务只读审查。每个文件同次有界读取，返回已验证原artifact值与实际manifest/fixture/preprocess摘要，旧报告API/CLI不变。保存参数不重新拟合，缺源不声称已核原记录。
+
+初次缺API实际观察17失败/2通过，仅保留工具输出摘录而非完整trace；后续日志标明该限制。审查发现frozen仍有可写__dict__，新增完整RED后四类加slots；22项GREEN，候选相关234通过/1本机真实链接权限skip。独立针对4项通过，Spec/Quality PASS，无遗留。23数组bytes-backed且fresh-view隔离shape/dtype/strides，report_dict深副本，原文件后改不影响快照；容差内微差仍保留实际产物值。
+
+实际三政策有/无源6次加载通过，18文件SHA不变；共同24、训练/校准正常各6、测试normal4/5/4保持，独立进程未导入torch/sklearn。主动修改局部view触发1项NumPy弃用提示如实保留，单元测试仅对对应setter定向过滤。见[消费指南](../guides/candidate-snapshots.md)及[验证记录](../research/2026-10-30-candidate-snapshots-verification.json)。仓库13项、进度write/check及worktree417文件零问题，14改动文件/294 Markdown链接/5知识库链接检查通过。Desktop/远端/CI按实际收尾登记。
+
+本批无候选IF/评分/校准，不读真实CSV、不下载、不改生产契约，原真实审计及研究待决保持；Data Gate/S2 BLOCKED，真实模型与正式实验NOT_RUN。
+
 ## 2026-10-30 自主迭代第二批：合成产物只读复查
 
 从已同步0d69b54在同一隔离分支继续，未创建新聊天或修改其他worktree。主控实现有界只读核心，独立任务实现CLI、另一任务独立Spec/Quality审查。manifest固定白名单、跨目录fixture精确哈希、schema/profile/config和13/26结构保持；可选源缺失时明确NOT_PROVIDED，保存参数只重放不重新拟合，不能认证train-only拟合来源。

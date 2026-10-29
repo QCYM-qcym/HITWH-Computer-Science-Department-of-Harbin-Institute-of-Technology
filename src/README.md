@@ -1,5 +1,9 @@
 # 程序入口
 
+## 已验证候选载荷
+
+[不可变加载API](../docs/guides/candidate-snapshots.md)供后续隔离候选消费者使用，保留旧校验CLI。每文件读一次，实际数值/历史/标签与摘要同时冻结；不重拟合、不注册生产worker。
+
 ## 候选产物复查入口
 
 2026-10-30新增[只读候选校验CLI](../docs/guides/candidate-artifacts.md)：复查记录和数值目录、固定版本/哈希/配置、保存参数及H15/H30重放。仅SYNTHETIC_ONLY，不重新拟合、不改变下述生产契约或worker。

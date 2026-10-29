@@ -6,11 +6,14 @@ their statistical fitting provenance is not certified by this verifier.
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Mapping
+from dataclasses import dataclass, field
 import hashlib
 import json
 import math
 from pathlib import Path
 import stat
+from types import MappingProxyType
 
 import numpy as np
 
@@ -42,6 +45,153 @@ class CandidateArtifactError(ValueError):
     def __init__(self, code):
         self.code = code
         super().__init__(code)
+
+
+def _deep_freeze(value):
+    if isinstance(value, dict):
+        return MappingProxyType({key: _deep_freeze(item) for key, item in value.items()})
+    if isinstance(value, list):
+        return tuple(_deep_freeze(item) for item in value)
+    return value
+
+
+def _deep_thaw(value):
+    if isinstance(value, Mapping):
+        return {key: _deep_thaw(item) for key, item in value.items()}
+    if isinstance(value, tuple):
+        return [_deep_thaw(item) for item in value]
+    return value
+
+
+@dataclass(frozen=True, slots=True)
+class _ArrayBuffer:
+    """Immutable values and metadata; consumers receive independent views."""
+    payload: bytes = field(repr=False)
+    dtype: str
+    shape: tuple[int, ...]
+
+    @classmethod
+    def copy(cls, values):
+        array = np.asarray(values)
+        if array.dtype.hasobject:
+            raise ValueError('object_arrays_not_supported')
+        return cls(array.tobytes(order='C'), array.dtype.str, array.shape)
+
+    def view(self):
+        return np.frombuffer(self.payload, dtype=np.dtype(self.dtype)).reshape(self.shape)
+
+
+@dataclass(frozen=True, slots=True)
+class _ArrayMapping(Mapping):
+    _buffers: Mapping = field(repr=False)
+
+    def __getitem__(self, key):
+        return self._buffers[key].view()
+
+    def __iter__(self):
+        return iter(self._buffers)
+
+    def __len__(self):
+        return len(self._buffers)
+
+
+def _array_mapping(values):
+    return _ArrayMapping(MappingProxyType({key: _ArrayBuffer.copy(value) for key, value in values.items()}))
+
+
+@dataclass(frozen=True, slots=True)
+class VerifiedCandidateHistory:
+    _arrays: _ArrayMapping = field(repr=False)
+    invalid_reason: tuple[str | None, ...]
+
+    @property
+    def current(self): return self._arrays['current']
+
+    @property
+    def residual(self): return self._arrays['residual']
+
+    @property
+    def joined(self): return self._arrays['joined']
+
+    @property
+    def valid(self): return self._arrays['valid']
+
+
+@dataclass(frozen=True, slots=True)
+class VerifiedCandidateArtifacts:
+    """Same-read snapshot of validated artifact values, not fit certification.
+
+    Array contents are bytes-backed; each access has independent view metadata.
+    Mutating a local view's shape/dtype cannot change subsequent snapshot reads.
+    """
+    report: Mapping
+    provenance: Mapping
+    preprocessing_state: Mapping
+    _arrays: _ArrayMapping = field(repr=False)
+    histories: Mapping[int, VerifiedCandidateHistory]
+    labels: Mapping[str, tuple[str, ...]]
+    normal_candidates: _ArrayMapping
+    feature_names: tuple[str, ...] = G13U_FEATURE_NAMES
+    value_space: str = 'prepared'
+
+    def report_dict(self):
+        return _deep_thaw(self.report)
+
+    @property
+    def timestamps(self): return self._arrays['timestamps']
+
+    @property
+    def segment_ids(self): return self._arrays['segment_ids']
+
+    @property
+    def partitions(self): return self._arrays['partitions']
+
+    @property
+    def current_values(self): return self._arrays['current_values']
+
+    @property
+    def row_valid(self): return self._arrays['row_valid']
+
+    @property
+    def raw_values(self): return self._arrays['raw_values']
+
+    @property
+    def raw_valid(self): return self._arrays['raw_valid']
+
+    @property
+    def common_valid(self): return self._arrays['common_valid']
+
+    @property
+    def training_normal(self): return self._arrays['training_normal']
+
+    @property
+    def calibration_normal(self): return self._arrays['calibration_normal']
+
+    @property
+    def test_normal(self): return self._arrays['test_normal']
+
+    @property
+    def source_attack_label_present(self): return self._arrays['source_attack_label_present']
+
+
+def _snapshot(report, provenance, state, raw, data, label_audit):
+    arrays = {key: np.array(data[key], dtype=bool) for key in
+              ('row_valid', 'common_valid', 'training_normal', 'calibration_normal', 'test_normal')}
+    arrays.update(timestamps=np.array(data['timestamps'], dtype='datetime64[us]'),
+        segment_ids=np.array(data['segment_ids']), partitions=np.array(data['partitions']),
+        current_values=np.array(data['current_values'], dtype=float), raw_values=raw.values,
+        raw_valid=raw.row_valid,
+        source_attack_label_present=np.array([row['source_attack_label_present']
+            for row in label_audit['audit']['minute_reports']], dtype=bool))
+    histories = {}
+    for window in (15, 30):
+        history = data['histories'][str(window)]
+        values = {key: np.array(history[key], dtype=float) for key in ('current', 'residual', 'joined')}
+        values['valid'] = np.array(history['valid'], dtype=bool)
+        histories[window] = VerifiedCandidateHistory(_array_mapping(values), tuple(history['invalid_reason']))
+    return VerifiedCandidateArtifacts(_deep_freeze(report), _deep_freeze(provenance), _deep_freeze(state),
+        _array_mapping(arrays), MappingProxyType(histories),
+        _deep_freeze(label_audit['labels']), _array_mapping(label_audit['normal_candidates']))
 
 
 def _require(condition, code='INVALID_PACKAGE'):
@@ -108,7 +258,7 @@ def _canonical(value):
 
 
 def _manifest(path, *, record):
-    _, data = _read(path, MAX_MANIFEST_BYTES)
+    payload, data = _read(path, MAX_MANIFEST_BYTES)
     fields = _MANIFEST_FIELDS | ({'selected_policy', 'policy_status'} if record else set())
     _require(set(data) == fields)
     expected = dict(schema_version=1, profile_id=RECORD_PROFILE_ID if record else PROFILE_ID,
@@ -124,7 +274,7 @@ def _manifest(path, *, record):
              and type(digest['byte_count']) is int and 0 < digest['byte_count'] <= MAX_FIXTURE_BYTES)
     if record:
         _require(data['selected_policy'] in POLICIES and data['policy_status'] == 'AUDIT_ONLY')
-    return data
+    return payload, data
 
 
 def _artifacts(directory, manifest, limits):
@@ -299,8 +449,8 @@ def _stored_transform(state, raw, normal):
 def _verify(records, inputs, source):
     _directory(records, _RECORD_FILES)
     _directory(inputs, _INPUT_FILES)
-    record_manifest = _manifest(records / 'manifest.json', record=True)
-    input_manifest = _manifest(inputs / 'manifest.json', record=False)
+    record_manifest_payload, record_manifest = _manifest(records / 'manifest.json', record=True)
+    input_manifest_payload, input_manifest = _manifest(inputs / 'manifest.json', record=False)
     record_data = _artifacts(records, record_manifest,
         {'minute-fixture.json': MAX_FIXTURE_BYTES, 'label-audit.json': MAX_AUDIT_BYTES})
     input_data = _artifacts(inputs, input_manifest,
@@ -348,7 +498,7 @@ def _verify(records, inputs, source):
     actual = input_data['candidate-inputs.json'][1]
     _require(_same(actual.get('epsilon'), expected['epsilon']) and _same(actual, expected, tolerant=True),
              'REPLAY_MISMATCH')
-    return dict(schema_version=1, verifier_profile_id=VERIFIER_PROFILE_ID, status='VERIFIED',
+    report = dict(schema_version=1, verifier_profile_id=VERIFIER_PROFILE_ID, status='VERIFIED',
         evidence_kind=EVIDENCE_KIND, time_basis=TIME_BASIS, selected_policy=policy, policy_status='AUDIT_ONLY',
         checks=dict(byte_integrity='VERIFIED', profile_compatibility='VERIFIED', lineage='VERIFIED',
                     label_separation='VERIFIED', saved_transform_replay='VERIFIED', history_replay='VERIFIED',
@@ -358,10 +508,14 @@ def _verify(records, inputs, source):
         minute_count=len(raw.timestamps), dimensions={'current': 13, 'joined': 26}, windows=[15, 30],
         partition_summary=expected['partition_summary'], numerical_tolerance=dict(rtol=RTOL, atol=ATOL),
         scope='synthetic_internal_consistency_not_source_authentication_or_research_validation')
+    provenance = dict(record_manifest=_digest(record_manifest_payload), input_manifest=_digest(input_manifest_payload),
+        source_fixture=record_manifest['fixture'], minute_fixture=_digest(minute_payload),
+        preprocess=_digest(input_data['preprocess.json'][0]))
+    return _snapshot(report, provenance, input_data['preprocess.json'][1], raw, actual, label_audit)
 
 
-def verify_candidate_artifacts(record_directory, input_directory, *, source_fixture=None):
-    """Inspect linked output directories without writing or reestimating fit.
+def load_verified_candidate_artifacts(record_directory, input_directory, *, source_fixture=None):
+    """Return a bounded same-read snapshot without writing or reestimating fit.
 
     The optional source is an artificial JSON fixture, never a CSV. Missing it
     leaves source replay explicitly unverified. Exceptions contain safe codes.
@@ -375,3 +529,9 @@ def verify_candidate_artifacts(record_directory, input_directory, *, source_fixt
         raise CandidateArtifactError('INPUT_UNAVAILABLE') from exc
     except (ValueError, TypeError, KeyError, OverflowError, RecursionError) as exc:
         raise CandidateArtifactError('INVALID_PACKAGE') from exc
+
+
+def verify_candidate_artifacts(record_directory, input_directory, *, source_fixture=None):
+    """Keep the original JSON report API; validation and I/O remain shared."""
+    return load_verified_candidate_artifacts(record_directory, input_directory,
+        source_fixture=source_fixture).report_dict()

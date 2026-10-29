@@ -1,5 +1,9 @@
 # 候选合成产物：只读完整性与重放复查
 
+## 消费已验证值
+
+后续代码可用[不可变快照API](candidate-snapshots.md)取得本次已验证原产物值及实际摘要，无需验证后再次重开JSON。旧报告API和本指南CLI输出保持兼容；加载不授予真实研究准入。
+
 日期：2026-10-30。状态：**SYNTHETIC_ONLY**。用途：复查[记录适配CLI](candidate-records.md)与[候选数值CLI](candidate-inputs.md)的两个完整输出目录。依据[本批计划](../superpowers/plans/2026-10-30-candidate-artifact-verifier.md)和[开题报告V0.40](../reports/开题报告-V0.40-公开文本.md)的可复现要求。研究准入、最终标签和真实模型授权不改变。
 
 ## 运行
