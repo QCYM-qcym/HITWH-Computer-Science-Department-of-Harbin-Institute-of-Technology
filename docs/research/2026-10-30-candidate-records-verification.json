@@ -1,0 +1,127 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_RECORD_ADAPTER_AND_NUMERIC_CHAIN",
+  "date": "2026-10-30",
+  "base_commit": "26df256a754a3c7b26c4db3fd9f621ab9c686544",
+  "records": 576,
+  "minutes": 144,
+  "current_width": 13,
+  "joined_width": 26,
+  "common_minutes": 24,
+  "normal_train_fit": 6,
+  "normal_calibration": 6,
+  "test_current_normal": {
+    "P_U": 4,
+    "P_B": 5,
+    "P_A": 4
+  },
+  "source_labels": {
+    "BENIGN": 572,
+    "SSH-Patator - Attempted": 2,
+    "Portscan": 2
+  },
+  "unresolved_source_records_preserved": 144,
+  "known_other_records": 144,
+  "unique_raw_numeric_coordinates": 1872,
+  "numeric_comparisons_all_policies": 5616,
+  "label_changes_leave_inputs_and_history_identical": true,
+  "fixture_local_sha256": "6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2",
+  "fixture_lf_sha256": "0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff",
+  "runtime_hash_scope": "LOCAL_RUN_IDENTITY_NOT_OFFICIAL_OR_CROSS_PLATFORM_HASHES",
+  "runtime_artifacts": {
+    "P_U-adapt": {
+      "label-audit.json": {
+        "byte_count": 86756,
+        "sha256": "a4d2e2b041106028e17df6f86914cbc3fefe818a416e2a1d8e9ecbc79ae5f8b8"
+      },
+      "minute-fixture.json": {
+        "byte_count": 57494,
+        "sha256": "027c6a968deeb949d02ed61b82c77667dac017a72f04b0d1977df3574aa913b7"
+      }
+    },
+    "P_U-inputs": {
+      "candidate-inputs.json": {
+        "byte_count": 344740,
+        "sha256": "3a88720727ff03ae8238a19eed8592268e703f6a237b6cec6bbf4036ef9ca5eb"
+      },
+      "preprocess.json": {
+        "byte_count": 1167,
+        "sha256": "bba6781ebc086a3da7963dc800208e669aa65888eadb2cdf5feb0466de9fb77f"
+      }
+    },
+    "P_B-adapt": {
+      "label-audit.json": {
+        "byte_count": 86756,
+        "sha256": "1d35cc6a28a12b371ab313b38cd6c9a8e52bbcf428562b895fd3d4171cbbd6f1"
+      },
+      "minute-fixture.json": {
+        "byte_count": 57492,
+        "sha256": "79b7f8a3a220ed216f308e9e2a534d48b18cd22f38d33bd043013a9774f2c0bf"
+      }
+    },
+    "P_B-inputs": {
+      "candidate-inputs.json": {
+        "byte_count": 344737,
+        "sha256": "516aaf6f660e2b50d7329dbc2f543b17ccd14574cf776fb6cce276f11f48eac0"
+      },
+      "preprocess.json": {
+        "byte_count": 1167,
+        "sha256": "bba6781ebc086a3da7963dc800208e669aa65888eadb2cdf5feb0466de9fb77f"
+      }
+    },
+    "P_A-adapt": {
+      "label-audit.json": {
+        "byte_count": 86756,
+        "sha256": "931b15dd4e3526d002816cc2f1f4f1737f1cc520ceff3c0921ef6a4b6377ac2b"
+      },
+      "minute-fixture.json": {
+        "byte_count": 57494,
+        "sha256": "027c6a968deeb949d02ed61b82c77667dac017a72f04b0d1977df3574aa913b7"
+      }
+    },
+    "P_A-inputs": {
+      "candidate-inputs.json": {
+        "byte_count": 344740,
+        "sha256": "3a88720727ff03ae8238a19eed8592268e703f6a237b6cec6bbf4036ef9ca5eb"
+      },
+      "preprocess.json": {
+        "byte_count": 1167,
+        "sha256": "bba6781ebc086a3da7963dc800208e669aa65888eadb2cdf5feb0466de9fb77f"
+      }
+    }
+  },
+  "new_payload_download_bytes": 0,
+  "real_csv_reads": 0,
+  "real_preprocessing": "NOT_RUN",
+  "real_models": "NOT_RUN",
+  "final_label_policy": "NOT_APPROVED",
+  "production_contract_changed": false,
+  "Data_Gate": "BLOCKED",
+  "verification": {
+    "adapter_tests": 26,
+    "CLI_tests": "PENDING_FINAL",
+    "python_tests": 375,
+    "independent_review": "SPEC_PASS_QUALITY_PASS",
+    "repository_checks": "PASS",
+    "remote_ci": "PENDING_AFTER_PUSH",
+    "record_CLI_tests": 38,
+    "numeric_CLI_tests": 48,
+    "new_tests": 70,
+    "subtests": 56,
+    "warnings": "ONE_PREEXISTING_TESTCLIENT_DEPRECATION",
+    "unresolved_findings": 0,
+    "independent_label_policy_cases": 352,
+    "fixed_regressions": [
+      "interior_segment_boundary_with_reused_name",
+      "exported_minute_fixture_must_fit_numeric_input_cap"
+    ],
+    "repository_tests": 13,
+    "worktree_checked_files": 406,
+    "worktree_issues": 0,
+    "changed_files": 20,
+    "changed_markdown_links": 288,
+    "vault_wiki_links": 5,
+    "privacy_and_links": "PASS",
+    "production_and_frozen_audits_unchanged": true,
+    "stage_criteria_unchanged": true
+  }
+}

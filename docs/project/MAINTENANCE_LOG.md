@@ -1,5 +1,15 @@
 # 仓库维护复核记录
 
+## 2026-10-30 自主迭代首批：候选源记录适配
+
+26df256与远端一致且干净，在既有W0 worktree建立codex/candidate-flow-adapter；其他worktree与main保留。用户要求立即自主开发到10月31日12:00，已有当前聊天自动续接绑定本地可恢复台账；主控实现适配器，原CLI任务独占实现有界入口和null兼容，另一任务整理协议包，独立审查验证代码与标签边界，不新建用户聊天。
+
+适配初25项缺模块RED后GREEN，发现segment名称回返可掩盖内部边界，新增1失败后修prefix，26项通过。CLI干净RED后实现，独立审查发现4000分钟小源可导出超过旧1MiB限制，新增失败及实际编码一致测试后修复；新CLI38、原数值CLI48通过。根完整Python375项/56subtests通过，仅1项既有TestClient弃用警告；独立Spec/Quality PASS，无未解决发现，352组标签/Category与原审计映射一致。
+
+实际运行三政策各两步CLI均exit0，576人工记录/144分钟、24共同输入，拟合/校准资格各6，测试当前normal P_U4/P_B5/P_A4。主控独立1872坐标、三政策5616次比较和所有文件SHA通过；v1核对脚本的浮点精确比较失败目录保留，改容差后独立v2运行，不把核对脚本误差当研究负结果。源CSV读取0、下载0、真实拟合/模型/Q99/联调/正式实验NOT_RUN；旧G12/G13U与生产契约不改。
+
+公开材料仅人工fixture及脱敏汇总；[运行入口](../guides/candidate-records.md)和[实际证据](../research/2026-10-30-candidate-records-verification.json)可核。状态、README、路线图/Gate和Vault同步；仓库13项、进度write/check、worktree隐私/作者406文件0问题、288个本轮Markdown链接及新日志5个Wiki Links通过。Desktop/远端/CI按实际完成登记，不预填成功。
+
 ## 2026-10-29 自主规划的候选输入计算开发
 
 从干净且已同步e70ca06，在既有W0隔离worktree建立codex/candidate-inputs；核其他worktree/远端并保留main。读取Vault入口、V0.40及现有实现，主控自行定计划，独立子任务实现CLI，主控负责数值模块/集成及记录，另派独立整体审查；未创建新聊天。

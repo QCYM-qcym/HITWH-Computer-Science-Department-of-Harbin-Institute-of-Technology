@@ -220,6 +220,37 @@ def test_invalid_row_is_preserved_with_null_values_and_reset_history(tmp_path):
     assert data["common_valid"][71] is True
 
 
+def test_invalid_row_accepts_entire_null_feature_vector(tmp_path):
+    fixture = fixture_value()
+    fixture["minutes"][40].update(valid=False, features=[None] * 13)
+    output = tmp_path / "result"
+    result = run_cli(write_fixture(tmp_path, fixture), output)
+    assert result.returncode == 0, result.stderr
+    data = json.loads((output / "candidate-inputs.json").read_text())
+    assert data["row_valid"][40] is False
+    assert data["current_values"][40] == [None] * 13
+    assert data["histories"]["30"]["joined"][40] == [None] * 26
+    assert not any(data["common_valid"][40:71])
+    assert data["common_valid"][71] is True
+
+
+@pytest.mark.parametrize("valid,features", [
+    (True, [None] * 13),
+    (False, [None] + [0] * 12),
+    (False, [None] * 12),
+    (False, [float("nan")] * 13),
+    (False, [-1] * 13),
+], ids=["valid-null", "mixed-null", "short-null", "invalid-nan", "invalid-negative"])
+def test_invalid_null_extension_does_not_relax_other_values(tmp_path, valid, features):
+    fixture = fixture_value()
+    fixture["minutes"][40].update(valid=valid, features=features)
+    output = tmp_path / "result"
+    result = run_cli(write_fixture(tmp_path, fixture), output)
+    assert result.returncode == 2
+    assert json.loads(result.stderr) == {"error": "INVALID_FIXTURE"}
+    assert not output.exists()
+
+
 def test_no_eligible_training_normal_input_fails_before_output(tmp_path):
     fixture = fixture_value()
     fixture["normal_candidates"][:36] = [False] * 36

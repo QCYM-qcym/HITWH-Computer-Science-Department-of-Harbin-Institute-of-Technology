@@ -1,10 +1,12 @@
 # 文档导航
 
+当前自主迭代：[源记录到分钟整链](guides/candidate-records.md)、[具体有限试点建议](research/2026-10-30-limited-pilot-proposal.md)、[10月30日合成证据](research/2026-10-30-candidate-records-verification.json)。仅工程SYNTHETIC_ONLY，真实Gate仍BLOCKED；下方保留前批与真实审计入口。
+
 最近开发：[候选13/26输入计算](guides/candidate-inputs.md)、[自主实施计划](superpowers/plans/2026-10-29-candidate-inputs.md)、[合成数值证据](research/2026-10-29-candidate-inputs-verification.json)。10月29日程序与人工验证完成；真实审计结果及其研究边界见下方，Data Gate仍BLOCKED。
 
 最近真实审计入口：[G13U获准发布记录供应复算](research/2026-10-24-c17-g13u-audit.md)、[完整聚合](research/2026-10-24-c17-g13u-audit.json)、[独立运行与续接](guides/c17-g13u-supply.md)。10月28日已完成本地真实复算：共同开发资格150/88/148、测试1831分钟，供应仍有限；最终标签政策、主数据采用和生产迁移未批准，真实模型及正式实验NOT_RUN。原G12失败证据逐字保留。
 
-修订2026-10-29；用途：当前公开材料与版本对应。报告/答辩均为草稿，待审阅；没有最新稿确认记录。公开文本对应同版本本地原稿，私人路径映射保留本地。
+修订2026-10-30；用途：当前公开材料与版本对应。报告/答辩均为草稿，待审阅；没有最新稿确认记录。公开文本对应同版本本地原稿，私人路径映射保留本地。
 
 ## 当前材料
 

@@ -93,7 +93,8 @@ def _read_fixture(path):
                     or not _SEGMENT.fullmatch(row["segment_id"])
                     or row["partition"] not in PARTITIONS
                     or not isinstance(row["features"], list) or len(row["features"]) != 13
-                    or any(not _number(value) for value in row["features"])):
+                    or (not (row["valid"] is False and all(value is None for value in row["features"]))
+                        and any(not _number(value) for value in row["features"]))):
                 raise ValueError("invalid_fixture_minute")
             datetime.fromisoformat(row["timestamp"])
         batch = CandidateMinuteBatch(

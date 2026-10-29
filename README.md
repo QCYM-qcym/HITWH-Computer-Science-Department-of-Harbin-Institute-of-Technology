@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-29**。当前阶段：**数据审计**；本轮主题：候选13/26维输入计算已实现并合成验证；训练隔离、因果历史及产物可复跑，Data Gate保持BLOCKED。
+最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：人工源记录到13/26输入整链完成，标签政策独立审计；真实研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 依据V0.40自行安排候选输入计算开发，独立实现13维log1p/训练缩放、H15/H30中位数MAD偏离和26维拼接，原134/268生产链保留。
-- 完成有界SYNTHETIC_ONLY命令行、四段144分钟人工fixture、全轴有效性与正常资格导出，参数保存重载和manifest完整性检查。
-- 先失败测试后实现；新增66项通过，独立审查修复常数缩放与历史分母溢出，标准库1404项逐字段复算通过，首轮负面产物保留。
-- 完整Python回归305项及56subtests通过，只有既有TestClient弃用警告；未读取真实CSV、下载或启动真实拟合/模型，阶段验收项保持。
+- 从26df256建立候选记录适配器，人工start+duration完成分钟、Protocol0独立通道、known-other、记录守恒和标签隔离已实现。
+- 显式P_U/B/A三政策记录CLI到原13/26数值CLI均实际跑通，576记录/144分钟/24共同，三政策数值与历史相同；全程SYNTHETIC_ONLY。
+- 新增70项测试、完整Python375项及56subtests通过；独立审查修复下游1MiB互操作边界，352标签政策对照和1872个原始坐标独立核验通过。
+- 形成具体有限试点决定包；原实际供应、报告、134/268生产契约保持，真实CSV读取/新下载0，最终标签与主数据采用仍未冻结。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,9 @@ flowchart TB
 
 **最新成果入口**
 
+- [记录到分钟与13/26合成链路运行](<docs/guides/candidate-records.md>)
+- [具体标签端点与有限试点决定包（推荐未批准）](<docs/research/2026-10-30-limited-pilot-proposal.md>)
+- [10月30日实际链路和守恒证据](<docs/research/2026-10-30-candidate-records-verification.json>)
 - [候选输入运行、计算规则与验证](<docs/guides/candidate-inputs.md>)
 - [10月29日自主开发计划与报告映射](<docs/superpowers/plans/2026-10-29-candidate-inputs.md>)
 - [人工CLI产物与1404项独立数值验证](<docs/research/2026-10-29-candidate-inputs-verification.json>)
