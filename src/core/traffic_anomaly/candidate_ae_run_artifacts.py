@@ -15,6 +15,7 @@ from .candidate_autoencoder import MODEL_PROFILE_ID, CandidateAEError, _configur
 from .candidate_ae_weights import CandidateAEWeightsError, validate_candidate_ae_weights
 from .candidate_cli import _unique_object, _reject_constant
 from .candidate_evaluation import evaluate_candidate_predictions
+from .candidate_run_snapshot import VerifiedCandidateRun
 
 VERIFIER_PROFILE_ID='c17-i1-g13u-ae-run-verifier-v1'
 MAX_WEIGHTS_BYTES=1024*1024
@@ -170,7 +171,7 @@ def _verify(run,records,inputs,source):
         score_origin_policy=snapshot.report['selected_policy'])
     _require(_same(evaluation_doc,dict(expected_common,scores=digests['scores.json'],threshold=threshold,
                                       calibration=calibration,evaluation=evaluation)),'REPLAY_MISMATCH')
-    return dict(schema_version=1,status='VERIFIED',verifier_profile_id=VERIFIER_PROFILE_ID,
+    report=dict(schema_version=1,status='VERIFIED',verifier_profile_id=VERIFIER_PROFILE_ID,
         evidence_kind='SYNTHETIC_ONLY',policy_status='AUDIT_ONLY',scope='STORED_ARTIFACT_CONSISTENCY_ONLY',
         run_id=run_id,model_profile_id=MODEL_PROFILE_ID,selected_policy=snapshot.report['selected_policy'],
         method=method,history_window=window,minute_count=len(common),score_valid_count=int(common.sum()),
@@ -185,10 +186,11 @@ def _verify(run,records,inputs,source):
             network_reconstruction='NOT_PERFORMED',model_score_replay='NOT_CHECKED',training_execution='NOT_CHECKED',
             training_loss_replay='NOT_CHECKED',model_origin='NOT_AUTHENTICATED',
             library_versions='DECLARATION_CONSISTENT_ONLY'))
+    return VerifiedCandidateRun(report,scores_doc)
 
 
-def verify_candidate_ae_run(run_directory,record_directory,input_directory,*,source_fixture=None):
-    """Certify bounded stored relationships, not model execution or origin."""
+def load_verified_candidate_ae_run(run_directory,record_directory,input_directory,*,source_fixture=None):
+    """Load checked stored minute values, without rebuilding or executing a model."""
     try:
         return _verify(Path(run_directory),Path(record_directory),Path(input_directory),
                        None if source_fixture is None else Path(source_fixture))
@@ -198,3 +200,9 @@ def verify_candidate_ae_run(run_directory,record_directory,input_directory,*,sou
     except OSError as exc:raise CandidateAERunArtifactError('INPUT_UNAVAILABLE') from exc
     except (ValueError,TypeError,KeyError,IndexError,OverflowError,RecursionError) as exc:
         raise CandidateAERunArtifactError('INVALID_RUN_ARTIFACTS') from exc
+
+
+def verify_candidate_ae_run(run_directory,record_directory,input_directory,*,source_fixture=None):
+    """Return the original bounded consistency report, not model certification."""
+    return load_verified_candidate_ae_run(run_directory,record_directory,input_directory,
+                                         source_fixture=source_fixture).report_dict()

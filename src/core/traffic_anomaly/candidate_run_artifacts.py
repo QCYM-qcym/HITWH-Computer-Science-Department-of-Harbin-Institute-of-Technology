@@ -16,6 +16,7 @@ from .candidate_artifacts import (
 from .candidate_cli import _unique_object, _reject_constant
 from .candidate_evaluation import evaluate_candidate_predictions
 from .candidate_iforest import MODEL_PROFILE_ID, CandidateIFError, _configuration, calibrate_candidate_scores
+from .candidate_run_snapshot import VerifiedCandidateRun
 
 MAX_MODEL_BYTES = 8 * 1024 * 1024
 MAX_JSON_BYTES = 16 * 1024 * 1024
@@ -165,7 +166,7 @@ def _verify(run, records, inputs, source):
     expected_evaluation = dict(expected_common, scores=digests['scores.json'], threshold=threshold,
                                calibration=calibration, evaluation=evaluation)
     _require(_same(evaluation_doc, expected_evaluation), 'REPLAY_MISMATCH')
-    return dict(schema_version=1, verifier_profile_id=VERIFIER_PROFILE_ID,
+    report = dict(schema_version=1, verifier_profile_id=VERIFIER_PROFILE_ID,
         status='VERIFIED', run_id=run_id, evidence_kind='SYNTHETIC_ONLY',
         policy_status='AUDIT_ONLY', scope='STORED_ARTIFACT_CONSISTENCY_ONLY', model_profile_id=MODEL_PROFILE_ID,
         selected_policy=snapshot.report['selected_policy'], minute_count=n, score_valid_count=int(common.sum()),
@@ -178,10 +179,11 @@ def _verify(run, records, inputs, source):
                     model_deserialization='NOT_PERFORMED', model_score_replay='NOT_CHECKED',
                     library_versions='DECLARATION_CONSISTENT_ONLY', model_type='DECLARED_ONLY'),
         run_payload_bytes=sum(entry['byte_count'] for entry in digests.values()))
+    return VerifiedCandidateRun(report, score_doc)
 
 
-def verify_candidate_if_run(run_directory, record_directory, input_directory, *, source_fixture=None):
-    """Validate five fixed files and stored predictions without loading weights.
+def load_verified_candidate_if_run(run_directory, record_directory, input_directory, *, source_fixture=None):
+    """Load checked stored minute values without deserializing model weights.
 
     Success certifies internal consistency, not model origin or executable state.
     Missing optional source remains explicitly NOT_PROVIDED.
@@ -199,3 +201,9 @@ def verify_candidate_if_run(run_directory, record_directory, input_directory, *,
         raise CandidateRunArtifactError('INPUT_UNAVAILABLE') from exc
     except (ValueError, TypeError, KeyError, OverflowError, RecursionError) as exc:
         raise CandidateRunArtifactError('INVALID_RUN_ARTIFACTS') from exc
+
+
+def verify_candidate_if_run(run_directory, record_directory, input_directory, *, source_fixture=None):
+    """Return the original consistency report, without exposing or loading models."""
+    return load_verified_candidate_if_run(run_directory, record_directory, input_directory,
+                                         source_fixture=source_fixture).report_dict()

@@ -1,5 +1,9 @@
 # 仓库维护复核记录
 
+## 2026-10-31 候选已验证运行结果快照
+
+从6f797c3续接，新增独立候选IF/AE只读loader，复用本次已验证score_doc而不重开文件或替换成重算值。冻结对象只保留报告和分数文档，提供独立深副本。原verify/CLI/比较及错误保持。30新测试先取得29项缺接口失败与1项构造边界失败，相关344通过/1跳过；测试准备使用合成toy模型，独立代码审查通过。主控实际8次加载和8次旧报告对照：四个人工包各144分钟、24有效、120null、0报警；每调用11/12次内容读取，39历史文件SHA/大小/mtime保持，无模型导入/拟合/训练评分。[实际验证](../research/2026-10-31-candidate-run-snapshot-verification.json)。 结果仍为SYNTHETIC_ONLY；真实CSV/下载0，真实模型和正式实验NOT_RUN，Gate BLOCKED。
+
 ## 2026-10-30 第十五批：JSON同字节校验解析
 
 从d45fc1a干净分支续接。主控独占backend artifacts与公共材料，内部任务分别新测试、私有验收与只读审查。11例实际RED6失败5通过：五个新临时包在原digest后物理替换合法JSON，旧API仍返回200；截短内容进入旧parser。修复只使read_json先核取得bytes的原SHA再解析同对象，五个正式调用对应各自verified_hashes，根manifest保留两参无上级摘要。

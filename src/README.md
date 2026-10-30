@@ -1,5 +1,9 @@
 # 程序入口
 
+## 2026-10-31 候选已验证运行结果快照
+
+[候选运行快照](../docs/guides/candidate-run-snapshots.md)由两个既有验算模块提供IF/AE加载入口，保留原verify报告与生产契约。
+
 ## 2026-10-30 后端JSON同字节读取
 
 [后端读取修复](../docs/guides/json-byte-consistency.md)覆盖summary/config/metrics/model metadata/preprocess，保留原业务规则；core独立入口、生产契约与真实研究边界不变。

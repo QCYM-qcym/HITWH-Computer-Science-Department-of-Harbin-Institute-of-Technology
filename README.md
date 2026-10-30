@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：五类后端JSON摘要与解析共用字节，校验后物理替换被拒绝；研究Gate仍BLOCKED。
+最近更新：**2026-10-31**。当前阶段：**数据审计**；本轮主题：自主迭代：候选IF/AE已验证运行结果可按完整分钟轴只读加载；研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 修复summary/config/metrics/model metadata/preprocess五类JSON先核摘要再按路径解析的缺口；正式调用传原SHA，核取得bytes后解析同对象。
-- 11项新回归RED6失败5通过，五种合法替换旧接口确曾返回200；修复后完整后端134项通过，独立SPEC/QUALITY审查通过。
-- 实际六个新Fake任务核正常完整结果/三类原字节导出及五种物理替换；不符payload进入parser次数0，前五批旧目录身份保持，无模型调用。
-- 根manifest无上级摘要、不作来源认证；原因/高负载语义和core入口未扩张，研究契约不变，真实CSV/下载0、真实模型及正式实验NOT_RUN、Gate BLOCKED。
+- 新增IF/AE候选结果加载接口，返回同次验证的实际分数文档与报告，完整分钟轴/null/历史原因及AE误差分量保持。
+- 新增30项测试，初始29项缺接口失败、构造边界另1项先失败；相关344项通过、1项跳过，独立审查通过。
+- 实际四个旧人工运行包有/无源共8次加载及8次旧报告对照通过，39文件SHA/大小/mtime不变；验收无模型库导入或训练评分。
+- 旧verify/CLI/比较输出兼容，生产134/268接口和真实研究政策未迁移；测试准备使用合成toy模型，真实CSV/下载0，Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [候选运行分数只读快照](<docs/guides/candidate-run-snapshots.md>)
+- [候选运行快照实际验证](<docs/research/2026-10-31-candidate-run-snapshot-verification.json>)
 - [五类JSON同字节校验解析](<docs/guides/json-byte-consistency.md>)
 - [五类JSON物理替换实际验证](<docs/research/2026-10-30-json-byte-verification.json>)
 - [Parquet同字节校验解析及内存边界](<docs/guides/parquet-byte-consistency.md>)
