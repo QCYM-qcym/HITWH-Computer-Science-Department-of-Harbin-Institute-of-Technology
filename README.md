@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：候选IF/AE已存结果的共同数据与评价分母核查完成；真实研究Gate仍BLOCKED。
+最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：后端保存评价汇总与分数标签交叉核验已修复；片段语义差异待核，研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增候选IF/当前AE/H15/H30已有结果核对与CLI，严格绑定manifest实际摘要、五上游身份、预处理和共同资格；不执行模型。
-- 新增67项测试通过，独立Spec/Quality PASS；同计数不同上游拒绝，合法不同报警/混淆矩阵和NULL原因按原值保留。
-- 原四个运行有/无源两次只读复查通过，20运行/18上游文件和源SHA及mtime未变；每个manifest额外读取一次并绑定实际摘要。
-- 只称DATA_QUALIFICATION_ALIGNED，不比较分数尺度、判优或认证模型；288/509未容量匹配，真实CSV/下载0，真实模型/正式实验NOT_RUN。
+- 修复后端接受结构合法但与保存分数/标签矛盾的评价汇总；worker完成前和结果查询时核六项汇总，原响应/导出字节保持。
+- 有效RED为12失败/7正例通过，修复后相关76项通过（新增19、原后端50、集成7），独立Spec/Quality PASS。
+- 三个FakeExecutor手工HTTP场景通过：正常12项检查、完成前7路由409、成功后篡改7路由500，公共错误安全、无模型执行。
+- 旧片段样例与核心边界/排序差异单独保留，interval/high-load未纳入本批；不改134/268契约，真实CSV/下载0，真实模型及正式实验NOT_RUN。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [后端保存评价六项汇总核验与限制](<docs/guides/backend-evaluation-consistency.md>)
+- [后端修复和三场景实际证据](<docs/research/2026-10-30-backend-evaluation-verification.json>)
 - [候选IF/AE共同条件核查与指标汇总](<docs/guides/candidate-comparison.md>)
 - [四个已存运行的只读核查证据](<docs/research/2026-10-30-candidate-comparison-verification.json>)
 - [候选AE五JSON只读验算与证明范围](<docs/guides/candidate-ae-run-verification.md>)

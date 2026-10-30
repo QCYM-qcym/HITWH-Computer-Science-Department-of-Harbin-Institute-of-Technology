@@ -1,5 +1,11 @@
 # 公开决策与方案差异
 
+## 2026-10-30 保存评价汇总核验与片段差异分开处理
+
+采用[六字段纯算术核验](../guides/backend-evaluation-consistency.md)修复已证后端缺口；不调用完整core.verify_run，避免引入其专用detector布局要求，也不重读Parquet、生成替代指标或修改HTTP类型。
+
+原统一fixture与核心函数的漏报片段在无效分钟是否计入及列表顺序上不同，直接复制整个核心验算字段会破坏已有fixture。本批保留原样例/规则并明确不校验intervals/high_load，先修已明确的汇总矛盾；后续按原报告/需求/契约追查片段语义，尚未作新研究决定。最终Attempted、数据采用和真实运行批准不变。
+
 ## 2026-10-30 候选结果共同资格与比较边界
 
 采用[独立只读比较层](../guides/candidate-comparison.md)，不改现有verifier报告或生产接口。每包多读一个固定manifest，必须绑定verifier实际摘要；同路径/同数量不足以证明同人口，五provenance/预处理/政策/资格均须一致。

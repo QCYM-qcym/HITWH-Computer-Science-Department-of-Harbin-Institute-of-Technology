@@ -1,5 +1,9 @@
 # 文档导航
 
+## 后端保存评价汇总修复
+
+[核验范围与已知限制](guides/backend-evaluation-consistency.md)、[76项相关测试及三场景证据](research/2026-10-30-backend-evaluation-verification.json)、[实施记录](superpowers/plans/2026-10-30-backend-evaluation-consistency.md)。只核六项汇总，原片段差异另行追查。
+
 ## 候选IF/AE已存结果共同条件
 
 [核对指南](guides/candidate-comparison.md)、[四包实际证据](research/2026-10-30-candidate-comparison-verification.json)、[实施记录](superpowers/plans/2026-10-30-candidate-comparison.md)。共同数据与评价人口可并列，不认证模型或判优。

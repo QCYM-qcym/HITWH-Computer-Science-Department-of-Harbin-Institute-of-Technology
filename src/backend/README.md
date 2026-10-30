@@ -27,7 +27,7 @@ Invoke-RestMethod "http://127.0.0.1:8101/api/v1/runs/$($task.run_id)/series?page
 
 ## 接口与产物
 
-实现 datasets、提交/状态、series、alarms、evaluation、minutes/{timestamp}、exports/{kind}。分页从 1 开始，page_size 默认 100、最大 1000；按整分钟 UTC timestamp 升序，范围 [start,end)，total 为筛选后总记录数。空结果为空列表，预热分数保持 null。alarms 只返回有效报警。评价与详情通道直接读取保存文件，后端不重算指标、历史偏离或模型分数。scores 导出完整 Parquet，metrics/config 导出保存 JSON；导出忽略页面分页，kind 严格白名单，不接受服务器路径。
+实现 datasets、提交/状态、series、alarms、evaluation、minutes/{timestamp}、exports/{kind}。分页从 1 开始，page_size 默认 100、最大 1000；按整分钟 UTC timestamp 升序，范围 [start,end)，total 为筛选后总记录数。空结果为空列表，预热分数保持 null。alarms 只返回有效报警。评价与详情通道直接读取保存文件；后端只对保存评价的六项汇总作一致性核验，不生成替代指标、历史偏离或模型分数，详见[核验范围](../../docs/guides/backend-evaluation-consistency.md)。scores 导出完整 Parquet，metrics/config 导出保存 JSON；导出忽略页面分页，kind 严格白名单，不接受服务器路径。
 
 读取前核验清单全部摘要、文件类型、任务/配置/种子/模型一致性、完整分钟轴与行数。FakeExecutor 在临时目录写入并验证后重命名，再允许 succeeded。失败或半成品无法作为成功结果读取，成功后损坏的文件也拒绝服务。日志保留本地诊断；公共响应统一 error.code/message/details，禁止异常原文、堆栈或私人路径。
 
@@ -49,4 +49,6 @@ FakeExecutor 只复制统一 fixture 的手工分数、配置与评价，模型�
 
 独立审查的两项重要问题已通过失败测试复现并修复：线程异常终止与缺失资源原因区分。Starlette 对 httpx TestClient 给出弃用警告，当前接口测试通过，未来依赖升级再处理。此前对冻结 OpenAPI 时间参数转义的怀疑，经 W0 与 W2 的字符码及匹配检查确认是展示误读，5 处正则均与 UtcMinute 一致，无需修改契约；已新增回归检查。公共契约文件保持基点内容。最终测试数与提交/远端状态以本轮交付回复为准。
 
-W2-02、真实数据 Data Gate、IF 真实闭环、CLI/API 数值等价、真实网页联调、真实研究指标及性能验收均 **NOT_RUN**。W1 满足 Data Gate 并交付 IF 后才接 execute_run；后端不会另写评分或评价算法。W0 集成时需运行后端测试；当前仓库远端 CI 只检查仓库规范与核心契约，不能将其通过当作后端测试已在远端运行。
+以上W2-01记录保留原阶段范围。2026-10-30复核：原134/268维合成CLI/API集成已实现，当前远端合成系统工作流运行后端/核心/集成测试和前端检查；具体结果须核对本次提交的实际CI。六项保存评价汇总一致性修复的相关76项测试和独立审查通过，详见[实际证据](../../docs/research/2026-10-30-backend-evaluation-verification.json)。后端复用核心纯算术规则，不另写研究算法；返回原保存指标和导出字节。
+
+W2-02真实路径、真实Data Gate、真实IF闭环、真实CLI/API数值等价、真实网页联调、研究指标及性能验收继续 **NOT_RUN**。原漏报片段fixture与核心函数有已登记差异，intervals/high_load不在本次六字段核验内；本次未改该语义或生产契约。

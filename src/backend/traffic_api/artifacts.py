@@ -1,12 +1,14 @@
-"""Read and validate saved outputs without running detection or evaluation."""
+"""Read saved outputs and verify aggregate arithmetic without running models."""
 from hashlib import sha256
 from datetime import datetime, timezone
 import json
 from pathlib import Path, PurePosixPath
 
+import numpy as np
 import pyarrow as pa
 import pyarrow.parquet as pq
 from traffic_anomaly import contracts as c
+from traffic_anomaly.evaluation.metrics import evaluate
 
 from .schemas import ExecutionFailure
 
@@ -67,6 +69,26 @@ def read_rows(path, schema, model):
     return rows
 
 
+def verify_evaluation_aggregates(series, label_rows, labels_available, saved):
+    """Check complete stored axes; keep the original response and reason text.
+
+    Interval semantics have a separately recorded fixture/core discrepancy.
+    This check covers only the six aggregate fields, not intervals/high load.
+    """
+    timestamps = lambda rows: np.array([row.timestamp[:-1] for row in rows], dtype='datetime64[ns]')
+    labels = c.LabelBatch(timestamps(label_rows), {
+        key: np.array([getattr(row, key) for row in label_rows], dtype=np.int64)
+        for key in c.LABEL_NAMES
+    }) if labels_available else None
+    computed = evaluate(saved.run_id, saved.evidence_kind, timestamps(series),
+        np.array([row.valid for row in series], dtype=bool),
+        np.array([row.alarm is True for row in series], dtype=bool), labels)
+    for field in ('available', 'metrics', 'normal_coverage', 'attack_coverage',
+                  'excluded_attack_minutes', 'background_only_minutes'):
+        if getattr(computed, field) != getattr(saved, field):
+            raise ValueError('saved evaluation aggregates differ from scores and labels')
+
+
 class SavedArtifacts:
     def __init__(self, workspace: Path, result: c.RunResult, task):
         self.root = safe_path(workspace, result.manifest_path).parent
@@ -116,6 +138,7 @@ class SavedArtifacts:
                 raise ValueError('saved threshold mismatch')
             if config.method == 'iforest' and (channel.reconstruction_error_current is not None or channel.reconstruction_error_history is not None):
                 raise ValueError('IF cannot provide reconstruction channels')
+        verify_evaluation_aggregates(self.series, self.labels, self.summary.labels_available, self.evaluation)
         self.config = saved_config
 
     def detail(self, timestamp):

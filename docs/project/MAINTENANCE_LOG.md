@@ -1,5 +1,17 @@
 # 仓库维护复核记录
 
+## 2026-10-30 自主第九批：后端保存评价汇总一致性
+
+从4bfe6f4干净远端一致分支续接，Desktop Fetch核对。已有SavedArtifacts可接受结构/摘要合法的完美指标，与原保存一次误报/一次漏报矛盾；主控加最小六字段校验，独立任务写测试、准备私有三场景验收和只读审查，无同文件并发。
+
+初次测试暴露两项harness问题：Arrow带UTC的to_pylist依赖本机时区库、过早替换Popen使asyncio无法继承；改用已有int64纳秒处理和保留Popen类，原失败日志保留，不冒称产品失败。修正完整RED12失败/7正例通过，随后一次相关回归76PASS（新增19、原后端50、集成7），仅原TestClient弃用警告。集成包含既有IF/当前AE/历史AE合成模型路径，未重复无关候选全套。独立Spec/Quality PASS。
+
+后端复用已读typed rows和现有evaluate，仅比较available、metrics、正常/攻击coverage、excluded_attack_minutes、background_only_minutes；结果继续返回原对象，不拟合/评分或校准。完成前不一致使任务failed，结果409；成功后损坏保留终态，查询/导出500 EXECUTION_FAILED/ARTIFACT_INVALID，不自动修复。
+
+主控实际执行三个FakeExecutor/TestClient场景，独立数据库/目录、不开监听端口。正常12项HTTP/原字节导出检查；篡改场景只改metrics并重封全部SHA，完成前/成功后各7路由安全拒绝。原fixture SHA/mtime及查询前后产物保持，模型库导入与预处理/工厂调用为0。该手工证据与相关集成中的合成模型执行分开。
+
+[指南](../guides/backend-evaluation-consistency.md)、[实际证据](../research/2026-10-30-backend-evaluation-verification.json)。原fixture漏报区间00:01–00:02/1与核心00:00–00:02/2及排序不一致，已知未解决，本批不验intervals/high_load、不改既有规则或样例，不称全产物语义已认证。真实CSV/下载0、真实模型/正式实验NOT_RUN，Gate BLOCKED。
+
 ## 2026-10-30 自主第八批：已存候选结果共同条件核查
 
 从723e4133干净远端一致分支续接，Desktop Fetch已核，保留所有原人工运行。主控实现独立比较层和公共材料，两个任务分别核心测试与薄CLI/测试，另一个任务只读审查。CLI任务一次容量中断后恢复，已写测试和完整RED未丢失，没有并行覆盖。

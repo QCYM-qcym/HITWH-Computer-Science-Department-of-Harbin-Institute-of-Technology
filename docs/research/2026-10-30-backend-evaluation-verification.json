@@ -1,0 +1,253 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_BACKEND_AGGREGATE_VERIFICATION",
+  "date": "2026-10-30",
+  "base_commit": "4bfe6f42777d25385eb566436fb5b3f7f45bff24",
+  "status": "PASS",
+  "scope": "SIX_SAVED_AGGREGATE_FIELDS_ONLY",
+  "manual": {
+    "status": "PASSED",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "executor": "FakeExecutor",
+    "scope": "SAVED_AGGREGATE_BACKEND_CONSISTENCY_ONLY",
+    "six_fields": [
+      "available",
+      "metrics",
+      "normal_coverage",
+      "attack_coverage",
+      "excluded_attack_minutes",
+      "background_only_minutes"
+    ],
+    "baseline": {
+      "status": "PASSED",
+      "run_id": "run-89d11c0f69004e10a2ba40465bf58d1a",
+      "checks": [
+        "datasets",
+        "submit",
+        "status",
+        "series",
+        "series_pagination",
+        "series_range",
+        "alarms",
+        "evaluation_original_fields_and_intervals",
+        "minute_detail",
+        "export_original_bytes_scores",
+        "export_original_bytes_metrics",
+        "export_original_bytes_config"
+      ],
+      "original_export_identities": {
+        "scores": {
+          "sha256": "7fca3609ebf565f552ec109650d9347c1a57281bd74b66ea57db97a232f69bc5",
+          "byte_count": 2109
+        },
+        "metrics": {
+          "sha256": "a8cfd9e97fc8396e6c1e13c3c7a8a2a20ca46024386a3966cd02534fc413d781",
+          "byte_count": 743
+        },
+        "config": {
+          "sha256": "610f5ebee5d717afcc7a9d0fb1d4fd82c9f41f1be420ac0f7f10c10d4cb35c5f",
+          "byte_count": 382
+        }
+      },
+      "aggregate_fields": {
+        "available": true,
+        "metrics": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 1,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.5,
+          "undefined_reasons": []
+        },
+        "normal_coverage": {
+          "eligible": 2,
+          "total": 2
+        },
+        "attack_coverage": {
+          "eligible": 1,
+          "total": 2
+        },
+        "excluded_attack_minutes": 1,
+        "background_only_minutes": 0
+      },
+      "original_intervals_preserved": true,
+      "artifact_reads_unchanged": true
+    },
+    "coherent_false_perfect_before_completion": {
+      "status": "PASSED",
+      "task_status": "failed",
+      "error_code": "EXECUTION_FAILED",
+      "fault": {
+        "schema_coherent": true,
+        "all_manifest_hashes_match": true,
+        "changed_fields": [
+          "metrics"
+        ],
+        "intervals_unchanged": true,
+        "claimed_metrics": {
+          "tp": 1,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "fpr": 0.0,
+          "undefined_reasons": []
+        }
+      },
+      "result_denials": {
+        "series": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "alarms": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "evaluation": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "minutes/2026-01-01T00:01:00Z": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "exports/scores": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "exports/metrics": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "exports/config": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        }
+      },
+      "artifact_reads_unchanged": true
+    },
+    "resealed_corruption_after_success": {
+      "status": "PASSED",
+      "persisted_task_status": "succeeded",
+      "fault": {
+        "schema_coherent": true,
+        "all_manifest_hashes_match": true,
+        "changed_fields": [
+          "metrics"
+        ],
+        "intervals_unchanged": true,
+        "claimed_metrics": {
+          "tp": 1,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "fpr": 0.0,
+          "undefined_reasons": []
+        }
+      },
+      "result_denials": {
+        "series": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "alarms": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "evaluation": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "minutes/2026-01-01T00:01:00Z": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "exports/scores": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "exports/metrics": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "exports/config": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        }
+      },
+      "artifact_reads_unchanged": true
+    },
+    "interval_validation": "NOT_CHECKED_DEFERRED_BASELINE_SEMANTICS_UNCHANGED",
+    "model_import_attempts": [],
+    "model_or_preprocess_calls": [],
+    "fixture_unchanged": true,
+    "http_transport": "IN_PROCESS_TESTCLIENT_NO_LISTENING_SERVER"
+  },
+  "tests": {
+    "new": 19,
+    "existing_backend": 50,
+    "integration": 7,
+    "total_passed": 76,
+    "known_TestClient_warnings": 1,
+    "corrected_RED": {
+      "failed": 12,
+      "passed": 7
+    },
+    "initial_test_harness_failures_retained": true,
+    "integration_models": "EXISTING_SYNTHETIC_IF_CURRENT_AE_HISTORY_AE",
+    "manual_model_execution": "NOT_PERFORMED",
+    "independent_review": "SPEC_PASS_QUALITY_PASS",
+    "repository": "13_PASS",
+    "unrelated_local_full_suite": "NOT_RUN"
+  },
+  "known_unresolved": {
+    "interval_definition": "FROZEN_FIXTURE_EXCLUDES_INVALID_ATTACK_MINUTE_CORE_INCLUDES_IT",
+    "interval_order": "FIXTURE_MISSED_FIRST_CORE_FALSE_POSITIVE_FIRST",
+    "interval_consistency": "NOT_CHECKED",
+    "high_load_consistency": "NOT_CHECKED"
+  },
+  "production_contract_changed": false,
+  "episode_rules_changed": false,
+  "real_csv_reads": 0,
+  "new_download_bytes": 0,
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "browser_UI_this_batch": "NOT_RUN_UNCHANGED",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

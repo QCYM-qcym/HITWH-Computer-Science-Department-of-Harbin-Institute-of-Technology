@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 后端评价汇总回归
+
+[六字段一致性修复](backend-evaluation-consistency.md)的实际命令为`.venv/Scripts/python -X utf8 -m pytest tests/backend tests/integration -q`，76项通过（含新19），一项既有TestClient弃用警告。既有集成测试执行合成IF/AE；另外三个人工FakeExecutor验收无模型库或模型执行，仅进程内TestClient、独立数据库与目录。网页未在本批重验，原HTTP类型未改；片段/high-load一致性不属于本批通过结论。
+
 ## 候选结果汇总前的共同资格检查
 
 [只读核对入口](candidate-comparison.md)要求相同上游字节、政策、预处理及完整资格来源，再并列三政策分母和原指标。新67测试和原四包有/无源复查通过；不导入模型库、不做模型选择，不代表异机恢复或真实工程验收。旧worker/页面暂不消费候选13/26包，生产迁移仍待决定。
