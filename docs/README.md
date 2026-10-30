@@ -1,5 +1,9 @@
 # 文档导航
 
+## 2026-10-31 候选合成结果的隔离只读HTTP
+
+[候选只读HTTP](guides/candidate-readonly-http.md)、[实际HTTP/CLI验证](research/2026-10-31-candidate-readonly-http-verification.json)。固定人工结果目录、曲线和分钟详情，独立于原任务后端与Vue。
+
 ## 2026-10-31 候选结果只读查看CLI
 
 [只读查看命令](guides/candidate-view-cli.md)、[实际验证](research/2026-10-31-candidate-view-cli-verification.json)。无需新模型运行即可查看候选人工包的分钟详情和曲线页。

@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-10-31",
   "current_stage": "S2",
-  "theme": "自主迭代：候选结果支持只读命令查看分钟详情和曲线页；研究Gate仍BLOCKED",
+  "theme": "自主迭代：候选合成结果的独立只读HTTP与CLI同值验证通过；研究Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增候选查看CLI，用显式IF/AE选择和series/detail子命令复用安全加载器；输出完整UTF-8 JSON，含LF最多1MiB。",
-    "新增59项CLI边界测试先失败后通过，覆盖Windows换行字节上限；相关193项通过，独立审查通过。",
-    "主控实际21次python -m调用完成18成功/3预期失败，另2次独立受控main探针通过；39历史文件及成员保持。",
-    "普通CLI进程未插桩，2次探针的零模型尝试单列；加载阶段仍验算保存关系，查询不重算指标。生产未迁移，真实模型NOT_RUN，Gate BLOCKED。"
+    "新增隔离候选只读HTTP：固定登记1–4组快照，提供目录、曲线和分钟详情；不创建任务、数据库或模型。",
+    "新增77项测试先失败后通过，审查修复目录历史窗口类型；相关270项通过，仅保留既有TestClient弃用警告。",
+    "主控实际loopback完成13组HTTP/CLI原字节与保存值对照、16项安全错误和目录检查；服务正常停止回收，39历史文件保持。",
+    "独立服务端点守卫无文件/模型/复算尝试，启动仍核验保存关系；普通CLI另计未插桩。网页和生产未迁移，真实模型NOT_RUN，Gate BLOCKED。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "候选合成结果只读HTTP",
+      "path": "docs/guides/candidate-readonly-http.md"
+    },
+    {
+      "label": "候选HTTP与CLI实际验证",
+      "path": "docs/research/2026-10-31-candidate-readonly-http-verification.json"
+    },
     {
       "label": "候选结果只读查看命令",
       "path": "docs/guides/candidate-view-cli.md"
@@ -2249,6 +2257,17 @@
     "separate_instrumented_main_probes": 2,
     "historical_files_preserved": 39,
     "evidence": "docs/research/2026-10-31-candidate-view-cli-verification.json",
+    "remote_CI": "PENDING_AFTER_PUSH"
+  },
+  "candidate_readonly_http": {
+    "status": "SYNTHETIC_ONLY",
+    "new_tests": 77,
+    "related_passed": 270,
+    "related_skipped": 0,
+    "actual_http_cli_pairs": 13,
+    "safe_http_errors": 16,
+    "historical_files_preserved": 39,
+    "evidence": "docs/research/2026-10-31-candidate-readonly-http-verification.json",
     "remote_CI": "PENDING_AFTER_PUSH"
   }
 }

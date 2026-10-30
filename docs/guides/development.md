@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 2026-10-31 候选合成结果的隔离只读HTTP
+
+[候选只读HTTP](candidate-readonly-http.md)新增77项手写测试，无新训练；相关270项通过，旧detail夹具的toy准备另计。实际用旧四包在独立空闲loopback端口完成13组HTTP/CLI字节对照与16项安全错误；正常停止回收。既有backend conftest导入生产模块，独立服务进程另证未导入；网络日志不包含在端点无文件读取声明内。
+
 ## 2026-10-31 候选结果只读查看CLI
 
 [候选查看CLI](candidate-view-cli.md)新59项mock边界测试无模型训练，相关193项通过（旧detail夹具含toy模型准备）。实际21次python -m与另外2次受控main探针分别记录，原始stdout/stderr/退出码留本地，公开结果不含私人目录。

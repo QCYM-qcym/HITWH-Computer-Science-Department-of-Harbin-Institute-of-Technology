@@ -1,0 +1,595 @@
+{
+  "date": "2026-10-31",
+  "status": "PASS",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "base_commit": "9f0df54521cc243b1624c76215cfc092ad8396c1",
+  "scope": "ISOLATED_CANDIDATE_READ_ONLY_HTTP",
+  "tests": {
+    "initial_red_failed": 68,
+    "catalog_domain_red_failed": 9,
+    "new_tests": 77,
+    "new_tests_use_handwritten_snapshots_without_model_training": true,
+    "related_passed": 270,
+    "related_skipped": 0,
+    "related_seconds": 5.87,
+    "old_detail_test_fixture_generates_synthetic_models": true,
+    "warning": "EXISTING_STARLETTE_TESTCLIENT_DEPRECATION",
+    "review_fix": "STRICT_CURRENT_NONE_AND_HISTORY_INTEGER_15_30_CATALOG_DOMAIN",
+    "manual_preexecution_correction": "KEEP_SYNC_ENDPOINT_WRAPPER_TO_MATCH_FASTAPI_CAPTURED_CALL_KIND",
+    "manual_initial_failure": "PID_EQUALITY_ASSERTION_FAILED_BEFORE_HTTP_REQUESTS_PARENT_PID_NOT_CAPTURED",
+    "manual_initial_failed_captures_preserved": true,
+    "manual_rerun": "VERIFIED_WINDOWS_DIRECT_CHILD_RELATION_AND_SEPARATE_LAUNCHER_REAP_SERVER_SHUTDOWN",
+    "repository": {
+      "passed": 13,
+      "worktree_files": 509,
+      "issues": 0,
+      "changed_files": 14,
+      "markdown_links": 495,
+      "vault_wiki_links": 5
+    },
+    "review": "SPEC_PASS_QUALITY_PASS_MANUAL_FINAL_PASS"
+  },
+  "manual": {
+    "status": "PASS",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "scope": "ACTUAL_LOOPBACK_HTTP_TO_CLI_PARITY",
+    "http_cli_pairs": [
+      {
+        "case": "if_current-detail-warmup",
+        "slot": "if_current",
+        "run_id": "toy-if-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "f837d5413cecf7a006cb0c5767401ea73f4465da6d3551462d1437ead32e9bbd",
+          "byte_count": 1578
+        },
+        "cli_stdout": {
+          "sha256": "f837d5413cecf7a006cb0c5767401ea73f4465da6d3551462d1437ead32e9bbd",
+          "byte_count": 1578
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "if_current-detail-valid-test",
+        "slot": "if_current",
+        "run_id": "toy-if-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "2ae0bb48ef8999a9228c64deb5786848a4438aad56a384c277175abe3a669498",
+          "byte_count": 1609
+        },
+        "cli_stdout": {
+          "sha256": "2ae0bb48ef8999a9228c64deb5786848a4438aad56a384c277175abe3a669498",
+          "byte_count": 1609
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "if_current-series-boundary",
+        "slot": "if_current",
+        "run_id": "toy-if-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "ef034d4c5ea746091cad46c006c58a528b3d83051469392d775881d9b8715f80",
+          "byte_count": 1116
+        },
+        "cli_stdout": {
+          "sha256": "ef034d4c5ea746091cad46c006c58a528b3d83051469392d775881d9b8715f80",
+          "byte_count": 1116
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "ae_current-detail-warmup",
+        "slot": "ae_current",
+        "run_id": "toy-ae-current-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "fc625634771773bf64e50542ad344ea0c33701c4856a706085826e2f64e13133",
+          "byte_count": 1582
+        },
+        "cli_stdout": {
+          "sha256": "fc625634771773bf64e50542ad344ea0c33701c4856a706085826e2f64e13133",
+          "byte_count": 1582
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "ae_current-detail-valid-test",
+        "slot": "ae_current",
+        "run_id": "toy-ae-current-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "b792742a2cff985ca740718b23c175ee685be781a71db788c3721e1c2a0b9bfc",
+          "byte_count": 1628
+        },
+        "cli_stdout": {
+          "sha256": "b792742a2cff985ca740718b23c175ee685be781a71db788c3721e1c2a0b9bfc",
+          "byte_count": 1628
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "ae_current-series-boundary",
+        "slot": "ae_current",
+        "run_id": "toy-ae-current-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "a6927f8a589b02284d4308dba847ca2a7eb9afc467c7c2b006727ba941a58f12",
+          "byte_count": 1133
+        },
+        "cli_stdout": {
+          "sha256": "a6927f8a589b02284d4308dba847ca2a7eb9afc467c7c2b006727ba941a58f12",
+          "byte_count": 1133
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "ae_history15-detail-warmup",
+        "slot": "ae_history15",
+        "run_id": "toy-ae-history15-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "fa637786c08eb38ca74249ac97072f82b36f93021420c4b66ed7d3782ecfebf0",
+          "byte_count": 1580
+        },
+        "cli_stdout": {
+          "sha256": "fa637786c08eb38ca74249ac97072f82b36f93021420c4b66ed7d3782ecfebf0",
+          "byte_count": 1580
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "ae_history15-detail-valid-test",
+        "slot": "ae_history15",
+        "run_id": "toy-ae-history15-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "192a6b8486228e945f942f25a5c9bfcd4f899d7a9d399754c8b3210999bef24f",
+          "byte_count": 1642
+        },
+        "cli_stdout": {
+          "sha256": "192a6b8486228e945f942f25a5c9bfcd4f899d7a9d399754c8b3210999bef24f",
+          "byte_count": 1642
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "ae_history15-series-boundary",
+        "slot": "ae_history15",
+        "run_id": "toy-ae-history15-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "b302211e104e15a5fc16c65a89efeb3a137c4cd6979771f302037ed852f96e34",
+          "byte_count": 1138
+        },
+        "cli_stdout": {
+          "sha256": "b302211e104e15a5fc16c65a89efeb3a137c4cd6979771f302037ed852f96e34",
+          "byte_count": 1138
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "ae_history30-detail-warmup",
+        "slot": "ae_history30",
+        "run_id": "toy-ae-history30-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "a71c74c5096a02a86e0de8ae3fc4f3890103d44dbe4ba6537b404d703bc21e72",
+          "byte_count": 1580
+        },
+        "cli_stdout": {
+          "sha256": "a71c74c5096a02a86e0de8ae3fc4f3890103d44dbe4ba6537b404d703bc21e72",
+          "byte_count": 1580
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "ae_history30-detail-valid-test",
+        "slot": "ae_history30",
+        "run_id": "toy-ae-history30-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "b6f55491a4c307ee293a958754ae1d036ddac25a8cb06ab31ab342b8ad2a9a90",
+          "byte_count": 1642
+        },
+        "cli_stdout": {
+          "sha256": "b6f55491a4c307ee293a958754ae1d036ddac25a8cb06ab31ab342b8ad2a9a90",
+          "byte_count": 1642
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "ae_history30-series-boundary",
+        "slot": "ae_history30",
+        "run_id": "toy-ae-history30-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "8e5c5d5d9398608f207b79b6bda97dcbe6e09c54af1c5d62127e6b0e34486635",
+          "byte_count": 1138
+        },
+        "cli_stdout": {
+          "sha256": "8e5c5d5d9398608f207b79b6bda97dcbe6e09c54af1c5d62127e6b0e34486635",
+          "byte_count": 1138
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      },
+      {
+        "case": "if-series-empty",
+        "slot": "if_current",
+        "run_id": "toy-if-20261030-v1",
+        "http_status": 200,
+        "cli_exit": 0,
+        "http_body": {
+          "sha256": "370927c8373a3a502c85d1503ce9e4687f3587dc8fed9f1aa02fab8687877dd6",
+          "byte_count": 531
+        },
+        "cli_stdout": {
+          "sha256": "370927c8373a3a502c85d1503ce9e4687f3587dc8fed9f1aa02fab8687877dd6",
+          "byte_count": 531
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "exact_bytes_and_decoded_values_equal": true,
+        "matches_independent_saved_values": true
+      }
+    ],
+    "safe_http_errors": [
+      {
+        "case": "unknown-run",
+        "method": "GET",
+        "status": 404,
+        "code": "RUN_NOT_FOUND",
+        "body": {
+          "sha256": "b180c174cc77d2040245d66765924e7b8635426938c6cd990a2516a60ee6c51f",
+          "byte_count": 26
+        }
+      },
+      {
+        "case": "absent-minute",
+        "method": "GET",
+        "status": 404,
+        "code": "MINUTE_NOT_FOUND",
+        "body": {
+          "sha256": "f0b1dc005bdfc96c836dcb9104c1137f6518182ceb88ec040bbe0e73d55a6338",
+          "byte_count": 29
+        }
+      },
+      {
+        "case": "unknown-route",
+        "method": "GET",
+        "status": 404,
+        "code": "NOT_FOUND",
+        "body": {
+          "sha256": "2bb75079606b0e5fbdafd8452827a0fde92a9f17298d0c84de23817048842947",
+          "byte_count": 22
+        }
+      },
+      {
+        "case": "disabled-docs",
+        "method": "GET",
+        "status": 404,
+        "code": "NOT_FOUND",
+        "body": {
+          "sha256": "2bb75079606b0e5fbdafd8452827a0fde92a9f17298d0c84de23817048842947",
+          "byte_count": 22
+        }
+      },
+      {
+        "case": "disabled-openapi",
+        "method": "GET",
+        "status": 404,
+        "code": "NOT_FOUND",
+        "body": {
+          "sha256": "2bb75079606b0e5fbdafd8452827a0fde92a9f17298d0c84de23817048842947",
+          "byte_count": 22
+        }
+      },
+      {
+        "case": "disabled-redoc",
+        "method": "GET",
+        "status": 404,
+        "code": "NOT_FOUND",
+        "body": {
+          "sha256": "2bb75079606b0e5fbdafd8452827a0fde92a9f17298d0c84de23817048842947",
+          "byte_count": 22
+        }
+      },
+      {
+        "case": "no-slash-redirect",
+        "method": "GET",
+        "status": 404,
+        "code": "NOT_FOUND",
+        "body": {
+          "sha256": "2bb75079606b0e5fbdafd8452827a0fde92a9f17298d0c84de23817048842947",
+          "byte_count": 22
+        }
+      },
+      {
+        "case": "no-post",
+        "method": "POST",
+        "status": 405,
+        "code": "METHOD_NOT_ALLOWED",
+        "body": {
+          "sha256": "4a72e4dc69415ec427b211913133befb0237d8fd5973208699a727e399c329f6",
+          "byte_count": 31
+        }
+      },
+      {
+        "case": "catalog-unknown-key",
+        "method": "GET",
+        "status": 422,
+        "code": "INVALID_QUERY",
+        "body": {
+          "sha256": "04f15703600f177f7f579101bf22ca24257f11effb2b075b641be324d46efea7",
+          "byte_count": 26
+        }
+      },
+      {
+        "case": "series-unknown-key",
+        "method": "GET",
+        "status": 422,
+        "code": "INVALID_QUERY",
+        "body": {
+          "sha256": "04f15703600f177f7f579101bf22ca24257f11effb2b075b641be324d46efea7",
+          "byte_count": 26
+        }
+      },
+      {
+        "case": "duplicate-page",
+        "method": "GET",
+        "status": 422,
+        "code": "INVALID_QUERY",
+        "body": {
+          "sha256": "04f15703600f177f7f579101bf22ca24257f11effb2b075b641be324d46efea7",
+          "byte_count": 26
+        }
+      },
+      {
+        "case": "encoded-duplicate-page",
+        "method": "GET",
+        "status": 422,
+        "code": "INVALID_QUERY",
+        "body": {
+          "sha256": "04f15703600f177f7f579101bf22ca24257f11effb2b075b641be324d46efea7",
+          "byte_count": 26
+        }
+      },
+      {
+        "case": "duplicate-time",
+        "method": "GET",
+        "status": 422,
+        "code": "INVALID_QUERY",
+        "body": {
+          "sha256": "04f15703600f177f7f579101bf22ca24257f11effb2b075b641be324d46efea7",
+          "byte_count": 26
+        }
+      },
+      {
+        "case": "missing-time",
+        "method": "GET",
+        "status": 422,
+        "code": "INVALID_QUERY",
+        "body": {
+          "sha256": "04f15703600f177f7f579101bf22ca24257f11effb2b075b641be324d46efea7",
+          "byte_count": 26
+        }
+      },
+      {
+        "case": "offset-time",
+        "method": "GET",
+        "status": 422,
+        "code": "INVALID_QUERY",
+        "body": {
+          "sha256": "04f15703600f177f7f579101bf22ca24257f11effb2b075b641be324d46efea7",
+          "byte_count": 26
+        }
+      },
+      {
+        "case": "plus-page",
+        "method": "GET",
+        "status": 422,
+        "code": "INVALID_QUERY",
+        "body": {
+          "sha256": "04f15703600f177f7f579101bf22ca24257f11effb2b075b641be324d46efea7",
+          "byte_count": 26
+        }
+      }
+    ],
+    "catalog": {
+      "schema_version": 1,
+      "evidence_kind": "SYNTHETIC_ONLY",
+      "policy_status": "AUDIT_ONLY",
+      "scope": "SYNTHETIC_SAVED_RUN_INSPECTION_ONLY",
+      "items": [
+        {
+          "run_id": "toy-if-20261030-v1",
+          "model_profile_id": "c17-i1-g13u-iforest-synthetic-v1",
+          "method": "iforest",
+          "history_window": null,
+          "selected_policy": "P_U",
+          "minute_count": 144,
+          "score_valid_count": 24,
+          "source_replay": {
+            "run": "VERIFIED",
+            "inputs": "VERIFIED",
+            "combined": "VERIFIED"
+          }
+        },
+        {
+          "run_id": "toy-ae-current-20261030-v1",
+          "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+          "method": "current_ae",
+          "history_window": null,
+          "selected_policy": "P_U",
+          "minute_count": 144,
+          "score_valid_count": 24,
+          "source_replay": {
+            "run": "VERIFIED",
+            "inputs": "VERIFIED",
+            "combined": "VERIFIED"
+          }
+        },
+        {
+          "run_id": "toy-ae-history15-20261030-v1",
+          "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+          "method": "history_ae",
+          "history_window": 15,
+          "selected_policy": "P_U",
+          "minute_count": 144,
+          "score_valid_count": 24,
+          "source_replay": {
+            "run": "VERIFIED",
+            "inputs": "VERIFIED",
+            "combined": "VERIFIED"
+          }
+        },
+        {
+          "run_id": "toy-ae-history30-20261030-v1",
+          "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+          "method": "history_ae",
+          "history_window": 30,
+          "selected_policy": "P_U",
+          "minute_count": 144,
+          "score_valid_count": 24,
+          "source_replay": {
+            "run": "VERIFIED",
+            "inputs": "VERIFIED",
+            "combined": "VERIFIED"
+          }
+        }
+      ]
+    },
+    "server_lifecycle": {
+      "normal_stop": true,
+      "forced_termination": false,
+      "launcher_reaped": true,
+      "launcher_pid": 16756,
+      "server_pid": 15616,
+      "server_parent_pid": 16756,
+      "host": "127.0.0.1",
+      "port": 60112,
+      "process_relationship": "WINDOWS_DIRECT_CHILD_OF_LAUNCHER",
+      "launcher_exit_code": 0,
+      "port_no_longer_accepting": true,
+      "server_shutdown_evidence": "MATCHING_FINAL_CHILD_EVIDENCE_AND_CLOSED_LISTENING_PORT"
+    },
+    "independent_child_guards": {
+      "pid": 15616,
+      "parent_pid": 16756,
+      "port": 60112,
+      "server_started": true,
+      "normal_stop_requested": true,
+      "endpoint_calls": {
+        "/candidate/v1/runs": 3,
+        "/candidate/v1/runs/{run_id}/detail": 12,
+        "/candidate/v1/runs/{run_id}/series": 10
+      },
+      "endpoint_file_access_attempts": [],
+      "model_import_attempts": [],
+      "forbidden_model_or_endpoint_recompute_calls": [],
+      "production_modules_imported": [],
+      "model_modules_imported": [],
+      "guard_scope": "REGISTERED_APPLICATION_ENDPOINT_BODY_ONLY_FRAMEWORK_TRANSPORT_AND_LOGGING_EXCLUDED",
+      "startup_stored_relation_verification_allowed": true,
+      "caller_registration_list_cleared_after_factory": true
+    },
+    "http_client": "STDLIB_HTTP_CLIENT_DIRECT_LOOPBACK_NO_PROXY",
+    "actual_cli_minus_m_processes": 13,
+    "ordinary_cli_process_monitoring": "NOT_INSTRUMENTED_SEPARATE_FROM_GUARDED_SERVER_CHILD",
+    "actual_500_fault_injection": "NOT_RUN_UNIT_TEST_EVIDENCE_ONLY",
+    "historical_files": {
+      "run_files": 20,
+      "three_policy_upstream_files": 18,
+      "source_fixture": 1
+    },
+    "before_after_sha_size_mtime_and_members_unchanged": true,
+    "historical_snapshot_sha256": "47546f5a791ffba7948cc6dc107febea11141c4d4c76fc61b546bf95143d44e3",
+    "browser_or_production_api_integration": "NOT_RUN",
+    "real_csv_reads": 0,
+    "new_download_bytes": 0,
+    "real_models": "NOT_RUN",
+    "data_gate": "BLOCKED",
+    "raw_http_cli_and_server_captures_retained_privately": true
+  },
+  "production_contract_migration": "NOT_RUN",
+  "browser_integration": "NOT_RUN",
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

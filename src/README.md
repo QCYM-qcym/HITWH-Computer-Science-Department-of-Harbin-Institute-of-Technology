@@ -1,5 +1,9 @@
 # 程序入口
 
+## 2026-10-31 候选合成结果的隔离只读HTTP
+
+[候选只读HTTP](../docs/guides/candidate-readonly-http.md)为traffic_api中的独立factory，复用冻结快照，不导入生产app/worker。无依赖、包入口、公共契约或真实模型变更。
+
 ## 2026-10-31 候选结果只读查看CLI
 
 [候选查看CLI](../docs/guides/candidate-view-cli.md)复用既有安全加载器和纯查询，使用python -m；无包入口、依赖、生产接口或模型训练变更。

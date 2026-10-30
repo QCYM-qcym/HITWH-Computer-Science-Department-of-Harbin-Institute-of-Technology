@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-31**。当前阶段：**数据审计**；本轮主题：自主迭代：候选结果支持只读命令查看分钟详情和曲线页；研究Gate仍BLOCKED。
+最近更新：**2026-10-31**。当前阶段：**数据审计**；本轮主题：自主迭代：候选合成结果的独立只读HTTP与CLI同值验证通过；研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增候选查看CLI，用显式IF/AE选择和series/detail子命令复用安全加载器；输出完整UTF-8 JSON，含LF最多1MiB。
-- 新增59项CLI边界测试先失败后通过，覆盖Windows换行字节上限；相关193项通过，独立审查通过。
-- 主控实际21次python -m调用完成18成功/3预期失败，另2次独立受控main探针通过；39历史文件及成员保持。
-- 普通CLI进程未插桩，2次探针的零模型尝试单列；加载阶段仍验算保存关系，查询不重算指标。生产未迁移，真实模型NOT_RUN，Gate BLOCKED。
+- 新增隔离候选只读HTTP：固定登记1–4组快照，提供目录、曲线和分钟详情；不创建任务、数据库或模型。
+- 新增77项测试先失败后通过，审查修复目录历史窗口类型；相关270项通过，仅保留既有TestClient弃用警告。
+- 主控实际loopback完成13组HTTP/CLI原字节与保存值对照、16项安全错误和目录检查；服务正常停止回收，39历史文件保持。
+- 独立服务端点守卫无文件/模型/复算尝试，启动仍核验保存关系；普通CLI另计未插桩。网页和生产未迁移，真实模型NOT_RUN，Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [候选合成结果只读HTTP](<docs/guides/candidate-readonly-http.md>)
+- [候选HTTP与CLI实际验证](<docs/research/2026-10-31-candidate-readonly-http-verification.json>)
 - [候选结果只读查看命令](<docs/guides/candidate-view-cli.md>)
 - [候选查看CLI实际验证](<docs/research/2026-10-31-candidate-view-cli-verification.json>)
 - [候选曲线范围分页](<docs/guides/candidate-series-pages.md>)

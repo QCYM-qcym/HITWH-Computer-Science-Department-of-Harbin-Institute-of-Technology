@@ -1,5 +1,9 @@
 # 仓库维护复核记录
 
+## 2026-10-31 候选合成结果的隔离只读HTTP
+
+从9f0df54续接，新增独立candidate_app与手写快照测试，固定登记1–4组既有快照，提供目录/曲线/详情三GET。初始68项RED→PASS；独立审查发现目录history_window可容纳任意同值对象，新增9项复现后在本层限制current_ae为None、history_ae为严格整数15/30，最终新77/相关270项通过，原结果保留。实际验收前发现FastAPI缓存同步调用类型，私有端点守卫改为同步包装，尚未运行时纠正，不伪记为运行失败。首轮实际验收在PID相等断言处失败，尚未发HTTP请求、未记录父PID，原捕获保留且正常收尾；修订分别记录启动器与服务身份，复验核实Windows直接子进程关系、启动器exit0回收及服务final证据/端口关闭。主控复验真实loopback比较13组HTTP/CLI原字节及独立保存值，16项安全错误、前后目录保持通过；正常停止回收且端口关闭，39原文件身份/成员保持。[实际验证](../research/2026-10-31-candidate-readonly-http-verification.json)。服务子进程禁模型导入/调用，端点内禁文件与关系复算，框架网络日志除外；13个普通CLI子进程未插桩。实际500故障注入未做，只保留单元测试证据；HTTP客户端不是网页验收，Gate BLOCKED。
+
 ## 2026-10-31 候选结果只读查看CLI
 
 从21dee0b续接，新增只读查看CLI，用series/detail消费既有快照；IF/AE显式互斥选择，无fallback、文件写出或新模型调用。59项有效RED后通过，相关193通过；设计审查识别Windows文本LF扩成CRLF风险，采用已计数UTF-8字节直接写出并覆盖真实TextIOWrapper边界。主控实际21次python -m调用为18成功3预期失败，stdout合计22859字节、stderr91字节；另2个独立受控main探针无模型导入/执行尝试，不能外推为21进程均受监测。39旧文件SHA/大小/mtime及成员保持，23例原流/退出码独立复核通过。[实际验证](../research/2026-10-31-candidate-view-cli-verification.json)。CLI加载继承保存关系验算，只有纯查询零IO/复算；生产及真实研究状态不变，Gate BLOCKED。
