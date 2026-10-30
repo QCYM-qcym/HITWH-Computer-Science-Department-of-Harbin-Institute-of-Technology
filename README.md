@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：候选IF五产物只读验算完成，不加载模型；真实研究Gate仍BLOCKED。
+最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：候选当前/历史AE人工链路与安全JSON重载完成；真实研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增候选IF运行只读CLI，核五文件/上游身份、完整轴、存储分数Q99与三政策评价；权重仅核有界字节，不反序列化或重放模型。
-- 新增152项通过，候选相关493项通过/2本机链接权限skip；极端有限分数插值警告泄露路径已完整失败复现并局部修复。
-- 既有人工run有/无源两次复查通过，每份上下文内容读一次，5运行/18上游文件与源未改；模型库导入及pickle.load/loads主动禁止仍成功。
-- 无报警/全漏报/precision null负例保持；声明版本一致不认证加载兼容，真实模型及正式实验NOT_RUN，生产134/268和Data Gate BLOCKED保持。
+- 新增隔离13维当前AE和26维历史AE人工CLI，固定CPU小网络/5轮，独立Q99、完整轴null和三政策评价；生产134/268保持。
+- 严格JSON八tensor权重重建和逐参数位模式重放通过；修复CPU Adam隐式加速器查询，锁定私有接口缺失安全失败，不修改全局torch。
+- 新增138项、完整Python870项与56subtests通过，2本机链接权限skip及1既有警告；独立Spec/Quality PASS。
+- 当前/H15/H30三次人工运行均144轴/24分数、训练校准各6，无报警/全漏报/precision null负例保留；未择优、未读真实CSV，Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [候选当前与历史AE人工运行及安全JSON权重](<docs/guides/candidate-ae-synthetic.md>)
+- [三次实际人工AE、负例与测试证据](<docs/research/2026-10-30-candidate-ae-verification.json>)
 - [候选IF五产物只读验算（不加载模型）](<docs/guides/candidate-run-verification.md>)
 - [存储分数验算、证明范围与实际验证](<docs/research/2026-10-30-candidate-run-verification.json>)
 - [候选13维IF人工评分、独立校准与三政策评价运行](<docs/guides/candidate-if-synthetic.md>)

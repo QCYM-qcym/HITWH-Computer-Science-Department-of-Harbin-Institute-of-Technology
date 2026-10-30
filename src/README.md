@@ -1,5 +1,9 @@
 # 程序入口
 
+## 候选AE独立CPU入口
+
+[candidate_ae_cli](../docs/guides/candidate-ae-synthetic.md)消费原人工源复查后的候选快照，固定当前13或历史26网络；strict JSON权重、独立校准及重载，不接旧worker。仅导入/帮助无torch，显式执行才加载CPU运行时。
+
 ## 候选运行只读消费入口
 
 [运行验证CLI](../docs/guides/candidate-run-verification.md)只读候选IF五产物及上游快照，精确验算存储Q99/报警/三政策；不导入模型库或加载weights。报告明确模型得分NOT_CHECKED，旧生产CLI/API不变。

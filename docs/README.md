@@ -1,5 +1,9 @@
 # 文档导航
 
+## 候选AE人工链路
+
+[当前/历史AE与JSON权重运行](guides/candidate-ae-synthetic.md)、[三次实际证据](research/2026-10-30-candidate-ae-verification.json)和[实施记录](superpowers/plans/2026-10-30-candidate-ae-synthetic.md)。仅SYNTHETIC_ONLY，原研究和生产接口不变。
+
 ## 候选IF运行只读复查
 
 [不加载模型的五产物验算](guides/candidate-run-verification.md)、[实际证据](research/2026-10-30-candidate-run-verification.json)及[实施记录](superpowers/plans/2026-10-30-candidate-run-verifier.md)。成功仅表示存储分数/产物一致，模型来源和真实研究不因此认证。

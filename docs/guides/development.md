@@ -1,5 +1,11 @@
 # 开发环境与 W0 交接
 
+## 候选AE与CPU依赖兼容
+
+[人工AE入口](candidate-ae-synthetic.md)沿用现有锁定Torch/NumPy环境，没有新包下载。训练和重载明确CPU float32；线程数只记录，CPU RNG成功/失败恢复。为避免Adam隐式查询加速器，实例局部健康检查检查CPU参数/梯度/状态及capture关闭，依赖锁定Torch私有API；升级须重验，缺API安全失败，不放宽生产兼容检查。
+
+权重使用有界严格JSON、固定层图与逐参数位重放，无pickle/torch.load/save。与已有IF运行文件格式不同，IF只读验证器不可替用；候选CLI与原API/网页仍隔离。真实AE及正式容量匹配NOT_RUN。
+
 ## 只读运行验算的依赖边界
 
 [候选五产物复查](candidate-run-verification.md)不导入joblib/sklearn/torch，也不调用pickle反序列化；模型CLI仍需既有模型依赖。本次用禁止模型导入/反序列化的独立进程验证，没有新建仅core环境或进行异机完整恢复，不将这种验证写成依赖复现已完成。

@@ -1,0 +1,516 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_CANDIDATE_AE_ENGINEERING",
+  "date": "2026-10-30",
+  "base_commit": "b37268757899c7db2f2c1355d4ce98717afec6e1",
+  "status": "PASS",
+  "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "scope": "ENGINEERING_TOY_ONLY",
+  "manual": {
+    "status": "PASS",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "runs": [
+      {
+        "run_id": "toy-ae-current-20261030-v1",
+        "method": "current_ae",
+        "history_window": null,
+        "CLI_exit": 0,
+        "fit_count": 6,
+        "calibration_count": 6,
+        "full_axis": 144,
+        "score_valid": 24,
+        "threshold": 0.2879734564525531,
+        "independent_threshold": 0.2879734564525531,
+        "policies": {
+          "P_U": {
+            "normal": 4,
+            "attack": 1,
+            "unknown": 1,
+            "counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            }
+          },
+          "P_B": {
+            "normal": 5,
+            "attack": 1,
+            "unknown": 0,
+            "counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 5,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            }
+          },
+          "P_A": {
+            "normal": 4,
+            "attack": 2,
+            "unknown": 0,
+            "counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 2
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            }
+          }
+        },
+        "artifacts": {
+          "evaluation.json": {
+            "sha256": "648ac3431e4c192e16756bbeb4150863f17ef5ea78767c6032d521b44f0f3b09",
+            "byte_count": 7125
+          },
+          "manifest.json": {
+            "sha256": "d50aa078eb072c59f61b179e52fd2525e5897a621b0a5ba40f9d6d657a40b418",
+            "byte_count": 5390
+          },
+          "model-state.json": {
+            "sha256": "ba9c894a832344db48bd27ce0508f2f45aed1797430f48207a0e64532614aa85",
+            "byte_count": 4896
+          },
+          "scores.json": {
+            "sha256": "b2b2edeb08567abe67b1b8925bece7cdbd78ebc7b9b49ad8b6ddee9fd92b30b1",
+            "byte_count": 32922
+          },
+          "weights.json": {
+            "sha256": "cb9c0caac4053e757ceb6940402df2cdfe3a91e1853ca0eef8fdc983c9aa095b",
+            "byte_count": 14579
+          }
+        },
+        "parameter_count": 288,
+        "training_losses": [
+          0.21742141246795654,
+          0.21647465229034424,
+          0.2155337929725647,
+          0.21460318565368652,
+          0.21368491649627686
+        ],
+        "configuration": {
+          "activation": "RELU_HIDDEN_LINEAR_OUTPUT",
+          "adam_betas": [
+            0.9,
+            0.999
+          ],
+          "adam_epsilon": 1e-08,
+          "alarm_comparison": "STRICT_GREATER",
+          "amsgrad": false,
+          "architecture": [
+            13,
+            8,
+            3,
+            8,
+            13
+          ],
+          "batch_strategy": "FULL_BATCH",
+          "calibration_scope": "CALIBRATION_NORMAL_COMMON",
+          "device": "cpu",
+          "epochs": 5,
+          "fit_scope": "TRAIN_NORMAL_COMMON",
+          "history_window": null,
+          "input_width": 13,
+          "learning_rate": 0.001,
+          "method": "current_ae",
+          "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+          "optimizer": "Adam",
+          "optimizer_cpu_guard": "INSTANCE_LOCAL_HEALTH_CHECK_V1",
+          "optimizer_healthcheck_api": "_accelerator_graph_capture_health_check",
+          "parameter_count": 288,
+          "parameter_status": "ENGINEERING_TOY_ONLY",
+          "preprocessing_fit_provenance": "NOT_REESTIMATED",
+          "quantile": 0.99,
+          "quantile_method": "linear",
+          "random_state": 42,
+          "score_dtype": "float64",
+          "score_rule": "FLOAT64_CHANNEL_MSE_EQUAL_WEIGHT",
+          "shuffle": false,
+          "training_dtype": "float32",
+          "weight_decay": 0.0
+        },
+        "library_versions": {
+          "numpy": "2.5.4",
+          "python": "3.14.0",
+          "torch": "2.14.1+cpu"
+        },
+        "runtime": {
+          "device": "cpu",
+          "torch_num_interop_threads": 6,
+          "torch_num_threads": 6
+        },
+        "wall_seconds_including_imports": 3.7995532999921124,
+        "payload_bytes": 64912
+      },
+      {
+        "run_id": "toy-ae-history15-20261030-v1",
+        "method": "history_ae",
+        "history_window": 15,
+        "CLI_exit": 0,
+        "fit_count": 6,
+        "calibration_count": 6,
+        "full_axis": 144,
+        "score_valid": 24,
+        "threshold": 0.3189284776059433,
+        "independent_threshold": 0.3189284776059433,
+        "policies": {
+          "P_U": {
+            "normal": 4,
+            "attack": 1,
+            "unknown": 1,
+            "counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            }
+          },
+          "P_B": {
+            "normal": 5,
+            "attack": 1,
+            "unknown": 0,
+            "counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 5,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            }
+          },
+          "P_A": {
+            "normal": 4,
+            "attack": 2,
+            "unknown": 0,
+            "counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 2
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            }
+          }
+        },
+        "artifacts": {
+          "evaluation.json": {
+            "sha256": "b55d2099761176bd54d82ee8d9ac268bb5f3aabb92e9a03d7aa84d89f0b51126",
+            "byte_count": 7125
+          },
+          "manifest.json": {
+            "sha256": "075a43ccd56a3814df98cb79fd4dff7bd1dd2f97c46a0e30770000b34b0d66ec",
+            "byte_count": 5386
+          },
+          "model-state.json": {
+            "sha256": "0e49116fe50b12547cba117b6660db4df7ffe185ed27e04bbcde63dcf2b7c390",
+            "byte_count": 4892
+          },
+          "scores.json": {
+            "sha256": "3e95b09f8eb462b33fa60de0f67e874c941aabb8026535ab6d24920531941599",
+            "byte_count": 33302
+          },
+          "weights.json": {
+            "sha256": "a83c545646fbffe6c99450a0f30e042c00598a382d2e756f8c8d8c2bc24ca4de",
+            "byte_count": 21317
+          }
+        },
+        "parameter_count": 509,
+        "training_losses": [
+          0.2077406793832779,
+          0.206532821059227,
+          0.20534363389015198,
+          0.20417289435863495,
+          0.203020840883255
+        ],
+        "configuration": {
+          "activation": "RELU_HIDDEN_LINEAR_OUTPUT",
+          "adam_betas": [
+            0.9,
+            0.999
+          ],
+          "adam_epsilon": 1e-08,
+          "alarm_comparison": "STRICT_GREATER",
+          "amsgrad": false,
+          "architecture": [
+            26,
+            8,
+            3,
+            8,
+            26
+          ],
+          "batch_strategy": "FULL_BATCH",
+          "calibration_scope": "CALIBRATION_NORMAL_COMMON",
+          "device": "cpu",
+          "epochs": 5,
+          "fit_scope": "TRAIN_NORMAL_COMMON",
+          "history_window": 15,
+          "input_width": 26,
+          "learning_rate": 0.001,
+          "method": "history_ae",
+          "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+          "optimizer": "Adam",
+          "optimizer_cpu_guard": "INSTANCE_LOCAL_HEALTH_CHECK_V1",
+          "optimizer_healthcheck_api": "_accelerator_graph_capture_health_check",
+          "parameter_count": 509,
+          "parameter_status": "ENGINEERING_TOY_ONLY",
+          "preprocessing_fit_provenance": "NOT_REESTIMATED",
+          "quantile": 0.99,
+          "quantile_method": "linear",
+          "random_state": 42,
+          "score_dtype": "float64",
+          "score_rule": "FLOAT64_CHANNEL_MSE_EQUAL_WEIGHT",
+          "shuffle": false,
+          "training_dtype": "float32",
+          "weight_decay": 0.0
+        },
+        "library_versions": {
+          "numpy": "2.5.4",
+          "python": "3.14.0",
+          "torch": "2.14.1+cpu"
+        },
+        "runtime": {
+          "device": "cpu",
+          "torch_num_interop_threads": 6,
+          "torch_num_threads": 6
+        },
+        "wall_seconds_including_imports": 4.111676800006535,
+        "payload_bytes": 72022
+      },
+      {
+        "run_id": "toy-ae-history30-20261030-v1",
+        "method": "history_ae",
+        "history_window": 30,
+        "CLI_exit": 0,
+        "fit_count": 6,
+        "calibration_count": 6,
+        "full_axis": 144,
+        "score_valid": 24,
+        "threshold": 0.3189284776059433,
+        "independent_threshold": 0.3189284776059433,
+        "policies": {
+          "P_U": {
+            "normal": 4,
+            "attack": 1,
+            "unknown": 1,
+            "counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            }
+          },
+          "P_B": {
+            "normal": 5,
+            "attack": 1,
+            "unknown": 0,
+            "counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 5,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            }
+          },
+          "P_A": {
+            "normal": 4,
+            "attack": 2,
+            "unknown": 0,
+            "counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 2
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            }
+          }
+        },
+        "artifacts": {
+          "evaluation.json": {
+            "sha256": "ef8d8d9efe49ec4e357603c5aed082c75f59fb222bc3781630603dcb02405b8f",
+            "byte_count": 7125
+          },
+          "manifest.json": {
+            "sha256": "7524dc11a7f8071771ec08e336d8fbf0ad1f761a834f3cb1889ef8a7a016a58b",
+            "byte_count": 5386
+          },
+          "model-state.json": {
+            "sha256": "227508c3e77c8c1e32faade0eeee8e83ee60d8b279660daa8f4e304e19336d9f",
+            "byte_count": 4892
+          },
+          "scores.json": {
+            "sha256": "8dec0e625e5578906df9659e17016c3e31994a542381a38c143248fb492eb547",
+            "byte_count": 33302
+          },
+          "weights.json": {
+            "sha256": "ec9fa51a0c07d908e258ebb83b2518e10c991f3f8188585b0cdc2c57aa726bb7",
+            "byte_count": 21317
+          }
+        },
+        "parameter_count": 509,
+        "training_losses": [
+          0.2077406793832779,
+          0.206532821059227,
+          0.20534363389015198,
+          0.20417289435863495,
+          0.203020840883255
+        ],
+        "configuration": {
+          "activation": "RELU_HIDDEN_LINEAR_OUTPUT",
+          "adam_betas": [
+            0.9,
+            0.999
+          ],
+          "adam_epsilon": 1e-08,
+          "alarm_comparison": "STRICT_GREATER",
+          "amsgrad": false,
+          "architecture": [
+            26,
+            8,
+            3,
+            8,
+            26
+          ],
+          "batch_strategy": "FULL_BATCH",
+          "calibration_scope": "CALIBRATION_NORMAL_COMMON",
+          "device": "cpu",
+          "epochs": 5,
+          "fit_scope": "TRAIN_NORMAL_COMMON",
+          "history_window": 30,
+          "input_width": 26,
+          "learning_rate": 0.001,
+          "method": "history_ae",
+          "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+          "optimizer": "Adam",
+          "optimizer_cpu_guard": "INSTANCE_LOCAL_HEALTH_CHECK_V1",
+          "optimizer_healthcheck_api": "_accelerator_graph_capture_health_check",
+          "parameter_count": 509,
+          "parameter_status": "ENGINEERING_TOY_ONLY",
+          "preprocessing_fit_provenance": "NOT_REESTIMATED",
+          "quantile": 0.99,
+          "quantile_method": "linear",
+          "random_state": 42,
+          "score_dtype": "float64",
+          "score_rule": "FLOAT64_CHANNEL_MSE_EQUAL_WEIGHT",
+          "shuffle": false,
+          "training_dtype": "float32",
+          "weight_decay": 0.0
+        },
+        "library_versions": {
+          "numpy": "2.5.4",
+          "python": "3.14.0",
+          "torch": "2.14.1+cpu"
+        },
+        "runtime": {
+          "device": "cpu",
+          "torch_num_interop_threads": 6,
+          "torch_num_threads": 6
+        },
+        "wall_seconds_including_imports": 3.909333499992499,
+        "payload_bytes": 72022
+      }
+    ],
+    "upstream_files_unchanged": 18,
+    "source_unchanged": true,
+    "real_csv_reads": 0,
+    "memory_measurement": "NOT_RUN",
+    "model_selection": "NOT_PERFORMED"
+  },
+  "tests": {
+    "new_passed": 138,
+    "core_passed": 41,
+    "weights_passed": 56,
+    "CLI_passed": 41,
+    "full_python_passed": 870,
+    "full_python_subtests_passed": 56,
+    "full_python_skipped": 2,
+    "skip_reason": "HOST_DENIES_ACTUAL_SYMLINK_CREATION",
+    "prior_TestClient_warning": 1,
+    "independent_review": "SPEC_PASS_QUALITY_PASS",
+    "unresolved_findings": 0,
+    "repository": "13_PASS"
+  },
+  "TDD": {
+    "initial_core_failed": 23,
+    "initial_weights_failed": 52,
+    "initial_CLI_failed": 39,
+    "initial_full_RED_logs_retained": true,
+    "core_layout_runtime_bits_RED": 6,
+    "accelerator_guard_RED": 4,
+    "fixed_issue": "ADAM_CPU_STEPS_QUERIED_ACCELERATOR",
+    "fix": "INSTANCE_LOCAL_CPU_HEALTH_CHECK_WITH_PINNED_API_GUARD",
+    "test_harness_correction": "FIND_SPEC_AVAILABILITY_PROBE_IS_NOT_A_MODULE_IMPORT;ACTUAL_IMPORTS_AND_SERIALIZERS_REMAIN_BLOCKED"
+  },
+  "limitations": [
+    "ARTIFICIAL_6_TRAIN_6_CALIBRATION_MINUTES",
+    "FIVE_FIXED_UPDATES_NOT_CONVERGENCE_EVIDENCE",
+    "CURRENT_288_HISTORY_509_PARAMETERS_NOT_CAPACITY_MATCHED",
+    "ALL_ARTIFICIAL_ATTACKS_MISSED_NO_RETUNING",
+    "NO_CROSS_PLATFORM_BITWISE_GUARANTEE",
+    "CPU_RNG_SCOPE_SERIAL_CLI_ONLY",
+    "PINNED_TORCH_PRIVATE_HEALTHCHECK_API"
+  ],
+  "production_contract_changed": false,
+  "real_csv_reads": 0,
+  "new_download_bytes": 0,
+  "real_preprocessing": "NOT_RUN",
+  "real_models": "NOT_RUN",
+  "real_system_integration": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}
