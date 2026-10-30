@@ -50,8 +50,13 @@ def read_json(path, model):
     return model.model_validate_json(path.read_bytes())
 
 
-def read_rows(path, schema, model):
-    table = pq.read_table(path)
+def read_rows(path, schema, model, *, expected_sha256=None):
+    # Keep the encoded buffer local; hash and decode this same acquisition.
+    data = path.read_bytes()
+    if expected_sha256 is not None and sha256(data).hexdigest() != expected_sha256:
+        raise ValueError('parquet bytes differ from verified manifest')
+    with pa.BufferReader(data) as source:
+        table = pq.read_table(source)
     if not table.schema.equals(schema, check_metadata=False):
         raise ValueError('artifact column types differ from contract')
     rows = []
@@ -104,6 +109,7 @@ class SavedArtifacts:
             raise ValueError('manifest identity mismatch')
         self.files = {}
         export_entries = {}
+        verified_hashes = {}
         for entry in manifest.files:
             path = safe_path(self.root, entry.path)
             if not path.is_file():
@@ -111,6 +117,7 @@ class SavedArtifacts:
             if digest(path) != entry.sha256:
                 raise ValueError('artifact checksum mismatch')
             self.files[entry.path] = path
+            verified_hashes[entry.path] = entry.sha256
             if entry.path in _EXPORT_FILES:
                 export_entries[entry.path] = (path, entry.sha256)
         if safe_path(workspace, result.summary_path) != self.files['summary.json'] or safe_path(workspace, result.scores_path) != self.files['scores.parquet']:
@@ -129,9 +136,12 @@ class SavedArtifacts:
         for obj in (self.summary, self.evaluation):
             if obj.run_id != result.run_id or obj.evidence_kind != manifest.evidence_kind:
                 raise ValueError('saved identity mismatch')
-        self.series = read_rows(self.files['scores.parquet'], SCORE_SCHEMA, c.SeriesPoint)
-        self.channels = read_rows(self.files['channels.parquet'], CHANNEL_SCHEMA, c.ChannelRow)
-        self.labels = read_rows(self.files['labels.parquet'], LABEL_SCHEMA, c.LabelRow) if 'labels.parquet' in self.files else []
+        self.series = read_rows(self.files['scores.parquet'], SCORE_SCHEMA, c.SeriesPoint,
+                                expected_sha256=verified_hashes['scores.parquet'])
+        self.channels = read_rows(self.files['channels.parquet'], CHANNEL_SCHEMA, c.ChannelRow,
+                                  expected_sha256=verified_hashes['channels.parquet'])
+        self.labels = read_rows(self.files['labels.parquet'], LABEL_SCHEMA, c.LabelRow,
+                                expected_sha256=verified_hashes['labels.parquet']) if 'labels.parquet' in self.files else []
         if self.summary.labels_available != ('labels.parquet' in self.files):
             raise ValueError('label availability mismatch')
         if not self.summary.labels_available and self.evaluation.available:

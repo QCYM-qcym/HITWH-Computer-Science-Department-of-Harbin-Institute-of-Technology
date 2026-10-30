@@ -1,5 +1,13 @@
 # 仓库维护复核记录
 
+## 2026-10-30 第十四批：Parquet同字节校验解析
+
+从b011fa2干净分支续接，Desktop Fetch完成。主控独占backend artifacts与公共材料，内部任务分别新测试、私有验收与只读审查。9例实际RED7失败2通过，三个新tmp包在原digest通过后物理替换合法文件，旧API仍200返回current12345/score0.75/dos2。修复仅统一read_rows与三处正式调用：取得bytes、核原SHA、BufferReader解析同data，保留原typed逻辑和初始digest顺序。
+
+最终完整后端123项通过，仅既有TestClient警告；独立SPEC/QUALITY通过。主控实际四个新Fake任务/DB：正常完整结果、四详情和3导出原字节/headers一致；三变体各原摘要通过1/实际改写1/后续取得1/parser0、安全500且任务仍succeeded。只对应新目标文件改变，其他9文件和manifest保持；前四批旧目录SHA/大小/mtime保持，无模型/预处理调用。[指南](../guides/parquet-byte-consistency.md)、[证据](../research/2026-10-30-parquet-byte-verification.json)。
+
+新文件局部编码buffer与解码表/行同时存在，增加峰值；不新增上限，不宣称完整目录原子性或来源认证。JSON、core loader、生产契约/前端/fixture/真实配置保持。真实CSV/下载0，真实模型/正式实验NOT_RUN、Gate BLOCKED；无监听端口/浏览器，无关本地全套不重复。
+
 ## 2026-10-30 自主第十三批：导出最终字节绑定
 
 从9f426c5干净工作区续接，Desktop Fetch已完成。已证端点在完整校验后再次读文件且不核发送字节；主控修改三个模块，独立任务分别写新tests、私有验收与只读审查。新增14例先RED10失败4通过，修复后完整后端114项通过，既有TestClient警告保留，独立SPEC/QUALITY通过。

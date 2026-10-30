@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 2026-10-30 Parquet物理替换回归
+
+[同字节读取](parquet-byte-consistency.md)使用现有虚拟环境运行 `python -X utf8 -m pytest tests/backend -q`，123项通过（新9/原114）。四个独立新Fake任务实际验证正常结果和三类物理替换；历史四批目录保持，无模型/监听端口/浏览器，未改前端核心和无关本地全套不重复。
+
 ## 导出后读完整性验收
 
 [导出最后读取](export-byte-consistency.md)使用现有虚拟环境运行 `python -X utf8 -m pytest tests/backend -q`，114项通过（新14/原100）。另一个新Fake任务实际验证3种下载与8种后读场景，旧三批目录保持，无监听端口或模型。未改前端、核心与无关本地全套不重复运行。

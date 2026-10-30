@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-10-30",
   "current_stage": "S2",
-  "theme": "自主迭代：最终导出字节绑定本次已验证清单，后读变化安全拒绝；研究Gate仍BLOCKED",
+  "theme": "自主迭代：三类后端Parquet摘要与解析共用字节，校验后物理替换被拒绝；研究Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "修复导出校验后再读可能返回不同内容的问题：捕获本次原manifest摘要，核验并返回同一份bytes，不刷新期望。",
-    "新增14项实际API回归，RED10失败4通过；修复后完整后端114项通过，独立代码审查通过，原状态/头部/白名单保持。",
-    "一个新Fake任务实际通过3类原字节下载与8个后读场景；7种故障安全拒绝，单读正例保持，前三批旧目录SHA/大小/mtime不变。",
-    "此修复不等于全目录原子快照或来源/模型认证；核心/生产契约/前端/fixture不变，真实CSV/下载0、真实模型及正式实验NOT_RUN，Gate BLOCKED。"
+    "修复后端scores/channels/labels先核摘要再按路径解析的缺口：三处正式调用传原SHA，先核取得的bytes再解析同BufferReader。",
+    "新增9项实际回归，RED7失败2通过；三个新临时包旧API确曾返回物理替换后的值，修复后完整后端123项通过，独立代码审查通过。",
+    "实际四个新Fake任务验证完整结果/三类原字节导出及三类物理替换；不符payload进入parser次数0，旧四批目录身份保持。",
+    "保留初始digest顺序，承认单文件编码buffer增加峰值；JSON/core loader及生产契约未改，真实CSV/下载0、真实模型和正式实验NOT_RUN，Gate BLOCKED。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "Parquet同字节校验解析及内存边界",
+      "path": "docs/guides/parquet-byte-consistency.md"
+    },
+    {
+      "label": "三类物理替换实际验证",
+      "path": "docs/research/2026-10-30-parquet-byte-verification.json"
+    },
     {
       "label": "最终导出字节与清单绑定",
       "path": "docs/guides/export-byte-consistency.md"
@@ -2139,6 +2147,16 @@
     "post_validation_cases": 8,
     "old_artifacts_unchanged": true,
     "evidence": "docs/research/2026-10-30-export-byte-verification.json",
+    "remote_CI": "PENDING_AFTER_PUSH"
+  },
+  "parquet_byte_consistency": {
+    "status": "SYNTHETIC_ONLY",
+    "new_backend_tests": 9,
+    "backend_tests_passed": 123,
+    "new_api_tasks": 4,
+    "physical_replacement_cases": 3,
+    "old_artifacts_unchanged": true,
+    "evidence": "docs/research/2026-10-30-parquet-byte-verification.json",
     "remote_CI": "PENDING_AFTER_PUSH"
   }
 }

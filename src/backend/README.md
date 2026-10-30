@@ -1,5 +1,9 @@
 # W2-01 后端与任务管理
 
+## 2026-10-30 三类Parquet同字节校验解析
+
+[read_rows读取身份](../../docs/guides/parquet-byte-consistency.md)由正式SavedArtifacts三处传原SHA；取得payload后先hash再BufferReader解析。保留initial digest和错误顺序，局部编码buffer增加峰值，不新增cap或全目录原子性承诺。123后端与四个新Fake任务验收通过。
+
 ## 2026-10-30 最终导出bytes绑定
 
 [导出字节校验](../../docs/guides/export-byte-consistency.md)捕获本次manifest原摘要，读一次后核该bytes并直接响应；后读消失/异常/不符走原安全错误，404/409与白名单/headers保持。新14/完整后端114项及一个实际Fake任务通过。不修写旧包，不认证来源或完整loader快照。

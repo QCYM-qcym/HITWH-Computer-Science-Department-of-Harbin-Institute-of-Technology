@@ -1,5 +1,9 @@
 # 公开决策与方案差异
 
+## 2026-10-30 后端三类Parquet共用已核字节
+
+采用[单文件字节绑定](../guides/parquet-byte-consistency.md)，三种同构Parquet使用一个helper，正式SavedArtifacts都传本次manifest原SHA；None默认只保留无manifest的旧直接setup兼容。原digest循环保留，后一次取得的bytes同时核验及解析。记录额外编码buffer的峰值成本，不新增公开字段/大小上限；JSON和core独立loader暂不扩大，研究政策不变。
+
 ## 2026-10-30 导出以本次接受清单为准
 
 [导出最终字节](../guides/export-byte-consistency.md)必须匹配本次已验证manifest捕获的原SHA，返回同一份已核bytes，不再次读取路径或清单刷新期望。保留原完整文件和headers；读取失败映射为现有安全错误，不改历史状态，不修写旧包。本工程决定不新增资源上限/流式协议/公共字段，也不声称完整原子快照或来源认证；真实研究批准边界不变。

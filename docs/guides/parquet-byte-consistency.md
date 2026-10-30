@@ -1,0 +1,21 @@
+# Parquet 校验与解析使用同一份字节
+
+日期：2026-10-30。用途：后端保存包的单文件身份检查。接续[最终导出读取修复](export-byte-consistency.md)，对应[实施记录](../superpowers/plans/2026-10-30-parquet-byte-consistency.md)。
+
+旧后端先对manifest各文件计算摘要，随后再次按路径解析Parquet。新建合成包中，原摘要通过后实际改写一个仍合法的Parquet，旧API会返回变更后的current、score或dos计数。三个反例分别保留原时间轴、报警状态或攻击存在性，因此原Schema/汇总校验不能替代字节身份检查。这是确定性临时文件替换验证，不是外部利用或操作系统并发竞态测试。
+
+本次统一处理后端scores、channels和可选labels三类Parquet。SavedArtifacts从本次manifest复制原SHA，三个正式调用都显式传入。read_rows取得一次完整bytes，先核其SHA，再用BufferReader解析同一份bytes；不重新读取manifest更新期望，也不把路径交给Arrow再次读取。摘要不符在解析前拒绝。
+
+原三参数直接调用仍可用，其expected_sha256默认为None，适用于既有人工测试setup；没有期望摘要的独立调用不具备manifest身份保证。生产SavedArtifacts的三处调用均有该参数，不能借兼容默认值跳过检查。原Schema、整分钟时间、唯一递增、通道维度、非有限值、标签独立及汇总/区间规则保持。
+
+原始digest循环与资源/模型兼容性检查顺序不变。因此每个Parquet仍有初始流式摘要读取和随后一次payload取得，不能说整条加载链路只读一次。仅后一次取得的bytes同时用于摘要核验和解析。完整编码缓冲区会与该文件的Arrow表、Python行同时存在，增加峰值内存；缓冲区限定在helper内，不长期保存或缓存，不承诺零复制、固定峰值或RSS立即回落。本批没有新增任意文件上限。
+
+成功任务查询中，payload消失沿原规则返回500/EXECUTION_FAILED及RESULT_MISSING；其他读取错误、截短或摘要不符为ARTIFACT_INVALID。响应不暴露路径或堆栈，不部分返回行，不回退历史任务状态，不自动修包或重新训练。worker完成前错误仍沿原映射处理，不能把Service的details口径套到所有worker失败上。
+
+验证：新增9项测试实际RED7失败/2通过；修复后完整后端123项通过，保留既有TestClient弃用警告。三类合法物理替换均在原摘要通过后执行，旧HTTP200确实展示了替代值，新实现500拒绝且替代payload不进入parser。另验证短读、缺失/读取异常及取得原bytes后路径变化仍解析原内容；无新增参数的签名或收集错误冒充RED。
+
+主控另实际执行4个独立新Fake任务/数据库。正常任务完整series、alarms、evaluation及四分钟详情与样例精确一致，三类导出原字节和headers保持；每类helper各取得一次payload并解析BufferReader、无额外路径打开。三个变体任务各实际替换一类Parquet，原摘要通过/物理替换/后续payload读取各1次、目标parser调用0次，均安全拒绝且任务仍succeeded。仅各变体的目标文件身份改变，其余9文件含manifest保持；保留替换件供本地检查。前四批旧目录SHA/大小/mtime保持，不连接旧数据库。
+
+所有运行均为SYNTHETIC_ONLY、进程内TestClient，无监听端口或浏览器，无模型库/预处理/模型调用。未改前端、核心与无关本地全套不重复运行。[机器记录](../research/2026-10-30-parquet-byte-verification.json)记录实际范围。
+
+保证仅为后端这三类Parquet每文件的解析字节匹配该次manifest原摘要。未修改JSON、核心包独立loader或CSV读者，不认证作者、通道生成、模型或效果，不构成manifest与多文件的同时刻原子快照。生产134/268契约、真实审计证据与研究批准边界不变；真实CSV/下载0，真实训练/评分/Q99及正式实验NOT_RUN，Data Gate BLOCKED。
