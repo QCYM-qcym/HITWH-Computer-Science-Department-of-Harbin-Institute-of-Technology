@@ -1,0 +1,335 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_STORED_AE_RUN_VERIFICATION",
+  "date": "2026-10-30",
+  "base_commit": "5312eefe1c31d72241ddc6ad5a431e7eb30192f4",
+  "status": "PASS",
+  "verifier_profile_id": "c17-i1-g13u-ae-run-verifier-v1",
+  "scope": "STORED_ARTIFACT_CONSISTENCY_ONLY",
+  "model_deserialization": "NOT_PERFORMED",
+  "network_reconstruction": "NOT_PERFORMED",
+  "model_score_replay": "NOT_CHECKED",
+  "training_execution": "NOT_CHECKED",
+  "training_loss_replay": "NOT_CHECKED",
+  "model_origin": "NOT_AUTHENTICATED",
+  "library_versions": "DECLARATION_CONSISTENT_ONLY",
+  "manual": {
+    "invocations": 6,
+    "runs": [
+      {
+        "run_id": "toy-ae-current-20261030-v1",
+        "method": "current_ae",
+        "history_window": null,
+        "minute_count": 144,
+        "score_valid_count": 24,
+        "fit_count": 6,
+        "calibration_count": 6,
+        "threshold": 0.2879734564525531,
+        "policies": {
+          "P_U": {
+            "calendar_test_minutes": 36,
+            "scored_test_minutes": 6,
+            "excluded_unscored_test_minutes": 30,
+            "normal_minutes": 4,
+            "attack_minutes": 1,
+            "unknown_minutes": 1,
+            "unknown_source_attack_present": 0,
+            "confusion_counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            },
+            "undefined_reasons": {
+              "precision": "No positive predictions on scored normal or attack test minutes."
+            }
+          },
+          "P_B": {
+            "calendar_test_minutes": 36,
+            "scored_test_minutes": 6,
+            "excluded_unscored_test_minutes": 30,
+            "normal_minutes": 5,
+            "attack_minutes": 1,
+            "unknown_minutes": 0,
+            "unknown_source_attack_present": 0,
+            "confusion_counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 5,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            },
+            "undefined_reasons": {
+              "precision": "No positive predictions on scored normal or attack test minutes."
+            }
+          },
+          "P_A": {
+            "calendar_test_minutes": 36,
+            "scored_test_minutes": 6,
+            "excluded_unscored_test_minutes": 30,
+            "normal_minutes": 4,
+            "attack_minutes": 2,
+            "unknown_minutes": 0,
+            "unknown_source_attack_present": 0,
+            "confusion_counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 2
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            },
+            "undefined_reasons": {
+              "precision": "No positive predictions on scored normal or attack test minutes."
+            }
+          }
+        },
+        "run_payload_bytes": 64912
+      },
+      {
+        "run_id": "toy-ae-history15-20261030-v1",
+        "method": "history_ae",
+        "history_window": 15,
+        "minute_count": 144,
+        "score_valid_count": 24,
+        "fit_count": 6,
+        "calibration_count": 6,
+        "threshold": 0.3189284776059433,
+        "policies": {
+          "P_U": {
+            "calendar_test_minutes": 36,
+            "scored_test_minutes": 6,
+            "excluded_unscored_test_minutes": 30,
+            "normal_minutes": 4,
+            "attack_minutes": 1,
+            "unknown_minutes": 1,
+            "unknown_source_attack_present": 0,
+            "confusion_counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            },
+            "undefined_reasons": {
+              "precision": "No positive predictions on scored normal or attack test minutes."
+            }
+          },
+          "P_B": {
+            "calendar_test_minutes": 36,
+            "scored_test_minutes": 6,
+            "excluded_unscored_test_minutes": 30,
+            "normal_minutes": 5,
+            "attack_minutes": 1,
+            "unknown_minutes": 0,
+            "unknown_source_attack_present": 0,
+            "confusion_counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 5,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            },
+            "undefined_reasons": {
+              "precision": "No positive predictions on scored normal or attack test minutes."
+            }
+          },
+          "P_A": {
+            "calendar_test_minutes": 36,
+            "scored_test_minutes": 6,
+            "excluded_unscored_test_minutes": 30,
+            "normal_minutes": 4,
+            "attack_minutes": 2,
+            "unknown_minutes": 0,
+            "unknown_source_attack_present": 0,
+            "confusion_counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 2
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            },
+            "undefined_reasons": {
+              "precision": "No positive predictions on scored normal or attack test minutes."
+            }
+          }
+        },
+        "run_payload_bytes": 72022
+      },
+      {
+        "run_id": "toy-ae-history30-20261030-v1",
+        "method": "history_ae",
+        "history_window": 30,
+        "minute_count": 144,
+        "score_valid_count": 24,
+        "fit_count": 6,
+        "calibration_count": 6,
+        "threshold": 0.3189284776059433,
+        "policies": {
+          "P_U": {
+            "calendar_test_minutes": 36,
+            "scored_test_minutes": 6,
+            "excluded_unscored_test_minutes": 30,
+            "normal_minutes": 4,
+            "attack_minutes": 1,
+            "unknown_minutes": 1,
+            "unknown_source_attack_present": 0,
+            "confusion_counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            },
+            "undefined_reasons": {
+              "precision": "No positive predictions on scored normal or attack test minutes."
+            }
+          },
+          "P_B": {
+            "calendar_test_minutes": 36,
+            "scored_test_minutes": 6,
+            "excluded_unscored_test_minutes": 30,
+            "normal_minutes": 5,
+            "attack_minutes": 1,
+            "unknown_minutes": 0,
+            "unknown_source_attack_present": 0,
+            "confusion_counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 5,
+              "fn": 1
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            },
+            "undefined_reasons": {
+              "precision": "No positive predictions on scored normal or attack test minutes."
+            }
+          },
+          "P_A": {
+            "calendar_test_minutes": 36,
+            "scored_test_minutes": 6,
+            "excluded_unscored_test_minutes": 30,
+            "normal_minutes": 4,
+            "attack_minutes": 2,
+            "unknown_minutes": 0,
+            "unknown_source_attack_present": 0,
+            "confusion_counts": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 4,
+              "fn": 2
+            },
+            "metrics": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "fpr": 0.0,
+              "fnr": 1.0
+            },
+            "undefined_reasons": {
+              "precision": "No positive predictions on scored normal or attack test minutes."
+            }
+          }
+        },
+        "run_payload_bytes": 72022
+      }
+    ],
+    "source_modes": [
+      "NOT_PROVIDED",
+      "VERIFIED"
+    ],
+    "scoped_content_reads": [
+      11,
+      12,
+      11,
+      12,
+      11,
+      12
+    ],
+    "each_read_once": true,
+    "models_imported": false,
+    "model_execution": false,
+    "run_files_unchanged": 15,
+    "upstream_files_unchanged": 18,
+    "source_unchanged": true,
+    "sha_and_mtime_unchanged": true,
+    "wall_seconds_including_imports": [
+      0.4648548000259325,
+      0.48480250002467074,
+      0.4578068999981042,
+      0.49260729999514297,
+      0.45599659997969866,
+      0.4833639000135008
+    ]
+  },
+  "tests": {
+    "new_passed": 95,
+    "core_passed": 59,
+    "CLI_passed": 36,
+    "full_missing_module_RED_retained": true,
+    "setup": "SYNTHETIC_ONLY_EXISTING_WRITERS",
+    "verifier_model_execution": "NOT_PERFORMED",
+    "local_full_suite_this_batch": "NOT_RUN_UNCHANGED_MODULES",
+    "independent_review": "SPEC_PASS_QUALITY_PASS",
+    "unresolved_findings": 0,
+    "repository": "13_PASS"
+  },
+  "proof_limits": [
+    "VALID_RESEALED_CHANGED_WEIGHTS_CAN_PASS",
+    "COHERENT_REPLACED_STORED_PREDICTIONS_CAN_PASS",
+    "DECLARED_VERSIONS_RUNTIME_AND_LOSSES_ARE_NOT_EXECUTION_PROOF"
+  ],
+  "production_contract_changed": false,
+  "real_csv_reads": 0,
+  "new_download_bytes": 0,
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

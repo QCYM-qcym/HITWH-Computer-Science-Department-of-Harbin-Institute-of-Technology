@@ -1,5 +1,9 @@
 # 程序入口
 
+## 候选AE结果只读入口
+
+[AE验证CLI](../docs/guides/candidate-ae-run-verification.md)读取五JSON和已核上游，验证权重结构/通道/校准/评价，不导入模型库或重建网络。原生产及IF接口保持，模型得分来源NOT_CHECKED。
+
 ## 候选AE独立CPU入口
 
 [candidate_ae_cli](../docs/guides/candidate-ae-synthetic.md)消费原人工源复查后的候选快照，固定当前13或历史26网络；strict JSON权重、独立校准及重载，不接旧worker。仅导入/帮助无torch，显式执行才加载CPU运行时。

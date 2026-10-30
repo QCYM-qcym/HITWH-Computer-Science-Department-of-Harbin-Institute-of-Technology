@@ -1,5 +1,9 @@
 # 候选当前与历史AE人工运行
 
+## 保存后的独立检查
+
+五JSON可使用[只读验算](candidate-ae-run-verification.md)检查上游身份、结构及保存算术，不重建网络。原本次生成后的参数/模型重放与后来只读复查是两种证据，后者不认证网络产生了保存分数。
+
 用途：离线验证候选13/26维AE的数值、保存和重载接口。日期2026-10-30；身份SYNTHETIC_ONLY / AUDIT_ONLY / ENGINEERING_TOY_ONLY。依据[实施计划](../superpowers/plans/2026-10-30-candidate-ae-synthetic.md)和[V0.40](../reports/开题报告-V0.40-公开文本.md)。本入口与生产134/268、原后端任务及网页分开。
 
 ## 输入和固定工程配置

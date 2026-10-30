@@ -1,5 +1,9 @@
 # 滚动项目路线图
 
+## 2026-10-30 第七批：AE结果可只读消费
+
+[AE五JSON验算](../guides/candidate-ae-run-verification.md)已补齐。下一普通工程接缝是候选IF/AE已有运行的可比性核对及分母/指标汇总，先核同上游、共同分钟和拟合/校准边界，再展示各自已存指标；不跨模型比较分数尺度、不自动判优，不改原API/网页或研究决定。真实研究仍等待[有限试点决定](../research/2026-10-30-limited-pilot-proposal.md)。
+
 ## 2026-10-30 第六批：候选当前与历史AE可人工运行
 
 [候选AE](../guides/candidate-ae-synthetic.md)补齐独立人工当前/历史两类数值和保存重载接缝。下一普通工程项是五JSON产物的独立只读验算与消费准备，分清权重结构/存储一致性和模型实际重放；不把原IF verifier强行适配不同格式，不迁移生产接口。真实研究仍等待[有限试点决定](../research/2026-10-30-limited-pilot-proposal.md)。

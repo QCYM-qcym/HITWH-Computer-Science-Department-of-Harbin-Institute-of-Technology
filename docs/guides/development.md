@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 无模型依赖的AE结果检查
+
+[AE结果验算](candidate-ae-run-verification.md)复用严格JSON权重校验和纯配置/评价函数；禁止Torch、sklearn、joblib导入及模型执行的独立进程验证通过。该证据是导入/执行边界检查，不是新建最小环境或异机恢复证明。实际已有三个运行及其上游只读，原writer和生产134/268不变。
+
 ## 候选AE与CPU依赖兼容
 
 [人工AE入口](candidate-ae-synthetic.md)沿用现有锁定Torch/NumPy环境，没有新包下载。训练和重载明确CPU float32；线程数只记录，CPU RNG成功/失败恢复。为避免Adam隐式查询加速器，实例局部健康检查检查CPU参数/梯度/状态及capture关闭，依赖锁定Torch私有API；升级须重验，缺API安全失败，不放宽生产兼容检查。

@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-10-30",
   "current_stage": "S2",
-  "theme": "自主迭代：候选当前/历史AE人工链路与安全JSON重载完成；真实研究Gate仍BLOCKED",
+  "theme": "自主迭代：候选AE五JSON只读验算完成；模型来源未认证，真实研究Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增隔离13维当前AE和26维历史AE人工CLI，固定CPU小网络/5轮，独立Q99、完整轴null和三政策评价；生产134/268保持。",
-    "严格JSON八tensor权重重建和逐参数位模式重放通过；修复CPU Adam隐式加速器查询，锁定私有接口缺失安全失败，不修改全局torch。",
-    "新增138项、完整Python870项与56subtests通过，2本机链接权限skip及1既有警告；独立Spec/Quality PASS。",
-    "当前/H15/H30三次人工运行均144轴/24分数、训练校准各6，无报警/全漏报/precision null负例保留；未择优、未读真实CSV，Gate BLOCKED。"
+    "新增AE五JSON只读验证及CLI，按上游重建binding、核权重结构/通道归约/Q99/三政策；不导入模型库或重建网络。",
+    "新增95项测试通过，独立Spec/Quality PASS；重封摘要后的语义篡改被拒，合法改权重与自洽替换预测保留NOT_CHECKED边界。",
+    "原三个人工AE各有/无源共六次复查通过，15运行/18上游文件和源的SHA及mtime不变，每次11/12份内容各读一次。",
+    "缺源NOT_PROVIDED、版本仅声明一致；人工无报警/全漏报负例保持，真实CSV/下载0，真实模型与正式实验NOT_RUN，Gate BLOCKED。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "候选AE五JSON只读验算与证明范围",
+      "path": "docs/guides/candidate-ae-run-verification.md"
+    },
+    {
+      "label": "六次实际复查与新增测试证据",
+      "path": "docs/research/2026-10-30-candidate-ae-run-verification.json"
+    },
     {
       "label": "候选当前与历史AE人工运行及安全JSON权重",
       "path": "docs/guides/candidate-ae-synthetic.md"
@@ -2008,5 +2016,16 @@
     "data_gate": "BLOCKED",
     "remote_CI": "PENDING_AFTER_PUSH",
     "guide": "docs/guides/candidate-ae-synthetic.md"
+  },
+  "candidate_ae_run_verification": {
+    "status": "SYNTHETIC_ONLY",
+    "new_tests_passed": 95,
+    "manual_verifications": 6,
+    "source_file_changes": 0,
+    "model_execution": "NOT_PERFORMED",
+    "model_score_replay": "NOT_CHECKED",
+    "evidence": "docs/research/2026-10-30-candidate-ae-run-verification.json",
+    "guide": "docs/guides/candidate-ae-run-verification.md",
+    "remote_CI": "PENDING_AFTER_PUSH"
   }
 }

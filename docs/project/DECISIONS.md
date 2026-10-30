@@ -1,5 +1,11 @@
 # 公开决策与方案差异
 
+## 2026-10-30 AE只读证明范围
+
+[独立AE验算](../guides/candidate-ae-run-verification.md)只核五JSON、上游绑定、权重结构和保存数值关系。expected binding来自快照与固定配置；版本/runtime/loss只核受限声明，缺源NOT_PROVIDED。权重1MiB、其他单JSON16MiB、总32MiB，路径先词法检查，内容单次读取。
+
+合法改权重或内部自洽替换保存预测的正例可以通过；网络重建NOT_PERFORMED，模型得分/训练/轨迹NOT_CHECKED，作者来源NOT_AUTHENTICATED。该普通工程选择不改变AE writer、IF验证接口、研究协议或生产契约，不把“VERIFIED”解释为模型真实性。
+
 ## 2026-10-30 候选AE安全状态与工程配置
 
 采用独立[当前13/历史26人工AE](../guides/candidate-ae-synthetic.md)，固定8/3/8隐层与5轮CPU全batch；288/509参数不等，不是正式容量匹配。配置与窗口仅ENGINEERING_TOY_ONLY，不据人工结果选参。评分先float64再作差平方，历史前后通道等权，独立Q99/strict>，原未知及无效分母语义保持。

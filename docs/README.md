@@ -1,5 +1,9 @@
 # 文档导航
 
+## 候选AE只读结果检查
+
+[五JSON验算入口](guides/candidate-ae-run-verification.md)、[六次实际证据](research/2026-10-30-candidate-ae-run-verification.json)、[实施记录](superpowers/plans/2026-10-30-candidate-ae-run-verifier.md)。只核存储一致性，不执行或认证模型。
+
 ## 候选AE人工链路
 
 [当前/历史AE与JSON权重运行](guides/candidate-ae-synthetic.md)、[三次实际证据](research/2026-10-30-candidate-ae-verification.json)和[实施记录](superpowers/plans/2026-10-30-candidate-ae-synthetic.md)。仅SYNTHETIC_ONLY，原研究和生产接口不变。
