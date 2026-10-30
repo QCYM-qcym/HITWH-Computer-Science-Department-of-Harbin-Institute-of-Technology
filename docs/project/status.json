@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-10-30",
   "current_stage": "S2",
-  "theme": "自主迭代：候选输入链路、只读复查与不可变快照完成；真实研究Gate仍BLOCKED",
+  "theme": "自主迭代：候选13维IF合成评分、保存重载与三政策评价完成；真实研究Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增同次读取的候选产物快照，旧verify报告/CLI兼容；13维与历史、标签和资格从已验证原产物交接，不重复重读或重拟合。",
-    "四类冻结对象使用slots，23数组bytes存储且每次返回独立view，原文件后改与本地view元数据修改不影响快照。",
-    "新增22项通过，候选相关234项通过/1本机链接权限skip；审查发现的内部字典改写入口已失败复现并修复。",
-    "三政策有/无源6次加载通过，18文件未改；独立候选13维IF尚未实现或运行，真实CSV读取/新下载0，Gate与真实NOT_RUN保持。"
+    "基于已验证快照完成独立候选13维IF合成CLI，train正常共同拟合、独立calibration Q99/strict>，显式run_id贯穿五产物；未迁移生产134/268。",
+    "新增107项测试通过，完整Python580项及56subtests通过/1本机链接权限skip；独立审查修复路径别名、真实字节限额和重载安全错误。",
+    "实际人工144分钟/24有分数、train/cal各6；模型自产保存/当次重载及独立阈值/混淆核对通过，上游18文件未改。",
+    "人工模型无报警，三政策攻击均漏报、precision null，负结果保留；仅ENGINEERING_TOY_ONLY，最终标签/采用/真实模型仍未批准，Gate BLOCKED。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "候选13维IF人工评分、独立校准与三政策评价运行",
+      "path": "docs/guides/candidate-if-synthetic.md"
+    },
+    {
+      "label": "候选IF实际产物、漏报负例与完整测试证据",
+      "path": "docs/research/2026-10-30-candidate-if-verification.json"
+    },
     {
       "label": "已验证候选产物不可变快照与消费接口",
       "path": "docs/guides/candidate-snapshots.md"
@@ -1131,5 +1139,180 @@
     "remote_CI": "PENDING_AFTER_PUSH",
     "guide": "docs/guides/candidate-snapshots.md",
     "candidate_13d_IF_implementation": "NOT_RUN"
+  },
+  "candidate_if_synthetic_development": {
+    "status": "PASS",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "scope": "ENGINEERING_TOY_ONLY",
+    "run_id": "toy-if-20261030-v1",
+    "CLI_exit": 0,
+    "fit_count": 6,
+    "calibration_count": 6,
+    "full_axis": 144,
+    "score_valid": 24,
+    "selected_policy": "P_U",
+    "calibration_position": 4.95,
+    "threshold": 0.5531029014846093,
+    "independent_threshold": 0.5531029014846093,
+    "policies": {
+      "P_U": {
+        "normal": 4,
+        "attack": 1,
+        "unknown": 1,
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 1
+        },
+        "metrics": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "fnr": 1.0
+        }
+      },
+      "P_B": {
+        "normal": 5,
+        "attack": 1,
+        "unknown": 0,
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 5,
+          "fn": 1
+        },
+        "metrics": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "fnr": 1.0
+        }
+      },
+      "P_A": {
+        "normal": 4,
+        "attack": 2,
+        "unknown": 0,
+        "counts": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 2
+        },
+        "metrics": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "fnr": 1.0
+        }
+      }
+    },
+    "upstream_files_unchanged": 18,
+    "source_unchanged": true,
+    "artifacts": {
+      "evaluation.json": {
+        "sha256": "20d19dbbae53439b008f6915b2ba972d292a2bd0a67bd1f24155f4d9a0b4d740",
+        "byte_count": 6481
+      },
+      "manifest.json": {
+        "sha256": "3a7f7a93863d8c20498c9c94dac4f755362b062ed5dca65ea8c3c3a007f74e42",
+        "byte_count": 4415
+      },
+      "model-state.json": {
+        "sha256": "7c6e3814809dbc22fe1e218092fb125505afabcbb2ce1eada41abb99ab2f083f",
+        "byte_count": 4147
+      },
+      "scores.json": {
+        "sha256": "415333e362e868007d14a055c989d6508b8dd2955bf02b34fd01301503a8522d",
+        "byte_count": 28600
+      },
+      "weights.bin": {
+        "sha256": "306c9f36904b515569f9d06327424c52846527ecf90fb9b77e155a15872accab",
+        "byte_count": 17933
+      }
+    },
+    "library_versions": {
+      "joblib": "1.6.0",
+      "numpy": "2.5.4",
+      "python": "3.14.0",
+      "scikit_learn": "1.9.1"
+    },
+    "configuration": {
+      "alarm_comparison": "STRICT_GREATER",
+      "bootstrap": false,
+      "calibration_scope": "CALIBRATION_NORMAL_COMMON",
+      "contamination": "auto",
+      "fit_scope": "TRAIN_NORMAL_COMMON",
+      "input_width": 13,
+      "max_features": 1.0,
+      "max_samples": 6,
+      "model_profile_id": "c17-i1-g13u-iforest-synthetic-v1",
+      "n_estimators": 16,
+      "n_jobs": 1,
+      "parameter_status": "ENGINEERING_TOY_ONLY",
+      "preprocessing_fit_provenance": "NOT_REESTIMATED",
+      "quantile": 0.99,
+      "quantile_method": "linear",
+      "random_state": 42,
+      "score_direction": "HIGHER_IS_MORE_ANOMALOUS"
+    },
+    "wall_seconds_including_imports": 1.353486799998791,
+    "memory_measurement": "NOT_RUN",
+    "artifact_kind": "SYNTHETIC_ONLY_CANDIDATE_13D_IF_CHAIN",
+    "date": "2026-10-30",
+    "base_commit": "b224c2e948396548798c5e1d80cdf1f399ad8bb9",
+    "hash_scope": "LOCAL_SYNTHETIC_RUN_IDENTITY_NOT_OFFICIAL_OR_CROSS_PLATFORM_AUTHENTICATION",
+    "TDD": {
+      "core_initial_failed": 19,
+      "evaluation_W0_initial_failed": 49,
+      "CLI_initial_failed": 30,
+      "initial_complete_logs_retained": true,
+      "fixed_review_findings": [
+        "canonical_output_path_alias",
+        "memoryview_byte_count_cap",
+        "safe_standard_model_reload_errors"
+      ],
+      "other_fixed_boundary": "score_valid_must_equal_common"
+    },
+    "tests": {
+      "core_passed": 19,
+      "evaluation_passed": 49,
+      "CLI_passed": 39,
+      "new_passed": 107,
+      "full_python_passed": 580,
+      "full_python_skipped": 1,
+      "full_python_subtests": 56,
+      "skip_reason": "WINDOWS_HOST_DENIES_ACTUAL_SYMLINK_CREATION",
+      "warning": "ONE_PREEXISTING_TESTCLIENT_DEPRECATION",
+      "independent_review": "SPEC_PASS_QUALITY_PASS",
+      "independent_targeted_passed": 9,
+      "unresolved_findings": 0,
+      "repository_checks": "PASS",
+      "repository_tests": 13,
+      "worktree_checked_files": 426,
+      "worktree_issues": 0,
+      "changed_files": 19,
+      "changed_markdown_links": 311,
+      "vault_wiki_links": 5,
+      "privacy_and_links": "PASS",
+      "production_and_frozen_audits_unchanged": true,
+      "stage_criteria_unchanged": true
+    },
+    "detection_outcome": "NO_ALARMS_ALL_LABELED_ATTACK_MINUTES_MISSED_PRECISION_NULL_RETAINED",
+    "production_contract_changed": false,
+    "new_payload_download_bytes": 0,
+    "real_csv_reads": 0,
+    "real_preprocessing": "NOT_RUN",
+    "real_models": "NOT_RUN",
+    "real_Q99": "NOT_RUN",
+    "formal_experiments": "NOT_RUN",
+    "final_label_policy": "NOT_APPROVED",
+    "main_data_adoption": "NOT_APPROVED",
+    "data_gate": "BLOCKED",
+    "remote_CI": "PENDING_AFTER_PUSH",
+    "guide": "docs/guides/candidate-if-synthetic.md"
   }
 }

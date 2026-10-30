@@ -1,0 +1,174 @@
+{
+  "status": "PASS",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "scope": "ENGINEERING_TOY_ONLY",
+  "run_id": "toy-if-20261030-v1",
+  "CLI_exit": 0,
+  "fit_count": 6,
+  "calibration_count": 6,
+  "full_axis": 144,
+  "score_valid": 24,
+  "selected_policy": "P_U",
+  "calibration_position": 4.95,
+  "threshold": 0.5531029014846093,
+  "independent_threshold": 0.5531029014846093,
+  "policies": {
+    "P_U": {
+      "normal": 4,
+      "attack": 1,
+      "unknown": 1,
+      "counts": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 4,
+        "fn": 1
+      },
+      "metrics": {
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0
+      }
+    },
+    "P_B": {
+      "normal": 5,
+      "attack": 1,
+      "unknown": 0,
+      "counts": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 5,
+        "fn": 1
+      },
+      "metrics": {
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0
+      }
+    },
+    "P_A": {
+      "normal": 4,
+      "attack": 2,
+      "unknown": 0,
+      "counts": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 4,
+        "fn": 2
+      },
+      "metrics": {
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0
+      }
+    }
+  },
+  "upstream_files_unchanged": 18,
+  "source_unchanged": true,
+  "artifacts": {
+    "evaluation.json": {
+      "sha256": "20d19dbbae53439b008f6915b2ba972d292a2bd0a67bd1f24155f4d9a0b4d740",
+      "byte_count": 6481
+    },
+    "manifest.json": {
+      "sha256": "3a7f7a93863d8c20498c9c94dac4f755362b062ed5dca65ea8c3c3a007f74e42",
+      "byte_count": 4415
+    },
+    "model-state.json": {
+      "sha256": "7c6e3814809dbc22fe1e218092fb125505afabcbb2ce1eada41abb99ab2f083f",
+      "byte_count": 4147
+    },
+    "scores.json": {
+      "sha256": "415333e362e868007d14a055c989d6508b8dd2955bf02b34fd01301503a8522d",
+      "byte_count": 28600
+    },
+    "weights.bin": {
+      "sha256": "306c9f36904b515569f9d06327424c52846527ecf90fb9b77e155a15872accab",
+      "byte_count": 17933
+    }
+  },
+  "library_versions": {
+    "joblib": "1.6.0",
+    "numpy": "2.5.4",
+    "python": "3.14.0",
+    "scikit_learn": "1.9.1"
+  },
+  "configuration": {
+    "alarm_comparison": "STRICT_GREATER",
+    "bootstrap": false,
+    "calibration_scope": "CALIBRATION_NORMAL_COMMON",
+    "contamination": "auto",
+    "fit_scope": "TRAIN_NORMAL_COMMON",
+    "input_width": 13,
+    "max_features": 1.0,
+    "max_samples": 6,
+    "model_profile_id": "c17-i1-g13u-iforest-synthetic-v1",
+    "n_estimators": 16,
+    "n_jobs": 1,
+    "parameter_status": "ENGINEERING_TOY_ONLY",
+    "preprocessing_fit_provenance": "NOT_REESTIMATED",
+    "quantile": 0.99,
+    "quantile_method": "linear",
+    "random_state": 42,
+    "score_direction": "HIGHER_IS_MORE_ANOMALOUS"
+  },
+  "wall_seconds_including_imports": 1.353486799998791,
+  "memory_measurement": "NOT_RUN",
+  "artifact_kind": "SYNTHETIC_ONLY_CANDIDATE_13D_IF_CHAIN",
+  "date": "2026-10-30",
+  "base_commit": "b224c2e948396548798c5e1d80cdf1f399ad8bb9",
+  "hash_scope": "LOCAL_SYNTHETIC_RUN_IDENTITY_NOT_OFFICIAL_OR_CROSS_PLATFORM_AUTHENTICATION",
+  "TDD": {
+    "core_initial_failed": 19,
+    "evaluation_W0_initial_failed": 49,
+    "CLI_initial_failed": 30,
+    "initial_complete_logs_retained": true,
+    "fixed_review_findings": [
+      "canonical_output_path_alias",
+      "memoryview_byte_count_cap",
+      "safe_standard_model_reload_errors"
+    ],
+    "other_fixed_boundary": "score_valid_must_equal_common"
+  },
+  "tests": {
+    "core_passed": 19,
+    "evaluation_passed": 49,
+    "CLI_passed": 39,
+    "new_passed": 107,
+    "full_python_passed": 580,
+    "full_python_skipped": 1,
+    "full_python_subtests": 56,
+    "skip_reason": "WINDOWS_HOST_DENIES_ACTUAL_SYMLINK_CREATION",
+    "warning": "ONE_PREEXISTING_TESTCLIENT_DEPRECATION",
+    "independent_review": "SPEC_PASS_QUALITY_PASS",
+    "independent_targeted_passed": 9,
+    "unresolved_findings": 0,
+    "repository_checks": "PASS",
+    "repository_tests": 13,
+    "worktree_checked_files": 426,
+    "worktree_issues": 0,
+    "changed_files": 19,
+    "changed_markdown_links": 311,
+    "vault_wiki_links": 5,
+    "privacy_and_links": "PASS",
+    "production_and_frozen_audits_unchanged": true,
+    "stage_criteria_unchanged": true
+  },
+  "detection_outcome": "NO_ALARMS_ALL_LABELED_ATTACK_MINUTES_MISSED_PRECISION_NULL_RETAINED",
+  "production_contract_changed": false,
+  "new_payload_download_bytes": 0,
+  "real_csv_reads": 0,
+  "real_preprocessing": "NOT_RUN",
+  "real_models": "NOT_RUN",
+  "real_Q99": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "final_label_policy": "NOT_APPROVED",
+  "main_data_adoption": "NOT_APPROVED",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

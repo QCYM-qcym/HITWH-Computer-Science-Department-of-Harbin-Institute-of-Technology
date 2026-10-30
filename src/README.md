@@ -1,5 +1,9 @@
 # 程序入口
 
+## 候选13维IF工程入口
+
+[独立合成CLI](../docs/guides/candidate-if-synthetic.md)在人工快照上拟合当前13维IF，独立校准、保存当次重载、导出完整轴和三政策评价。它不注册生产worker，也不放宽下述既有134/268模型契约。
+
 ## 已验证候选载荷
 
 [不可变加载API](../docs/guides/candidate-snapshots.md)供后续隔离候选消费者使用，保留旧校验CLI。每文件读一次，实际数值/历史/标签与摘要同时冻结；不重拟合、不注册生产worker。

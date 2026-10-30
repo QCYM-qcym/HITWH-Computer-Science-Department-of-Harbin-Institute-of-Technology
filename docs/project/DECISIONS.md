@@ -1,5 +1,11 @@
 # 公开决策与方案差异
 
+## 2026-10-30 候选IF合成执行决定
+
+依据自主普通工程授权，实现[独立候选13维IF演练](../guides/candidate-if-synthetic.md)，使用已验证人工快照；16树、max_samples=min(32,N_train)、seed42、单线程仅ENGINEERING_TOY_ONLY，不设最低32条要求。资格取既有共同集合，独立正常校准Q99 strict>；当前未知仍评分，正常/攻击分母排除未知并给null原因。
+
+同一模型固定预测后评价三政策，选中P_U仅是本次人工包AUDIT_ONLY身份，不冻结真实标签。只允许本进程自产权重字节比对后的当次重载，无外部模型/resume入口。新独占目录、有界buffer、五固定产物、manifest最后是工程决定；不放宽生产模型宽度/UGR标签/HTTP契约，不授予真实模型或主数据迁移批准。
+
 ## 2026-10-30 同次验证快照工程决定
 
 主控将后续模型接缝分解，先实现[不可变产物快照](../guides/candidate-snapshots.md)，本批不运行候选IF。保留原verify报告与写入格式；不二次读取，返回实际已验证artifact值，容差只用于验算。递归只读映射、slots和bytes-backed独立view防普通代码修改快照，report_dict提供可改导出副本。

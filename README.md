@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：候选输入链路、只读复查与不可变快照完成；真实研究Gate仍BLOCKED。
+最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：候选13维IF合成评分、保存重载与三政策评价完成；真实研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增同次读取的候选产物快照，旧verify报告/CLI兼容；13维与历史、标签和资格从已验证原产物交接，不重复重读或重拟合。
-- 四类冻结对象使用slots，23数组bytes存储且每次返回独立view，原文件后改与本地view元数据修改不影响快照。
-- 新增22项通过，候选相关234项通过/1本机链接权限skip；审查发现的内部字典改写入口已失败复现并修复。
-- 三政策有/无源6次加载通过，18文件未改；独立候选13维IF尚未实现或运行，真实CSV读取/新下载0，Gate与真实NOT_RUN保持。
+- 基于已验证快照完成独立候选13维IF合成CLI，train正常共同拟合、独立calibration Q99/strict>，显式run_id贯穿五产物；未迁移生产134/268。
+- 新增107项测试通过，完整Python580项及56subtests通过/1本机链接权限skip；独立审查修复路径别名、真实字节限额和重载安全错误。
+- 实际人工144分钟/24有分数、train/cal各6；模型自产保存/当次重载及独立阈值/混淆核对通过，上游18文件未改。
+- 人工模型无报警，三政策攻击均漏报、precision null，负结果保留；仅ENGINEERING_TOY_ONLY，最终标签/采用/真实模型仍未批准，Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [候选13维IF人工评分、独立校准与三政策评价运行](<docs/guides/candidate-if-synthetic.md>)
+- [候选IF实际产物、漏报负例与完整测试证据](<docs/research/2026-10-30-candidate-if-verification.json>)
 - [已验证候选产物不可变快照与消费接口](<docs/guides/candidate-snapshots.md>)
 - [快照单次读取、冻结与实际加载证据](<docs/research/2026-10-30-candidate-snapshots-verification.json>)
 - [候选合成产物只读校验与搬迁复查](<docs/guides/candidate-artifacts.md>)

@@ -1,5 +1,9 @@
 # 文档导航
 
+## 候选13维IF合成运行
+
+[运行与五产物](guides/candidate-if-synthetic.md)、[实际阈值/分母/漏报与测试记录](research/2026-10-30-candidate-if-verification.json)。当前只有SYNTHETIC_ONLY工程演练，真实模型/正式实验NOT_RUN，Data Gate BLOCKED。
+
 ## 候选产物消费接缝
 
 [不可变快照接口](guides/candidate-snapshots.md)、[实际验证](research/2026-10-30-candidate-snapshots-verification.json)及[第三批计划](superpowers/plans/2026-10-30-candidate-verified-snapshot.md)。同次读取、实际值保留、数组和元数据隔离已经验证；独立候选13维IF尚未实现，真实Gate仍BLOCKED。

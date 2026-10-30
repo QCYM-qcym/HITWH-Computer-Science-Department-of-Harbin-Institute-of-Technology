@@ -1,5 +1,15 @@
 # 仓库维护复核记录
 
+## 2026-10-30 自主第四批：候选13维IF合成演练
+
+用户查询后核现场：最新仍b224c2e，03:48之后无新提交，未把ACTIVE自动配置解释成已持续执行。主控如实汇报后继续实现；保留同一隔离分支，三个内部任务独占评价/CLI和只读审查，主控核心/公共记录。既有生产IF/AE及134/268不改。
+
+核心19、评价W0环境49、CLI30项完整缺模块/入口RED保留，再实现通过；CLI新增别名/exact-common、typed memoryview nbytes及5类重载异常RED后修复，最终39项通过。三类审查P2已修，Spec/Quality PASS、独立针对9通过，无遗留。新107、完整Python580/56subtests通过，1本机实际链接权限skip与1既有TestClient警告保留；不重复无关本地前端构建，远端集成CI仍跑完整前端。
+
+实际一次人工CLI run_id=toy-if-20261030-v1，144分钟/24有分数，train/cal各6、16树/max_samples6/seed42。自产模型有界保存并仅当次重载，五产物ID/配置/版本/上游摘要与完整轴核对；根独立标准库重算linear Q99位置4.95、阈值0.5531029014846093、strict>及三政策混淆一致。P_U4正常/1攻击/1未知，P_B5/1/0，P_A4/2/0；无报警，TP/FP均0、FNR1、precision null，负例不改输入或阈值。上游18文件与原人工源SHA不变。
+
+运行墙钟约1.353秒含解释器导入，内存NOT_RUN，不当性能达标。见[运行指南](../guides/candidate-if-synthetic.md)及[实际验证](../research/2026-10-30-candidate-if-verification.json)。根维护状态/README/路线图/Gate及Vault；仓库13项、进度write/check及worktree426文件零问题，19改动/311 Markdown链接/5知识库链接检查通过。Desktop/远端/CI按收尾实况登记。全程ENGINEERING_TOY_ONLY，真实CSV/新下载0，真实拟合/训练/评分/Q99/正式实验NOT_RUN。
+
 ## 2026-10-30 自主第三批：不可变候选快照
 
 从已同步62d6b16在同一隔离分支继续。主控先选IF前置的载荷接缝，不实现模型；独立任务先写22项测试，另一任务只读审查。每个文件同次有界读取，返回已验证原artifact值与实际manifest/fixture/preprocess摘要，旧报告API/CLI不变。保存参数不重新拟合，缺源不声称已核原记录。

@@ -1,5 +1,9 @@
 # 已验证候选产物的只读快照
 
+## 后续候选消费者
+
+[候选13维IF合成入口](candidate-if-synthetic.md)现已消费本快照；必需原人工source重放通过，再独占输出和执行工程toy模型。它不改变本加载API、原写入格式或真实准入。
+
 日期：2026-10-30。身份：**SYNTHETIC_ONLY**。用途：让后续候选消费者取得同一次有界读取、完整验证后的值，避免先校验再自行重开JSON。依据[只读产物复查](candidate-artifacts.md)和[本批计划](../superpowers/plans/2026-10-30-candidate-verified-snapshot.md)。本批不实现或运行候选IF，不做评分、校准或研究决策。
 
 ## Python入口

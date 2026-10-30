@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 候选IF合成命令的环境
+
+[候选13维IF CLI](candidate-if-synthetic.md)使用现有backend锁定环境中的scikit-learn/joblib，无新增依赖。该命令模块导入时需要模型依赖；只安装核心NumPy/Pydantic的环境不能运行模型CLI。原contracts导入规则和CPU/GPU边界保持；本入口不需要GPU，也不代表真实研究参数已定。
+
 用途：契约安装、检查与各工作区入口。日期：2026-10-21。状态：SYNTHETIC_ONLY；业务核心、API、页面及真实实验尚未实现。依据：[计划](../superpowers/plans/2026-10-21-parallel-development.md)、[契约](../design/contracts-v1.md)。
 
 本轮实际验证 Windows、Python 3.14.0、Node v24.18.0。选用已有Python/Node版本，在独立环境实际安装锁定依赖并验证CPU运行，避免仅按版本号认定兼容。Python主版本暂限3.14；Node作为后续Vue工具链的已知基点，本轮没有验证网页构建。核心契约只依赖NumPy/Pydantic；导入不加载PyTorch/sklearn。CPU完整依赖见 `src/core/requirements-cpu-lock.txt`，不含个人路径及editable包。W1/W2共用此Python和核心类型版本；W2增加FastAPI时须检查整个环境的依赖并提交模块锁。W3沿用Node 24.18，建立package-lock并用npm ci验证。前后端具体依赖由各自任务验证后锁定，不将候选版本写成已兼容。
