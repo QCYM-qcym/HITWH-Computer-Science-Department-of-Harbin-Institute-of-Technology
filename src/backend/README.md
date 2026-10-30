@@ -1,5 +1,9 @@
 # W2-01 后端与任务管理
 
+## 2026-10-30 五类JSON同字节校验解析
+
+[read_json读取身份](../../docs/guides/json-byte-consistency.md)由正式SavedArtifacts五处传各自原SHA；取得payload后先hash再同对象解析。根manifest无parent摘要，旧两参setup保持。保留初始digest/错误顺序，不新增cap或目录原子性承诺。134后端与六个新Fake任务验收通过。
+
 ## 2026-10-30 三类Parquet同字节校验解析
 
 [read_rows读取身份](../../docs/guides/parquet-byte-consistency.md)由正式SavedArtifacts三处传原SHA；取得payload后先hash再BufferReader解析。保留initial digest和错误顺序，局部编码buffer增加峰值，不新增cap或全目录原子性承诺。123后端与四个新Fake任务验收通过。

@@ -1,5 +1,9 @@
 # 文档导航
 
+## 2026-10-30 JSON解析的单文件身份
+
+[保证及限制](guides/json-byte-consistency.md)、[实际验证](research/2026-10-30-json-byte-verification.json)、[实施记录](superpowers/plans/2026-10-30-json-byte-consistency.md)。五类后端JSON先核取得字节再解析同对象，根manifest不作来源认证。
+
 ## 2026-10-30 Parquet解析的单文件身份
 
 [保证及内存成本](guides/parquet-byte-consistency.md)、[实际验证](research/2026-10-30-parquet-byte-verification.json)、[实施记录](superpowers/plans/2026-10-30-parquet-byte-consistency.md)。后端三类Parquet先核取得的字节再解析同buffer。

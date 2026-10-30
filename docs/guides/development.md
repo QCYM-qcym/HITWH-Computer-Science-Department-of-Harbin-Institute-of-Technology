@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 2026-10-30 JSON物理替换回归
+
+[同字节读取](json-byte-consistency.md)使用现有虚拟环境运行 `python -X utf8 -m pytest tests/backend -q`，134项通过（新11/原123）。六个独立新Fake任务验证正常结果与五类物理替换；历史五批目录保持，无模型/监听端口/浏览器，未改前端核心和无关本地全套不重复。
+
 ## 2026-10-30 Parquet物理替换回归
 
 [同字节读取](parquet-byte-consistency.md)使用现有虚拟环境运行 `python -X utf8 -m pytest tests/backend -q`，123项通过（新9/原114）。四个独立新Fake任务实际验证正常结果和三类物理替换；历史四批目录保持，无模型/监听端口/浏览器，未改前端核心和无关本地全套不重复。

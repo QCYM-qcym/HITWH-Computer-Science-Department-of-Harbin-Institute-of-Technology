@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：三类后端Parquet摘要与解析共用字节，校验后物理替换被拒绝；研究Gate仍BLOCKED。
+最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：五类后端JSON摘要与解析共用字节，校验后物理替换被拒绝；研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 修复后端scores/channels/labels先核摘要再按路径解析的缺口：三处正式调用传原SHA，先核取得的bytes再解析同BufferReader。
-- 新增9项实际回归，RED7失败2通过；三个新临时包旧API确曾返回物理替换后的值，修复后完整后端123项通过，独立代码审查通过。
-- 实际四个新Fake任务验证完整结果/三类原字节导出及三类物理替换；不符payload进入parser次数0，旧四批目录身份保持。
-- 保留初始digest顺序，承认单文件编码buffer增加峰值；JSON/core loader及生产契约未改，真实CSV/下载0、真实模型和正式实验NOT_RUN，Gate BLOCKED。
+- 修复summary/config/metrics/model metadata/preprocess五类JSON先核摘要再按路径解析的缺口；正式调用传原SHA，核取得bytes后解析同对象。
+- 11项新回归RED6失败5通过，五种合法替换旧接口确曾返回200；修复后完整后端134项通过，独立SPEC/QUALITY审查通过。
+- 实际六个新Fake任务核正常完整结果/三类原字节导出及五种物理替换；不符payload进入parser次数0，前五批旧目录身份保持，无模型调用。
+- 根manifest无上级摘要、不作来源认证；原因/高负载语义和core入口未扩张，研究契约不变，真实CSV/下载0、真实模型及正式实验NOT_RUN、Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [五类JSON同字节校验解析](<docs/guides/json-byte-consistency.md>)
+- [五类JSON物理替换实际验证](<docs/research/2026-10-30-json-byte-verification.json>)
 - [Parquet同字节校验解析及内存边界](<docs/guides/parquet-byte-consistency.md>)
 - [三类物理替换实际验证](<docs/research/2026-10-30-parquet-byte-verification.json>)
 - [最终导出字节与清单绑定](<docs/guides/export-byte-consistency.md>)

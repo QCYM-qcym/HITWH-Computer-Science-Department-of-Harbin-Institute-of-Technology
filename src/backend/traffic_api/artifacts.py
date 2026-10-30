@@ -46,8 +46,11 @@ def safe_path(root, relative):
     return path
 
 
-def read_json(path, model):
-    return model.model_validate_json(path.read_bytes())
+def read_json(path, model, *, expected_sha256=None):
+    data = path.read_bytes()
+    if expected_sha256 is not None and sha256(data).hexdigest() != expected_sha256:
+        raise ValueError('json bytes differ from verified manifest')
+    return model.model_validate_json(data)
 
 
 def read_rows(path, schema, model, *, expected_sha256=None):
@@ -122,11 +125,16 @@ class SavedArtifacts:
                 export_entries[entry.path] = (path, entry.sha256)
         if safe_path(workspace, result.summary_path) != self.files['summary.json'] or safe_path(workspace, result.scores_path) != self.files['scores.parquet']:
             raise ValueError('result files do not match manifest')
-        self.summary = read_json(self.files['summary.json'], c.RunSummary)
-        saved_config = read_json(self.files['config.json'], c.RunConfig)
-        self.evaluation = read_json(self.files['metrics.json'], c.Evaluation)
-        metadata = read_json(self.files['model/metadata.json'], c.ModelMetadata)
-        preprocess = read_json(self.files['model/preprocess.json'], c.PreprocessState)
+        self.summary = read_json(self.files['summary.json'], c.RunSummary,
+                                 expected_sha256=verified_hashes['summary.json'])
+        saved_config = read_json(self.files['config.json'], c.RunConfig,
+                                 expected_sha256=verified_hashes['config.json'])
+        self.evaluation = read_json(self.files['metrics.json'], c.Evaluation,
+                                    expected_sha256=verified_hashes['metrics.json'])
+        metadata = read_json(self.files['model/metadata.json'], c.ModelMetadata,
+                             expected_sha256=verified_hashes['model/metadata.json'])
+        preprocess = read_json(self.files['model/preprocess.json'], c.PreprocessState,
+                               expected_sha256=verified_hashes['model/preprocess.json'])
         c.validate_model_compatibility(metadata, self.summary.feature_names, preprocess, config)
         payload = next((entry for entry in manifest.files if entry.path == metadata.payload.path), None)
         if payload != metadata.payload:

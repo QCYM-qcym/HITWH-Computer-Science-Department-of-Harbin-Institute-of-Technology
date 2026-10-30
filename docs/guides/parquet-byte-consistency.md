@@ -19,3 +19,6 @@
 所有运行均为SYNTHETIC_ONLY、进程内TestClient，无监听端口或浏览器，无模型库/预处理/模型调用。未改前端、核心与无关本地全套不重复运行。[机器记录](../research/2026-10-30-parquet-byte-verification.json)记录实际范围。
 
 保证仅为后端这三类Parquet每文件的解析字节匹配该次manifest原摘要。未修改JSON、核心包独立loader或CSV读者，不认证作者、通道生成、模型或效果，不构成manifest与多文件的同时刻原子快照。生产134/268契约、真实审计证据与研究批准边界不变；真实CSV/下载0，真实训练/评分/Q99及正式实验NOT_RUN，Data Gate BLOCKED。
+
+
+2026-10-30 后续：[五类后端JSON也已绑定摘要与解析的同一份字节](json-byte-consistency.md)。本篇三类Parquet范围和原证据保持；core入口及目录原子性仍不据此认证。

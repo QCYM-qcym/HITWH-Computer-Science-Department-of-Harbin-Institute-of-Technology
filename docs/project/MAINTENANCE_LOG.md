@@ -1,5 +1,13 @@
 # 仓库维护复核记录
 
+## 2026-10-30 第十五批：JSON同字节校验解析
+
+从d45fc1a干净分支续接。主控独占backend artifacts与公共材料，内部任务分别新测试、私有验收与只读审查。11例实际RED6失败5通过：五个新临时包在原digest后物理替换合法JSON，旧API仍返回200；截短内容进入旧parser。修复只使read_json先核取得bytes的原SHA再解析同对象，五个正式调用对应各自verified_hashes，根manifest保留两参无上级摘要。
+
+最终完整后端134项通过，仅既有TestClient警告；独立SPEC/QUALITY通过。主控实际六个新Fake任务/DB：正常完整结果、四详情、三导出原字节/headers一致；五变体各原摘要通过1/实际改写1/后续取得1/parser0，安全500且任务仍succeeded。各仅新目标文件改变，其他9文件和manifest保持；前五批旧目录SHA/大小/mtime保持，无模型/预处理调用。[指南](../guides/json-byte-consistency.md)、[证据](../research/2026-10-30-json-byte-verification.json)。
+
+JSON原已整文件读取，本次复用同对象不另建完整副本；初始digest顺序保持，不称整个目录原子性或来源认证。原因/高负载语义、core入口、生产契约/前端/fixture/真实配置保持。真实CSV/下载0，真实模型/正式实验NOT_RUN、Gate BLOCKED；无监听端口/浏览器，无关本地全套不重复。
+
 ## 2026-10-30 第十四批：Parquet同字节校验解析
 
 从b011fa2干净分支续接，Desktop Fetch完成。主控独占backend artifacts与公共材料，内部任务分别新测试、私有验收与只读审查。9例实际RED7失败2通过，三个新tmp包在原digest通过后物理替换合法文件，旧API仍200返回current12345/score0.75/dos2。修复仅统一read_rows与三处正式调用：取得bytes、核原SHA、BufferReader解析同data，保留原typed逻辑和初始digest顺序。

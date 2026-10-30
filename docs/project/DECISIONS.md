@@ -1,5 +1,9 @@
 # 公开决策与方案差异
 
+## 2026-10-30 后端五类JSON共用已核字节
+
+采用[JSON单文件字节绑定](../guides/json-byte-consistency.md)。五个manifest管理的正式调用都传本次原SHA，根manifest没有上级摘要，保留类型读取而不假称认证。旧helper两参兼容保持；摘要不符在parser前拒绝，包括解析结果相同的合法空白变更。原digest循环、业务规则和错误映射保持，不新增公开字段/大小上限，不扩原因或高负载语义、core读取及研究政策。
+
 ## 2026-10-30 后端三类Parquet共用已核字节
 
 采用[单文件字节绑定](../guides/parquet-byte-consistency.md)，三种同构Parquet使用一个helper，正式SavedArtifacts都传本次manifest原SHA；None默认只保留无manifest的旧直接setup兼容。原digest循环保留，后一次取得的bytes同时核验及解析。记录额外编码buffer的峰值成本，不新增公开字段/大小上限；JSON和core独立loader暂不扩大，研究政策不变。
