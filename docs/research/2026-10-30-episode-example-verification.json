@@ -1,0 +1,110 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_EPISODE_EXAMPLE_ALIGNMENT",
+  "date": "2026-10-30",
+  "base_commit": "c6ba1330b530717ab8324cb904dd001e85299b55",
+  "status": "PASS",
+  "protocol_source": "W1_2e85cd1_RAW_ALIGNED_ATTACK_AXIS",
+  "old_example": "W0_74f163b",
+  "fixture_changes": "ONLY_FIRST_EVALUATION_INTERVALS_EXTENT_COUNT_AND_EXISTING_HELPER_ORDER",
+  "schema_changed": false,
+  "algorithm_changed": false,
+  "backend_interval_validation_added": false,
+  "tests": {
+    "core_red": {
+      "failed": 1,
+      "passed": 4
+    },
+    "frontend_clean_red": {
+      "failed": 3,
+      "passed": 9
+    },
+    "python_passed": 98,
+    "contract": 21,
+    "existing_evaluation": 3,
+    "new_core": 5,
+    "backend": 69,
+    "frontend_passed": 25,
+    "new_frontend": 2,
+    "modified_frontend_regression": 1,
+    "typecheck": "PASS",
+    "build": "PASS",
+    "generated_types": "UNCHANGED_CHECK_PASS",
+    "openapi": "EXAMPLES_REGENERATED_CHECK_PASS",
+    "existing_warnings": [
+      "TestClient_httpx_deprecation",
+      "frontend_bundle_above_500kB"
+    ],
+    "repository": "13_PASS",
+    "unrelated_local_full_suite": "NOT_RUN",
+    "independent_review": "SPEC_PASS_QUALITY_PASS"
+  },
+  "api_manual": {
+    "status": "PASS",
+    "scope": "SYNTHETIC_ONLY",
+    "run_id": "run-fe1ffed8943b4465a7a6385d914bc58e",
+    "interval": {
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2026-01-01T00:02:00Z",
+      "kind": "missed_attack",
+      "minute_count": 2
+    },
+    "metrics": {
+      "tp": 0,
+      "fp": 1,
+      "tn": 1,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.5,
+      "undefined_reasons": []
+    },
+    "attack_coverage": {
+      "eligible": 1,
+      "total": 2
+    },
+    "excluded_attack_minutes": 1,
+    "fixture_non_interval_fields_unchanged": true,
+    "invalid_start_preserved": true,
+    "source_labels_preserved": true,
+    "range_paging_did_not_change_evaluation": true,
+    "exports_byte_identical": [
+      "metrics",
+      "scores",
+      "config"
+    ],
+    "query_artifacts_sha_mtime_unchanged": true,
+    "model_libraries_imported": [],
+    "model_execution": "NOT_PERFORMED",
+    "transport": "IN_PROCESS_TESTCLIENT_NO_LISTENING_SERVER",
+    "channel_equivalence_to_browser_mock": "NOT_ASSERTED_EXISTING_FAKEEXECUTOR_COPIES_FIRST_DETAIL"
+  },
+  "browser": {
+    "mode": "MOCK_SEPARATE_FROM_API",
+    "port": 5187,
+    "status": "PASS",
+    "actions": [
+      "load_shared_fixture",
+      "select_unalerted_attack_interval",
+      "inspect_start_warmup_labels_null_channels"
+    ],
+    "start": "2026-01-01T00:00:00Z",
+    "end": "2026-01-01T00:02:00Z",
+    "minute_count": 2,
+    "layout": "INSPECTED_NO_OVERLAP",
+    "temporary_tab_closed": true,
+    "temporary_server_stopped": true
+  },
+  "known_limits": [
+    "BACKEND_INTERVALS_HIGH_LOAD_NOT_CHECKED",
+    "FAKEEXECUTOR_MOCK_CHANNEL_MAPPING_DIFFERENCE",
+    "NO_UNENCODED_CAPTURE_SEGMENT_BOUNDARIES",
+    "OLD_SAVED_OUTPUTS_NOT_REWRITTEN"
+  ],
+  "real_csv_reads": 0,
+  "new_download_bytes": 0,
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

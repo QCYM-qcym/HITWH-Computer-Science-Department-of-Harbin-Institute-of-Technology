@@ -1,7 +1,7 @@
 """Saved aggregate evaluation must match stored predictions and aligned labels.
 
-The frozen interval examples have a separately known semantic difference. This
-batch neither changes them nor claims to verify interval-only inconsistencies.
+This module checks six saved aggregate fields. Interval-only consistency remains
+outside that check; shared examples are compared separately in the core tests.
 """
 from copy import deepcopy
 import json
@@ -162,7 +162,7 @@ def test_original_fixture_is_returned_with_original_intervals_and_unavailable_re
     expected['run_id'] = run_id
     response = client.get(f'/api/v1/runs/{run_id}/evaluation')
     assert response.status_code == 200 and response.json() == expected
-    assert [interval['kind'] for interval in response.json()['intervals']] == ['missed_attack', 'false_positive']
+    assert [interval['kind'] for interval in response.json()['intervals']] == ['false_positive', 'missed_attack']
     assert response.json()['high_load_unavailable_reason'] == 'Protocol counts have not been verified'
 
 

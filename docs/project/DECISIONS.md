@@ -1,5 +1,11 @@
 # 公开决策与方案差异
 
+## 2026-10-30 沿用既有片段规则，修正旧示例
+
+[示例澄清](../guides/episode-display.md)依据原W1提交2e85cd1及V0.40：未报警攻击片段沿原始对齐标签轴，逐分钟FN只用有效分钟；无效前缀保留，部分命中不作point-adjust。原W0例子74f163b早于实现，修正其范围和helper已有序列，不引入新研究协议。公共类型/Schema不变，旧保存产物不自动更新。
+
+后端interval/high-load仍未核验；合成API/mock详情映射差异独立待修，不能一概要求预热分钟的当前特征为空。最终Attempted、主数据、134/268迁移和真实模型批准保持待决。
+
 ## 2026-10-30 保存评价汇总核验与片段差异分开处理
 
 采用[六字段纯算术核验](../guides/backend-evaluation-consistency.md)修复已证后端缺口；不调用完整core.verify_run，避免引入其专用detector布局要求，也不重读Parquet、生成替代指标或修改HTTP类型。

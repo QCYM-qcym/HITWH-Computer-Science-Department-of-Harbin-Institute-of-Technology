@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 片段示例与回放检查
+
+[片段示例对齐](episode-display.md)的相关Python98、前端25及生成检查通过；独立FakeExecutor进程内API与5187 mock浏览器各自验证，服务已停。两种检查不冒称真实HTTP联调或通道全等价，真实阶段继续NOT_RUN。
+
 ## 后端评价汇总回归
 
 [六字段一致性修复](backend-evaluation-consistency.md)的实际命令为`.venv/Scripts/python -X utf8 -m pytest tests/backend tests/integration -q`，76项通过（含新19），一项既有TestClient弃用警告。既有集成测试执行合成IF/AE；另外三个人工FakeExecutor验收无模型库或模型执行，仅进程内TestClient、独立数据库与目录。网页未在本批重验，原HTTP类型未改；片段/high-load一致性不属于本批通过结论。

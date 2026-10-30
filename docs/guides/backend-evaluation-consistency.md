@@ -16,3 +16,6 @@
 
 
 [实际验证](../research/2026-10-30-backend-evaluation-verification.json)：有效RED12失败/7通过，修复后76项相关测试全部通过（新19、原后端50、集成7），独立审查通过。相关集成包含既有合成IF/当前AE/历史AE执行。另三个无模型FakeExecutor场景完成正常12项检查及两组各7路由安全拒绝，原导出字节与fixture保持；只用进程内TestClient，未开监听端口或进行浏览器验收。现存TestClient弃用警告保留记录。
+
+
+2026-10-30 后续澄清：[旧片段示例已按原 W1 规则对齐](episode-display.md)，本篇原六项汇总核验范围不变，仍不验证 intervals/high-load。原阶段差异记录保留；未自动修复历史保存包。

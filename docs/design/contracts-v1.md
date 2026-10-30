@@ -65,6 +65,10 @@ SeriesPoint.valid=False 时 score/threshold/alarm 都为 null，invalid_reason �
 
 Evaluation 包含四个混淆计数、precision/recall/f1/fpr、正常与攻击覆盖分子/分母、排除攻击、误报与漏报片段及高负载结果。标签缺失时 available=False、reason 必填、metrics=null。无报警时指标仍独立计算；零分母为 null，undefined_reasons 必须恰好列出未定义指标名（precision/recall/f1/fpr）。F1 使用 2TP/(2TP+FP+FN)，各值与混淆计数一致；覆盖和排除计数也须相符。片段起止按 [start,end)，类型区分 false_positive/missed_attack。缺少高负载分组指标必须提供原因。
 
+2026-10-30 示例澄清，沿用[原 W1 协议](../../experiments/PROTOCOL.md)：false_positive 将有效、正常且报警的连续分钟分组；missed_attack 表示对齐标签轴上连续的主要攻击片段，其内没有任何有效报警。后者可包含历史不足或其他未评分分钟，minute_count 是原攻击片段的分钟数，不是 FN 或有效攻击分母。全部未评分的片段也可能列出，此时不能宣称这些分钟已构成评价中的漏报。一段中有有效命中时不列入该列表，但其他有效未报警分钟仍逐点计入 FN，不作 point-adjust。
+
+两个分组都在实际时间缺口或相应标签/有效性条件中断处断开；缺标签不能当正常。现有 helper 输出先 false_positive、后 missed_attack，各类内部按时间排列；示例据此对齐，不新增跨类别的全局时间排序保证。现有接口没有采集分段标识，不能识别相邻时间戳之间未编码的采集重置。类型和 Schema 版本保持 v1；本次只校正旧合成示例和解释，未改变算法。历史保存产物不自动重写，后端六项汇总核验仍不包含区间和高负载结果，见[核验范围](../guides/backend-evaluation-consistency.md)。
+
 MinuteDetail 的 current、history_residual、reconstruction_error_current、reconstruction_error_history 分开；缺通道整体 null，存在则正好134维，与 feature_names 对齐。IF 的重构误差为 null。解释是线索，不等于攻击归因。
 
 ## 产物与实现决定

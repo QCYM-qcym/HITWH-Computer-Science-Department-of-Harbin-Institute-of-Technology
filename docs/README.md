@@ -1,5 +1,9 @@
 # 文档导航
 
+## 未报警攻击片段示例修正
+
+[片段与FN的区别](guides/episode-display.md)、[实际验证](research/2026-10-30-episode-example-verification.json)、[实施记录](superpowers/plans/2026-10-30-episode-example-alignment.md)。仅纠正旧例子，保留原始规则与研究阻塞。
+
 ## 后端保存评价汇总修复
 
 [核验范围与已知限制](guides/backend-evaluation-consistency.md)、[76项相关测试及三场景证据](research/2026-10-30-backend-evaluation-verification.json)、[实施记录](superpowers/plans/2026-10-30-backend-evaluation-consistency.md)。只核六项汇总，原片段差异另行追查。

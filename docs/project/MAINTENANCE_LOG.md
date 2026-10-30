@@ -1,5 +1,13 @@
 # 仓库维护复核记录
 
+## 2026-10-30 自主第十批：片段示例与页面解释对齐
+
+从c6ba133干净远端一致分支续接；Desktop Fetch经重新读取窗口恢复后完成。原W1协议及原测试支持原始攻击标签轴片段，旧W0示例早于其实现，仅例子不一致。修正为完整2分钟但有效FN1/排除1，保持全部其他fixture字段，按helper先FP后missed序列；没有改算法、Schema或研究政策。
+
+核心先1失败/4通过，前端有效RED3失败/9通过；早期Vue proxy快照测试工具问题记录后修正，不冒称产品问题。最终相关Python98、前端25、typecheck/build/生成契约及独立审查通过；保留既有TestClient及包大小警告。一次独立FakeExecutor API/三类原字节导出验收及5187 mock浏览器定位检查完成，服务已停；未声称该浏览器连接API或全通道等价。详见[指南](../guides/episode-display.md)与[实际证据](../research/2026-10-30-episode-example-verification.json)。
+
+主控独占公共文件，内部任务分管测试、前端和只读审查。原结果目录和历史证据保留；后端六汇总校验范围不变，interval/high-load仍待单独实现。独立发现旧FakeExecutor重复首详情通道，mock按时间缺项置null，作为下一具体接缝；不得用评分有效性替代通道可用性。真实CSV/下载0、真实训练/评分/Q99/联调/正式实验NOT_RUN，Data Gate BLOCKED。
+
 ## 2026-10-30 自主第九批：后端保存评价汇总一致性
 
 从4bfe6f4干净远端一致分支续接，Desktop Fetch核对。已有SavedArtifacts可接受结构/摘要合法的完美指标，与原保存一次误报/一次漏报矛盾；主控加最小六字段校验，独立任务写测试、准备私有三场景验收和只读审查，无同文件并发。

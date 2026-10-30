@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-10-30",
   "current_stage": "S2",
-  "theme": "自主迭代：后端保存评价汇总与分数标签交叉核验已修复；片段语义差异待核，研究Gate仍BLOCKED",
+  "theme": "自主迭代：未报警攻击片段示例、接口与页面按既有协议对齐；研究Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "修复后端接受结构合法但与保存分数/标签矛盾的评价汇总；worker完成前和结果查询时核六项汇总，原响应/导出字节保持。",
-    "有效RED为12失败/7正例通过，修复后相关76项通过（新增19、原后端50、集成7），独立Spec/Quality PASS。",
-    "三个FakeExecutor手工HTTP场景通过：正常12项检查、完成前7路由409、成功后篡改7路由500，公共错误安全、无模型执行。",
-    "旧片段样例与核心边界/排序差异单独保留，interval/high-load未纳入本批；不改134/268契约，真实CSV/下载0，真实模型及正式实验NOT_RUN。"
+    "修正旧合成片段为00:00–00:02共2分钟，保留FN1/预热排除1；原标签、分数、阈值和标量指标完全不变。",
+    "相关Python98项、前端25项、类型/构建/生成契约检查及独立审查通过；核心1项和前端3项失败证据先于修正保留。",
+    "实际API检查和独立mock浏览器检视通过：无效起点、原标签和未评分提示保留，分页不改评价，三类导出与原文件逐字节一致。",
+    "本批不改算法/Schema或补后端区间校验；合成详情通道时间映射差异列为下一修复。真实模型与正式实验NOT_RUN，Data Gate BLOCKED。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "攻击片段与逐分钟漏报的区别",
+      "path": "docs/guides/episode-display.md"
+    },
+    {
+      "label": "片段示例对齐与实际页面验证",
+      "path": "docs/research/2026-10-30-episode-example-verification.json"
+    },
     {
       "label": "后端保存评价六项汇总核验与限制",
       "path": "docs/guides/backend-evaluation-consistency.md"
@@ -2061,9 +2069,20 @@
     "related_tests_passed": 76,
     "manual_scenarios": 3,
     "scope": "SIX_SAVED_AGGREGATE_FIELDS_ONLY",
-    "interval_discrepancy": "KNOWN_UNRESOLVED",
+    "interval_discrepancy": "EXAMPLE_ALIGNED_TO_EXISTING_PROTOCOL_BACKEND_INTERVAL_VALIDATION_NOT_ADDED",
     "episode_rules_changed": false,
     "evidence": "docs/research/2026-10-30-backend-evaluation-verification.json",
+    "remote_CI": "PENDING_AFTER_PUSH"
+  },
+  "episode_example_alignment": {
+    "status": "SYNTHETIC_ONLY",
+    "python_tests_passed": 98,
+    "frontend_tests_passed": 25,
+    "algorithm_changed": false,
+    "schema_changed": false,
+    "browser": "MOCK_PASS",
+    "api": "SEPARATE_FAKEEXECUTOR_PASS",
+    "evidence": "docs/research/2026-10-30-episode-example-verification.json",
     "remote_CI": "PENDING_AFTER_PUSH"
   }
 }
