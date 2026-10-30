@@ -47,3 +47,6 @@ npm run contracts:check
 ```
 
 Python 使用项目虚拟环境，npm 命令在 `src/frontend` 执行。后续优先修复已定位的合成详情时间映射，再单独增加后端区间一致性核验；研究政策、主数据采用和真实试点仍需原有决定与 Gate 条件。
+
+
+2026-10-30 后续：[合成详情时间映射已修复](fake-channel-mapping.md)，原样例四份API/mock完整响应已对齐；本篇保留当时未解决的核查记录，历史包未重写。后端interval验证仍待后续。

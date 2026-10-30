@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：未报警攻击片段示例、接口与页面按既有协议对齐；研究Gate仍BLOCKED。
+最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：合成解释通道按时间与字段顺序绑定，API/mock四分钟详情一致；研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 修正旧合成片段为00:00–00:02共2分钟，保留FN1/预热排除1；原标签、分数、阈值和标量指标完全不变。
-- 相关Python98项、前端25项、类型/构建/生成契约检查及独立审查通过；核心1项和前端3项失败证据先于修正保留。
-- 实际API检查和独立mock浏览器检视通过：无效起点、原标签和未评分提示保留，分页不改评价，三类导出与原文件逐字节一致。
-- 本批不改算法/Schema或补后端区间校验；合成详情通道时间映射差异列为下一修复。真实模型与正式实验NOT_RUN，Data Gate BLOCKED。
+- 修复FakeExecutor复制首详情到所有分钟的问题：按时间映射，缺项null，显式预热当前特征保留；全部详情核字段顺序，重复和非法详情拒绝。
+- 新增13项后端回归，最终完整后端82项通过；保留初始RED、审查字段错序RED及两次中途失败和修复记录。
+- 实际两个新任务与三类原字节导出验收通过；四份完整API分钟响应仅归一run_id后与真实前端mock深比较4项通过。
+- 原fixture与旧10产物SHA/mtime保持，不改生产契约/前端/核心或追加区间验证；真实数据模型/正式实验NOT_RUN，Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [合成通道的时间和字段绑定](<docs/guides/fake-channel-mapping.md>)
+- [通道修复及四分钟API/mock对照](<docs/research/2026-10-30-fake-channel-verification.json>)
 - [攻击片段与逐分钟漏报的区别](<docs/guides/episode-display.md>)
 - [片段示例对齐与实际页面验证](<docs/research/2026-10-30-episode-example-verification.json>)
 - [后端保存评价六项汇总核验与限制](<docs/guides/backend-evaluation-consistency.md>)

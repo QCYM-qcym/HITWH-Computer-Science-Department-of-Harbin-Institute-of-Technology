@@ -122,8 +122,20 @@ class FakeExecutor:
         write('metrics.json', sample('Evaluation') | {'run_id': run_id})
         write('config.json', config.model_dump())
         parquet('scores.parquet', scores, SCORE_SCHEMA)
-        detail = sample('MinuteDetail')
-        channels = [{key: detail[key] for key in c.Channels.model_fields} | {'timestamp': row['timestamp']} for row in scores]
+        # Detail availability is independent of score validity (e.g. warmup).
+        details = {}
+        for example in responses:
+            if example['schema'] != 'MinuteDetail':
+                continue
+            detail = c.MinuteDetail.model_validate(example['body'])
+            if tuple(detail.feature_names) != summary.feature_names:
+                raise ValueError('synthetic detail feature order differs from run summary')
+            timestamp = detail.point.timestamp
+            if timestamp in details:
+                raise ValueError('duplicate synthetic detail timestamp')
+            details[timestamp] = {key: getattr(detail, key) for key in c.Channels.model_fields}
+        missing = dict.fromkeys(c.Channels.model_fields)
+        channels = [details.get(row['timestamp'], missing) | {'timestamp': row['timestamp']} for row in scores]
         parquet('channels.parquet', channels, CHANNEL_SCHEMA)
         core = self.fixture['core_sample']
         labels = [dict(zip(c.LABEL_NAMES, [core['labels'][key][i] for key in c.LABEL_NAMES]), timestamp=timestamp)

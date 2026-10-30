@@ -87,11 +87,12 @@ def test_all_http_json_responses_match_frozen_schemas(client, fixture_data):
 
 def test_no_labels_empty_series_no_alarms_and_unavailable_evaluation(settings, fixture_data, tmp_path):
     fixture = deepcopy(fixture_data)
-    names = ('SeriesPage', 'Evaluation', 'MinuteDetail')
+    names = ('SeriesPage', 'Evaluation')
     for name in names:
         replacement = [r for r in fixture['responses'] if r['schema'] == name][-1]['body']
         next(r for r in fixture['responses'] if r['schema'] == name)['body'] = deepcopy(replacement)
     # Empty result is a real API state; keep all saved metadata consistent.
+    fixture['responses'] = [r for r in fixture['responses'] if r['schema'] != 'MinuteDetail']
     summary = next(r['body'] for r in fixture['responses'] if r['schema'] == 'RunSummary')
     summary.update(row_count=0, valid_count=0, labels_available=False)
     fixture['core_sample']['timestamps'] = []

@@ -1,5 +1,9 @@
 # W2-01 后端与任务管理
 
+## 2026-10-30 合成详情写入修复
+
+[FakeExecutor通道绑定](../../docs/guides/fake-channel-mapping.md)改为显式timestamp映射，所有详情验证并精确核对字段顺序；缺项null、显式预热current保留，重复拒绝。新13/完整后端82项通过，API/mock四响应一致。只影响新合成包，原数据/真实执行器及保存读取路径保持。
+
 日期：2026-10-21。版本：0.1.0。状态：**SYNTHETIC_ONLY**。共同基点为 `codex/integration-mvp` 的 `74f163bf69559f02ad70ae1d5bb730e1f10d15bf`，开发分支为 `codex/backend-tasks`。仅实现 W2-01，不合并 main。
 
 后端使用冻结的核心类型与统一 fixture：FastAPI 接收登记 ID，SQLite 事务及唯一索引限制一个 queued/running 任务，独立后台线程执行，文件锁限制同一数据库只有一个服务拥有 worker。请求不等待执行完成。状态只按 queued→running→succeeded/failed 转移，queued 登记后失败可直接 failed；终态不能回退。重启将旧 running 标为 failed/WORKER_INTERRUPTED，持久化 queued 继续处理。线程异常退出会记录失败；短暂存储错误会暂停接收并重试失败状态写入。持久性存储故障仍需要恢复存储或重启服务。

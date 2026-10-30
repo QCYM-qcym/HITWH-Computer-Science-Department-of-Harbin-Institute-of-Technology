@@ -1,0 +1,192 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_FAKE_CHANNEL_MAPPING",
+  "date": "2026-10-30",
+  "base_commit": "789f4a423de501dd6382389b058650d1a73d9847",
+  "status": "PASS",
+  "scope": "NEW_FAKEEXECUTOR_PACKAGES_ONLY",
+  "rules": [
+    "VALIDATED_DETAIL_TIMESTAMP_MAPPING",
+    "EXACT_SUMMARY_FEATURE_ORDER",
+    "MISSING_DETAIL_NULL_CHANNELS",
+    "EXPLICIT_WARMUP_CURRENT_RETAINED",
+    "DUPLICATE_TIMESTAMP_REJECTED",
+    "VALID_OFF_AXIS_DETAIL_IGNORED_AFTER_VALIDATION",
+    "LABELS_FROM_INDEPENDENT_CORE_SAMPLE",
+    "SCORE_AXIS_ORDER_PRESERVED"
+  ],
+  "tests": {
+    "initial_red": {
+      "failed": 11,
+      "passed": 1
+    },
+    "review_field_order_red": {
+      "failed": 1
+    },
+    "first_regression": {
+      "failed": 1,
+      "passed": 80,
+      "reason": "OLD_EMPTY_TEST_DUPLICATED_DETAIL"
+    },
+    "second_regression": {
+      "failed": 24,
+      "passed": 45,
+      "errors": 13,
+      "reason": "LIST_VS_TUPLE_ORDER_COMPARISON_IMPLEMENTATION_ERROR"
+    },
+    "final_backend_passed": 82,
+    "new_backend": 13,
+    "existing_backend": 69,
+    "existing_TestClient_warning": 1,
+    "real_frontend_mock_dto_parity_passed": 4,
+    "parity_transform": "TOP_LEVEL_RUN_ID_ONLY",
+    "temporary_frontend_test_removed": true,
+    "frontend_suite_typecheck_build": "NOT_RUN_UNCHANGED",
+    "unrelated_local_full_suite": "NOT_RUN",
+    "repository": "13_PASS",
+    "independent_review": "SPEC_PASS_QUALITY_PASS"
+  },
+  "manual": {
+    "status": "PASSED",
+    "scope": "SYNTHETIC_FAKE_EXECUTOR_TIMESTAMP_CHANNEL_FIDELITY_ONLY",
+    "cases": [
+      {
+        "case": "original",
+        "status": "PASSED",
+        "api_run_id": "run-c56d4ce0463140b490838aecce0d74f7",
+        "metadata_identity_checked": true,
+        "score_axis_exact": true,
+        "labels_independently_core_sample": true,
+        "channel_rows": [
+          {
+            "timestamp": "2026-01-01T00:00:00Z",
+            "valid": false,
+            "explicit_detail": false,
+            "present_channels": []
+          },
+          {
+            "timestamp": "2026-01-01T00:01:00Z",
+            "valid": true,
+            "explicit_detail": true,
+            "present_channels": [
+              "current"
+            ]
+          },
+          {
+            "timestamp": "2026-01-01T00:02:00Z",
+            "valid": true,
+            "explicit_detail": false,
+            "present_channels": []
+          },
+          {
+            "timestamp": "2026-01-01T00:03:00Z",
+            "valid": true,
+            "explicit_detail": true,
+            "present_channels": [
+              "current"
+            ]
+          }
+        ],
+        "paging_and_range_checked": true,
+        "exports_original_bytes": {
+          "scores": {
+            "sha256": "7fca3609ebf565f552ec109650d9347c1a57281bd74b66ea57db97a232f69bc5",
+            "byte_count": 2109
+          },
+          "metrics": {
+            "sha256": "1330b9218687659cdb9084c82ba058ffe252e47039b69ba62e07776b6224b8a3",
+            "byte_count": 743
+          },
+          "config": {
+            "sha256": "610f5ebee5d717afcc7a9d0fb1d4fd82c9f41f1be420ac0f7f10c10d4cb35c5f",
+            "byte_count": 382
+          }
+        },
+        "query_sha_size_mtime_unchanged": true
+      },
+      {
+        "case": "private-variant",
+        "status": "PASSED",
+        "api_run_id": "run-295115293cea4c01aa88a297d1793296",
+        "metadata_identity_checked": true,
+        "score_axis_exact": true,
+        "labels_independently_core_sample": true,
+        "channel_rows": [
+          {
+            "timestamp": "2026-01-01T00:00:00Z",
+            "valid": false,
+            "explicit_detail": true,
+            "present_channels": [
+              "current"
+            ]
+          },
+          {
+            "timestamp": "2026-01-01T00:01:00Z",
+            "valid": true,
+            "explicit_detail": true,
+            "present_channels": [
+              "current"
+            ]
+          },
+          {
+            "timestamp": "2026-01-01T00:02:00Z",
+            "valid": true,
+            "explicit_detail": false,
+            "present_channels": []
+          },
+          {
+            "timestamp": "2026-01-01T00:03:00Z",
+            "valid": true,
+            "explicit_detail": true,
+            "present_channels": [
+              "current"
+            ]
+          }
+        ],
+        "paging_and_range_checked": true,
+        "exports_original_bytes": {
+          "scores": {
+            "sha256": "7fca3609ebf565f552ec109650d9347c1a57281bd74b66ea57db97a232f69bc5",
+            "byte_count": 2109
+          },
+          "metrics": {
+            "sha256": "fd4057289a31ac1ecf52150dd22ab62874ea612dbf77174f28b5a3612c1bd2e4",
+            "byte_count": 743
+          },
+          "config": {
+            "sha256": "610f5ebee5d717afcc7a9d0fb1d4fd82c9f41f1be420ac0f7f10c10d4cb35c5f",
+            "byte_count": 382
+          }
+        },
+        "query_sha_size_mtime_unchanged": true
+      }
+    ],
+    "shared_fixture_unchanged": true,
+    "historical_batch10": {
+      "run_id": "run-fe1ffed8943b4465a7a6385d914bc58e",
+      "artifact_count": 10,
+      "sha_size_mtime_unchanged": true,
+      "snapshot_sha256": "b78bf626dc20ee25aff9f666aaf650010ff4886aadc0a1bac9d2ed4fdc959d34"
+    },
+    "model_import_attempts": [],
+    "model_or_preprocessing_calls": [],
+    "transport": "IN_PROCESS_TESTCLIENT_NO_LISTENING_SERVER",
+    "private_original_dto_export": {
+      "sha256": "79432e612db67db0e397e564c280d7e13e8a504f7ef5ecea2b5c1da38c316117",
+      "byte_count": 16733,
+      "count": 4,
+      "run_id_replacement": "synthetic-succeeded",
+      "transformation": "TOP_LEVEL_RUN_ID_ONLY"
+    },
+    "variant_excluded_from_mock_parity": true
+  },
+  "contracts_fixture_frontend_core_unchanged": true,
+  "production_executor_unchanged": true,
+  "old_artifacts_rewritten": false,
+  "backend_interval_validation_added": false,
+  "real_csv_reads": 0,
+  "new_download_bytes": 0,
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 合成通道按分钟验收
+
+[合成通道修复](fake-channel-mapping.md)使用项目虚拟环境运行`python -X utf8 -m pytest tests/backend -q`，82项通过。两个实际新任务和4份API/mock详情对照通过；本批不开监听端口、无浏览器操作，不重复未改前端build/typecheck或无关全套。历史包与原fixture保持。
+
 ## 片段示例与回放检查
 
 [片段示例对齐](episode-display.md)的相关Python98、前端25及生成检查通过；独立FakeExecutor进程内API与5187 mock浏览器各自验证，服务已停。两种检查不冒称真实HTTP联调或通道全等价，真实阶段继续NOT_RUN。

@@ -1,5 +1,15 @@
 # 仓库维护复核记录
 
+## 2026-10-30 自主第十一批：合成通道时间和字段绑定
+
+从789f4a4干净远端一致分支续接，Desktop激活读取后Fetch完成。最小修改FakeExecutor：所有显式MinuteDetail验证并精确比对summary字段顺序，再按timestamp提取四通道；缺项null，预热显式current保留，重复拒绝、合法轴外项验证后忽略。输出评分顺序、独立core_sample标签、原保存验证与rename不变。
+
+初始RED11失败1通过；独立审查补字段错序P2，单项RED确认后修复。第一次整后端80通过1失败，修正旧空序列私有fixture重复详情；第二次24失败45通过13错误来自新增顺序比较直接比较list/tuple，修复为同类有序序列。最终82项通过（新13/原69），仅既有TestClient警告。失败记录完整保留，独立审查通过。
+
+主控实际两场景FakeAPI验收，独立新DB/目录，无监听端口；原样例和不同向量/反序/显式预热/详情标签扰动均正确，3类导出原字节、查询产物SHAmtime保持。原四响应仅run_id归一后与真实前端mock作4项深比较，通过；自建临时忽略test移除，私有副本保留。不扩大未变前端/核心测试。原共享fixture和上一批旧10产物保持，无模型库/预处理/模型调用。[指南](../guides/fake-channel-mapping.md)、[证据](../research/2026-10-30-fake-channel-verification.json)。
+
+主控维护公共记录，内部任务分别独占测试、私有验收与只读审查。后端interval/high-load仍未检查，不覆盖历史阶段证据；真实CSV/下载0、真实模型/正式实验NOT_RUN，Data Gate BLOCKED。
+
 ## 2026-10-30 自主第十批：片段示例与页面解释对齐
 
 从c6ba133干净远端一致分支续接；Desktop Fetch经重新读取窗口恢复后完成。原W1协议及原测试支持原始攻击标签轴片段，旧W0示例早于其实现，仅例子不一致。修正为完整2分钟但有效FN1/排除1，保持全部其他fixture字段，按helper先FP后missed序列；没有改算法、Schema或研究政策。

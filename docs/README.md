@@ -1,5 +1,9 @@
 # 文档导航
 
+## 合成解释通道修复
+
+[时间与字段绑定指南](guides/fake-channel-mapping.md)、[实际验证](research/2026-10-30-fake-channel-verification.json)、[实施记录](superpowers/plans/2026-10-30-fake-channel-mapping.md)。新合成包按显式详情匹配，旧产物不重写。
+
 ## 未报警攻击片段示例修正
 
 [片段与FN的区别](guides/episode-display.md)、[实际验证](research/2026-10-30-episode-example-verification.json)、[实施记录](superpowers/plans/2026-10-30-episode-example-alignment.md)。仅纠正旧例子，保留原始规则与研究阻塞。
