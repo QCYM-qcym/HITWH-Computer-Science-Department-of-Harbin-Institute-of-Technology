@@ -1,5 +1,9 @@
 # W2-01 后端与任务管理
 
+## 2026-10-30 最终导出bytes绑定
+
+[导出字节校验](../../docs/guides/export-byte-consistency.md)捕获本次manifest原摘要，读一次后核该bytes并直接响应；后读消失/异常/不符走原安全错误，404/409与白名单/headers保持。新14/完整后端114项及一个实际Fake任务通过。不修写旧包，不认证来源或完整loader快照。
+
 ## 2026-10-30 保存区间一致性
 
 [保存校验](../../docs/guides/backend-interval-consistency.md)现在同时核六项汇总和现有producer的完整intervals列表，复用一次纯evaluate，保留原字节。旧包仅次序不一致也会拒绝，不自动重写；这不是新增HTTP全局排序保证。新18/完整后端100及原核心8项通过，三个新FakeAPI场景通过。高负载语义仍未检查。

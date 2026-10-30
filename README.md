@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：保存区间与完整分数及标签核对，错误区间安全拒绝；研究Gate仍BLOCKED。
+最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：最终导出字节绑定本次已验证清单，后读变化安全拒绝；研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 后端复用一次纯评价计算，在原六项汇总后精确核保存intervals；错误起止/数量/成员/次序安全拒绝，原包不自动修写。
-- 新增18项回归，实际RED10失败8通过；修复后完整后端100项与原核心片段8项共108项通过，独立审查通过。
-- 实际三个新FakeAPI任务验证正常包、完成前失败与成功后损坏；两组各7路由拒绝、3类导出原字节、每次读取一次纯评价均通过。
-- 前两批旧目录及原详情SHA/大小/mtime保持；生产契约/核心/前端/fixture未改，真实CSV/下载0，真实模型及正式实验NOT_RUN，Gate BLOCKED。
+- 修复导出校验后再读可能返回不同内容的问题：捕获本次原manifest摘要，核验并返回同一份bytes，不刷新期望。
+- 新增14项实际API回归，RED10失败4通过；修复后完整后端114项通过，独立代码审查通过，原状态/头部/白名单保持。
+- 一个新Fake任务实际通过3类原字节下载与8个后读场景；7种故障安全拒绝，单读正例保持，前三批旧目录SHA/大小/mtime不变。
+- 此修复不等于全目录原子快照或来源/模型认证；核心/生产契约/前端/fixture不变，真实CSV/下载0、真实模型及正式实验NOT_RUN，Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [最终导出字节与清单绑定](<docs/guides/export-byte-consistency.md>)
+- [导出后读修复实际验证](<docs/research/2026-10-30-export-byte-verification.json>)
 - [保存评价区间一致性与兼容边界](<docs/guides/backend-interval-consistency.md>)
 - [区间校验测试与实际验收](<docs/research/2026-10-30-backend-interval-verification.json>)
 - [合成通道的时间和字段绑定](<docs/guides/fake-channel-mapping.md>)

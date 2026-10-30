@@ -17,3 +17,6 @@
 另实际执行三个全新 FakeExecutor/数据库场景，正常包、完成前区间缩短、成功后区间缩短均符合预期；两组各七个结果入口安全拒绝，三类导出与原文件逐字节一致。故障只改 intervals，六汇总和其他字段不变，Schema 合法且全部 manifest 摘要重新匹配。共有21次纯评价核验；模型库、预处理和模型调用均为0。两个前批运行目录、原详情文件的 SHA/大小/mtime 保持。
 
 以上均为 SYNTHETIC_ONLY 进程内 TestClient 验收，未开监听端口或重跑浏览器、前端构建、无关模型集成及本地全套。真实CSV读取与新增下载为0；真实预处理、训练、评分、Q99和正式实验NOT_RUN，Data Gate BLOCKED。[机器记录](../research/2026-10-30-backend-interval-verification.json)与[实施记录](../superpowers/plans/2026-10-30-backend-interval-consistency.md)提供对应范围。
+
+
+2026-10-30 后续：[最终导出字节也绑定本次清单](export-byte-consistency.md)，修复校验后再读的独立接缝；本篇六汇总/区间算法与历史证据保持。

@@ -1,5 +1,9 @@
 # 文档导航
 
+## 最终导出字节完整性
+
+[导出字节绑定及限制](guides/export-byte-consistency.md)、[实际验证](research/2026-10-30-export-byte-verification.json)、[实施记录](superpowers/plans/2026-10-30-export-byte-consistency.md)。三个白名单产物保留原字节，后读变化安全拒绝。
+
 ## 保存评价区间核验
 
 [兼容边界及口径](guides/backend-interval-consistency.md)、[实际验证](research/2026-10-30-backend-interval-verification.json)、[实施记录](superpowers/plans/2026-10-30-backend-interval-consistency.md)。同一次评价核对汇总和区间，错误包安全拒绝，历史文件保持。

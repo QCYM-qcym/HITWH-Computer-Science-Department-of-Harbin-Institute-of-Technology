@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 导出后读完整性验收
+
+[导出最后读取](export-byte-consistency.md)使用现有虚拟环境运行 `python -X utf8 -m pytest tests/backend -q`，114项通过（新14/原100）。另一个新Fake任务实际验证3种下载与8种后读场景，旧三批目录保持，无监听端口或模型。未改前端、核心与无关本地全套不重复运行。
+
 ## 保存区间回归与验收
 
 [区间一致性](backend-interval-consistency.md)使用现有虚拟环境运行 `python -X utf8 -m pytest tests/backend tests/core/test_evaluation.py tests/core/test_fixture_evaluation.py -q`，108项通过（后端100/原核心8）。三个独立新FakeAPI任务验收导出与安全拒绝，无模型、监听端口或浏览器。前两批运行目录与原详情文件保持；未改前端及无关本地全套不重复运行。

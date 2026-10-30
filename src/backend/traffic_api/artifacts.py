@@ -3,6 +3,7 @@ from hashlib import sha256
 from datetime import datetime, timezone
 import json
 from pathlib import Path, PurePosixPath
+from types import MappingProxyType
 
 import numpy as np
 import pyarrow as pa
@@ -24,6 +25,7 @@ CHANNEL_SCHEMA = pa.schema([('timestamp', pa.timestamp('ns', tz='UTC'))] + [
 LABEL_SCHEMA = pa.schema([('timestamp', pa.timestamp('ns', tz='UTC'))] + [
     (key, pa.int64()) for key in c.LABEL_NAMES
 ])
+_EXPORT_FILES = frozenset(('scores.parquet', 'metrics.json', 'config.json'))
 
 
 def digest(path):
@@ -101,6 +103,7 @@ class SavedArtifacts:
         if manifest.run_id != result.run_id or manifest.config != config or manifest.evidence_kind != task['evidence_kind']:
             raise ValueError('manifest identity mismatch')
         self.files = {}
+        export_entries = {}
         for entry in manifest.files:
             path = safe_path(self.root, entry.path)
             if not path.is_file():
@@ -108,6 +111,8 @@ class SavedArtifacts:
             if digest(path) != entry.sha256:
                 raise ValueError('artifact checksum mismatch')
             self.files[entry.path] = path
+            if entry.path in _EXPORT_FILES:
+                export_entries[entry.path] = (path, entry.sha256)
         if safe_path(workspace, result.summary_path) != self.files['summary.json'] or safe_path(workspace, result.scores_path) != self.files['scores.parquet']:
             raise ValueError('result files do not match manifest')
         self.summary = read_json(self.files['summary.json'], c.RunSummary)
@@ -142,6 +147,16 @@ class SavedArtifacts:
                 raise ValueError('IF cannot provide reconstruction channels')
         verify_saved_evaluation(self.series, self.labels, self.summary.labels_available, self.evaluation)
         self.config = saved_config
+        self._export_entries = MappingProxyType(export_entries)
+
+    def export_bytes(self, name: str) -> bytes:
+        if name not in self._export_entries:
+            raise ValueError('artifact is not exportable')
+        path, expected = self._export_entries[name]
+        data = path.read_bytes()
+        if sha256(data).hexdigest() != expected:
+            raise ValueError('export bytes differ from verified manifest')
+        return data
 
     def detail(self, timestamp):
         index = next((i for i, row in enumerate(self.series) if row.timestamp == timestamp), None)

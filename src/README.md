@@ -1,5 +1,9 @@
 # 程序入口
 
+## 导出同一份已核验字节
+
+[最终导出读取修复](../docs/guides/export-byte-consistency.md)绑定该次manifest原摘要，Service安全处理后读异常，端点不再重新打开文件。核心与生产契约不变；不能据此宣称完整目录原子快照。
+
 ## 保存区间消费核验
 
 [SavedArtifacts](../docs/guides/backend-interval-consistency.md)在原六项汇总后精确核区间，复用一次纯计算；合法HTTP/导出继续返回保存结果。生产契约、核心算法和研究状态不变。

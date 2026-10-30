@@ -1,5 +1,15 @@
 # 仓库维护复核记录
 
+## 2026-10-30 自主第十三批：导出最终字节绑定
+
+从9f426c5干净工作区续接，Desktop Fetch已完成。已证端点在完整校验后再次读文件且不核发送字节；主控修改三个模块，独立任务分别写新tests、私有验收与只读审查。新增14例先RED10失败4通过，修复后完整后端114项通过，既有TestClient警告保留，独立SPEC/QUALITY通过。
+
+SavedArtifacts复制三个固定项的原Path/SHA，在完整初始化后发布独立只读映射；导出只读取一次，hash该bytes后返回同bytes。Service复用原安全错误映射，saved在新try外保留404/409；端点媒体、下载名、白名单保持，不重序列化，不后读manifest刷新权威。此窄修复不解决整个loader的hash/parse分读，不作来源或模型认证。
+
+主控实际一个新Fake任务/DB：三类原字节及头部/长度/page_size忽略通过；8个post-saved场景中7故障安全拒绝、1原bytes后毒化探针仍正确。各场景只一次最终read，manifest后读/open与目标额外open均0，任务保持succeeded，10artifact身份保持；前三批旧目录SHA/大小/mtime保持，无模型库、预处理或模型调用。[指南](../guides/export-byte-consistency.md)、[证据](../research/2026-10-30-export-byte-verification.json)。
+
+无监听端口/浏览器，无关本地全套与未改前端不重复；生产契约/核心/fixture/真实配置保持。真实CSV/下载0，真实模型和正式实验NOT_RUN，Gate BLOCKED。
+
 ## 2026-10-30 自主第十二批：保存区间一致性
 
 从02fdff8干净工作区续接，主控独占SavedArtifacts和公共材料，独立任务分别写指定测试、私有验收与只读审查。新增18回归先取得RED10失败8通过；最小修复在原六字段核验后精确比较同次evaluate的intervals。没有第二次计算或新增文件读写。五个旧正例仅同步临时intervals并追加具体断言，原六字段、reason/highload保持。

@@ -11,6 +11,12 @@ from .schemas import ApiError, ExecutionFailure
 LOG = logging.getLogger(__name__)
 
 
+def _artifact_error(run_id, exc):
+    LOG.exception('Saved artifact validation failed for %s', run_id)
+    reason = exc.reason if isinstance(exc, ExecutionFailure) else ('RESULT_MISSING' if isinstance(exc, FileNotFoundError) else 'ARTIFACT_INVALID')
+    return ApiError(500, 'EXECUTION_FAILED', reason)
+
+
 class Service:
     def __init__(self, repository, worker, fixture_path, registration=None):
         self.repository, self.worker = repository, worker
@@ -48,9 +54,14 @@ class Service:
             result = c.RunResult.model_validate(task['result'])
             return SavedArtifacts(self.worker.output / run_id, result, task)
         except Exception as exc:
-            LOG.exception('Saved artifact validation failed for %s', run_id)
-            reason = exc.reason if isinstance(exc, ExecutionFailure) else ('RESULT_MISSING' if isinstance(exc, FileNotFoundError) else 'ARTIFACT_INVALID')
-            raise ApiError(500, 'EXECUTION_FAILED', reason) from None
+            raise _artifact_error(run_id, exc) from None
+
+    def export_bytes(self, run_id, name):
+        saved = self.saved(run_id)
+        try:
+            return saved.export_bytes(name)
+        except Exception as exc:
+            raise _artifact_error(run_id, exc) from None
 
     def series(self, run_id, page, page_size, start, end, alarms=False):
         if start is not None and end is not None and start >= end:

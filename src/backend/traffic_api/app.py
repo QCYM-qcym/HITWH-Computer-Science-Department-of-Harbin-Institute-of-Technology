@@ -93,11 +93,10 @@ def create_app(settings: Settings, *, fixture_path: Path, executor=None, registr
 
     @app.get('/api/v1/runs/{run_id}/exports/{kind}')
     def export(run_id: c.Identifier, kind: Literal['scores', 'metrics', 'config']):
-        saved = service.saved(run_id)
         name = {'scores': 'scores.parquet', 'metrics': 'metrics.json', 'config': 'config.json'}[kind]
         media_type = 'application/vnd.apache.parquet' if kind == 'scores' else 'application/json'
-        # Return bytes after validation. No response uses user-controlled paths.
-        return Response(saved.files[name].read_bytes(), media_type=media_type,
+        # Send the same bytes checked against this load's accepted manifest.
+        return Response(service.export_bytes(run_id, name), media_type=media_type,
                         headers={'Content-Disposition': f'attachment; filename="{run_id}-{name}"'})
 
     return app

@@ -1,0 +1,238 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_FINAL_EXPORT_BYTE_CONSISTENCY",
+  "date": "2026-10-30",
+  "base_commit": "9f426c579498e8f5e180db424a3eb5254fbf44b4",
+  "status": "PASS",
+  "scope": "FINAL_EXPORTED_BYTES_MATCH_THIS_LOADS_ACCEPTED_MANIFEST",
+  "whole_loader_atomic_snapshot": false,
+  "source_or_model_authenticity_certified": false,
+  "tests": {
+    "red": {
+      "failed": 10,
+      "passed": 4
+    },
+    "new_backend": 14,
+    "existing_backend": 100,
+    "total_backend_passed": 114,
+    "existing_TestClient_warning": 1,
+    "repository": "13_PASS",
+    "independent_review": "SPEC_PASS_QUALITY_PASS",
+    "frontend_browser_and_unrelated_local_full_suite": "NOT_RUN_UNCHANGED",
+    "local_model_integration": "NOT_RUN"
+  },
+  "manual": {
+    "status": "PASSED",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "scope": "FINAL_EXPORT_BYTES_BOUND_TO_ACCEPTED_MANIFEST_ONLY",
+    "api_run_id": "run-c2444878b9a44568985065634b8c5f35",
+    "persisted_task_status": "succeeded",
+    "baseline_exports": {
+      "scores": {
+        "sha256": "7fca3609ebf565f552ec109650d9347c1a57281bd74b66ea57db97a232f69bc5",
+        "byte_count": 2109,
+        "status": 200,
+        "headers": {
+          "content-type": "application/vnd.apache.parquet",
+          "content-disposition": "attachment; filename=\"run-c2444878b9a44568985065634b8c5f35-scores.parquet\"",
+          "content-length": "2109"
+        }
+      },
+      "metrics": {
+        "sha256": "f19818ce12081ebd7a5be5d4d1729187c9612a7dbf08de68a5ca31fddf1fbedc",
+        "byte_count": 743,
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "content-disposition": "attachment; filename=\"run-c2444878b9a44568985065634b8c5f35-metrics.json\"",
+          "content-length": "743"
+        }
+      },
+      "config": {
+        "sha256": "610f5ebee5d717afcc7a9d0fb1d4fd82c9f41f1be420ac0f7f10c10d4cb35c5f",
+        "byte_count": 382,
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "content-disposition": "attachment; filename=\"run-c2444878b9a44568985065634b8c5f35-config.json\"",
+          "content-length": "382"
+        }
+      }
+    },
+    "post_saved_cases": [
+      {
+        "case": "post_saved_substitution",
+        "kind": "scores",
+        "status": 500,
+        "code": "EXECUTION_FAILED",
+        "details": [
+          "ARTIFACT_INVALID"
+        ],
+        "post_saved_counters": {
+          "saved_returns": 1,
+          "final_reads": 1,
+          "manifest_reads": 0,
+          "manifest_opens": 0,
+          "target_opens": 0
+        },
+        "task_remains_succeeded": true,
+        "artifact_sha_size_mtime_unchanged": true
+      },
+      {
+        "case": "post_saved_substitution",
+        "kind": "metrics",
+        "status": 500,
+        "code": "EXECUTION_FAILED",
+        "details": [
+          "ARTIFACT_INVALID"
+        ],
+        "post_saved_counters": {
+          "saved_returns": 1,
+          "final_reads": 1,
+          "manifest_reads": 0,
+          "manifest_opens": 0,
+          "target_opens": 0
+        },
+        "task_remains_succeeded": true,
+        "artifact_sha_size_mtime_unchanged": true
+      },
+      {
+        "case": "post_saved_substitution",
+        "kind": "config",
+        "status": 500,
+        "code": "EXECUTION_FAILED",
+        "details": [
+          "ARTIFACT_INVALID"
+        ],
+        "post_saved_counters": {
+          "saved_returns": 1,
+          "final_reads": 1,
+          "manifest_reads": 0,
+          "manifest_opens": 0,
+          "target_opens": 0
+        },
+        "task_remains_succeeded": true,
+        "artifact_sha_size_mtime_unchanged": true
+      },
+      {
+        "case": "post_saved_short_read",
+        "kind": "scores",
+        "status": 500,
+        "code": "EXECUTION_FAILED",
+        "details": [
+          "ARTIFACT_INVALID"
+        ],
+        "post_saved_counters": {
+          "saved_returns": 1,
+          "final_reads": 1,
+          "manifest_reads": 0,
+          "manifest_opens": 0,
+          "target_opens": 0
+        },
+        "task_remains_succeeded": true,
+        "artifact_sha_size_mtime_unchanged": true
+      },
+      {
+        "case": "post_saved_FileNotFoundError",
+        "kind": "metrics",
+        "status": 500,
+        "code": "EXECUTION_FAILED",
+        "details": [
+          "RESULT_MISSING"
+        ],
+        "post_saved_counters": {
+          "saved_returns": 1,
+          "final_reads": 1,
+          "manifest_reads": 0,
+          "manifest_opens": 0,
+          "target_opens": 0
+        },
+        "task_remains_succeeded": true,
+        "artifact_sha_size_mtime_unchanged": true
+      },
+      {
+        "case": "post_saved_PermissionError",
+        "kind": "config",
+        "status": 500,
+        "code": "EXECUTION_FAILED",
+        "details": [
+          "ARTIFACT_INVALID"
+        ],
+        "post_saved_counters": {
+          "saved_returns": 1,
+          "final_reads": 1,
+          "manifest_reads": 0,
+          "manifest_opens": 0,
+          "target_opens": 0
+        },
+        "task_remains_succeeded": true,
+        "artifact_sha_size_mtime_unchanged": true
+      },
+      {
+        "case": "post_saved_OSError",
+        "kind": "scores",
+        "status": 500,
+        "code": "EXECUTION_FAILED",
+        "details": [
+          "ARTIFACT_INVALID"
+        ],
+        "post_saved_counters": {
+          "saved_returns": 1,
+          "final_reads": 1,
+          "manifest_reads": 0,
+          "manifest_opens": 0,
+          "target_opens": 0
+        },
+        "task_remains_succeeded": true,
+        "artifact_sha_size_mtime_unchanged": true
+      },
+      {
+        "case": "original_then_poison_if_reopened",
+        "kind": "config",
+        "sha256": "610f5ebee5d717afcc7a9d0fb1d4fd82c9f41f1be420ac0f7f10c10d4cb35c5f",
+        "byte_count": 382,
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "content-disposition": "attachment; filename=\"run-c2444878b9a44568985065634b8c5f35-config.json\"",
+          "content-length": "382"
+        },
+        "post_saved_counters": {
+          "saved_returns": 1,
+          "final_reads": 1,
+          "manifest_reads": 0,
+          "manifest_opens": 0,
+          "target_opens": 0
+        },
+        "task_remains_succeeded": true,
+        "artifact_sha_size_mtime_unchanged": true
+      }
+    ],
+    "artifact_snapshot_sha256": "f07c54e2a60ce694f6c22b5e9aa6dfd3468c871c513f93365367b4a9da29d097",
+    "historical_preservation": {
+      "batch10_runtime": {
+        "sha_size_mtime_unchanged": true,
+        "snapshot_sha256": "3859a9c51408f12874b81c3bf6ddb6cab3c9954ff17a57f4a2ab664ad070de55"
+      },
+      "batch11_runtime": {
+        "sha_size_mtime_unchanged": true,
+        "snapshot_sha256": "2920d50292e467d56d4042958879f1550a0b2398f2719e393bfad573c671571d"
+      },
+      "batch12_runtime": {
+        "sha_size_mtime_unchanged": true,
+        "snapshot_sha256": "de07b63c550ae582bca494b15642620a93cbfd03e1231c6439b05c24c56565d0"
+      }
+    },
+    "shared_fixture_unchanged": true,
+    "model_import_attempts": [],
+    "model_or_preprocessing_calls": [],
+    "transport": "IN_PROCESS_TESTCLIENT_NO_LISTENING_SERVER"
+  },
+  "old_artifacts_rewritten": false,
+  "public_contracts_core_frontend_fixture_real_config_unchanged": true,
+  "real_csv_reads": 0,
+  "new_download_bytes": 0,
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}
