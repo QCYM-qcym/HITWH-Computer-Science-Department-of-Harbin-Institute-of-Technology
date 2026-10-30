@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：候选AE五JSON只读验算完成；模型来源未认证，真实研究Gate仍BLOCKED。
+最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：候选IF/AE已存结果的共同数据与评价分母核查完成；真实研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增AE五JSON只读验证及CLI，按上游重建binding、核权重结构/通道归约/Q99/三政策；不导入模型库或重建网络。
-- 新增95项测试通过，独立Spec/Quality PASS；重封摘要后的语义篡改被拒，合法改权重与自洽替换预测保留NOT_CHECKED边界。
-- 原三个人工AE各有/无源共六次复查通过，15运行/18上游文件和源的SHA及mtime不变，每次11/12份内容各读一次。
-- 缺源NOT_PROVIDED、版本仅声明一致；人工无报警/全漏报负例保持，真实CSV/下载0，真实模型与正式实验NOT_RUN，Gate BLOCKED。
+- 新增候选IF/当前AE/H15/H30已有结果核对与CLI，严格绑定manifest实际摘要、五上游身份、预处理和共同资格；不执行模型。
+- 新增67项测试通过，独立Spec/Quality PASS；同计数不同上游拒绝，合法不同报警/混淆矩阵和NULL原因按原值保留。
+- 原四个运行有/无源两次只读复查通过，20运行/18上游文件和源SHA及mtime未变；每个manifest额外读取一次并绑定实际摘要。
+- 只称DATA_QUALIFICATION_ALIGNED，不比较分数尺度、判优或认证模型；288/509未容量匹配，真实CSV/下载0，真实模型/正式实验NOT_RUN。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [候选IF/AE共同条件核查与指标汇总](<docs/guides/candidate-comparison.md>)
+- [四个已存运行的只读核查证据](<docs/research/2026-10-30-candidate-comparison-verification.json>)
 - [候选AE五JSON只读验算与证明范围](<docs/guides/candidate-ae-run-verification.md>)
 - [六次实际复查与新增测试证据](<docs/research/2026-10-30-candidate-ae-run-verification.json>)
 - [候选当前与历史AE人工运行及安全JSON权重](<docs/guides/candidate-ae-synthetic.md>)

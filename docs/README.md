@@ -1,5 +1,9 @@
 # 文档导航
 
+## 候选IF/AE已存结果共同条件
+
+[核对指南](guides/candidate-comparison.md)、[四包实际证据](research/2026-10-30-candidate-comparison-verification.json)、[实施记录](superpowers/plans/2026-10-30-candidate-comparison.md)。共同数据与评价人口可并列，不认证模型或判优。
+
 ## 候选AE只读结果检查
 
 [五JSON验算入口](guides/candidate-ae-run-verification.md)、[六次实际证据](research/2026-10-30-candidate-ae-run-verification.json)、[实施记录](superpowers/plans/2026-10-30-candidate-ae-run-verifier.md)。只核存储一致性，不执行或认证模型。

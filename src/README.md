@@ -1,5 +1,9 @@
 # 程序入口
 
+## 已存候选结果只读核对
+
+[候选比较CLI](../docs/guides/candidate-comparison.md)使用同一上游核对2—4个已有IF/AE运行，安全失败或输出共同资格及原指标；无模型执行/写文件，旧生产接口保持。
+
 ## 候选AE结果只读入口
 
 [AE验证CLI](../docs/guides/candidate-ae-run-verification.md)读取五JSON和已核上游，验证权重结构/通道/校准/评价，不导入模型库或重建网络。原生产及IF接口保持，模型得分来源NOT_CHECKED。

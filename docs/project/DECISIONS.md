@@ -1,5 +1,11 @@
 # 公开决策与方案差异
 
+## 2026-10-30 候选结果共同资格与比较边界
+
+采用[独立只读比较层](../guides/candidate-comparison.md)，不改现有verifier报告或生产接口。每包多读一个固定manifest，必须绑定verifier实际摘要；同路径/同数量不足以证明同人口，五provenance/预处理/政策/资格均须一致。
+
+合法模型差异保留原阈值/报警/指标，NULL原因随行输出。IF权重不执行、参数量不定义；AE288/509没有容量匹配，只核共同数据资格，不能归因历史作用。版本/runtime只比较共有声明键与AE之间线程声明，不认证执行环境。该普通工程决定不批准最终标签、真实数据采用或模型实验。
+
 ## 2026-10-30 AE只读证明范围
 
 [独立AE验算](../guides/candidate-ae-run-verification.md)只核五JSON、上游绑定、权重结构和保存数值关系。expected binding来自快照与固定配置；版本/runtime/loss只核受限声明，缺源NOT_PROVIDED。权重1MiB、其他单JSON16MiB、总32MiB，路径先词法检查，内容单次读取。
