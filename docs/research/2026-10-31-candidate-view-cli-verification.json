@@ -1,0 +1,813 @@
+{
+  "date": "2026-10-31",
+  "status": "PASS",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "base_commit": "21dee0b897196bf97c0918192fe308269f9b48a6",
+  "scope": "CANDIDATE_READ_ONLY_INSPECTION_CLI",
+  "tests": {
+    "initial_red_failed": 59,
+    "new_tests": 59,
+    "new_cli_tests_use_mock_values_without_model_training": true,
+    "related_passed": 193,
+    "related_skipped": 0,
+    "old_detail_test_fixture_generates_synthetic_models": true,
+    "windows_stdout_boundary": "COUNT_AND_WRITE_IDENTICAL_UTF8_BYTES_WITH_LF",
+    "repository": "13_PASS",
+    "worktree_check": "504_FILES_0_ISSUES",
+    "privacy_and_links": "14_FILES_481_MARKDOWN_LINKS_5_VAULT_LINKS_PASS",
+    "review": "SPEC_PASS_QUALITY_PASS_MANUAL_FINAL_PASS"
+  },
+  "manual": {
+    "status": "PASS",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "scope": "CANDIDATE_INSPECTION_CLI_ON_EXISTING_ARTIFICIAL_PACKAGES",
+    "actual_minus_m_subprocesses": 21,
+    "instrumented_fresh_process_main_probes": 2,
+    "ordinary_subprocess_model_monitoring": "NOT_INSTRUMENTED_NO_BLANKET_MONITORING_CLAIM",
+    "instrumented_probe_model_imports_or_execution": "NO_ATTEMPTS_OR_CALLS",
+    "cases": [
+      {
+        "case": "if_current-detail-warmup",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "f837d5413cecf7a006cb0c5767401ea73f4465da6d3551462d1437ead32e9bbd",
+          "byte_count": 1578
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "f837d5413cecf7a006cb0c5767401ea73f4465da6d3551462d1437ead32e9bbd",
+          "byte_count": 1578
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "f566ae1d792213873d5db953f73d5aea9373ac6f3d90d04b89239d6795da6a9f",
+        "raw_capture_prefix": "if_current-detail-warmup",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-if-20261030-v1",
+        "source_replay": {
+          "run": "VERIFIED",
+          "inputs": "VERIFIED",
+          "combined": "VERIFIED"
+        },
+        "timestamp": "2026-01-01T00:00:00.000000",
+        "valid": false,
+        "policy_labels": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        }
+      },
+      {
+        "case": "if_current-detail-valid-test",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "2ae0bb48ef8999a9228c64deb5786848a4438aad56a384c277175abe3a669498",
+          "byte_count": 1609
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "2ae0bb48ef8999a9228c64deb5786848a4438aad56a384c277175abe3a669498",
+          "byte_count": 1609
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "f4631b3e7d470b7da8cd8d211e789c5deab7fcb6361258d94f2783a58fe8f16c",
+        "raw_capture_prefix": "if_current-detail-valid-test",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-if-20261030-v1",
+        "source_replay": {
+          "run": "VERIFIED",
+          "inputs": "VERIFIED",
+          "combined": "VERIFIED"
+        },
+        "timestamp": "2026-01-01T02:20:00.000000",
+        "valid": true,
+        "policy_labels": {
+          "P_U": "attack",
+          "P_B": "attack",
+          "P_A": "attack"
+        }
+      },
+      {
+        "case": "if_current-series-half-open",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "ef034d4c5ea746091cad46c006c58a528b3d83051469392d775881d9b8715f80",
+          "byte_count": 1116
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "ef034d4c5ea746091cad46c006c58a528b3d83051469392d775881d9b8715f80",
+          "byte_count": 1116
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "cf7882d75a0095b61c6a9e7b1a50038f882f36f625b9da4d3af8f0c243246ca6",
+        "raw_capture_prefix": "if_current-series-half-open",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-if-20261030-v1",
+        "source_replay": "VERIFIED",
+        "total": 2,
+        "returned": 2
+      },
+      {
+        "case": "if_current-series-no-source",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "bcb710fcff730e9140f2006423962b103748ed7cc20e255d3e353740fe788a99",
+          "byte_count": 1105
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "bcb710fcff730e9140f2006423962b103748ed7cc20e255d3e353740fe788a99",
+          "byte_count": 1105
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "1aaaaf8da2a3c4260d336f04c38821af1f783370cc0cbadb19c06eaa23787de6",
+        "raw_capture_prefix": "if_current-series-no-source",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-if-20261030-v1",
+        "source_replay": "NOT_PROVIDED",
+        "total": 2,
+        "returned": 2
+      },
+      {
+        "case": "ae_current-detail-warmup",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "fc625634771773bf64e50542ad344ea0c33701c4856a706085826e2f64e13133",
+          "byte_count": 1582
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "fc625634771773bf64e50542ad344ea0c33701c4856a706085826e2f64e13133",
+          "byte_count": 1582
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "0a1566d920ad2318f743c4137142d4c51328706bcccb1ee151c96cd7fbd7854b",
+        "raw_capture_prefix": "ae_current-detail-warmup",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-current-20261030-v1",
+        "source_replay": {
+          "run": "VERIFIED",
+          "inputs": "VERIFIED",
+          "combined": "VERIFIED"
+        },
+        "timestamp": "2026-01-01T00:00:00.000000",
+        "valid": false,
+        "policy_labels": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        }
+      },
+      {
+        "case": "ae_current-detail-valid-test",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "b792742a2cff985ca740718b23c175ee685be781a71db788c3721e1c2a0b9bfc",
+          "byte_count": 1628
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "b792742a2cff985ca740718b23c175ee685be781a71db788c3721e1c2a0b9bfc",
+          "byte_count": 1628
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "22edc5ed1f056b96b348c817fedc56b28f4a8d29c95206cf0910a71216a7f212",
+        "raw_capture_prefix": "ae_current-detail-valid-test",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-current-20261030-v1",
+        "source_replay": {
+          "run": "VERIFIED",
+          "inputs": "VERIFIED",
+          "combined": "VERIFIED"
+        },
+        "timestamp": "2026-01-01T02:20:00.000000",
+        "valid": true,
+        "policy_labels": {
+          "P_U": "attack",
+          "P_B": "attack",
+          "P_A": "attack"
+        }
+      },
+      {
+        "case": "ae_current-series-half-open",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "a6927f8a589b02284d4308dba847ca2a7eb9afc467c7c2b006727ba941a58f12",
+          "byte_count": 1133
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "a6927f8a589b02284d4308dba847ca2a7eb9afc467c7c2b006727ba941a58f12",
+          "byte_count": 1133
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "b3623d7851752998bd86301f01dc969c6d4065582e851e918ef113f34d39686c",
+        "raw_capture_prefix": "ae_current-series-half-open",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-current-20261030-v1",
+        "source_replay": "VERIFIED",
+        "total": 2,
+        "returned": 2
+      },
+      {
+        "case": "ae_current-series-no-source",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "6d23a9ff44070b7cd2d1b60fff8b5b3a925a3a430c51fc91ba7ed5efcac3e47a",
+          "byte_count": 1121
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "6d23a9ff44070b7cd2d1b60fff8b5b3a925a3a430c51fc91ba7ed5efcac3e47a",
+          "byte_count": 1121
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "ff0f87d9f50178f2b306fdb69e7b6fe66ee69c6293f24805138ae0963d2ab58f",
+        "raw_capture_prefix": "ae_current-series-no-source",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-current-20261030-v1",
+        "source_replay": "NOT_PROVIDED",
+        "total": 2,
+        "returned": 2
+      },
+      {
+        "case": "ae_history15-detail-warmup",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "fa637786c08eb38ca74249ac97072f82b36f93021420c4b66ed7d3782ecfebf0",
+          "byte_count": 1580
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "fa637786c08eb38ca74249ac97072f82b36f93021420c4b66ed7d3782ecfebf0",
+          "byte_count": 1580
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "8820d6eb22ce4d74f7e2bbb16ccafe6d1cd0aa512e56511370a97da55a87a67f",
+        "raw_capture_prefix": "ae_history15-detail-warmup",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-history15-20261030-v1",
+        "source_replay": {
+          "run": "VERIFIED",
+          "inputs": "VERIFIED",
+          "combined": "VERIFIED"
+        },
+        "timestamp": "2026-01-01T00:00:00.000000",
+        "valid": false,
+        "policy_labels": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        }
+      },
+      {
+        "case": "ae_history15-detail-valid-test",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "192a6b8486228e945f942f25a5c9bfcd4f899d7a9d399754c8b3210999bef24f",
+          "byte_count": 1642
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "192a6b8486228e945f942f25a5c9bfcd4f899d7a9d399754c8b3210999bef24f",
+          "byte_count": 1642
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "01491a981ff5e0b5d3f72332a2c33576b237ba9eff514c49302b40ae9af9e6e8",
+        "raw_capture_prefix": "ae_history15-detail-valid-test",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-history15-20261030-v1",
+        "source_replay": {
+          "run": "VERIFIED",
+          "inputs": "VERIFIED",
+          "combined": "VERIFIED"
+        },
+        "timestamp": "2026-01-01T02:20:00.000000",
+        "valid": true,
+        "policy_labels": {
+          "P_U": "attack",
+          "P_B": "attack",
+          "P_A": "attack"
+        }
+      },
+      {
+        "case": "ae_history15-series-half-open",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "b302211e104e15a5fc16c65a89efeb3a137c4cd6979771f302037ed852f96e34",
+          "byte_count": 1138
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "b302211e104e15a5fc16c65a89efeb3a137c4cd6979771f302037ed852f96e34",
+          "byte_count": 1138
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "c10b7ae57b2e86235a5af35ddf10b37ed795d2ba3e3844ae66403eb07ebb30c0",
+        "raw_capture_prefix": "ae_history15-series-half-open",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-history15-20261030-v1",
+        "source_replay": "VERIFIED",
+        "total": 2,
+        "returned": 2
+      },
+      {
+        "case": "ae_history15-series-no-source",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "a5341d8dd18ebcb207fece5922f1772e45ab40cc5a149e309bf69f9e6f1ac159",
+          "byte_count": 1125
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "a5341d8dd18ebcb207fece5922f1772e45ab40cc5a149e309bf69f9e6f1ac159",
+          "byte_count": 1125
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "dc97a741897914d3161f1aa09f27387d38a9fceb789689b5278a01cf942e4445",
+        "raw_capture_prefix": "ae_history15-series-no-source",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-history15-20261030-v1",
+        "source_replay": "NOT_PROVIDED",
+        "total": 2,
+        "returned": 2
+      },
+      {
+        "case": "ae_history30-detail-warmup",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "a71c74c5096a02a86e0de8ae3fc4f3890103d44dbe4ba6537b404d703bc21e72",
+          "byte_count": 1580
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "a71c74c5096a02a86e0de8ae3fc4f3890103d44dbe4ba6537b404d703bc21e72",
+          "byte_count": 1580
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "084562f4dc4608e6e612348b828a66b513070d3d3e7f3e8be7d61ba3b10124f2",
+        "raw_capture_prefix": "ae_history30-detail-warmup",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-history30-20261030-v1",
+        "source_replay": {
+          "run": "VERIFIED",
+          "inputs": "VERIFIED",
+          "combined": "VERIFIED"
+        },
+        "timestamp": "2026-01-01T00:00:00.000000",
+        "valid": false,
+        "policy_labels": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        }
+      },
+      {
+        "case": "ae_history30-detail-valid-test",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "b6f55491a4c307ee293a958754ae1d036ddac25a8cb06ab31ab342b8ad2a9a90",
+          "byte_count": 1642
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "b6f55491a4c307ee293a958754ae1d036ddac25a8cb06ab31ab342b8ad2a9a90",
+          "byte_count": 1642
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "0aa03df45b35b3fc66ff3d8232c864d513b33536c3bfe1b8b597830b9a305624",
+        "raw_capture_prefix": "ae_history30-detail-valid-test",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-history30-20261030-v1",
+        "source_replay": {
+          "run": "VERIFIED",
+          "inputs": "VERIFIED",
+          "combined": "VERIFIED"
+        },
+        "timestamp": "2026-01-01T02:20:00.000000",
+        "valid": true,
+        "policy_labels": {
+          "P_U": "attack",
+          "P_B": "attack",
+          "P_A": "attack"
+        }
+      },
+      {
+        "case": "ae_history30-series-half-open",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "8e5c5d5d9398608f207b79b6bda97dcbe6e09c54af1c5d62127e6b0e34486635",
+          "byte_count": 1138
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "8e5c5d5d9398608f207b79b6bda97dcbe6e09c54af1c5d62127e6b0e34486635",
+          "byte_count": 1138
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "a1c35d346eea620a08484463e52e46247c4b240f9bb2633548ce969e7a598cd4",
+        "raw_capture_prefix": "ae_history30-series-half-open",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-history30-20261030-v1",
+        "source_replay": "VERIFIED",
+        "total": 2,
+        "returned": 2
+      },
+      {
+        "case": "ae_history30-series-no-source",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "2b73535a071fee26b24937d12e22421a86cdff4b3dff9e698b9574927c4d2905",
+          "byte_count": 1125
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "2b73535a071fee26b24937d12e22421a86cdff4b3dff9e698b9574927c4d2905",
+          "byte_count": 1125
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "03df3461a3ecadad5939af59787a25dfca35a03a2b458cb152e3e0bd31cf1ba9",
+        "raw_capture_prefix": "ae_history30-series-no-source",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-history30-20261030-v1",
+        "source_replay": "NOT_PROVIDED",
+        "total": 2,
+        "returned": 2
+      },
+      {
+        "case": "if-empty-range",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "370927c8373a3a502c85d1503ce9e4687f3587dc8fed9f1aa02fab8687877dd6",
+          "byte_count": 531
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "370927c8373a3a502c85d1503ce9e4687f3587dc8fed9f1aa02fab8687877dd6",
+          "byte_count": 531
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "5f3ddd8ed649df3abe3c1a4c05ec700d0747c26b0ffee7cffa82b2bc06560aad",
+        "raw_capture_prefix": "if-empty-range",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-if-20261030-v1",
+        "source_replay": "VERIFIED",
+        "total": 0,
+        "returned": 0
+      },
+      {
+        "case": "if-past-last-page",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "e04cce08d3049a0fa30c5b0ad1d6266c8786f8e13452fdd603cab50a9f649eb3",
+          "byte_count": 486
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "e04cce08d3049a0fa30c5b0ad1d6266c8786f8e13452fdd603cab50a9f649eb3",
+          "byte_count": 486
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "e3c33afc9b462d8e7c63a58e32777833c92354f453a935c6ac9e036047aecf35",
+        "raw_capture_prefix": "if-past-last-page",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-if-20261030-v1",
+        "source_replay": "VERIFIED",
+        "total": 144,
+        "returned": 0
+      },
+      {
+        "case": "if-minute-not-found",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 2,
+        "cli_exit": 2,
+        "subprocess_stdout": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "subprocess_stderr": {
+          "sha256": "52551b92c829ddc64d7e4df931b6b7dae939de0a0c7d3581c5df9cc6985a62a5",
+          "byte_count": 31
+        },
+        "cli_stdout": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stderr": {
+          "sha256": "52551b92c829ddc64d7e4df931b6b7dae939de0a0c7d3581c5df9cc6985a62a5",
+          "byte_count": 31
+        },
+        "expected_error": "MINUTE_NOT_FOUND",
+        "decoded_result_sha256": "5c98d7dbaeb0d2b7282788dd8d1c5e2331414f78b9b278592ff22c5d996057e1",
+        "raw_capture_prefix": "if-minute-not-found",
+        "matches_independent_saved_value_expectation": true
+      },
+      {
+        "case": "if-offset-invalid",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 2,
+        "cli_exit": 2,
+        "subprocess_stdout": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "subprocess_stderr": {
+          "sha256": "eac103ae52a7b52fbfbb14981256d1e154c280617fd9b9d2048d105335f731f4",
+          "byte_count": 28
+        },
+        "cli_stdout": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stderr": {
+          "sha256": "eac103ae52a7b52fbfbb14981256d1e154c280617fd9b9d2048d105335f731f4",
+          "byte_count": 28
+        },
+        "expected_error": "INVALID_QUERY",
+        "decoded_result_sha256": "d980aa59ecbfc4292d3522a81f8520b2bed69ae7035bb36347c7f0f120ee5715",
+        "raw_capture_prefix": "if-offset-invalid",
+        "matches_independent_saved_value_expectation": true
+      },
+      {
+        "case": "if-unknown-flag",
+        "transport": "ACTUAL_PYTHON_MINUS_M_SUBPROCESS",
+        "subprocess_exit": 2,
+        "cli_exit": 2,
+        "subprocess_stdout": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "subprocess_stderr": {
+          "sha256": "f922088af51a820e50a11257b061182b6fa610c282f49a53ae93dd0518f541fa",
+          "byte_count": 32
+        },
+        "cli_stdout": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stderr": {
+          "sha256": "f922088af51a820e50a11257b061182b6fa610c282f49a53ae93dd0518f541fa",
+          "byte_count": 32
+        },
+        "expected_error": "INVALID_ARGUMENTS",
+        "decoded_result_sha256": "6fca0a7b10c1b259d77322cb58df7df7260086132f3ffbd5a1d82653cef737f5",
+        "raw_capture_prefix": "if-unknown-flag",
+        "matches_independent_saved_value_expectation": true
+      },
+      {
+        "case": "guarded-if-series",
+        "transport": "INSTRUMENTED_FRESH_PROCESS_MAIN_NOT_MINUS_M",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "0ba27d20b6c82ee36abf384fcf292dfb38d1e6661358449261066498902669f0",
+          "byte_count": 6129
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "8a9dfedc64577bb92b2957a43402e7b832417bad98b41b504476e1f2db039163",
+          "byte_count": 5344
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "fc1ae1d2ed54c3185f163f98c1ef48b0b5f96febfd1cc4d41338983c499b0b13",
+        "raw_capture_prefix": "guarded-if-series",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-if-20261030-v1",
+        "source_replay": "VERIFIED",
+        "total": 144,
+        "returned": 17
+      },
+      {
+        "case": "guarded-h30-detail",
+        "transport": "INSTRUMENTED_FRESH_PROCESS_MAIN_NOT_MINUS_M",
+        "subprocess_exit": 0,
+        "cli_exit": 0,
+        "subprocess_stdout": {
+          "sha256": "58669c9caf1662ef0ea196b2bc018ba2a9dc1183667695e2bdfc9f4d8fe664d6",
+          "byte_count": 1921
+        },
+        "subprocess_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "cli_stdout": {
+          "sha256": "b6f55491a4c307ee293a958754ae1d036ddac25a8cb06ab31ab342b8ad2a9a90",
+          "byte_count": 1642
+        },
+        "cli_stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "byte_count": 0
+        },
+        "expected_error": null,
+        "decoded_result_sha256": "0aa03df45b35b3fc66ff3d8232c864d513b33536c3bfe1b8b597830b9a305624",
+        "raw_capture_prefix": "guarded-h30-detail",
+        "matches_independent_saved_value_expectation": true,
+        "run_id": "toy-ae-history30-20261030-v1",
+        "source_replay": {
+          "run": "VERIFIED",
+          "inputs": "VERIFIED",
+          "combined": "VERIFIED"
+        },
+        "timestamp": "2026-01-01T02:20:00.000000",
+        "valid": true,
+        "policy_labels": {
+          "P_U": "attack",
+          "P_B": "attack",
+          "P_A": "attack"
+        }
+      }
+    ],
+    "actual_minus_m_stdout_bytes": 22859,
+    "actual_minus_m_stderr_bytes": 91,
+    "stdout_limit_bytes_including_newline": 1048576,
+    "loading_stored_transform_history_calibration_arithmetic_allowed": true,
+    "pure_query_zero_io_evidence": "REUSE_BATCH17_AND_BATCH18_NOT_REINSTRUMENTED_HERE",
+    "historical_files": {
+      "run_files": 20,
+      "three_policy_upstream_files": 18,
+      "source_fixture": 1
+    },
+    "before_after_sha_size_mtime_and_members_unchanged": true,
+    "historical_snapshot_sha256": "47546f5a791ffba7948cc6dc107febea11141c4d4c76fc61b546bf95143d44e3",
+    "real_csv_reads": 0,
+    "new_download_bytes": 0,
+    "real_models": "NOT_RUN",
+    "production_api_or_browser_integration": "NOT_RUN",
+    "data_gate": "BLOCKED",
+    "raw_stdout_stderr_exit_captures_retained_privately": true
+  },
+  "production_contract_migration": "NOT_RUN",
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

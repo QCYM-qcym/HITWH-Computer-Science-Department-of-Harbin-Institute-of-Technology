@@ -1,5 +1,9 @@
 # 程序入口
 
+## 2026-10-31 候选结果只读查看CLI
+
+[候选查看CLI](../docs/guides/candidate-view-cli.md)复用既有安全加载器和纯查询，使用python -m；无包入口、依赖、生产接口或模型训练变更。
+
 ## 2026-10-31 候选曲线范围分页
 
 [候选曲线分页](../docs/guides/candidate-series-pages.md)是运行快照的纯消费者；特征/标签仍用独立分钟详情，未新增生产HTTP或浏览器接口。

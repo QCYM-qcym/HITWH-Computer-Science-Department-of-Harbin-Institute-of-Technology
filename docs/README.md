@@ -1,5 +1,9 @@
 # 文档导航
 
+## 2026-10-31 候选结果只读查看CLI
+
+[只读查看命令](guides/candidate-view-cli.md)、[实际验证](research/2026-10-31-candidate-view-cli-verification.json)。无需新模型运行即可查看候选人工包的分钟详情和曲线页。
+
 ## 2026-10-31 候选曲线范围分页
 
 [范围分页接口](guides/candidate-series-pages.md)、[实际验证](research/2026-10-31-candidate-series-page-verification.json)。页面保留原无效分钟和分区断点，完整评价身份不随筛选变化。

@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-31**。当前阶段：**数据审计**；本轮主题：自主迭代：候选分数曲线支持范围分页，保留无效分钟与原评价人口；研究Gate仍BLOCKED。
+最近更新：**2026-10-31**。当前阶段：**数据审计**；本轮主题：自主迭代：候选结果支持只读命令查看分钟详情和曲线页；研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增候选纯内存曲线查询：先按半开时间范围过滤，再分页；保留无效/预热分钟、原索引、完整前驱断点与全量评价产物引用。
-- 新增76项人工快照测试先失败后通过，不训练模型；相关164项通过，独立审查通过。
-- 主控旧四包36次拼页和40次范围/别名查询通过，每包144行含120个无效分钟，39历史文件身份不变；验收脚本拼写错误已保留并修正重跑。
-- 页面行数不是误报漏报分母，范围/分页不重算指标；实际旧包无时间缺口，缺口逻辑由人工单元测试覆盖，生产/真实阶段仍NOT_RUN、Gate BLOCKED。
+- 新增候选查看CLI，用显式IF/AE选择和series/detail子命令复用安全加载器；输出完整UTF-8 JSON，含LF最多1MiB。
+- 新增59项CLI边界测试先失败后通过，覆盖Windows换行字节上限；相关193项通过，独立审查通过。
+- 主控实际21次python -m调用完成18成功/3预期失败，另2次独立受控main探针通过；39历史文件及成员保持。
+- 普通CLI进程未插桩，2次探针的零模型尝试单列；加载阶段仍验算保存关系，查询不重算指标。生产未迁移，真实模型NOT_RUN，Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [候选结果只读查看命令](<docs/guides/candidate-view-cli.md>)
+- [候选查看CLI实际验证](<docs/research/2026-10-31-candidate-view-cli-verification.json>)
 - [候选曲线范围分页](<docs/guides/candidate-series-pages.md>)
 - [候选曲线分页实际验证](<docs/research/2026-10-31-candidate-series-page-verification.json>)
 - [候选单分钟详情](<docs/guides/candidate-minute-details.md>)
