@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-31**。当前阶段：**数据审计**；本轮主题：自主迭代：候选IF/AE已验证运行结果可按完整分钟轴只读加载；研究Gate仍BLOCKED。
+最近更新：**2026-10-31**。当前阶段：**数据审计**；本轮主题：自主迭代：候选单分钟详情已绑定运行与输入快照，保留预热和独立标签；研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增IF/AE候选结果加载接口，返回同次验证的实际分数文档与报告，完整分钟轴/null/历史原因及AE误差分量保持。
-- 新增30项测试，初始29项缺接口失败、构造边界另1项先失败；相关344项通过、1项跳过，独立审查通过。
-- 实际四个旧人工运行包有/无源共8次加载及8次旧报告对照通过，39文件SHA/大小/mtime不变；验收无模型库导入或训练评分。
-- 旧verify/CLI/比较输出兼容，生产134/268接口和真实研究政策未迁移；测试准备使用合成toy模型，真实CSV/下载0，Gate BLOCKED。
+- 新增候选纯内存单分钟查询：五组产物身份、完整分钟轴与预处理配置对齐后读取分数、13维输入及H15/H30历史。
+- 新增58项测试，57项先失败；发现并修复24:00被日期解析器归到次日的问题，相关110项通过，独立审查通过。
+- 主控实际四个旧人工包12个详情与24个时间别名、12个副本隔离、4个弱来源状态及8个错误查询通过，39文件身份不变。
+- 查询零文件读取/历史阈值评价复算，AE只显示已有组标量误差；生产API/网页未接入，真实CSV/下载0，真实模型NOT_RUN、Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [候选单分钟详情](<docs/guides/candidate-minute-details.md>)
+- [候选分钟详情实际验证](<docs/research/2026-10-31-candidate-minute-detail-verification.json>)
 - [候选运行分数只读快照](<docs/guides/candidate-run-snapshots.md>)
 - [候选运行快照实际验证](<docs/research/2026-10-31-candidate-run-snapshot-verification.json>)
 - [五类JSON同字节校验解析](<docs/guides/json-byte-consistency.md>)

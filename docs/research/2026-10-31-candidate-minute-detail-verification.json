@@ -1,0 +1,338 @@
+{
+  "date": "2026-10-31",
+  "status": "PASS",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "base_commit": "392b89ad61104b06f9646fe905b4afa2ef63602d",
+  "scope": "PURE_EXACT_MINUTE_CANDIDATE_QUERY",
+  "tests": {
+    "initial_red_failed": 57,
+    "collection_error_excluded_from_red": true,
+    "initial_implementation_failed": 1,
+    "initial_implementation_passed": 56,
+    "initial_implementation_failure": "24:00 normalized by datetime parser; explicit hour range now rejects it",
+    "new_tests": 58,
+    "related_passed": 110,
+    "related_skipped": 0,
+    "synthetic_model_fixture_setup": true,
+    "repository": "13_PASS",
+    "worktree_check": "494_FILES_0_ISSUES",
+    "privacy_and_links": "14_FILES_459_MARKDOWN_LINKS_5_VAULT_LINKS_PASS",
+    "review": "SPEC_PASS_QUALITY_PASS_MANUAL_FINAL_PASS_PUBLICCLAIMS_PASS"
+  },
+  "manual": {
+    "status": "PASS",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "scope": "PURE_CANDIDATE_MINUTE_QUERY_FROM_EXISTING_ARTIFICIAL_PACKAGES",
+    "loaded_run_snapshots": 4,
+    "loaded_input_snapshots": 2,
+    "fixed_detail_cases": [
+      {
+        "slot": "if_current",
+        "run_id": "toy-if-20261030-v1",
+        "fixed_index": 0,
+        "canonical_timestamp": "2026-01-01T00:00:00.000000",
+        "valid": false,
+        "score": null,
+        "alarm": null,
+        "label_policies": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        },
+        "history_valid": {
+          "15": false,
+          "30": false
+        },
+        "detail_sha256": "f566ae1d792213873d5db953f73d5aea9373ac6f3d90d04b89239d6795da6a9f",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "if_current",
+        "run_id": "toy-if-20261030-v1",
+        "fixed_index": 30,
+        "canonical_timestamp": "2026-01-01T00:30:00.000000",
+        "valid": true,
+        "score": 0.5531029014846093,
+        "alarm": false,
+        "label_policies": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        },
+        "history_valid": {
+          "15": true,
+          "30": true
+        },
+        "detail_sha256": "900a67cee31861273871d77b03ea83298c06236029184db9370a762523e275b3",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "if_current",
+        "run_id": "toy-if-20261030-v1",
+        "fixed_index": 140,
+        "canonical_timestamp": "2026-01-01T02:20:00.000000",
+        "valid": true,
+        "score": 0.502456873103547,
+        "alarm": false,
+        "label_policies": {
+          "P_U": "attack",
+          "P_B": "attack",
+          "P_A": "attack"
+        },
+        "history_valid": {
+          "15": true,
+          "30": true
+        },
+        "detail_sha256": "f4631b3e7d470b7da8cd8d211e789c5deab7fcb6361258d94f2783a58fe8f16c",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "ae_current",
+        "run_id": "toy-ae-current-20261030-v1",
+        "fixed_index": 0,
+        "canonical_timestamp": "2026-01-01T00:00:00.000000",
+        "valid": false,
+        "score": null,
+        "alarm": null,
+        "label_policies": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        },
+        "history_valid": {
+          "15": false,
+          "30": false
+        },
+        "detail_sha256": "0a1566d920ad2318f743c4137142d4c51328706bcccb1ee151c96cd7fbd7854b",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "ae_current",
+        "run_id": "toy-ae-current-20261030-v1",
+        "fixed_index": 30,
+        "canonical_timestamp": "2026-01-01T00:30:00.000000",
+        "valid": true,
+        "score": 0.2879734564525531,
+        "alarm": false,
+        "label_policies": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        },
+        "history_valid": {
+          "15": true,
+          "30": true
+        },
+        "detail_sha256": "a3805e37d7e16353aa0aa7e3cb97af2efc8818ee71c863ed174c79e243e24cd8",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "ae_current",
+        "run_id": "toy-ae-current-20261030-v1",
+        "fixed_index": 140,
+        "canonical_timestamp": "2026-01-01T02:20:00.000000",
+        "valid": true,
+        "score": 0.2862398463441486,
+        "alarm": false,
+        "label_policies": {
+          "P_U": "attack",
+          "P_B": "attack",
+          "P_A": "attack"
+        },
+        "history_valid": {
+          "15": true,
+          "30": true
+        },
+        "detail_sha256": "22edc5ed1f056b96b348c817fedc56b28f4a8d29c95206cf0910a71216a7f212",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "ae_history15",
+        "run_id": "toy-ae-history15-20261030-v1",
+        "fixed_index": 0,
+        "canonical_timestamp": "2026-01-01T00:00:00.000000",
+        "valid": false,
+        "score": null,
+        "alarm": null,
+        "label_policies": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        },
+        "history_valid": {
+          "15": false,
+          "30": false
+        },
+        "detail_sha256": "8820d6eb22ce4d74f7e2bbb16ccafe6d1cd0aa512e56511370a97da55a87a67f",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "ae_history15",
+        "run_id": "toy-ae-history15-20261030-v1",
+        "fixed_index": 30,
+        "canonical_timestamp": "2026-01-01T00:30:00.000000",
+        "valid": true,
+        "score": 0.3189284776059433,
+        "alarm": false,
+        "label_policies": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        },
+        "history_valid": {
+          "15": true,
+          "30": true
+        },
+        "detail_sha256": "bada165950dd3d6027fa8f08b6a93aa98ee263e28c406eab133c4250be1a93fc",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "ae_history15",
+        "run_id": "toy-ae-history15-20261030-v1",
+        "fixed_index": 140,
+        "canonical_timestamp": "2026-01-01T02:20:00.000000",
+        "valid": true,
+        "score": 0.23242466062324235,
+        "alarm": false,
+        "label_policies": {
+          "P_U": "attack",
+          "P_B": "attack",
+          "P_A": "attack"
+        },
+        "history_valid": {
+          "15": true,
+          "30": true
+        },
+        "detail_sha256": "01491a981ff5e0b5d3f72332a2c33576b237ba9eff514c49302b40ae9af9e6e8",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "ae_history30",
+        "run_id": "toy-ae-history30-20261030-v1",
+        "fixed_index": 0,
+        "canonical_timestamp": "2026-01-01T00:00:00.000000",
+        "valid": false,
+        "score": null,
+        "alarm": null,
+        "label_policies": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        },
+        "history_valid": {
+          "15": false,
+          "30": false
+        },
+        "detail_sha256": "084562f4dc4608e6e612348b828a66b513070d3d3e7f3e8be7d61ba3b10124f2",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "ae_history30",
+        "run_id": "toy-ae-history30-20261030-v1",
+        "fixed_index": 30,
+        "canonical_timestamp": "2026-01-01T00:30:00.000000",
+        "valid": true,
+        "score": 0.3189284776059433,
+        "alarm": false,
+        "label_policies": {
+          "P_U": "normal",
+          "P_B": "normal",
+          "P_A": "normal"
+        },
+        "history_valid": {
+          "15": true,
+          "30": true
+        },
+        "detail_sha256": "2e3d5af36f2d1ab50357f0352f98fbff0348acf48b0e68a222852be480b107c9",
+        "matches_original_saved_values": true
+      },
+      {
+        "slot": "ae_history30",
+        "run_id": "toy-ae-history30-20261030-v1",
+        "fixed_index": 140,
+        "canonical_timestamp": "2026-01-01T02:20:00.000000",
+        "valid": true,
+        "score": 0.23242466062324235,
+        "alarm": false,
+        "label_policies": {
+          "P_U": "attack",
+          "P_B": "attack",
+          "P_A": "attack"
+        },
+        "history_valid": {
+          "15": true,
+          "30": true
+        },
+        "detail_sha256": "0aa03df45b35b3fc66ff3d8232c864d513b33536c3bfe1b8b597830b9a305624",
+        "matches_original_saved_values": true
+      }
+    ],
+    "canonical_alternate_form_queries": 24,
+    "mutable_return_isolation_queries": 12,
+    "mixed_source_proof_queries": 4,
+    "invalid_or_absent_query_cases": [
+      {
+        "input_kind": "NoneType",
+        "expected_error": "INVALID_QUERY"
+      },
+      {
+        "input_kind": "bool",
+        "expected_error": "INVALID_QUERY"
+      },
+      {
+        "input_kind": "str",
+        "expected_error": "INVALID_QUERY"
+      },
+      {
+        "input_kind": "str",
+        "expected_error": "INVALID_QUERY"
+      },
+      {
+        "input_kind": "str",
+        "expected_error": "INVALID_QUERY"
+      },
+      {
+        "input_kind": "str",
+        "expected_error": "INVALID_QUERY"
+      },
+      {
+        "input_kind": "str",
+        "expected_error": "INVALID_QUERY"
+      },
+      {
+        "input_kind": "str",
+        "expected_error": "MINUTE_NOT_FOUND"
+      }
+    ],
+    "original_full_reports_and_metrics_unchanged": true,
+    "query_io_attempts": [],
+    "forbidden_fit_prepare_model_or_query_recompute_calls": [],
+    "model_import_attempts": [],
+    "loading_stored_transform_history_calibration_arithmetic_allowed": true,
+    "minute_query_recomputes_history_or_threshold_or_metrics": false,
+    "historical_files": {
+      "run_files": 20,
+      "three_policy_upstream_files": 18,
+      "source_fixture": 1
+    },
+    "before_after_sha_size_mtime_unchanged": true,
+    "historical_snapshot_sha256": "47546f5a791ffba7948cc6dc107febea11141c4d4c76fc61b546bf95143d44e3",
+    "real_csv_reads": 0,
+    "new_download_bytes": 0,
+    "real_models": "NOT_RUN",
+    "production_api_or_browser_integration": "NOT_RUN",
+    "data_gate": "BLOCKED"
+  },
+  "manual_evidence_correction": {
+    "initial_metadata_check": "FAIL",
+    "reason": "label summary aliased to mutation-isolation return",
+    "fixed": "copy summary policy mapping and validate all emitted cases against original label audit",
+    "corrected_readonly_rerun": "PASS",
+    "initial_report_not_used_as_final_evidence": true
+  },
+  "production_contract_migration": "NOT_RUN",
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

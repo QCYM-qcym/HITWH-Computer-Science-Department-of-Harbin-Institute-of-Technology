@@ -1,5 +1,9 @@
 # 程序入口
 
+## 2026-10-31 候选单分钟详情
+
+[候选单分钟详情](../docs/guides/candidate-minute-details.md)提供无IO的快照配对查询，不重新训练、评分或计算评价，生产契约保持。
+
 ## 2026-10-31 候选已验证运行结果快照
 
 [候选运行快照](../docs/guides/candidate-run-snapshots.md)由两个既有验算模块提供IF/AE加载入口，保留原verify报告与生产契约。

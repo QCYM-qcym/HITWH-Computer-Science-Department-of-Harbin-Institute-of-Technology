@@ -1,5 +1,9 @@
 # 文档导航
 
+## 2026-10-31 候选单分钟详情
+
+[接口与限制](guides/candidate-minute-details.md)、[实际验证](research/2026-10-31-candidate-minute-detail-verification.json)。候选分钟的分数、输入、历史和标签可从同一人口的快照读取。
+
 ## 2026-10-31 候选已验证运行结果快照
 
 [接口与限制](guides/candidate-run-snapshots.md)、[实际验证](research/2026-10-31-candidate-run-snapshot-verification.json)。已验证的候选分数文档可供分钟级消费者直接读取。
