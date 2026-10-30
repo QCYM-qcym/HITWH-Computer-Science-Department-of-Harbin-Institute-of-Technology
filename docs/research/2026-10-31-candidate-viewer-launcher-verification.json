@@ -1,0 +1,525 @@
+{
+  "date": "2026-10-31",
+  "scope": "SYNTHETIC_ONLY",
+  "policy_status": "AUDIT_ONLY",
+  "base_commit": "78bf5ef4c22a0b68add51c22d018274645fc96bd",
+  "purpose": "REPRODUCIBLE_FOREGROUND_LOOPBACK_VIEWER_LAUNCHER",
+  "tests": {
+    "focused_command": "python -X utf8 -m pytest tests/backend/test_candidate_serve_cli.py -q",
+    "new_passed": 51,
+    "focused_seconds": 1.16,
+    "related_command": "python -X utf8 -m pytest tests/backend/test_candidate_serve_cli.py tests/backend/test_candidate_viewer.py tests/backend/test_candidate_app.py -q",
+    "related_passed": 179,
+    "related_seconds": 6.97,
+    "related_skipped": 0,
+    "warning": "EXISTING_TESTCLIENT_DEPRECATION",
+    "new_unit_models": "NOT_RUN",
+    "frontend_retest": "NOT_RUN_UNCHANGED",
+    "repository_checks": {
+      "unit_passed": 13,
+      "worktree_files_checked": 523,
+      "worktree_issues": 0,
+      "changed_files": 14,
+      "changed_markdown_links_checked": 508,
+      "vault_wiki_links_checked": 5,
+      "staged_verification_record": "LOCAL_PRECOMMIT_LOG_AND_DELIVERY_LEDGER"
+    }
+  },
+  "TDD": {
+    "initial_valid_failed": 49,
+    "initial_seconds": 1.27,
+    "unhashable_error_code_regression_failed": 1,
+    "forced_shutdown_regression_failed": 1,
+    "fixes": [
+      "STRICT_STRING_BEFORE_ERROR_WHITELIST_LOOKUP",
+      "NO_GRACEFUL_STOP_EVENT_WHEN_FORCE_EXIT"
+    ],
+    "initial_results_retained": true,
+    "force_exit_test_scope": "UNIT_SIMULATED_FORCE_STATE_NOT_OS_SIGNAL"
+  },
+  "manual": {
+    "status": "PASS",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "scope": "ACTUAL_LOCAL_LAUNCHER_ENGINEERING_ACCEPTANCE",
+    "planned_process_count": 5,
+    "actual_minus_m_processes": 4,
+    "successful_ordinary_minus_m_services": 1,
+    "separate_guarded_main_processes": 1,
+    "ordinary_processes_model_instrumented": false,
+    "guard_scope": "ONLY_SEPARATE_CONTROLLED_MAIN_PROCESS",
+    "guarded_main_evidence": {
+      "exit_code": 0,
+      "model_import_attempts": [],
+      "forbidden_model_calls": [],
+      "model_modules_imported": [],
+      "production_modules_imported": [],
+      "scope": "THIS_CONTROLLED_MAIN_PROCESS_ONLY_NOT_ORDINARY_MINUS_M",
+      "startup_saved_relation_verification_allowed": true,
+      "request_io_instrumented": false
+    },
+    "startup_saved_relation_verification_allowed": true,
+    "processes": [
+      {
+        "case": "ordinary-four-source",
+        "execution": "ACTUAL_PYTHON_MINUS_M",
+        "record": {
+          "forced_cleanup": false,
+          "normal_process_wait": true,
+          "launcher_pid": 7424,
+          "server_pid": 24192,
+          "server_parent_pid": 7424,
+          "port": 58058,
+          "host": "127.0.0.1",
+          "process_relationship": "WINDOWS_DIRECT_CHILD_OF_LAUNCHER",
+          "exit_code": 0,
+          "launcher_reaped": true,
+          "verified_server_handle_signaled": true,
+          "port_closed": true,
+          "stdout": {
+            "sha256": "141bbc46f89dbc8448d02a0d6937bf834a72450ab75ed9c7c3ab1a8ec74e3578",
+            "byte_count": 742
+          },
+          "stderr": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "byte_count": 0
+          },
+          "stream_cap_bytes": 65536,
+          "stream_cap_exceeded": false,
+          "capture_errors": [],
+          "capture_threads_joined": true
+        },
+        "events": [
+          {
+            "schema_version": 1,
+            "event": "SERVER_READY",
+            "evidence_kind": "SYNTHETIC_ONLY",
+            "policy_status": "AUDIT_ONLY",
+            "scope": "SYNTHETIC_SAVED_RUN_VIEWER",
+            "host": "127.0.0.1",
+            "port": 58058,
+            "url": "http://127.0.0.1:58058/candidate",
+            "run_ids": [
+              "toy-if-20261030-v1",
+              "toy-ae-current-20261030-v1",
+              "toy-ae-history15-20261030-v1",
+              "toy-ae-history30-20261030-v1"
+            ],
+            "pid": 24192,
+            "parent_pid": 7424
+          },
+          {
+            "schema_version": 1,
+            "event": "SERVER_STOPPED",
+            "evidence_kind": "SYNTHETIC_ONLY",
+            "policy_status": "AUDIT_ONLY",
+            "scope": "SYNTHETIC_SAVED_RUN_VIEWER",
+            "host": "127.0.0.1",
+            "port": 58058,
+            "url": "http://127.0.0.1:58058/candidate",
+            "run_ids": [
+              "toy-if-20261030-v1",
+              "toy-ae-current-20261030-v1",
+              "toy-ae-history15-20261030-v1",
+              "toy-ae-history30-20261030-v1"
+            ],
+            "pid": 24192,
+            "parent_pid": 7424
+          }
+        ]
+      },
+      {
+        "case": "guarded-if-no-source",
+        "execution": "CONTROLLED_MAIN",
+        "record": {
+          "forced_cleanup": false,
+          "normal_process_wait": true,
+          "launcher_pid": 21316,
+          "server_pid": 9472,
+          "server_parent_pid": 21316,
+          "port": 61226,
+          "host": "127.0.0.1",
+          "process_relationship": "WINDOWS_DIRECT_CHILD_OF_LAUNCHER",
+          "exit_code": 0,
+          "launcher_reaped": true,
+          "verified_server_handle_signaled": true,
+          "port_closed": true,
+          "stdout": {
+            "sha256": "5aae08c431e99d01daecee7177d690a43024c1cddf64c60750845e88a6f5ffe5",
+            "byte_count": 560
+          },
+          "stderr": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "byte_count": 0
+          },
+          "stream_cap_bytes": 65536,
+          "stream_cap_exceeded": false,
+          "capture_errors": [],
+          "capture_threads_joined": true
+        },
+        "events": [
+          {
+            "schema_version": 1,
+            "event": "SERVER_READY",
+            "evidence_kind": "SYNTHETIC_ONLY",
+            "policy_status": "AUDIT_ONLY",
+            "scope": "SYNTHETIC_SAVED_RUN_VIEWER",
+            "host": "127.0.0.1",
+            "port": 61226,
+            "url": "http://127.0.0.1:61226/candidate",
+            "run_ids": [
+              "toy-if-20261030-v1"
+            ],
+            "pid": 9472,
+            "parent_pid": 21316
+          },
+          {
+            "schema_version": 1,
+            "event": "SERVER_STOPPED",
+            "evidence_kind": "SYNTHETIC_ONLY",
+            "policy_status": "AUDIT_ONLY",
+            "scope": "SYNTHETIC_SAVED_RUN_VIEWER",
+            "host": "127.0.0.1",
+            "port": 61226,
+            "url": "http://127.0.0.1:61226/candidate",
+            "run_ids": [
+              "toy-if-20261030-v1"
+            ],
+            "pid": 9472,
+            "parent_pid": 21316
+          }
+        ]
+      },
+      {
+        "case": "invalid-arguments",
+        "execution": "ACTUAL_PYTHON_MINUS_M",
+        "record": {
+          "forced_cleanup": false,
+          "normal_process_wait": true,
+          "launcher_pid": 18696,
+          "exit_code": 2,
+          "launcher_reaped": true,
+          "stdout": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "byte_count": 0
+          },
+          "stderr": {
+            "sha256": "477c73b4e4bee1b6c8b4f5dece8239716b4b80fdb5caf4ee6dbe4d617692acf5",
+            "byte_count": 31
+          },
+          "stream_cap_bytes": 65536,
+          "stream_cap_exceeded": false,
+          "capture_errors": [],
+          "capture_threads_joined": true
+        },
+        "expected_error": "INVALID_ARGUMENTS"
+      },
+      {
+        "case": "missing-package",
+        "execution": "ACTUAL_PYTHON_MINUS_M",
+        "record": {
+          "forced_cleanup": false,
+          "normal_process_wait": true,
+          "launcher_pid": 30912,
+          "exit_code": 2,
+          "launcher_reaped": true,
+          "stdout": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "byte_count": 0
+          },
+          "stderr": {
+            "sha256": "e7c5fa5f0f510b1f8cac92fecf0ec828b8a5b9eb6a31e4240db495b81db97ef6",
+            "byte_count": 31
+          },
+          "stream_cap_bytes": 65536,
+          "stream_cap_exceeded": false,
+          "capture_errors": [],
+          "capture_threads_joined": true
+        },
+        "expected_error": "INPUT_UNAVAILABLE"
+      },
+      {
+        "case": "occupied-port",
+        "execution": "ACTUAL_PYTHON_MINUS_M",
+        "record": {
+          "forced_cleanup": false,
+          "normal_process_wait": true,
+          "launcher_pid": 33616,
+          "exit_code": 2,
+          "launcher_reaped": true,
+          "stdout": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "byte_count": 0
+          },
+          "stderr": {
+            "sha256": "1d83f7edfed58377a081689eef9e67d6401f0e1a6a9f1be558b24667a0d9f033",
+            "byte_count": 25
+          },
+          "stream_cap_bytes": 65536,
+          "stream_cap_exceeded": false,
+          "capture_errors": [],
+          "capture_threads_joined": true
+        },
+        "expected_error": "BIND_FAILED"
+      }
+    ],
+    "http_checks": [
+      {
+        "process": "ordinary-four-source",
+        "case": "catalog",
+        "status": 200,
+        "body": {
+          "sha256": "43d6b17e7df44d2043c263f9f97480b9fc56b3844be6593173f8121f52a97ec7",
+          "byte_count": 1237
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "asset-index.html",
+        "status": 200,
+        "body": {
+          "sha256": "7b04ce571172856629b8fd0b52160d47aa321f152217d6e9cea8338964608b87",
+          "byte_count": 474
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "asset-viewer.css",
+        "status": 200,
+        "body": {
+          "sha256": "523ade8af6c680b03248d749be39f9169ea1f9d66cfbdafe98bda7c3b6282c92",
+          "byte_count": 2516
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "asset-viewer.mjs",
+        "status": 200,
+        "body": {
+          "sha256": "cb9a50c3d004810318311a5334e72253e10064ed0008da066fe0be7382f777ea",
+          "byte_count": 21318
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "if_current-series",
+        "status": 200,
+        "body": {
+          "sha256": "ef034d4c5ea746091cad46c006c58a528b3d83051469392d775881d9b8715f80",
+          "byte_count": 1116
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "if_current-detail-0",
+        "status": 200,
+        "body": {
+          "sha256": "f837d5413cecf7a006cb0c5767401ea73f4465da6d3551462d1437ead32e9bbd",
+          "byte_count": 1578
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "if_current-detail-140",
+        "status": 200,
+        "body": {
+          "sha256": "2ae0bb48ef8999a9228c64deb5786848a4438aad56a384c277175abe3a669498",
+          "byte_count": 1609
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "ae_current-series",
+        "status": 200,
+        "body": {
+          "sha256": "a6927f8a589b02284d4308dba847ca2a7eb9afc467c7c2b006727ba941a58f12",
+          "byte_count": 1133
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "ae_current-detail-0",
+        "status": 200,
+        "body": {
+          "sha256": "fc625634771773bf64e50542ad344ea0c33701c4856a706085826e2f64e13133",
+          "byte_count": 1582
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "ae_current-detail-140",
+        "status": 200,
+        "body": {
+          "sha256": "b792742a2cff985ca740718b23c175ee685be781a71db788c3721e1c2a0b9bfc",
+          "byte_count": 1628
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "ae_history15-series",
+        "status": 200,
+        "body": {
+          "sha256": "b302211e104e15a5fc16c65a89efeb3a137c4cd6979771f302037ed852f96e34",
+          "byte_count": 1138
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "ae_history15-detail-0",
+        "status": 200,
+        "body": {
+          "sha256": "fa637786c08eb38ca74249ac97072f82b36f93021420c4b66ed7d3782ecfebf0",
+          "byte_count": 1580
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "ae_history15-detail-140",
+        "status": 200,
+        "body": {
+          "sha256": "192a6b8486228e945f942f25a5c9bfcd4f899d7a9d399754c8b3210999bef24f",
+          "byte_count": 1642
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "ae_history30-series",
+        "status": 200,
+        "body": {
+          "sha256": "8e5c5d5d9398608f207b79b6bda97dcbe6e09c54af1c5d62127e6b0e34486635",
+          "byte_count": 1138
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "ae_history30-detail-0",
+        "status": 200,
+        "body": {
+          "sha256": "a71c74c5096a02a86e0de8ae3fc4f3890103d44dbe4ba6537b404d703bc21e72",
+          "byte_count": 1580
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "ordinary-four-source",
+        "case": "ae_history30-detail-140",
+        "status": 200,
+        "body": {
+          "sha256": "b6f55491a4c307ee293a958754ae1d036ddac25a8cb06ab31ab342b8ad2a9a90",
+          "byte_count": 1642
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "guarded-if-no-source",
+        "case": "catalog",
+        "status": 200,
+        "body": {
+          "sha256": "88874c3db313e5ead4fb7526baecc9f032c13cd2a204e63b82eb5aef2a912474",
+          "byte_count": 421
+        },
+        "independent_expected_match": true
+      },
+      {
+        "process": "guarded-if-no-source",
+        "case": "if_current-series",
+        "status": 200,
+        "body": {
+          "sha256": "20c3bb5b0d2be64b2f31bccd7edc8f9ad144bc20cb1908fae53f2d9d094df564",
+          "byte_count": 1120
+        },
+        "independent_expected_match": true
+      }
+    ],
+    "historical_files_preserved": 39,
+    "historical_sha_size_mtime_and_directory_members_unchanged": true,
+    "historical_snapshot_sha256": "47546f5a791ffba7948cc6dc107febea11141c4d4c76fc61b546bf95143d44e3",
+    "failure_type": null,
+    "identity_error_type": null,
+    "viewer_cli_comparison": "INDEPENDENT_ORIGINAL_JSON_EXPECTATIONS_REUSING_BATCH19_EXPECTATION_BUILDERS",
+    "new_view_cli_invocations": 0,
+    "new_browser_acceptance": "NOT_RUN",
+    "new_export_validation": "NOT_RUN",
+    "signal_driven_shutdown": "NOT_RUN",
+    "timer_is_hard_wall_clock_limit": false,
+    "real_csv_reads": 0,
+    "new_download_bytes": 0,
+    "real_models": "NOT_RUN",
+    "data_gate": "BLOCKED"
+  },
+  "installed_package": {
+    "status": "PASS",
+    "mode": "green",
+    "build_and_install_no_index_no_deps": true,
+    "build_isolation": false,
+    "module_from_installed_target": true,
+    "module_sha256": "3fd4466f4be294aa6ff11f24471e5ead9db328d25b0040d917d91cc6e20af841",
+    "module_byte_count": 7763,
+    "installed_help_exit_code": 0,
+    "installed_help_has_lifetime_argument": true,
+    "resources": [
+      {
+        "name": "index.html",
+        "exists": true,
+        "byte_count": 474,
+        "sha256": "7b04ce571172856629b8fd0b52160d47aa321f152217d6e9cea8338964608b87"
+      },
+      {
+        "name": "viewer.css",
+        "exists": true,
+        "byte_count": 2516,
+        "sha256": "523ade8af6c680b03248d749be39f9169ea1f9d66cfbdafe98bda7c3b6282c92"
+      },
+      {
+        "name": "viewer.mjs",
+        "exists": true,
+        "byte_count": 21318,
+        "sha256": "cb9a50c3d004810318311a5334e72253e10064ed0008da066fe0be7382f777ea"
+      }
+    ],
+    "wheel_resource_members": [
+      "traffic_api/candidate_static/index.html",
+      "traffic_api/candidate_static/viewer.css",
+      "traffic_api/candidate_static/viewer.mjs"
+    ],
+    "wheel_sha256": "dd7ee22e1fbe3aef4d1232d9e6603379ddc447595636ad7ed899b5da3cf67203"
+  },
+  "installation_scope": "FRESH_INSTALLED_TARGET_WITH_EXISTING_PINNED_DEPENDENCIES_NOT_NEW_CLEAN_MACHINE",
+  "installation_before_final_fix": "PASSED_THEN_REBUILT_REINSTALLED_AFTER_FORCE_EXIT_FIX",
+  "independent_review": "SPEC_QUALITY_MANUAL_PUBLICCLAIMS_PASS",
+  "limits": {
+    "new_browser_acceptance": "NOT_RUN_PRIOR_BATCH_SEPARATE",
+    "new_view_cli_invocations": 0,
+    "new_export_validation": "NOT_RUN",
+    "actual_signal_shutdown": "NOT_RUN",
+    "new_download_bytes": 0,
+    "real_csv_reads": 0,
+    "real_preprocessing": "NOT_RUN",
+    "real_models": "NOT_RUN",
+    "real_system_integration": "NOT_RUN",
+    "formal_experiments": "NOT_RUN",
+    "production_contract_changed": false,
+    "data_gate": "BLOCKED",
+    "timer_is_hard_wall_clock_limit": false
+  },
+  "remote_CI": "PENDING_AFTER_PUSH",
+  "manual_evidence_limits": {
+    "controller_shell_exit": "NOT_OBSERVED_TOOL_OUTPUT_TRUNCATED",
+    "child_process_exit_codes": "CAPTURED_FOR_ALL_FIVE",
+    "identity_checks": "EXECUTED_BEFORE_AFTER_ASSERTIONS_AND_INVENTORY_DIGEST",
+    "separate_before_after_maps_persisted": false
+  }
+}

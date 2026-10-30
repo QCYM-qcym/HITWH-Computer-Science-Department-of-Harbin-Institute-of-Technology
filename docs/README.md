@@ -1,5 +1,9 @@
 # 文档导航
 
+## 2026-10-31 候选查看页的前台启动命令
+
+[本地启动说明](guides/candidate-viewer-launcher.md)、[真实启停与安装验收](research/2026-10-31-candidate-viewer-launcher-verification.json)。复用原人工包，一条命令启动独立候选查看页。
+
 ## 2026-10-31 候选合成结果的独立查看页
 
 [候选合成结果查看页](guides/candidate-viewer.md)、[安装与浏览器验证](research/2026-10-31-candidate-viewer-verification.json)。固定候选目录、分页、曲线和13通道详情，独立于原Vue四页。

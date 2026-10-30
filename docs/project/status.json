@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-10-31",
   "current_stage": "S2",
-  "theme": "自主迭代：候选合成结果查看页通过实际浏览器与安装验证；研究Gate仍BLOCKED",
+  "theme": "自主迭代：候选查看页本地启动命令通过真实启停与安装验证；研究Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增独立候选查看页：原run_id选择、范围分页、分数曲线和13通道详情，保持源钟面及无效值含义。",
-    "包装器新增51项及相关128项通过；前端56项含31项候选DOM测试通过，原Vue类型、构建与契约检查通过。",
-    "实际浏览器发现单点阈值不可见，增加失败测试后修复并复验；实际wheel安装复现缺资源后补三项精确打包声明。",
-    "两次独立浏览器服务均正常收尾，39旧产物身份保持；测试夹具及初始TDD偏差如实保留，真实模型NOT_RUN，Gate BLOCKED。"
+    "新增候选查看页前台启动命令：显式1–4包、先核验后监听127.0.0.1、同socket随机端口及安全诊断。",
+    "51项新增与179项相关测试通过；另复现并修复非字符串错误码和强制退出误报正常停止，实际信号验证未执行。",
+    "实际4次普通命令及1次独立受控main完成18次HTTP核对，两服务定时正常关闭；缺包、占端口和坏参数拒绝通过。",
+    "安装后模块与三资源来源/字节一致，39旧文件身份保持；真实训练、联调及正式实验NOT_RUN，Data Gate BLOCKED。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "候选查看页本地启动",
+      "path": "docs/guides/candidate-viewer-launcher.md"
+    },
+    {
+      "label": "候选启动命令实际验证",
+      "path": "docs/research/2026-10-31-candidate-viewer-launcher-verification.json"
+    },
     {
       "label": "候选合成结果查看页",
       "path": "docs/guides/candidate-viewer.md"
@@ -2288,6 +2296,21 @@
     "installed_wheel_resources": "PASS",
     "historical_files_preserved": 39,
     "evidence": "docs/research/2026-10-31-candidate-viewer-verification.json",
+    "remote_CI": "PENDING_AFTER_PUSH"
+  },
+  "candidate_viewer_launcher": {
+    "status": "SYNTHETIC_ONLY",
+    "new_tests": 51,
+    "related_passed": 179,
+    "related_skipped": 0,
+    "actual_minus_m_processes": 4,
+    "separate_guarded_main_processes": 1,
+    "actual_http_checks": 18,
+    "actual_timer_shutdowns": 2,
+    "actual_signal_shutdown": "NOT_RUN",
+    "historical_files_preserved": 39,
+    "installed_package": "PASS",
+    "evidence": "docs/research/2026-10-31-candidate-viewer-launcher-verification.json",
     "remote_CI": "PENDING_AFTER_PUSH"
   }
 }

@@ -1,5 +1,9 @@
 # 程序入口
 
+## 2026-10-31 候选查看页的前台启动命令
+
+新增[traffic_api.candidate_serve_cli启动入口](../docs/guides/candidate-viewer-launcher.md)，仅python -m，未新增依赖或包脚本。受信终端指定匹配包，网页只消费固定内存快照；不改原生产任务/134与268维契约。
+
 ## 2026-10-31 候选合成结果的独立查看页
 
 [候选查看页](../docs/guides/candidate-viewer.md)由可选candidate_viewer工厂与三静态资源组成，原candidate_app的三条API不变。精确package-data确保wheel资源，独立MJS通过单独DOM和浏览器验证，不属于原Vue构建。
