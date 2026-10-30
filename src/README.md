@@ -1,5 +1,9 @@
 # 程序入口
 
+## 2026-10-31 候选曲线范围分页
+
+[候选曲线分页](../docs/guides/candidate-series-pages.md)是运行快照的纯消费者；特征/标签仍用独立分钟详情，未新增生产HTTP或浏览器接口。
+
 ## 2026-10-31 候选单分钟详情
 
 [候选单分钟详情](../docs/guides/candidate-minute-details.md)提供无IO的快照配对查询，不重新训练、评分或计算评价，生产契约保持。

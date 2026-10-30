@@ -1,0 +1,588 @@
+{
+  "date": "2026-10-31",
+  "status": "PASS",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "base_commit": "7abe8e61beb69366c16387968e4357eb46feb11a",
+  "scope": "PURE_CANDIDATE_RANGE_AND_PAGING",
+  "tests": {
+    "initial_red_failed": 76,
+    "new_tests": 76,
+    "new_tests_use_handwritten_snapshots_without_model_training": true,
+    "related_passed": 164,
+    "related_skipped": 0,
+    "related_old_test_fixtures_generate_synthetic_models": true,
+    "repository": "13_PASS",
+    "worktree_check": "499_FILES_0_ISSUES",
+    "privacy_and_links": "14_FILES_469_MARKDOWN_LINKS_5_VAULT_LINKS_PASS",
+    "review": "SPEC_PASS_QUALITY_PASS_MANUAL_FINAL_PASS"
+  },
+  "manual": {
+    "status": "PASS",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "scope": "PURE_CANDIDATE_SERIES_PAGE_FROM_EXISTING_ARTIFICIAL_PACKAGES",
+    "loaded_run_snapshots": 5,
+    "full_traversal_queries": 36,
+    "range_boundary_and_alias_queries": 40,
+    "mutable_return_isolation_queries": 8,
+    "no_source_proof_queries": 1,
+    "cases": [
+      {
+        "slot": "if_current",
+        "run_id": "toy-if-20261030-v1",
+        "page_size": 17,
+        "page_count": 9,
+        "minute_count": 144,
+        "valid_count": 24,
+        "null_score_count": 120,
+        "null_alarm_count": 120,
+        "break_before_indices": [
+          0,
+          36,
+          72,
+          108
+        ],
+        "page_firsts": [
+          {
+            "page": 1,
+            "index": 0,
+            "break_before": true
+          },
+          {
+            "page": 2,
+            "index": 17,
+            "break_before": false
+          },
+          {
+            "page": 3,
+            "index": 34,
+            "break_before": false
+          },
+          {
+            "page": 4,
+            "index": 51,
+            "break_before": false
+          },
+          {
+            "page": 5,
+            "index": 68,
+            "break_before": false
+          },
+          {
+            "page": 6,
+            "index": 85,
+            "break_before": false
+          },
+          {
+            "page": 7,
+            "index": 102,
+            "break_before": false
+          },
+          {
+            "page": 8,
+            "index": 119,
+            "break_before": false
+          },
+          {
+            "page": 9,
+            "index": 136,
+            "break_before": false
+          }
+        ],
+        "full_items_sha256": "0e1236cac1dd390cdb76a29b7d1045510c86ef3f48f036302d45663d43d377ff",
+        "evaluation_artifact_identity": {
+          "sha256": "20d19dbbae53439b008f6915b2ba972d292a2bd0a67bd1f24155f4d9a0b4d740",
+          "byte_count": 6481
+        },
+        "all_original_rows_and_values_preserved": true,
+        "full_evaluation_unchanged_under_ranges_and_pages": true
+      },
+      {
+        "slot": "ae_current",
+        "run_id": "toy-ae-current-20261030-v1",
+        "page_size": 17,
+        "page_count": 9,
+        "minute_count": 144,
+        "valid_count": 24,
+        "null_score_count": 120,
+        "null_alarm_count": 120,
+        "break_before_indices": [
+          0,
+          36,
+          72,
+          108
+        ],
+        "page_firsts": [
+          {
+            "page": 1,
+            "index": 0,
+            "break_before": true
+          },
+          {
+            "page": 2,
+            "index": 17,
+            "break_before": false
+          },
+          {
+            "page": 3,
+            "index": 34,
+            "break_before": false
+          },
+          {
+            "page": 4,
+            "index": 51,
+            "break_before": false
+          },
+          {
+            "page": 5,
+            "index": 68,
+            "break_before": false
+          },
+          {
+            "page": 6,
+            "index": 85,
+            "break_before": false
+          },
+          {
+            "page": 7,
+            "index": 102,
+            "break_before": false
+          },
+          {
+            "page": 8,
+            "index": 119,
+            "break_before": false
+          },
+          {
+            "page": 9,
+            "index": 136,
+            "break_before": false
+          }
+        ],
+        "full_items_sha256": "caac1c73d46db9a3425c26e81772b44fc13163196d50afa7a6cd976411cd15f3",
+        "evaluation_artifact_identity": {
+          "sha256": "648ac3431e4c192e16756bbeb4150863f17ef5ea78767c6032d521b44f0f3b09",
+          "byte_count": 7125
+        },
+        "all_original_rows_and_values_preserved": true,
+        "full_evaluation_unchanged_under_ranges_and_pages": true
+      },
+      {
+        "slot": "ae_history15",
+        "run_id": "toy-ae-history15-20261030-v1",
+        "page_size": 17,
+        "page_count": 9,
+        "minute_count": 144,
+        "valid_count": 24,
+        "null_score_count": 120,
+        "null_alarm_count": 120,
+        "break_before_indices": [
+          0,
+          36,
+          72,
+          108
+        ],
+        "page_firsts": [
+          {
+            "page": 1,
+            "index": 0,
+            "break_before": true
+          },
+          {
+            "page": 2,
+            "index": 17,
+            "break_before": false
+          },
+          {
+            "page": 3,
+            "index": 34,
+            "break_before": false
+          },
+          {
+            "page": 4,
+            "index": 51,
+            "break_before": false
+          },
+          {
+            "page": 5,
+            "index": 68,
+            "break_before": false
+          },
+          {
+            "page": 6,
+            "index": 85,
+            "break_before": false
+          },
+          {
+            "page": 7,
+            "index": 102,
+            "break_before": false
+          },
+          {
+            "page": 8,
+            "index": 119,
+            "break_before": false
+          },
+          {
+            "page": 9,
+            "index": 136,
+            "break_before": false
+          }
+        ],
+        "full_items_sha256": "394b204427258c73aaa21e4a9a0b858ce5b49e823181972735161c167e0ae456",
+        "evaluation_artifact_identity": {
+          "sha256": "b55d2099761176bd54d82ee8d9ac268bb5f3aabb92e9a03d7aa84d89f0b51126",
+          "byte_count": 7125
+        },
+        "all_original_rows_and_values_preserved": true,
+        "full_evaluation_unchanged_under_ranges_and_pages": true
+      },
+      {
+        "slot": "ae_history30",
+        "run_id": "toy-ae-history30-20261030-v1",
+        "page_size": 17,
+        "page_count": 9,
+        "minute_count": 144,
+        "valid_count": 24,
+        "null_score_count": 120,
+        "null_alarm_count": 120,
+        "break_before_indices": [
+          0,
+          36,
+          72,
+          108
+        ],
+        "page_firsts": [
+          {
+            "page": 1,
+            "index": 0,
+            "break_before": true
+          },
+          {
+            "page": 2,
+            "index": 17,
+            "break_before": false
+          },
+          {
+            "page": 3,
+            "index": 34,
+            "break_before": false
+          },
+          {
+            "page": 4,
+            "index": 51,
+            "break_before": false
+          },
+          {
+            "page": 5,
+            "index": 68,
+            "break_before": false
+          },
+          {
+            "page": 6,
+            "index": 85,
+            "break_before": false
+          },
+          {
+            "page": 7,
+            "index": 102,
+            "break_before": false
+          },
+          {
+            "page": 8,
+            "index": 119,
+            "break_before": false
+          },
+          {
+            "page": 9,
+            "index": 136,
+            "break_before": false
+          }
+        ],
+        "full_items_sha256": "394b204427258c73aaa21e4a9a0b858ce5b49e823181972735161c167e0ae456",
+        "evaluation_artifact_identity": {
+          "sha256": "ef8d8d9efe49ec4e357603c5aed082c75f59fb222bc3781630603dcb02405b8f",
+          "byte_count": 7125
+        },
+        "all_original_rows_and_values_preserved": true,
+        "full_evaluation_unchanged_under_ranges_and_pages": true
+      }
+    ],
+    "invalid_query_cases": [
+      {
+        "keys": [
+          "page"
+        ],
+        "types": {
+          "page": "bool"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page"
+        ],
+        "types": {
+          "page": "bool"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page"
+        ],
+        "types": {
+          "page": "int"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page"
+        ],
+        "types": {
+          "page": "int"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page"
+        ],
+        "types": {
+          "page": "float"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page"
+        ],
+        "types": {
+          "page": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page"
+        ],
+        "types": {
+          "page": "NoneType"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page_size"
+        ],
+        "types": {
+          "page_size": "bool"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page_size"
+        ],
+        "types": {
+          "page_size": "int"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page_size"
+        ],
+        "types": {
+          "page_size": "int"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page_size"
+        ],
+        "types": {
+          "page_size": "int"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page_size"
+        ],
+        "types": {
+          "page_size": "float"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page_size"
+        ],
+        "types": {
+          "page_size": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "page_size"
+        ],
+        "types": {
+          "page_size": "NoneType"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start"
+        ],
+        "types": {
+          "start": "bool"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start"
+        ],
+        "types": {
+          "start": "int"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start"
+        ],
+        "types": {
+          "start": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start"
+        ],
+        "types": {
+          "start": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start"
+        ],
+        "types": {
+          "start": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start"
+        ],
+        "types": {
+          "start": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start"
+        ],
+        "types": {
+          "start": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start"
+        ],
+        "types": {
+          "start": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start"
+        ],
+        "types": {
+          "start": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "end"
+        ],
+        "types": {
+          "end": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start",
+          "end"
+        ],
+        "types": {
+          "start": "str",
+          "end": "str"
+        },
+        "code": "INVALID_QUERY"
+      },
+      {
+        "keys": [
+          "start",
+          "end"
+        ],
+        "types": {
+          "start": "str",
+          "end": "str"
+        },
+        "code": "INVALID_QUERY"
+      }
+    ],
+    "query_io_attempts": [],
+    "model_import_attempts": [],
+    "forbidden_fit_prepare_model_or_query_recompute_calls": [],
+    "loading_stored_transform_history_calibration_arithmetic_allowed": true,
+    "historical_files": {
+      "run_files": 20,
+      "three_policy_upstream_files": 18,
+      "source_fixture": 1
+    },
+    "before_after_sha_size_mtime_unchanged": true,
+    "historical_snapshot_sha256": "47546f5a791ffba7948cc6dc107febea11141c4d4c76fc61b546bf95143d44e3",
+    "observed_timestamp_gap_counts": {
+      "if_current": 0,
+      "ae_current": 0,
+      "ae_history15": 0,
+      "ae_history30": 0
+    },
+    "existing_packages_have_timestamp_gaps": false,
+    "timestamp_gap_behavior_evidence": "FOCUSED_SYNTHETIC_UNIT_TEST_REQUIRED_NOT_MANUAL_OLD_RUN",
+    "real_csv_reads": 0,
+    "new_download_bytes": 0,
+    "real_models": "NOT_RUN",
+    "production_api_or_browser_integration": "NOT_RUN",
+    "data_gate": "BLOCKED"
+  },
+  "manual_harness_correction": {
+    "initial_attempt": "FAIL",
+    "reason": "invalid-query evidence metadata used a misspelled type-name attribute",
+    "fixed": "use __name__ string attribute and rerun read-only acceptance",
+    "candidate_source_affected": false,
+    "corrected_rerun": "PASS",
+    "initial_error_preserved": true
+  },
+  "production_contract_migration": "NOT_RUN",
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

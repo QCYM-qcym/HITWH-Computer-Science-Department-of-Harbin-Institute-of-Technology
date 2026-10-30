@@ -1,5 +1,9 @@
 # 文档导航
 
+## 2026-10-31 候选曲线范围分页
+
+[范围分页接口](guides/candidate-series-pages.md)、[实际验证](research/2026-10-31-candidate-series-page-verification.json)。页面保留原无效分钟和分区断点，完整评价身份不随筛选变化。
+
 ## 2026-10-31 候选单分钟详情
 
 [接口与限制](guides/candidate-minute-details.md)、[实际验证](research/2026-10-31-candidate-minute-detail-verification.json)。候选分钟的分数、输入、历史和标签可从同一人口的快照读取。
