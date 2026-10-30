@@ -1,5 +1,9 @@
 # 候选13维IF：人工输入到评分与评价
 
+## 已有产物的只读复查
+
+已有五文件可使用[独立只读验算](candidate-run-verification.md)检查身份、摘要、存储分数Q99和评价；不重跑或反序列化IF，也不认证分数来自模型。原自产保存/当次重载与此后的只读复查是不同证据。
+
 日期2026-10-30；身份**SYNTHETIC_ONLY / ENGINEERING_TOY_ONLY**。用途：在[候选不可变快照](candidate-snapshots.md)上演练当前13维IF、自产模型保存/当次重载、独立Q99和三政策固定预测评价。范围见[开发计划](../superpowers/plans/2026-10-30-candidate-if-synthetic.md)。既有生产134/268模型与HTTP/网页不改变，本入口不连接真实数据。
 
 ## 运行

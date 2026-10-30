@@ -1,5 +1,9 @@
 # 文档导航
 
+## 候选IF运行只读复查
+
+[不加载模型的五产物验算](guides/candidate-run-verification.md)、[实际证据](research/2026-10-30-candidate-run-verification.json)及[实施记录](superpowers/plans/2026-10-30-candidate-run-verifier.md)。成功仅表示存储分数/产物一致，模型来源和真实研究不因此认证。
+
 ## 候选13维IF合成运行
 
 [运行与五产物](guides/candidate-if-synthetic.md)、[实际阈值/分母/漏报与测试记录](research/2026-10-30-candidate-if-verification.json)。当前只有SYNTHETIC_ONLY工程演练，真实模型/正式实验NOT_RUN，Data Gate BLOCKED。

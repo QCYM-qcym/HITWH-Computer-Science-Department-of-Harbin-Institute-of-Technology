@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 只读运行验算的依赖边界
+
+[候选五产物复查](candidate-run-verification.md)不导入joblib/sklearn/torch，也不调用pickle反序列化；模型CLI仍需既有模型依赖。本次用禁止模型导入/反序列化的独立进程验证，没有新建仅core环境或进行异机完整恢复，不将这种验证写成依赖复现已完成。
+
 ## 候选IF合成命令的环境
 
 [候选13维IF CLI](candidate-if-synthetic.md)使用现有backend锁定环境中的scikit-learn/joblib，无新增依赖。该命令模块导入时需要模型依赖；只安装核心NumPy/Pydantic的环境不能运行模型CLI。原contracts导入规则和CPU/GPU边界保持；本入口不需要GPU，也不代表真实研究参数已定。

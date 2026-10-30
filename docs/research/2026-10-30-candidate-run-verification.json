@@ -1,0 +1,160 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_STORED_IF_RUN_VERIFICATION",
+  "date": "2026-10-30",
+  "base_commit": "8410d2c432b8bf8b127baca79eea5578f4a6e7ff",
+  "status": "PASS",
+  "verifier_profile_id": "c17-i1-g13u-iforest-run-verifier-v1",
+  "scope": "STORED_ARTIFACT_CONSISTENCY_ONLY",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "model_deserialization": "NOT_PERFORMED",
+  "model_score_replay": "NOT_CHECKED",
+  "library_versions": "DECLARATION_CONSISTENT_ONLY",
+  "model_type": "DECLARED_ONLY",
+  "manual": {
+    "invocations": 2,
+    "all_exit_zero": true,
+    "run_id": "toy-if-20261030-v1",
+    "source_modes": [
+      "NOT_PROVIDED",
+      "VERIFIED"
+    ],
+    "scoped_content_reads": [
+      11,
+      12
+    ],
+    "each_scoped_file_read_once": true,
+    "models_imported": false,
+    "model_deserialization": false,
+    "model_fit_or_score": false,
+    "run_files_unchanged": 5,
+    "upstream_files_unchanged": 18,
+    "source_unchanged": true,
+    "run_payload_bytes": 61576,
+    "minutes": 144,
+    "score_valid": 24,
+    "fit_count": 6,
+    "calibration_count": 6,
+    "threshold": 0.5531029014846093,
+    "policies": {
+      "P_U": {
+        "calendar_test_minutes": 36,
+        "scored_test_minutes": 6,
+        "excluded_unscored_test_minutes": 30,
+        "normal_minutes": 4,
+        "attack_minutes": 1,
+        "unknown_minutes": 1,
+        "unknown_source_attack_present": 0,
+        "confusion_counts": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 1
+        },
+        "metrics": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "fnr": 1.0
+        },
+        "undefined_reasons": {
+          "precision": "No positive predictions on scored normal or attack test minutes."
+        }
+      },
+      "P_B": {
+        "calendar_test_minutes": 36,
+        "scored_test_minutes": 6,
+        "excluded_unscored_test_minutes": 30,
+        "normal_minutes": 5,
+        "attack_minutes": 1,
+        "unknown_minutes": 0,
+        "unknown_source_attack_present": 0,
+        "confusion_counts": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 5,
+          "fn": 1
+        },
+        "metrics": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "fnr": 1.0
+        },
+        "undefined_reasons": {
+          "precision": "No positive predictions on scored normal or attack test minutes."
+        }
+      },
+      "P_A": {
+        "calendar_test_minutes": 36,
+        "scored_test_minutes": 6,
+        "excluded_unscored_test_minutes": 30,
+        "normal_minutes": 4,
+        "attack_minutes": 2,
+        "unknown_minutes": 0,
+        "unknown_source_attack_present": 0,
+        "confusion_counts": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 2
+        },
+        "metrics": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "fnr": 1.0
+        },
+        "undefined_reasons": {
+          "precision": "No positive predictions on scored normal or attack test minutes."
+        }
+      }
+    },
+    "wall_seconds_including_imports": [
+      0.3460266000183765,
+      0.3566197000036482
+    ]
+  },
+  "tests": {
+    "core_passed": 123,
+    "CLI_passed": 29,
+    "new_passed": 152,
+    "new_skipped": 1,
+    "candidate_related_passed": 493,
+    "candidate_related_skipped": 2,
+    "skip_reason": "HOST_DENIES_ACTUAL_SYMLINK_CREATION",
+    "independent_review": "SPEC_PASS_QUALITY_PASS",
+    "unresolved_findings": 0,
+    "repository_checks": "PASS",
+    "repository_tests": 13,
+    "worktree_checked_files": 433,
+    "worktree_issues": 0,
+    "changed_files": 17,
+    "changed_markdown_links": 323,
+    "vault_wiki_links": 5,
+    "privacy_and_links": "PASS",
+    "production_and_frozen_audits_unchanged": true,
+    "stage_criteria_unchanged": true
+  },
+  "TDD": {
+    "initial_core_failed": 123,
+    "initial_core_skipped": 1,
+    "initial_CLI_failed": 28,
+    "initial_full_logs_retained": true,
+    "review_finding": "FINITE_SCORE_INTERPOLATION_WARNING_LEAKED_LOCAL_PATH",
+    "review_fix": "LOCAL_ERRSTATE_WITH_FINITE_REJECTION_UNCHANGED",
+    "review_full_RED_retained": true
+  },
+  "manual_counter_correction": "FIRST_TWO_HARNESS_ASSERTIONS_INCLUDED_49_IMPORT_METADATA_READS;SCOPED_COUNTER_SEPARATED;FAILURE_LOGS_RETAINED",
+  "run_schema_changed": false,
+  "production_contract_changed": false,
+  "new_download_bytes": 0,
+  "real_csv_reads": 0,
+  "real_preprocessing": "NOT_RUN",
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}

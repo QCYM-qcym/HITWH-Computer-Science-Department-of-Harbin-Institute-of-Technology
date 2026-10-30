@@ -1,5 +1,11 @@
 # 公开决策与方案差异
 
+## 2026-10-30 运行验算证明范围
+
+新增[只读五产物验证器](../guides/candidate-run-verification.md)，输入大小和身份通过后，仅重算存储分数Q99、strict>及三政策评价；标量/索引/配置精确一致，不用阈值容差。权重只核字节，明确NOT_PERFORMED/NOT_CHECKED，版本只核跨文档声明，不认证模型可加载或分数来源。
+
+先检查词法父路径links/reparse再规范化；固定五文件、单binary8MiB/JSON16MiB/总32MiB。局部数值警告抑制只防错误路径泄露，原finite拒绝不变。这些是普通工程选择，不修改原运行格式、研究标签/时间/分段或生产134/268批准边界。
+
 ## 2026-10-30 候选IF合成执行决定
 
 依据自主普通工程授权，实现[独立候选13维IF演练](../guides/candidate-if-synthetic.md)，使用已验证人工快照；16树、max_samples=min(32,N_train)、seed42、单线程仅ENGINEERING_TOY_ONLY，不设最低32条要求。资格取既有共同集合，独立正常校准Q99 strict>；当前未知仍评分，正常/攻击分母排除未知并给null原因。

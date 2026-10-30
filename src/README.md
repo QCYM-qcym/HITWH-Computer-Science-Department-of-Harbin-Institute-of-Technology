@@ -1,5 +1,9 @@
 # 程序入口
 
+## 候选运行只读消费入口
+
+[运行验证CLI](../docs/guides/candidate-run-verification.md)只读候选IF五产物及上游快照，精确验算存储Q99/报警/三政策；不导入模型库或加载weights。报告明确模型得分NOT_CHECKED，旧生产CLI/API不变。
+
 ## 候选13维IF工程入口
 
 [独立合成CLI](../docs/guides/candidate-if-synthetic.md)在人工快照上拟合当前13维IF，独立校准、保存当次重载、导出完整轴和三政策评价。它不注册生产worker，也不放宽下述既有134/268模型契约。
