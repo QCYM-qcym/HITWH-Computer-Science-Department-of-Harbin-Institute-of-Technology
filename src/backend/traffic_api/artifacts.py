@@ -1,4 +1,4 @@
-"""Read saved outputs and verify aggregate arithmetic without running models."""
+"""Read saved outputs and verify evaluation consistency without running models."""
 from hashlib import sha256
 from datetime import datetime, timezone
 import json
@@ -69,11 +69,11 @@ def read_rows(path, schema, model):
     return rows
 
 
-def verify_evaluation_aggregates(series, label_rows, labels_available, saved):
+def verify_saved_evaluation(series, label_rows, labels_available, saved):
     """Check complete stored axes; keep the original response and reason text.
 
-    Interval semantics have a separately recorded fixture/core discrepancy.
-    This check covers only the six aggregate fields, not intervals/high load.
+    Check six aggregates and the exact interval list from the existing producer.
+    High-load semantics are outside this check; never repair the stored result.
     """
     timestamps = lambda rows: np.array([row.timestamp[:-1] for row in rows], dtype='datetime64[ns]')
     labels = c.LabelBatch(timestamps(label_rows), {
@@ -87,6 +87,8 @@ def verify_evaluation_aggregates(series, label_rows, labels_available, saved):
                   'excluded_attack_minutes', 'background_only_minutes'):
         if getattr(computed, field) != getattr(saved, field):
             raise ValueError('saved evaluation aggregates differ from scores and labels')
+    if computed.intervals != saved.intervals:
+        raise ValueError('saved evaluation intervals differ from scores and labels')
 
 
 class SavedArtifacts:
@@ -138,7 +140,7 @@ class SavedArtifacts:
                 raise ValueError('saved threshold mismatch')
             if config.method == 'iforest' and (channel.reconstruction_error_current is not None or channel.reconstruction_error_history is not None):
                 raise ValueError('IF cannot provide reconstruction channels')
-        verify_evaluation_aggregates(self.series, self.labels, self.summary.labels_available, self.evaluation)
+        verify_saved_evaluation(self.series, self.labels, self.summary.labels_available, self.evaluation)
         self.config = saved_config
 
     def detail(self, timestamp):

@@ -1,5 +1,9 @@
 # W2-01 后端与任务管理
 
+## 2026-10-30 保存区间一致性
+
+[保存校验](../../docs/guides/backend-interval-consistency.md)现在同时核六项汇总和现有producer的完整intervals列表，复用一次纯evaluate，保留原字节。旧包仅次序不一致也会拒绝，不自动重写；这不是新增HTTP全局排序保证。新18/完整后端100及原核心8项通过，三个新FakeAPI场景通过。高负载语义仍未检查。
+
 ## 2026-10-30 合成详情写入修复
 
 [FakeExecutor通道绑定](../../docs/guides/fake-channel-mapping.md)改为显式timestamp映射，所有详情验证并精确核对字段顺序；缺项null、显式预热current保留，重复拒绝。新13/完整后端82项通过，API/mock四响应一致。只影响新合成包，原数据/真实执行器及保存读取路径保持。

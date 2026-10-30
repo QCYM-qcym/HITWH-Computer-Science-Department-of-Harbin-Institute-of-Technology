@@ -50,3 +50,6 @@ Python 使用项目虚拟环境，npm 命令在 `src/frontend` 执行。后续�
 
 
 2026-10-30 后续：[合成详情时间映射已修复](fake-channel-mapping.md)，原样例四份API/mock完整响应已对齐；本篇保留当时未解决的核查记录，历史包未重写。后端interval验证仍待后续。
+
+
+2026-10-30 后续：[保存区间一致性检查已加入](backend-interval-consistency.md)，复用原六项汇总的同一次计算。原阶段记录与历史包保留，高负载语义仍未检查。

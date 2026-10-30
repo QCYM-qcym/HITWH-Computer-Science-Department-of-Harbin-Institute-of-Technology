@@ -1,5 +1,9 @@
 # 开发环境与 W0 交接
 
+## 保存区间回归与验收
+
+[区间一致性](backend-interval-consistency.md)使用现有虚拟环境运行 `python -X utf8 -m pytest tests/backend tests/core/test_evaluation.py tests/core/test_fixture_evaluation.py -q`，108项通过（后端100/原核心8）。三个独立新FakeAPI任务验收导出与安全拒绝，无模型、监听端口或浏览器。前两批运行目录与原详情文件保持；未改前端及无关本地全套不重复运行。
+
 ## 合成通道按分钟验收
 
 [合成通道修复](fake-channel-mapping.md)使用项目虚拟环境运行`python -X utf8 -m pytest tests/backend -q`，82项通过。两个实际新任务和4份API/mock详情对照通过；本批不开监听端口、无浏览器操作，不重复未改前端build/typecheck或无关全套。历史包与原fixture保持。

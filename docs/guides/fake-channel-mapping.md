@@ -32,3 +32,6 @@
 使用项目虚拟环境执行 `python -X utf8 -m pytest tests/backend -q`。前端只运行本次私有四响应对照，没有为未改动的页面重跑全套/build/typecheck；无关本地完整套件 NOT_RUN。模型库导入、预处理和模型执行均被验收守卫禁止；没有真实 CSV、下载、真实训练、评分或校准。
 
 独立审查与仓库检查按实际记录。下一接缝是后端保存区间与分数/标签的一致性核验，目前[六项汇总检查](backend-evaluation-consistency.md)仍不包含 intervals/high-load。研究最终标签政策、主数据采用和生产迁移未改变，Data Gate BLOCKED，正式实验 NOT_RUN。
+
+
+2026-10-30 后续：[保存区间一致性检查已加入](backend-interval-consistency.md)，复用原六项汇总的同一次计算。原阶段记录与历史包保留，高负载语义仍未检查。

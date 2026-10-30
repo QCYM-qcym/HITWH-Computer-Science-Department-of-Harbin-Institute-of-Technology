@@ -1,5 +1,9 @@
 # 程序入口
 
+## 保存区间消费核验
+
+[SavedArtifacts](../docs/guides/backend-interval-consistency.md)在原六项汇总后精确核区间，复用一次纯计算；合法HTTP/导出继续返回保存结果。生产契约、核心算法和研究状态不变。
+
 ## 合成通道写入一致性
 
 [FakeExecutor映射修复](../docs/guides/fake-channel-mapping.md)按时间和字段顺序保留显式通道、缺项null；不按评分有效性清空已提供的当前特征。生产核心/前端/契约保持，真实研究未放行。

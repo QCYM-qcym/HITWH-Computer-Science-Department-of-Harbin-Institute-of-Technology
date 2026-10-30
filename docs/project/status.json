@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-10-30",
   "current_stage": "S2",
-  "theme": "自主迭代：合成解释通道按时间与字段顺序绑定，API/mock四分钟详情一致；研究Gate仍BLOCKED",
+  "theme": "自主迭代：保存区间与完整分数及标签核对，错误区间安全拒绝；研究Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "修复FakeExecutor复制首详情到所有分钟的问题：按时间映射，缺项null，显式预热当前特征保留；全部详情核字段顺序，重复和非法详情拒绝。",
-    "新增13项后端回归，最终完整后端82项通过；保留初始RED、审查字段错序RED及两次中途失败和修复记录。",
-    "实际两个新任务与三类原字节导出验收通过；四份完整API分钟响应仅归一run_id后与真实前端mock深比较4项通过。",
-    "原fixture与旧10产物SHA/mtime保持，不改生产契约/前端/核心或追加区间验证；真实数据模型/正式实验NOT_RUN，Gate BLOCKED。"
+    "后端复用一次纯评价计算，在原六项汇总后精确核保存intervals；错误起止/数量/成员/次序安全拒绝，原包不自动修写。",
+    "新增18项回归，实际RED10失败8通过；修复后完整后端100项与原核心片段8项共108项通过，独立审查通过。",
+    "实际三个新FakeAPI任务验证正常包、完成前失败与成功后损坏；两组各7路由拒绝、3类导出原字节、每次读取一次纯评价均通过。",
+    "前两批旧目录及原详情SHA/大小/mtime保持；生产契约/核心/前端/fixture未改，真实CSV/下载0，真实模型及正式实验NOT_RUN，Gate BLOCKED。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "保存评价区间一致性与兼容边界",
+      "path": "docs/guides/backend-interval-consistency.md"
+    },
+    {
+      "label": "区间校验测试与实际验收",
+      "path": "docs/research/2026-10-30-backend-interval-verification.json"
+    },
     {
       "label": "合成通道的时间和字段绑定",
       "path": "docs/guides/fake-channel-mapping.md"
@@ -2101,6 +2109,17 @@
     "frontend_mock_parity": 4,
     "old_artifacts_unchanged": true,
     "evidence": "docs/research/2026-10-30-fake-channel-verification.json",
+    "remote_CI": "PENDING_AFTER_PUSH"
+  },
+  "saved_interval_consistency": {
+    "status": "SYNTHETIC_ONLY",
+    "new_backend_tests": 18,
+    "backend_tests_passed": 100,
+    "existing_core_episode_tests": 8,
+    "api_scenarios": 3,
+    "evaluate_calls_per_load": 1,
+    "old_artifacts_unchanged": true,
+    "evidence": "docs/research/2026-10-30-backend-interval-verification.json",
     "remote_CI": "PENDING_AFTER_PUSH"
   }
 }

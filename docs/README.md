@@ -1,5 +1,9 @@
 # 文档导航
 
+## 保存评价区间核验
+
+[兼容边界及口径](guides/backend-interval-consistency.md)、[实际验证](research/2026-10-30-backend-interval-verification.json)、[实施记录](superpowers/plans/2026-10-30-backend-interval-consistency.md)。同一次评价核对汇总和区间，错误包安全拒绝，历史文件保持。
+
 ## 合成解释通道修复
 
 [时间与字段绑定指南](guides/fake-channel-mapping.md)、[实际验证](research/2026-10-30-fake-channel-verification.json)、[实施记录](superpowers/plans/2026-10-30-fake-channel-mapping.md)。新合成包按显式详情匹配，旧产物不重写。

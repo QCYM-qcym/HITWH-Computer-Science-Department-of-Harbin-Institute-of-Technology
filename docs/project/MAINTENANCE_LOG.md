@@ -1,5 +1,13 @@
 # 仓库维护复核记录
 
+## 2026-10-30 自主第十二批：保存区间一致性
+
+从02fdff8干净工作区续接，主控独占SavedArtifacts和公共材料，独立任务分别写指定测试、私有验收与只读审查。新增18回归先取得RED10失败8通过；最小修复在原六字段核验后精确比较同次evaluate的intervals。没有第二次计算或新增文件读写。五个旧正例仅同步临时intervals并追加具体断言，原六字段、reason/highload保持。
+
+完整后端100项及原核心片段8项共108项通过，保留既有TestClient警告。独立代码审查PASS。主控实际执行三个新FakeAPI/DB场景，故障只缩短missed区间而保持六汇总/其他字段，Schema合法且manifest摘要全部匹配。完成前failed/各7路由409，成功后仍succeeded/各7路由500安全错误；正常原响应与3类导出字节一致，每次保存读取只调用一次纯评价。两前批运行目录及原详情SHA/大小/mtime保持，无模型/预处理调用。[说明](../guides/backend-interval-consistency.md)、[证据](../research/2026-10-30-backend-interval-verification.json)。
+
+精确列表次序是保存包兼容检查，旧不一致包拒绝而不修写，不新增HTTP全局排序语义或研究政策。高负载字段与说明语义未核验；生产契约、核心、前端、fixture及真实配置不变。未重跑未改前端或无关本地全套，无监听端口/浏览器。真实CSV/下载0、真实模型及正式实验NOT_RUN，Gate BLOCKED。
+
 ## 2026-10-30 自主第十一批：合成通道时间和字段绑定
 
 从789f4a4干净远端一致分支续接，Desktop激活读取后Fetch完成。最小修改FakeExecutor：所有显式MinuteDetail验证并精确比对summary字段顺序，再按timestamp提取四通道；缺项null，预热显式current保留，重复拒绝、合法轴外项验证后忽略。输出评分顺序、独立core_sample标签、原保存验证与rename不变。

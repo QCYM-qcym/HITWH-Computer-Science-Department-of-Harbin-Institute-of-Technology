@@ -80,7 +80,7 @@ def replace_labels(workspace, mode):
 
 
 def recompute_aggregates_for_legitimate_saved_case(workspace):
-    """Build temporary positive cases; preserve all unrelated saved prose/intervals."""
+    """Keep temporary positive aggregates/intervals coherent; preserve saved prose."""
     from traffic_anomaly.evaluation.metrics import evaluate
     series = read_rows(workspace / 'scores.parquet', SCORE_SCHEMA, c.SeriesPoint)
     rows = read_rows(workspace / 'labels.parquet', LABEL_SCHEMA, c.LabelRow) if (workspace / 'labels.parquet').exists() else []
@@ -94,6 +94,7 @@ def recompute_aggregates_for_legitimate_saved_case(workspace):
         np.array([False if r.alarm is None else r.alarm for r in series], dtype=bool), labels)
     calculated = measured.model_dump(mode='json')
     saved.update({field: calculated[field] for field in AGGREGATES})
+    saved['intervals'] = calculated['intervals']
     saved['reason'] = None if saved['available'] else 'Saved explanation must be preserved'
     c.Evaluation.model_validate(saved)
     write_json(workspace / 'metrics.json', saved)
@@ -201,6 +202,14 @@ def test_legitimate_zero_denominators_and_label_absence_preserve_saved_values(ma
         else:
             assert value['attack_coverage'] == dict(eligible=1, total=2)
         if mode == 'all_background': assert value['background_only_minutes'] == 4
+        if mode in ('no_labels', 'no_normals', 'all_background'):
+            assert value['intervals'] == []
+        elif mode == 'no_attacks':
+            assert value['intervals'] == [dict(start='2026-01-01T00:02:00Z', end='2026-01-01T00:03:00Z',
+                                             kind='false_positive', minute_count=1)]
+        else:
+            original = next(row['body'] for row in fixture_data['responses'] if row['schema'] == 'Evaluation')
+            assert value['intervals'] == original['intervals']
 
 
 def test_fresh_fake_worker_validation_and_serving_import_no_models_or_spawn_processes(tmp_path):

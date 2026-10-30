@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：合成解释通道按时间与字段顺序绑定，API/mock四分钟详情一致；研究Gate仍BLOCKED。
+最近更新：**2026-10-30**。当前阶段：**数据审计**；本轮主题：自主迭代：保存区间与完整分数及标签核对，错误区间安全拒绝；研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 修复FakeExecutor复制首详情到所有分钟的问题：按时间映射，缺项null，显式预热当前特征保留；全部详情核字段顺序，重复和非法详情拒绝。
-- 新增13项后端回归，最终完整后端82项通过；保留初始RED、审查字段错序RED及两次中途失败和修复记录。
-- 实际两个新任务与三类原字节导出验收通过；四份完整API分钟响应仅归一run_id后与真实前端mock深比较4项通过。
-- 原fixture与旧10产物SHA/mtime保持，不改生产契约/前端/核心或追加区间验证；真实数据模型/正式实验NOT_RUN，Gate BLOCKED。
+- 后端复用一次纯评价计算，在原六项汇总后精确核保存intervals；错误起止/数量/成员/次序安全拒绝，原包不自动修写。
+- 新增18项回归，实际RED10失败8通过；修复后完整后端100项与原核心片段8项共108项通过，独立审查通过。
+- 实际三个新FakeAPI任务验证正常包、完成前失败与成功后损坏；两组各7路由拒绝、3类导出原字节、每次读取一次纯评价均通过。
+- 前两批旧目录及原详情SHA/大小/mtime保持；生产契约/核心/前端/fixture未改，真实CSV/下载0，真实模型及正式实验NOT_RUN，Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [保存评价区间一致性与兼容边界](<docs/guides/backend-interval-consistency.md>)
+- [区间校验测试与实际验收](<docs/research/2026-10-30-backend-interval-verification.json>)
 - [合成通道的时间和字段绑定](<docs/guides/fake-channel-mapping.md>)
 - [通道修复及四分钟API/mock对照](<docs/research/2026-10-30-fake-channel-verification.json>)
 - [攻击片段与逐分钟漏报的区别](<docs/guides/episode-display.md>)

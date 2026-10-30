@@ -1,0 +1,254 @@
+{
+  "artifact_kind": "SYNTHETIC_ONLY_BACKEND_INTERVAL_CONSISTENCY",
+  "date": "2026-10-30",
+  "base_commit": "02fdff86f0877439e7dc8354d045a794a170030e",
+  "status": "PASS",
+  "scope": "SIX_AGGREGATES_AND_EXACT_EXISTING_PRODUCER_INTERVAL_LIST",
+  "compatibility": "EXACT_STORED_LIST_ORDER_NOT_NEW_HTTP_SCHEMA_SORT_GUARANTEE",
+  "tests": {
+    "red": {
+      "failed": 10,
+      "passed": 8
+    },
+    "new_backend": 18,
+    "backend_passed": 100,
+    "existing_core_episode_passed": 8,
+    "related_total_passed": 108,
+    "existing_TestClient_warning": 1,
+    "repository": "13_PASS",
+    "independent_review": "SPEC_PASS_QUALITY_PASS",
+    "frontend_and_browser": "NOT_RUN_UNCHANGED",
+    "local_model_integration_and_unrelated_full_suite": "NOT_RUN"
+  },
+  "manual": {
+    "status": "PASSED",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "scope": "SAVED_AGGREGATE_AND_EXACT_INTERVAL_CONSISTENCY_ONLY",
+    "baseline": {
+      "status": "PASSED",
+      "run_id": "run-79c83dba653d4d8a95a4436181b85743",
+      "original_evaluation_retained": true,
+      "original_interval_order_and_extent_retained": true,
+      "exports_original_bytes": {
+        "scores": {
+          "sha256": "7fca3609ebf565f552ec109650d9347c1a57281bd74b66ea57db97a232f69bc5",
+          "byte_count": 2109
+        },
+        "metrics": {
+          "sha256": "a9d75da81e065b6d3d14812b94a66039d3ee11baaf4d16daf7082497bfa60b86",
+          "byte_count": 743
+        },
+        "config": {
+          "sha256": "610f5ebee5d717afcc7a9d0fb1d4fd82c9f41f1be420ac0f7f10c10d4cb35c5f",
+          "byte_count": 382
+        }
+      },
+      "query_sha_size_mtime_unchanged": true,
+      "evaluate_calls_per_saved_load": 1
+    },
+    "interval_only_before_completion": {
+      "status": "PASSED",
+      "task_status": "failed",
+      "error_code": "EXECUTION_FAILED",
+      "fault": {
+        "changed_fields": [
+          "intervals"
+        ],
+        "six_aggregates_unchanged": true,
+        "schema_valid": true,
+        "all_manifest_hashes_match": true,
+        "original_intervals": [
+          {
+            "start": "2026-01-01T00:02:00Z",
+            "end": "2026-01-01T00:03:00Z",
+            "kind": "false_positive",
+            "minute_count": 1
+          },
+          {
+            "start": "2026-01-01T00:00:00Z",
+            "end": "2026-01-01T00:02:00Z",
+            "kind": "missed_attack",
+            "minute_count": 2
+          }
+        ],
+        "altered_intervals": [
+          {
+            "start": "2026-01-01T00:02:00Z",
+            "end": "2026-01-01T00:03:00Z",
+            "kind": "false_positive",
+            "minute_count": 1
+          },
+          {
+            "start": "2026-01-01T00:01:00Z",
+            "end": "2026-01-01T00:02:00Z",
+            "kind": "missed_attack",
+            "minute_count": 1
+          }
+        ]
+      },
+      "result_denials": {
+        "series": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "alarms": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "evaluation": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "minutes/2026-01-01T00:00:00Z": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "exports/scores": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "exports/metrics": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        },
+        "exports/config": {
+          "status": 409,
+          "code": "RESULT_NOT_READY",
+          "details": []
+        }
+      },
+      "query_sha_size_mtime_unchanged": true
+    },
+    "interval_only_after_success": {
+      "status": "PASSED",
+      "persisted_task_status": "succeeded",
+      "fault": {
+        "changed_fields": [
+          "intervals"
+        ],
+        "six_aggregates_unchanged": true,
+        "schema_valid": true,
+        "all_manifest_hashes_match": true,
+        "original_intervals": [
+          {
+            "start": "2026-01-01T00:02:00Z",
+            "end": "2026-01-01T00:03:00Z",
+            "kind": "false_positive",
+            "minute_count": 1
+          },
+          {
+            "start": "2026-01-01T00:00:00Z",
+            "end": "2026-01-01T00:02:00Z",
+            "kind": "missed_attack",
+            "minute_count": 2
+          }
+        ],
+        "altered_intervals": [
+          {
+            "start": "2026-01-01T00:02:00Z",
+            "end": "2026-01-01T00:03:00Z",
+            "kind": "false_positive",
+            "minute_count": 1
+          },
+          {
+            "start": "2026-01-01T00:01:00Z",
+            "end": "2026-01-01T00:02:00Z",
+            "kind": "missed_attack",
+            "minute_count": 1
+          }
+        ]
+      },
+      "result_denials": {
+        "series": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "alarms": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "evaluation": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "minutes/2026-01-01T00:00:00Z": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "exports/scores": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "exports/metrics": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        },
+        "exports/config": {
+          "status": 500,
+          "code": "EXECUTION_FAILED",
+          "details": [
+            "ARTIFACT_INVALID"
+          ]
+        }
+      },
+      "query_sha_size_mtime_unchanged": true,
+      "evaluate_calls_per_rejected_saved_load": 1
+    },
+    "historical_preservation": {
+      "batch10_runtime": {
+        "sha_size_mtime_unchanged": true,
+        "snapshot_sha256": "3859a9c51408f12874b81c3bf6ddb6cab3c9954ff17a57f4a2ab664ad070de55"
+      },
+      "batch11_runtime": {
+        "sha_size_mtime_unchanged": true,
+        "snapshot_sha256": "2920d50292e467d56d4042958879f1550a0b2398f2719e393bfad573c671571d"
+      },
+      "batch11_original_run": {
+        "sha_size_mtime_unchanged": true,
+        "snapshot_sha256": "e9e08e32f9c9b78d8778bde775cd93e025589fe7006ca52e9c2d2e7e660bb3ae"
+      },
+      "batch11_original_dtos": {
+        "sha_size_mtime_unchanged": true,
+        "snapshot_sha256": "cab1d445146433460d195bd3ed52d55b70aa949fde300d29232a9d20025b4619"
+      }
+    },
+    "shared_fixture_unchanged": true,
+    "model_import_attempts": [],
+    "model_or_preprocessing_calls": [],
+    "evaluate_call_count": 21,
+    "transport": "IN_PROCESS_TESTCLIENT_NO_LISTENING_SERVER"
+  },
+  "old_artifacts_rewritten": false,
+  "high_load_semantics_checked": false,
+  "contracts_fixture_frontend_core_and_real_audit_config_unchanged": true,
+  "real_csv_reads": 0,
+  "new_download_bytes": 0,
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}
