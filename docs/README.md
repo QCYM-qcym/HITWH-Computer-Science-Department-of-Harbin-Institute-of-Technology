@@ -1,5 +1,9 @@
 # 文档导航
 
+## 2026-10-31 候选合成结果的独立查看页
+
+[候选合成结果查看页](guides/candidate-viewer.md)、[安装与浏览器验证](research/2026-10-31-candidate-viewer-verification.json)。固定候选目录、分页、曲线和13通道详情，独立于原Vue四页。
+
 ## 2026-10-31 候选合成结果的隔离只读HTTP
 
 [候选只读HTTP](guides/candidate-readonly-http.md)、[实际HTTP/CLI验证](research/2026-10-31-candidate-readonly-http-verification.json)。固定人工结果目录、曲线和分钟详情，独立于原任务后端与Vue。

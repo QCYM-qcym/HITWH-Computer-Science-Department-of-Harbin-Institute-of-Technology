@@ -20,3 +20,6 @@ traffic-api = "traffic_api.app:main"
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["traffic_api*"]
+
+[tool.setuptools.package-data]
+traffic_api = ["candidate_static/index.html", "candidate_static/viewer.css", "candidate_static/viewer.mjs"]

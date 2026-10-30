@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-31**。当前阶段：**数据审计**；本轮主题：自主迭代：候选合成结果的独立只读HTTP与CLI同值验证通过；研究Gate仍BLOCKED。
+最近更新：**2026-10-31**。当前阶段：**数据审计**；本轮主题：自主迭代：候选合成结果查看页通过实际浏览器与安装验证；研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增隔离候选只读HTTP：固定登记1–4组快照，提供目录、曲线和分钟详情；不创建任务、数据库或模型。
-- 新增77项测试先失败后通过，审查修复目录历史窗口类型；相关270项通过，仅保留既有TestClient弃用警告。
-- 主控实际loopback完成13组HTTP/CLI原字节与保存值对照、16项安全错误和目录检查；服务正常停止回收，39历史文件保持。
-- 独立服务端点守卫无文件/模型/复算尝试，启动仍核验保存关系；普通CLI另计未插桩。网页和生产未迁移，真实模型NOT_RUN，Gate BLOCKED。
+- 新增独立候选查看页：原run_id选择、范围分页、分数曲线和13通道详情，保持源钟面及无效值含义。
+- 包装器新增51项及相关128项通过；前端56项含31项候选DOM测试通过，原Vue类型、构建与契约检查通过。
+- 实际浏览器发现单点阈值不可见，增加失败测试后修复并复验；实际wheel安装复现缺资源后补三项精确打包声明。
+- 两次独立浏览器服务均正常收尾，39旧产物身份保持；测试夹具及初始TDD偏差如实保留，真实模型NOT_RUN，Gate BLOCKED。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [候选合成结果查看页](<docs/guides/candidate-viewer.md>)
+- [候选查看页实际验证](<docs/research/2026-10-31-candidate-viewer-verification.json>)
 - [候选合成结果只读HTTP](<docs/guides/candidate-readonly-http.md>)
 - [候选HTTP与CLI实际验证](<docs/research/2026-10-31-candidate-readonly-http-verification.json>)
 - [候选结果只读查看命令](<docs/guides/candidate-view-cli.md>)

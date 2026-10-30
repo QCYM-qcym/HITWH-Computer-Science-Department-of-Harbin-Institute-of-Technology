@@ -7,5 +7,5 @@ export default defineConfig({
   build: { outDir: 'dist.local' },
   resolve: { alias: { '@fixtures': fileURLToPath(new URL('../../tests/fixtures', import.meta.url)) } },
   server: { proxy: { '/api': process.env.TRAFFIC_API_TARGET ?? 'http://127.0.0.1:8101' } },
-  test: { environment: 'jsdom', include: ['src/__tests__/**/*.test.ts'], restoreMocks: true },
+  test: { environment: 'jsdom', include: ['src/__tests__/**/*.test.ts', 'src/__tests__/candidate-viewer.test.js'], restoreMocks: true },
 })

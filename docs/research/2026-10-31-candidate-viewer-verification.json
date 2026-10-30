@@ -1,0 +1,331 @@
+{
+  "date": "2026-10-31",
+  "status": "PASS",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "policy_status": "AUDIT_ONLY",
+  "base_commit": "df6a7d2108030ca6b7b73a08d512f4dd97ba6900",
+  "scope": "OPTIONAL_CANDIDATE_SAVED_RESULT_VIEWER",
+  "tests": {
+    "wrapper_new": 51,
+    "wrapper_valid_red_failed": 51,
+    "wrapper_related_passed": 128,
+    "wrapper_initial_collection_error": "ADJACENT_TEST_HELPER_IMPORT_FAILURE_RETAINED_NOT_COUNTED_AS_RED",
+    "viewer_new": 31,
+    "frontend_total_passed": 56,
+    "viewer_initial_tdd_deviation": "INITIAL_29_MISSING_SOURCE_FAILURES_MIXED_WITH_VITE_PATH_REWRITING_NOT_ALL_VALID_FUNCTIONAL_RED",
+    "viewer_harness_failures": "WRONG_LOG_REDIRECTION_NO_EXECUTION_THEN_FIXTURE_SYNTAX_COLLECTION_ERROR_AND_VITE_ASSET_PATH_MISREAD_RETAINED",
+    "actual_browser_bug": "ONE_POINT_THRESHOLD_M_ONLY_PATH_INVISIBLE_DESPITE_LEGEND",
+    "browser_bug_regression": "TWO_NEW_VALID_RED_THEN_VISIBLE_HOLLOW_THRESHOLD_MARKER_AND_GREEN",
+    "initial_review_missed_bug": true,
+    "typecheck": "PASS_EXISTING_VUE_SCOPE",
+    "build": "PASS_EXISTING_VUE_SCOPE",
+    "contracts_check": "PASS",
+    "standalone_mjs_not_in_vue_build_or_typecheck": true,
+    "warnings": [
+      "EXISTING_TESTCLIENT_DEPRECATION",
+      "EXISTING_VUE_LARGE_CHUNK_WARNING"
+    ],
+    "no_models_in_new_wrapper_or_dom_tests": true,
+    "repository": {
+      "unit_tests_passed": 13,
+      "worktree_files_checked": 518,
+      "worktree_issues": 0,
+      "changed_files": 20,
+      "changed_markdown_links": 498,
+      "vault_wiki_links": 5,
+      "privacy_and_scope": "PASS",
+      "staged": "PENDING"
+    },
+    "commands": [
+      "python -X utf8 -m pytest tests/backend/test_candidate_viewer.py tests/backend/test_candidate_app.py -q",
+      "npm run test -- --run (src/frontend)",
+      "npm run typecheck (src/frontend)",
+      "npm run build (src/frontend)",
+      "npm run contracts:check (src/frontend)",
+      "python -m pip wheel --no-index --no-deps --no-build-isolation --wheel-dir PRIVATE_TARGET PRIVATE_BACKEND_COPY",
+      "python -m pip install --no-index --no-deps --target PRIVATE_INSTALLED_TARGET LOCAL_WHEEL"
+    ],
+    "record_generation_correction": "POWERSHELL_JSON_DATE_NORMALIZATION_REMOVED_FRACTIONAL_SECONDS_FROM_TWO_SOURCE_CLOCK_STRINGS_RESTORED_FROM_ORIGINAL_SUMMARY_USING_PYTHON_JSON",
+    "initial_record_before_correction_retained_privately": true
+  },
+  "packaging": {
+    "initial_actual_installed_wheel_missing_all_three_assets": true,
+    "fix": "EXACT_THREE_FILE_PACKAGE_DATA",
+    "final": {
+      "status": "PASS",
+      "mode": "green",
+      "build_and_install_no_index_no_deps": true,
+      "build_isolation": false,
+      "module_from_installed_target": true,
+      "resources": [
+        {
+          "name": "index.html",
+          "exists": true,
+          "byte_count": 474,
+          "sha256": "7b04ce571172856629b8fd0b52160d47aa321f152217d6e9cea8338964608b87"
+        },
+        {
+          "name": "viewer.css",
+          "exists": true,
+          "byte_count": 2516,
+          "sha256": "523ade8af6c680b03248d749be39f9169ea1f9d66cfbdafe98bda7c3b6282c92"
+        },
+        {
+          "name": "viewer.mjs",
+          "exists": true,
+          "byte_count": 21318,
+          "sha256": "cb9a50c3d004810318311a5334e72253e10064ed0008da066fe0be7382f777ea"
+        }
+      ],
+      "wheel_resource_members": [
+        "traffic_api/candidate_static/index.html",
+        "traffic_api/candidate_static/viewer.css",
+        "traffic_api/candidate_static/viewer.mjs"
+      ],
+      "wheel_sha256": "b92765c4affd4169f1a3bde4b3a4f376ce7a8502bb4f0a546834a3e5c7fddb1f"
+    }
+  },
+  "browser": {
+    "schema_version": 1,
+    "status": "PASS",
+    "scope": "SYNTHETIC_CANDIDATE_VIEWER_ENGINEERING_ACCEPTANCE",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "policy_status": "AUDIT_ONLY",
+    "historical_files_preserved": 39,
+    "provenance": {
+      "capture_review": "INDEPENDENT_READ_ONLY_REVIEW_OF_SERVER_AND_IDENTITY_RECORDS",
+      "ui_observations": "ROOT_ACTUAL_BROWSER_TOOL_OBSERVATIONS_RECORDED_SEPARATELY",
+      "reviewer_browser_actions": "NOT_RUN",
+      "controller_status_does_not_certify_ui": true
+    },
+    "server_evidence": {
+      "status": "PASS",
+      "normal_stop": true,
+      "forced_termination": false,
+      "launcher_reaped": true,
+      "launcher_exit_code": 0,
+      "process_relationship": "WINDOWS_DIRECT_CHILD_OF_LAUNCHER",
+      "launcher_pid": 3616,
+      "server_pid": 13912,
+      "server_parent_pid": 3616,
+      "loopback_port": 51419,
+      "port_closed": true,
+      "matching_ready_and_final_child_identity": true,
+      "elapsed_seconds": 67.6447119000004,
+      "registered_routes": 6,
+      "endpoint_calls": {
+        "/candidate": 1,
+        "/candidate/viewer.css": 1,
+        "/candidate/viewer.mjs": 1,
+        "/candidate/v1/runs": 2,
+        "/candidate/v1/runs/{run_id}/series": 12,
+        "/candidate/v1/runs/{run_id}/detail": 5
+      },
+      "total_endpoint_calls": 22,
+      "server_stdout_bytes": 0,
+      "server_stderr_bytes": 0,
+      "endpoint_file_access_attempts": [],
+      "model_import_attempts": [],
+      "forbidden_model_or_endpoint_recompute_calls": [],
+      "production_modules_imported": [],
+      "model_modules_imported": [],
+      "guard_scope": "REGISTERED_APPLICATION_ENDPOINT_BODY_ONLY_FRAMEWORK_TRANSPORT_AND_LOGGING_EXCLUDED",
+      "startup_packaged_asset_reads_allowed": true,
+      "startup_stored_relation_verification_allowed": true,
+      "endpoint_guard_contexts_serialized": true
+    },
+    "identity_evidence": {
+      "status": "PASS",
+      "historical_files_preserved": 39,
+      "run_files": 20,
+      "three_policy_upstream_files": 18,
+      "source_fixture": 1,
+      "before_after_sha_size_mtime_equal": true,
+      "directory_members_preserved_by_controller": true,
+      "both_browser_sessions_share_unchanged_identity_map": true,
+      "inventory_digest_independently_recomputed": "47546f5a791ffba7948cc6dc107febea11141c4d4c76fc61b546bf95143d44e3",
+      "original_artifacts_not_reread_by_summary_reviewer": true
+    },
+    "final_browser_observations": {
+      "all_four_catalog_run_ids_selected": true,
+      "valid_detail_feature_rows_per_run": 13,
+      "valid_minute": "2026-01-01T02:20:00.000000",
+      "runs": [
+        {
+          "run_id": "toy-if-20261030-v1",
+          "score": 0.502456873103547,
+          "threshold": 0.5531029014846093,
+          "current_reconstruction": {
+            "status": "NOT_APPLICABLE",
+            "value": null
+          },
+          "history_reconstruction": {
+            "status": "NOT_APPLICABLE",
+            "value": null
+          }
+        },
+        {
+          "run_id": "toy-ae-current-20261030-v1",
+          "score": 0.2862398463441486,
+          "threshold": 0.2879734564525531,
+          "current_reconstruction": {
+            "status": "APPLICABLE",
+            "value": 0.2862398463441486
+          },
+          "history_reconstruction": {
+            "status": "NOT_APPLICABLE",
+            "value": null
+          }
+        },
+        {
+          "run_id": "toy-ae-history15-20261030-v1",
+          "score": 0.23242466062324235,
+          "threshold": 0.3189284776059433,
+          "current_reconstruction": {
+            "status": "APPLICABLE",
+            "value": 0.2789881020397215
+          },
+          "history_reconstruction": {
+            "status": "APPLICABLE",
+            "value": 0.18586121920676316
+          }
+        },
+        {
+          "run_id": "toy-ae-history30-20261030-v1",
+          "score": 0.23242466062324235,
+          "threshold": 0.3189284776059433,
+          "current_reconstruction": {
+            "status": "APPLICABLE",
+            "value": 0.2789881020397215
+          },
+          "history_reconstruction": {
+            "status": "APPLICABLE",
+            "value": 0.18586121920676316
+          }
+        }
+      ],
+      "one_row_threshold_fix": {
+        "run_id": "toy-ae-history30-20261030-v1",
+        "threshold_circle": {
+          "cx": 450,
+          "cy": 30,
+          "r": 5
+        },
+        "score_circle": {
+          "cx": 450,
+          "cy": 220,
+          "r": 4
+        },
+        "orange_hollow_threshold_marker_visible_in_actual_browser_screenshot": true,
+        "screenshot_published": false
+      },
+      "keyboard_detail": {
+        "activation": "Enter",
+        "run_id": "toy-ae-history30-20261030-v1",
+        "minute": "2026-01-01T00:17:00.000000",
+        "score": null,
+        "h15_valid": true,
+        "h30_valid": false,
+        "h30_invalid_reason": "warmup",
+        "group_mse_status": "APPLICABLE",
+        "group_mse_value": null
+      },
+      "empty_page": {
+        "rows": 0,
+        "previous_threshold_cleared": true,
+        "previous_detail_cleared": true
+      },
+      "invalid_source_time": {
+        "suffix": "Z",
+        "expected_http_status_from_tested_endpoint": 422,
+        "network_status_independently_captured": false,
+        "safe_error_visible": true
+      },
+      "catalog_reload_restores_run_count": 4
+    },
+    "retained_first_session_coverage": {
+      "rerun_in_final_session": false,
+      "draft_start_not_applied_before_next": true,
+      "page_size": 17,
+      "next_page": 2,
+      "next_page_first_minute": "2026-01-01T00:17",
+      "applied_start": "2026-01-01T02:20",
+      "apply_returns_page": 1,
+      "applied_rows": 4,
+      "if_unalarmed_attack_three_policy_labels_preserved": true,
+      "empty_range_full_stored_run_evaluation_reference_retained": true,
+      "initial_locator_mismatch_corrected_with_fresh_dom_role_not_application_defect": true
+    },
+    "browser_console": {
+      "final_session_error_entries": 1,
+      "classification": "EXTERNAL_BROWSER_TRANSLATION_EXTENSION_ERROR",
+      "application_source_error_entries_observed": 0,
+      "raw_extension_identifier_or_stack_included": false,
+      "first_session_had_no_error_entries": true,
+      "not_a_claim_that_final_console_had_no_errors": true
+    },
+    "defect_and_fix_evidence": {
+      "initial_actual_browser_defect_retained": true,
+      "initial_defect": "Single-point threshold path contained only a move command and was not visible.",
+      "effective_red_tests": 2,
+      "red_skipped_unrelated_tests": 29,
+      "final_viewer_tests_passed": 31,
+      "fix": "Render an independent visible hollow threshold marker for single-point segments.",
+      "new_browser_capture_after_fix": true,
+      "tests_reference": "src/frontend/src/__tests__/candidate-viewer.test.js",
+      "implementation_reference": "src/backend/traffic_api/candidate_static/viewer.mjs",
+      "private_initial_and_red_green_evidence_retained": true
+    },
+    "rebuilt_installed_wheel": {
+      "status": "PASS",
+      "offline_no_index_no_deps": true,
+      "module_from_installed_target": true,
+      "resource_bytes_match_current_sources": true,
+      "resources": [
+        {
+          "name": "index.html",
+          "exists": true,
+          "byte_count": 474,
+          "sha256": "7b04ce571172856629b8fd0b52160d47aa321f152217d6e9cea8338964608b87"
+        },
+        {
+          "name": "viewer.css",
+          "exists": true,
+          "byte_count": 2516,
+          "sha256": "523ade8af6c680b03248d749be39f9169ea1f9d66cfbdafe98bda7c3b6282c92"
+        },
+        {
+          "name": "viewer.mjs",
+          "exists": true,
+          "byte_count": 21318,
+          "sha256": "cb9a50c3d004810318311a5334e72253e10064ed0008da066fe0be7382f777ea"
+        }
+      ],
+      "wheel_sha256": "b92765c4affd4169f1a3bde4b3a4f376ce7a8502bb4f0a546834a3e5c7fddb1f"
+    },
+    "scope_limits": {
+      "new_cli_or_export_validation": "NOT_RUN",
+      "inherited_http_cli_comparison_reference": "docs/guides/candidate-readonly-http.md",
+      "original_production_vue_migration": "NOT_RUN",
+      "formal_metrics_or_research_effectiveness": "NOT_RUN",
+      "real_csv_reads": 0,
+      "new_download_bytes": 0,
+      "real_models": "NOT_RUN",
+      "main_data_adoption": "NOT_APPROVED",
+      "final_attempted_policy": "NOT_APPROVED",
+      "data_gate": "BLOCKED"
+    },
+    "public_references": {
+      "guide": "docs/guides/candidate-viewer.md",
+      "plan": "docs/superpowers/plans/2026-10-31-candidate-viewer.md",
+      "wrapper_tests": "tests/backend/test_candidate_viewer.py"
+    }
+  },
+  "production_contract_migration": "NOT_RUN",
+  "real_csv_reads": 0,
+  "new_download_bytes": 0,
+  "real_models": "NOT_RUN",
+  "formal_experiments": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "remote_CI": "PENDING_AFTER_PUSH"
+}
