@@ -15,6 +15,7 @@ from .candidate_run_artifacts import CandidateRunArtifactError, load_verified_ca
 from .candidate_ae_run_artifacts import CandidateAERunArtifactError, load_verified_candidate_ae_run
 from .candidate_details import CandidateDetailError, candidate_minute_detail
 from .candidate_series import CandidateSeriesError, candidate_series_page
+from .candidate_evaluation_view import CandidateEvaluationViewError, candidate_evaluation_view
 
 MAX_OUTPUT_BYTES = 1024 * 1024
 
@@ -25,7 +26,7 @@ def _error(code):
 
 
 def main(argv=None):
-    parser = _Parser(description='Read-only minute and series views of synthetic candidate runs',
+    parser = _Parser(description='Read-only minute, series and evaluation views of synthetic candidate runs',
                      allow_abbrev=False)
     parser.add_argument('--records', type=Path, required=True)
     parser.add_argument('--inputs', type=Path, required=True)
@@ -41,6 +42,7 @@ def main(argv=None):
     series.add_argument('--page-size', type=int, default=100)
     detail = commands.add_parser('detail', allow_abbrev=False)
     detail.add_argument('--timestamp', required=True)
+    commands.add_parser('evaluation', allow_abbrev=False)
     try:
         args = parser.parse_args(argv)
         loader = load_verified_candidate_if_run if args.if_run is not None else load_verified_candidate_ae_run
@@ -49,6 +51,8 @@ def main(argv=None):
         if args.command == 'series':
             result = candidate_series_page(run, start=args.start, end=args.end,
                                            page=args.page, page_size=args.page_size)
+        elif args.command == 'evaluation':
+            result = candidate_evaluation_view(run)
         else:
             inputs = load_verified_candidate_artifacts(args.records, args.inputs,
                                                         source_fixture=args.source_fixture)
@@ -56,7 +60,7 @@ def main(argv=None):
     except _SafeError:
         return _error('INVALID_ARGUMENTS')
     except (CandidateArtifactError, CandidateRunArtifactError, CandidateAERunArtifactError,
-            CandidateDetailError, CandidateSeriesError) as exc:
+            CandidateDetailError, CandidateSeriesError, CandidateEvaluationViewError) as exc:
         return _error(exc.code)
     try:
         payload = (json.dumps(result, ensure_ascii=False, allow_nan=False, separators=(',', ':')) + '\n').encode('utf-8')

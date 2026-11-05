@@ -18,7 +18,17 @@ const common = {schema_version:1,evidence_kind:'SYNTHETIC_ONLY',policy_status:'A
 function catalog(ids=['saved-if','saved-history']) {
   return {schema_version:1,evidence_kind:'SYNTHETIC_ONLY',policy_status:'AUDIT_ONLY',scope:'SYNTHETIC_SAVED_RUN_INSPECTION_ONLY',
     items:ids.map(run_id=>({run_id,model_profile_id:'candidate-test',method:'iforest',history_window:null,
-      selected_policy:'P_U',minute_count:3,score_valid_count:1,source_replay:{...proof}}))}
+      selected_policy:'P_U',minute_count:144,score_valid_count:24,source_replay:{...proof}}))}
+}
+function evaluation(id='saved-if') {
+  const policy=(normal,attack,unknown,tp,fp,tn,fn,precision)=>({calendar_test_minutes:36,scored_test_minutes:6,
+    excluded_unscored_test_minutes:30,normal_minutes:normal,attack_minutes:attack,unknown_minutes:unknown,
+    unknown_source_attack_present:unknown,confusion_counts:{tp,fp,tn,fn},
+    metrics:{precision,recall:.625,f1:.375,fpr:0,fnr:1},undefined_reasons:{}})
+  return {schema_version:1,evidence_kind:'SYNTHETIC_ONLY',policy_status:'AUDIT_ONLY',scope:'FULL_STORED_TEST_EVALUATION',
+    unit:'minute',run_id:id,model_profile_id:'candidate-test',score_origin_policy:'P_U',run_source_replay:'NOT_PROVIDED',
+    evaluation_reference:series(id).evaluation_reference,
+    policies:{P_U:policy(2,2,2,1,1,1,1,.125),P_B:policy(4,2,0,2,1,3,0,0),P_A:policy(2,4,0,3,0,2,1,1)}}
 }
 function series(id='saved-if',page=1,page_size=100,start=null,end=null) {
   const normalized=value=>value===null?null:value.slice(0,16)+':00.000000'
@@ -49,6 +59,7 @@ function deferred(){let resolve,reject;const promise=new Promise((a,b)=>{resolve
 function automatic(url){const parsed=new URL(url,'http://local');const ids=parsed.pathname.split('/');const id=decodeURIComponent(ids[4]||'')
   if(parsed.pathname==='/candidate/v1/runs')return ok(catalog())
   if(parsed.pathname.endsWith('/detail'))return ok(detail(id,parsed.searchParams.get('timestamp')))
+  if(parsed.pathname.endsWith('/evaluation'))return ok(evaluation(id))
   return ok(series(id,Number(parsed.searchParams.get('page')||1),Number(parsed.searchParams.get('page_size')||100),
     parsed.searchParams.get('start'),parsed.searchParams.get('end')))}
 async function mount(fetcher=vi.fn(async url=>automatic(url))){const module=await api();const root=document.createElement('main');document.body.append(root)
@@ -60,6 +71,125 @@ async function minute(index=1){document.querySelectorAll('button[data-timestamp]
 beforeEach(()=>{document.body.replaceChildren()})
 
 describe('candidate static viewer',()=>{
+  it('shows all three original saved policy values with full test denominators above the minute table',async()=>{
+    const {root,fetcher}=await mount();await select()
+    const panel=el('full-evaluation');expect(panel).not.toBeNull()
+    expect(panel.compareDocumentPosition(el('range-form')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(el('evaluation-counts').querySelectorAll('tbody tr')).toHaveLength(3)
+    expect([...el('evaluation-counts').querySelectorAll('tbody tr')].map(row=>[...row.children].map(cell=>cell.textContent))).toEqual([
+      ['P_U','36','6','30','2','2','2','2'],['P_B','36','6','30','4','2','0','0'],['P_A','36','6','30','2','4','0','0']])
+    expect([...el('evaluation-metrics').querySelector('tbody tr').children].map(cell=>cell.textContent)).toEqual(['P_U','1','1','1','1','0.125','0.625','0.375','0','1'])
+    expect(el('evaluation-metrics').querySelectorAll('tbody tr')[1].textContent).toContain('0')
+    expect(panel.textContent).toContain('同一组预测');expect(panel.textContent).toContain('最终标签')
+    expect(panel.textContent).toContain('正常');expect(panel.textContent).toContain('unknown');expect(panel.textContent).not.toContain('144')
+    expect(el('run-context').textContent).toContain('144');expect(el('run-context').textContent).toContain('24')
+    expect(fetcher.mock.calls.filter(([url])=>url.endsWith('/evaluation')).map(([url])=>url)).toEqual(['/candidate/v1/runs/saved-if/evaluation'])
+    expect(root.textContent).not.toContain('模型排名')
+  })
+  it('preserves undefined original reasons as text and distinguishes defined 0 and 1',async()=>{
+    const reason='<img src=x onerror=alert(1)> no positive predictions'
+    await mount(async url=>{if(url.endsWith('/evaluation')){const value=evaluation();const p=value.policies.P_U
+      p.metrics.precision=null;p.undefined_reasons.precision=reason;p.confusion_counts={tp:0,fp:0,tn:2,fn:2}
+      return ok(value)}return automatic(url)});await select()
+    const row=el('evaluation-metrics').querySelector('tbody tr');expect(row.children[5].textContent).toBe(`不可计算（${reason}）`)
+    expect(row.children[8].textContent).toBe('0');expect(row.children[9].textContent).toBe('1');expect(row.querySelector('img')).toBeNull()
+  })
+  it('keeps full saved denominators on empty series, page changes and detail without another evaluation request',async()=>{
+    let empty=false;const fetcher=vi.fn(async url=>{if(empty&&url.includes('/series')){const value=series();value.items=[];value.total=0;value.returned=0;return ok(value)}return automatic(url)})
+    await mount(fetcher);await select();await minute();el('page-size').value='1';el('range-form').dispatchEvent(new Event('submit',{cancelable:true}));await tick();click('next-page');await tick()
+    const saved=el('evaluation-counts').textContent;empty=true;el('page-size').value='100';el('range-form').dispatchEvent(new Event('submit',{cancelable:true}));await tick()
+    expect(el('minute-rows').children).toHaveLength(0);expect(el('evaluation-counts').textContent).toBe(saved)
+    expect(fetcher.mock.calls.filter(([url])=>url.endsWith('/evaluation'))).toHaveLength(1)
+  })
+  it('retries only failed evaluation and retains series and detail',async()=>{
+    let failure=true;const fetcher=vi.fn(async url=>url.endsWith('/evaluation')&&failure?bad('private-evaluation'):automatic(url))
+    await mount(fetcher);await select();await minute();const saved=el('minute-detail').textContent;const rows=el('minute-rows').textContent
+    expect(el('evaluation-error').textContent).toContain('读取失败');expect(document.body.textContent).not.toContain('private-evaluation')
+    failure=false;const before=fetcher.mock.calls.length;click('retry-evaluation');await tick()
+    expect(fetcher.mock.calls.slice(before).map(([url])=>url)).toEqual(['/candidate/v1/runs/saved-if/evaluation'])
+    expect(el('minute-detail').textContent).toBe(saved);expect(el('minute-rows').textContent).toBe(rows);expect(el('evaluation-error').textContent).toBe('')
+    expect(el('evaluation-counts').querySelectorAll('tbody tr')).toHaveLength(3)
+  })
+  it('keeps completed evaluation when series or detail fails',async()=>{
+    let failSeries=false;const fetcher=vi.fn(async url=>url.includes('/detail')||failSeries&&url.includes('/series')?bad('INTERNAL_ERROR'):automatic(url))
+    await mount(fetcher);await select();const saved=el('evaluation-counts').textContent;await minute()
+    expect(el('detail-error').textContent).toContain('服务未能读取');expect(el('evaluation-counts').textContent).toBe(saved)
+    failSeries=true;el('range-form').dispatchEvent(new Event('submit',{cancelable:true}));await tick()
+    expect(el('series-error').textContent).toContain('服务未能读取');expect(el('evaluation-counts').textContent).toBe(saved)
+    expect(fetcher.mock.calls.filter(([url])=>url.endsWith('/evaluation'))).toHaveLength(1)
+  })
+  it('clears completed evaluation synchronously when selecting another run',async()=>{
+    const d=deferred();await mount(async url=>url.includes('saved-history/evaluation')?d.promise:automatic(url));await select()
+    expect(el('evaluation-counts').querySelectorAll('tbody tr')).toHaveLength(3)
+    el('run-select').value='saved-history';el('run-select').dispatchEvent(new Event('change'))
+    expect(el('evaluation-counts').children).toHaveLength(0);expect(el('evaluation-context').textContent).toBe('');expect(el('evaluation-status').textContent).toContain('读取中')
+    d.resolve(ok(evaluation('saved-history')));await tick();expect(el('evaluation-context').textContent).toContain('saved-history')
+  })
+  it('displays all undefined metrics for unknown-only scored test minutes',async()=>{
+    const value=evaluation();const p=value.policies.P_U;Object.assign(p,{normal_minutes:0,attack_minutes:0,unknown_minutes:6,unknown_source_attack_present:1,confusion_counts:{tp:0,fp:0,tn:0,fn:0}})
+    p.metrics={precision:null,recall:null,f1:null,fpr:null,fnr:null};p.undefined_reasons={precision:'no labelled positives',recall:'no attack',f1:'empty labelled predictions',fpr:'no normal',fnr:'no attack'}
+    await mount(async url=>url.endsWith('/evaluation')?ok(value):automatic(url));await select()
+    expect([...el('evaluation-metrics').querySelector('tbody tr').children].slice(5).map(cell=>cell.textContent)).toEqual([
+      '不可计算（no labelled positives）','不可计算（no attack）','不可计算（empty labelled predictions）','不可计算（no normal）','不可计算（no attack）'])
+    expect(el('evaluation-error').textContent).toBe('')
+  })
+  it.each(['success','failure','json'])('discards old evaluation %s and finally after run change',async outcome=>{
+    const a=deferred(),b=deferred();let oldSignal
+    await mount(async(url,options)=>{if(url.endsWith('/evaluation')){if(url.includes('saved-history'))return b.promise;oldSignal=options.signal;return outcome==='json'?{ok:true,json:()=>a.promise}:a.promise}return automatic(url)})
+    await select();await select('saved-history');expect(oldSignal.aborted).toBe(true)
+    outcome==='failure'?a.reject(Error('private-old')):a.resolve(outcome==='json'?evaluation():ok(evaluation()));await tick()
+    expect(el('evaluation-status').textContent).toContain('读取中');expect(el('evaluation-error').textContent).toBe('');expect(el('evaluation-counts').children).toHaveLength(0)
+    expect(el('retry-evaluation').disabled).toBe(true);b.resolve(ok(evaluation('saved-history')));await tick()
+    expect(el('evaluation-context').textContent).toContain('saved-history')
+  })
+  it.each(['success','failure','json'])('catalog reload clears saved evaluation immediately and discards stale %s',async outcome=>{
+    const d=deferred();let pending=false;await mount(async url=>url.endsWith('/evaluation')&&pending?(outcome==='json'?{ok:true,json:()=>d.promise}:d.promise):automatic(url));await select()
+    expect(el('evaluation-counts').querySelectorAll('tbody tr')).toHaveLength(3)
+    pending=true;await select();click('reload-catalog');expect(el('evaluation-counts').children).toHaveLength(0);await tick()
+    outcome==='failure'?d.reject(Error('private-old')):d.resolve(outcome==='json'?evaluation():ok(evaluation()));await tick()
+    expect(el('evaluation-context').textContent).toBe('');expect(el('evaluation-status').textContent).toBe('');expect(el('evaluation-error').textContent).toBe('');expect(el('retry-evaluation').disabled).toBe(true)
+  })
+  it.each(['run_id','model_profile_id','score_origin_policy','scope','unit','schema_version','evidence_kind','policy_status','run_source_replay'])('rejects incompatible evaluation %s without clearing series',async field=>{
+    await mount(async url=>url.endsWith('/evaluation')?ok({...evaluation(),[field]:'private-wrong'}):automatic(url));await select()
+    expect(el('evaluation-error').textContent).toContain('结果格式不匹配');expect(el('evaluation-counts').children).toHaveLength(0);expect(el('minute-rows').children).toHaveLength(3)
+  })
+  it.each(['evaluation-first','series-first'])('rejects conflicting reference independently of arrival order: %s',async order=>{
+    const e=deferred(),s=deferred();await mount(async url=>url.endsWith('/evaluation')?e.promise:url.includes('/series')?s.promise:automatic(url));await select()
+    const changed=series();changed.evaluation_reference.artifact.sha256='b'.repeat(64)
+    if(order==='evaluation-first'){e.resolve(ok(evaluation()));await tick();s.resolve(ok(changed))}else{s.resolve(ok(changed));await tick();e.resolve(ok(evaluation()))}await tick()
+    expect(el('evaluation-error').textContent).toContain('结果格式不匹配');expect(el('evaluation-counts').children).toHaveLength(0);expect(el('minute-rows').children).toHaveLength(3)
+  })
+  it.each(['evaluation','series'])('rejects an array hash in the shared reference schema for %s',async phase=>{
+    const pending=deferred();await mount(async url=>{
+      if(phase==='evaluation'&&url.includes('/series'))return pending.promise
+      if(phase==='evaluation'&&url.endsWith('/evaluation')){const value=evaluation();value.evaluation_reference.artifact.sha256=['a'.repeat(64)];return ok(value)}
+      if(phase==='series'&&url.includes('/series')){const value=series();value.evaluation_reference.artifact.sha256=['a'.repeat(64)];return ok(value)}
+      return automatic(url)
+    });await select()
+    expect(el(`${phase}-error`).textContent).toContain('结果格式不匹配')
+    if(phase==='evaluation')expect(el('evaluation-counts').children).toHaveLength(0)
+    else{expect(el('minute-rows').children).toHaveLength(0);expect(el('evaluation-counts').querySelectorAll('tbody tr')).toHaveLength(3)}
+  })
+  it.each(['ref-scope','ref-run','ref-sha','ref-bytes','ref-byte-bound','ref-extra','count','count-bound','conservation','metric','metric-negative','metric-large','metric-bool','null-reason','extra-reason','null-on-positive','defined-on-zero','extra-policy'])('rejects malformed saved evaluation %s',async kind=>{
+    const value=evaluation();const p=value.policies.P_U
+    if(kind==='ref-scope')value.evaluation_reference.scope='PAGE';if(kind==='ref-run')value.evaluation_reference.run_id='other';if(kind==='ref-sha')value.evaluation_reference.artifact.sha256='z'.repeat(64)
+    if(kind==='ref-bytes')value.evaluation_reference.artifact.byte_count=0;if(kind==='count')p.normal_minutes=true;if(kind==='count-bound')p.calendar_test_minutes=10001
+    if(kind==='ref-byte-bound')value.evaluation_reference.artifact.byte_count=16*1024*1024+1;if(kind==='ref-extra')value.evaluation_reference.artifact.path='private-path'
+    if(kind==='conservation')p.excluded_unscored_test_minutes=29;if(kind==='metric')p.metrics.recall=Infinity;if(kind==='null-reason')p.metrics.precision=null
+    if(kind==='metric-negative')p.metrics.fpr=-.1;if(kind==='metric-large')p.metrics.fnr=1.1;if(kind==='metric-bool')p.metrics.f1=true
+    if(kind==='extra-reason')p.undefined_reasons.recall='unexpected';if(kind==='null-on-positive'){p.metrics.recall=null;p.undefined_reasons.recall='bad null'}
+    if(kind==='defined-on-zero'){p.confusion_counts={tp:0,fp:0,tn:2,fn:2}};if(kind==='extra-policy')value.policies.P_X={...p}
+    await mount(async url=>url.endsWith('/evaluation')?ok(value):automatic(url));await select();expect(el('evaluation-error').textContent).toContain('结果格式不匹配');expect(el('evaluation-counts').children).toHaveLength(0)
+  })
+  it('shows run proof without upgrading the combined source proof',async()=>{
+    await mount(async url=>{if(url.endsWith('/runs')){const value=catalog();value.items[0].source_replay.run='VERIFIED';return ok(value)}
+      if(url.endsWith('/evaluation'))return ok({...evaluation(),run_source_replay:'VERIFIED'});return automatic(url)});await select()
+    expect(el('evaluation-context').textContent).toContain('run VERIFIED');expect(el('source-proof').textContent).toContain('combined NOT_PROVIDED')
+  })
+  it('disposal aborts all active independent requests and ignores delayed evaluation JSON',async()=>{
+    const d=deferred();const signals=[];const {root,handle}=await mount(async(url,options)=>{signals.push(options.signal);return url.endsWith('/evaluation')?{ok:true,json:()=>d.promise}:automatic(url)});await select();handle.dispose()
+    expect(signals.every(signal=>signal.aborted)).toBe(true);d.resolve(evaluation());await tick();expect(root.children).toHaveLength(0)
+  })
   it('has fixed same-origin asset URLs and evidence text',async()=>{await api();const html=readFileSync(resolve(ASSETS,'index.html'),'utf8')
     expect(html).toContain('/candidate/viewer.mjs');expect(html).toContain('/candidate/viewer.css');expect(html).not.toMatch(/https?:\/\/|cdn/i)
     const {root}=await mount();expect(root.textContent).toContain('SYNTHETIC_ONLY');expect(root.textContent).toContain('AUDIT_ONLY');expect(root.textContent).toContain('synthetic_source_clock')})

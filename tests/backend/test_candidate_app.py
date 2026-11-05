@@ -58,8 +58,14 @@ def pair(slot='if', run_id=None, source=True):
         model_profile_id=IF_PROFILE if slot=='if' else AE_PROFILE)
     report = dict(shared, status='VERIFIED', scope='STORED_ARTIFACT_CONSISTENCY_ONLY',
         verifier_profile_id=IF_VERIFIER if slot=='if' else AE_VERIFIER,
-        minute_count=2, score_valid_count=1, threshold=.5, checks={'source_replay':proof},
+        minute_count=2, score_valid_count=1, threshold=.5, checks={'source_replay':proof, 'evaluation':'VERIFIED'},
         artifacts={'evaluation.json':{'sha256':'b'*64,'byte_count':300}})
+    report['policies'] = {p: dict(calendar_test_minutes=0, scored_test_minutes=0,
+        excluded_unscored_test_minutes=0, normal_minutes=0, attack_minutes=0, unknown_minutes=0,
+        unknown_source_attack_present=0, confusion_counts=dict(tp=0, fp=0, tn=0, fn=0),
+        metrics={k: None for k in ('precision','recall','f1','fpr','fnr')},
+        undefined_reasons={k:'No scored test minutes.' for k in ('precision','recall','f1','fpr','fnr')})
+        for p in ('P_U','P_B','P_A')}
     scores = dict(shared, scope='ENGINEERING_TOY_ONLY', time_basis='synthetic_source_clock',
         score_direction='HIGHER_IS_MORE_ANOMALOUS', provenance=provenance, preprocessing_state=state,
         feature_names=list(G13U_FEATURE_NAMES), value_space='prepared', qualification_windows=[15,30],
@@ -182,7 +188,7 @@ def test_no_write_routes_and_safe_allow_header(method):
     assert response.headers['allow']=='GET'
 
 
-@pytest.mark.parametrize('suffix', ['', '/series', '/detail?timestamp=2026-01-01T00:00'])
+@pytest.mark.parametrize('suffix', ['', '/series', '/detail?timestamp=2026-01-01T00:00', '/evaluation'])
 def test_unknown_ids_and_routes(suffix):
     response=TestClient(build()).get('/candidate/v1/runs/private-missing'+suffix)
     failure(response,404,'NOT_FOUND' if suffix=='' else 'RUN_NOT_FOUND')
@@ -207,7 +213,7 @@ def test_absent_minute_and_positive_ascii_paging():
     assert result.status_code==200 and result.json()['page']==2 and result.json()['returned']==1
 
 
-@pytest.mark.parametrize('route',['runs','series','detail'])
+@pytest.mark.parametrize('route',['runs','series','detail','evaluation'])
 def test_success_is_exact_utf8_json_lf_and_capped(route,monkeypatch):
     module=api();client=TestClient(build())
     path='/candidate/v1/runs'+('' if route=='runs' else '/handwritten-if/'+route)
@@ -260,8 +266,44 @@ def test_request_phase_has_no_file_model_loader_or_worker_operations(monkeypatch
         (candidate_evaluation,('evaluate_candidate_predictions',)),(worker.Worker,('__init__',)),
         (repository.Repository,('__init__',)),(Path,('open','read_bytes','read_text','write_bytes','write_text','mkdir'))]:
         for name in names:monkeypatch.setattr(obj,name,forbidden)
-    for path in ('/candidate/v1/runs',base+'/series',base+'/detail?timestamp=2026-01-01T00:00'):
+    for path in ('/candidate/v1/runs',base+'/series',base+'/detail?timestamp=2026-01-01T00:00',base+'/evaluation'):
         response=client.get(path)
         assert response.status_code==200
         value=response.json();value.clear()
         assert client.get(path).json()
+
+
+@pytest.mark.parametrize('slot',['if','current','h15','h30'])
+@pytest.mark.parametrize('source',[False,True])
+def test_evaluation_http_preserves_full_stored_population_and_nulls(slot,source):
+    run,inputs=pair(slot,source=source)
+    response=TestClient(build((run,inputs))).get('/candidate/v1/runs/'+run.report['run_id']+'/evaluation')
+    assert response.status_code==200
+    value=response.json()
+    assert value['scope']=='FULL_STORED_TEST_EVALUATION' and value['unit']=='minute'
+    assert value['score_origin_policy']=='P_U'
+    assert value['run_source_replay']==('VERIFIED' if source else 'NOT_PROVIDED')
+    assert value['policies']==run.report_dict()['policies']
+    assert value['evaluation_reference']==dict(scope='FULL_STORED_RUN',run_id=run.report['run_id'],
+        artifact=dict(sha256='b'*64,byte_count=300))
+
+
+@pytest.mark.parametrize('query',['start=2026-01-01T00:00','page=1','policy=P_U','timestamp=x',
+    'path=private-secret','x=1&x=2','%70age=1','='])
+def test_evaluation_rejects_every_query_key(query):
+    failure(TestClient(build()).get('/candidate/v1/runs/handwritten-if/evaluation?'+query),422,'INVALID_QUERY')
+
+
+def test_every_registered_run_requires_valid_evaluation_before_serving():
+    module=api(); good=pair(); run,inputs=pair('h15')
+    report=run.report_dict();report['policies']['P_U']['confusion_counts']['tp']=True
+    with pytest.raises(module.CandidateRegistrationError,match='^INVALID_REGISTRATION$'):
+        build(good,(VerifiedCandidateRun(report,run.scores_dict()),inputs))
+
+
+def test_evaluation_snapshot_error_is_fixed_internal_error(monkeypatch):
+    from traffic_anomaly.candidate_evaluation_view import CandidateEvaluationViewError
+    module=api();client=TestClient(build())
+    def failed(*args,**kwargs):raise CandidateEvaluationViewError('INCOMPATIBLE_SNAPSHOT')
+    monkeypatch.setattr(module,'candidate_evaluation_view',failed,raising=False)
+    failure(client.get('/candidate/v1/runs/handwritten-if/evaluation'),500,'INTERNAL_ERROR')

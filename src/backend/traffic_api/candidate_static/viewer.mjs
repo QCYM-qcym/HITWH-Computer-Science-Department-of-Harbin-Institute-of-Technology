@@ -38,6 +38,47 @@ function checkPoint(point) {
     && typeof point.valid === 'boolean' && finite(point.threshold)
     && (point.valid ? finite(point.score) && typeof point.alarm === 'boolean' : point.score === null && point.alarm === null));
 }
+function checkReference(ref, id) {
+  requireValue(ref?.scope === 'FULL_STORED_RUN' && ref.run_id === id
+    && typeof ref.artifact?.sha256 === 'string' && /^[a-f0-9]{64}$/.test(ref.artifact.sha256)
+    && Object.keys(ref).length === 3 && Object.keys(ref.artifact).length === 2
+    && integer(ref.artifact.byte_count) && ref.artifact.byte_count > 0 && ref.artifact.byte_count <= 16 * 1024 * 1024);
+}
+function sameReference(a, b) {
+  return a.scope === b.scope && a.run_id === b.run_id && a.artifact.sha256 === b.artifact.sha256
+    && a.artifact.byte_count === b.artifact.byte_count;
+}
+const COUNT_FIELDS = ['calendar_test_minutes', 'scored_test_minutes', 'excluded_unscored_test_minutes',
+  'normal_minutes', 'attack_minutes', 'unknown_minutes', 'unknown_source_attack_present'];
+const CONFUSION_FIELDS = ['tp', 'fp', 'tn', 'fn'];
+const METRIC_FIELDS = ['precision', 'recall', 'f1', 'fpr', 'fnr'];
+function checkEvaluation(value, selected) {
+  requireValue(value?.schema_version === 1 && value.evidence_kind === 'SYNTHETIC_ONLY' && value.policy_status === 'AUDIT_ONLY'
+    && value.scope === 'FULL_STORED_TEST_EVALUATION' && value.unit === 'minute' && value.run_id === selected.run_id
+    && value.model_profile_id === selected.model_profile_id && value.score_origin_policy === selected.selected_policy
+    && PROOFS.includes(value.run_source_replay) && value.run_source_replay === selected.source_replay.run);
+  checkReference(value.evaluation_reference, selected.run_id);
+  const keysMatch = (object, keys) => object && Object.keys(object).length === keys.length && keys.every(key => Object.hasOwn(object, key));
+  requireValue(keysMatch(value.policies, POLICIES));
+  let population;
+  for (const policy of POLICIES) {
+    const p = value.policies[policy], c = p?.confusion_counts, m = p?.metrics, reasons = p?.undefined_reasons;
+    requireValue(p && keysMatch(c, CONFUSION_FIELDS) && keysMatch(m, METRIC_FIELDS)
+      && [...COUNT_FIELDS.map(key => p[key]), ...CONFUSION_FIELDS.map(key => c[key])].every(n => integer(n) && n <= 10000)
+      && p.calendar_test_minutes === p.scored_test_minutes + p.excluded_unscored_test_minutes
+      && p.scored_test_minutes === p.normal_minutes + p.attack_minutes + p.unknown_minutes
+      && c.fp + c.tn === p.normal_minutes && c.tp + c.fn === p.attack_minutes
+      && p.unknown_source_attack_present <= p.unknown_minutes);
+    const currentPopulation = COUNT_FIELDS.slice(0, 3).map(key => p[key]).join('/');
+    requireValue(population === undefined || population === currentPopulation); population = currentPopulation;
+    requireValue(METRIC_FIELDS.every(key => m[key] === null || finite(m[key]) && m[key] >= 0 && m[key] <= 1));
+    const nulls = METRIC_FIELDS.filter(key => m[key] === null);
+    requireValue(keysMatch(reasons, nulls) && nulls.every(key => typeof reasons[key] === 'string' && reasons[key].length >= 1 && reasons[key].length <= 256));
+    const denominators = [c.tp + c.fp, c.tp + c.fn, 2 * c.tp + c.fp + c.fn, c.fp + c.tn, c.tp + c.fn];
+    requireValue(METRIC_FIELDS.every((key, index) => (m[key] === null) === (denominators[index] === 0)));
+  }
+  return value;
+}
 function checkSeries(value, id, query) {
   shared(value, id);
   requireValue(PROOFS.includes(value.source_replay) && value.page === query.page && value.page_size === query.page_size
@@ -52,9 +93,7 @@ function checkSeries(value, id, query) {
       && REASONS.includes(point.history_invalid_reason?.['15']) && REASONS.includes(point.history_invalid_reason?.['30']));
     previous = point.timestamp;
   }
-  const ref = value.evaluation_reference;
-  requireValue(ref?.scope === 'FULL_STORED_RUN' && ref.run_id === id && /^[a-f0-9]{64}$/.test(ref.artifact?.sha256)
-    && integer(ref.artifact.byte_count) && ref.artifact.byte_count > 0);
+  checkReference(value.evaluation_reference, id);
   return value;
 }
 function channel(value, key) {
@@ -112,6 +151,13 @@ const LAYOUT = `
   <section class="panel"><h2>选择已保存运行</h2><div class="controls"><label>运行 ID<select id="run-select" disabled><option value="">请选择运行</option></select></label>
   <button id="reload-catalog" class="secondary">重新读取目录</button></div><p id="catalog-status" class="status" role="status"></p><p id="catalog-error" class="error" role="alert"></p>
   <p id="run-context" class="mono"></p><p id="source-proof" class="muted"></p></section>
+  <section id="full-evaluation" class="panel"><h2>完整保存评价 · 测试分钟</h2>
+  <p class="muted">P_U、P_B、P_A 是同一组预测的三种审计映射，不代表最终标签。以下为完整保存运行中的测试集评价，不受当前页、范围或分钟详情影响；直接显示保存值。</p>
+  <p class="muted">FPR 分母为已评分正常分钟；recall / FNR 分母为已评分攻击分钟；precision 分母为有 normal / attack 标签的正预测分钟。unknown 和未评分分钟不计入这些指标。</p>
+  <p id="evaluation-status" class="status" role="status"></p><p id="evaluation-error" class="error" role="alert"></p>
+  <p id="evaluation-context" class="mono muted"></p><div id="evaluation-counts" class="table-scroll evaluation-table"></div>
+  <div id="evaluation-metrics" class="table-scroll evaluation-table"></div><p id="full-evaluation-reference" class="mono muted"></p>
+  <button id="retry-evaluation" class="secondary" disabled>重新读取完整评价</button></section>
   <section class="panel"><h2>当前页分钟记录</h2><form id="range-form" class="controls">
   <label>起点（包含）<input id="range-start" placeholder="2026-01-01T00:00"></label><label>终点（不包含）<input id="range-end" placeholder="2026-01-01T01:00"></label>
   <label>每页记录<select id="page-size"><option value="1">1</option><option value="17">17</option><option value="100" selected>100</option><option value="1000">1000</option></select></label>
@@ -137,8 +183,8 @@ export function mountViewer(root, {fetcher = globalThis.fetch.bind(globalThis)} 
   root.innerHTML = LAYOUT; // Fixed local markup only. Every external value uses textContent.
   const ids = new Map([...root.querySelectorAll('[id]')].map(node => [node.id, node]));
   const get = id => ids.get(id), text = (id, value) => { get(id).textContent = value; };
-  const versions = {catalog: 0, series: 0, detail: 0}, controllers = {};
-  let disposed = false, catalog = [], selected = null, pageData = null;
+  const versions = {catalog: 0, series: 0, detail: 0, evaluation: 0}, controllers = {};
+  let disposed = false, catalog = [], selected = null, pageData = null, evaluationData = null, seriesReference = null;
   let applied = {start: null, end: null, page: 1, page_size: 100};
   function invalidate(kind) { versions[kind]++; controllers[kind]?.abort(); }
   function begin(kind) { invalidate(kind); controllers[kind] = new AbortController(); return {version: versions[kind], controller: controllers[kind]}; }
@@ -153,6 +199,46 @@ export function mountViewer(root, {fetcher = globalThis.fetch.bind(globalThis)} 
     return body;
   }
   function clearDetail() { invalidate('detail'); text('minute-detail', '选择分钟查看独立通道。'); text('detail-error', ''); text('detail-status', ''); }
+  function clearEvaluation() {
+    invalidate('evaluation'); evaluationData = null;
+    for (const id of ['evaluation-context', 'evaluation-status', 'evaluation-error', 'full-evaluation-reference']) text(id, '');
+    get('evaluation-counts').replaceChildren(); get('evaluation-metrics').replaceChildren(); get('retry-evaluation').disabled = true;
+  }
+  function evaluationFailure(error) {
+    clearEvaluation(); text('evaluation-error', message(error)); get('retry-evaluation').disabled = !selected;
+  }
+  function drawEvaluation(value) {
+    text('evaluation-context', `${value.run_id} · ${value.model_profile_id} · 分数来源政策 ${value.score_origin_policy} · run ${value.run_source_replay}（仅运行来源核对）`);
+    function table(id, caption, headings, cells) {
+      const table = element('table'); table.append(element('caption', caption));
+      const head = element('thead'), header = element('tr');
+      for (const title of ['审计政策', ...headings]) { const cell = element('th', title); cell.scope = 'col'; header.append(cell); }
+      head.append(header); table.append(head); const body = element('tbody');
+      for (const policy of POLICIES) { const row = element('tr'), label = element('th', policy); label.scope = 'row'; row.append(label);
+        for (const cellValue of cells(value.policies[policy])) row.append(element('td', cellValue)); body.append(row); }
+      table.append(body); get(id).replaceChildren(table);
+    }
+    table('evaluation-counts', '完整测试分钟分母（含未评分排除项）',
+      ['测试日历分钟', '已评分测试分钟', '排除未评分分钟', '正常 normal', '攻击 attack', '未知 unknown', '未知中源攻击标签存在'],
+      p => COUNT_FIELDS.map(key => display(p[key])));
+    table('evaluation-metrics', '保存混淆计数与指标（0–1 原值）', ['TP', 'FP', 'TN', 'FN', 'precision', 'recall', 'f1', 'FPR', 'FNR'],
+      p => [...CONFUSION_FIELDS.map(key => display(p.confusion_counts[key])),
+        ...METRIC_FIELDS.map(key => p.metrics[key] === null ? `不可计算（${p.undefined_reasons[key]}）` : display(p.metrics[key]))]);
+    const ref = value.evaluation_reference;
+    text('full-evaluation-reference', `${ref.scope} · ${ref.run_id} · SHA-256 ${ref.artifact.sha256} · ${ref.artifact.byte_count} bytes`);
+  }
+  async function loadEvaluation() {
+    clearEvaluation(); if (!selected) return;
+    const item = selected, id = item.run_id, task = begin('evaluation'); text('evaluation-status', '读取中…');
+    try {
+      const value = await read(`${BASE}/${encodeURIComponent(id)}/evaluation`, task.controller.signal);
+      if (!current('evaluation', task) || selected !== item) return;
+      const checked = checkEvaluation(value, item);
+      requireValue(!seriesReference || sameReference(checked.evaluation_reference, seriesReference));
+      evaluationData = checked; drawEvaluation(checked);
+    } catch (error) { if (current('evaluation', task)) evaluationFailure(error); }
+    finally { if (current('evaluation', task)) { text('evaluation-status', ''); get('retry-evaluation').disabled = !selected; } }
+  }
   function clearSeries() {
     invalidate('series'); clearDetail(); pageData = null;
     for (const id of ['series-summary','series-error','series-status','page-context','evaluation-reference','chart-scale']) text(id, '');
@@ -210,6 +296,8 @@ export function mountViewer(root, {fetcher = globalThis.fetch.bind(globalThis)} 
       const value = await read(`${BASE}/${encodeURIComponent(id)}/series?${params}`, task.controller.signal);
       if (!current('series', task) || selected?.run_id !== id) return;
       pageData = checkSeries(value, id, request); draw(pageData);
+      seriesReference = pageData.evaluation_reference;
+      if (evaluationData && !sameReference(evaluationData.evaluation_reference, seriesReference)) evaluationFailure(new Error('INVALID_RESPONSE'));
     } catch (error) { if (current('series', task)) { text('series-error', message(error)); text('series-status', ''); } }
     finally { if (current('series', task)) { get('apply-range').disabled = false; if (get('series-status').textContent === '读取中…') text('series-status', ''); } }
   }
@@ -225,7 +313,7 @@ export function mountViewer(root, {fetcher = globalThis.fetch.bind(globalThis)} 
     finally { if (current('detail', task)) text('detail-status', ''); }
   }
   async function reloadCatalog() {
-    clearSeries(); selected = null; catalog = []; get('apply-range').disabled = true; get('run-select').disabled = true;
+    clearSeries(); clearEvaluation(); seriesReference = null; selected = null; catalog = []; get('apply-range').disabled = true; get('run-select').disabled = true;
     get('run-select').replaceChildren(new Option('请选择运行', '')); text('run-context', ''); text('source-proof', '');
     text('catalog-error', ''); text('catalog-status', '读取中…'); const task = begin('catalog');
     try {
@@ -238,16 +326,17 @@ export function mountViewer(root, {fetcher = globalThis.fetch.bind(globalThis)} 
     finally { if (current('catalog', task)) text('catalog-status', ''); }
   }
   get('run-select').addEventListener('change', () => {
-    selected = catalog.find(item => item.run_id === get('run-select').value) ?? null; clearSeries();
-    text('run-context', selected ? `${selected.run_id} · ${selected.method} · ${selected.selected_policy}（审计政策）` : '');
+    selected = catalog.find(item => item.run_id === get('run-select').value) ?? null; clearSeries(); clearEvaluation(); seriesReference = null;
+    text('run-context', selected ? `${selected.run_id} · ${selected.method} · ${selected.selected_policy}（审计政策） · 全轴 ${selected.minute_count} 分钟 / 全轴可评分 ${selected.score_valid_count} 分钟` : '');
     text('source-proof', selected ? `来源证明：run ${selected.source_replay.run} / inputs ${selected.source_replay.inputs} / combined ${selected.source_replay.combined}` : '');
     get('range-start').value = ''; get('range-end').value = ''; get('page-size').value = '100';
-    get('apply-range').disabled = !selected; if (selected) void loadSeries({start: null, end: null, page: 1, page_size: 100});
+    get('apply-range').disabled = !selected; if (selected) { void loadSeries({start: null, end: null, page: 1, page_size: 100}); void loadEvaluation(); }
   });
   get('range-form').addEventListener('submit', event => { event.preventDefault(); if (selected) void loadSeries({
     start: get('range-start').value || null, end: get('range-end').value || null, page: 1, page_size: Number(get('page-size').value)}); });
   for (const [id, delta] of [['previous-page', -1], ['next-page', 1]]) get(id).addEventListener('click', () => { if (selected && pageData) void loadSeries({...applied, page: applied.page + delta}); });
   get('reload-catalog').addEventListener('click', () => { void reloadCatalog(); });
+  get('retry-evaluation').addEventListener('click', () => { void loadEvaluation(); });
   void reloadCatalog();
   return {reloadCatalog, dispose() { disposed = true; for (const kind of Object.keys(versions)) invalidate(kind); root.replaceChildren(); }};
 }

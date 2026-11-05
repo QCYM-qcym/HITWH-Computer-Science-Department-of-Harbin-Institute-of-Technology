@@ -96,7 +96,7 @@ def test_viewer_adds_exactly_three_get_routes_and_base_factory_is_unchanged(monk
     before = {(route.path, frozenset(route.methods)) for route in base.routes}
     after = {(route.path, frozenset(route.methods)) for route in app.routes}
     assert after - before == {(path, frozenset({'GET'})) for path in ROUTES}
-    assert len(before) == 3 and len(after) == 6
+    assert len(before) == 4 and len(after) == 7
     assert not app.router.redirect_slashes and not app.debug
     assert app.openapi_url is app.docs_url is app.redoc_url is None
     candidate_tests.failure(TestClient(base).get('/candidate'), 404, 'NOT_FOUND')
@@ -180,7 +180,7 @@ def test_individual_limit_is_inclusive_and_reads_are_bounded(monkeypatch):
     module, _, events = resources(monkeypatch, data)
     app = module.create_candidate_viewer_app(registrations())
     assert module.MAX_ASSET_BYTES == 1024 * 1024 and module.MAX_TOTAL_ASSET_BYTES == 3 * 1024 * 1024
-    assert len(app.routes) == 6
+    assert len(app.routes) == 7
     assert [event[2] for event in events if event[0] == 'read'] == [1024 * 1024 + 1] * 3
 
 

@@ -1,5 +1,9 @@
 # 候选合成结果查看页
 
+## 2026-11-06 增量
+
+现已增加[完整测试评价](candidate-evaluation-view.md)：CLI使用`evaluation`子命令，HTTP为`GET /candidate/v1/runs/{run_id}/evaluation`，页面增加独立完整评价区域。均保留三政策原值和null原因；时间范围与分页不改变分母。以下10月31日内容保留其原验证批次身份。
+
 日期：2026-10-31。状态：IMPLEMENTED_SYNTHETIC_ONLY。范围：SYNTHETIC_ONLY。依据[本批计划](../superpowers/plans/2026-10-31-candidate-viewer.md)，消费[独立候选HTTP](candidate-readonly-http.md)已保存的结果。原Vue四页、生产契约与任务后端保持原用途。
 
 页面入口为 `/candidate`。固定同源资源只有 `/candidate/viewer.css` 和 `/candidate/viewer.mjs`；无CDN、在线字体或新依赖。受信本地代码先按[只读HTTP启动说明](candidate-readonly-http.md)核验人工运行与输入快照，再将工厂导入及调用换为：

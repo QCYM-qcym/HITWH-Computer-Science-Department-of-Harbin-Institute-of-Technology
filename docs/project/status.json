@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-31",
+  "updated": "2026-11-06",
   "current_stage": "S2",
-  "theme": "自主迭代：候选查看页本地启动命令通过真实启停与安装验证；研究Gate仍BLOCKED",
+  "theme": "候选完整测试评价已接通命令、接口与页面；实际安装和浏览器核对通过，研究Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增候选查看页前台启动命令：显式1–4包、先核验后监听127.0.0.1、同socket随机端口及安全诊断。",
-    "51项新增与179项相关测试通过；另复现并修复非字符串错误码和强制退出误报正常停止，实际信号验证未执行。",
-    "实际4次普通命令及1次独立受控main完成18次HTTP核对，两服务定时正常关闭；缺包、占端口和坏参数拒绝通过。",
-    "安装后模块与三资源来源/字节一致，39旧文件身份保持；真实训练、联调及正式实验NOT_RUN，Data Gate BLOCKED。"
+    "新增完整保存测试评价视图，CLI、HTTP和网页共用已核验三政策数值，分母与曲线分页独立。",
+    "四旧包实际CLI/HTTP逐值及字节核对通过；全轴144、测试36、可评分测试6明确区分，null原因与漏报负例保留。",
+    "Python1611项及56子测试通过、2项符号链接权限跳过；前端102项通过，修复摘要类型校验遗漏并独立复核。",
+    "安装后模块与三资源核对、四运行浏览器及空范围重试通过；39旧文件身份保持，真实模型与正式实验NOT_RUN。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,18 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "候选完整测试评价查看",
+      "path": "docs/guides/candidate-evaluation-view.md"
+    },
+    {
+      "label": "完整评价实际验证",
+      "path": "docs/research/2026-11-06-candidate-evaluation-view-verification.json"
+    },
+    {
+      "label": "本轮持续开发计划",
+      "path": "docs/superpowers/plans/2026-11-06-autonomous-development.md"
+    },
     {
       "label": "候选查看页本地启动",
       "path": "docs/guides/candidate-viewer-launcher.md"

@@ -1,5 +1,9 @@
 # 候选结果的只读查看命令
 
+## 2026-11-06 增量
+
+现已增加[完整测试评价](candidate-evaluation-view.md)：CLI使用`evaluation`子命令，HTTP为`GET /candidate/v1/runs/{run_id}/evaluation`，页面增加独立完整评价区域。均保留三政策原值和null原因；时间范围与分页不改变分母。以下10月31日内容保留其原验证批次身份。
+
 日期：2026-10-31。范围：SYNTHETIC_ONLY。用途：从已有候选人工运行包输出[曲线分页](candidate-series-pages.md)或[单分钟详情](candidate-minute-details.md)，无需另写调用代码。依据[本批计划](../superpowers/plans/2026-10-31-candidate-view-cli.md)。不创建运行、不训练模型，也不写入产物。
 
 在已安装核心包的独立环境中执行。公共目录参数放在子命令之前；以下目录名仅为示例，应替换为本地已生成的相应人工包，不表示仓库附带这些运行产物。

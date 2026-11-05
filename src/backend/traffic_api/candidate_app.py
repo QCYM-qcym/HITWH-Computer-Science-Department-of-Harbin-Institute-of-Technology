@@ -17,6 +17,7 @@ from traffic_anomaly.candidate_artifacts import VerifiedCandidateArtifacts, _dee
 from traffic_anomaly.candidate_run_snapshot import VerifiedCandidateRun
 from traffic_anomaly.candidate_details import CandidateDetailError, candidate_minute_detail
 from traffic_anomaly.candidate_series import CandidateSeriesError, candidate_series_page
+from traffic_anomaly.candidate_evaluation_view import CandidateEvaluationViewError, candidate_evaluation_view
 from traffic_anomaly.candidate_iforest import MODEL_PROFILE_ID as IF_PROFILE
 
 MAX_OUTPUT_BYTES = 1024 * 1024
@@ -87,6 +88,7 @@ def create_candidate_app(registrations):
                 raise ValueError
             run, inputs = registration.run, registration.inputs
             candidate_series_page(run, page=1, page_size=1)
+            candidate_evaluation_view(run)
             detail = candidate_minute_detail(run, inputs, run.scores_document['timestamps'][0])
             report = run.report
             run_id = report['run_id']
@@ -129,6 +131,7 @@ def create_candidate_app(registrations):
 
     app.add_exception_handler(CandidateDetailError, query_error)
     app.add_exception_handler(CandidateSeriesError, query_error)
+    app.add_exception_handler(CandidateEvaluationViewError, query_error)
 
     @app.exception_handler(HTTPException)
     async def http_error(request, exc):
@@ -166,5 +169,11 @@ def create_candidate_app(registrations):
         if 'timestamp' not in query:
             raise _RequestError(422, 'INVALID_QUERY')
         return _success(candidate_minute_detail(registration.run, registration.inputs, query['timestamp']))
+
+    @app.get('/candidate/v1/runs/{run_id}/evaluation')
+    def evaluation(run_id: str, request: Request):
+        registration = registered(run_id)
+        _query(request, set())
+        return _success(candidate_evaluation_view(registration.run))
 
     return app

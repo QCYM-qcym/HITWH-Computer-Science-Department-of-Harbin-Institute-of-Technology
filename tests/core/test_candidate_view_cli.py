@@ -198,3 +198,44 @@ def test_cli_wrapper_does_no_artifact_io(monkeypatch, capsys):
     assert capsys.readouterr().err == ''
     assert cli.main(arguments(command='detail')) == 0
     assert capsys.readouterr().err == ''
+
+
+@pytest.mark.parametrize('family', ['if', 'ae'])
+@pytest.mark.parametrize('source', [False, True])
+def test_evaluation_command_uses_one_run_load_and_preserves_full_result(monkeypatch, capsys, family, source):
+    cli, calls, run, _ = setup(monkeypatch)
+    result = dict(scope='FULL_STORED_TEST_EVALUATION', score_origin_policy='P_B',
+        policies={'P_U': {'metrics': {'precision': None, 'fpr': 0},
+            'undefined_reasons': {'precision': 'original reason'}}})
+    consumer = Mock(return_value=result)
+    monkeypatch.setattr(cli, 'candidate_evaluation_view', consumer, raising=False)
+    assert cli.main(arguments(family, 'evaluation', source)) == 0
+    captured = capsys.readouterr()
+    assert captured.err == '' and json.loads(captured.out) == result
+    consumer.assert_called_once_with(run)
+    selected = 'load_verified_candidate_' + family + '_run'
+    calls[selected].assert_called_once_with(Path('private-run'), Path('private-records'), Path('private-inputs'),
+        source_fixture=Path('private-source.json') if source else None)
+    for name, call in calls.items():
+        if name != selected:
+            call.assert_not_called()
+
+
+@pytest.mark.parametrize('extra', [['--start', '2026-01-01T00:00'], ['--page', '1'],
+    ['--timestamp', '2026-01-01T00:00'], ['--policy', 'P_U']])
+def test_evaluation_accepts_no_filters(monkeypatch, capsys, extra):
+    cli, calls, _, _ = setup(monkeypatch)
+    safe_failure(cli, arguments(command='evaluation') + extra, capsys, 'INVALID_ARGUMENTS')
+    for call in calls.values():
+        call.assert_not_called()
+
+
+def test_evaluation_snapshot_error_is_safe_and_output_limit_applies(monkeypatch, capsys):
+    from traffic_anomaly.candidate_evaluation_view import CandidateEvaluationViewError
+    cli, _, _, _ = setup(monkeypatch)
+    consumer = Mock(side_effect=CandidateEvaluationViewError('INCOMPATIBLE_SNAPSHOT'))
+    monkeypatch.setattr(cli, 'candidate_evaluation_view', consumer, raising=False)
+    safe_failure(cli, arguments(command='evaluation'), capsys, 'INCOMPATIBLE_SNAPSHOT')
+    consumer.side_effect = None
+    consumer.return_value = {'policies': 'x'*(1024*1024)}
+    safe_failure(cli, arguments(command='evaluation'), capsys, 'RESOURCE_LIMIT')

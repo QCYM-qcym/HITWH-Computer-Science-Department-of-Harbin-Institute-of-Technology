@@ -1,5 +1,9 @@
 # 候选合成结果的只读HTTP
 
+## 2026-11-06 增量
+
+现已增加[完整测试评价](candidate-evaluation-view.md)：CLI使用`evaluation`子命令，HTTP为`GET /candidate/v1/runs/{run_id}/evaluation`，页面增加独立完整评价区域。均保留三政策原值和null原因；时间范围与分页不改变分母。以下10月31日内容保留其原验证批次身份。
+
 日期：2026-10-31。状态：IMPLEMENTED_SYNTHETIC_ONLY。范围：SYNTHETIC_ONLY。依据[本批计划](../superpowers/plans/2026-10-31-candidate-readonly-http.md)。这是已有候选人工运行包的独立查看入口，原任务后端与Vue页面继续沿用原生产契约。
 
 受信本地启动代码先使用[IF](candidate-run-verification.md)或[AE](candidate-ae-run-verification.md)的安全加载器和[输入快照](candidate-snapshots.md)完成保存关系核验，再把运行与输入快照配对交给 `traffic_api.candidate_app.create_candidate_app`。工厂接受长度1–4的list/tuple，每项是 `CandidateRegistration(run, inputs)`；全部配对通过才产生应用，运行ID直接来自原包，注册集合随后固定。类型检查不能把任意手写快照认证为原始来源，必须保留加载证据。

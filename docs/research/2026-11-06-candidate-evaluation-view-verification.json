@@ -1,0 +1,253 @@
+{
+  "date": "2026-11-06",
+  "base_commit": "6d87f40ab5e361e8313cb93f97f5ca78cb801a88",
+  "scope": "SYNTHETIC_ONLY",
+  "policy_status": "AUDIT_ONLY",
+  "purpose": "FULL_STORED_TEST_EVALUATION_CLI_HTTP_VIEWER",
+  "tests": {
+    "python_command": "python -X utf8 -m pytest tests/core tests/backend tests/integration tests/data_audit -q",
+    "python_passed": 1611,
+    "python_skipped": 2,
+    "python_subtests_passed": 56,
+    "python_seconds": 193.17,
+    "skip_reason": "HOST_SYMLINK_PERMISSION",
+    "python_warning": "EXISTING_STARLETTE_HTTPX_DEPRECATION",
+    "focused_python_passed": 402,
+    "frontend_passed": 102,
+    "candidate_dom_passed": 77,
+    "typecheck": "PASS",
+    "contracts_check": "PASS",
+    "frontend_build": "PASS",
+    "frontend_build_warning": "EXISTING_LARGE_VUE_CHUNK",
+    "full_suite_synthetic_models": "EXISTING_TOY_FIXTURES_EXECUTED",
+    "real_models": "NOT_RUN",
+    "repository_checks": {
+      "unit_passed": 13,
+      "worktree_files": 529,
+      "privacy_author_issues": 0,
+      "openapi": "MATCHES_CONTRACTS",
+      "diff_check": "PASS",
+      "initial_generated_metadata_check": "2_GENERATED_EGG_INFO_FILES_MOVED_TO_PRIVATE_ARTIFACTS_NO_POLICY_CHANGE"
+    }
+  },
+  "reviews": {
+    "core": "PASS",
+    "viewer": "PASS_AFTER_ONE_FIX",
+    "whole_batch": "PASS"
+  },
+  "fixes": [
+    {
+      "issue": "JAVASCRIPT_REGEX_ACCEPTED_ARRAY_HASH_BY_COERCION",
+      "regression_red_failed": 2,
+      "regression_green_suite_passed": 77,
+      "change": "REQUIRE_STRING_BEFORE_SHA256_REGEX",
+      "review": "ADDRESSED"
+    }
+  ],
+  "manual": {
+    "status": "PASS",
+    "cases": [
+      {
+        "slot": "if",
+        "run_id": "toy-if-20261030-v1",
+        "cli_exit": 0,
+        "stdout_bytes": 1705,
+        "calendar_test": 36,
+        "scored_test": 6,
+        "excluded_test": 30,
+        "policies_equal_original": true,
+        "identity_equal_original": true
+      },
+      {
+        "slot": "current",
+        "run_id": "toy-ae-current-20261030-v1",
+        "cli_exit": 0,
+        "stdout_bytes": 1716,
+        "calendar_test": 36,
+        "scored_test": 6,
+        "excluded_test": 30,
+        "policies_equal_original": true,
+        "identity_equal_original": true
+      },
+      {
+        "slot": "h15",
+        "run_id": "toy-ae-history15-20261030-v1",
+        "cli_exit": 0,
+        "stdout_bytes": 1720,
+        "calendar_test": 36,
+        "scored_test": 6,
+        "excluded_test": 30,
+        "policies_equal_original": true,
+        "identity_equal_original": true
+      },
+      {
+        "slot": "h30",
+        "run_id": "toy-ae-history30-20261030-v1",
+        "cli_exit": 0,
+        "stdout_bytes": 1720,
+        "calendar_test": 36,
+        "scored_test": 6,
+        "excluded_test": 30,
+        "policies_equal_original": true,
+        "identity_equal_original": true
+      }
+    ],
+    "preserved_files": 39,
+    "identities_unchanged": true,
+    "model_import_attempts": [],
+    "pure_query_guard_calls": [],
+    "pure_query_guard_scope": "ONLY_FOUR_IN_PROCESS_QUERIES_AFTER_LOAD",
+    "ordinary_cli_instrumented": false,
+    "loader_saved_relations_checked": true,
+    "real_models": "NOT_RUN",
+    "real_data_payload_read": false
+  },
+  "actual_http": {
+    "status": "PASS",
+    "cases": [
+      {
+        "run_id": "toy-if-20261030-v1",
+        "status": 200,
+        "bytes": 1705,
+        "sha256": "c4a3518f2381ed0c108f73d321cbb8f57afea1ca7a42bdaac2bf85c15a44ad72",
+        "same_as_actual_cli": true
+      },
+      {
+        "run_id": "toy-ae-current-20261030-v1",
+        "status": 200,
+        "bytes": 1716,
+        "sha256": "af618ac339b3477578597dca055569cb194f562e01477f34e6052ec357f5f516",
+        "same_as_actual_cli": true
+      },
+      {
+        "run_id": "toy-ae-history15-20261030-v1",
+        "status": 200,
+        "bytes": 1720,
+        "sha256": "37b10bb2b5e2f31c3c500d55126feacb5d6ec18ba337ac02815b0dd9a8fde25a",
+        "same_as_actual_cli": true
+      },
+      {
+        "run_id": "toy-ae-history30-20261030-v1",
+        "status": 200,
+        "bytes": 1720,
+        "sha256": "eae179e0dfe569a2ea4da485e399421543a74859245d9c8872eaba3be0cdf977",
+        "same_as_actual_cli": true
+      }
+    ],
+    "query_rejections": 4,
+    "unknown_run_rejections": 1,
+    "server_instrumented": false
+  },
+  "installed_http": {
+    "status": "PASS",
+    "cases": [
+      {
+        "run_id": "toy-if-20261030-v1",
+        "bytes": 1705,
+        "sha256": "c4a3518f2381ed0c108f73d321cbb8f57afea1ca7a42bdaac2bf85c15a44ad72"
+      },
+      {
+        "run_id": "toy-ae-current-20261030-v1",
+        "bytes": 1716,
+        "sha256": "af618ac339b3477578597dca055569cb194f562e01477f34e6052ec357f5f516"
+      },
+      {
+        "run_id": "toy-ae-history15-20261030-v1",
+        "bytes": 1720,
+        "sha256": "37b10bb2b5e2f31c3c500d55126feacb5d6ec18ba337ac02815b0dd9a8fde25a"
+      },
+      {
+        "run_id": "toy-ae-history30-20261030-v1",
+        "bytes": 1720,
+        "sha256": "eae179e0dfe569a2ea4da485e399421543a74859245d9c8872eaba3be0cdf977"
+      }
+    ],
+    "actual_installed_package": true
+  },
+  "browser": {
+    "status": "PASS",
+    "actual_installed_package": true,
+    "four_runs_checked": true,
+    "three_policies_checked": true,
+    "population": [
+      36,
+      6,
+      30
+    ],
+    "all_axis_and_all_scored": [
+      144,
+      24
+    ],
+    "precision_null_reason_preserved": true,
+    "empty_range_rows": 0,
+    "empty_range_keeps_full_evaluation": true,
+    "evaluation_retry_keeps_empty_page": true,
+    "evaluation_errors": [],
+    "tab_closed": true,
+    "malformed_response_in_real_browser": "NOT_RUN_UNIT_REGRESSION_ONLY"
+  },
+  "installed_backend": {
+    "status": "PASS",
+    "installed_module_origin_checked": true,
+    "assets": {
+      "index.html": {
+        "sha256": "7b04ce571172856629b8fd0b52160d47aa321f152217d6e9cea8338964608b87",
+        "byte_count": 474
+      },
+      "viewer.mjs": {
+        "sha256": "85467d7295a2701b2b0f822e21772584c86e7494b301163f6e5f75b47d0df4ab",
+        "byte_count": 28982
+      },
+      "viewer.css": {
+        "sha256": "7baf4060a4073b17297cf319cf9a97ea33266966f728f9b47c9b16b100463d08",
+        "byte_count": 2895
+      }
+    },
+    "exit_code": 0,
+    "normal_stop_event": true,
+    "process_wait_completed": true,
+    "port_closed": true,
+    "actual_signal_test": "NOT_RUN",
+    "server_model_instrumented": false
+  },
+  "installed_core": {
+    "status": "PASS",
+    "installed_modules_origins_checked": 2,
+    "source_bytes_equal": true,
+    "cli_cases": [
+      {
+        "run_id": "toy-if-20261030-v1",
+        "exit_code": 0,
+        "bytes": 1705
+      },
+      {
+        "run_id": "toy-ae-history30-20261030-v1",
+        "exit_code": 0,
+        "bytes": 1720
+      }
+    ],
+    "dependencies": "EXISTING_LOCKED_ENVIRONMENT_NO_NEW_ENVIRONMENT_CLAIM"
+  },
+  "preservation": {
+    "files": 39,
+    "sha_size_mtime_unchanged": true,
+    "directory_members_unchanged": true,
+    "full_before_after_identity_tables": "RETAINED_LOCALLY"
+  },
+  "harness_issues": [
+    "FIRST_INSTALLED_MODULE_PATH_PROBE_LACKED_UTF8_AND_FAILED_BEFORE_SERVER_LAUNCH; FIXED_PROBE_AND_RERUN",
+    "FIRST_BROWSER_LABEL_LOCATOR_FOUND_NO_MATCH; OBSERVED_ID_LOCATOR_SUCCEEDED",
+    "INITIAL_POWERSHELL_REDIRECT_BUFFERED_SERVICE_EVENTS; INSTALLED_SERVICE_USED_DIRECT_FILE_HANDLES"
+  ],
+  "research": {
+    "data_gate": "BLOCKED",
+    "real_preprocessing": "NOT_RUN",
+    "real_training": "NOT_RUN",
+    "real_scoring": "NOT_RUN",
+    "real_calibration": "NOT_RUN",
+    "formal_comparison": "NOT_RUN",
+    "new_data_download_bytes": 0,
+    "production_contract_migration": "NOT_RUN"
+  },
+  "synchronization": "PENDING_DESKTOP_COMMIT_PUSH_AND_REMOTE_CI"
+}

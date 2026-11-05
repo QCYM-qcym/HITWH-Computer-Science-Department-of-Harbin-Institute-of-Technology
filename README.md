@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-10-31**。当前阶段：**数据审计**；本轮主题：自主迭代：候选查看页本地启动命令通过真实启停与安装验证；研究Gate仍BLOCKED。
+最近更新：**2026-11-06**。当前阶段：**数据审计**；本轮主题：候选完整测试评价已接通命令、接口与页面；实际安装和浏览器核对通过，研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增候选查看页前台启动命令：显式1–4包、先核验后监听127.0.0.1、同socket随机端口及安全诊断。
-- 51项新增与179项相关测试通过；另复现并修复非字符串错误码和强制退出误报正常停止，实际信号验证未执行。
-- 实际4次普通命令及1次独立受控main完成18次HTTP核对，两服务定时正常关闭；缺包、占端口和坏参数拒绝通过。
-- 安装后模块与三资源来源/字节一致，39旧文件身份保持；真实训练、联调及正式实验NOT_RUN，Data Gate BLOCKED。
+- 新增完整保存测试评价视图，CLI、HTTP和网页共用已核验三政策数值，分母与曲线分页独立。
+- 四旧包实际CLI/HTTP逐值及字节核对通过；全轴144、测试36、可评分测试6明确区分，null原因与漏报负例保留。
+- Python1611项及56子测试通过、2项符号链接权限跳过；前端102项通过，修复摘要类型校验遗漏并独立复核。
+- 安装后模块与三资源核对、四运行浏览器及空范围重试通过；39旧文件身份保持，真实模型与正式实验NOT_RUN。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,9 @@ flowchart TB
 
 **最新成果入口**
 
+- [候选完整测试评价查看](<docs/guides/candidate-evaluation-view.md>)
+- [完整评价实际验证](<docs/research/2026-11-06-candidate-evaluation-view-verification.json>)
+- [本轮持续开发计划](<docs/superpowers/plans/2026-11-06-autonomous-development.md>)
 - [候选查看页本地启动](<docs/guides/candidate-viewer-launcher.md>)
 - [候选启动命令实际验证](<docs/research/2026-10-31-candidate-viewer-launcher-verification.json>)
 - [候选合成结果查看页](<docs/guides/candidate-viewer.md>)
