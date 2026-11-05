@@ -6,6 +6,7 @@ import json
 import logging
 from pathlib import Path
 from types import SimpleNamespace
+from dataclasses import replace
 from unittest.mock import Mock
 
 import pytest
@@ -18,6 +19,108 @@ def api():
 
 
 def argv():return ['--records','private-records','--inputs','private-inputs','--if-run','private-if']
+
+
+def test_expected_demo_identity_binds_admitted_snapshot_before_comparison_or_listen(monkeypatch, capsys):
+    module, calls, _, _, _, if_value, _ = setup(monkeypatch)
+    if_value.report['selected_policy'] = 'P_B'
+    assert module.main(argv(), expected_run_identities=(('saved-if', 'P_U'),)) == 2
+    assert json.loads(capsys.readouterr().err) == {'error': 'INVALID_REGISTRATION'}
+    calls['socket'].assert_not_called()
+    calls['create_candidate_viewer_app'].assert_not_called()
+
+
+def test_matching_demo_identity_retains_original_launcher_lifecycle(monkeypatch):
+    module, calls, _, _, _, if_value, _ = setup(monkeypatch)
+    if_value.report['selected_policy'] = 'P_U'
+    assert module.main(argv(), expected_run_identities=(('saved-if', 'P_U'),)) == 0
+    calls['socket'].assert_called_once()
+
+
+@pytest.mark.parametrize('digest,replay', [({'sha256': 'other', 'byte_count': 1}, 'VERIFIED'),
+    ({'sha256': 'fixed', 'byte_count': True}, 'VERIFIED'),
+    ({'sha256': 'fixed', 'byte_count': 1}, 'NOT_PROVIDED')])
+def test_expected_demo_source_binds_actual_admission_after_precheck(monkeypatch, capsys, digest, replay):
+    module, calls, *_ = setup(monkeypatch)
+    # This snapshot stands for a different, internally consistent package swapped
+    # after the demo's early filesystem check. No additional model setup is needed.
+    calls['load_verified_candidate_artifacts'].return_value = SimpleNamespace(report={
+        'source_fixture': digest, 'checks': {'source_replay': replay}})
+    assert module.main(argv(), expected_source_fixture={'sha256': 'fixed', 'byte_count': 1}) == 2
+    assert json.loads(capsys.readouterr().err)['error'] == 'INVALID_REGISTRATION'
+    calls['socket'].assert_not_called()
+
+
+def test_expected_demo_source_accepts_matching_verified_snapshot(monkeypatch):
+    module, calls, *_ = setup(monkeypatch)
+    calls['load_verified_candidate_artifacts'].return_value = SimpleNamespace(report={
+        'source_fixture': {'sha256': 'fixed', 'byte_count': 1}, 'checks': {'source_replay': 'VERIFIED'}})
+    assert module.main(argv(), expected_source_fixture={'sha256': 'fixed', 'byte_count': 1}) == 0
+
+
+def demo_slot_case(monkeypatch, *, swapped):
+    """Internally consistent saved snapshots; retain real viewer/freeze admission."""
+    from .test_candidate_comparison_view import fixture
+    from traffic_anomaly.candidate_run_snapshot import VerifiedCandidateRun
+    from traffic_anomaly.candidate_artifacts import _deep_freeze
+    from traffic_api.candidate_app import CandidateRegistration
+    module = api()
+    report, registrations = fixture(('if', 'current', 'h30', 'h15') if swapped
+                                    else ('if', 'current', 'h15', 'h30'), source=True)
+    ids = ('demo-if-current13', 'demo-ae-current13', 'demo-ae-history15', 'demo-ae-history30')
+    input_report = registrations[0].inputs.report_dict()
+    input_report['source_fixture'] = report['shared_context']['five_provenance']['source_fixture']
+    inputs = replace(registrations[0].inputs, report=_deep_freeze(input_report))
+    renamed = []
+    for registration, run_id in zip(registrations, ids):
+        value, scores = registration.run.report_dict(), registration.run.scores_dict()
+        old_id = value['run_id']
+        value['run_id'] = scores['run_id'] = run_id
+        for row in report['runs']:
+            if row['run_id'] == old_id:
+                row['run_id'] = run_id
+        renamed.append(CandidateRegistration(VerifiedCandidateRun(value, scores), inputs))
+    monkeypatch.setattr(module, 'load_verified_candidate_artifacts', Mock(return_value=inputs))
+    monkeypatch.setattr(module, 'load_verified_candidate_if_run', Mock(return_value=renamed[0].run))
+    monkeypatch.setattr(module, 'load_verified_candidate_ae_run', Mock(side_effect=[r.run for r in renamed[1:]]))
+    comparison = Mock(return_value=report)
+    monkeypatch.setattr(module, 'compare_candidate_runs', comparison)
+    listener = Mock()
+    listener.getsockname.return_value = ('127.0.0.1', 32123)
+    monkeypatch.setattr(module.socket, 'socket', Mock(return_value=listener))
+    monkeypatch.setattr(module, '_ViewerServer', Mock(return_value=Mock(started=True, shutdown_completed=True)))
+    args = ['--records', 'records', '--inputs', 'inputs', '--source-fixture', 'source.json',
+            '--if-run', 'if', '--ae-run', 'current', '--ae-run', 'history15', '--ae-run', 'history30', '--comparison']
+    policy = report['shared_context']['selected_policy']
+    expected_slots = (('iforest_current13', ids[0]), ('current_ae13', ids[1]),
+                      ('history_ae26_h15', ids[2]), ('history_ae26_h30', ids[3]))
+    return module, args, listener, comparison, dict(
+        expected_run_identities=tuple((run_id, policy) for run_id in ids),
+        expected_source_fixture=input_report['source_fixture'], expected_comparison_identities=expected_slots)
+
+
+@pytest.mark.parametrize('swapped,constrained', [(True, True), (False, True), (True, False)])
+def test_demo_slot_identity_binds_final_comparison_but_ordinary_viewer_stays_generic(monkeypatch, capsys, swapped, constrained):
+    module, args, listener, comparison, expected = demo_slot_case(monkeypatch, swapped=swapped)
+    if not constrained:
+        expected = {}
+    result = module.main(args, **expected)
+    comparison.assert_called_once()
+    if swapped and constrained:
+        assert result == 2
+        assert json.loads(capsys.readouterr().err) == {'error': 'INVALID_REGISTRATION'}
+        listener.bind.assert_not_called()
+    else:
+        assert result == 0
+        listener.bind.assert_called_once()
+
+
+def test_demo_comparison_constraint_cannot_be_silently_ignored_without_comparison(monkeypatch, capsys):
+    module, calls, *_ = setup(monkeypatch)
+    assert module.main(argv(), expected_comparison_identities=(('iforest_current13', 'saved-if'),)) == 2
+    assert json.loads(capsys.readouterr().err) == {'error': 'INVALID_ARGUMENTS'}
+    for call in calls.values():
+        call.assert_not_called()
 
 
 def setup(monkeypatch):

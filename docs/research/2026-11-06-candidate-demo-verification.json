@@ -1,0 +1,302 @@
+{
+  "date": "2026-11-06",
+  "status": "LOCAL_ACCEPTANCE_PASS",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "policy_status": "AUDIT_ONLY",
+  "scope": "ENGINEERING_TOY_ONLY",
+  "tests": {
+    "full_python_before_slot_binding_fix": {
+      "passed": 1710,
+      "skipped": 2,
+      "subtests": 56
+    },
+    "skipped_reason": "HOST_SYMLINK_PRIVILEGE_UNAVAILABLE",
+    "post_fix_affected_passed": 108,
+    "independent_fix_review_passed": 11,
+    "repository_unit_passed": 13,
+    "openapi_check": "PASS",
+    "worktree_privacy_files_checked": 539,
+    "worktree_privacy_issues": 0,
+    "local_markdown_links_checked": 377,
+    "local_markdown_link_failures": 0,
+    "frontend": "UNCHANGED_NOT_RERUN_PREVIOUS_BATCH_120_PASSED",
+    "full_suite_includes_fixed_synthetic_model_execution": true,
+    "warning": "EXISTING_STARLETTE_HTTPX_DEPRECATION"
+  },
+  "prepare": {
+    "status": "PASS",
+    "installed_origins": true,
+    "cwd_and_workspace_outside_checkout": true,
+    "workspace_contains_non_ascii_and_space": true,
+    "fixed_resource_bytes_equal": true,
+    "stage_events": 12,
+    "stages": [
+      "records",
+      "inputs",
+      "if-current13",
+      "ae-current13",
+      "ae-history15",
+      "ae-history30"
+    ],
+    "prepare_seconds": 11.01769150000473,
+    "new_artifacts": 28,
+    "saved_verify": "PASS",
+    "saved_compare": "PASS",
+    "artifact_identity_unchanged_after_verify": true,
+    "old_artifact_files": 39,
+    "old_artifacts_unchanged": true,
+    "synthetic_model_execution": "FOUR_FIXED_MODELS",
+    "real_models": "NOT_RUN",
+    "fresh_dependency_environment": false
+  },
+  "installed_final": {
+    "status": "PASS",
+    "files": {
+      "traffic_api/__init__.py": {
+        "sha256": "57464fba94cf548c10b6ef5eab4709969234e2112351199c4c9c7e8ca078e30b",
+        "byte_count": 61
+      },
+      "traffic_api/app.py": {
+        "sha256": "524d6a68fc5113e5c63bc966c8ff2b28ec84b0eef4174d5dd8a0c3ca1252d0d6",
+        "byte_count": 5869
+      },
+      "traffic_api/artifacts.py": {
+        "sha256": "78bd4ae959cdc080e6e096a0c243edead92811ecc12e6a9911736e463e66ce1e",
+        "byte_count": 10404
+      },
+      "traffic_api/candidate_app.py": {
+        "sha256": "ca60e34e5229786544f0218767a8a53500fe691c58da9792318fef7a41af3ea4",
+        "byte_count": 8774
+      },
+      "traffic_api/candidate_comparison_view.py": {
+        "sha256": "e9bce5c6807be0c92d1994e28ed76b1721856dc72b5db88487b3494a2ef71068",
+        "byte_count": 7809
+      },
+      "traffic_api/candidate_demo/g13u-records-v1.json": {
+        "sha256": "6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2",
+        "byte_count": 213497
+      },
+      "traffic_api/candidate_demo_cli.py": {
+        "sha256": "e2ed90fb4eb1bfa4e51f4d11ffc7b18acfdb6c157aca6d51c552398de43f5013",
+        "byte_count": 15586
+      },
+      "traffic_api/candidate_serve_cli.py": {
+        "sha256": "e0b3faaea4c9b46ab9a9b7b53af236c93e840977edc4f290c5c1722d53cd52ef",
+        "byte_count": 10460
+      },
+      "traffic_api/candidate_static/index.html": {
+        "sha256": "7b04ce571172856629b8fd0b52160d47aa321f152217d6e9cea8338964608b87",
+        "byte_count": 474
+      },
+      "traffic_api/candidate_static/viewer.css": {
+        "sha256": "6a643ae4c0d7aea5e113db87a0db2bf931470e426b4a1c28746cf87db5ac11af",
+        "byte_count": 3476
+      },
+      "traffic_api/candidate_static/viewer.mjs": {
+        "sha256": "c0d5e0efbc9fa69a58b108185b2e6e0f95d1481aa1af2f701c06017866067fe2",
+        "byte_count": 42156
+      },
+      "traffic_api/candidate_viewer.py": {
+        "sha256": "0a32118beebe973da1edf0fb08296ea5d5fb535602f44a86c2c77e318c850692",
+        "byte_count": 2203
+      },
+      "traffic_api/core_executor.py": {
+        "sha256": "c8babbae682506e2f9213dd2552c37f8c21666415bd5b694d56ab2f61af13c80",
+        "byte_count": 2686
+      },
+      "traffic_api/repository.py": {
+        "sha256": "bfc281c14f9649afd98c1c8407e7a286f7b35269444d884ffd4aa9fcac1410c2",
+        "byte_count": 4186
+      },
+      "traffic_api/schemas.py": {
+        "sha256": "19d0a74489272f6c2edf46458b2c6889d16a3726a73c81e5c57242c10ec98388",
+        "byte_count": 1580
+      },
+      "traffic_api/service.py": {
+        "sha256": "2de77be60972b365356e4d2aaaeb4b7de87d8b4541cb329d2e421c931fe22f03",
+        "byte_count": 3824
+      },
+      "traffic_api/worker.py": {
+        "sha256": "e027ef11516e9ad09cb1b100e1c345bd2806bbbbbdbb8132269c8534f7d73951",
+        "byte_count": 7940
+      }
+    },
+    "files_count": 17,
+    "build_from_private_source_copy": true,
+    "dependency_environment": "EXISTING_LOCKED_ENV",
+    "fresh_environment": false,
+    "network_not_needed": true
+  },
+  "slot_fix_scope": {
+    "status": "PASS",
+    "unchanged_functions": {
+      "prepare_demo": true,
+      "verify_demo": true,
+      "_run_stage": true,
+      "_check_comparison": true,
+      "_check_workspace": true
+    },
+    "prepare_not_repeated_after_serve_only_fix": true
+  },
+  "lifecycle": [
+    {
+      "status": "PASS",
+      "mode": "first",
+      "exit": 0,
+      "normal_stop": true,
+      "process_reaped": true,
+      "port_closed": true,
+      "artifacts_unchanged": 28,
+      "http_requests": 6,
+      "comparison_equal_original_cli": true,
+      "serve_guard": {
+        "mode": "serve",
+        "exit": 0,
+        "attempts": [],
+        "loaded_blocked_modules": [],
+        "guarded_stage": true,
+        "saved_relation_recalculation_allowed": true
+      },
+      "verify_guard": {
+        "mode": "verify",
+        "exit": 0,
+        "attempts": [],
+        "loaded_blocked_modules": [],
+        "guarded_stage": true,
+        "saved_relation_recalculation_allowed": true
+      },
+      "os_signal_test": "NOT_RUN"
+    },
+    {
+      "status": "PASS",
+      "mode": "restart",
+      "exit": 0,
+      "normal_stop": true,
+      "process_reaped": true,
+      "port_closed": true,
+      "artifacts_unchanged": 28,
+      "http_requests": 6,
+      "comparison_equal_original_cli": true,
+      "serve_guard": {
+        "mode": "serve",
+        "exit": 0,
+        "attempts": [],
+        "loaded_blocked_modules": [],
+        "guarded_stage": true,
+        "saved_relation_recalculation_allowed": true
+      },
+      "verify_guard": {
+        "mode": "verify",
+        "exit": 0,
+        "attempts": [],
+        "loaded_blocked_modules": [],
+        "guarded_stage": true,
+        "saved_relation_recalculation_allowed": true
+      },
+      "os_signal_test": "NOT_RUN"
+    }
+  ],
+  "browser": {
+    "status": "PASS",
+    "source": "INSTALLED_DEMO_NEW_DIRECTORY",
+    "runs": [
+      "demo-if-current13",
+      "demo-ae-current13",
+      "demo-ae-history15",
+      "demo-ae-history30"
+    ],
+    "each_run": {
+      "evaluation_contains_selected_run": true,
+      "evaluation_table_rows": 6,
+      "initial_minute_rows": 100,
+      "comparison_rows": 4,
+      "errors": []
+    },
+    "minute_15": {
+      "h15": "可用",
+      "h30": "warmup",
+      "common_score": "未评分"
+    },
+    "policy_counts": {
+      "P_U": [
+        4,
+        1,
+        1
+      ],
+      "P_B": [
+        5,
+        1,
+        0
+      ],
+      "P_A": [
+        4,
+        2,
+        0
+      ]
+    },
+    "full_axis": 144,
+    "axis_scored": 24,
+    "test_calendar": 36,
+    "test_scored": 6,
+    "test_excluded": 30,
+    "original_all_miss_and_precision_null_preserved": true,
+    "page_errors": [],
+    "console_error_warn": [],
+    "tab_closed": true,
+    "network_mocking": false
+  },
+  "failures": {
+    "status": "PASS",
+    "existing_output_refused": true,
+    "corrupted_copy": [
+      {
+        "mode": "verify",
+        "exit": 2,
+        "error": "INVALID_DEMO",
+        "ready_event": false
+      },
+      {
+        "mode": "serve",
+        "exit": 2,
+        "error": "INTEGRITY_MISMATCH",
+        "ready_event": false
+      }
+    ],
+    "interrupted_prepare": {
+      "status": "PASS",
+      "parent_exit": 2,
+      "direct_child_exit": 1,
+      "actual_stage_ended": true,
+      "stage_count": 1,
+      "complete_marker": false,
+      "partial_retained": true,
+      "injection": "PYTHON_KEYBOARD_INTERRUPT_IN_WAIT_WITH_REAL_CHILD",
+      "os_signal_test": false
+    },
+    "original_demo_unchanged": true,
+    "failed_directories_retained": true,
+    "actual_synthetic_model_execution": false,
+    "real_data": "NOT_RUN"
+  },
+  "preserved_original_artifacts": {
+    "files": 39,
+    "sha_size_mtime_and_members_unchanged": true
+  },
+  "new_demo_files": 28,
+  "independent_review": {
+    "initial": "P2_SLOT_RUN_BINDING",
+    "fix_round": 1,
+    "finding": "ADDRESSED",
+    "spec": "PASS",
+    "quality": "PASS"
+  },
+  "recorded_test_harness_issue": "FIRST_INTEGRATION_FNR_KEY_TYPO_FIXED_TO_fnr_THEN_FULL_SUITE_PASSED",
+  "actual_os_signal_shutdown": "NOT_RUN",
+  "real_data": "NOT_RUN",
+  "real_training": "NOT_RUN",
+  "real_scoring": "NOT_RUN",
+  "real_calibration": "NOT_RUN",
+  "formal_comparison": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "synchronization": "PENDING_DESKTOP_COMMIT_PUSH_AND_REMOTE_CI"
+}

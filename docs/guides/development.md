@@ -138,3 +138,8 @@ tests/core与tests/backend使用包内相对辅助导入，可在同一次pytest
 ## 2026-11-06 方法对照增量
 
 已存人工方法可启用[共同条件对照页面](candidate-comparison-view.md)；该路径不启动模型，保持原安装依赖。
+
+
+## 2026-11-06 固定人工演示入口
+
+已有[prepare / verify / serve入口](candidate-demo.md)可在全新目录重建固定人工四方法演示。准备明确执行人工模型；验证和查看只读，不能据此启动真实数据链路。

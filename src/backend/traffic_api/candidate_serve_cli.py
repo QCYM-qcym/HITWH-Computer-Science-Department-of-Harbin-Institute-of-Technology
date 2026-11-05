@@ -15,7 +15,7 @@ import sys
 
 import uvicorn
 from traffic_anomaly.candidate_cli import _Parser, _SafeError
-from traffic_anomaly.candidate_artifacts import CandidateArtifactError, load_verified_candidate_artifacts
+from traffic_anomaly.candidate_artifacts import CandidateArtifactError, load_verified_candidate_artifacts, _same, _deep_thaw
 from traffic_anomaly.candidate_run_artifacts import CandidateRunArtifactError, load_verified_candidate_if_run
 from traffic_anomaly.candidate_ae_run_artifacts import CandidateAERunArtifactError, load_verified_candidate_ae_run
 from traffic_anomaly.candidate_comparison import CandidateComparisonError, CandidateComparisonRun, compare_candidate_runs
@@ -111,7 +111,13 @@ def _integer(value):
         raise _SafeError('INVALID_ARGUMENTS') from None
 
 
-def main(argv=None):
+def main(argv=None, *, expected_run_identities=None, expected_source_fixture=None,
+         expected_comparison_identities=None):
+    """Optionally bind trusted demo identities to the admitted immutable reports.
+
+    This programmatic constraint adds no CLI option and does no extra loading.
+    Ordinary callers retain the existing one-to-four arbitrary-run contract.
+    """
     parser = _Parser(description='Foreground read-only SYNTHETIC_ONLY candidate viewer', allow_abbrev=False)
     parser.add_argument('--records', type=Path, required=True)
     parser.add_argument('--inputs', type=Path, required=True)
@@ -125,23 +131,38 @@ def main(argv=None):
         args = parser.parse_args(argv)
         if (not 1 <= len(args.if_run) + len(args.ae_run) <= 4 or not 0 <= args.port <= 65535
                 or args.comparison and len(args.if_run) + len(args.ae_run) < 2
+                or expected_comparison_identities is not None and not args.comparison
                 or args.shutdown_after_seconds is not None and not 1 <= args.shutdown_after_seconds <= 3600):
             raise _SafeError('INVALID_ARGUMENTS')
     except _SafeError:
         return _error('INVALID_ARGUMENTS')
     try:
         inputs = load_verified_candidate_artifacts(args.records, args.inputs, source_fixture=args.source_fixture)
+        if expected_source_fixture is not None:
+            if (inputs.report['checks']['source_replay'] != 'VERIFIED'
+                    or not _same(_deep_thaw(inputs.report['source_fixture']), expected_source_fixture)):
+                raise CandidateRegistrationError('INVALID_REGISTRATION')
         registrations = []
         for directories, loader in ((args.if_run, load_verified_candidate_if_run),
                                      (args.ae_run, load_verified_candidate_ae_run)):
             for directory in directories:
                 run = loader(directory, args.records, args.inputs, source_fixture=args.source_fixture)
                 registrations.append(CandidateRegistration(run, inputs))
+        if expected_run_identities is not None:
+            actual = tuple((registration.run.report['run_id'], registration.run.report['selected_policy'])
+                           for registration in registrations)
+            if actual != expected_run_identities:
+                raise CandidateRegistrationError('INVALID_REGISTRATION')
         if args.comparison:
             specs = [CandidateComparisonRun(family, directory)
                 for family, directories in (('iforest', args.if_run), ('autoencoder', args.ae_run))
                 for directory in directories]
             comparison = compare_candidate_runs(specs, args.records, args.inputs, source_fixture=args.source_fixture)
+            if expected_comparison_identities is not None:
+                actual = [dict(slot=row['slot'], run_id=row['run_id']) for row in comparison['runs']]
+                expected = [dict(slot=slot, run_id=run_id) for slot, run_id in expected_comparison_identities]
+                if not _same(actual, expected):
+                    raise CandidateRegistrationError('INVALID_REGISTRATION')
             app = create_candidate_viewer_app(registrations, comparison=comparison)
         else:
             app = create_candidate_viewer_app(registrations)

@@ -58,3 +58,8 @@ confirmed_empty仅表示人工已确认没有完成源记录；不声明物理�
 主控按源记录独立复算1872个原始数值坐标，三政策共5616次比较，核原标签572 BENIGN/2 Attempted/2 Portscan、通道与记录守恒、manifest SHA和重载。完整脱敏汇总见[本轮验证JSON](../research/2026-10-30-candidate-records-verification.json)。测试入口为[适配模块](../../tests/core/test_candidate_records.py)与[适配CLI](../../tests/core/test_candidate_record_cli.py)。最终根回归375项与56subtests通过（仅既有TestClient弃用警告）；适配器26项、新CLI38项、原CLI48项通过，独立Spec/Quality复审PASS。仓库13项与进度check通过，worktree隐私/作者406文件0问题；288个本轮Markdown链接和新日志5个Wiki Links有效。Desktop与本次CI按实际完成另报。
 
 这批工作属于自主迭代中的工程交付，不是整体毕业设计完成。原真实G13U供应、G12失败、UGR阻塞及V0.40保留；主数据、最终标签及生产迁移未被本轮选择取代。真实CSV读取0、新下载0，真实变换/模型/评分/Q99/真实联调和正式实验NOT_RUN，Data Gate/S2仍BLOCKED。
+
+
+## 2026-11-06 固定人工演示入口
+
+已有[prepare / verify / serve入口](candidate-demo.md)可在全新目录重建固定人工四方法演示。准备明确执行人工模型；验证和查看只读，不能据此启动真实数据链路。

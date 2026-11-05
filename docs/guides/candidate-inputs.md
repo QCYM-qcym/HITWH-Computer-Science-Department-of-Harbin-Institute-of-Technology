@@ -54,3 +54,8 @@
 
 
 2026-10-30兼容补充：[源记录适配入口](candidate-records.md)可输出无效整13null；本CLI现在接受valid=false的整行null，仍拒绝有效行null或部分null。原有限占位输入继续可用，生产契约不变。
+
+
+## 2026-11-06 固定人工演示入口
+
+已有[prepare / verify / serve入口](candidate-demo.md)可在全新目录重建固定人工四方法演示。准备明确执行人工模型；验证和查看只读，不能据此启动真实数据链路。

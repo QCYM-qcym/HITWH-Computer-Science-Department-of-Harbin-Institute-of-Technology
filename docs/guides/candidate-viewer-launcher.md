@@ -29,3 +29,8 @@ SERVER_READY只在服务器真正启动后输出，SERVER_STOPPED只在优雅关
 ## 2026-11-06 方法对照增量
 
 增加可选 `--comparison`，用于2—4个不同方法的[共同条件对照](candidate-comparison-view.md)。未指定时保留原单运行和同方法多运行行为；指定后比较失败在监听前整体拒绝。
+
+
+## 2026-11-06 固定人工演示入口
+
+已有[prepare / verify / serve入口](candidate-demo.md)可在全新目录重建固定人工四方法演示。准备明确执行人工模型；验证和查看只读，不能据此启动真实数据链路。
