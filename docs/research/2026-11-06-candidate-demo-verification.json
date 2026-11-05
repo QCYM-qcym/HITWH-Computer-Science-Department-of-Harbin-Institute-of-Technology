@@ -298,5 +298,26 @@
   "real_calibration": "NOT_RUN",
   "formal_comparison": "NOT_RUN",
   "data_gate": "BLOCKED",
-  "synchronization": "PENDING_DESKTOP_COMMIT_PUSH_AND_REMOTE_CI"
+  "synchronization": {
+    "status": "DESKTOP_PUSHED_REMOTE_SHA_AND_CI_VERIFIED",
+    "commit": "e0d3e7697f901fd7dd29fba7acde3632b54ba6cb",
+    "branch": "codex/candidate-flow-adapter",
+    "workflows": [
+      {
+        "id": 42094113224,
+        "conclusion": "success",
+        "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42094113224"
+      },
+      {
+        "id": 42094113322,
+        "conclusion": "success",
+        "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42094113322"
+      },
+      {
+        "id": 42094113260,
+        "conclusion": "success",
+        "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42094113260"
+      }
+    ]
+  }
 }

@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-11-06",
   "current_stage": "S2",
-  "theme": "候选人工四方法演示可从新目录重建并只读恢复；推进91列格式接缝，真实研究Gate仍BLOCKED",
+  "theme": "完整91列解析和13项分钟聚合通过人工验收；推进磁盘扩容，真实研究Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增固定人工prepare/verify/serve，安装包在仓库外中文目录成功生成四方法28文件，再次查看不重训。",
-    "最终只读入口绑定固定源、政策、运行和slot；修复H15/H30归属互换仍可serve的边界，相关108项及独立复审通过。",
-    "全量Python修复前1710项/56子测试通过；修后安装17文件核对、页面、两次只读服务和损坏/中断验收通过。",
-    "28新文件和39旧文件身份保持；下一步人工91列精确解析及分钟聚合，真实数据及正式模型仍NOT_RUN。"
+    "新增完整91列词法解析和13项分钟聚合，Protocol0、重复全组排除及污染规则保持；227项新测试与独立复审通过。",
+    "安装51个核心源码一致，独立手算、三政策历史一致及一万行单桶、2439分钟人工轴通过。",
+    "已回填前三批Desktop准确提交与实际CI成功；本批真实数据、真实矩阵及模型仍NOT_RUN。",
+    "下一步单次文件读取与磁盘精确聚合，先人工差分和故障测试，再据实际资源验证约210万行容量。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "发布格式人工适配",
+      "path": "docs/guides/release-format-adapter.md"
+    },
+    {
+      "label": "格式与聚合验证",
+      "path": "docs/research/2026-11-06-release-format-verification.json"
+    },
     {
       "label": "重建候选人工演示",
       "path": "docs/guides/candidate-demo.md"
@@ -2352,7 +2360,8 @@
     "installed_package": "PASS",
     "historical_files_preserved": 39,
     "evidence": "docs/research/2026-11-06-candidate-comparison-view-verification.json",
-    "remote_CI": "PENDING_AFTER_PUSH"
+    "remote_CI": "VERIFIED_SUCCESS",
+    "verified_commit": "da512918dada8cf8236743df69eaab7282f3af1d"
   },
   "candidate_demo": {
     "status": "SYNTHETIC_ONLY",
@@ -2365,6 +2374,22 @@
     "controlled_prepare_interrupt": "PASS_NOT_OS_SIGNAL",
     "real_models": "NOT_RUN",
     "evidence": "docs/research/2026-11-06-candidate-demo-verification.json",
+    "remote_CI": "VERIFIED_SUCCESS",
+    "verified_commit": "e0d3e7697f901fd7dd29fba7acde3632b54ba6cb"
+  },
+  "candidate_release_format": {
+    "status": "ARTIFICIAL_INPUTS_ONLY",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "parser_new_tests": 154,
+    "minute_new_tests": 73,
+    "related_passed": 277,
+    "installed_core_files": 51,
+    "manual_handcheck": "PASS",
+    "artificial_skew_records": 10000,
+    "artificial_axis_minutes": 2439,
+    "real_data": "NOT_RUN",
+    "real_population_capacity": "NOT_MEASURED",
+    "evidence": "docs/research/2026-11-06-release-format-verification.json",
     "remote_CI": "PENDING_AFTER_PUSH"
   }
 }
