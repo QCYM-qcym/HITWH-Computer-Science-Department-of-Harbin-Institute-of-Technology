@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-11-06",
   "current_stage": "S2",
-  "theme": "完整91列解析和13项分钟聚合通过人工验收；推进磁盘扩容，真实研究Gate仍BLOCKED",
+  "theme": "单次文件读取与磁盘聚合通过约210万条人工验收；继续固定AE控制，真实Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增完整91列词法解析和13项分钟聚合，Protocol0、重复全组排除及污染规则保持；227项新测试与独立复审通过。",
-    "安装51个核心源码一致，独立手算、三政策历史一致及一万行单桶、2439分钟人工轴通过。",
-    "已回填前三批Desktop准确提交与实际CI成功；本批真实数据、真实矩阵及模型仍NOT_RUN。",
-    "下一步单次文件读取与磁盘精确聚合，先人工差分和故障测试，再据实际资源验证约210万行容量。"
+    "新增有界文件读取与一次性磁盘聚合，完整源SHA、全组判重和精确分位保持；联合387项通过、5项主机限制跳过。",
+    "53核心源码安装一致；约210万条人工记录全部结果核对通过，聚合约162秒、峰值工作集86716416字节。",
+    "修正私有监控的启动器PID误读，实际计算进程身份、环境及中断清理已核；保留首次观测限制。",
+    "第四批Desktop与CI成功已回填；下一步固定AE492参数数量控制，真实数据/模型与正式实验仍NOT_RUN。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "文件适配与容量",
+      "path": "docs/guides/release-file-adapter.md"
+    },
+    {
+      "label": "文件适配验证",
+      "path": "docs/research/2026-11-06-release-file-verification.json"
+    },
     {
       "label": "发布格式人工适配",
       "path": "docs/guides/release-format-adapter.md"
@@ -2390,6 +2398,24 @@
     "real_data": "NOT_RUN",
     "real_population_capacity": "NOT_MEASURED",
     "evidence": "docs/research/2026-11-06-release-format-verification.json",
-    "remote_CI": "PENDING_AFTER_PUSH"
+    "remote_CI": "VERIFIED_SUCCESS",
+    "verified_commit": "b232f33a0e2f11575abdd0ac9d18d1aaf64d6bb4"
+  },
+  "candidate_release_file": {
+    "status": "ARTIFICIAL_SCALE_ACCEPTANCE_PASS",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "new_tests_passed": 160,
+    "related_passed": 387,
+    "host_skipped": 5,
+    "installed_core_files": 53,
+    "artificial_records": 2099976,
+    "artificial_source_bytes": 1370754146,
+    "aggregate_seconds": 161.85479089999717,
+    "process_peak_working_set_bytes": 86716416,
+    "database_bytes": 254590976,
+    "real_data": "NOT_RUN",
+    "real_model": "NOT_RUN",
+    "remote_CI": "PENDING_AFTER_PUSH",
+    "evidence": "docs/research/2026-11-06-release-file-verification.json"
   }
 }
