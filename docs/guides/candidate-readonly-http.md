@@ -55,3 +55,8 @@ AE包换用 `load_verified_candidate_ae_run`，不能把IF读取失败当成自�
 启动加载会沿用保存的预处理、历史、阈值和评价关系验算；应用请求阶段只查询冻结快照，不重新加载文件、执行模型或重算评价。网络收发与服务器诊断日志不属于这里的“无文件读取”声明。该入口没有原生产worker生命周期，现有后端测试conftest的生产模块导入也不能冒充独立候选进程证据。
 
 新增77项手写快照测试先失败后通过，相关270项通过（旧detail夹具含toy模型准备），仅既有TestClient弃用警告。独立审查修复目录history_window值域。主控实际完成13组HTTP/CLI原字节与保存值对照、16项安全错误和前后目录检查；39原文件身份/成员保持，服务正常停止回收。实际500注入未执行，其行为为单元测试证据；普通CLI进程与受控服务进程分开记录。[完整证据](../research/2026-10-31-candidate-readonly-http-verification.json)。此处的HTTP客户端验收不等于网页验收，不代表真实短片段或研究效果通过。主数据采用、最终Attempted政策、生产契约迁移、真实训练评分校准与正式实验保持未批准或NOT_RUN，Data Gate仍BLOCKED。
+
+
+## 2026-11-06 方法对照增量
+
+增加可选冻结比较报告及 `GET /candidate/v1/comparison`，目录增加 `comparison_available`。未启用为404，查询参数为422；详细约束见[方法对照](candidate-comparison-view.md)。

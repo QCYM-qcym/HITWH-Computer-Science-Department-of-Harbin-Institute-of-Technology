@@ -133,3 +133,8 @@ W0串行合入：契约→数据/历史→IF闭环→API→页面→AE/增强与
 W1/W2/W3已按序通过Desktop合入codex/integration-mvp，实际入口见[快速运行](quickstart.md)与[联调记录](../project/W0-SYNTHETIC-INTEGRATION-2026-10-21.md)。本轮CPU人工数据完成共享核心、HTTP、网页与导出一致性，旧契约四分钟mock仍保留；真实W2-02和研究模型NOT_RUN。集成网页实用5175，避免占用已运行的5173；后端8102，使用TRAFFIC_API_TARGET选择代理目标。
 
 tests/core与tests/backend使用包内相对辅助导入，可在同一次pytest中收集。共同CPU依赖采用后端requirements-lock（包含核心）；前端沿用package-lock与Node24.18.x。公共契约未改字段/含义，execute_run仅新增可选执行ID，变更说明见contracts-v1补充。主控最终提交与远端核对后作为下一共同起点；不在其他work未提交时替其更新checkout。
+
+
+## 2026-11-06 方法对照增量
+
+已存人工方法可启用[共同条件对照页面](candidate-comparison-view.md)；该路径不启动模型，保持原安装依赖。

@@ -20,3 +20,8 @@ python -m traffic_anomaly.candidate_compare_cli --records <adapter-directory> --
 
 
 实际验证：新增核心37/CLI30项共67项通过，独立审查通过。[已存四包复查](../research/2026-10-30-candidate-comparison-verification.json)中，有/无源两次调用均保持20结果、18上游和源SHA/mtime不变；共48/52次内容读取，manifest每包2次。各行144分钟轴、共同有效24、训练/校准各6，P_U正常/攻击/未知为4/1/1，P_B为5/1/0，P_A为4/2/0。所有原运行均无报警、FNR=1、precision=NULL；只保留工程负例，不据此比较模型效果或选择政策。测试准备阶段生成合成包，与实际只读复查分开。
+
+
+## 2026-11-06 方法对照增量
+
+已有比较报告现可通过显式启动选项在[独立对照页面](candidate-comparison-view.md)查看；启动先绑定相同快照文件，HTTP只返回冻结报告。

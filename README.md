@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-06**。当前阶段：**数据审计**；本轮主题：候选完整测试评价已接通命令、接口与页面；实际安装和浏览器核对通过，研究Gate仍BLOCKED。
+最近更新：**2026-11-06**。当前阶段：**数据审计**；本轮主题：候选完整评价和同条件四方法对照已完成安装及浏览器验收；继续开发人工复现入口，研究Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增完整保存测试评价视图，CLI、HTTP和网页共用已核验三政策数值，分母与曲线分页独立。
-- 四旧包实际CLI/HTTP逐值及字节核对通过；全轴144、测试36、可评分测试6明确区分，null原因与漏报负例保留。
-- Python1611项及56子测试通过、2项符号链接权限跳过；前端102项通过，修复摘要类型校验遗漏并独立复核。
-- 安装后模块与三资源核对、四运行浏览器及空范围重试通过；39旧文件身份保持，真实模型与正式实验NOT_RUN。
+- 新增显式可选方法对照：启动核五文件身份与共同资格，HTTP返回固定内存报告，保留原无比较模式。
+- 页面固定四槽和三政策审计映射，原人口/混淆计数/null与容量限制保留，时间范围和分页不改完整对照。
+- 全量Python1666项及56子测试、前端120项通过；安装后3场景CLI/HTTP/浏览器核对通过，39旧文件身份保持。
+- 下一批为新目录可重建人工演示，再做人工91列CSV格式接缝；真实模型及正式实验仍NOT_RUN。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,8 @@ flowchart TB
 
 **最新成果入口**
 
+- [候选同条件方法对照](<docs/guides/candidate-comparison-view.md>)
+- [方法对照实际验证](<docs/research/2026-11-06-candidate-comparison-view-verification.json>)
 - [候选完整测试评价查看](<docs/guides/candidate-evaluation-view.md>)
 - [完整评价实际验证](<docs/research/2026-11-06-candidate-evaluation-view-verification.json>)
 - [本轮持续开发计划](<docs/superpowers/plans/2026-11-06-autonomous-development.md>)

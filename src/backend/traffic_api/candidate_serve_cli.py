@@ -18,11 +18,15 @@ from traffic_anomaly.candidate_cli import _Parser, _SafeError
 from traffic_anomaly.candidate_artifacts import CandidateArtifactError, load_verified_candidate_artifacts
 from traffic_anomaly.candidate_run_artifacts import CandidateRunArtifactError, load_verified_candidate_if_run
 from traffic_anomaly.candidate_ae_run_artifacts import CandidateAERunArtifactError, load_verified_candidate_ae_run
+from traffic_anomaly.candidate_comparison import CandidateComparisonError, CandidateComparisonRun, compare_candidate_runs
 from .candidate_app import CandidateRegistration, CandidateRegistrationError
 from .candidate_viewer import CandidateViewerError, create_candidate_viewer_app
 
 _ARTIFACT_CODES = {'INPUT_UNAVAILABLE', 'INVALID_PACKAGE', 'INCOMPATIBLE_PACKAGE', 'INTEGRITY_MISMATCH',
                    'REPLAY_MISMATCH', 'RESOURCE_LIMIT', 'INVALID_RUN_ARTIFACTS', 'INCOMPATIBLE_RUN'}
+_COMPARISON_CODES = _ARTIFACT_CODES | {'INVALID_COMPARISON', 'DUPLICATE_RUN_DIRECTORY', 'DUPLICATE_RUN_ID',
+    'DUPLICATE_RUN_SLOT', 'CHANGED_DURING_COMPARISON', 'INCOMPARABLE_UPSTREAM',
+    'INCOMPARABLE_QUALIFICATION', 'INCONSISTENT_VERIFICATION_SCOPE'}
 _LOGGERS = ('uvicorn', 'uvicorn.error', 'uvicorn.access', 'uvicorn.asgi')
 
 
@@ -114,11 +118,13 @@ def main(argv=None):
     parser.add_argument('--source-fixture', type=Path)
     parser.add_argument('--if-run', type=Path, action='append', default=[])
     parser.add_argument('--ae-run', type=Path, action='append', default=[])
+    parser.add_argument('--comparison', action='store_true', help='Verify same-condition saved-method comparison at startup')
     parser.add_argument('--port', type=_integer, default=0)
     parser.add_argument('--shutdown-after-seconds', type=_integer)
     try:
         args = parser.parse_args(argv)
         if (not 1 <= len(args.if_run) + len(args.ae_run) <= 4 or not 0 <= args.port <= 65535
+                or args.comparison and len(args.if_run) + len(args.ae_run) < 2
                 or args.shutdown_after_seconds is not None and not 1 <= args.shutdown_after_seconds <= 3600):
             raise _SafeError('INVALID_ARGUMENTS')
     except _SafeError:
@@ -131,10 +137,19 @@ def main(argv=None):
             for directory in directories:
                 run = loader(directory, args.records, args.inputs, source_fixture=args.source_fixture)
                 registrations.append(CandidateRegistration(run, inputs))
-        app = create_candidate_viewer_app(registrations)
+        if args.comparison:
+            specs = [CandidateComparisonRun(family, directory)
+                for family, directories in (('iforest', args.if_run), ('autoencoder', args.ae_run))
+                for directory in directories]
+            comparison = compare_candidate_runs(specs, args.records, args.inputs, source_fixture=args.source_fixture)
+            app = create_candidate_viewer_app(registrations, comparison=comparison)
+        else:
+            app = create_candidate_viewer_app(registrations)
         run_ids = [registration.run.report['run_id'] for registration in registrations]
     except (CandidateArtifactError, CandidateRunArtifactError, CandidateAERunArtifactError) as exc:
         return _error(exc.code if type(exc.code) is str and exc.code in _ARTIFACT_CODES else 'INVALID_ARTIFACTS')
+    except CandidateComparisonError as exc:
+        return _error(exc.code if type(exc.code) is str and exc.code in _COMPARISON_CODES else 'INVALID_COMPARISON')
     except CandidateRegistrationError:
         return _error('INVALID_REGISTRATION')
     except CandidateViewerError:

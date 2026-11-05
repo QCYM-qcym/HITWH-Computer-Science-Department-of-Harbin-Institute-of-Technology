@@ -99,6 +99,65 @@ def test_four_explicit_if_runs_are_not_a_research_slot_restriction(monkeypatch):
     calls['load_verified_candidate_ae_run'].assert_not_called()
 
 
+@pytest.mark.parametrize('extra', [[], ['--if-run','b','--if-run','c','--if-run','d']])
+def test_comparison_is_strictly_opt_in(monkeypatch, extra):
+    module,calls,*_=setup(monkeypatch)
+    compare=Mock(side_effect=AssertionError('must not compare'))
+    monkeypatch.setattr(module,'compare_candidate_runs',compare,raising=False)
+    assert module.main(argv()+extra)==0
+    compare.assert_not_called()
+
+
+def test_comparison_calls_original_verifier_after_snapshots_and_before_bind(monkeypatch):
+    module,calls,*_=setup(monkeypatch); events=[]; report={'trusted-startup-report': True}
+    for name in ('load_verified_candidate_artifacts','load_verified_candidate_if_run',
+                 'load_verified_candidate_ae_run','create_candidate_viewer_app','socket'):
+        result=calls[name].return_value
+        calls[name].side_effect=lambda *a,_name=name,_result=result,**kw:(events.append(_name),_result)[1]
+    compare=Mock(side_effect=lambda *a,**kw:(events.append('compare'),report)[1])
+    monkeypatch.setattr(module,'compare_candidate_runs',compare,raising=False)
+    assert module.main(argv()+['--ae-run','private-ae','--source-fixture','private-source','--comparison'])==0
+    assert events==['load_verified_candidate_artifacts','load_verified_candidate_if_run',
+        'load_verified_candidate_ae_run','compare','create_candidate_viewer_app','socket']
+    specs,records,inputs=compare.call_args.args
+    assert [(s.family,s.directory) for s in specs]==[('iforest',Path('private-if')),('autoencoder',Path('private-ae'))]
+    assert (records,inputs)==(Path('private-records'),Path('private-inputs'))
+    assert compare.call_args.kwargs=={'source_fixture':Path('private-source')}
+    assert calls['create_candidate_viewer_app'].call_args.kwargs=={'comparison':report}
+
+
+def test_one_run_comparison_rejects_before_loading(monkeypatch,capsys):
+    module,calls,*_=setup(monkeypatch)
+    failure(module,argv()+['--comparison'],capsys,'INVALID_ARGUMENTS')
+    for call in calls.values(): call.assert_not_called()
+
+
+@pytest.mark.parametrize('code,expected', [('DUPLICATE_RUN_SLOT','DUPLICATE_RUN_SLOT'),
+    ('INCOMPARABLE_UPSTREAM','INCOMPARABLE_UPSTREAM'),('private-secret','INVALID_COMPARISON'),
+    ({'private':'path'},'INVALID_COMPARISON')])
+def test_comparison_errors_are_safe_and_never_fallback_or_bind(monkeypatch,capsys,code,expected):
+    from traffic_anomaly.candidate_comparison import CandidateComparisonError
+    module,calls,*_=setup(monkeypatch)
+    monkeypatch.setattr(module,'compare_candidate_runs',Mock(side_effect=CandidateComparisonError(code)),raising=False)
+    failure(module,argv()+['--if-run','private-other','--comparison'],capsys,expected)
+    calls['socket'].assert_not_called(); calls['create_candidate_viewer_app'].assert_not_called()
+
+
+def test_changed_artifact_between_snapshot_and_comparison_rejects_before_bind(monkeypatch,capsys):
+    from .test_candidate_comparison_view import fixture
+    from traffic_api.candidate_viewer import create_candidate_viewer_app
+    report, regs = fixture(('if','current'))
+    report['runs'][0]['actual_five_artifacts']['manifest.json']['sha256'] = 'c'*64
+    module,calls,*_=setup(monkeypatch)
+    calls['load_verified_candidate_artifacts'].return_value = regs[0].inputs
+    calls['load_verified_candidate_if_run'].return_value = regs[0].run
+    calls['load_verified_candidate_ae_run'].return_value = regs[1].run
+    monkeypatch.setattr(module, 'compare_candidate_runs', Mock(return_value=report))
+    monkeypatch.setattr(module, 'create_candidate_viewer_app', create_candidate_viewer_app)
+    failure(module,argv()+['--ae-run','private-ae','--comparison'],capsys,'INVALID_REGISTRATION')
+    calls['socket'].assert_not_called()
+
+
 @pytest.mark.parametrize('phase,kind,code,expected',[
     ('load_verified_candidate_artifacts','CandidateArtifactError','INPUT_UNAVAILABLE','INPUT_UNAVAILABLE'),
     ('load_verified_candidate_if_run','CandidateRunArtifactError','INTEGRITY_MISMATCH','INTEGRITY_MISMATCH'),

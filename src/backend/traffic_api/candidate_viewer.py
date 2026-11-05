@@ -45,14 +45,14 @@ def _asset_endpoint(payload, media_type):
     return asset
 
 
-def create_candidate_viewer_app(registrations):
+def create_candidate_viewer_app(registrations, *, comparison=None):
     """Add three fixed resources; preserve the base app and startup admission.
 
     Callers safely load registrations first and bind the resulting app only to
     loopback. Resource bytes are bounded and frozen before any viewer route is
     installed. Requests never read a resource or accept a filesystem path.
     """
-    app = create_candidate_app(registrations)
+    app = create_candidate_app(registrations, comparison=comparison)
     loaded = _read_assets()
     for route, payload, media_type in loaded:
         app.add_api_route(route, _asset_endpoint(payload, media_type), methods=['GET'])

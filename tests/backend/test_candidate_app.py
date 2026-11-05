@@ -107,7 +107,7 @@ def test_catalog_fixed_allowlist_all_slots_and_no_paths():
             history_window=None if slot=='if' else run.report['history_window'], selected_policy='P_U',
             minute_count=2,score_valid_count=1,source_replay=dict(run='VERIFIED',inputs='VERIFIED',combined='VERIFIED')))
     assert result.json()==dict(schema_version=1,evidence_kind='SYNTHETIC_ONLY',policy_status='AUDIT_ONLY',
-        scope='SYNTHETIC_SAVED_RUN_INSPECTION_ONLY',items=expected)
+        scope='SYNTHETIC_SAVED_RUN_INSPECTION_ONLY',comparison_available=False,items=expected)
 
 
 def test_registration_wrapper_and_collection_are_frozen():

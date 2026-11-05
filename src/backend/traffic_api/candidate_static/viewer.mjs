@@ -52,6 +52,11 @@ const COUNT_FIELDS = ['calendar_test_minutes', 'scored_test_minutes', 'excluded_
   'normal_minutes', 'attack_minutes', 'unknown_minutes', 'unknown_source_attack_present'];
 const CONFUSION_FIELDS = ['tp', 'fp', 'tn', 'fn'];
 const METRIC_FIELDS = ['precision', 'recall', 'f1', 'fpr', 'fnr'];
+const SLOT_ORDER = ['iforest_current13', 'current_ae13', 'history_ae26_h15', 'history_ae26_h30'];
+const SLOT_NAMES = ['IF · current13', 'AE · current13', 'AE · history26 H15', 'AE · history26 H30'];
+const slotFor = item => item.method === 'iforest' ? SLOT_ORDER[0] : item.method === 'current_ae' ? SLOT_ORDER[1] : `history_ae26_h${item.history_window}`;
+const NULL_EXPLANATIONS = {precision: '没有带标签的正预测分钟', recall: '没有已评分攻击分钟',
+  f1: '没有已评分攻击分钟及带标签的正预测分钟', fpr: '没有已评分正常分钟', fnr: '没有已评分攻击分钟'};
 function checkEvaluation(value, selected) {
   requireValue(value?.schema_version === 1 && value.evidence_kind === 'SYNTHETIC_ONLY' && value.policy_status === 'AUDIT_ONLY'
     && value.scope === 'FULL_STORED_TEST_EVALUATION' && value.unit === 'minute' && value.run_id === selected.run_id
@@ -77,6 +82,69 @@ function checkEvaluation(value, selected) {
     const denominators = [c.tp + c.fp, c.tp + c.fn, 2 * c.tp + c.fp + c.fn, c.fp + c.tn, c.tp + c.fn];
     requireValue(METRIC_FIELDS.every((key, index) => (m[key] === null) === (denominators[index] === 0)));
   }
+  return value;
+}
+function checkComparison(value, catalog) {
+  requireValue(value?.schema_version === 1 && value.comparison_profile_id === 'c17-i1-g13u-comparison-context-v1'
+    && value.evidence_kind === 'SYNTHETIC_ONLY' && value.policy_status === 'AUDIT_ONLY'
+    && value.status === 'DATA_QUALIFICATION_ALIGNED' && value.scope === 'SYNTHETIC_STORED_COMPARISON_CONTEXT_ONLY'
+    && Array.isArray(value.runs) && value.runs.length >= 2 && value.runs.length <= 4 && value.runs.length === catalog.length);
+  const context = value.shared_context;
+  requireValue(context && POLICIES.includes(context.selected_policy) && PROOFS.includes(context.source_replay)
+    && ['minute_count','score_valid_count','fit_count','calibration_count'].every(key => integer(context[key]) && context[key] <= 10000)
+    && context.score_valid_count <= context.minute_count && context.fit_count > 0 && context.calibration_count > 0
+    && context.fit_count <= context.score_valid_count && context.calibration_count <= context.score_valid_count
+    && JSON.stringify(context.qualification_windows) === '[15,30]'
+    && context.test_denominators_by_policy && Object.keys(context.test_denominators_by_policy).length === 3);
+  const slots = [], ids = new Set();
+  for (const row of value.runs) {
+    const item = catalog.find(item => item.run_id === row.run_id), index = SLOT_ORDER.indexOf(row.slot);
+    requireValue(item && !ids.has(row.run_id) && index >= 0 && !slots.includes(row.slot)
+      && row.slot === slotFor(item) && row.model_profile_id === item.model_profile_id
+      && item.selected_policy === context.selected_policy && item.source_replay.run === context.source_replay
+      && item.source_replay.combined === context.source_replay
+      && item.minute_count === context.minute_count && item.score_valid_count === context.score_valid_count
+      && row.verification_scope === 'STORED_ARTIFACT_CONSISTENCY_ONLY'
+      && row.verification_checks?.source_replay === context.source_replay && finite(row.threshold));
+    ids.add(row.run_id); slots.push(row.slot);
+    const width = index < 2 ? 13 : 26, c = row.configuration, calibration = row.calibration;
+    requireValue(c?.input_width === width && c.parameter_status === 'ENGINEERING_TOY_ONLY'
+      && (index === 0 ? row.parameter_count === null && row.parameter_count_reason === 'NOT_DEFINED_FOR_OPAQUE_IF'
+        : row.parameter_count === (index === 1 ? 288 : 509) && row.parameter_count_reason === null
+          && JSON.stringify(row.architecture) === JSON.stringify([width,8,3,8,width])
+          && c.method === item.method && c.history_window === item.history_window)
+      && calibration?.sample_count === context.calibration_count && calibration.quantile === .99
+      && calibration.method === 'linear' && calibration.comparison === 'STRICT_GREATER'
+      && finite(calibration.order_position_zero_based) && calibration.order_position_zero_based >= 0
+      && calibration.order_position_zero_based <= calibration.sample_count - 1
+      && integer(calibration.strictly_above_count) && integer(calibration.equal_count)
+      && calibration.strictly_above_count + calibration.equal_count <= calibration.sample_count);
+    const artifacts = row.actual_five_artifacts, names = ['manifest.json','model-state.json','scores.json','evaluation.json',index === 0 ? 'weights.bin' : 'weights.json'];
+    requireValue(artifacts && Object.keys(artifacts).length === 5);
+    for (const name of names) {
+      const identity = artifacts[name];
+      requireValue(identity && Object.keys(identity).length === 2 && /^[a-f0-9]{64}$/.test(identity.sha256)
+        && integer(identity.byte_count) && identity.byte_count > 0 && identity.byte_count <= 32*1024*1024);
+    }
+    // Reuse the full-evaluation consumer checks; never derive predictions or ratios.
+    checkEvaluation({schema_version: 1, evidence_kind: value.evidence_kind, policy_status: value.policy_status,
+      scope: 'FULL_STORED_TEST_EVALUATION', unit: 'minute', run_id: row.run_id, model_profile_id: row.model_profile_id,
+      score_origin_policy: context.selected_policy, run_source_replay: context.source_replay, policies: row.policies,
+      evaluation_reference: {scope: 'FULL_STORED_RUN', run_id: row.run_id, artifact: artifacts['evaluation.json']}}, item);
+    for (const policy of POLICIES) {
+      const population = context.test_denominators_by_policy[policy];
+      requireValue(population && Object.keys(population).length === COUNT_FIELDS.length
+        && COUNT_FIELDS.every(key => population[key] === row.policies[policy][key]));
+    }
+  }
+  const included = SLOT_ORDER.filter(slot => slots.includes(slot)), missing = SLOT_ORDER.filter(slot => !slots.includes(slot));
+  requireValue(JSON.stringify(slots) === JSON.stringify(included) && JSON.stringify(value.included_slots) === JSON.stringify(included)
+    && JSON.stringify(value.missing_slots) === JSON.stringify(missing));
+  const limits = value.limitations;
+  requireValue(limits && ['capacity_control','history_causal_attribution','cross_model_score_scale'].every(key => limits[key] === 'NOT_COMPARABLE')
+    && limits.ranking === 'NOT_PERFORMED' && limits.statistical_significance === 'NOT_PERFORMED'
+    && limits.model_execution === 'NOT_CHECKED' && limits.model_origin === 'NOT_AUTHENTICATED'
+    && ['SHARED_DECLARATIONS_CONSISTENT_ONLY','DECLARED_EXECUTION_CONTROLS_DIFFER'].includes(limits.execution_controls));
   return value;
 }
 function checkSeries(value, id, query) {
@@ -158,6 +226,19 @@ const LAYOUT = `
   <p id="evaluation-context" class="mono muted"></p><div id="evaluation-counts" class="table-scroll evaluation-table"></div>
   <div id="evaluation-metrics" class="table-scroll evaluation-table"></div><p id="full-evaluation-reference" class="mono muted"></p>
   <button id="retry-evaluation" class="secondary" disabled>重新读取完整评价</button></section>
+  <section id="method-comparison" class="panel"><h2>同条件方法对照</h2>
+  <p>仅人工数据；成功读取后展示共同输入和评价人口的核对结果。方法容量和分数尺度不同，结果不能据此排名。</p>
+  <p class="muted">对照一直显示完整保存评价；运行选择、时间范围、分页和分钟详情不改变本区。所有方法使用共同 H15/H30 有效人口；current13 也须共同资格，不代表 H15 独享更多测试分钟。</p>
+  <div class="controls"><label>审计映射（仅查看原保存结果）<select id="comparison-policy" disabled><option>P_U</option><option>P_B</option><option>P_A</option></select></label>
+  <button id="retry-comparison" class="secondary" disabled>重新读取方法对照</button></div>
+  <p class="muted">切换审计映射不改变分数来源政策、训练或阈值，也不代表最终 Attempted 政策批准。</p>
+  <p id="comparison-status" class="status" role="status"></p><p id="comparison-error" class="error" role="alert"></p>
+  <p id="comparison-context" class="mono muted"></p><p id="comparison-population" class="mono"></p>
+  <p class="muted">precision 分母：带 normal / attack 标签的正预测分钟（TP+FP）；recall / FNR 分母：已评分攻击分钟（TP+FN）；FPR 分母：已评分正常分钟（FP+TN）；F1 分母：2TP+FP+FN。unknown 与未评分排除分钟分开，均不进入这些指标。</p>
+  <div id="comparison-table" class="table-scroll comparison-table" role="region" aria-label="固定方法对照表，窄屏可横向滚动" tabindex="0"></div>
+  <div id="comparison-details"></div>
+  <p class="muted">保存关系与数据资格核对不认证模型来源；模型来源未认证（NOT_AUTHENTICATED），模型执行未核查（NOT_CHECKED）。容量、历史因果归因和跨方法分数尺度不可比；未作统计显著性检验。各阈值仅用于本方法，不能比较高低；不对分数归一化或叠加同轴。</p>
+  </section>
   <section class="panel"><h2>当前页分钟记录</h2><form id="range-form" class="controls">
   <label>起点（包含）<input id="range-start" placeholder="2026-01-01T00:00"></label><label>终点（不包含）<input id="range-end" placeholder="2026-01-01T01:00"></label>
   <label>每页记录<select id="page-size"><option value="1">1</option><option value="17">17</option><option value="100" selected>100</option><option value="1000">1000</option></select></label>
@@ -183,9 +264,10 @@ export function mountViewer(root, {fetcher = globalThis.fetch.bind(globalThis)} 
   root.innerHTML = LAYOUT; // Fixed local markup only. Every external value uses textContent.
   const ids = new Map([...root.querySelectorAll('[id]')].map(node => [node.id, node]));
   const get = id => ids.get(id), text = (id, value) => { get(id).textContent = value; };
-  const versions = {catalog: 0, series: 0, detail: 0, evaluation: 0}, controllers = {};
+  const versions = {catalog: 0, series: 0, detail: 0, evaluation: 0, comparison: 0}, controllers = {};
   let disposed = false, catalog = [], selected = null, pageData = null, evaluationData = null, seriesReference = null;
   let applied = {start: null, end: null, page: 1, page_size: 100};
+  let comparisonEnabled = false, comparisonData = null;
   function invalidate(kind) { versions[kind]++; controllers[kind]?.abort(); }
   function begin(kind) { invalidate(kind); controllers[kind] = new AbortController(); return {version: versions[kind], controller: controllers[kind]}; }
   const current = (kind, task) => !disposed && versions[kind] === task.version;
@@ -199,6 +281,58 @@ export function mountViewer(root, {fetcher = globalThis.fetch.bind(globalThis)} 
     return body;
   }
   function clearDetail() { invalidate('detail'); text('minute-detail', '选择分钟查看独立通道。'); text('detail-error', ''); text('detail-status', ''); }
+  function clearComparison() {
+    invalidate('comparison'); comparisonData = null;
+    for (const id of ['comparison-status','comparison-error','comparison-context','comparison-population']) text(id, '');
+    get('comparison-table').replaceChildren(); get('comparison-details').replaceChildren();
+    get('comparison-policy').disabled = true; get('retry-comparison').disabled = true;
+  }
+  function drawComparison(value) {
+    const shared = value.shared_context, policy = get('comparison-policy').value, p = shared.test_denominators_by_policy[policy];
+    text('comparison-context', `共同输入和评价人口已核对（保存关系与数据资格）· 分数来源政策 ${shared.selected_policy} · 源核对 ${shared.source_replay}${shared.source_replay === 'NOT_PROVIDED' ? '（未提供源；保留弱来源）' : '（仅保存关系和数据资格）'} · 全轴 ${shared.minute_count} / 全轴可评分 ${shared.score_valid_count} / 拟合 ${shared.fit_count} / 校准 ${shared.calibration_count} 分钟`);
+    text('comparison-population', `${policy} · 测试日历分钟 ${p.calendar_test_minutes} / 测试可评分 ${p.scored_test_minutes} / 排除未评分 ${p.excluded_unscored_test_minutes} · 正常 normal ${p.normal_minutes} / 攻击 attack ${p.attack_minutes} / 未知 unknown ${p.unknown_minutes} / 未知中原攻击标签存在 ${p.unknown_source_attack_present}`);
+    const table = element('table'), head = element('thead'), header = element('tr');
+    table.append(element('caption', `${policy} 原保存计数与指标（0–1 原值），固定槽位`));
+    for (const title of ['方法','输入宽度','参数量','TP','FP','TN','FN','precision','recall','F1','FPR','FNR']) {
+      const cell = element('th', title); cell.scope = 'col'; header.append(cell);
+    }
+    head.append(header); table.append(head); const body = element('tbody');
+    SLOT_ORDER.forEach((slot, index) => {
+      const row = element('tr'), label = element('th', SLOT_NAMES[index]); row.dataset.slot = slot; label.scope = 'row'; row.append(label);
+      const saved = value.runs.find(run => run.slot === slot);
+      if (!saved) { const cell = element('td', '未提供'); cell.colSpan = 11; row.append(cell); }
+      else {
+        const stored = saved.policies[policy];
+        for (const cellValue of [display(saved.configuration.input_width), saved.parameter_count === null ? '未定义（IF不透明模型）' : display(saved.parameter_count),
+          ...CONFUSION_FIELDS.map(key => display(stored.confusion_counts[key])), ...METRIC_FIELDS.map(key => stored.metrics[key] === null
+            ? `未定义（${NULL_EXPLANATIONS[key]}；原原因：${stored.undefined_reasons[key]}）` : display(stored.metrics[key]))]) row.append(element('td', cellValue));
+      }
+      body.append(row);
+    });
+    table.append(body); get('comparison-table').replaceChildren(table);
+  }
+  function drawComparisonDetails(value) {
+    const panel = get('comparison-details'); panel.replaceChildren();
+    for (const row of value.runs) {
+      const detail = element('details'), index = SLOT_ORDER.indexOf(row.slot), c = row.calibration;
+      detail.append(element('summary', `${SLOT_NAMES[index]} · ${row.run_id} · 本方法保存详情`));
+      detail.append(element('p', `保存阈值 ${display(row.threshold)}（仅用于本方法）· 分数定义：${index === 0 ? '负 score_samples，越高越异常' : 'float64 通道 MSE 等权组合，越高越异常'}。`));
+      detail.append(element('p', `校准 N ${c.sample_count} · Q${c.quantile} / ${c.method} · 零起点位置 ${display(c.order_position_zero_based)} · 等于阈值 ${c.equal_count} / 严格高于阈值 ${c.strictly_above_count} · ${c.comparison}`));
+      detail.append(element('p', `执行控制：${value.limitations.execution_controls}（仅声明一致性，不认证执行环境）。`, 'muted'));
+      panel.append(detail);
+    }
+  }
+  async function loadComparison() {
+    clearComparison(); if (!comparisonEnabled) { text('comparison-status', '同条件方法对照未启用。'); return; }
+    const task = begin('comparison'), items = catalog; text('comparison-status', '读取中…');
+    try {
+      const value = await read('/candidate/v1/comparison', task.controller.signal);
+      if (!current('comparison', task)) return;
+      comparisonData = checkComparison(value, items); drawComparison(comparisonData); drawComparisonDetails(comparisonData);
+      get('comparison-policy').disabled = false;
+    } catch (error) { if (current('comparison', task)) text('comparison-error', message(error)); }
+    finally { if (current('comparison', task)) { text('comparison-status', ''); get('retry-comparison').disabled = false; } }
+  }
   function clearEvaluation() {
     invalidate('evaluation'); evaluationData = null;
     for (const id of ['evaluation-context', 'evaluation-status', 'evaluation-error', 'full-evaluation-reference']) text(id, '');
@@ -313,15 +447,17 @@ export function mountViewer(root, {fetcher = globalThis.fetch.bind(globalThis)} 
     finally { if (current('detail', task)) text('detail-status', ''); }
   }
   async function reloadCatalog() {
-    clearSeries(); clearEvaluation(); seriesReference = null; selected = null; catalog = []; get('apply-range').disabled = true; get('run-select').disabled = true;
+    clearSeries(); clearEvaluation(); clearComparison(); comparisonEnabled = false; seriesReference = null; selected = null; catalog = []; get('apply-range').disabled = true; get('run-select').disabled = true;
     get('run-select').replaceChildren(new Option('请选择运行', '')); text('run-context', ''); text('source-proof', '');
     text('catalog-error', ''); text('catalog-status', '读取中…'); const task = begin('catalog');
     try {
       const value = await read(BASE, task.controller.signal);
       if (!current('catalog', task)) return;
-      catalog = checkCatalog(value).items;
+      requireValue(typeof value?.comparison_available === 'boolean');
+      catalog = checkCatalog(value).items; comparisonEnabled = value.comparison_available;
       for (const item of catalog) get('run-select').append(new Option(`${item.run_id} · ${item.method}${item.history_window === null ? '' : ` H${item.history_window}`}`, item.run_id));
       get('run-select').disabled = false;
+      void loadComparison();
     } catch (error) { if (current('catalog', task)) text('catalog-error', message(error)); }
     finally { if (current('catalog', task)) text('catalog-status', ''); }
   }
@@ -337,6 +473,8 @@ export function mountViewer(root, {fetcher = globalThis.fetch.bind(globalThis)} 
   for (const [id, delta] of [['previous-page', -1], ['next-page', 1]]) get(id).addEventListener('click', () => { if (selected && pageData) void loadSeries({...applied, page: applied.page + delta}); });
   get('reload-catalog').addEventListener('click', () => { void reloadCatalog(); });
   get('retry-evaluation').addEventListener('click', () => { void loadEvaluation(); });
+  get('retry-comparison').addEventListener('click', () => { void loadComparison(); });
+  get('comparison-policy').addEventListener('change', () => { if (comparisonData) drawComparison(comparisonData); });
   void reloadCatalog();
   return {reloadCatalog, dispose() { disposed = true; for (const kind of Object.keys(versions)) invalidate(kind); root.replaceChildren(); }};
 }

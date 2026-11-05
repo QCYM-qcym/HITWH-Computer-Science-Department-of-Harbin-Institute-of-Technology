@@ -17,6 +17,7 @@ const proof = {run:'NOT_PROVIDED',inputs:'NOT_PROVIDED',combined:'NOT_PROVIDED'}
 const common = {schema_version:1,evidence_kind:'SYNTHETIC_ONLY',policy_status:'AUDIT_ONLY',time_basis:'synthetic_source_clock',selected_policy:'P_U'}
 function catalog(ids=['saved-if','saved-history']) {
   return {schema_version:1,evidence_kind:'SYNTHETIC_ONLY',policy_status:'AUDIT_ONLY',scope:'SYNTHETIC_SAVED_RUN_INSPECTION_ONLY',
+    comparison_available:false,
     items:ids.map(run_id=>({run_id,model_profile_id:'candidate-test',method:'iforest',history_window:null,
       selected_policy:'P_U',minute_count:144,score_valid_count:24,source_replay:{...proof}}))}
 }
@@ -69,6 +70,106 @@ async function select(id='saved-if'){el('run-select').value=id;el('run-select').
 function click(id){el(id).click()}
 async function minute(index=1){document.querySelectorAll('button[data-timestamp]')[index].click();await tick()}
 beforeEach(()=>{document.body.replaceChildren()})
+
+const SLOTS=['iforest_current13','current_ae13','history_ae26_h15','history_ae26_h30']
+function comparisonCatalog(){const value=catalog(['saved-if','saved-current','saved-history']);value.comparison_available=true
+  Object.assign(value.items[1],{method:'current_ae'});Object.assign(value.items[2],{method:'history_ae',history_window:30});return value}
+function comparison(){const cat=comparisonCatalog(),p=evaluation().policies
+  const value={schema_version:1,comparison_profile_id:'c17-i1-g13u-comparison-context-v1',status:'DATA_QUALIFICATION_ALIGNED',
+    evidence_kind:'SYNTHETIC_ONLY',policy_status:'AUDIT_ONLY',scope:'SYNTHETIC_STORED_COMPARISON_CONTEXT_ONLY',
+    included_slots:[SLOTS[0],SLOTS[1],SLOTS[3]],missing_slots:[SLOTS[2]],
+    shared_context:{selected_policy:'P_U',source_replay:'NOT_PROVIDED',minute_count:144,score_valid_count:24,fit_count:6,calibration_count:6,
+      qualification_windows:[15,30],test_denominators_by_policy:Object.fromEntries(Object.entries(p).map(([key,value])=>[key,Object.fromEntries(
+        ['calendar_test_minutes','scored_test_minutes','excluded_unscored_test_minutes','normal_minutes','attack_minutes','unknown_minutes','unknown_source_attack_present'].map(k=>[k,value[k]]))]))},
+    limitations:{capacity_control:'NOT_COMPARABLE',history_causal_attribution:'NOT_COMPARABLE',cross_model_score_scale:'NOT_COMPARABLE',
+      ranking:'NOT_PERFORMED',statistical_significance:'NOT_PERFORMED',model_execution:'NOT_CHECKED',model_origin:'NOT_AUTHENTICATED',execution_controls:'SHARED_DECLARATIONS_CONSISTENT_ONLY'},
+    runs:cat.items.map((item,i)=>{const width=i===2?26:13;return {slot:[SLOTS[0],SLOTS[1],SLOTS[3]][i],run_id:item.run_id,model_profile_id:item.model_profile_id,
+      parameter_count:i===0?null:i===1?288:509,parameter_count_reason:i===0?'NOT_DEFINED_FOR_OPAQUE_IF':null,
+      configuration:{input_width:width,score_rule:'FLOAT64_CHANNEL_MSE_EQUAL_WEIGHT',parameter_status:'ENGINEERING_TOY_ONLY',
+        method:i===2?'history_ae':'current_ae',history_window:i===2?30:null},
+      architecture:i===0?null:[width,8,3,8,width],threshold:i+.5,
+      calibration:{sample_count:6,quantile:.99,method:'linear',comparison:'STRICT_GREATER',order_position_zero_based:4.95,strictly_above_count:0,equal_count:1},
+      policies:structuredClone(p),verification_scope:'STORED_ARTIFACT_CONSISTENCY_ONLY',verification_checks:{source_replay:'NOT_PROVIDED'},
+      actual_five_artifacts:Object.fromEntries(['manifest.json','scores.json','evaluation.json','model-state.json',i===0?'weights.bin':'weights.json']
+        .map(name=>[name,{sha256:'a'.repeat(64),byte_count:300}]))}})}
+  for(const p of Object.values(value.runs[0].policies)){p.confusion_counts={tp:0,fp:0,tn:p.normal_minutes,fn:p.attack_minutes}
+    p.metrics={precision:null,recall:0,f1:0,fpr:0,fnr:1};p.undefined_reasons={precision:'No predicted positives among labelled test minutes.'}}
+  return value}
+function comparisonFetcher(transform=value=>value){return vi.fn(async url=>url==='/candidate/v1/runs'?ok(comparisonCatalog()):
+  url==='/candidate/v1/comparison'?ok(transform(comparison())):automatic(url))}
+
+describe('same-condition comparison',()=>{
+  it('shows fixed four slots, missing method, null reason and distinct saved alarms without ranking',async()=>{
+    const {fetcher}=await mount(comparisonFetcher());const panel=el('method-comparison')
+    expect(panel).not.toBeNull();expect([...el('comparison-table').querySelectorAll('tbody tr')].map(row=>row.dataset.slot)).toEqual(SLOTS)
+    const rows=el('comparison-table').querySelectorAll('tbody tr')
+    expect(rows[0].textContent).toContain('未定义');expect(rows[0].textContent).toContain('没有带标签的正预测分钟')
+    expect(rows[0].textContent).toContain('No predicted positives');expect(rows[0].textContent).toContain('1')
+    expect(rows[1].textContent).toContain('0.125');expect(rows[2].textContent).toContain('未提供')
+    expect(panel.textContent).toContain('144');expect(panel.textContent).toContain('36');expect(panel.textContent).toContain('6')
+    expect(panel.textContent).toContain('288');expect(panel.textContent).toContain('509');expect(panel.textContent).toContain('13');expect(panel.textContent).toContain('26')
+    expect(panel.textContent).toContain('NOT_PROVIDED');expect(panel.textContent).toContain('不能据此排名');expect(panel.textContent).toContain('来源未认证')
+    expect(el('comparison-table').getAttribute('aria-label')).toContain('横向滚动')
+    expect(el('comparison-context').textContent).toContain('共同输入和评价人口已核对')
+    expect(fetcher.mock.calls.filter(([url])=>url.includes('comparison')).map(([url])=>url)).toEqual(['/candidate/v1/comparison'])
+  })
+  it('changes audit denominator only, keeps selected score-origin policy and isolates model/range/page',async()=>{
+    const {fetcher}=await mount(comparisonFetcher());const details=el('comparison-details').textContent
+    el('comparison-policy').value='P_B';el('comparison-policy').dispatchEvent(new Event('change'));await tick()
+    expect(el('comparison-population').textContent).toContain('正常 normal 4');expect(el('comparison-population').textContent).toContain('未知 unknown 0')
+    el('comparison-policy').value='P_A';el('comparison-policy').dispatchEvent(new Event('change'));await tick()
+    expect(el('comparison-population').textContent).toContain('攻击 attack 4');expect(el('comparison-context').textContent).toContain('分数来源政策 P_U')
+    expect(el('comparison-details').textContent).toBe(details);const saved=el('comparison-table').textContent
+    await select();el('page-size').value='1';el('range-form').dispatchEvent(new Event('submit',{cancelable:true}));await tick();click('next-page');await tick();await select('saved-history')
+    expect(el('comparison-table').textContent).toBe(saved);expect(el('comparison-policy').value).toBe('P_A')
+    expect(fetcher.mock.calls.filter(([url])=>url.includes('comparison'))).toHaveLength(1)
+    expect(el('method-comparison').textContent).toContain('完整保存评价');expect(el('method-comparison').textContent).toContain('共同 H15/H30')
+  })
+  it('refreshes independently and clears old success on failure without clearing minute views',async()=>{
+    let failed=false;const base=comparisonFetcher();const fetcher=vi.fn(async url=>failed&&url.includes('comparison')?bad('private-error'):base(url))
+    await mount(fetcher);await select();const saved=el('minute-rows').textContent;failed=true;const before=fetcher.mock.calls.length
+    click('retry-comparison');await tick();expect(fetcher.mock.calls.slice(before).map(([url])=>url)).toEqual(['/candidate/v1/comparison'])
+    expect(el('comparison-error').textContent).toContain('读取失败');expect(el('comparison-table').children).toHaveLength(0)
+    expect(el('method-comparison').textContent).not.toContain('共同输入和评价人口已核对')
+    expect(el('minute-rows').textContent).toBe(saved);failed=false;click('retry-comparison');await tick();expect(el('comparison-error').textContent).toBe('')
+  })
+  it.each(['scope','profile','slot','source','policy','population','row-policy','threshold','capacity','identity'])('rejects malformed %s independently',async kind=>{
+    const fetcher=comparisonFetcher(value=>{if(kind==='scope')value.scope='private';if(kind==='profile')value.comparison_profile_id='private'
+      if(kind==='slot')value.runs[1].slot=SLOTS[0];if(kind==='source')value.shared_context.source_replay='VERIFIED'
+      if(kind==='policy')value.shared_context.selected_policy='P_B';if(kind==='population')value.shared_context.test_denominators_by_policy.P_U.scored_test_minutes=5
+      if(kind==='row-policy')value.runs[0].policies.P_U.normal_minutes=99;if(kind==='threshold')value.runs[0].threshold=null
+      if(kind==='capacity')value.runs[1].parameter_count=509;if(kind==='identity')value.runs[0].actual_five_artifacts['scores.json'].sha256='private'
+      return value});await mount(fetcher);await select();expect(el('comparison-error').textContent).toContain('格式不匹配')
+    expect(el('comparison-table').children).toHaveLength(0);expect(el('minute-rows').children).toHaveLength(3)
+  })
+  it.each(['success','failure','json'])('discards stale comparison %s after catalogue reload',async outcome=>{
+    const a=deferred(),b=deferred();let count=0,oldSignal
+    const base=comparisonFetcher();await mount(async(url,options)=>{if(url==='/candidate/v1/comparison'){
+      if(count++===0){oldSignal=options.signal;return outcome==='json'?{ok:true,json:()=>a.promise}:a.promise}return b.promise}return base(url)})
+    click('reload-catalog');await tick();expect(oldSignal.aborted).toBe(true)
+    outcome==='failure'?a.reject(Error('private')):a.resolve(outcome==='json'?comparison():ok(comparison()));await tick()
+    expect(el('comparison-status').textContent).toContain('读取中');expect(el('comparison-table').children).toHaveLength(0)
+    b.resolve(ok(comparison()));await tick();expect(el('comparison-table').querySelectorAll('tbody tr')).toHaveLength(4)
+  })
+  it('does not request comparison without the catalogue flag',async()=>{
+    const {fetcher}=await mount();expect(fetcher.mock.calls.some(([url])=>url.includes('comparison'))).toBe(false)
+    expect(el('comparison-status').textContent).toContain('未启用')
+    expect(el('method-comparison').textContent).not.toContain('共同输入和评价人口已核对')
+  })
+  it('preserves unknown-only nulls and unsafe original reason as plain text',async()=>{
+    await mount(comparisonFetcher(value=>{
+      for(const row of value.runs){const p=row.policies.P_U
+        Object.assign(p,{normal_minutes:0,attack_minutes:0,unknown_minutes:6,unknown_source_attack_present:1,confusion_counts:{tp:0,fp:0,tn:0,fn:0}})
+        p.metrics=Object.fromEntries(['precision','recall','f1','fpr','fnr'].map(k=>[k,null]))
+        p.undefined_reasons=Object.fromEntries(Object.keys(p.metrics).map(k=>[k,'<img src=x onerror=alert(1)> No scored labels.']))}
+      const p=value.runs[0].policies.P_U;for(const k of Object.keys(value.shared_context.test_denominators_by_policy.P_U))value.shared_context.test_denominators_by_policy.P_U[k]=p[k]
+      return value}))
+    expect(el('comparison-error').textContent).toBe('');const row=el('comparison-table').querySelector('tbody tr')
+    expect([...row.children].slice(7).every(cell=>cell.textContent.includes('未定义'))).toBe(true)
+    expect(row.textContent).toContain('<img');expect(row.querySelector('img')).toBeNull()
+    expect(el('comparison-population').textContent).toContain('未知 unknown 6')
+  })
+})
 
 describe('candidate static viewer',()=>{
   it('shows all three original saved policy values with full test denominators above the minute table',async()=>{

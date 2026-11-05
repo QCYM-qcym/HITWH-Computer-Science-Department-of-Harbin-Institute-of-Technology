@@ -71,7 +71,7 @@ def _integer(value):
         raise _RequestError(422, 'INVALID_QUERY') from None
 
 
-def create_candidate_app(registrations):
+def create_candidate_app(registrations, *, comparison=None):
     """Admit 1–4 loader-produced pairs, then serve a fixed synthetic catalog.
 
     Shape checks do not authenticate directly constructed snapshots. Callers
@@ -109,8 +109,19 @@ def create_candidate_app(registrations):
     except (ValueError, TypeError, KeyError, IndexError, AttributeError, OverflowError):
         raise CandidateRegistrationError('INVALID_REGISTRATION') from None
     registry = MappingProxyType(accepted)
+    comparison_payload = None
+    if comparison is not None:
+        from .candidate_comparison_view import freeze_candidate_comparison
+        try:
+            frozen = freeze_candidate_comparison(comparison, registrations)
+            comparison_payload = (json.dumps(_deep_thaw(frozen), ensure_ascii=False, allow_nan=False,
+                separators=(',', ':')) + '\n').encode('utf-8')
+            if len(comparison_payload) > MAX_OUTPUT_BYTES:
+                raise ValueError
+        except (ValueError, TypeError, UnicodeError, RecursionError):
+            raise CandidateRegistrationError('INVALID_COMPARISON') from None
     catalog = _deep_freeze(dict(schema_version=1, evidence_kind='SYNTHETIC_ONLY', policy_status='AUDIT_ONLY',
-        scope='SYNTHETIC_SAVED_RUN_INSPECTION_ONLY', items=items))
+        scope='SYNTHETIC_SAVED_RUN_INSPECTION_ONLY', comparison_available=comparison_payload is not None, items=items))
     app = FastAPI(title='Synthetic candidate saved-run inspection', debug=False,
                   openapi_url=None, docs_url=None, redoc_url=None, redirect_slashes=False)
 
@@ -154,6 +165,13 @@ def create_candidate_app(registrations):
     def runs(request: Request):
         _query(request, set())
         return _success(_deep_thaw(catalog))
+
+    @app.get('/candidate/v1/comparison')
+    def comparison_view(request: Request):
+        _query(request, set())
+        if comparison_payload is None:
+            raise _RequestError(404, 'COMPARISON_NOT_ENABLED')
+        return Response(comparison_payload, media_type='application/json')
 
     @app.get('/candidate/v1/runs/{run_id}/series')
     def series(run_id: str, request: Request):

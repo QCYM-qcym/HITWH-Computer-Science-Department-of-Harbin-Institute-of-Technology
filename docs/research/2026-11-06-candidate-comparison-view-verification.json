@@ -1,0 +1,286 @@
+{
+  "date": "2026-11-06",
+  "scope": "SYNTHETIC_STORED_COMPARISON_CONTEXT_ONLY",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "policy_status": "AUDIT_ONLY",
+  "status": "LOCAL_ACCEPTANCE_PASS",
+  "implementation": {
+    "optional_comparison": true,
+    "exact_snapshot_file_binding": true,
+    "startup_response_limit_bytes": 1048576,
+    "request_phase": "FROZEN_BYTES_NO_IO_NO_RECALCULATION"
+  },
+  "tests": {
+    "scoped_backend_passed": 254,
+    "scoped_candidate_dom_passed": 95,
+    "full_python_passed": 1666,
+    "full_python_skipped": 2,
+    "subtests_passed": 56,
+    "skipped_reason": "HOST_SYMLINK_PRIVILEGE_UNAVAILABLE",
+    "full_frontend_passed": 120,
+    "repository_unit_passed": 13,
+    "typecheck": "PASS",
+    "contracts": "PASS",
+    "build": "PASS",
+    "openapi": "MATCHES_CONTRACTS",
+    "warnings": [
+      "EXISTING_STARLETTE_HTTPX_DEPRECATION",
+      "EXISTING_VUE_CHUNK_855_22_KB"
+    ],
+    "full_suite_includes_existing_toy_model_fixtures": true
+  },
+  "manual_cli": {
+    "status": "PASS",
+    "cases": [
+      {
+        "name": "four",
+        "exit": 0,
+        "bytes": 20146,
+        "slots": [
+          "iforest_current13",
+          "current_ae13",
+          "history_ae26_h15",
+          "history_ae26_h30"
+        ],
+        "source_replay": "VERIFIED"
+      },
+      {
+        "name": "three",
+        "exit": 0,
+        "bytes": 15907,
+        "slots": [
+          "iforest_current13",
+          "current_ae13",
+          "history_ae26_h30"
+        ],
+        "source_replay": "VERIFIED"
+      },
+      {
+        "name": "weak",
+        "exit": 0,
+        "bytes": 20166,
+        "slots": [
+          "iforest_current13",
+          "current_ae13",
+          "history_ae26_h15",
+          "history_ae26_h30"
+        ],
+        "source_replay": "NOT_PROVIDED"
+      }
+    ],
+    "old_files": 39,
+    "identity_unchanged": true,
+    "ordinary_cli_instrumented": false,
+    "real_data_read": false,
+    "real_models": "NOT_RUN"
+  },
+  "manual_http": [
+    {
+      "case": "four",
+      "comparison_equal_cli_fields": true,
+      "invalid_query_cases": 4,
+      "method_rejected": true,
+      "exit_code": 0,
+      "normal_stop": true,
+      "process_reaped": true,
+      "port_closed": true,
+      "instrumented": false
+    },
+    {
+      "case": "three",
+      "comparison_equal_cli_fields": true,
+      "invalid_query_cases": 4,
+      "method_rejected": true,
+      "exit_code": 0,
+      "normal_stop": true,
+      "process_reaped": true,
+      "port_closed": true,
+      "instrumented": false
+    },
+    {
+      "case": "weak",
+      "comparison_equal_cli_fields": true,
+      "invalid_query_cases": 4,
+      "method_rejected": true,
+      "exit_code": 0,
+      "normal_stop": true,
+      "process_reaped": true,
+      "port_closed": true,
+      "instrumented": false
+    }
+  ],
+  "browser": {
+    "status": "PASS_WITH_TIMER_LIMITATION_RECHECKED_IN_LATER_CASE",
+    "four": {
+      "policy_counts": {
+        "P_U": [
+          4,
+          1,
+          1
+        ],
+        "P_B": [
+          5,
+          1,
+          0
+        ],
+        "P_A": [
+          4,
+          2,
+          0
+        ]
+      },
+      "all_four_rows_original_fpr_zero_fnr_one_precision_null": true,
+      "full_axis": 144,
+      "axis_scored": 24,
+      "test_minutes": 36,
+      "test_scored": 6,
+      "test_excluded": 30,
+      "empty_range_then_comparison_retry": {
+        "minute_rows": 0,
+        "policy": "P_A",
+        "counts_unchanged": true,
+        "errors": []
+      },
+      "narrow_viewport": {
+        "viewport_width": 390,
+        "document_scroll_width": 375,
+        "table_client_width": 320,
+        "table_scroll_width": 1155,
+        "keyboard_tabindex": 0,
+        "labeled_region": true,
+        "override_reset": true
+      },
+      "late_run_switch": "SERVICE_TIMER_ALREADY_EXPIRED_TWO_EXPECTED_READ_FAILURES_COMPARISON_PRESERVED"
+    },
+    "three": {
+      "missing_slot": "history_ae26_h15",
+      "missing_text": "未提供",
+      "policy": "P_B",
+      "counts": [
+        5,
+        1,
+        0
+      ],
+      "history30_loaded": true,
+      "minute_rows_before_after_page": [
+        100,
+        44
+      ],
+      "comparison_unchanged": true,
+      "if_detail_threshold": 0.5531029014846093,
+      "calibration_n": 6,
+      "position": 4.95,
+      "equal_count": 2,
+      "above_count": 0,
+      "errors": []
+    },
+    "weak": {
+      "source_run_inputs_combined": "NOT_PROVIDED",
+      "comparison_source": "NOT_PROVIDED",
+      "if_to_history30_switch": "PASS",
+      "minute_rows": 100,
+      "comparison_rows": 4,
+      "policy": "P_A",
+      "counts": [
+        4,
+        2,
+        0
+      ],
+      "errors": []
+    },
+    "tabs_closed": 3,
+    "network_or_file_response_mocking": false,
+    "real_data": "NOT_RUN",
+    "model_execution": "NOT_RUN"
+  },
+  "installed_package": {
+    "status": "PASS",
+    "files": {
+      "traffic_api/__init__.py": {
+        "sha256": "57464fba94cf548c10b6ef5eab4709969234e2112351199c4c9c7e8ca078e30b",
+        "byte_count": 61
+      },
+      "traffic_api/app.py": {
+        "sha256": "524d6a68fc5113e5c63bc966c8ff2b28ec84b0eef4174d5dd8a0c3ca1252d0d6",
+        "byte_count": 5869
+      },
+      "traffic_api/artifacts.py": {
+        "sha256": "78bd4ae959cdc080e6e096a0c243edead92811ecc12e6a9911736e463e66ce1e",
+        "byte_count": 10404
+      },
+      "traffic_api/candidate_app.py": {
+        "sha256": "ca60e34e5229786544f0218767a8a53500fe691c58da9792318fef7a41af3ea4",
+        "byte_count": 8774
+      },
+      "traffic_api/candidate_comparison_view.py": {
+        "sha256": "e9bce5c6807be0c92d1994e28ed76b1721856dc72b5db88487b3494a2ef71068",
+        "byte_count": 7809
+      },
+      "traffic_api/candidate_serve_cli.py": {
+        "sha256": "63e08c841b4011cff82fa826ab510ec9d71a911cc2a023afcc82e5ff220b6b2b",
+        "byte_count": 8965
+      },
+      "traffic_api/candidate_static/index.html": {
+        "sha256": "7b04ce571172856629b8fd0b52160d47aa321f152217d6e9cea8338964608b87",
+        "byte_count": 474
+      },
+      "traffic_api/candidate_static/viewer.css": {
+        "sha256": "6a643ae4c0d7aea5e113db87a0db2bf931470e426b4a1c28746cf87db5ac11af",
+        "byte_count": 3476
+      },
+      "traffic_api/candidate_static/viewer.mjs": {
+        "sha256": "c0d5e0efbc9fa69a58b108185b2e6e0f95d1481aa1af2f701c06017866067fe2",
+        "byte_count": 42156
+      },
+      "traffic_api/candidate_viewer.py": {
+        "sha256": "0a32118beebe973da1edf0fb08296ea5d5fb535602f44a86c2c77e318c850692",
+        "byte_count": 2203
+      },
+      "traffic_api/core_executor.py": {
+        "sha256": "c8babbae682506e2f9213dd2552c37f8c21666415bd5b694d56ab2f61af13c80",
+        "byte_count": 2686
+      },
+      "traffic_api/repository.py": {
+        "sha256": "bfc281c14f9649afd98c1c8407e7a286f7b35269444d884ffd4aa9fcac1410c2",
+        "byte_count": 4186
+      },
+      "traffic_api/schemas.py": {
+        "sha256": "19d0a74489272f6c2edf46458b2c6889d16a3726a73c81e5c57242c10ec98388",
+        "byte_count": 1580
+      },
+      "traffic_api/service.py": {
+        "sha256": "2de77be60972b365356e4d2aaaeb4b7de87d8b4541cb329d2e421c931fe22f03",
+        "byte_count": 3824
+      },
+      "traffic_api/worker.py": {
+        "sha256": "e027ef11516e9ad09cb1b100e1c345bd2806bbbbbdbb8132269c8534f7d73951",
+        "byte_count": 7940
+      }
+    },
+    "files_count": 15,
+    "build_from_private_source_copy": true,
+    "dependency_environment": "EXISTING_LOCKED_ENV",
+    "fresh_environment": false,
+    "network_not_needed": true
+  },
+  "preserved_artifacts": {
+    "files": 39,
+    "sha_size_mtime_and_members_unchanged": true
+  },
+  "independent_review": {
+    "spec": "PASS",
+    "quality": "PASS"
+  },
+  "corrections": [
+    "STATIC_SUCCESS_CLAIM_NOW_ONLY_AFTER_VALID_COMPARISON",
+    "NONFINITE_THRESHOLD_AND_MALFORMED_CALIBRATION_REJECTED"
+  ],
+  "real_data_read": "NOT_RUN",
+  "real_training": "NOT_RUN",
+  "real_scoring": "NOT_RUN",
+  "real_calibration": "NOT_RUN",
+  "formal_comparison": "NOT_RUN",
+  "actual_os_signal_shutdown": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "synchronization": "PENDING_DESKTOP_COMMIT_PUSH_AND_REMOTE_CI"
+}

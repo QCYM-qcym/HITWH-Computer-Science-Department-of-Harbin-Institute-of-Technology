@@ -75,6 +75,15 @@ def registrations():
     return [base.CandidateRegistration(*candidate_tests.pair())]
 
 
+def test_viewer_forwards_comparison_and_serves_frozen_report(monkeypatch):
+    from .test_candidate_comparison_view import fixture
+    report, pairs = fixture(('if','h30'))
+    module, _, _ = resources(monkeypatch)
+    client = TestClient(module.create_candidate_viewer_app(pairs, comparison=report))
+    assert client.get('/candidate/v1/comparison').json() == report
+    assert client.get('/candidate/v1/runs').json()['comparison_available'] is True
+
+
 @pytest.mark.parametrize('path', ROUTES)
 def test_fixed_assets_have_exact_bytes_content_types_and_no_cors(path, monkeypatch):
     module, _, events = resources(monkeypatch)
@@ -96,7 +105,7 @@ def test_viewer_adds_exactly_three_get_routes_and_base_factory_is_unchanged(monk
     before = {(route.path, frozenset(route.methods)) for route in base.routes}
     after = {(route.path, frozenset(route.methods)) for route in app.routes}
     assert after - before == {(path, frozenset({'GET'})) for path in ROUTES}
-    assert len(before) == 4 and len(after) == 7
+    assert len(before) == 5 and len(after) == 8
     assert not app.router.redirect_slashes and not app.debug
     assert app.openapi_url is app.docs_url is app.redoc_url is None
     candidate_tests.failure(TestClient(base).get('/candidate'), 404, 'NOT_FOUND')
@@ -167,7 +176,7 @@ def test_resource_errors_are_safe_and_do_not_partially_add_routes(filename, faul
                       'oversize': b'a' * (1024 * 1024 + 1), 'empty': b'', 'invalid_utf8': b'\xff'}[fault]
     module, _, _ = resources(monkeypatch, data)
     base = candidate_tests.api().create_candidate_app(registrations())
-    monkeypatch.setattr(module, 'create_candidate_app', lambda pairs: base)
+    monkeypatch.setattr(module, 'create_candidate_app', lambda pairs, **kwargs: base)
     before = tuple(base.routes)
     with pytest.raises(module.CandidateViewerError, match='^VIEWER_ASSETS_UNAVAILABLE$') as caught:
         module.create_candidate_viewer_app(registrations())
@@ -180,7 +189,7 @@ def test_individual_limit_is_inclusive_and_reads_are_bounded(monkeypatch):
     module, _, events = resources(monkeypatch, data)
     app = module.create_candidate_viewer_app(registrations())
     assert module.MAX_ASSET_BYTES == 1024 * 1024 and module.MAX_TOTAL_ASSET_BYTES == 3 * 1024 * 1024
-    assert len(app.routes) == 7
+    assert len(app.routes) == 8
     assert [event[2] for event in events if event[0] == 'read'] == [1024 * 1024 + 1] * 3
 
 
