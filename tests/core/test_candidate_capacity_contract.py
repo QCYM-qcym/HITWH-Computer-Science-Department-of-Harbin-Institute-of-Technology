@@ -147,3 +147,16 @@ def test_all_unknown_population_has_all_five_metrics_null(report):
         dict(precision=None,recall=None,f1=None,fpr=None,fnr=None))
     original=deepcopy(report);c.validate_capacity_report(report)
     assert report==original
+
+
+@pytest.mark.parametrize('sha,size,accepted',[
+    ('0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff',205567,True),
+    ('0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff',213497,False),
+    ('6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2',205567,False),
+    ('0'*64,205567,False),
+])
+def test_capacity_report_fixed_source_identity_pairs(report,sha,size,accepted):
+    report['shared_context']['five_provenance']['source_fixture']=dict(sha256=sha,byte_count=size)
+    if accepted:c.validate_capacity_report(report)
+    else:
+        with pytest.raises(c.CandidateCapacityComparisonError):c.validate_capacity_report(report)

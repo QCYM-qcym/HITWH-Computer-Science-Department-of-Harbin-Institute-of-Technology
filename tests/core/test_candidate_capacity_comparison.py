@@ -324,3 +324,30 @@ def test_declared_runtime_differences_are_limits_not_alignment_failure(packages)
 def test_actual_source_bytes_must_replay(packages,tmp_path):
     other=tmp_path/'other-source.json';other.write_bytes(SOURCE.read_bytes()+b'\n')
     reject(lambda:compare(packages,source=other),'INTEGRITY_MISMATCH')
+
+
+@pytest.mark.parametrize('ending,size,sha',[
+    ('LF',205567,'0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff'),
+    ('CRLF',213497,'6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2')])
+def test_fabricated_capacity_group_for_both_fixed_source_encodings(tmp_path,monkeypatch,ending,size,sha):
+    from . import test_candidate_ae_capacity_artifacts as fixtures
+    from traffic_anomaly.candidate_record_cli import _run as record_run
+    from traffic_anomaly.candidate_cli import _run as input_run
+    import hashlib
+    # Only construct the two predeclared synthetic fixtures. Production never
+    # normalizes input bytes and continues to bind exact source identities.
+    payload=SOURCE.read_bytes().replace(b'\r\n',b'\n')
+    if ending=='CRLF':payload=payload.replace(b'\n',b'\r\n')
+    assert len(payload)==size and hashlib.sha256(payload).hexdigest()==sha
+    source=tmp_path/'fixed-source.json';source.write_bytes(payload)
+    records,inputs=tmp_path/'records',tmp_path/'inputs'
+    record_run(source,'P_U',records);input_run(records/'minute-fixture.json',inputs)
+    monkeypatch.setattr(fixtures,'SOURCE',source)
+    paths=[]
+    for slot,profile,method,window in [(SLOTS[0],OLD,'current_ae',None),(SLOTS[1],NEW,'current_ae',None),
+        (SLOTS[2],OLD,'history_ae',15),(SLOTS[3],OLD,'history_ae',30)]:
+        package,_=make_run((records,inputs),tmp_path,monkeypatch,profile,method,window,name=slot.replace('_','-'))
+        paths.append(package[0])
+    result=api().compare_candidate_ae_capacity_runs(paths,records,inputs,source_fixture=source)
+    assert result['included_slots']==list(SLOTS)
+    assert result['shared_context']['five_provenance']['source_fixture']==dict(sha256=sha,byte_count=size)

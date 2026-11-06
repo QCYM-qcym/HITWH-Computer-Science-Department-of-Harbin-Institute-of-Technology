@@ -13,6 +13,20 @@ MODEL_PROFILE_ID = 'c17-i1-g13u-ae-synthetic-v1'
 CAPACITY492_MODEL_PROFILE_ID = 'c17-i1-g13u-ae-current-capacity492-synthetic-v1'
 CAPACITY492_SOURCE_SHA256 = '6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2'
 CAPACITY492_SOURCE_BYTE_COUNT = 213497
+# Predeclared byte identities of the fixed artificial fixture only. Git's LF
+# blob and the previously admitted CRLF checkout remain distinct sources in
+# provenance; admission never normalizes bytes or derives an accepted hash.
+CAPACITY492_SOURCE_IDENTITIES = (
+    (CAPACITY492_SOURCE_SHA256, CAPACITY492_SOURCE_BYTE_COUNT),
+    ('0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff', 205567),
+)
+
+
+def capacity492_source_identity_matches(identity) -> bool:
+    """Match an exact size/SHA pair, without IO or caller-supplied allowlists."""
+    return isinstance(identity, Mapping) and any(
+        strict_configuration_equal(dict(identity), dict(sha256=sha, byte_count=size))
+        for sha, size in CAPACITY492_SOURCE_IDENTITIES)
 
 
 def capacity492_source_binding_matches(report, provenance) -> bool:
@@ -27,13 +41,10 @@ def capacity492_source_binding_matches(report, provenance) -> bool:
     if (not isinstance(checks,Mapping) or type(checks.get('source_replay')) is not str
             or checks['source_replay'] != 'VERIFIED'):
         return False
-    expected=dict(sha256=CAPACITY492_SOURCE_SHA256,byte_count=CAPACITY492_SOURCE_BYTE_COUNT)
-    for metadata in (report,provenance):
-        identity=metadata.get('source_fixture')
-        if (not isinstance(identity,Mapping) or len(identity)!=2
-                or not strict_configuration_equal(dict(identity),expected)):
-            return False
-    return True
+    identity, bound = report.get('source_fixture'), provenance.get('source_fixture')
+    return (isinstance(identity, Mapping) and isinstance(bound, Mapping)
+        and strict_configuration_equal(dict(identity), dict(bound))
+        and capacity492_source_identity_matches(identity))
 
 
 def strict_configuration_equal(actual, expected) -> bool:

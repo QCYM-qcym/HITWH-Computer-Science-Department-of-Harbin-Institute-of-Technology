@@ -70,9 +70,42 @@ def test_fixed_identity_matches_reference_and_bundled_bytes():
     from traffic_anomaly import candidate_ae_profiles as profiles
     root=Path(__file__).parents[2]
     bundled=root/'src/backend/traffic_api/candidate_demo/g13u-records-v1.json'
+    allowed={
+        ('6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2',213497),
+        ('0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff',205567),
+    }
     for payload in (SOURCE.read_bytes(),bundled.read_bytes()):
-        assert profiles.CAPACITY492_SOURCE_BYTE_COUNT==len(payload)==213497
-        assert profiles.CAPACITY492_SOURCE_SHA256==hashlib.sha256(payload).hexdigest()=='6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2'
+        identity=dict(sha256=hashlib.sha256(payload).hexdigest(),byte_count=len(payload))
+        assert (identity['sha256'],identity['byte_count']) in allowed
+        assert profiles.capacity492_source_binding_matches(
+            dict(checks=dict(source_replay='VERIFIED'),source_fixture=identity),dict(source_fixture=identity))
+
+
+@pytest.mark.parametrize('sha,size,accepted',[
+    ('6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2',213497,True),
+    ('0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff',205567,True),
+    ('6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2',205567,False),
+    ('0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff',213497,False),
+    ('0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff',205567.,False),
+    ('0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff',True,False),
+    ('0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff',205568,False),
+    ('0'*64,205567,False),
+])
+def test_fixed_source_identity_accepts_only_predeclared_pairs(sha,size,accepted):
+    from traffic_anomaly.candidate_ae_profiles import capacity492_source_binding_matches
+    identity=dict(sha256=sha,byte_count=size)
+    assert capacity492_source_binding_matches(
+        dict(checks=dict(source_replay='VERIFIED'),source_fixture=identity),dict(source_fixture=dict(identity))) is accepted
+
+
+@pytest.mark.parametrize('reverse',[False,True])
+def test_fixed_source_identity_report_and_provenance_must_be_same_pair(reverse):
+    from traffic_anomaly.candidate_ae_profiles import capacity492_source_binding_matches
+    identities=[dict(sha256='6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2',byte_count=213497),
+        dict(sha256='0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff',byte_count=205567)]
+    if reverse:identities.reverse()
+    assert not capacity492_source_binding_matches(
+        dict(checks=dict(source_replay='VERIFIED'),source_fixture=identities[0]),dict(source_fixture=identities[1]))
 
 
 @pytest.mark.parametrize('profile',[None,True,[],{},'unknown'])

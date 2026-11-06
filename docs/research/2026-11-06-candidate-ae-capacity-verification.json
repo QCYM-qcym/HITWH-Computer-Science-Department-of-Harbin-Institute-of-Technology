@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-06",
-  "status": "LOCAL_ACCEPTANCE_PASS",
+  "status": "LOCAL_PORTABILITY_VERIFIED_REMOTE_CI_PENDING",
   "evidence_kind": "SYNTHETIC_ONLY",
   "scope": "FIXED_ARTIFICIAL_CAPACITY_CONTROL",
   "base_commit": "bd6d7ba52ecaf375690a4a71c58e9360c8144faa",
@@ -16,7 +16,7 @@
     "files_count": 58,
     "fresh_environment": false,
     "dependency_environment": "EXISTING_LOCKED_ENV",
-    "source_freeze": "CURRENT_REVIEWED_WORKTREE",
+    "source_freeze": "HISTORICAL_AT_15_11_MANUAL_ACCEPTANCE",
     "files": {
       "traffic_anomaly/__init__.py": {
         "sha256": "20d8cd4949361c133cea8a29b32267c8283e7dbe0950ac66456b1aeeb4d8ba31",
@@ -250,7 +250,8 @@
         "sha256": "02df9744806ef053c4e741850d954f8512810e642703a71210c72088037be0be",
         "byte_count": 1893
       }
-    }
+    },
+    "scope_note": "Historical 15:11 manual-acceptance installation, before the portability repair; not a claim that these hashes match the repaired source."
   },
   "tests": {
     "task11_related": {
@@ -524,12 +525,13 @@
   "real_pilot": "NOT_APPROVED",
   "production_contract_migration": "NOT_APPROVED",
   "publication": {
-    "desktop_commit": "PENDING",
-    "push": "PENDING",
-    "ci": "PENDING",
-    "previous_audit_commit": "882b67d6e32b043335e34008285dc06c3b5d1762",
-    "ui_input": "RESPONSE_OBSERVED_WITH_SCREENSHOT",
-    "note": "Earlier immediate accessibility observations lagged; file selection and Desktop publication subsequently observed."
+    "commit": "39e94164f91940de4fe54fdff475d2470239200a",
+    "desktop_commit": "OBSERVED",
+    "push": "OBSERVED",
+    "remote_sha": "MATCH",
+    "ci": "FAILED_SYNTHETIC_INTEGRATION",
+    "failed_run": 42183031539,
+    "repair": "PENDING_DESKTOP_PUBLICATION"
   },
   "independent_actual_acceptance_review": "PASS",
   "compatibility": {
@@ -561,6 +563,96 @@
         "sha256": "5385c7ce84c542f118b9f45ba0675e5fed3998abb91457fbba54fbba845d74fd",
         "byte_count": 9654
       }
+    }
+  },
+  "cross_platform_followup": {
+    "status": "LOCAL_VERIFICATION_PASS_REMOTE_CI_PENDING",
+    "failed_ci": {
+      "run": 42183031539,
+      "python_passed": 2316,
+      "failed": 26,
+      "errors": 66,
+      "subtests_passed": 56
+    },
+    "root_cause": "CRLF_ONLY_FIXED_SOURCE_IDENTITY_REJECTED_LF_GIT_CHECKOUT",
+    "fixed_identities": [
+      {
+        "line_endings": "LF",
+        "byte_count": 205567,
+        "sha256": "0f8e58e6dec98c2741362f1a146d2721e40cce48dfe637c4708bcf9d21ef42ff"
+      },
+      {
+        "line_endings": "CRLF",
+        "byte_count": 213497,
+        "sha256": "6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2"
+      }
+    ],
+    "identity_policy": "EXACT_SAME_SIZE_HASH_PAIR_IN_REPORT_AND_PROVENANCE_NO_NORMALIZATION",
+    "regression": {
+      "red_failed": 3,
+      "red_passed": 14,
+      "targeted_passed": 17,
+      "related_passed": 165,
+      "lf_simulation_passed": 165,
+      "lf_simulation_seconds": 51.96,
+      "independent_pure_metadata_passed": 19,
+      "counts_overlap": true,
+      "model_import_or_action_attempts": 0,
+      "lf_simulation_is_remote_linux_ci": false,
+      "simulation_setup_failures": [
+        {
+          "failed": 23,
+          "passed": 142,
+          "cause": "TEST_HELPER_DEFAULT_SOURCE_NOT_REBOUND"
+        },
+        {
+          "failed": 1,
+          "passed": 164,
+          "cause": "LATE_IMPORTED_TEST_HELPER_SOURCE_NOT_REBOUND"
+        }
+      ]
+    },
+    "existing_manual_package_readonly": {
+      "changed_source_pins": {
+        "traffic_anomaly/candidate_ae_profiles.py": "d92577e138a32325262c7dc54544ea8c2eb5a0f3dce01ef0ce78715b21b9d499",
+        "traffic_anomaly/candidate_capacity_contract.py": "baa84a3d89209025f86b6dbb825bde0a4f4055b8bd091a746f0a601d661997eb"
+      },
+      "comparison_calls": 1,
+      "comparison_result_unchanged": true,
+      "current_source_58_unchanged": true,
+      "forbidden_attempts": [],
+      "model_modules": [],
+      "model_replay": "NOT_PERFORMED",
+      "new_package_5_unchanged": true,
+      "old_installed_58_unchanged": true,
+      "original_67_unchanged": true,
+      "provenance": "CURRENT_SOURCE_READONLY_COMPATIBILITY_NOT_NEW_INSTALLATION",
+      "source_variant": "EXACT_CRLF_ORIGINAL",
+      "status": "PASS",
+      "training": "NOT_PERFORMED",
+      "verifier_calls": 1,
+      "verifier_result_unchanged": true
+    },
+    "manual_model_rerun": false,
+    "real_model_training": "NOT_RUN",
+    "readonly_process": {
+      "elapsed_seconds": 3.0370798999938415,
+      "guard_seconds": 45,
+      "identity_verified": true,
+      "model_execution": "NOT_PERFORMED",
+      "reaped": true,
+      "returncode": 0,
+      "timeout": false
+    },
+    "source_and_test_freeze": {
+      "src/core/traffic_anomaly/candidate_ae_profiles.py": "d92577e138a32325262c7dc54544ea8c2eb5a0f3dce01ef0ce78715b21b9d499",
+      "src/core/traffic_anomaly/candidate_capacity_contract.py": "baa84a3d89209025f86b6dbb825bde0a4f4055b8bd091a746f0a601d661997eb",
+      "src/core/traffic_anomaly/candidate_capacity_comparison.py": "08cc92c43daf605df70f29a52e6a4af5e6e6b6d24d043e3ed57dcf7d24765920",
+      "src/core/traffic_anomaly/candidate_capacity_compare_cli.py": "03ccaacd49cebf4be924cfe5341cc9fe4977b9b8e8ab8252bb72a88be520dcaf",
+      "tests/core/test_candidate_ae_capacity_artifacts.py": "9cdd7ba6c0af2c8c36f47df8729d94fa2fce09ac72bbe81527917838adce93b6",
+      "tests/core/test_candidate_capacity_contract.py": "cf90a079b597df09087a8d0b284a383be039951dd6a4c2efd8fc60fdf8b19f70",
+      "tests/core/test_candidate_capacity_comparison.py": "f126ca9de0bdc76d640c78a8a441512e6973d4a332c1fd27f7b91b0b6915cc61",
+      "tests/core/test_candidate_capacity_compare_cli.py": "6469467d19b7cb68d31663c74fbd841b81d3eb19f84077f8a87e3c7d99909587"
     }
   }
 }

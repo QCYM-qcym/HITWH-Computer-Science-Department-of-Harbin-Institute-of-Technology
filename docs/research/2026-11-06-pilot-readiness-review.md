@@ -23,7 +23,7 @@
 
 **1．文件适配与审计入口。** 来源：[文件适配指南](../guides/release-file-adapter.md)“输入身份”“本次实际结果”；[小预算审计命令](../guides/release-audit-cli.md)“预算”“完成条件”。观察：已有同流EOF/大小/SHA、全量判重、精确微秒分位、独占SQLite清理及约210万人工行容量证据；小CLI补显式spec、限额、脱敏汇总和两文件完成判据。影响：减少错误读取、资源失控与伪成功风险，但这些报告不认证真实来源、正常标签或模型执行。补救：批准后按确切源身份进行一次有界真实验证，保留差异和失败；不能凭人工PASS填真实结果。
 
-**2．真实持久化输入链仍缺。** 来源：[人工文件与IF输入等价验收](../guides/release-if-equivalence.md)“核对的对象”“结论范围”；G13U配置preserved_rules；[AE参数数量对照](../guides/candidate-ae-capacity.md)“固定源执行”。观察：full91只返回未认证分钟；等价验收的IF包实际绑定独立十字段JSON，AE492只准固定人工213497字节源。影响：full91→真实13/26持久化输入→模型包尚无独立、可重开核验的source/profile绑定，现有成功不能称真实端到端ready。补救：单独设计真实profile，绑定五CSV实际身份、源顺序、七段、聚合/时间/标签协议、训练拟合状态、历史及掩码，再绑定模型配置/包。保留NOT_AUTHENTICATED与完成代理；不得把真实数据标SYNTHETIC_ONLY，不得用JSON的source SHA替代CSV，也不得绕过旧验证门或复用人工profile名称。
+**2．真实持久化输入链仍缺。** 来源：[人工文件与IF输入等价验收](../guides/release-if-equivalence.md)“核对的对象”“结论范围”；G13U配置preserved_rules；[AE参数数量对照](../guides/candidate-ae-capacity.md)“固定源执行”。观察：full91只返回未认证分钟；等价验收的IF包实际绑定独立十字段JSON，AE492只准固定人工LF/CRLF两种预声明字节身份（205567/213497字节）。影响：full91→真实13/26持久化输入→模型包尚无独立、可重开核验的source/profile绑定，现有成功不能称真实端到端ready。补救：单独设计真实profile，绑定五CSV实际身份、源顺序、七段、聚合/时间/标签协议、训练拟合状态、历史及掩码，再绑定模型配置/包。保留NOT_AUTHENTICATED与完成代理；不得把真实数据标SYNTHETIC_ONLY，不得用JSON的source SHA替代CSV，也不得绕过旧验证门或复用人工profile名称。
 
 **3．静态容量适配不等于真实运行验收。** 来源：[已取得载荷的审计记录](2026-10-23-c17-i1-payload-audit.json)的archive_check.total_uncompressed_bytes、extraction.total_bytes与time_only_label_blind_profile.total_rows；G13U配置expected_inputs；文件指南护栏。观察：五CSV合计1,152,270,765字节、2,099,976行，静态落在底层2GiB/250万行范围内；现有压力负载是另一套人工分布。影响：不能保证真实数据库占用、耗时、极值/词汇或资格一致；8MiB小audit CLI不能直接处理整集。补救：另审大预算调用边界及父进程资源监督，获准后按同源原审计对照。不得拆份独立判重后拼接，借此绕过全量重复与跨段规则。
 

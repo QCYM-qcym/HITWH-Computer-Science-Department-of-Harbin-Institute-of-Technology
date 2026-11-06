@@ -13,7 +13,7 @@ import re
 
 from .candidate_ae_profiles import (MODEL_PROFILE_ID,CAPACITY492_MODEL_PROFILE_ID,
     CAPACITY492_SOURCE_SHA256,CAPACITY492_SOURCE_BYTE_COUNT,
-    resolve_candidate_ae_configuration,strict_configuration_equal)
+    resolve_candidate_ae_configuration,strict_configuration_equal,capacity492_source_identity_matches)
 from .candidate_ae_run_artifacts import VERIFIER_PROFILE_ID,CAPACITY_VERIFIER_PROFILE_ID
 from .candidate_evaluation import _UNDEFINED_REASONS
 from .candidate_inputs import G13U_FEATURE_NAMES,PROFILE_ID,MAX_MINUTES
@@ -147,8 +147,7 @@ def validate_capacity_report(report):
     _identity(shared['qualification_axis_identity'])
     _keys(shared['five_provenance'],PROVENANCE_KEYS)
     for value in shared['five_provenance'].values():_identity(value)
-    _need(strict_configuration_equal(shared['five_provenance']['source_fixture'],
-        dict(sha256=CAPACITY492_SOURCE_SHA256,byte_count=CAPACITY492_SOURCE_BYTE_COUNT)))
+    _need(capacity492_source_identity_matches(shared['five_provenance']['source_fixture']))
     _need(strict_configuration_equal(shared['preprocessing_identity'],shared['five_provenance']['preprocess']))
     default=resolve_candidate_ae_configuration('current_ae')
     _need(strict_configuration_equal(shared['qualification_protocol'],{key:default[key] for key in PROTOCOL_KEYS}))
