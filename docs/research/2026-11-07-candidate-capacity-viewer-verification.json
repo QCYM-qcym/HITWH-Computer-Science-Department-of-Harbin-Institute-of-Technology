@@ -1,0 +1,504 @@
+{
+  "date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "status": "LOCAL_ACCEPTANCE_PASS",
+  "base_commit": "cf25285040477050d9024a69e829c48757d984a4",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "scope": "RETAINED_ARTIFICIAL_AE_CAPACITY_COMPARISON_DISPLAY",
+  "tests": {
+    "core_targeted": {
+      "status": "PASS",
+      "passed": 43,
+      "seconds": 11.36,
+      "pytest_targets": [
+        "tests/core/test_candidate_capacity_snapshot.py",
+        "tests/core/test_candidate_capacity_compare_cli.py"
+      ],
+      "runner": "private guarded pytest runner"
+    },
+    "core_related": {
+      "status": "PASS",
+      "passed": 196,
+      "seconds": 73.1,
+      "includes_targeted": true,
+      "additional_pytest_targets": [
+        "tests/core/test_candidate_capacity_comparison.py",
+        "tests/core/test_candidate_capacity_contract.py",
+        "tests/core/test_candidate_ae_capacity_artifacts.py"
+      ],
+      "runner": "private guarded pytest runner"
+    },
+    "backend_after_cold_cache_fix": {
+      "status": "PASS",
+      "passed": 435,
+      "skipped": 0,
+      "seconds": 4.6,
+      "includes_cold_cache_test": true,
+      "warning": "existing Starlette/httpx TestClient deprecation",
+      "pytest_targets": [
+        "tests/backend/test_candidate_capacity_cold_cache.py",
+        "tests/backend/test_candidate_capacity_view.py",
+        "tests/backend/test_candidate_capacity_serve_cli.py",
+        "tests/backend/test_candidate_serve_cli.py",
+        "tests/backend/test_candidate_app.py",
+        "tests/backend/test_candidate_viewer.py",
+        "tests/backend/test_candidate_comparison_view.py",
+        "tests/backend/test_capacity_boundary_compatibility.py",
+        "tests/backend/test_candidate_demo_cli.py"
+      ],
+      "runner": "private guarded pytest runner"
+    },
+    "frontend_targeted": {
+      "status": "PASS",
+      "passed": 22,
+      "seconds": 11.52
+    },
+    "frontend_all": {
+      "status": "PASS",
+      "passed": 147,
+      "files": 6,
+      "seconds": 12.42,
+      "command": "npm --prefix src/frontend test -- --run",
+      "includes_targeted": true
+    },
+    "typecheck": {
+      "status": "PASS",
+      "command": "npm --prefix src/frontend run typecheck"
+    },
+    "contracts": {
+      "status": "PASS",
+      "command": "npm --prefix src/frontend run contracts:check"
+    },
+    "build": {
+      "status": "PASS",
+      "command": "npm --prefix src/frontend run build",
+      "existing_main_chunk_kb": 855.22,
+      "existing_gzip_kb": 280.3,
+      "warning": "existing chunk larger than 500kB"
+    },
+    "independent_cold_process_rerun": {
+      "status": "PASS",
+      "passed": 1,
+      "seconds": 0.65,
+      "included_in_backend_435": true
+    },
+    "independent_startup_probes": {
+      "status": "PASS",
+      "cases": 3,
+      "scope": "no listener; actual factory endpoints and safe helper failure paths"
+    },
+    "counts_overlap": "Targeted suites, related suites and independent reruns overlap; no summed test total."
+  },
+  "failure_and_correction_history": [
+    {
+      "phase": "N1 test preparation",
+      "status": "RETAINED_SETUP_FAILURE",
+      "detail": "Large parameter ID exceeded pytest temporary-path constraints; 32 failures, 10 passes and 2 setup/teardown errors are not all behavior RED."
+    },
+    {
+      "phase": "N1 valid RED",
+      "failed": 33,
+      "passed": 10,
+      "later_targeted_passed": 43
+    },
+    {
+      "phase": "N3 RED and correction",
+      "initial_missing_module_failed": 22,
+      "first_implementation_passed": 14,
+      "first_implementation_failed": 8,
+      "detail": "Cross-realm Uint8Array instanceof rejected valid responses; use ArrayBuffer.isView plus Uint8Array tag. Two TypeScript mock tuple errors fixed separately."
+    },
+    {
+      "phase": "N4 attempt1",
+      "status": "FAILED_GUARD",
+      "first_get_source_open_attempts": 4,
+      "service_process_exit": 1,
+      "internal_guard_returncode": 0,
+      "detail": "HTTP 200 did not negate FastAPI 0.156.6 lazy endpoint source inspection; original failure retained.",
+      "reaped": true,
+      "port_closed": true,
+      "subset": "NOT_RUN"
+    },
+    {
+      "phase": "cold-process regression",
+      "red_failed": 1,
+      "green_passed": 1,
+      "request_open_attempts_before": 4,
+      "request_open_attempts_after": 0,
+      "detail": "Factory prewarms four actual endpoint contexts before listening, using the locked framework helper without patching framework globals/cache or weakening guards."
+    }
+  ],
+  "independent_reviews": {
+    "N1": "PASS_NO_BLOCKING_FINDINGS",
+    "N2_original": "PASS_FOR_ORIGINAL_SCOPE_NOT_N4",
+    "N2_cold_cache_fix": "PASS_NO_BLOCKING_FINDINGS",
+    "N3": "PASS_NO_BLOCKING_FINDINGS",
+    "N4": "PASS_ATTEMPT2_FULL_AND_SUBSET"
+  },
+  "installed": {
+    "attempt": 2,
+    "status": "PASS",
+    "fresh_target_installation": true,
+    "fresh_dependency_environment": false,
+    "dependency_environment": "EXISTING_LOCKED_VENV",
+    "core_files": 59,
+    "backend_files": 20,
+    "backend_python_files": 14,
+    "backend_resources": 6,
+    "build_install_children": 4,
+    "dependency_downloads": 0,
+    "source_and_resource_bytes_match_frozen_copy": true
+  },
+  "actual_acceptance": {
+    "status": "PASS",
+    "full_group": {
+      "status": "PASS",
+      "cli_http_bytes": 20763,
+      "cli_http_exact_bytes": true,
+      "asset_bytes_equal": true,
+      "script_requests": [
+        {
+          "bytes": 20763,
+          "route": "/candidate/v1/capacity-comparison",
+          "status": 200
+        },
+        {
+          "bytes": 1285,
+          "route": "/candidate/capacity",
+          "status": 200
+        },
+        {
+          "bytes": 29001,
+          "route": "/candidate/capacity.mjs",
+          "status": 200
+        },
+        {
+          "bytes": 3476,
+          "route": "/candidate/viewer.css",
+          "status": 200
+        },
+        {
+          "kind": "query",
+          "status": 422
+        },
+        {
+          "kind": "method",
+          "status": 405
+        },
+        {
+          "kind": "unknown",
+          "status": 404
+        }
+      ],
+      "script_response_bytes": 54604,
+      "request_guard_attempts": [],
+      "admission_calls": 1,
+      "comparison_calls": 1,
+      "encoder_calls": 1,
+      "normal_exit": true,
+      "reaped": true,
+      "port_closed": true,
+      "process_seconds": 302.9651853000105,
+      "process_exit": 0,
+      "forced_stop": false
+    },
+    "subset": {
+      "status": "PASS",
+      "present": [
+        "492",
+        "H15"
+      ],
+      "missing": [
+        "288",
+        "H30"
+      ],
+      "browser": "PASS",
+      "lifecycle": "PASS_NORMAL_STOP_REAP_PORT_CLOSE_IDENTITY",
+      "cli_http_bytes": 12573,
+      "cli_http_exact_bytes": true,
+      "asset_bytes_equal": true,
+      "script_requests": [
+        {
+          "bytes": 12573,
+          "route": "/candidate/v1/capacity-comparison",
+          "status": 200
+        },
+        {
+          "bytes": 1285,
+          "route": "/candidate/capacity",
+          "status": 200
+        },
+        {
+          "bytes": 29001,
+          "route": "/candidate/capacity.mjs",
+          "status": 200
+        },
+        {
+          "bytes": 3476,
+          "route": "/candidate/viewer.css",
+          "status": 200
+        },
+        {
+          "kind": "query",
+          "status": 422
+        },
+        {
+          "kind": "method",
+          "status": 405
+        },
+        {
+          "kind": "unknown",
+          "status": 404
+        }
+      ],
+      "script_response_bytes": 46414,
+      "request_guard_attempts": [],
+      "admission_calls": 1,
+      "comparison_calls": 1,
+      "encoder_calls": 1,
+      "normal_exit": true,
+      "reaped": true,
+      "port_closed": true,
+      "process_seconds": 302.30774210000527,
+      "process_exit": 0,
+      "forced_stop": false
+    },
+    "negative_cases": [
+      {
+        "bind_events": [],
+        "case": "missing_source",
+        "exit": 2,
+        "status": "PASS"
+      },
+      {
+        "bind_events": [],
+        "case": "wrong_source",
+        "exit": 2,
+        "status": "PASS"
+      }
+    ],
+    "browser": {
+      "full": {
+        "status": "PASS",
+        "slots": [
+          "288",
+          "492",
+          "H15",
+          "H30"
+        ],
+        "thresholds": [
+          0.2879734564525531,
+          0.2721089692498,
+          0.3189284776059433,
+          0.3189284776059433
+        ],
+        "policy_counts": {
+          "PU": {
+            "normal": 4,
+            "attack": 1,
+            "unknown": 1,
+            "tp": 0,
+            "fp": 0,
+            "tn": 4,
+            "fn": 1
+          },
+          "PB": {
+            "normal": 5,
+            "attack": 1,
+            "unknown": 0,
+            "tp": 0,
+            "fp": 0,
+            "tn": 5,
+            "fn": 1
+          },
+          "PA": {
+            "normal": 4,
+            "attack": 2,
+            "unknown": 0,
+            "tp": 0,
+            "fp": 0,
+            "tn": 4,
+            "fn": 2
+          }
+        },
+        "expanded_492": {
+          "run_id": "synthetic-capacity492-20261106",
+          "architecture": [
+            13,
+            14,
+            3,
+            14,
+            13
+          ],
+          "parameter_count": 492,
+          "calibration_minutes": 6,
+          "equal_threshold_count": 2,
+          "strictly_above_threshold_count": 0,
+          "precision": null,
+          "precision_reason_visible": "没有带标签的正预测分钟"
+        },
+        "retry": "PASS; PU selected and retained after actual retry",
+        "narrow_view": {
+          "requested_width": 390,
+          "requested_height": 844,
+          "document_client_width": 375,
+          "document_scroll_width": 375,
+          "table_client_width": 320,
+          "table_scroll_width": 840,
+          "keyboard_arrow_right_scroll_left": 32.79999923706055,
+          "chinese_visible": true,
+          "focus_outline_visible": true,
+          "document_overflow": false
+        },
+        "screenshots": "OBSERVED_INLINE_NO_SCREENSHOT_FILE"
+      },
+      "subset": {
+        "status": "PASS",
+        "present_slots": [
+          "492",
+          "H15"
+        ],
+        "missing_slots": [
+          "288",
+          "H30"
+        ],
+        "thresholds": [
+          0.2721089692498,
+          0.3189284776059433
+        ],
+        "policy_counts": {
+          "PU": {
+            "normal": 4,
+            "attack": 1,
+            "unknown": 1,
+            "tp": 0,
+            "fp": 0,
+            "tn": 4,
+            "fn": 1
+          },
+          "PB": {
+            "normal": 5,
+            "attack": 1,
+            "unknown": 0,
+            "tp": 0,
+            "fp": 0,
+            "tn": 5,
+            "fn": 1
+          },
+          "PA": {
+            "normal": 4,
+            "attack": 2,
+            "unknown": 0,
+            "tp": 0,
+            "fp": 0,
+            "tn": 4,
+            "fn": 2
+          }
+        },
+        "retry": "PASS; PA retained, same two present and two missing slots",
+        "screenshots": "OBSERVED_INLINE_NO_SCREENSHOT_FILE"
+      }
+    },
+    "population": {
+      "full_axis_minutes": 144,
+      "axis_valid_minutes": 24,
+      "fit_minutes": 6,
+      "calibration_minutes": 6,
+      "test_minutes": 36,
+      "test_scored_minutes": 6,
+      "test_unscored_minutes": 30
+    },
+    "preservation_full": {
+      "status": "PASS_BY_FINAL_ACCEPTANCE_ASSERTIONS",
+      "original_artifact_files": 67,
+      "historical_install_files": 58,
+      "separate_current492_package_files": 5,
+      "fresh_installed_files": 79,
+      "original_directory_membership_maps": 18,
+      "separate_after_map_saved": false
+    },
+    "new_model_execution": "NOT_PERFORMED",
+    "real_data_read": "NOT_RUN",
+    "os_signal_shutdown_test": "NOT_RUN",
+    "third_actual_subset_h30": "NOT_RUN_UNIT_DOM_COVERAGE_ONLY",
+    "script_request_count": 14,
+    "script_response_bytes_total": 101018,
+    "successful_cli_processes": 2,
+    "successful_service_processes": 2,
+    "rejected_service_processes": 2,
+    "preservation_subset": {
+      "status": "PASS_BY_FINAL_ACCEPTANCE_ASSERTIONS",
+      "original_artifact_files": 67,
+      "historical_install_files": 58,
+      "separate_current492_package_files": 5,
+      "fresh_installed_files": 79,
+      "original_directory_membership_maps": 18,
+      "separate_after_map_saved": false
+    }
+  },
+  "source_sha256_scope": "LOCAL_VERIFIED_WORKTREE_BYTES_BEFORE_GIT_LINE_ENDING_NORMALIZATION",
+  "source_sha256_note": "These hashes identify the locally verified worktree bytes. Git may normalize CRLF to LF when recording files; these are not guaranteed to identify the Git blob bytes.",
+  "source_sha256": {
+    "src/core/traffic_anomaly/candidate_capacity_snapshot.py": "c0e5006ee6d108c6e1ca8660478993713b5d1ab9b0629ee0ea8d8fd506c76001",
+    "src/core/traffic_anomaly/candidate_capacity_compare_cli.py": "54b08801eba4aa7c352e0a1bd53abf3b382d848a7888f6c22c6dec6adaabd64b",
+    "tests/core/test_candidate_capacity_snapshot.py": "d0ad70ee2157d1c49d5478c2b9014297b0db0642a999575e999586558ffcce80",
+    "tests/core/test_candidate_capacity_compare_cli.py": "72e070b500aae0d5819f63094bc99ec695361c76c7d52ced29818fdadb6c847c",
+    "src/backend/traffic_api/candidate_capacity_view.py": "e68fbc522b4b613aced854495f7e9e3296d85ba2a864820182004b6d5739afcb",
+    "src/backend/traffic_api/candidate_serve_cli.py": "2a61dfee63dd1d9858f1bfb8660270076dd16e4630fa7ccc3e1039a82dec1711",
+    "tests/backend/test_candidate_capacity_view.py": "7b23556d19fc6764fe7ba8c750ed2f946d8419663abdc46066e893b3b812bebe",
+    "tests/backend/test_candidate_capacity_serve_cli.py": "4927c6dd3488effc22fa1b92f9ed6430623cc663e79700f2a0ab9a65d97b11df",
+    "tests/backend/test_candidate_capacity_cold_cache.py": "82bd30cfbbe193cecc409f09f0063511afcf4c44b7b47acc42aa60465c304391"
+  },
+  "observation_limits": [
+    "ONE_TOP_LEVEL_ADMISSION_DOES_NOT_MEAN_EVERY_SOURCE_READ_ONCE",
+    "IMMUTABLE_SNAPSHOT_DOES_NOT_AUTHENTICATE_PROVENANCE",
+    "PARAMETER_NEAR_MATCH_DOES_NOT_ESTABLISH_EQUAL_EFFECTIVE_CAPACITY",
+    "STARTUP_SAVED_RELATION_ARITHMETIC_ALLOWED_REQUEST_PHASE_SEALED",
+    "PARENT_TEST_GUARDS_DO_NOT_AUTOMATICALLY_COVER_ALL_CHILDREN",
+    "SCRIPT_REQUEST_COUNTS_EXCLUDE_BROWSER_REQUESTS",
+    "EXISTING_LOCKED_ENVIRONMENT_NOT_FRESH_DEPENDENCY_OR_OTHER_MACHINE_VALIDATION",
+    "FRAMEWORK_PRIVATE_HELPER_COMPATIBILITY_LIMITED_TO_LOCKED_FASTAPI_0_156_6",
+    "PROCESS_TREE_RESOURCE_LIMIT_AND_OS_SIGNAL_SHUTDOWN_NOT_CLAIMED",
+    "PRESERVATION_FINAL_ASSERTIONS_NOT_AN_INDEPENDENTLY_SAVED_AFTER_MAP"
+  ],
+  "production_contract_changed": false,
+  "final_policy_changed": false,
+  "new_payload_downloads": 0,
+  "real_preprocessing": "NOT_RUN",
+  "real_training": "NOT_RUN",
+  "real_scoring": "NOT_RUN",
+  "real_calibration": "NOT_RUN",
+  "formal_comparison": "NOT_RUN",
+  "data_gate": "BLOCKED",
+  "maintenance_checks": {
+    "status": "PASS",
+    "scope": "W0_PRE_COMMIT_WORKTREE_CHECKS",
+    "repository_tests": {
+      "passed": 13,
+      "seconds": 2.943,
+      "command": "python -X utf8 -m unittest discover -s tests/repository -p \"test_*.py\""
+    },
+    "readme_progress": "PASS_WRITE_AND_CHECK",
+    "worktree_author_privacy": {
+      "files": 588,
+      "issues": 0
+    },
+    "git_diff_check": "PASS",
+    "public_document_files": 11,
+    "local_markdown_links": 500,
+    "vault_files": 6,
+    "new_vault_links": 10,
+    "verified_worktree_source_hashes": 9,
+    "research_stages": "UNCHANGED",
+    "report_and_production_contract": "UNCHANGED",
+    "preserved_old_untracked_plan": "PASS",
+    "independent_public_claim_review": "PASS",
+    "desktop_commit_push_ci": "NOT_RUN"
+  },
+  "synchronization": {
+    "status": "NOT_RUN",
+    "commit": null,
+    "remote_sha": null,
+    "ci": []
+  }
+}

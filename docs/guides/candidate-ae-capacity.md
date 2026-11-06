@@ -57,7 +57,7 @@ python -X utf8 -m traffic_anomaly.candidate_capacity_compare_cli --records .runt
 
 输出为有界JSON，包含末尾换行在内最多1 MiB。命令成功前会核验结构、计数及空值适用条件；不提供源文件、缺少必要对照、重复目录或槽位、混入IF、上游或资格不一致均拒绝。各模型仍使用自己的阈值；比较工具不重新选择阈值或计算新的研究评价。
 
-专用HTTP与网页查看入口仍为`NOT_RUN`。新profile不能放入旧IF＋三个AE的经典四槽，也不自动获得旧曲线、单分钟详情或demo支持。生产134/268维契约与真实Data Gate不因这些人工入口改变。
+2026-11-07新增[专用容量HTTP与页面](candidate-capacity-viewer.md)：修复后完整组与492＋H15子集CLI/HTTP、实际浏览器和正常停止终检均已通过。下文11月6日验收保留为历史记录，不追认成新安装。新profile仍不能放入旧IF＋三个AE的经典四槽，也不自动获得旧曲线、单分钟详情或demo支持；生产134/268维与真实Data Gate不变。
 
 ## 本次实际验收
 

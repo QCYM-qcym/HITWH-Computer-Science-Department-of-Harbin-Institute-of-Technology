@@ -47,6 +47,8 @@ def test_invalid_cli_before_admission(packages,monkeypatch,capsys,kind):
 
 def test_cli_bounds_encoded_bytes_before_any_stdout(packages,monkeypatch,capsys):
     m=api()
+    snapshot=importlib.import_module('traffic_anomaly.candidate_capacity_snapshot')
+    monkeypatch.setattr(snapshot,'validate_capacity_report',lambda report:None)
     monkeypatch.setattr(m,'compare_candidate_ae_capacity_runs',lambda *a,**k:{'padding':'界'*1048576})
     assert m.main(arguments(packages))==2
     captured=capsys.readouterr()
@@ -69,6 +71,8 @@ def test_no_partial_stdout_or_private_exception(packages,monkeypatch,capsys,kind
 
 def test_exact_output_boundary_and_one_byte_over(packages,monkeypatch,capsys):
     m=api();overhead=len(b'{"padding":""}\n')
+    snapshot=importlib.import_module('traffic_anomaly.candidate_capacity_snapshot')
+    monkeypatch.setattr(snapshot,'validate_capacity_report',lambda report:None)
     for extra in (0,1):
         monkeypatch.setattr(m,'compare_candidate_ae_capacity_runs',lambda *a,**k:{'padding':'x'*(1048576-overhead+extra)})
         status=m.main(arguments(packages));captured=capsys.readouterr()
@@ -76,3 +80,15 @@ def test_exact_output_boundary_and_one_byte_over(packages,monkeypatch,capsys):
             assert status==2 and captured.out=='' and json.loads(captured.err)=={'error':'RESOURCE_LIMIT'}
         else:
             assert status==0 and len(captured.out.encode('utf-8'))==1048576 and captured.err==''
+
+
+def test_cli_reuses_shared_encoder_before_stdout(packages,monkeypatch,capsys):
+    m=api();seen=[]
+    def rejected(report):
+        seen.append(report)
+        raise m.CandidateCapacityComparisonError('INVALID_CAPACITY_REPORT')
+    monkeypatch.setattr(m,'encode_capacity_report',rejected,raising=False)
+    assert m.main(arguments(packages))==2
+    captured=capsys.readouterr()
+    assert len(seen)==1 and captured.out==''
+    assert json.loads(captured.err)=={'error':'INVALID_CAPACITY_REPORT'}

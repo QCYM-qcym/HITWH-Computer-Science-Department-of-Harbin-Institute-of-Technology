@@ -1,5 +1,9 @@
 # 文档导航
 
+## 2026-11-07 AE容量对照页面
+
+[运行与限制](guides/candidate-capacity-viewer.md)、[实际验证记录](research/2026-11-07-candidate-capacity-viewer-verification.json)。固定四槽和三政策保存结果；完整组与子集实际验收通过，不产生新模型或研究效果结论。
+
 ## 2026-10-31 候选查看页的前台启动命令
 
 [本地启动说明](guides/candidate-viewer-launcher.md)、[真实启停与安装验收](research/2026-10-31-candidate-viewer-launcher-verification.json)。复用原人工包，一条命令启动独立候选查看页。

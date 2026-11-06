@@ -1,0 +1,985 @@
+{
+  "schema_version": 1,
+  "comparison_profile_id": "c17-i1-g13u-ae-capacity-comparison-context-v1",
+  "status": "DATA_QUALIFICATION_ALIGNED",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "policy_status": "AUDIT_ONLY",
+  "scope": "SYNTHETIC_STORED_COMPARISON_CONTEXT_ONLY",
+  "included_slots": [
+    "current_ae13",
+    "current_ae13_capacity492",
+    "history_ae26_h15",
+    "history_ae26_h30"
+  ],
+  "missing_slots": [],
+  "shared_context": {
+    "selected_policy": "P_U",
+    "source_replay": "VERIFIED",
+    "feature_names": [
+      "completed_source_record_count",
+      "fwd_packet_sum",
+      "bwd_packet_sum",
+      "fwd_source_length_sum",
+      "bwd_source_length_sum",
+      "tcp_source_record_count",
+      "udp_source_record_count",
+      "known_other_source_protocol_record_count",
+      "unresolved_source_protocol_record_count",
+      "duration_max_s",
+      "duration_median_s",
+      "duration_p95_s",
+      "no_backward_packet_source_record_count"
+    ],
+    "qualification_windows": [
+      15,
+      30
+    ],
+    "five_provenance": {
+      "record_manifest": {
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "byte_count": 1
+      },
+      "input_manifest": {
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "byte_count": 1
+      },
+      "source_fixture": {
+        "sha256": "6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2",
+        "byte_count": 213497
+      },
+      "minute_fixture": {
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "byte_count": 1
+      },
+      "preprocess": {
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "byte_count": 1
+      }
+    },
+    "preprocessing_identity": {
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "byte_count": 1
+    },
+    "preprocessing_state": {
+      "schema_version": 1,
+      "profile_id": "c17-i1-g13u-candidate-v1",
+      "evidence_kind": "SYNTHETIC_ONLY",
+      "transform": "log1p_standard_ddof0",
+      "feature_names": [
+        "completed_source_record_count",
+        "fwd_packet_sum",
+        "bwd_packet_sum",
+        "fwd_source_length_sum",
+        "bwd_source_length_sum",
+        "tcp_source_record_count",
+        "udp_source_record_count",
+        "known_other_source_protocol_record_count",
+        "unresolved_source_protocol_record_count",
+        "duration_max_s",
+        "duration_median_s",
+        "duration_p95_s",
+        "no_backward_packet_source_record_count"
+      ],
+      "mean": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_samples_seen": 6,
+      "fit_window": 30
+    },
+    "qualification_protocol": {
+      "fit_scope": "TRAIN_NORMAL_COMMON",
+      "calibration_scope": "CALIBRATION_NORMAL_COMMON",
+      "quantile": 0.99,
+      "quantile_method": "linear",
+      "alarm_comparison": "STRICT_GREATER",
+      "preprocessing_fit_provenance": "NOT_REESTIMATED"
+    },
+    "qualification_axis_identity": {
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "byte_count": 1
+    },
+    "minute_count": 144,
+    "score_valid_count": 24,
+    "fit_count": 6,
+    "calibration_count": 6,
+    "test_denominators_by_policy": {
+      "P_U": {
+        "calendar_test_minutes": 36,
+        "scored_test_minutes": 6,
+        "excluded_unscored_test_minutes": 30,
+        "normal_minutes": 0,
+        "attack_minutes": 0,
+        "unknown_minutes": 6,
+        "unknown_source_attack_present": 2
+      },
+      "P_B": {
+        "calendar_test_minutes": 36,
+        "scored_test_minutes": 6,
+        "excluded_unscored_test_minutes": 30,
+        "normal_minutes": 4,
+        "attack_minutes": 2,
+        "unknown_minutes": 0,
+        "unknown_source_attack_present": 0
+      },
+      "P_A": {
+        "calendar_test_minutes": 36,
+        "scored_test_minutes": 6,
+        "excluded_unscored_test_minutes": 30,
+        "normal_minutes": 2,
+        "attack_minutes": 4,
+        "unknown_minutes": 0,
+        "unknown_source_attack_present": 0
+      }
+    }
+  },
+  "runs": [
+    {
+      "slot": "current_ae13",
+      "run_id": "display-current288",
+      "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+      "verifier_profile_id": "c17-i1-g13u-ae-run-verifier-v1",
+      "configuration": {
+        "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+        "parameter_status": "ENGINEERING_TOY_ONLY",
+        "method": "current_ae",
+        "input_width": 13,
+        "history_window": null,
+        "architecture": [
+          13,
+          8,
+          3,
+          8,
+          13
+        ],
+        "parameter_count": 288,
+        "activation": "RELU_HIDDEN_LINEAR_OUTPUT",
+        "device": "cpu",
+        "training_dtype": "float32",
+        "score_dtype": "float64",
+        "score_rule": "FLOAT64_CHANNEL_MSE_EQUAL_WEIGHT",
+        "epochs": 5,
+        "batch_strategy": "FULL_BATCH",
+        "shuffle": false,
+        "optimizer": "Adam",
+        "optimizer_cpu_guard": "INSTANCE_LOCAL_HEALTH_CHECK_V1",
+        "optimizer_healthcheck_api": "_accelerator_graph_capture_health_check",
+        "learning_rate": 0.001,
+        "adam_betas": [
+          0.9,
+          0.999
+        ],
+        "adam_epsilon": 1e-08,
+        "weight_decay": 0.0,
+        "amsgrad": false,
+        "random_state": 42,
+        "fit_scope": "TRAIN_NORMAL_COMMON",
+        "calibration_scope": "CALIBRATION_NORMAL_COMMON",
+        "quantile": 0.99,
+        "quantile_method": "linear",
+        "alarm_comparison": "STRICT_GREATER",
+        "preprocessing_fit_provenance": "NOT_REESTIMATED"
+      },
+      "configuration_sha256": "3ee1b94e867b968987106d539ea3f3cf5c40c4f8f35d2a0e0a89c5812c9607d1",
+      "library_versions": {
+        "python": "3.14",
+        "numpy": "2.5",
+        "torch": "2.14"
+      },
+      "runtime": {
+        "device": "cpu",
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 1
+      },
+      "architecture": [
+        13,
+        8,
+        3,
+        8,
+        13
+      ],
+      "parameter_count": 288,
+      "parameter_count_reason": null,
+      "threshold": 0.0,
+      "calibration": {
+        "sample_count": 6,
+        "quantile": 0.99,
+        "method": "linear",
+        "comparison": "STRICT_GREATER",
+        "order_position_zero_based": 4.95,
+        "strictly_above_count": 1,
+        "equal_count": 0
+      },
+      "policies": {
+        "P_U": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 0,
+          "attack_minutes": 0,
+          "unknown_minutes": 6,
+          "unknown_source_attack_present": 2,
+          "confusion_counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "metrics": {
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "fpr": null,
+            "fnr": null
+          },
+          "undefined_reasons": {
+            "precision": "No positive predictions on scored normal or attack test minutes.",
+            "recall": "No scored attack test minutes.",
+            "f1": "No scored attack test minutes or positive predictions on scored labeled test minutes.",
+            "fpr": "No scored normal test minutes.",
+            "fnr": "No scored attack test minutes."
+          }
+        },
+        "P_B": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 4,
+          "attack_minutes": 2,
+          "unknown_minutes": 0,
+          "unknown_source_attack_present": 0,
+          "confusion_counts": {
+            "tp": 1,
+            "fp": 0,
+            "tn": 4,
+            "fn": 1
+          },
+          "metrics": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "fpr": 0.0,
+            "fnr": 0.5
+          },
+          "undefined_reasons": {}
+        },
+        "P_A": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 2,
+          "attack_minutes": 4,
+          "unknown_minutes": 0,
+          "unknown_source_attack_present": 0,
+          "confusion_counts": {
+            "tp": 2,
+            "fp": 1,
+            "tn": 1,
+            "fn": 2
+          },
+          "metrics": {
+            "precision": 0.6666666666666666,
+            "recall": 0.5,
+            "f1": 0.5714285714285714,
+            "fpr": 0.5,
+            "fnr": 0.5
+          },
+          "undefined_reasons": {}
+        }
+      },
+      "actual_five_artifacts": {
+        "manifest.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "model-state.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "scores.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "evaluation.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "weights.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        }
+      },
+      "verification_checks": {
+        "byte_integrity": "VERIFIED",
+        "upstream_lineage": "VERIFIED",
+        "source_replay": "VERIFIED",
+        "weights_json_structure": "VERIFIED",
+        "stored_channel_score_relation": "VERIFIED",
+        "stored_score_calibration": "VERIFIED",
+        "strict_alarms": "VERIFIED",
+        "evaluation": "VERIFIED",
+        "model_deserialization": "NOT_PERFORMED",
+        "network_reconstruction": "NOT_PERFORMED",
+        "model_score_replay": "NOT_CHECKED",
+        "training_execution": "NOT_CHECKED",
+        "training_loss_replay": "NOT_CHECKED",
+        "model_origin": "NOT_AUTHENTICATED",
+        "library_versions": "DECLARATION_CONSISTENT_ONLY"
+      },
+      "verification_scope": "STORED_ARTIFACT_CONSISTENCY_ONLY"
+    },
+    {
+      "slot": "current_ae13_capacity492",
+      "run_id": "display-current492",
+      "model_profile_id": "c17-i1-g13u-ae-current-capacity492-synthetic-v1",
+      "verifier_profile_id": "c17-i1-g13u-ae-capacity-run-verifier-v1",
+      "configuration": {
+        "model_profile_id": "c17-i1-g13u-ae-current-capacity492-synthetic-v1",
+        "parameter_status": "ENGINEERING_TOY_ONLY",
+        "method": "current_ae",
+        "input_width": 13,
+        "history_window": null,
+        "architecture": [
+          13,
+          14,
+          3,
+          14,
+          13
+        ],
+        "parameter_count": 492,
+        "activation": "RELU_HIDDEN_LINEAR_OUTPUT",
+        "device": "cpu",
+        "training_dtype": "float32",
+        "score_dtype": "float64",
+        "score_rule": "FLOAT64_CHANNEL_MSE_EQUAL_WEIGHT",
+        "epochs": 5,
+        "batch_strategy": "FULL_BATCH",
+        "shuffle": false,
+        "optimizer": "Adam",
+        "optimizer_cpu_guard": "INSTANCE_LOCAL_HEALTH_CHECK_V1",
+        "optimizer_healthcheck_api": "_accelerator_graph_capture_health_check",
+        "learning_rate": 0.001,
+        "adam_betas": [
+          0.9,
+          0.999
+        ],
+        "adam_epsilon": 1e-08,
+        "weight_decay": 0.0,
+        "amsgrad": false,
+        "random_state": 42,
+        "fit_scope": "TRAIN_NORMAL_COMMON",
+        "calibration_scope": "CALIBRATION_NORMAL_COMMON",
+        "quantile": 0.99,
+        "quantile_method": "linear",
+        "alarm_comparison": "STRICT_GREATER",
+        "preprocessing_fit_provenance": "NOT_REESTIMATED"
+      },
+      "configuration_sha256": "817e3894b757386785d530e7c4d6882ab2ccdf455544546cf5e4cf4a3241fb5c",
+      "library_versions": {
+        "python": "3.14",
+        "numpy": "2.5",
+        "torch": "2.14"
+      },
+      "runtime": {
+        "device": "cpu",
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 1
+      },
+      "architecture": [
+        13,
+        14,
+        3,
+        14,
+        13
+      ],
+      "parameter_count": 492,
+      "parameter_count_reason": null,
+      "threshold": 0.375,
+      "calibration": {
+        "sample_count": 6,
+        "quantile": 0.99,
+        "method": "linear",
+        "comparison": "STRICT_GREATER",
+        "order_position_zero_based": 4.95,
+        "strictly_above_count": 1,
+        "equal_count": 0
+      },
+      "policies": {
+        "P_U": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 0,
+          "attack_minutes": 0,
+          "unknown_minutes": 6,
+          "unknown_source_attack_present": 2,
+          "confusion_counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "metrics": {
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "fpr": null,
+            "fnr": null
+          },
+          "undefined_reasons": {
+            "precision": "No positive predictions on scored normal or attack test minutes.",
+            "recall": "No scored attack test minutes.",
+            "f1": "No scored attack test minutes or positive predictions on scored labeled test minutes.",
+            "fpr": "No scored normal test minutes.",
+            "fnr": "No scored attack test minutes."
+          }
+        },
+        "P_B": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 4,
+          "attack_minutes": 2,
+          "unknown_minutes": 0,
+          "unknown_source_attack_present": 0,
+          "confusion_counts": {
+            "tp": 1,
+            "fp": 0,
+            "tn": 4,
+            "fn": 1
+          },
+          "metrics": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "fpr": 0.0,
+            "fnr": 0.5
+          },
+          "undefined_reasons": {}
+        },
+        "P_A": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 2,
+          "attack_minutes": 4,
+          "unknown_minutes": 0,
+          "unknown_source_attack_present": 0,
+          "confusion_counts": {
+            "tp": 2,
+            "fp": 1,
+            "tn": 1,
+            "fn": 2
+          },
+          "metrics": {
+            "precision": 0.6666666666666666,
+            "recall": 0.5,
+            "f1": 0.5714285714285714,
+            "fpr": 0.5,
+            "fnr": 0.5
+          },
+          "undefined_reasons": {}
+        }
+      },
+      "actual_five_artifacts": {
+        "manifest.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "model-state.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "scores.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "evaluation.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "weights.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        }
+      },
+      "verification_checks": {
+        "byte_integrity": "VERIFIED",
+        "upstream_lineage": "VERIFIED",
+        "source_replay": "VERIFIED",
+        "weights_json_structure": "VERIFIED",
+        "stored_channel_score_relation": "VERIFIED",
+        "stored_score_calibration": "VERIFIED",
+        "strict_alarms": "VERIFIED",
+        "evaluation": "VERIFIED",
+        "model_deserialization": "NOT_PERFORMED",
+        "network_reconstruction": "NOT_PERFORMED",
+        "model_score_replay": "NOT_CHECKED",
+        "training_execution": "NOT_CHECKED",
+        "training_loss_replay": "NOT_CHECKED",
+        "model_origin": "NOT_AUTHENTICATED",
+        "library_versions": "DECLARATION_CONSISTENT_ONLY"
+      },
+      "verification_scope": "STORED_ARTIFACT_CONSISTENCY_ONLY"
+    },
+    {
+      "slot": "history_ae26_h15",
+      "run_id": "display-h15",
+      "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+      "verifier_profile_id": "c17-i1-g13u-ae-run-verifier-v1",
+      "configuration": {
+        "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+        "parameter_status": "ENGINEERING_TOY_ONLY",
+        "method": "history_ae",
+        "input_width": 26,
+        "history_window": 15,
+        "architecture": [
+          26,
+          8,
+          3,
+          8,
+          26
+        ],
+        "parameter_count": 509,
+        "activation": "RELU_HIDDEN_LINEAR_OUTPUT",
+        "device": "cpu",
+        "training_dtype": "float32",
+        "score_dtype": "float64",
+        "score_rule": "FLOAT64_CHANNEL_MSE_EQUAL_WEIGHT",
+        "epochs": 5,
+        "batch_strategy": "FULL_BATCH",
+        "shuffle": false,
+        "optimizer": "Adam",
+        "optimizer_cpu_guard": "INSTANCE_LOCAL_HEALTH_CHECK_V1",
+        "optimizer_healthcheck_api": "_accelerator_graph_capture_health_check",
+        "learning_rate": 0.001,
+        "adam_betas": [
+          0.9,
+          0.999
+        ],
+        "adam_epsilon": 1e-08,
+        "weight_decay": 0.0,
+        "amsgrad": false,
+        "random_state": 42,
+        "fit_scope": "TRAIN_NORMAL_COMMON",
+        "calibration_scope": "CALIBRATION_NORMAL_COMMON",
+        "quantile": 0.99,
+        "quantile_method": "linear",
+        "alarm_comparison": "STRICT_GREATER",
+        "preprocessing_fit_provenance": "NOT_REESTIMATED"
+      },
+      "configuration_sha256": "8c54074134fe276b0329b0445f6e518333607dca7eb881b56563d1ada409d1b9",
+      "library_versions": {
+        "python": "3.14",
+        "numpy": "2.5",
+        "torch": "2.14"
+      },
+      "runtime": {
+        "device": "cpu",
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 1
+      },
+      "architecture": [
+        26,
+        8,
+        3,
+        8,
+        26
+      ],
+      "parameter_count": 509,
+      "parameter_count_reason": null,
+      "threshold": 0.8,
+      "calibration": {
+        "sample_count": 6,
+        "quantile": 0.99,
+        "method": "linear",
+        "comparison": "STRICT_GREATER",
+        "order_position_zero_based": 4.95,
+        "strictly_above_count": 1,
+        "equal_count": 0
+      },
+      "policies": {
+        "P_U": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 0,
+          "attack_minutes": 0,
+          "unknown_minutes": 6,
+          "unknown_source_attack_present": 2,
+          "confusion_counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "metrics": {
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "fpr": null,
+            "fnr": null
+          },
+          "undefined_reasons": {
+            "precision": "No positive predictions on scored normal or attack test minutes.",
+            "recall": "No scored attack test minutes.",
+            "f1": "No scored attack test minutes or positive predictions on scored labeled test minutes.",
+            "fpr": "No scored normal test minutes.",
+            "fnr": "No scored attack test minutes."
+          }
+        },
+        "P_B": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 4,
+          "attack_minutes": 2,
+          "unknown_minutes": 0,
+          "unknown_source_attack_present": 0,
+          "confusion_counts": {
+            "tp": 1,
+            "fp": 0,
+            "tn": 4,
+            "fn": 1
+          },
+          "metrics": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "fpr": 0.0,
+            "fnr": 0.5
+          },
+          "undefined_reasons": {}
+        },
+        "P_A": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 2,
+          "attack_minutes": 4,
+          "unknown_minutes": 0,
+          "unknown_source_attack_present": 0,
+          "confusion_counts": {
+            "tp": 2,
+            "fp": 1,
+            "tn": 1,
+            "fn": 2
+          },
+          "metrics": {
+            "precision": 0.6666666666666666,
+            "recall": 0.5,
+            "f1": 0.5714285714285714,
+            "fpr": 0.5,
+            "fnr": 0.5
+          },
+          "undefined_reasons": {}
+        }
+      },
+      "actual_five_artifacts": {
+        "manifest.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "model-state.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "scores.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "evaluation.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "weights.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        }
+      },
+      "verification_checks": {
+        "byte_integrity": "VERIFIED",
+        "upstream_lineage": "VERIFIED",
+        "source_replay": "VERIFIED",
+        "weights_json_structure": "VERIFIED",
+        "stored_channel_score_relation": "VERIFIED",
+        "stored_score_calibration": "VERIFIED",
+        "strict_alarms": "VERIFIED",
+        "evaluation": "VERIFIED",
+        "model_deserialization": "NOT_PERFORMED",
+        "network_reconstruction": "NOT_PERFORMED",
+        "model_score_replay": "NOT_CHECKED",
+        "training_execution": "NOT_CHECKED",
+        "training_loss_replay": "NOT_CHECKED",
+        "model_origin": "NOT_AUTHENTICATED",
+        "library_versions": "DECLARATION_CONSISTENT_ONLY"
+      },
+      "verification_scope": "STORED_ARTIFACT_CONSISTENCY_ONLY"
+    },
+    {
+      "slot": "history_ae26_h30",
+      "run_id": "display-h30",
+      "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+      "verifier_profile_id": "c17-i1-g13u-ae-run-verifier-v1",
+      "configuration": {
+        "model_profile_id": "c17-i1-g13u-ae-synthetic-v1",
+        "parameter_status": "ENGINEERING_TOY_ONLY",
+        "method": "history_ae",
+        "input_width": 26,
+        "history_window": 30,
+        "architecture": [
+          26,
+          8,
+          3,
+          8,
+          26
+        ],
+        "parameter_count": 509,
+        "activation": "RELU_HIDDEN_LINEAR_OUTPUT",
+        "device": "cpu",
+        "training_dtype": "float32",
+        "score_dtype": "float64",
+        "score_rule": "FLOAT64_CHANNEL_MSE_EQUAL_WEIGHT",
+        "epochs": 5,
+        "batch_strategy": "FULL_BATCH",
+        "shuffle": false,
+        "optimizer": "Adam",
+        "optimizer_cpu_guard": "INSTANCE_LOCAL_HEALTH_CHECK_V1",
+        "optimizer_healthcheck_api": "_accelerator_graph_capture_health_check",
+        "learning_rate": 0.001,
+        "adam_betas": [
+          0.9,
+          0.999
+        ],
+        "adam_epsilon": 1e-08,
+        "weight_decay": 0.0,
+        "amsgrad": false,
+        "random_state": 42,
+        "fit_scope": "TRAIN_NORMAL_COMMON",
+        "calibration_scope": "CALIBRATION_NORMAL_COMMON",
+        "quantile": 0.99,
+        "quantile_method": "linear",
+        "alarm_comparison": "STRICT_GREATER",
+        "preprocessing_fit_provenance": "NOT_REESTIMATED"
+      },
+      "configuration_sha256": "88a2a59bb35b55413eb865796c1aba845e158bfbbfb8d4d951873dd4e52d3eb1",
+      "library_versions": {
+        "python": "3.14",
+        "numpy": "2.5",
+        "torch": "2.14"
+      },
+      "runtime": {
+        "device": "cpu",
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 1
+      },
+      "architecture": [
+        26,
+        8,
+        3,
+        8,
+        26
+      ],
+      "parameter_count": 509,
+      "parameter_count_reason": null,
+      "threshold": 1.25,
+      "calibration": {
+        "sample_count": 6,
+        "quantile": 0.99,
+        "method": "linear",
+        "comparison": "STRICT_GREATER",
+        "order_position_zero_based": 4.95,
+        "strictly_above_count": 1,
+        "equal_count": 0
+      },
+      "policies": {
+        "P_U": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 0,
+          "attack_minutes": 0,
+          "unknown_minutes": 6,
+          "unknown_source_attack_present": 2,
+          "confusion_counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "metrics": {
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "fpr": null,
+            "fnr": null
+          },
+          "undefined_reasons": {
+            "precision": "No positive predictions on scored normal or attack test minutes.",
+            "recall": "No scored attack test minutes.",
+            "f1": "No scored attack test minutes or positive predictions on scored labeled test minutes.",
+            "fpr": "No scored normal test minutes.",
+            "fnr": "No scored attack test minutes."
+          }
+        },
+        "P_B": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 4,
+          "attack_minutes": 2,
+          "unknown_minutes": 0,
+          "unknown_source_attack_present": 0,
+          "confusion_counts": {
+            "tp": 1,
+            "fp": 0,
+            "tn": 4,
+            "fn": 1
+          },
+          "metrics": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "fpr": 0.0,
+            "fnr": 0.5
+          },
+          "undefined_reasons": {}
+        },
+        "P_A": {
+          "calendar_test_minutes": 36,
+          "scored_test_minutes": 6,
+          "excluded_unscored_test_minutes": 30,
+          "normal_minutes": 2,
+          "attack_minutes": 4,
+          "unknown_minutes": 0,
+          "unknown_source_attack_present": 0,
+          "confusion_counts": {
+            "tp": 2,
+            "fp": 1,
+            "tn": 1,
+            "fn": 2
+          },
+          "metrics": {
+            "precision": 0.6666666666666666,
+            "recall": 0.5,
+            "f1": 0.5714285714285714,
+            "fpr": 0.5,
+            "fnr": 0.5
+          },
+          "undefined_reasons": {}
+        }
+      },
+      "actual_five_artifacts": {
+        "manifest.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "model-state.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "scores.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "evaluation.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        },
+        "weights.json": {
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "byte_count": 1
+        }
+      },
+      "verification_checks": {
+        "byte_integrity": "VERIFIED",
+        "upstream_lineage": "VERIFIED",
+        "source_replay": "VERIFIED",
+        "weights_json_structure": "VERIFIED",
+        "stored_channel_score_relation": "VERIFIED",
+        "stored_score_calibration": "VERIFIED",
+        "strict_alarms": "VERIFIED",
+        "evaluation": "VERIFIED",
+        "model_deserialization": "NOT_PERFORMED",
+        "network_reconstruction": "NOT_PERFORMED",
+        "model_score_replay": "NOT_CHECKED",
+        "training_execution": "NOT_CHECKED",
+        "training_loss_replay": "NOT_CHECKED",
+        "model_origin": "NOT_AUTHENTICATED",
+        "library_versions": "DECLARATION_CONSISTENT_ONLY"
+      },
+      "verification_scope": "STORED_ARTIFACT_CONSISTENCY_ONLY"
+    }
+  ],
+  "control_design": {
+    "fixed_current_profile": "c17-i1-g13u-ae-current-capacity492-synthetic-v1",
+    "reference_parameter_count": 509,
+    "parameter_count_formula": "SUM_LINEAR_WEIGHTS_AND_BIASES_V1",
+    "no_history_input": true,
+    "near_count": {
+      "absolute_difference": 17,
+      "relative_difference": 0.03339882121807466,
+      "tolerance": 0.05,
+      "status": "PREDEFINED_COUNT_ONLY"
+    },
+    "same_hidden_width_pairs": [
+      [
+        "current_ae13",
+        "history_ae26_h15"
+      ],
+      [
+        "current_ae13",
+        "history_ae26_h30"
+      ]
+    ],
+    "near_parameter_count_pairs": [
+      [
+        "current_ae13_capacity492",
+        "history_ae26_h15"
+      ],
+      [
+        "current_ae13_capacity492",
+        "history_ae26_h30"
+      ]
+    ],
+    "same_hidden_width_control_present": true,
+    "controls_materials_complete": true
+  },
+  "limitations": {
+    "capacity_control": "NOT_COMPARABLE",
+    "history_causal_attribution": "NOT_COMPARABLE",
+    "cross_model_score_scale": "NOT_COMPARABLE",
+    "ranking": "NOT_PERFORMED",
+    "statistical_significance": "NOT_PERFORMED",
+    "model_execution": "NOT_CHECKED",
+    "model_origin": "NOT_AUTHENTICATED",
+    "capacity_control_reason": "PARAMETER_COUNT_NEAR_MATCH_DOES_NOT_ESTABLISH_EQUAL_EFFECTIVE_CAPACITY",
+    "execution_controls": "SHARED_DECLARATIONS_CONSISTENT_ONLY"
+  }
+}

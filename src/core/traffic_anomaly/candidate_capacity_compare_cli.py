@@ -7,8 +7,7 @@ import sys
 
 from .candidate_cli import _Parser,_SafeError
 from .candidate_capacity_comparison import compare_candidate_ae_capacity_runs,CandidateCapacityComparisonError
-
-MAX_OUTPUT_BYTES=1048576
+from .candidate_capacity_snapshot import encode_capacity_report,MAX_OUTPUT_BYTES
 
 
 def main(argv=None):
@@ -21,8 +20,7 @@ def main(argv=None):
         args=parser.parse_args(argv)
         if not 2<=len(args.ae_run)<=4:raise _SafeError('INVALID_ARGUMENTS')
         report=compare_candidate_ae_capacity_runs(args.ae_run,args.records,args.inputs,source_fixture=args.source_fixture)
-        payload=json.dumps(report,ensure_ascii=False,allow_nan=False,sort_keys=True,separators=(',',':')).encode('utf-8')+b'\n'
-        if len(payload)>MAX_OUTPUT_BYTES:raise CandidateCapacityComparisonError('RESOURCE_LIMIT')
+        payload=encode_capacity_report(report)
     except _SafeError:
         code='INVALID_ARGUMENTS'
     except CandidateCapacityComparisonError as error:

@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "current_stage": "S2",
-  "theme": "修复固定人工夹具的跨平台字节身份；真实Gate仍BLOCKED",
+  "theme": "人工容量对照CLI/HTTP/网页验收通过；真实Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "审计批882b67d已Desktop推送，三项远端CI成功；容量批39e9416已推送，Linux集成检查发现固定人工源换行身份不兼容。",
-    "固定人工源LF/CRLF精确身份兼容修复：17项定向、原字节与LF模拟各165项通过，独立19项纯身份检查通过；计数重叠不合并。",
-    "修复后原CRLF包只读验算及四模型比较与旧结果完全一致，原67项、旧安装58文件及新包5文件保持；没有再次运行人工模型。",
-    "W0—W3并发交付已完成；容量HTTP/UI14—16仍NOT_RUN，真实拟合/评分/正式比较和Data Gate状态保持。",
-    "本次属于原12:00截止之后的恢复收尾；修复提交及新CI按实际后续结果登记。"
+    "已有人工AE容量对照新增共享字节快照、隔离HTTP和中文四槽页面；不运行新模型，不迁移生产134/268。",
+    "核心43项专项/196项相关、修复后后端435项、前端22项专项/147项全量及类型/契约/构建通过；范围重叠不合计。",
+    "保留首次四次请求期源码读取导致的验收失败；锁定框架启动预热修复、冷进程回归和独立审查通过，守卫不放宽。",
+    "修复后新安装59核心和20后端文件；完整组与492＋H15子集CLI/HTTP原字节、实际浏览器、正常停止和产物保持均通过。",
+    "原人工包与旧安装保持；当前批提交/推送/CI待完成，真实拟合、训练、评分、校准和正式比较仍NOT_RUN。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -35,6 +35,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "容量对照页面与接口",
+      "path": "docs/guides/candidate-capacity-viewer.md"
+    },
+    {
+      "label": "容量页面实际验证",
+      "path": "docs/research/2026-11-07-candidate-capacity-viewer-verification.json"
+    },
     {
       "label": "AE参数数量对照",
       "path": "docs/guides/candidate-ae-capacity.md"
@@ -2476,13 +2484,42 @@
     "preserved_original_files": 67,
     "backend_related_tests": 61,
     "frontend_tests": 125,
-    "capacity_http": "NOT_RUN",
-    "capacity_ui": "NOT_RUN",
+    "capacity_http": "PASS_SEE_VIEWER_FOLLOWUP",
+    "capacity_ui": "PASS_SEE_VIEWER_FOLLOWUP",
     "real_model_training": "NOT_RUN",
     "verification": "docs/research/2026-11-06-candidate-ae-capacity-verification.json",
-    "synchronization": "PORTABILITY_FIX_LOCAL_PASS_PENDING_DESKTOP_PUSH_AND_CI",
+    "synchronization": "PORTABILITY_FIX_PUSHED_CI_PASS",
     "portability_related_tests": 165,
     "portability_lf_simulation_tests": 165,
-    "portability_existing_package_readonly": "PASS"
+    "portability_existing_package_readonly": "PASS",
+    "portability_commit": "cf25285040477050d9024a69e829c48757d984a4",
+    "viewer_followup": "docs/research/2026-11-07-candidate-capacity-viewer-verification.json"
+  },
+  "candidate_capacity_viewer": {
+    "status": "LOCAL_ACCEPTANCE_PASS",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "core_targeted_tests": 43,
+    "core_related_tests": 196,
+    "backend_related_tests": 435,
+    "frontend_targeted_tests": 22,
+    "frontend_total_tests": 147,
+    "test_counts_overlap": true,
+    "fresh_installed_files": 79,
+    "full_group": "PASS",
+    "full_browser": "PASS",
+    "subset_browser": "PASS",
+    "subset_lifecycle": "PASS",
+    "first_attempt": "FAILED_GUARD_RETAINED",
+    "request_open_after_fix_full": 0,
+    "new_models": "NOT_RUN",
+    "real_models": "NOT_RUN",
+    "data_gate": "BLOCKED",
+    "verification": "docs/research/2026-11-07-candidate-capacity-viewer-verification.json",
+    "synchronization": "NOT_RUN",
+    "subset_group": "PASS",
+    "request_open_after_fix_subset": 0,
+    "actual_cli_http_pairs": 2,
+    "script_requests": 14,
+    "independent_acceptance_review": "PASS"
   }
 }
