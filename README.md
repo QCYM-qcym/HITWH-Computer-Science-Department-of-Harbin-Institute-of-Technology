@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-06**。当前阶段：**数据审计**；本轮主题：单次文件读取与磁盘聚合通过约210万条人工验收；继续固定AE控制，真实Gate仍BLOCKED。
+最近更新：**2026-11-06**。当前阶段：**数据审计**；本轮主题：小预算离线审计通过安装人工验收；AE容量对照独立交付，真实Data Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,10 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增有界文件读取与一次性磁盘聚合，完整源SHA、全组判重和精确分位保持；联合387项通过、5项主机限制跳过。
-- 53核心源码安装一致；约210万条人工记录全部结果核对通过，聚合约162秒、峰值工作集86716416字节。
-- 修正私有监控的启动器PID误读，实际计算进程身份、环境及中断清理已核；保留首次观测限制。
-- 第四批Desktop与CI成功已回填；下一步固定AE492参数数量控制，真实数据/模型与正式实验仍NOT_RUN。
+- 小预算离线审计入口完成独立复审：最终CLI测试69通过/1主机权限跳过；已有锁定环境安装54文件并完成4个实际CLI用例。
+- 新造576条记录形成144个有效审计分钟，四段及三政策计数核对；与IF人工验收的24个共同有效分钟分开。
+- 发布CSV分钟与既有JSON输入的人工等价验收已完成，保留零报警/全漏报负例；未新增CSV模型执行入口。
+- 上一bd6d7ba提交的Desktop与三项成功CI已回填；本批尚待发布，AE11–13另批验收交付，容量HTTP/UI14–16仍NOT_RUN。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +80,9 @@ flowchart TB
 
 **最新成果入口**
 
+- [小预算离线审计](<docs/guides/release-audit-cli.md>)
+- [离线审计实际验收](<docs/research/2026-11-06-release-audit-cli-verification.json>)
+- [发布记录与IF人工等价](<docs/guides/release-if-equivalence.md>)
 - [文件适配与容量](<docs/guides/release-file-adapter.md>)
 - [文件适配验证](<docs/research/2026-11-06-release-file-verification.json>)
 - [发布格式人工适配](<docs/guides/release-format-adapter.md>)

@@ -1,0 +1,385 @@
+{
+  "date": "2026-11-06",
+  "status": "ARTIFICIAL_INSTALLED_AUDIT_ACCEPTANCE_PASS",
+  "scope": "SMALL_BUDGET_OFFLINE_FILE_AUDIT_ONLY",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "source_authentication": "NOT_AUTHENTICATED",
+  "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+  "sources": {
+    "src/core/traffic_anomaly/release_audit_cli.py": {
+      "sha256": "b7a7d13cba253f524269f69a544fdd056fcf87d026310aec2968e1395b48f650",
+      "byte_count": 14177
+    },
+    "tests/core/test_release_audit_cli.py": {
+      "sha256": "e0a2363a297c2e55b66069dfeaa691b8884dead4a178b4075075f8a605c7b60b",
+      "byte_count": 20225
+    }
+  },
+  "tests": {
+    "command": "python -X utf8 -m pytest tests/core/test_release_audit_cli.py -q -rs",
+    "final_cli_passed": 69,
+    "final_cli_skipped": 1,
+    "seconds": 0.8,
+    "skip_reason": "HOST_SYMLINK_PRIVILEGE_UNAVAILABLE",
+    "independent_final_narrow_passed": 3,
+    "independent_final_narrow_deselected": 67,
+    "independent_final_narrow_seconds": 0.04,
+    "historical_combined_before_two_review_fixes": {
+      "passed": 450,
+      "skipped": 6
+    },
+    "unchanged_lower_layers_historical": {
+      "passed": 387,
+      "skipped": 5
+    },
+    "combined_after_final_fix": "NOT_RERUN",
+    "groups_overlap": true,
+    "actual_posix_or_wsl": "NOT_RUN",
+    "portable_path_checks": "PURE_PATH_LEXICAL_SIMULATION_ONLY",
+    "whole_project_frontend_backend": "NOT_RERUN"
+  },
+  "failure_history": [
+    {
+      "step": "initial_missing_module",
+      "failed": 43,
+      "resolution": "IMPLEMENTED_AFTER_RED"
+    },
+    {
+      "step": "first_green_fixture_timestamp",
+      "passed": 42,
+      "failed": 1,
+      "resolution": "FIX_TEST_FRACTIONAL_SUFFIX_NO_PARSER_CHANGE"
+    },
+    {
+      "step": "cleanup_flag",
+      "passed": 46,
+      "failed": 1,
+      "skipped": 1,
+      "resolution": "SAFE_BOOLEAN_PROJECTION"
+    },
+    {
+      "step": "unknown_primary_cleanup_flag",
+      "passed": 62,
+      "failed": 1,
+      "skipped": 1,
+      "resolution": "PRESERVE_FLAG_WITH_FIXED_ERROR"
+    },
+    {
+      "step": "known_vocabulary_error_mapping",
+      "failed": 3,
+      "deselected": 64,
+      "post_fix_passed": 66,
+      "post_fix_skipped": 1,
+      "resolution": "ADD_THREE_EXACT_KNOWN_CODES"
+    },
+    {
+      "step": "root_relative_lexical_portability",
+      "failed": 1,
+      "passed": 2,
+      "deselected": 67,
+      "resolution": "REJECT_WINDOWS_ROOT_RELATIVE_BEFORE_HOST_PARSER"
+    }
+  ],
+  "independent_review": {
+    "final_source_and_tests": "PASS",
+    "manual_preparation": "PASS",
+    "documentation_evidence_crosscheck": "PASS"
+  },
+  "installed": {
+    "status": "PASS",
+    "files_count": 54,
+    "build_from_private_source_copy": true,
+    "dependency_environment": "EXISTING_LOCKED_ENV",
+    "fresh_environment": false,
+    "network_not_needed": true,
+    "source_freeze": "FROZEN_RELEASE_SCALABLE_PLUS_REVIEWED_AUDIT_CLI"
+  },
+  "manual": {
+    "actual_report": {
+      "global": {
+        "duplicate_groups": 0,
+        "eligible_records": 576,
+        "excluded_records": 0,
+        "outside_records": 0,
+        "raw_records": 576,
+        "reason_counts": {
+          "cross_partition": 0,
+          "duplicate_record": 0,
+          "empty_unconfirmed": 0,
+          "invalid_bwd_length": 0,
+          "invalid_bwd_packets": 0,
+          "invalid_duration": 0,
+          "invalid_fwd_length": 0,
+          "invalid_fwd_packets": 0,
+          "invalid_protocol": 0,
+          "invalid_timestamp": 0,
+          "invalid_unsupported_protocol": 0,
+          "outside_registered_minutes": 0,
+          "unplaced_invalid_row": 0
+        },
+        "unplaced_invalid_rows": 0
+      },
+      "limits": {
+        "max_database_bytes": 4194304,
+        "max_elapsed_seconds": 30,
+        "max_minutes": 144,
+        "max_rows": 576,
+        "max_total_source_bytes": 1048576
+      },
+      "resources": {
+        "cleanup_status": "CLEANED",
+        "cross_file_duplicate_groups": 0,
+        "database_bytes_at_close": 81920,
+        "database_high_water_observation": "DISCRETE_SAMPLES",
+        "elapsed_seconds": 0.04964599999948405,
+        "observed_database_high_water_bytes": 81920,
+        "reader": {
+          "elapsed_seconds": 0.040968699991935864,
+          "logical_rows": 576,
+          "raw_read_count": 20,
+          "source_bytes_consumed": 153661,
+          "source_content_open_count": 1
+        },
+        "unique_fingerprints": 576
+      },
+      "segments": [
+        {
+          "calendar_minutes": 36,
+          "invalid_minutes": 0,
+          "ordinal": 0,
+          "policies": {
+            "P_A": {
+              "attack": 0,
+              "normal": 36,
+              "unknown": 0
+            },
+            "P_B": {
+              "attack": 0,
+              "normal": 36,
+              "unknown": 0
+            },
+            "P_U": {
+              "attack": 0,
+              "normal": 36,
+              "unknown": 0
+            }
+          },
+          "role": "train",
+          "valid_minutes": 36
+        },
+        {
+          "calendar_minutes": 36,
+          "invalid_minutes": 0,
+          "ordinal": 1,
+          "policies": {
+            "P_A": {
+              "attack": 0,
+              "normal": 36,
+              "unknown": 0
+            },
+            "P_B": {
+              "attack": 0,
+              "normal": 36,
+              "unknown": 0
+            },
+            "P_U": {
+              "attack": 0,
+              "normal": 36,
+              "unknown": 0
+            }
+          },
+          "role": "validation",
+          "valid_minutes": 36
+        },
+        {
+          "calendar_minutes": 36,
+          "invalid_minutes": 0,
+          "ordinal": 2,
+          "policies": {
+            "P_A": {
+              "attack": 0,
+              "normal": 36,
+              "unknown": 0
+            },
+            "P_B": {
+              "attack": 0,
+              "normal": 36,
+              "unknown": 0
+            },
+            "P_U": {
+              "attack": 0,
+              "normal": 36,
+              "unknown": 0
+            }
+          },
+          "role": "calibration",
+          "valid_minutes": 36
+        },
+        {
+          "calendar_minutes": 36,
+          "invalid_minutes": 0,
+          "ordinal": 3,
+          "policies": {
+            "P_A": {
+              "attack": 2,
+              "normal": 34,
+              "unknown": 0
+            },
+            "P_B": {
+              "attack": 1,
+              "normal": 35,
+              "unknown": 0
+            },
+            "P_U": {
+              "attack": 1,
+              "normal": 34,
+              "unknown": 1
+            }
+          },
+          "role": "test",
+          "valid_minutes": 36
+        }
+      ],
+      "source_authentication": "NOT_AUTHENTICATED",
+      "sources": [
+        {
+          "bytes": 153661,
+          "logical_rows": 576,
+          "ordinal": 0,
+          "sha256": "a1047357b9f2a04dfbfed60f7fcacfe478a8969434a32ed6d5bc72d9053101fd"
+        }
+      ],
+      "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+      "version": 1
+    },
+    "cases": [
+      {
+        "actual_process_verified": true,
+        "case": "success",
+        "elapsed_seconds": 0.30287179999868385,
+        "expected_error": null,
+        "model_imports": "NONE",
+        "network": "FORBIDDEN",
+        "parent_limit_seconds": 45,
+        "process_tree_control": false,
+        "reaped": true,
+        "returncode": 0,
+        "venv_verified": true
+      },
+      {
+        "actual_process_verified": true,
+        "case": "existing-output",
+        "elapsed_seconds": 0.22685289999935776,
+        "expected_error": "OUTPUT_EXISTS",
+        "model_imports": "NONE",
+        "network": "FORBIDDEN",
+        "parent_limit_seconds": 45,
+        "process_tree_control": false,
+        "reaped": true,
+        "returncode": 2,
+        "venv_verified": true
+      },
+      {
+        "actual_process_verified": true,
+        "case": "wrong-sha",
+        "elapsed_seconds": 0.2724009999947157,
+        "expected_error": "SOURCE_HASH_MISMATCH",
+        "model_imports": "NONE",
+        "network": "FORBIDDEN",
+        "parent_limit_seconds": 45,
+        "process_tree_control": false,
+        "reaped": true,
+        "returncode": 2,
+        "venv_verified": true
+      },
+      {
+        "actual_process_verified": true,
+        "case": "row-cap",
+        "elapsed_seconds": 0.2700249000045005,
+        "expected_error": "MAX_ROWS",
+        "model_imports": "NONE",
+        "network": "FORBIDDEN",
+        "parent_limit_seconds": 45,
+        "process_tree_control": false,
+        "reaped": true,
+        "returncode": 2,
+        "venv_verified": true
+      }
+    ],
+    "existing_output_unchanged": true,
+    "expected_global": {
+      "duplicate_groups": 0,
+      "eligible_records": 576,
+      "excluded_records": 0,
+      "outside_records": 0,
+      "raw_records": 576,
+      "unplaced_invalid_rows": 0
+    },
+    "installed_core_files": 54,
+    "installed_files_unchanged": true,
+    "model_execution": "NOT_RUN",
+    "negative_outputs_empty": true,
+    "real_data": "NOT_RUN",
+    "report_identity": {
+      "byte_count": 2209,
+      "sha256": "a271a2def93c4acdf7c3499f1b2eef8174b25245feece85c9a54e9a1affc25b8"
+    },
+    "scope": "FRESH_ARTIFICIAL_INSTALLED_AUDIT_ONLY",
+    "source_identity": {
+      "byte_count": 153661,
+      "sha256": "a1047357b9f2a04dfbfed60f7fcacfe478a8969434a32ed6d5bc72d9053101fd"
+    },
+    "source_unchanged": true,
+    "status": "PASS"
+  },
+  "record_review": {
+    "date": "2026-11-06",
+    "scope": "EXISTING_LOGS_ACCEPTANCE_JSON_AND_SOURCE_IDENTITIES_ONLY",
+    "reran_cli": false,
+    "reran_models": false,
+    "reopened_source_payload": false,
+    "reopened_completed_output_pair": false,
+    "completion_evidence": "PRIOR_REVIEWED_HELPER_ASSERTIONS_AND_SUCCESS_RECORD",
+    "installed_snapshot_scope": "54_FILES_AT_PRIOR_ACCEPTANCE_NOT_CURRENT_PARALLEL_WORKTREE"
+  },
+  "limits": {
+    "audit_population": "144_CALENDAR_MINUTES_NOT_IF_COMMON_VALID_24_MINUTES",
+    "parent_timeout_path": "NOT_TRIGGERED_IN_FOUR_CASES",
+    "process_tree_control": false,
+    "hard_memory_limit": false,
+    "database_high_water": "DISCRETE_SAMPLES",
+    "fresh_environment_reproduction": "NOT_RUN_EXISTING_LOCKED_ENV",
+    "source_or_capture_authentication": "NOT_ESTABLISHED"
+  },
+  "related_artificial_if_equivalence": "docs/research/2026-11-06-release-if-equivalence-verification.json",
+  "new_payload_downloads": 0,
+  "real_data_read": "NOT_RUN",
+  "real_feature_vectors": "NOT_PRODUCED",
+  "real_preprocessing": "NOT_RUN",
+  "real_training": "NOT_RUN",
+  "real_scoring": "NOT_RUN",
+  "real_calibration": "NOT_RUN",
+  "formal_comparison": "NOT_RUN",
+  "production_contract_changed": false,
+  "final_label_policy": "NOT_APPROVED",
+  "data_gate": "BLOCKED",
+  "synchronization": "PENDING_DESKTOP_COMMIT_PUSH_AND_REMOTE_CI",
+  "maintenance_verification": {
+    "date": "2026-11-06",
+    "repository_tests_passed": 13,
+    "repository_test_seconds": 3.6,
+    "progress": "PASS",
+    "worktree_privacy_author_files": 572,
+    "worktree_privacy_author_issues": 0,
+    "worktree_scope": "PUBLIC_FILES_AT_CHECK_TIME_IN_SHARED_WORKTREE",
+    "audit_allowlist_files": 14,
+    "local_markdown_file_links": 338,
+    "vault_new_wikilinks": 5,
+    "link_scope": "HEAD_TRACKED_FILES_PLUS_AUDIT_ALLOWLIST",
+    "research_stage_gate_and_blockers_unchanged": true,
+    "source_freeze_matches": true,
+    "diff_check": "PASS_WITH_EXISTING_LINE_ENDING_WARNINGS",
+    "staged_check": "NOT_RUN_NO_GIT_WRITES",
+    "fresh_model_or_payload_run": "NOT_RUN"
+  }
+}

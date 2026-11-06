@@ -2,13 +2,13 @@
   "schema_version": 1,
   "updated": "2026-11-06",
   "current_stage": "S2",
-  "theme": "单次文件读取与磁盘聚合通过约210万条人工验收；继续固定AE控制，真实Gate仍BLOCKED",
+  "theme": "小预算离线审计通过安装人工验收；AE容量对照独立交付，真实Data Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增有界文件读取与一次性磁盘聚合，完整源SHA、全组判重和精确分位保持；联合387项通过、5项主机限制跳过。",
-    "53核心源码安装一致；约210万条人工记录全部结果核对通过，聚合约162秒、峰值工作集86716416字节。",
-    "修正私有监控的启动器PID误读，实际计算进程身份、环境及中断清理已核；保留首次观测限制。",
-    "第四批Desktop与CI成功已回填；下一步固定AE492参数数量控制，真实数据/模型与正式实验仍NOT_RUN。"
+    "小预算离线审计入口完成独立复审：最终CLI测试69通过/1主机权限跳过；已有锁定环境安装54文件并完成4个实际CLI用例。",
+    "新造576条记录形成144个有效审计分钟，四段及三政策计数核对；与IF人工验收的24个共同有效分钟分开。",
+    "发布CSV分钟与既有JSON输入的人工等价验收已完成，保留零报警/全漏报负例；未新增CSV模型执行入口。",
+    "上一bd6d7ba提交的Desktop与三项成功CI已回填；本批尚待发布，AE11–13另批验收交付，容量HTTP/UI14–16仍NOT_RUN。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +34,18 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "小预算离线审计",
+      "path": "docs/guides/release-audit-cli.md"
+    },
+    {
+      "label": "离线审计实际验收",
+      "path": "docs/research/2026-11-06-release-audit-cli-verification.json"
+    },
+    {
+      "label": "发布记录与IF人工等价",
+      "path": "docs/guides/release-if-equivalence.md"
+    },
     {
       "label": "文件适配与容量",
       "path": "docs/guides/release-file-adapter.md"
@@ -2415,7 +2427,22 @@
     "database_bytes": 254590976,
     "real_data": "NOT_RUN",
     "real_model": "NOT_RUN",
-    "remote_CI": "PENDING_AFTER_PUSH",
+    "remote_CI": "SUCCESS_FOR_BD6D7BA_HISTORICAL_RECORD",
     "evidence": "docs/research/2026-11-06-release-file-verification.json"
+  },
+  "candidate_release_audit_cli": {
+    "status": "ARTIFICIAL_INSTALLED_AUDIT_ACCEPTANCE_PASS",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "cli_passed": 69,
+    "host_skipped": 1,
+    "installed_core_files": 54,
+    "fresh_environment": false,
+    "actual_cli_cases": 4,
+    "artificial_records": 576,
+    "artificial_calendar_minutes": 144,
+    "real_data": "NOT_RUN",
+    "real_model": "NOT_RUN",
+    "remote_CI": "PENDING_AFTER_PUSH",
+    "evidence": "docs/research/2026-11-06-release-audit-cli-verification.json"
   }
 }
