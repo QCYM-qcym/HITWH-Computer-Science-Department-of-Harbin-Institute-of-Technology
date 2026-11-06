@@ -71,7 +71,7 @@ def install_stub_pipeline(monkeypatch):
 
     calls = []
 
-    def compute(payload, *, method, history_window=None):
+    def compute(payload, *, method, history_window=None,model_profile_id='c17-i1-g13u-ae-synthetic-v1'):
         common = payload.common_valid
         current = np.full(len(common), np.nan)
         current[common] = np.linspace(.1, .9, int(common.sum()))
@@ -83,14 +83,8 @@ def install_stub_pipeline(monkeypatch):
             scores = current.copy()
         threshold, alarms, calibration = calibrate_candidate_scores(scores, common, payload.calibration_normal)
         width = 13 if method == "current_ae" else 26
-        configuration = dict(model_profile_id="c17-i1-g13u-ae-synthetic-v1", parameter_status="ENGINEERING_TOY_ONLY",
-            method=method, input_width=width, history_window=history_window, architecture=[width, 8, 3, 8, width],
-            parameter_count=288 if width == 13 else 509, activation="RELU_HIDDEN_LINEAR_OUTPUT", device="cpu",
-            training_dtype="float32", score_dtype="float64", score_rule="FLOAT64_CHANNEL_MSE_EQUAL_WEIGHT",
-            epochs=5, batch_strategy="FULL_BATCH", shuffle=False, optimizer="Adam", learning_rate=.001,
-            random_state=42, fit_scope="TRAIN_NORMAL_COMMON", calibration_scope="CALIBRATION_NORMAL_COMMON",
-            quantile=.99, quantile_method="linear", alarm_comparison="STRICT_GREATER",
-            preprocessing_fit_provenance="NOT_REESTIMATED")
+        from traffic_anomaly.candidate_ae_profiles import resolve_candidate_ae_configuration
+        configuration=resolve_candidate_ae_configuration(method,history_window,model_profile_id=model_profile_id)
         calls.append("compute")
         return SimpleNamespace(model=object(), scores=scores, score_valid=common.copy(), alarms=alarms,
             threshold=threshold, calibration=calibration, configuration=configuration,

@@ -17,9 +17,8 @@ from .candidate_evaluation import evaluate_candidate_predictions
 from .candidate_inputs import CandidateMinuteBatch, G13U_FEATURE_NAMES, MAX_MINUTES, _eligible
 from .candidate_records import POLICIES
 from .evaluation.calibration import calibrate
-
-
-MODEL_PROFILE_ID = 'c17-i1-g13u-ae-synthetic-v1'
+from .candidate_ae_profiles import (MODEL_PROFILE_ID, resolve_candidate_ae_configuration,
+                                   strict_configuration_equal)
 
 
 class CandidateAEError(ValueError):
@@ -38,24 +37,11 @@ def _readonly(values):
     return np.frombuffer(array.tobytes(), dtype=array.dtype).reshape(array.shape)
 
 
-def _configuration(method, history_window):
-    _require(isinstance(method, str) and method in ('current_ae', 'history_ae'))
-    _require(history_window is None if method == 'current_ae'
-             else type(history_window) is int and history_window in (15, 30))
-    width = 13 if method == 'current_ae' else 26
-    return dict(model_profile_id=MODEL_PROFILE_ID, parameter_status='ENGINEERING_TOY_ONLY',
-        method=method, input_width=width, history_window=history_window,
-        architecture=[width, 8, 3, 8, width], parameter_count=288 if width == 13 else 509,
-        activation='RELU_HIDDEN_LINEAR_OUTPUT', device='cpu', training_dtype='float32',
-        score_dtype='float64', score_rule='FLOAT64_CHANNEL_MSE_EQUAL_WEIGHT',
-        epochs=5, batch_strategy='FULL_BATCH', shuffle=False, optimizer='Adam',
-        optimizer_cpu_guard='INSTANCE_LOCAL_HEALTH_CHECK_V1',
-        optimizer_healthcheck_api='_accelerator_graph_capture_health_check',
-        learning_rate=.001, adam_betas=[.9, .999], adam_epsilon=1e-8,
-        weight_decay=0., amsgrad=False, random_state=42,
-        fit_scope='TRAIN_NORMAL_COMMON', calibration_scope='CALIBRATION_NORMAL_COMMON',
-        quantile=.99, quantile_method='linear', alarm_comparison='STRICT_GREATER',
-        preprocessing_fit_provenance='NOT_REESTIMATED')
+def _configuration(method, history_window, *, model_profile_id=MODEL_PROFILE_ID):
+    try:
+        return resolve_candidate_ae_configuration(method,history_window,model_profile_id=model_profile_id)
+    except ValueError:
+        raise CandidateAEError('INVALID_AE_INPUT') from None
 
 
 def _mask(values, n):
@@ -130,9 +116,11 @@ def _cpu_execution(torch):
 
 
 def _check_network(network, configuration, torch):
-    width = configuration['input_width']
     _require(type(network) is torch.nn.Sequential and len(network) == 7, 'INCOMPATIBLE_AE_NETWORK')
-    widths = [width, 8, 3, 8, width]
+    prescribed = _configuration(configuration['method'],configuration['history_window'],
+                                 model_profile_id=configuration['model_profile_id'])
+    _require(strict_configuration_equal(configuration,prescribed), 'INCOMPATIBLE_AE_NETWORK')
+    widths = prescribed['architecture']
     for index, (left, right) in enumerate(zip(widths, widths[1:])):
         layer = network[index * 2]
         _require(type(layer) is torch.nn.Linear and layer.in_features == left
@@ -233,15 +221,15 @@ def _evaluation(snapshot, batch, common, alarms):
         score_origin_policy=snapshot.report['selected_policy'])
 
 
-def compute_synthetic_candidate_ae(snapshot, *, method, history_window=None):
+def compute_synthetic_candidate_ae(snapshot, *, method, history_window=None, model_profile_id=MODEL_PROFILE_ID):
     """Run five fixed full-batch CPU updates; never opens paths or fits preprocessing."""
     try:
-        configuration = _configuration(method, history_window)
+        configuration = _configuration(method, history_window,model_profile_id=model_profile_id)
         batch, matrix, common, train, calibration = _inputs(snapshot, configuration)
         import torch
         from .candidate_ae_weights import build_candidate_ae_network
         with _cpu_execution(torch):
-            model = build_candidate_ae_network(configuration['input_width'])
+            model = build_candidate_ae_network(configuration['input_width'],model_profile_id=configuration['model_profile_id'])
             _check_network(model, configuration, torch)
             tensor = torch.from_numpy(np.array(matrix[train], copy=True))
             optimizer = _cpu_adam(torch, model.parameters())
@@ -284,8 +272,9 @@ def replay_candidate_ae(snapshot, result, network):
     """Check an already JSON-rebuilt network without fitting or loading files."""
     try:
         _require(isinstance(result, CandidateAEResult), 'AE_REPLAY_MISMATCH')
-        configuration = _configuration(result.configuration['method'], result.configuration['history_window'])
-        _require(_same(result.configuration, configuration), 'AE_REPLAY_MISMATCH')
+        configuration = _configuration(result.configuration['method'], result.configuration['history_window'],
+                                       model_profile_id=result.configuration['model_profile_id'])
+        _require(strict_configuration_equal(result.configuration, configuration), 'AE_REPLAY_MISMATCH')
         batch, matrix, common, train, calibration = _inputs(snapshot, configuration)
         import torch
         with _cpu_execution(torch):

@@ -363,7 +363,7 @@
   "production_contract_changed": false,
   "final_label_policy": "NOT_APPROVED",
   "data_gate": "BLOCKED",
-  "synchronization": "PENDING_DESKTOP_COMMIT_PUSH_AND_REMOTE_CI",
+  "synchronization": "DESKTOP_PUSHED_REMOTE_SHA_MATCH_CI_SUCCESS",
   "maintenance_verification": {
     "date": "2026-11-06",
     "repository_tests_passed": 13,
@@ -381,5 +381,38 @@
     "diff_check": "PASS_WITH_EXISTING_LINE_ENDING_WARNINGS",
     "staged_check": "NOT_RUN_NO_GIT_WRITES",
     "fresh_model_or_payload_run": "NOT_RUN"
+  },
+  "publication": {
+    "commit": "882b67d6e32b043335e34008285dc06c3b5d1762",
+    "branch": "codex/candidate-flow-adapter",
+    "desktop_commit_push": "OBSERVED",
+    "remote_sha": "MATCH",
+    "ci": "VERIFIED_SUCCESS",
+    "workflows": [
+      {
+        "id": 42181872621,
+        "name": "合成系统集成检查",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "882b67d6e32b043335e34008285dc06c3b5d1762",
+        "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42181872621"
+      },
+      {
+        "id": 42181872684,
+        "name": "核心契约检查",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "882b67d6e32b043335e34008285dc06c3b5d1762",
+        "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42181872684"
+      },
+      {
+        "id": 42181872554,
+        "name": "文档与发布检查",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "882b67d6e32b043335e34008285dc06c3b5d1762",
+        "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42181872554"
+      }
+    ]
   }
 }

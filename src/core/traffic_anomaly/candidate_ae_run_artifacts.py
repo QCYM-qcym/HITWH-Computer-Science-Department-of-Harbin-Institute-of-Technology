@@ -16,8 +16,11 @@ from .candidate_ae_weights import CandidateAEWeightsError, validate_candidate_ae
 from .candidate_cli import _unique_object, _reject_constant
 from .candidate_evaluation import evaluate_candidate_predictions
 from .candidate_run_snapshot import VerifiedCandidateRun
+from .candidate_ae_profiles import (CAPACITY492_MODEL_PROFILE_ID,resolve_candidate_ae_configuration,
+    strict_configuration_equal,capacity492_source_binding_matches)
 
 VERIFIER_PROFILE_ID='c17-i1-g13u-ae-run-verifier-v1'
+CAPACITY_VERIFIER_PROFILE_ID='c17-i1-g13u-ae-capacity-run-verifier-v1'
 MAX_WEIGHTS_BYTES=1024*1024
 MAX_JSON_BYTES=16*1024*1024
 MAX_TOTAL_BYTES=32*1024*1024
@@ -100,7 +103,7 @@ def _runtime(value):
 def _common(snapshot,run_id,configuration,versions,runtime):
     _require(snapshot.training_normal.any() and snapshot.calibration_normal.any())
     canonical=json.dumps(configuration,sort_keys=True,separators=(',',':'),allow_nan=False).encode()
-    return dict(schema_version=1,run_id=run_id,model_profile_id=MODEL_PROFILE_ID,
+    return dict(schema_version=1,run_id=run_id,model_profile_id=configuration['model_profile_id'],
         evidence_kind='SYNTHETIC_ONLY',time_basis='synthetic_source_clock',policy_status='AUDIT_ONLY',
         scope='ENGINEERING_TOY_ONLY',selected_policy=snapshot.report['selected_policy'],
         score_direction='HIGHER_IS_MORE_ANOMALOUS',value_space='prepared',
@@ -131,10 +134,20 @@ def _verify(run,records,inputs,source):
     _require(_same(manifest['artifacts'],{name:digests[name] for name in _ARTIFACTS})
              and _same(state['weights'],digests['weights.json'])
              and _same(evaluation_doc['scores'],digests['scores.json']),'INTEGRITY_MISMATCH')
-    configuration=_configuration(manifest['configuration']['method'],manifest['configuration']['history_window'])
+    profile=manifest['model_profile_id']
+    try:
+        configuration=resolve_candidate_ae_configuration(manifest['configuration']['method'],
+            manifest['configuration']['history_window'],model_profile_id=profile)
+    except ValueError:
+        raise CandidateAERunArtifactError('INCOMPATIBLE_RUN') from None
+    _require(strict_configuration_equal(manifest['configuration'],configuration),'INCOMPATIBLE_RUN')
+    if profile==CAPACITY492_MODEL_PROFILE_ID:
+        _require(source is not None,'SOURCE_REQUIRED')
     method,window=configuration['method'],configuration['history_window']
     versions,runtime=_versions(manifest['library_versions']),_runtime(manifest['runtime'])
     snapshot=load_verified_candidate_artifacts(records,inputs,source_fixture=source)
+    if profile==CAPACITY492_MODEL_PROFILE_ID:
+        _require(capacity492_source_binding_matches(snapshot.report,snapshot.provenance),'FIXED_SOURCE_MISMATCH')
     expected_common=_common(snapshot,run_id,configuration,versions,runtime)
     for document in (manifest,state,scores_doc,evaluation_doc):
         _require(_same({k:document[k] for k in _COMMON},expected_common),'INCOMPATIBLE_RUN')
@@ -171,9 +184,10 @@ def _verify(run,records,inputs,source):
         score_origin_policy=snapshot.report['selected_policy'])
     _require(_same(evaluation_doc,dict(expected_common,scores=digests['scores.json'],threshold=threshold,
                                       calibration=calibration,evaluation=evaluation)),'REPLAY_MISMATCH')
-    report=dict(schema_version=1,status='VERIFIED',verifier_profile_id=VERIFIER_PROFILE_ID,
+    verifier=CAPACITY_VERIFIER_PROFILE_ID if profile==CAPACITY492_MODEL_PROFILE_ID else VERIFIER_PROFILE_ID
+    report=dict(schema_version=1,status='VERIFIED',verifier_profile_id=verifier,
         evidence_kind='SYNTHETIC_ONLY',policy_status='AUDIT_ONLY',scope='STORED_ARTIFACT_CONSISTENCY_ONLY',
-        run_id=run_id,model_profile_id=MODEL_PROFILE_ID,selected_policy=snapshot.report['selected_policy'],
+        run_id=run_id,model_profile_id=profile,selected_policy=snapshot.report['selected_policy'],
         method=method,history_window=window,minute_count=len(common),score_valid_count=int(common.sum()),
         fit_count=int(snapshot.training_normal.sum()),calibration_count=int(snapshot.calibration_normal.sum()),
         threshold=threshold,calibration=calibration,policies=evaluation['policies'],artifacts=digests,

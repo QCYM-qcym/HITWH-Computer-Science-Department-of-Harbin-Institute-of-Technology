@@ -107,8 +107,8 @@ def test_train_forward_receives_only_fixed_full_batch_training_normal_common(sna
     from traffic_anomaly import candidate_ae_weights
     original = candidate_ae_weights.build_candidate_ae_network
     seen = []
-    def build(width):
-        network = original(width)
+    def build(width, **kwargs):
+        network = original(width, **kwargs)
         original_forward = network.forward
         def forward(x):
             if network.training:
@@ -186,8 +186,8 @@ def test_nonfinite_training_stops_and_restores_rng(snapshot, monkeypatch, failur
     from traffic_anomaly import candidate_ae_weights
     original_build = candidate_ae_weights.build_candidate_ae_network
     original_step = torch.optim.Adam.step
-    def build(width):
-        network = original_build(width)
+    def build(width, **kwargs):
+        network = original_build(width, **kwargs)
         if failure == 'forward':
             network[0].register_forward_hook(lambda module, args, output: output * float('inf'))
         if failure == 'gradient':
@@ -326,8 +326,8 @@ def test_replay_checks_parameter_bits_including_signed_zero(snapshot, monkeypatc
     from traffic_anomaly import candidate_ae_weights
     from traffic_anomaly.candidate_autoencoder import replay_candidate_ae
     original_build = candidate_ae_weights.build_candidate_ae_network
-    def zeros(width):
-        model = original_build(width)
+    def zeros(width, **kwargs):
+        model = original_build(width, **kwargs)
         with torch.no_grad():
             for parameter in model.parameters(): parameter.zero_()
         return model

@@ -1,5 +1,6 @@
 """Strict JSON model state: artificial tensors, never external executable models."""
 import copy
+import hashlib
 import json
 import subprocess
 import sys
@@ -14,12 +15,15 @@ def api():
 
 
 def binding(width=13):
+    from traffic_anomaly.candidate_ae_profiles import resolve_candidate_ae_configuration
+    configuration=resolve_candidate_ae_configuration('current_ae' if width==13 else 'history_ae',
+                                                    None if width==13 else 15)
+    digest=hashlib.sha256(json.dumps(configuration,allow_nan=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     return dict(schema_version=1,run_id='toy-weights',model_profile_id='c17-i1-g13u-ae-synthetic-v1',
         evidence_kind='SYNTHETIC_ONLY',time_basis='synthetic_source_clock',policy_status='AUDIT_ONLY',
         scope='ENGINEERING_TOY_ONLY',selected_policy='P_U',score_direction='HIGHER_IS_MORE_ANOMALOUS',
         value_space='prepared',feature_names=[f'f{i}' for i in range(13)],qualification_windows=[15,30],
-        configuration=dict(input_width=width,method='current_ae' if width==13 else 'history_ae',
-                           history_window=None if width==13 else 15),configuration_sha256='a'*64,
+        configuration=configuration,configuration_sha256=digest,
         library_versions={'python':'toy','numpy':'toy','torch':'toy'},provenance={'toy':'b'*64},
         preprocessing_state={'toy':True},runtime={'device':'cpu'})
 

@@ -2,13 +2,14 @@
   "schema_version": 1,
   "updated": "2026-11-06",
   "current_stage": "S2",
-  "theme": "小预算离线审计通过安装人工验收；AE容量对照独立交付，真实Data Gate仍BLOCKED",
+  "theme": "固定人工AE参数对照完成安装验收；审计批已同步，真实Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "小预算离线审计入口完成独立复审：最终CLI测试69通过/1主机权限跳过；已有锁定环境安装54文件并完成4个实际CLI用例。",
-    "新造576条记录形成144个有效审计分钟，四段及三政策计数核对；与IF人工验收的24个共同有效分钟分开。",
-    "发布CSV分钟与既有JSON输入的人工等价验收已完成，保留零报警/全漏报负例；未新增CSV模型执行入口。",
-    "上一bd6d7ba提交的Desktop与三项成功CI已回填；本批尚待发布，AE11–13另批验收交付，容量HTTP/UI14–16仍NOT_RUN。"
+    "小预算离线审计最终69通过/1权限跳过，54文件安装及4个实际人工CLI用例通过；发布CSV与旧IF输入的人工等价证据已登记。",
+    "固定当前AE492与旧288/历史509分开保留，容量比较149项相关测试、独立36项契约复查通过；各批计数重叠，不合并求总。",
+    "58文件安装后完成1次新人工模型执行和27个只读子进程，四组API/CLI核对通过；原67项人工产物保持，完全漏报负例保留。",
+    "现有W0—W3并发收尾：后端61项、前端125项通过，类型/契约/构建通过；容量HTTP/UI14—16仍NOT_RUN，原入口包大小警告保留。",
+    "本次为原12:00截止之后恢复收尾；Desktop后续截图确认操作生效，审计批882b67d已提交推送并核远端，容量批待发布。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -34,6 +35,18 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "AE参数数量对照",
+      "path": "docs/guides/candidate-ae-capacity.md"
+    },
+    {
+      "label": "容量对照实际验收",
+      "path": "docs/research/2026-11-06-candidate-ae-capacity-verification.json"
+    },
+    {
+      "label": "真实试点准备复核",
+      "path": "docs/research/2026-11-06-pilot-readiness-review.md"
+    },
     {
       "label": "小预算离线审计",
       "path": "docs/guides/release-audit-cli.md"
@@ -2442,7 +2455,31 @@
     "artificial_calendar_minutes": 144,
     "real_data": "NOT_RUN",
     "real_model": "NOT_RUN",
-    "remote_CI": "PENDING_AFTER_PUSH",
-    "evidence": "docs/research/2026-11-06-release-audit-cli-verification.json"
+    "remote_CI": "VERIFIED_SUCCESS",
+    "evidence": "docs/research/2026-11-06-release-audit-cli-verification.json",
+    "verified_commit": "882b67d6e32b043335e34008285dc06c3b5d1762"
+  },
+  "candidate_ae_capacity": {
+    "status": "LOCAL_ACCEPTANCE_PASS",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "model_parameters": [
+      288,
+      492,
+      509,
+      509
+    ],
+    "related_tests_passed": 149,
+    "independent_contract_tests_passed": 36,
+    "installed_core_files": 58,
+    "manual_model_cli_calls": 1,
+    "manual_readonly_children": 27,
+    "preserved_original_files": 67,
+    "backend_related_tests": 61,
+    "frontend_tests": 125,
+    "capacity_http": "NOT_RUN",
+    "capacity_ui": "NOT_RUN",
+    "real_model_training": "NOT_RUN",
+    "verification": "docs/research/2026-11-06-candidate-ae-capacity-verification.json",
+    "synchronization": "PENDING_DESKTOP_COMMIT_PUSH_AND_REMOTE_CI"
   }
 }

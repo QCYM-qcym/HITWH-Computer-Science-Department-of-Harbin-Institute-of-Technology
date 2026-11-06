@@ -6,6 +6,8 @@
 
 用途：离线验证候选13/26维AE的数值、保存和重载接口。日期2026-10-30；身份SYNTHETIC_ONLY / AUDIT_ONLY / ENGINEERING_TOY_ONLY。依据[实施计划](../superpowers/plans/2026-10-30-candidate-ae-synthetic.md)和[V0.40](../reports/开题报告-V0.40-公开文本.md)。本入口与生产134/268、原后端任务及网页分开。
 
+2026-11-06补充：另有固定[492参数当前AE及独立容量对照](candidate-ae-capacity.md)，仅接收指定人工源。下文原默认profile、288/509网络及旧调用方式保持；新容量对照的工程验收不等于正式实验完成。
+
 ## 输入和固定工程配置
 
 输入须为[人工记录适配](candidate-records.md)和[候选数值处理](candidate-inputs.md)已生成的目录，并提供原人工source-fixture。执行先按[同次读取快照](candidate-snapshots.md)验证原源、标签分离、预处理参数及H15/H30血缘，不重新拟合预处理。没有原源复查不能执行本入口。

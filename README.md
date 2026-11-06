@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-06**。当前阶段：**数据审计**；本轮主题：小预算离线审计通过安装人工验收；AE容量对照独立交付，真实Data Gate仍BLOCKED。
+最近更新：**2026-11-06**。当前阶段：**数据审计**；本轮主题：固定人工AE参数对照完成安装验收；审计批已同步，真实Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,10 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- 小预算离线审计入口完成独立复审：最终CLI测试69通过/1主机权限跳过；已有锁定环境安装54文件并完成4个实际CLI用例。
-- 新造576条记录形成144个有效审计分钟，四段及三政策计数核对；与IF人工验收的24个共同有效分钟分开。
-- 发布CSV分钟与既有JSON输入的人工等价验收已完成，保留零报警/全漏报负例；未新增CSV模型执行入口。
-- 上一bd6d7ba提交的Desktop与三项成功CI已回填；本批尚待发布，AE11–13另批验收交付，容量HTTP/UI14–16仍NOT_RUN。
+- 小预算离线审计最终69通过/1权限跳过，54文件安装及4个实际人工CLI用例通过；发布CSV与旧IF输入的人工等价证据已登记。
+- 固定当前AE492与旧288/历史509分开保留，容量比较149项相关测试、独立36项契约复查通过；各批计数重叠，不合并求总。
+- 58文件安装后完成1次新人工模型执行和27个只读子进程，四组API/CLI核对通过；原67项人工产物保持，完全漏报负例保留。
+- 现有W0—W3并发收尾：后端61项、前端125项通过，类型/契约/构建通过；容量HTTP/UI14—16仍NOT_RUN，原入口包大小警告保留。
+- 本次为原12:00截止之后恢复收尾；Desktop后续截图确认操作生效，审计批882b67d已提交推送并核远端，容量批待发布。
 
 **当前阻塞或待验证事项**
 
@@ -80,6 +81,9 @@ flowchart TB
 
 **最新成果入口**
 
+- [AE参数数量对照](<docs/guides/candidate-ae-capacity.md>)
+- [容量对照实际验收](<docs/research/2026-11-06-candidate-ae-capacity-verification.json>)
+- [真实试点准备复核](<docs/research/2026-11-06-pilot-readiness-review.md>)
 - [小预算离线审计](<docs/guides/release-audit-cli.md>)
 - [离线审计实际验收](<docs/research/2026-11-06-release-audit-cli-verification.json>)
 - [发布记录与IF人工等价](<docs/guides/release-if-equivalence.md>)

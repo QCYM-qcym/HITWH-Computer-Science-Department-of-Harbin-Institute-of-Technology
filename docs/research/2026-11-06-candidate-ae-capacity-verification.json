@@ -1,0 +1,566 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-06",
+  "status": "LOCAL_ACCEPTANCE_PASS",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "scope": "FIXED_ARTIFICIAL_CAPACITY_CONTROL",
+  "base_commit": "bd6d7ba52ecaf375690a4a71c58e9360c8144faa",
+  "timing": {
+    "original_deadline": "2026-11-06T12:00:00+08:00",
+    "completed_at": "2026-11-06T15:11:30.492514+08:00",
+    "mode": "POST_RESUME_CLOSING_ACCEPTANCE",
+    "uninterrupted_or_before_noon_claim": false
+  },
+  "installed": {
+    "status": "PASS",
+    "files_count": 58,
+    "fresh_environment": false,
+    "dependency_environment": "EXISTING_LOCKED_ENV",
+    "source_freeze": "CURRENT_REVIEWED_WORKTREE",
+    "files": {
+      "traffic_anomaly/__init__.py": {
+        "sha256": "20d8cd4949361c133cea8a29b32267c8283e7dbe0950ac66456b1aeeb4d8ba31",
+        "byte_count": 109
+      },
+      "traffic_anomaly/_release_csv.py": {
+        "sha256": "0c9b0c69108f5a1c093ba449f654e9af10512911009592df316a846862349359",
+        "byte_count": 15782
+      },
+      "traffic_anomaly/_release_disk.py": {
+        "sha256": "cc0705b1135a5c66160817ef6ee62eaeeb32446a5368c01b747cf6e7359fccf6",
+        "byte_count": 26283
+      },
+      "traffic_anomaly/_release_file_reader.py": {
+        "sha256": "e1bf581f5f75af12ae2cd0b400bfb028e2f7e1021c1896860729b04ff580a9ba",
+        "byte_count": 15455
+      },
+      "traffic_anomaly/_release_minutes.py": {
+        "sha256": "87ed9e9d8b177a9b65ad643e70e07bfadf41ffb49e8882b96bf592b0dc55dbb0",
+        "byte_count": 15074
+      },
+      "traffic_anomaly/artifacts.py": {
+        "sha256": "a51efa7e61a06f54e0e02d9701bcb5241c41d2c82c1c842873b2917290a029de",
+        "byte_count": 7579
+      },
+      "traffic_anomaly/candidate_ae_cli.py": {
+        "sha256": "5151f06ca2f419987d2dd7e37d38f437febcdfb0d619c9c23439b19aaaa60f5d",
+        "byte_count": 16691
+      },
+      "traffic_anomaly/candidate_ae_profiles.py": {
+        "sha256": "beac085954513582ee199ed8594000a307a0d060f746a289a734592a9254a5a1",
+        "byte_count": 4235
+      },
+      "traffic_anomaly/candidate_ae_run_artifacts.py": {
+        "sha256": "41c832c15902ed48f71853ef8466afa28eed00fa654ebea50554e688c6f5bca7",
+        "byte_count": 13477
+      },
+      "traffic_anomaly/candidate_ae_verify_cli.py": {
+        "sha256": "ba9e1eac5dbbd5de92f1f4f70a6c4b7d5613041d43f3b717f370195bc1c0720d",
+        "byte_count": 1216
+      },
+      "traffic_anomaly/candidate_ae_weights.py": {
+        "sha256": "83fb20f404cead6276f28259bc4d7cd9753a75eb611227ee664d5c4fb865495a",
+        "byte_count": 8825
+      },
+      "traffic_anomaly/candidate_artifacts.py": {
+        "sha256": "431b76e970fe2bec95a51d72ee44bd2011d453ae8c0d435a47d435a7b883a5e0",
+        "byte_count": 27660
+      },
+      "traffic_anomaly/candidate_autoencoder.py": {
+        "sha256": "b072725a655d8799589b2436e770650c961322514879f2410fc39477c41ee60f",
+        "byte_count": 17040
+      },
+      "traffic_anomaly/candidate_capacity_compare_cli.py": {
+        "sha256": "03ccaacd49cebf4be924cfe5341cc9fe4977b9b8e8ab8252bb72a88be520dcaf",
+        "byte_count": 1826
+      },
+      "traffic_anomaly/candidate_capacity_comparison.py": {
+        "sha256": "08cc92c43daf605df70f29a52e6a4af5e6e6b6d24d043e3ed57dcf7d24765920",
+        "byte_count": 8739
+      },
+      "traffic_anomaly/candidate_capacity_contract.py": {
+        "sha256": "8b169429811752d18364929bdb7b67b94c32b5527b9393e5fc3ac8dbb2921612",
+        "byte_count": 14906
+      },
+      "traffic_anomaly/candidate_cli.py": {
+        "sha256": "7fe7a3e97ca6fe748364d2c6b08842e4438f2c8b5b0a301b6d791de4ef1431bb",
+        "byte_count": 10519
+      },
+      "traffic_anomaly/candidate_compare_cli.py": {
+        "sha256": "70492d877e9e5bbf61da0f5c84cfdb45a1ef7fa3a1ac412108cb9ba9899fd00e",
+        "byte_count": 1739
+      },
+      "traffic_anomaly/candidate_comparison.py": {
+        "sha256": "f90d6a79bc8bd7ff5ccb7e53dff0b172721c84c679ec0abe39813ed683335aae",
+        "byte_count": 11225
+      },
+      "traffic_anomaly/candidate_details.py": {
+        "sha256": "dd6b9e5ad712d101c3c46003716e9dc6e233f7775c292b62ad0d0075c2ffb5a1",
+        "byte_count": 10224
+      },
+      "traffic_anomaly/candidate_evaluation.py": {
+        "sha256": "b0283f299a82c97857ebf034ab3ebe4c0654567e6804f2f4c6f5d4e27af1fae6",
+        "byte_count": 4688
+      },
+      "traffic_anomaly/candidate_evaluation_view.py": {
+        "sha256": "620d20bdf5706e73fe2dfb17a95007eabe8188aee3e1b38507285e65ed04ee35",
+        "byte_count": 5704
+      },
+      "traffic_anomaly/candidate_if_cli.py": {
+        "sha256": "f4c9f05b948ecba26ba42ab003a270008809b0c1faba9237a9d6a9f235060a26",
+        "byte_count": 11754
+      },
+      "traffic_anomaly/candidate_iforest.py": {
+        "sha256": "4f1b9a9ff62edec0b2b603fe15243bf9f5c4ab9a24ea85efdb1d92f837c8e5f4",
+        "byte_count": 9949
+      },
+      "traffic_anomaly/candidate_inputs.py": {
+        "sha256": "2314d9f3540b2486a6e7390575caee5efc9b631a7cccadd76c8dfbb5fbe6ed4d",
+        "byte_count": 12112
+      },
+      "traffic_anomaly/candidate_record_cli.py": {
+        "sha256": "cac1f9db0cd208cc07baaed201516262f84ce6b2f57c4d9e4c6052c507bd97de",
+        "byte_count": 5958
+      },
+      "traffic_anomaly/candidate_records.py": {
+        "sha256": "d5ebb8c5438d470893d1da882063ccf1413390603ce0f6bb9b562adbe109fdd0",
+        "byte_count": 11812
+      },
+      "traffic_anomaly/candidate_run_artifacts.py": {
+        "sha256": "cbc1be2563bcce30eda77392ffb6465adb5277af99fa9ac065c00f4b03d74c2f",
+        "byte_count": 11515
+      },
+      "traffic_anomaly/candidate_run_snapshot.py": {
+        "sha256": "bf892424e3f4b55d6197e335907df1e36d9712c7c3df677b5f56558dff674ea5",
+        "byte_count": 1473
+      },
+      "traffic_anomaly/candidate_run_verify_cli.py": {
+        "sha256": "230536292e3bd5774732a720cfe2a9162fe85578342e21e1ee73ecde5521324b",
+        "byte_count": 1212
+      },
+      "traffic_anomaly/candidate_series.py": {
+        "sha256": "4a4b0d70c432a5f45d2e50eeefb1036338e9dc0c4c494b7aca7ae20762e07fd0",
+        "byte_count": 7163
+      },
+      "traffic_anomaly/candidate_verify_cli.py": {
+        "sha256": "809f0eb39658b15df9e18983201d2ec449049e8e6061c81d7dcb76083f6c4615",
+        "byte_count": 1129
+      },
+      "traffic_anomaly/candidate_view_cli.py": {
+        "sha256": "f143638f213c027512b31eb88ddbcfc95467f0bf702d3d7e30c490723009cf70",
+        "byte_count": 3672
+      },
+      "traffic_anomaly/cli.py": {
+        "sha256": "97712f116b56c3e136cbe04c64b37f62297e8147001e8cb41168a06de12e766c",
+        "byte_count": 3613
+      },
+      "traffic_anomaly/contracts.py": {
+        "sha256": "ef492355fadb70e8c9f8c9df14520d890929d8817e736f96a45620f9c8370135",
+        "byte_count": 22093
+      },
+      "traffic_anomaly/data/__init__.py": {
+        "sha256": "8ba031eea2b13676564bcb24c169952461289fa577d47b2a6fcc255afcc575be",
+        "byte_count": 72
+      },
+      "traffic_anomaly/data/audit.py": {
+        "sha256": "157f30cd20c32e799ca9b4eff92795159ef6995d419e28f2555fd75537283a84",
+        "byte_count": 1681
+      },
+      "traffic_anomaly/data/clock.py": {
+        "sha256": "e11bb04d1226d8bfe4a34851e5aa9e619864444dd876ab8c0fed21d3a6be1b29",
+        "byte_count": 737
+      },
+      "traffic_anomaly/data/labels.py": {
+        "sha256": "559cb16910c2d124307df4c399b28293befe4bb5d62d0423c6f8f28a412243f4",
+        "byte_count": 874
+      },
+      "traffic_anomaly/data/provider.py": {
+        "sha256": "da4500afb346c9e2f74b700489adff58b6879bb18c32a91711271cb374c87f70",
+        "byte_count": 6425
+      },
+      "traffic_anomaly/data/reader.py": {
+        "sha256": "49a321e2a0bc89168e2beef43f2c62fecfc053e64a9284375d1c15c6f15aff6a",
+        "byte_count": 4691
+      },
+      "traffic_anomaly/data/splits.py": {
+        "sha256": "dc1f12412962b6c4e9dc8fa5e1576a5e39c3c9d50d899c75d973773b86ae8f97",
+        "byte_count": 882
+      },
+      "traffic_anomaly/detectors/__init__.py": {
+        "sha256": "5eabcff4a6b4949dc8d9ba303d14c9f4acc205ffed72f0954122350cf1aa4b56",
+        "byte_count": 61
+      },
+      "traffic_anomaly/detectors/autoencoder.py": {
+        "sha256": "c935f15894395940440f95b7ec00cfeb78a482b3198237245f7397ca450d9b08",
+        "byte_count": 4167
+      },
+      "traffic_anomaly/detectors/iforest.py": {
+        "sha256": "ae2c9e77f17d0f8c400c9832d607bbcd6514a7aa555ea4f1be78b71c4f5441fd",
+        "byte_count": 2197
+      },
+      "traffic_anomaly/detectors/registry.py": {
+        "sha256": "3d97375e75e66f41e3f643e3d529780dbb60f6e33c81f9849ae05cfd25fd2f58",
+        "byte_count": 565
+      },
+      "traffic_anomaly/evaluation/__init__.py": {
+        "sha256": "7070ea8fffb3c04ad3ab85a3c0153c8e5361f8c275615d6b3d3223ce3be07fc9",
+        "byte_count": 55
+      },
+      "traffic_anomaly/evaluation/calibration.py": {
+        "sha256": "7113f2d9aaf432bb88336fd7b1f6e26ee06322d3306b2b063b309dcff28b66c7",
+        "byte_count": 364
+      },
+      "traffic_anomaly/evaluation/coverage.py": {
+        "sha256": "2664e60a3970a344e3a04b53de63b2b5f5fe2f777ef1c208523fd222dbf94c6d",
+        "byte_count": 348
+      },
+      "traffic_anomaly/evaluation/episodes.py": {
+        "sha256": "baec3a768fbc9b975a25a09059f2876a3e82b76d0cf93f843c720115bba4f7e1",
+        "byte_count": 1251
+      },
+      "traffic_anomaly/evaluation/metrics.py": {
+        "sha256": "6ec046f57e2cd792e05edd2c3918cb7780f1c90a75d55eec2d233909161fe9e8",
+        "byte_count": 1886
+      },
+      "traffic_anomaly/features/__init__.py": {
+        "sha256": "a3df47cdd40d79ae369f765853b0229b2c2330661395e04f0675551d8d98601e",
+        "byte_count": 53
+      },
+      "traffic_anomaly/features/eligibility.py": {
+        "sha256": "0de2566c8f4808673dc81ad6aa2fbcb2030199102510dd8d969a8c5019e948a9",
+        "byte_count": 643
+      },
+      "traffic_anomaly/features/history.py": {
+        "sha256": "65e779c06704ee543780f66ce3b3a52ddf26a332cd3ceb9de345344c7cef2a9f",
+        "byte_count": 1555
+      },
+      "traffic_anomaly/features/preprocess.py": {
+        "sha256": "5720f774295d5b49bdba29bd5013c1659f1c919ffd6cf089c81dfbb0e67f0e9c",
+        "byte_count": 1459
+      },
+      "traffic_anomaly/pipeline.py": {
+        "sha256": "fa40b06d0b072484769e56b651b5876e586d89f53ce2e4c8d72338c88fc82bee",
+        "byte_count": 10352
+      },
+      "traffic_anomaly/release_audit_cli.py": {
+        "sha256": "b7a7d13cba253f524269f69a544fdd056fcf87d026310aec2968e1395b48f650",
+        "byte_count": 14177
+      },
+      "traffic_anomaly/synthetic.py": {
+        "sha256": "02df9744806ef053c4e741850d954f8512810e642703a71210c72088037be0be",
+        "byte_count": 1893
+      }
+    }
+  },
+  "tests": {
+    "task11_related": {
+      "passed": 172,
+      "scope": "CORE_AND_WEIGHTS_FIXED_ARTIFICIAL_TESTS"
+    },
+    "task12_related": {
+      "passed": 203,
+      "scope": "CLI_AND_SOURCE_BOUND_VERIFIER_RELATED_TESTS"
+    },
+    "task13_resumed": {
+      "passed": 149,
+      "skipped": 0,
+      "task13_tests": 102,
+      "related_task12_tests": 47,
+      "forbidden_model_attempts": 0,
+      "loaded_model_modules": 0
+    },
+    "independent_contract_review": {
+      "passed": 36,
+      "original_counterexamples_rejected": 3
+    },
+    "counts_overlap": true,
+    "full_project_suite": "NOT_RERUN_BY_THIS_RECORD"
+  },
+  "source_identity": {
+    "byte_count": 213497,
+    "sha256": "6f42399eabb07dc218eac19f4d648e57eb360a0c7167968ca1770733ea8649b2"
+  },
+  "new_model": {
+    "actual_cli_invocations": 1,
+    "parameter_count": 492,
+    "fixed_architecture": [
+      13,
+      14,
+      3,
+      14,
+      13
+    ],
+    "actual_execution_seconds": 5.667709500005003,
+    "scope": "ENGINEERING_TOY_ONLY",
+    "actual_own_save_reload_score_replay": "PASS",
+    "subsequent_readonly_check": {
+      "actual_artifacts": {
+        "evaluation.json": {
+          "byte_count": 7168,
+          "sha256": "dfd0c8469a57cfc322e622bd6b7a28ee0963ebbb02f51a61fecb2fc11a74c686"
+        },
+        "manifest.json": {
+          "byte_count": 5433,
+          "sha256": "2305dd5ae93ef30244a3b54c41d36288e9782949fb5ddecdbbba6c6c0a464143"
+        },
+        "model-state.json": {
+          "byte_count": 4939,
+          "sha256": "7324e1fc6fa6a319105d0e2e4e95b6553f03bc69fc89435482f1d55a7fd20676"
+        },
+        "scores.json": {
+          "byte_count": 32901,
+          "sha256": "4e45872590bdfd92284ddc6a7a0e446e82b06c3ce1e5eb0b34a46afb8d1eb049"
+        },
+        "weights.json": {
+          "byte_count": 20852,
+          "sha256": "dfeae736cf57700cfe7fd0efaea0ff7aced6cb2e6cc3b3b87c16a5dc00e7c09c"
+        }
+      },
+      "common_valid": 24,
+      "independent_q99": 0.2721089692498,
+      "minutes": 144,
+      "mse_claim": "Saved current-channel equality only; raw output MSE remains Task11 numerical evidence",
+      "parameter_count": 492,
+      "policies": {
+        "P_A": {
+          "attack_minutes": 2,
+          "calendar_test_minutes": 36,
+          "confusion_counts": {
+            "fn": 2,
+            "fp": 0,
+            "tn": 4,
+            "tp": 0
+          },
+          "excluded_unscored_test_minutes": 30,
+          "metrics": {
+            "f1": 0.0,
+            "fnr": 1.0,
+            "fpr": 0.0,
+            "precision": null,
+            "recall": 0.0
+          },
+          "normal_minutes": 4,
+          "scored_test_minutes": 6,
+          "undefined_reasons": {
+            "precision": "No positive predictions on scored normal or attack test minutes."
+          },
+          "unknown_minutes": 0,
+          "unknown_source_attack_present": 0
+        },
+        "P_B": {
+          "attack_minutes": 1,
+          "calendar_test_minutes": 36,
+          "confusion_counts": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 5,
+            "tp": 0
+          },
+          "excluded_unscored_test_minutes": 30,
+          "metrics": {
+            "f1": 0.0,
+            "fnr": 1.0,
+            "fpr": 0.0,
+            "precision": null,
+            "recall": 0.0
+          },
+          "normal_minutes": 5,
+          "scored_test_minutes": 6,
+          "undefined_reasons": {
+            "precision": "No positive predictions on scored normal or attack test minutes."
+          },
+          "unknown_minutes": 0,
+          "unknown_source_attack_present": 0
+        },
+        "P_U": {
+          "attack_minutes": 1,
+          "calendar_test_minutes": 36,
+          "confusion_counts": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 4,
+            "tp": 0
+          },
+          "excluded_unscored_test_minutes": 30,
+          "metrics": {
+            "f1": 0.0,
+            "fnr": 1.0,
+            "fpr": 0.0,
+            "precision": null,
+            "recall": 0.0
+          },
+          "normal_minutes": 4,
+          "scored_test_minutes": 6,
+          "undefined_reasons": {
+            "precision": "No positive predictions on scored normal or attack test minutes."
+          },
+          "unknown_minutes": 1,
+          "unknown_source_attack_present": 0
+        }
+      },
+      "q99_tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-12
+      },
+      "scored_test_minutes": 6,
+      "status": "PASS",
+      "test_minutes": 36,
+      "threshold": 0.2721089692498,
+      "weights_claim": "New JSON shapes/count only; no model reconstruction or inference"
+    }
+  },
+  "comparison": {
+    "status": "PASS",
+    "groups": [
+      "capacity_full",
+      "capacity_h15",
+      "capacity_h30",
+      "classic"
+    ],
+    "negative_actions": [
+      "capacity_no_history",
+      "capacity_no_new",
+      "capacity_duplicate",
+      "capacity_five",
+      "capacity_if",
+      "capacity_source_none",
+      "capacity_cli_source_missing",
+      "classic_reject492_api",
+      "classic_reject492_cli"
+    ],
+    "included_slots": [
+      "current_ae13",
+      "current_ae13_capacity492",
+      "history_ae26_h15",
+      "history_ae26_h30"
+    ],
+    "control_design": {
+      "controls_materials_complete": true,
+      "fixed_current_profile": "c17-i1-g13u-ae-current-capacity492-synthetic-v1",
+      "near_count": {
+        "absolute_difference": 17,
+        "relative_difference": 0.03339882121807466,
+        "status": "PREDEFINED_COUNT_ONLY",
+        "tolerance": 0.05
+      },
+      "near_parameter_count_pairs": [
+        [
+          "current_ae13_capacity492",
+          "history_ae26_h15"
+        ],
+        [
+          "current_ae13_capacity492",
+          "history_ae26_h30"
+        ]
+      ],
+      "no_history_input": true,
+      "parameter_count_formula": "SUM_LINEAR_WEIGHTS_AND_BIASES_V1",
+      "reference_parameter_count": 509,
+      "same_hidden_width_control_present": true,
+      "same_hidden_width_pairs": [
+        [
+          "current_ae13",
+          "history_ae26_h15"
+        ],
+        [
+          "current_ae13",
+          "history_ae26_h30"
+        ]
+      ]
+    },
+    "limitations": {
+      "capacity_control": "NOT_COMPARABLE",
+      "capacity_control_reason": "PARAMETER_COUNT_NEAR_MATCH_DOES_NOT_ESTABLISH_EQUAL_EFFECTIVE_CAPACITY",
+      "cross_model_score_scale": "NOT_COMPARABLE",
+      "execution_controls": "SHARED_DECLARATIONS_CONSISTENT_ONLY",
+      "history_causal_attribution": "NOT_COMPARABLE",
+      "model_execution": "NOT_CHECKED",
+      "model_origin": "NOT_AUTHENTICATED",
+      "ranking": "NOT_PERFORMED",
+      "statistical_significance": "NOT_PERFORMED"
+    },
+    "api_cli_values_and_capacity_canonical_bytes": "PASS",
+    "manual_unexecuted_negatives": [
+      "resealed_duplicate_id_or_slot",
+      "coherent_policy_or_same_count_qualification_mismatch",
+      "alternate_source_with_legitimate_alternate_upstream"
+    ]
+  },
+  "processes": {
+    "total": 28,
+    "model_children": 1,
+    "readonly_children": 27,
+    "all_actual_pid_and_venv_verified": true,
+    "all_reaped": true,
+    "timeouts": 0,
+    "forced_terminations": 0,
+    "readonly_model_imports": 0,
+    "readonly_forbidden_attempts": 0,
+    "process_tree_control": false,
+    "memory_limit_enforced": false
+  },
+  "preservation": {
+    "status": "PASS",
+    "old_files": 67,
+    "content_and_mtime_and_inventory_unchanged": true,
+    "original_weights_deserialization": "NOT_PERFORMED_BY_PRESERVATION_CHECK",
+    "installed_and_source_final_identity": "PASS"
+  },
+  "harness_notes": {
+    "preexecution_relative_settings_rejected": true,
+    "preexecution_failure_before_output_and_model": true,
+    "model_retried": false,
+    "static_review_fix": "STRICT_INSTALL_RECEIPT_SOURCE_FREEZE_FIELD"
+  },
+  "research": {
+    "data_gate": "BLOCKED",
+    "formal_experiments": "NOT_RUN",
+    "real_preprocessing": "NOT_RUN",
+    "real_training": "NOT_RUN"
+  },
+  "capacity_http": "NOT_RUN",
+  "capacity_ui": "NOT_RUN",
+  "final_policy": "NOT_APPROVED",
+  "real_pilot": "NOT_APPROVED",
+  "production_contract_migration": "NOT_APPROVED",
+  "publication": {
+    "desktop_commit": "PENDING",
+    "push": "PENDING",
+    "ci": "PENDING",
+    "previous_audit_commit": "882b67d6e32b043335e34008285dc06c3b5d1762",
+    "ui_input": "RESPONSE_OBSERVED_WITH_SCREENSHOT",
+    "note": "Earlier immediate accessibility observations lagged; file selection and Desktop publication subsequently observed."
+  },
+  "independent_actual_acceptance_review": "PASS",
+  "compatibility": {
+    "backend": {
+      "passed": 61,
+      "new_tests": 29,
+      "existing_tests": 32,
+      "model_imports_or_forbidden_actions": 0,
+      "unchanged_boundary_files": 22,
+      "new_capacity_http": "NOT_RUN"
+    },
+    "frontend": {
+      "passed": 125,
+      "new_tests": 5,
+      "typecheck": "PASS",
+      "contract_generation": "PASS",
+      "build": "PASS",
+      "warning": "Existing entry chunk 855.22 kB exceeds 500 kB warning threshold",
+      "actual_browser": "NOT_RUN"
+    },
+    "production_134_268_contract": "UNCHANGED",
+    "classic_new492_rejection": "PASS",
+    "test_files": {
+      "tests/backend/test_capacity_boundary_compatibility.py": {
+        "sha256": "0606cf24f14b2ac4abff722e82204324974f24ce4923b6555968287ce53d5f67",
+        "byte_count": 7646
+      },
+      "src/frontend/src/__tests__/classic-capacity-boundary.test.ts": {
+        "sha256": "5385c7ce84c542f118b9f45ba0675e5fed3998abb91457fbba54fbba845d74fd",
+        "byte_count": 9654
+      }
+    }
+  }
+}

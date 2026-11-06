@@ -16,9 +16,10 @@ import numpy as np
 
 from .candidate_artifacts import CandidateArtifactError, load_verified_candidate_artifacts
 from .candidate_cli import _Parser, _SafeError
+from .candidate_ae_profiles import (MODEL_PROFILE_ID,CAPACITY492_MODEL_PROFILE_ID,
+    resolve_candidate_ae_configuration,strict_configuration_equal,capacity492_source_binding_matches)
 
 
-MODEL_PROFILE_ID = "c17-i1-g13u-ae-synthetic-v1"
 MAX_WEIGHTS_BYTES = 1024 * 1024
 MAX_JSON_BYTES = 16 * 1024 * 1024
 MAX_TOTAL_BYTES = 32 * 1024 * 1024
@@ -48,9 +49,9 @@ class _BoundedBuffer(io.BytesIO):
         return super().truncate(size)
 
 
-def compute_synthetic_candidate_ae(snapshot, *, method, history_window=None):
+def compute_synthetic_candidate_ae(snapshot, *, method, history_window=None, model_profile_id=MODEL_PROFILE_ID):
     from .candidate_autoencoder import compute_synthetic_candidate_ae as compute
-    return compute(snapshot, method=method, history_window=history_window)
+    return compute(snapshot, method=method, history_window=history_window,model_profile_id=model_profile_id)
 
 
 def replay_candidate_ae(snapshot, result, network):
@@ -169,11 +170,19 @@ def _versions():
     return {"python": platform.python_version(), "numpy": np.__version__, "torch": str(torch.__version__)}
 
 
-def _common(snapshot, result, run_id):
-    configuration = _plain(result.configuration)
+def _common(snapshot, result, run_id, *, model_profile_id=MODEL_PROFILE_ID):
+    try:
+        if type(result.configuration) is not dict:
+            raise _CLIError('INVALID_MODEL_RESULT')
+        configuration=resolve_candidate_ae_configuration(result.configuration['method'],
+            result.configuration['history_window'],model_profile_id=model_profile_id)
+    except (ValueError,TypeError,KeyError,AttributeError):
+        raise _CLIError('INVALID_MODEL_RESULT') from None
+    if not strict_configuration_equal(result.configuration,configuration):
+        raise _CLIError('INVALID_MODEL_RESULT')
     encoded = json.dumps(configuration, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("utf-8")
     return {
-        "schema_version": 1, "run_id": run_id, "model_profile_id": MODEL_PROFILE_ID,
+        "schema_version": 1, "run_id": run_id, "model_profile_id": model_profile_id,
         "evidence_kind": "SYNTHETIC_ONLY", "time_basis": "synthetic_source_clock",
         "policy_status": "AUDIT_ONLY", "scope": "ENGINEERING_TOY_ONLY",
         "selected_policy": snapshot.report["selected_policy"], "score_direction": "HIGHER_IS_MORE_ANOMALOUS",
@@ -184,7 +193,7 @@ def _common(snapshot, result, run_id):
     }
 
 
-def _score_document(snapshot, result, common, method, history_window):
+def _score_document(snapshot, result, common, method, history_window, *, model_profile_id=MODEL_PROFILE_ID):
     n = len(snapshot.timestamps)
     scores, valid, alarms = np.asarray(result.scores), np.asarray(result.score_valid), np.asarray(result.alarms)
     current = np.asarray(result.current_reconstruction_mse)
@@ -207,13 +216,12 @@ def _score_document(snapshot, result, common, method, history_window):
             raise _CLIError("INVALID_MODEL_RESULT")
         with np.errstate(over="ignore", invalid="ignore"):
             expected_score = .5 * current + .5 * history
-    configuration = result.configuration
-    width = 13 if method == "current_ae" else 26
+    configuration=resolve_candidate_ae_configuration(method,history_window,model_profile_id=model_profile_id)
     losses = result.training_losses
     if (not np.array_equal(scores[valid], expected_score[valid])
-            or configuration["method"] != method or configuration["history_window"] != history_window
-            or configuration["input_width"] != width or configuration["architecture"] != [width, 8, 3, 8, width]
-            or configuration["parameter_count"] != (288 if width == 13 else 509)
+            or type(common['model_profile_id']) is not str or common['model_profile_id'] != model_profile_id
+            or not strict_configuration_equal(result.configuration,configuration)
+            or not strict_configuration_equal(common['configuration'],configuration)
             or len(losses) != 5 or any(not math.isfinite(value) or value < 0 for value in losses)):
         raise _CLIError("INVALID_MODEL_RESULT")
     return {
@@ -230,13 +238,18 @@ def _score_document(snapshot, result, common, method, history_window):
     }
 
 
-def run_synthetic_candidate_ae(records, inputs, source_fixture, run_id, output, *, method, history_window=None):
+def run_synthetic_candidate_ae(records, inputs, source_fixture, run_id, output, *, method, history_window=None,
+                               model_profile_id=MODEL_PROFILE_ID):
     if not isinstance(run_id, str) or not _RUN_ID.fullmatch(run_id):
         raise _CLIError("INVALID_RUN_ID")
-    if (method not in ("current_ae", "history_ae")
-            or method == "current_ae" and history_window is not None
-            or method == "history_ae" and (type(history_window) is not int or history_window not in (15, 30))):
-        raise _CLIError("INVALID_METHOD_WINDOW")
+    if type(model_profile_id) is not str or model_profile_id not in (MODEL_PROFILE_ID,CAPACITY492_MODEL_PROFILE_ID):
+        raise _CLIError('INVALID_MODEL_PROFILE')
+    try:
+        requested_configuration=resolve_candidate_ae_configuration(method,history_window,model_profile_id=model_profile_id)
+    except ValueError:
+        raise _CLIError('INVALID_METHOD_WINDOW') from None
+    if source_fixture is None:
+        raise _CLIError('SOURCE_REQUIRED')
     records, inputs, source, output = map(Path, (records, inputs, source_fixture, output))
     try:
         records, inputs, source, output = _check_output(records, inputs, source, output)
@@ -244,14 +257,19 @@ def run_synthetic_candidate_ae(records, inputs, source_fixture, run_id, output, 
         if (snapshot.report["checks"]["source_replay"] != "VERIFIED"
                 or snapshot.report["evidence_kind"] != "SYNTHETIC_ONLY"):
             raise _CLIError("SOURCE_NOT_VERIFIED")
+        if model_profile_id==CAPACITY492_MODEL_PROFILE_ID and not capacity492_source_binding_matches(snapshot.report,snapshot.provenance):
+            raise _CLIError('FIXED_SOURCE_MISMATCH')
         try:
             output.mkdir()
         except FileExistsError as exc:
             raise _CLIError("OUTPUT_EXISTS") from exc
         _ordinary_parent(output)
-        result = compute_synthetic_candidate_ae(snapshot, method=method, history_window=history_window)
-        common = _common(snapshot, result, run_id)
-        scores = _score_document(snapshot, result, common, method, history_window)
+        result = compute_synthetic_candidate_ae(snapshot, method=method, history_window=history_window,
+                                               model_profile_id=model_profile_id)
+        if not strict_configuration_equal(getattr(result,'configuration',None),requested_configuration):
+            raise _CLIError('INVALID_MODEL_RESULT')
+        common = _common(snapshot, result, run_id,model_profile_id=model_profile_id)
+        scores = _score_document(snapshot, result, common, method, history_window,model_profile_id=model_profile_id)
         weights_document = encode_candidate_ae_weights(result.model, common)
         weights_bytes = _json_bytes(weights_document, MAX_WEIGHTS_BYTES)
         used, artifacts = 0, {}
@@ -303,10 +321,11 @@ def main(argv=None):
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--method", choices=("current_ae", "history_ae"), required=True)
     parser.add_argument("--history-window", type=int, choices=(15, 30))
+    parser.add_argument('--model-profile',choices=(MODEL_PROFILE_ID,CAPACITY492_MODEL_PROFILE_ID),default=MODEL_PROFILE_ID)
     try:
         args = parser.parse_args(argv)
         result = run_synthetic_candidate_ae(args.records, args.inputs, args.source_fixture, args.run_id, args.output,
-                                            method=args.method, history_window=args.history_window)
+                                            method=args.method, history_window=args.history_window,model_profile_id=args.model_profile)
     except _SafeError:
         print(json.dumps({"error": "INVALID_ARGUMENTS"}), file=sys.stderr)
         return 2

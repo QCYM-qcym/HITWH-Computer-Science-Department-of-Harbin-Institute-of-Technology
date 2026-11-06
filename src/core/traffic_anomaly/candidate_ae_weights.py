@@ -3,8 +3,12 @@ from __future__ import annotations
 
 import json
 import math
+import hashlib
 
 import numpy as np
+
+from .candidate_ae_profiles import (MODEL_PROFILE_ID, resolve_candidate_ae_configuration,
+                                   strict_configuration_equal)
 
 MAX_WEIGHTS_BYTES = 1024 * 1024
 FORMAT = 'candidate-ae-json-weights-v1'
@@ -25,10 +29,19 @@ def _require(condition, code='INVALID_WEIGHTS'):
         raise CandidateAEWeightsError(code)
 
 
-def _shapes(width):
+def _network_configuration(width, model_profile_id):
     _require(type(width) is int and width in (13,26))
-    return {'0.weight':(8,width),'0.bias':(8,), '2.weight':(3,8),'2.bias':(3,),
-            '4.weight':(8,3),'4.bias':(8,), '6.weight':(width,8),'6.bias':(width,)}
+    try:
+        return resolve_candidate_ae_configuration('current_ae' if width==13 else 'history_ae',
+            None if width==13 else 15,model_profile_id=model_profile_id)
+    except ValueError:
+        raise CandidateAEWeightsError('INVALID_WEIGHTS') from None
+
+
+def _shapes(configuration):
+    widths=configuration['architecture']
+    return {key:shape for i,(left,right) in enumerate(zip(widths,widths[1:]))
+            for key,shape in ((f'{2*i}.weight',(right,left)),(f'{2*i}.bias',(right,)))}
 
 
 def _canonical(value):
@@ -38,30 +51,35 @@ def _canonical(value):
 def _binding(value):
     _require(type(value) is dict and value.keys()==_BINDING_KEYS)
     _require(type(value['schema_version']) is int and value['schema_version']==1
-             and value['model_profile_id']=='c17-i1-g13u-ae-synthetic-v1'
              and value['evidence_kind']=='SYNTHETIC_ONLY' and value['policy_status']=='AUDIT_ONLY'
              and value['scope']=='ENGINEERING_TOY_ONLY'
              and value['time_basis']=='synthetic_source_clock'
              and value['value_space']=='prepared'
              and value['score_direction']=='HIGHER_IS_MORE_ANOMALOUS'
              and value['selected_policy'] in ('P_U','P_B','P_A'))
-    config=value['configuration']; width=config['input_width']; _shapes(width)
-    _require((width==13 and config['method']=='current_ae' and config['history_window'] is None)
-             or (width==26 and config['method']=='history_ae'
-                 and type(config['history_window']) is int and config['history_window'] in (15,30)))
+    config=value['configuration']
+    _require(type(config) is dict)
+    try:
+        prescribed=resolve_candidate_ae_configuration(config['method'],config['history_window'],
+                                                      model_profile_id=value['model_profile_id'])
+    except ValueError:
+        raise CandidateAEWeightsError('INVALID_WEIGHTS') from None
+    _require(strict_configuration_equal(config,prescribed))
+    _require(type(value['configuration_sha256']) is str
+             and value['configuration_sha256']==hashlib.sha256(_canonical(prescribed).encode('utf-8')).hexdigest())
     # Comparing serialized values also distinguishes bools from numbers and integer fields from floats.
     encoded=_canonical(value)
-    return width,encoded
+    return prescribed,encoded
 
 
 def validate_candidate_ae_weights(document, expected_binding):
     """Validate before tensor allocation; expected binding is caller-owned run identity."""
     try:
-        width,expected=_binding(expected_binding)
+        configuration,expected=_binding(expected_binding)
         _require(type(document) is dict and set(document)=={'schema_version','format','binding','parameters'})
         _require(type(document['schema_version']) is int and document['schema_version']==1
-                 and document['format']==FORMAT and _binding(document['binding'])==(width,expected))
-        shapes=_shapes(width); parameters=document['parameters']
+                 and document['format']==FORMAT and _binding(document['binding'])[1]==expected)
+        shapes=_shapes(configuration); parameters=document['parameters']
         _require(type(parameters) is dict and parameters.keys()==shapes.keys())
         result={}
         for name,shape in shapes.items():
@@ -112,15 +130,15 @@ def parse_candidate_ae_weights(payload, expected_binding):
         raise CandidateAEWeightsError('INVALID_WEIGHTS') from exc
 
 
-def build_candidate_ae_network(input_width):
+def build_candidate_ae_network(input_width, *, model_profile_id=MODEL_PROFILE_ID):
     """Hardcoded CPU network. Save/restore only CPU RNG, including constructor failures."""
-    _shapes(input_width)
+    configuration=_network_configuration(input_width,model_profile_id)
     import torch
     saved=torch.random.get_rng_state().clone()
     try:
         torch.random.default_generator.manual_seed(42)
         with torch.inference_mode(False),torch.enable_grad():
-            widths=(input_width,8,3,8,input_width); layers=[]
+            widths=configuration['architecture']; layers=[]
             for index,(left,right) in enumerate(zip(widths,widths[1:])):
                 layers.append(torch.nn.Linear(left,right,device='cpu',dtype=torch.float32))
                 if index<3:
@@ -135,7 +153,7 @@ def build_candidate_ae_network(input_width):
 def encode_candidate_ae_weights(network, binding):
     """Encode only the fixed topology, no architecture or arbitrary class serialization."""
     try:
-        width,_=_binding(binding)
+        configuration,_=_binding(binding)
         import torch
         _require(type(network) is torch.nn.Sequential and len(network)==7)
         for index,layer in enumerate(network):
@@ -158,7 +176,8 @@ def encode_candidate_ae_weights(network, binding):
 def rebuild_candidate_ae_from_json(document, expected_binding):
     """Copy checked arrays into a fresh fixed CPU topology; never executes a payload."""
     arrays=validate_candidate_ae_weights(document,expected_binding)
-    network=build_candidate_ae_network(expected_binding['configuration']['input_width'])
+    network=build_candidate_ae_network(expected_binding['configuration']['input_width'],
+                                      model_profile_id=expected_binding['model_profile_id'])
     import torch
     try:
         with torch.no_grad():
