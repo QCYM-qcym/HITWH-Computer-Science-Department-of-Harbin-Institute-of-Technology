@@ -1,0 +1,639 @@
+{
+  "record_version": 1,
+  "record_scope": "PUBLIC_REDACTED_PREPARED_PACKAGE_ENGINEERING_VERIFICATION",
+  "date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "documentation_update": "EXISTING_RECEIPTS_REVIEWED_NO_NEW_PRODUCT_EXECUTION",
+  "local_acceptance": {
+    "status": "LOCAL_ENGINEERING_ACCEPTED_PUBLICATION_PENDING_DESKTOP",
+    "recorded_at": "2026-11-07T05:27:26.672700+08:00",
+    "receipt_identity": {
+      "byte_count": 19094,
+      "sha256": "b2fbfc9dddff1df23442ebee87f3d6743676628eafc527d7fc2044c9c6a0ee8b"
+    }
+  },
+  "publication": {
+    "status": "PENDING_DESKTOP",
+    "batch_commit": null,
+    "pushed": false,
+    "new_remote_ci": "NOT_RUN",
+    "base_branch": "codex/candidate-flow-adapter",
+    "base_commit": "c3e4396032a2af46cd282690767ae1c998255400",
+    "merged_main": false,
+    "note": "Base commit is not the prepared package publication commit."
+  },
+  "profiles": {
+    "package": "c17-release-prepared-input-package-v1",
+    "numeric_rules": "c17-release-log1p-mad-input-rules-v1",
+    "upstream": "c17-release-minute-package-v1",
+    "replay": "c17-release-input-replay-v1",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+    "audit_policy_status": "AUDIT_ONLY"
+  },
+  "documents": {
+    "design": "docs/design/release-input-package-v1.md",
+    "guide": "docs/guides/release-input-package.md",
+    "raw_design": "docs/design/release-minute-package-v1.md"
+  },
+  "accepted_spec_identity": {
+    "byte_count": 54831,
+    "sha256": "7f9873d1cde3975a86cd09e1d3e8091b574c041d9cd0c6c279d5da1f5ac46f92"
+  },
+  "accepted_plan_identity": {
+    "byte_count": 32473,
+    "sha256": "44a4ae74380d83fa258c390545563ae1526f399ac18a83e974c1f070aa140578"
+  },
+  "accepted_implementation": [
+    {
+      "path": "src/core/traffic_anomaly/release_inputs.py",
+      "byte_count": 33929,
+      "sha256": "be78610183495271e1c9c80bd47e2825684e66f151671e322194a5bc4468e221"
+    },
+    {
+      "path": "src/core/traffic_anomaly/release_input_package.py",
+      "byte_count": 7463,
+      "sha256": "159257145c062adaca6ac5ce940b73826e89aff6d2d09e0c1b95e0b6c0faa266"
+    }
+  ],
+  "package_limits": {
+    "minute_count": 10000,
+    "segment_count": 7,
+    "total_bytes": 20971520,
+    "members": {
+      "preprocess.json": 16384,
+      "inputs.json": 16777216,
+      "labels.json": 2097152,
+      "manifest.json": 65536,
+      "COMPLETE.json": 4096
+    }
+  },
+  "A8_source_joint": {
+    "status": "PASS_WITH_SKIPS_AND_DESELECTIONS",
+    "collected": 469,
+    "passed": 463,
+    "skipped": 4,
+    "deselected": 2,
+    "elapsed_seconds": 10.92,
+    "pytest_exit_code": 0,
+    "runner_exit_code": 0,
+    "test_files": [
+      "tests/core/test_release_inputs.py",
+      "tests/core/test_release_input_package.py",
+      "tests/core/test_release_input_hand_cases.py",
+      "tests/core/test_release_minute_contract.py",
+      "tests/core/test_release_minute_hand_cases.py",
+      "tests/core/test_candidate_inputs.py"
+    ],
+    "receipt_identity": {
+      "byte_count": 4118,
+      "sha256": "95eca1972432a5964eb79f37176807e6e76751cf95e5ca81ecb60f7c49bb781f"
+    },
+    "after_snapshot_identity": {
+      "byte_count": 14514,
+      "sha256": "2b648770385db8fbcc83653b0d7f939e9f4e2b1451cd0e0f019b0f4fb86da70e"
+    },
+    "skip_scope": "Platform or actual link availability; skipped rejection assertions are not claimed as passed.",
+    "deselection_scope": "Two previously accepted raw max-shape tests, not new A9",
+    "preserved_files": {
+      "core": 64,
+      "tests_and_fixtures": 15
+    },
+    "guard_scope": "CURRENT_PYTEST_PROCESS_ONLY",
+    "observed_model_network_spawn_attempts": 0,
+    "limitations": [
+      "No installation evidence from this slice.",
+      "No OS isolation or inherited child guard claim.",
+      "Stage counts overlap; earlier red and green results are not added."
+    ]
+  },
+  "A9_maximum_shape": {
+    "status": "PASS_UNDER_EXPLICIT_AMENDED_360_SECOND_SUPERVISION",
+    "scope": "IN_MEMORY_CODEC_ONLY_NOT_SAVED_DIRECTORIES_NOT_PREPARE_DERIVATION",
+    "original_attempts": [
+      {
+        "attempt": "01",
+        "status": "FAILED_TIMEOUT",
+        "total_budget_seconds": 120,
+        "cleanup_reserve_seconds": 10,
+        "attempted_cases": [
+          "M1"
+        ],
+        "not_run_cases": [
+          "M2",
+          "M3"
+        ],
+        "working_deadline_seconds": 110,
+        "child_exit_code": 1,
+        "forced_termination": true,
+        "reaped": true,
+        "automatic_retries": 0,
+        "final_guard_receipt": "NOT_AVAILABLE",
+        "summary_sha256": "00be68a6839a81b45d48901ceec769a2f7dbcdad07e43550c7ae19fe73a4572c",
+        "observed_elapsed_seconds": 110.00831889998517,
+        "process_receipt_deadline_exceeded": false,
+        "cleanup_reaped": true,
+        "deadline_note": "Stopped at approximately 110-second working limit; 120-second total supervision/cleanup deadline was not exceeded."
+      },
+      {
+        "attempt": "02",
+        "status": "FAILED_TIMEOUT",
+        "total_budget_seconds": 120,
+        "cleanup_reserve_seconds": 10,
+        "attempted_cases": [
+          "M1"
+        ],
+        "not_run_cases": [
+          "M2",
+          "M3"
+        ],
+        "working_deadline_seconds": 110,
+        "child_exit_code": 1,
+        "forced_termination": true,
+        "reaped": true,
+        "automatic_retries": 0,
+        "final_guard_receipt": "NOT_AVAILABLE",
+        "summary_sha256": "db51988b52092d2b3b199794137b062c48fb905bb14bba6d0688307eb0d6fc14",
+        "observed_elapsed_seconds": 110.00854000000982,
+        "process_receipt_deadline_exceeded": false,
+        "cleanup_reaped": true,
+        "deadline_note": "Stopped at approximately 110-second working limit; 120-second total supervision/cleanup deadline was not exceeded."
+      },
+      {
+        "attempt": "03",
+        "status": "FAILED_TIMEOUT",
+        "total_budget_seconds": 120,
+        "cleanup_reserve_seconds": 10,
+        "attempted_cases": [
+          "M1"
+        ],
+        "not_run_cases": [
+          "M2",
+          "M3"
+        ],
+        "working_deadline_seconds": 110,
+        "child_exit_code": 1,
+        "forced_termination": true,
+        "reaped": true,
+        "automatic_retries": 0,
+        "final_guard_receipt": "NOT_AVAILABLE",
+        "summary_sha256": "c5413ce7c248ce828d0a2f6fbc77ac1884313be7feb5ddd42ee1a0153a185e93",
+        "observed_elapsed_seconds": 110.00788330001524,
+        "process_receipt_deadline_exceeded": false,
+        "cleanup_reaped": true,
+        "deadline_note": "Stopped at approximately 110-second working limit; 120-second total supervision/cleanup deadline was not exceeded."
+      }
+    ],
+    "explicit_amendment": {
+      "scope": "A9_CHILD_SUPERVISION_ONLY",
+      "from_seconds": 120,
+      "to_seconds": 360,
+      "cleanup_reserve_seconds": 10,
+      "identity": {
+        "byte_count": 1825,
+        "sha256": "3e07e1125277c97455b2b18880e7361318a6bfac70b36e626f3783736f8d5a55"
+      },
+      "unchanged": [
+        "three fixed cases",
+        "10000-minute limit",
+        "all member and package limits",
+        "behavior restrictions",
+        "256 MiB task directory",
+        "1 MiB per log",
+        "A10 budgets",
+        "build and install budgets"
+      ]
+    },
+    "accepted_attempt": "04",
+    "freeze_identity": {
+      "byte_count": 13543,
+      "sha256": "29c8d8d59135d93131808698fd2427f367b320f8f5378380b43d5c6545e5ca06"
+    },
+    "summary_identity": {
+      "byte_count": 15593,
+      "sha256": "2930d5f93f87438b3bf298bd2b54ded6c951c3613c18f1faf1ad8eeea9fef225"
+    },
+    "cases": {
+      "M1": {
+        "elapsed_seconds": 200.86366689999704,
+        "shape": {
+          "minute_count": 10000,
+          "minute_count_checks": 10,
+          "raw_eligible_records": 10000,
+          "raw_records": 10000,
+          "raw_source_count": 1,
+          "segment_count": 1,
+          "snapshot_fit_count": 9970
+        },
+        "sizes": {
+          "COMPLETE.json": 201,
+          "inputs.json": 7233897,
+          "labels.json": 1799902,
+          "manifest.json": 2255,
+          "preprocess.json": 614,
+          "total_bytes": 9036869
+        }
+      },
+      "M2": {
+        "elapsed_seconds": 191.0151187000156,
+        "shape": {
+          "minute_count": 10000,
+          "minute_count_checks": 10,
+          "raw_eligible_records": 10000,
+          "raw_records": 10000,
+          "raw_source_count": 1,
+          "segment_count": 1,
+          "snapshot_fit_count": 9970
+        },
+        "sizes": {
+          "COMPLETE.json": 201,
+          "inputs.json": 2850032,
+          "labels.json": 1829812,
+          "manifest.json": 2255,
+          "preprocess.json": 614,
+          "total_bytes": 4682914
+        }
+      },
+      "M3": {
+        "elapsed_seconds": 191.33037320000585,
+        "shape": {
+          "minute_count": 10000,
+          "minute_count_checks": 10,
+          "raw_eligible_records": 9994,
+          "raw_records": 9994,
+          "raw_source_count": 5,
+          "segment_count": 7,
+          "snapshot_fit_count": 1
+        },
+        "sizes": {
+          "COMPLETE.json": 201,
+          "inputs.json": 2290131,
+          "labels.json": 1763296,
+          "manifest.json": 5896,
+          "preprocess.json": 611,
+          "total_bytes": 4060135
+        }
+      }
+    },
+    "children_exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "children_reaped": true,
+    "forced_termination": false,
+    "final_guard_status": "PASSED",
+    "final_guard_attempts": [],
+    "stderr_bytes": [
+      0,
+      0,
+      0
+    ],
+    "final_task_bytes": 49554,
+    "prepare_fit_transform_history_execution": "NOT_PERFORMED",
+    "csv_aggregation_model_execution": "NOT_PERFORMED",
+    "fit_count_note": "snapshot_fit_count describes constructed object content, not an executed fit.",
+    "limitations": [
+      "Fixed artificial shapes only.",
+      "Not proof of all legal inputs or original 120-second performance.",
+      "Elapsed time includes supervision, not isolated product timing.",
+      "No online SLA, OS/RSS isolation or arbitrary native behavior certification."
+    ]
+  },
+  "A10_installed_artificial_acceptance": {
+    "status": "PASS_WITH_STATED_SCOPE",
+    "acceptance_identity": {
+      "byte_count": 1613,
+      "sha256": "c8ad17b87f0af40de798a48fa3f7ac1fdb507d1edeb3ef7cc65f74766da3a57b"
+    },
+    "receipt_identities": {
+      "acceptance.json": {
+        "byte_count": 62035,
+        "sha256": "984b67a57c11f84cb06c9db1c2334fcdc63386c0227011f85f5835ad08f47700"
+      },
+      "controller.json": {
+        "byte_count": 717,
+        "sha256": "c51b0bbd1901af4e86e67cc06b3245efd23d362249f6d29b3dab94217573887a"
+      },
+      "execution-freeze.json": {
+        "byte_count": 15630,
+        "sha256": "40d9e21aa159261b9f96e671970bb73229d8ba847414912e2a5929b4c9ad83f0"
+      },
+      "installation.json": {
+        "byte_count": 13622,
+        "sha256": "d031e9ac3269b0d2f48b687082cfe3ca7a78ae7a2d02025bd9ec7e7385aaff5e"
+      },
+      "preservation.json": {
+        "byte_count": 95383,
+        "sha256": "82d12985adfa253000b5e6b3006d35d37f290c71f91a1e3e49f1fa3c9d315172"
+      }
+    },
+    "wheel": {
+      "byte_count": 158586,
+      "sha256": "df35337d2b3035ad83ced8bab9a4889c4362d0843d2c0d79da0330969ff11d4e",
+      "archive_entries": 67,
+      "package_files": 63,
+      "metadata_files": 4,
+      "uncompressed_bytes": 484104,
+      "source_map_files_including_pyproject": 64,
+      "installed_source_bytes": "EXACT_FROZEN_MATCH",
+      "dependencies": "EXISTING_LOCKED_ENVIRONMENT_NOT_NEW_DEPENDENCY_SETUP"
+    },
+    "acceptance_leaf_count": 44,
+    "phase_counts": {
+      "aggregate": 6,
+      "reference": 7,
+      "prepare": 8,
+      "load": 7,
+      "verify": 7,
+      "copy-load": 1,
+      "negative": 8
+    },
+    "build_install_owned_launches": 4,
+    "total_owned_launches": 48,
+    "all_owned_exit_codes_zero": true,
+    "all_owned_reaped": true,
+    "forced_termination": false,
+    "timeouts": 0,
+    "process_count_note": "Seven primary saves occur inside seven prepare leaves; expected rejections exit zero after harness assertions, not CLI exit-code checks.",
+    "artificial_sources": [
+      {
+        "case": "A",
+        "logical_rows": 176,
+        "byte_count": 44975,
+        "content_open_count": 1
+      },
+      {
+        "case": "A-L",
+        "logical_rows": 176,
+        "byte_count": 44977,
+        "content_open_count": 1
+      },
+      {
+        "case": "A-V",
+        "logical_rows": 176,
+        "byte_count": 44975,
+        "content_open_count": 1
+      },
+      {
+        "case": "B",
+        "logical_rows": 197,
+        "byte_count": 50162,
+        "content_open_count": 1
+      },
+      {
+        "case": "C",
+        "logical_rows": 80,
+        "byte_count": 21150,
+        "content_open_count": 1
+      },
+      {
+        "case": "D",
+        "logical_rows": 33,
+        "byte_count": 9525,
+        "content_open_count": 1
+      }
+    ],
+    "total_artificial_logical_rows": 838,
+    "total_artificial_source_bytes": 215764,
+    "successful_populations": [
+      {
+        "case": "A",
+        "audit_fit_policy": "P_U",
+        "axis_minutes": 176,
+        "raw_fit_count": 18,
+        "common_valid_count": 56,
+        "qualification_mask_count": 24
+      },
+      {
+        "case": "A-L",
+        "audit_fit_policy": "P_U",
+        "axis_minutes": 176,
+        "raw_fit_count": 18,
+        "common_valid_count": 56,
+        "qualification_mask_count": 24
+      },
+      {
+        "case": "A-V",
+        "audit_fit_policy": "P_U",
+        "axis_minutes": 176,
+        "raw_fit_count": 18,
+        "common_valid_count": 56,
+        "qualification_mask_count": 24
+      },
+      {
+        "case": "B",
+        "audit_fit_policy": "P_U",
+        "axis_minutes": 198,
+        "raw_fit_count": 25,
+        "common_valid_count": 47,
+        "qualification_mask_count": 24
+      },
+      {
+        "case": "B",
+        "audit_fit_policy": "P_B",
+        "axis_minutes": 198,
+        "raw_fit_count": 36,
+        "common_valid_count": 47,
+        "qualification_mask_count": 24
+      },
+      {
+        "case": "B",
+        "audit_fit_policy": "P_A",
+        "axis_minutes": 198,
+        "raw_fit_count": 25,
+        "common_valid_count": 47,
+        "qualification_mask_count": 24
+      },
+      {
+        "case": "C",
+        "audit_fit_policy": "P_U",
+        "axis_minutes": 80,
+        "raw_fit_count": 50,
+        "common_valid_count": 19,
+        "qualification_mask_count": 24
+      }
+    ],
+    "population_evidence": "Saved values, labels, indices and all masks compared with independently frozen standard-library reference; counts alone are insufficient.",
+    "reference_order": "SEVEN_REFERENCE_LEAVES_BEFORE_FIRST_PRIMARY_PREPARE",
+    "primary_no_fit_case": {
+      "case": "D",
+      "status": "PASS_EXPECTED_REJECTION",
+      "observed_error": "NO_TRAINING_NORMAL_MINUTES",
+      "prepare_calls": 1,
+      "save_calls": 0,
+      "fit_transform_history_calls": 0,
+      "output_created": false,
+      "load_verify": "NOT_RUN"
+    },
+    "negative_cases": [
+      {
+        "case": "N1",
+        "condition": "missing completion member",
+        "status": "PASS_EXPECTED_REJECTION",
+        "observed_error": "INVALID_PACKAGE",
+        "preconditions": "CHECKED_OUTSIDE_EXPECTED_ERROR_CATCH"
+      },
+      {
+        "case": "N2",
+        "condition": "changed bytes without refreshed digests",
+        "status": "PASS_EXPECTED_REJECTION",
+        "observed_error": "INTEGRITY_MISMATCH",
+        "preconditions": "CHECKED_OUTSIDE_EXPECTED_ERROR_CATCH"
+      },
+      {
+        "case": "N3",
+        "condition": "unexpected sixth member",
+        "status": "PASS_EXPECTED_REJECTION",
+        "observed_error": "INVALID_PACKAGE",
+        "preconditions": "CHECKED_OUTSIDE_EXPECTED_ERROR_CATCH"
+      },
+      {
+        "case": "N4",
+        "condition": "incorrect declared upstream identity",
+        "status": "PASS_EXPECTED_REJECTION",
+        "observed_error": "UPSTREAM_IDENTITY_MISMATCH",
+        "preconditions": "CHECKED_OUTSIDE_EXPECTED_ERROR_CATCH"
+      },
+      {
+        "case": "N5",
+        "condition": "incorrect saved identity",
+        "status": "PASS_EXPECTED_REJECTION",
+        "observed_error": "INTEGRITY_MISMATCH",
+        "preconditions": "CHECKED_OUTSIDE_EXPECTED_ERROR_CATCH"
+      },
+      {
+        "case": "N6",
+        "condition": "in-domain fit indices contradict fit mask",
+        "status": "PASS_EXPECTED_REJECTION",
+        "observed_error": "INCONSISTENT_PACKAGE",
+        "preconditions": "CHECKED_OUTSIDE_EXPECTED_ERROR_CATCH"
+      },
+      {
+        "case": "N7",
+        "condition": "different upstream bound to saved package",
+        "status": "PASS_EXPECTED_REJECTION",
+        "observed_error": "UPSTREAM_IDENTITY_MISMATCH",
+        "preconditions": "CHECKED_OUTSIDE_EXPECTED_ERROR_CATCH"
+      },
+      {
+        "case": "N8",
+        "condition": "resealed finite value contradicts saved-parameter replay",
+        "status": "PASS_EXPECTED_REJECTION",
+        "observed_error": "DERIVATION_MISMATCH",
+        "preconditions": "CHECKED_OUTSIDE_EXPECTED_ERROR_CATCH"
+      }
+    ],
+    "driver_explicit_call_totals": {
+      "aggregate": 6,
+      "decode": 2,
+      "prepare": 9,
+      "prepared_load": 20,
+      "prepared_save": 8,
+      "raw_load": 18,
+      "raw_save": 6,
+      "reference": 7,
+      "verify": 9
+    },
+    "frozen_numeric_entry_totals": {
+      "_fit_state": 7,
+      "_fit_statistics": 7,
+      "_history": 28,
+      "_transform": 15,
+      "prepare_release_inputs": 9,
+      "verify_release_input_derivation": 9
+    },
+    "call_count_scope": "DRIVER_EXPLICIT_CALLS_ONLY",
+    "source_open_guard": {
+      "aggregate_leaves": 6,
+      "csv_opens_per_aggregate": 1,
+      "other_leaves": 38,
+      "csv_opens_in_other_leaves": 0
+    },
+    "preservation": {
+      "source_members": 6,
+      "raw_prepared_copied_packages": 14,
+      "package_members": 70,
+      "expectation_files": 21,
+      "negative_packages": 5,
+      "negative_members": 25,
+      "installed_files": 63,
+      "before_after_maps": "MATCHED"
+    },
+    "observed_resources": {
+      "final_task_bytes": 11148653,
+      "largest_log_bytes": 16707,
+      "slowest_acceptance_leaf_seconds": 2.7199154,
+      "build_seconds": 2.4962347,
+      "install_seconds": 1.0714257,
+      "build_warning_bytes": 123
+    },
+    "limits": {
+      "task_directory_bytes": 268435456,
+      "single_log_bytes": 1048576,
+      "acceptance_leaf_seconds": 60,
+      "acceptance_cleanup_reserve_seconds": 10,
+      "build_or_install_seconds": 120,
+      "build_install_cleanup_reserve_seconds": 20
+    },
+    "limitations": [
+      "Parent processes have no dynamic file I/O allowlist or OS process/network isolation.",
+      "Leaf Python audit events and frozen code-object guards do not certify native I/O or all filesystem events.",
+      "Existing environment only; cross-machine dependency installation not established.",
+      "Artificial preprocessing actually executed; no real fitting, models, scoring or calibration."
+    ]
+  },
+  "independent_review_identities": {
+    "input-a10-independent-runtime-review": {
+      "byte_count": 12229,
+      "sha256": "bf1eac78cf1fd76eb77213e1c2c89728540fb6505fe186c87b260955250ba3f3"
+    },
+    "input-a9-independent-runtime-review": {
+      "byte_count": 6150,
+      "sha256": "c81c795bd8e626915cc7b96cf1edfd202685f6da569baeb05b9db94616a41599"
+    },
+    "input-w1-a8-delta-review": {
+      "byte_count": 5651,
+      "sha256": "7e4b920bd5e36f03415c1335e5d0e22f5ce87de0161dff571e2bde702587302b"
+    },
+    "input-w2-storage-final-report": {
+      "byte_count": 10233,
+      "sha256": "7245f4623ca4435d1bf73e8d6167cf1a428f05e388aaeb00a3cc7998a3e785eb"
+    },
+    "input-w3-independent-fixture-review": {
+      "byte_count": 11709,
+      "sha256": "7c3190895c33bae6d3940fe2cdd1d9c383169db2e808e542b6aa658970b19bdf"
+    }
+  },
+  "research_boundary": {
+    "stage": "S2",
+    "data_gate": "BLOCKED",
+    "final_attempted_policy": "NOT_APPROVED",
+    "main_data_adoption": "NOT_APPROVED",
+    "real_pilot": "NOT_APPROVED",
+    "production_contract_migration": "NOT_APPROVED",
+    "new_download": "NOT_RUN",
+    "real_payload_read_this_batch": "NOT_RUN",
+    "real_preprocessing_fit": "NOT_RUN",
+    "real_model_training": "NOT_RUN",
+    "real_scoring": "NOT_RUN",
+    "real_threshold_calibration": "NOT_RUN",
+    "formal_experiments": "NOT_RUN",
+    "normal_false_positive_rate": null,
+    "attack_false_negative_rate": null,
+    "metric_reason": "INPUT_PACKAGE_ONLY_NO_REAL_MODEL_EVALUATION",
+    "g13u_supply_audit": "EXISTING_APPROVED_EVIDENCE_PRESERVED_NOT_NEW_APPROVAL",
+    "g12_failure_evidence": "PRESERVED"
+  },
+  "not_claimed": [
+    "Source authenticity",
+    "Certified UTC or live availability",
+    "Final research policy",
+    "Model effectiveness",
+    "Formal common evaluation population",
+    "Prepared-format CLI acceptance",
+    "Real CLI/API/browser/export integration",
+    "Publication or CI for this batch"
+  ]
+}

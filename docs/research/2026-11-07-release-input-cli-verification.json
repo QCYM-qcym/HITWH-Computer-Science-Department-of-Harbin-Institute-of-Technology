@@ -1,0 +1,637 @@
+{
+  "record_version": 1,
+  "date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "record_scope": "PUBLIC_REDACTED_RELEASE_INPUT_CLI_ARTIFICIAL_ACCEPTANCE",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "local_acceptance": {
+    "status": "LOCAL_ENGINEERING_ACCEPTED_PUBLICATION_PENDING_DESKTOP",
+    "recorded_at": "2026-11-07T08:05:44.939724+08:00",
+    "identity": {
+      "byte_count": 49630,
+      "sha256": "b3852f818ab775cef208d73d48ad9aff18bd3c0e21be6ade18584d2a9a084ad9"
+    }
+  },
+  "publication": {
+    "status": "PENDING_DESKTOP",
+    "commit": null,
+    "pushed": false,
+    "new_remote_ci": "NOT_RUN",
+    "merged_main": false,
+    "base_commit": "c3e4396032a2af46cd282690767ae1c998255400",
+    "base_branch": "codex/candidate-flow-adapter"
+  },
+  "documents": {
+    "design": "docs/design/release-input-cli-v1.md",
+    "guide": "docs/guides/release-input-cli.md",
+    "implementation_record": "docs/superpowers/plans/2026-11-07-release-input-cli.md"
+  },
+  "implementation": [
+    {
+      "path": "src/core/traffic_anomaly/release_input_cli.py",
+      "byte_count": 10454,
+      "sha256": "27ed88a69c9573101e275d0bb565614cf4357aae0eb19a2a7eac07a9eca4ae59"
+    },
+    {
+      "path": "tests/core/test_release_input_cli.py",
+      "byte_count": 34860,
+      "sha256": "f642f191010205dd1bd3221f9cfbeabcc89b85d6ccab136953dff756d9e9df85"
+    }
+  ],
+  "source_tests": {
+    "final_passed": 118,
+    "independent_fix_passed": 4,
+    "overlap": "NOT_ADDED"
+  },
+  "final_source_freeze_identity": {
+    "byte_count": 30645,
+    "sha256": "821a8d555a386c07e29e33081bb80ca79633576f15f554c59cbc4be58d652fd7"
+  },
+  "first_attempt": {
+    "status": "FAILED_N5_ACTUAL_EXIT120_RETAINED",
+    "freeze_identity": {
+      "byte_count": 39235,
+      "sha256": "09418b777bbdf86bd54fc29145cf4220456338e119207287405068f0ac3c7758"
+    },
+    "root_observation_identity": {
+      "byte_count": 1731,
+      "sha256": "abc26428805b9746a9d551442924b5f971857f0a8290450558683115a46affe3"
+    },
+    "completed_pass_cases": [
+      "S1",
+      "S2",
+      "S3",
+      "N1",
+      "N2",
+      "N3",
+      "N4"
+    ],
+    "failure_case": "N5",
+    "expected_exit": 2,
+    "observed_exit": 120,
+    "stderr": {
+      "byte_count": 109,
+      "sha256": "b05ea72a6833d10a9619bd7f909be08959fad30eedcb6c159c8675102828d20b"
+    },
+    "stderr_contains_exit_flush_diagnostic": true,
+    "root_parent_exit": 1,
+    "not_run": [
+      "P1",
+      "P2",
+      "FINAL_SUCCESS_PRESERVATION"
+    ],
+    "observed_preserved_files": 149,
+    "retention": "PRESERVED_AS_FAILED_NO_AUTOMATIC_RETRY"
+  },
+  "fix": {
+    "scope": "MODULE_ENTRY_NONZERO_RETURN_STREAM_DESCRIPTOR_HANDLING",
+    "callable_main_host_streams": "UNCHANGED",
+    "successful_output": "UNCHANGED",
+    "method": "Redirect usable stdout/stderr descriptors to os.devnull before normal interpreter finalization.",
+    "limitations": [
+      "No os._exit shortcut.",
+      "Descriptor availability/redirection may fail; arbitrary host streams and third-party shutdown are not guaranteed.",
+      "Main return value is not proof of OS exit.",
+      "No global warning suppression."
+    ]
+  },
+  "second_attempt": {
+    "status": "PASS_WITH_STATED_SCOPE",
+    "runtime_freeze_identity": {
+      "byte_count": 40278,
+      "sha256": "c9055cdb8cdf501086281e6a31630476e76831dd23b70e117394b259afc16c17"
+    },
+    "independent_runtime_review_identity": {
+      "byte_count": 10245,
+      "sha256": "87d05cee01e7cd7efd44d3e1510beecb558815336f8b92cfa44cbe1e48c49725"
+    },
+    "receipt_identities": {
+      "acceptance.json": {
+        "byte_count": 22614,
+        "sha256": "43f75d41f463601275aa6d0162371ca81898551752088e4b2d6d108cef469140"
+      },
+      "execution-freeze.json": {
+        "byte_count": 40278,
+        "sha256": "c9055cdb8cdf501086281e6a31630476e76831dd23b70e117394b259afc16c17"
+      },
+      "installation.json": {
+        "byte_count": 13752,
+        "sha256": "9f7120fbb292ab8e4b3b1c56550e52736f8fba9417465b2e7957309940cb3a48"
+      },
+      "preservation.json": {
+        "byte_count": 64716,
+        "sha256": "804c34737fcd1eda47ba5a626ddf8b41f98f7a803b8599058fa1dfa19057a039"
+      }
+    },
+    "root_actual_parent_exit": 0,
+    "cases": [
+      {
+        "case": "S1",
+        "status": "PASS",
+        "action_monitoring": "NOT_MONITORED",
+        "expected_exit": 0,
+        "observed_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "deadline_exceeded": false,
+        "elapsed_seconds": 0.34346390000428073,
+        "stdout": {
+          "status": "CAPTURED",
+          "byte_count": 2336,
+          "sha256": "c589b54abc5332463b7bd05909f42646aacbe84c2e61dbe226c0c6252b9194c1"
+        },
+        "stderr": {
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "command": "prepare",
+        "output_status": "SAVED"
+      },
+      {
+        "case": "S2",
+        "status": "PASS",
+        "action_monitoring": "NOT_MONITORED",
+        "expected_exit": 0,
+        "observed_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "deadline_exceeded": false,
+        "elapsed_seconds": 0.23296059999847785,
+        "stdout": {
+          "status": "CAPTURED",
+          "byte_count": 2359,
+          "sha256": "c4902e99ad1dbb09034929604097e71d93a791f806e32fbbbd09418fd7c4516c"
+        },
+        "stderr": {
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "command": "inspect",
+        "output_status": "INTERNAL_CONSISTENCY_CHECKED"
+      },
+      {
+        "case": "S3",
+        "status": "PASS",
+        "action_monitoring": "NOT_MONITORED",
+        "expected_exit": 0,
+        "observed_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "deadline_exceeded": false,
+        "elapsed_seconds": 0.28749090002384037,
+        "stdout": {
+          "status": "CAPTURED",
+          "byte_count": 3325,
+          "sha256": "7c60de6a04403249cadf159cc8650c0053b183f1474ab3569013fd35a9d14add"
+        },
+        "stderr": {
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "command": "verify",
+        "output_status": "MATCHED"
+      },
+      {
+        "case": "N1",
+        "status": "PASS",
+        "action_monitoring": "NOT_MONITORED",
+        "expected_exit": 2,
+        "observed_exit": 2,
+        "reaped": true,
+        "forced": false,
+        "deadline_exceeded": false,
+        "elapsed_seconds": 0.23377430002437904,
+        "stdout": {
+          "status": "CAPTURED",
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "byte_count": 30,
+          "sha256": "a7b7541670f39d3696421faedc0073d9490517eef1a2dd8d3ba7f9893bb4a316"
+        },
+        "error_code": "INVALID_ARGUMENTS"
+      },
+      {
+        "case": "N2",
+        "status": "PASS",
+        "action_monitoring": "NOT_MONITORED",
+        "expected_exit": 2,
+        "observed_exit": 2,
+        "reaped": true,
+        "forced": false,
+        "deadline_exceeded": false,
+        "elapsed_seconds": 0.28451689999201335,
+        "stdout": {
+          "status": "CAPTURED",
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "byte_count": 26,
+          "sha256": "12b33a014669e4a15feb63838121010e2b9a2ac3abcbe5e3d58de0fb49d177f7"
+        },
+        "error_code": "OUTPUT_EXISTS"
+      },
+      {
+        "case": "N3",
+        "status": "PASS",
+        "action_monitoring": "NOT_MONITORED",
+        "expected_exit": 2,
+        "observed_exit": 2,
+        "reaped": true,
+        "forced": false,
+        "deadline_exceeded": false,
+        "elapsed_seconds": 0.23343330001807772,
+        "stdout": {
+          "status": "CAPTURED",
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "byte_count": 28,
+          "sha256": "12bbfe7b82f3f83037dd0c2eecae481122e54ac7e212570ac4b922128f3bc1d7"
+        },
+        "error_code": "INVALID_PACKAGE"
+      },
+      {
+        "case": "N4",
+        "status": "PASS",
+        "action_monitoring": "NOT_MONITORED",
+        "expected_exit": 2,
+        "observed_exit": 2,
+        "reaped": true,
+        "forced": false,
+        "deadline_exceeded": false,
+        "elapsed_seconds": 0.29034380000666715,
+        "stdout": {
+          "status": "CAPTURED",
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "byte_count": 39,
+          "sha256": "1adef1e0d1a7ebceef9cf111d7eda30a8919d3c6b65272480414cb39e4d509bd"
+        },
+        "error_code": "UPSTREAM_IDENTITY_MISMATCH"
+      },
+      {
+        "case": "N5",
+        "status": "PASS",
+        "action_monitoring": "NOT_MONITORED",
+        "expected_exit": 2,
+        "observed_exit": 2,
+        "reaped": true,
+        "forced": false,
+        "deadline_exceeded": false,
+        "elapsed_seconds": 0.23300900001777336,
+        "stdout": {
+          "status": "UNAVAILABLE_BY_DESIGN",
+          "byte_count": null,
+          "sha256": null
+        },
+        "stderr": {
+          "byte_count": 25,
+          "sha256": "704371699544d670e59c0eec1d81f8ce733a38386a6f68dbaecdbd3444d839ee"
+        },
+        "error_code": "OUTPUT_ERROR"
+      },
+      {
+        "case": "P1",
+        "status": "PASS",
+        "action_monitoring": "PROBE",
+        "expected_exit": 0,
+        "observed_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "deadline_exceeded": false,
+        "elapsed_seconds": 0.6213505000050645,
+        "stdout": {
+          "status": "CAPTURED",
+          "byte_count": 2359,
+          "sha256": "c4902e99ad1dbb09034929604097e71d93a791f806e32fbbbd09418fd7c4516c"
+        },
+        "stderr": {
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "command": "inspect",
+        "output_status": "INTERNAL_CONSISTENCY_CHECKED"
+      },
+      {
+        "case": "P2",
+        "status": "PASS",
+        "action_monitoring": "PROBE",
+        "expected_exit": 0,
+        "observed_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "deadline_exceeded": false,
+        "elapsed_seconds": 1.6861929000006057,
+        "stdout": {
+          "status": "CAPTURED",
+          "byte_count": 3325,
+          "sha256": "7c60de6a04403249cadf159cc8650c0053b183f1474ab3569013fd35a9d14add"
+        },
+        "stderr": {
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "command": "verify",
+        "output_status": "MATCHED"
+      }
+    ],
+    "runtime_summary": {
+      "complete_after_map": "ESTABLISHED_ON_SUCCESS",
+      "controlled_main_probes": 2,
+      "evidence": "SYNTHETIC_ONLY",
+      "expected_preprocessing_fits": 2,
+      "new_aggregation": 0,
+      "new_reference_calculation": 0,
+      "ordinary_expected_rejection": 5,
+      "ordinary_fit_calls": "NOT_DYNAMICALLY_MONITORED",
+      "ordinary_m_calls": 8,
+      "ordinary_success": 3,
+      "prepare_attempts": 3,
+      "research": "BLOCKED_NOT_RUN",
+      "source_and_input_preserved": true,
+      "status": "PASS"
+    },
+    "build_install_owned_launches": 4,
+    "acceptance_cases": 10,
+    "owned_launches_total": 14,
+    "ordinary_m_calls": 8,
+    "controlled_main_probes": 2,
+    "process_count_note": "Acceptance cases and build/install processes are not unit-test totals.",
+    "common_success_summary": {
+      "configuration": {
+        "audit_fit_policy": "P_U",
+        "epsilon": 1e-06,
+        "feature_count": 13,
+        "fit_window": 30,
+        "numeric_rules_id": "c17-release-log1p-mad-input-rules-v1",
+        "policy_status": "AUDIT_ONLY",
+        "schema_version": 1,
+        "windows": [
+          15,
+          30
+        ]
+      },
+      "configuration_sha256": "2b5534d3b6762d6916bbb549e8a596f67484fe6562cfb5f0fdffbee509aa4b24",
+      "fit": {
+        "count": 18,
+        "mask_sha256": "613871366398f0f4a63464d1030386bf1952908bcd723eea4553b52788c49f11",
+        "rows_sha256": "e1ff44d102e69adcbdf3291a9343fa0dc79dc3e3e5ab3ae24163253bcd6b8102"
+      },
+      "identity": {
+        "context_sha256": "fc2ed75521869dfb69e02aaec3c375c645bc67ddc75cfb5555985e87b93d5835",
+        "manifest_byte_count": 2070,
+        "manifest_sha256": "7abab46441d921e8513b772294a9d8b7e8d7bb5b243bb8d5a8363920be8eed2c",
+        "profile_id": "c17-release-prepared-input-package-v1"
+      },
+      "minute_counts": {
+        "common_valid": 56,
+        "history_h15_valid": 116,
+        "history_h30_valid": 56,
+        "prepared_valid": 176,
+        "raw_valid": 176,
+        "total": 176
+      },
+      "package_checks": {
+        "byte_integrity": "CHECKED",
+        "fit_parameters": "NOT_REESTIMATED",
+        "scope": "SAVED_INPUT_INTERNAL_CONSISTENCY_ONLY",
+        "status": "INTERNAL_CONSISTENCY_CHECKED",
+        "structure": "CHECKED",
+        "transform_history_replay": "NOT_PERFORMED",
+        "upstream_replay": "NOT_PERFORMED"
+      },
+      "qualification_counts": {
+        "P_A": {
+          "calibration_full_history_normal": 10,
+          "test_current_attack": 2,
+          "test_current_normal": 15,
+          "test_current_unknown": 1,
+          "train_full_history_normal": 18,
+          "validation_current_attack": 0,
+          "validation_current_normal": 10,
+          "validation_current_unknown": 0
+        },
+        "P_B": {
+          "calibration_full_history_normal": 10,
+          "test_current_attack": 1,
+          "test_current_normal": 16,
+          "test_current_unknown": 1,
+          "train_full_history_normal": 18,
+          "validation_current_attack": 0,
+          "validation_current_normal": 10,
+          "validation_current_unknown": 0
+        },
+        "P_U": {
+          "calibration_full_history_normal": 10,
+          "test_current_attack": 1,
+          "test_current_normal": 15,
+          "test_current_unknown": 2,
+          "train_full_history_normal": 18,
+          "validation_current_attack": 0,
+          "validation_current_normal": 10,
+          "validation_current_unknown": 0
+        }
+      },
+      "source_authentication": "NOT_AUTHENTICATED",
+      "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+      "upstream_identity": {
+        "context_sha256": "683453b17c455b81d53c8501f0d6b8fd20f587f1d9b01d8c4d8388de16c661b7",
+        "manifest_byte_count": 5640,
+        "manifest_sha256": "e7098cd2ff0fb8568d07e52e000cc17a8dd7b0f2e0ded76016cc639b0725b085",
+        "profile_id": "c17-release-minute-package-v1"
+      }
+    },
+    "verify_report": {
+      "checks": {
+        "byte_identity": "MATCHED",
+        "fit_parameters": "NOT_REESTIMATED",
+        "fit_selection": "MATCHED",
+        "history": "MATCHED",
+        "labels_and_masks": "MATCHED",
+        "saved_transform": "MATCHED",
+        "source_authentication": "NOT_AUTHENTICATED",
+        "upstream_fields": "MATCHED"
+      },
+      "fit_count": 18,
+      "input_identity": {
+        "context_sha256": "fc2ed75521869dfb69e02aaec3c375c645bc67ddc75cfb5555985e87b93d5835",
+        "manifest_byte_count": 2070,
+        "manifest_sha256": "7abab46441d921e8513b772294a9d8b7e8d7bb5b243bb8d5a8363920be8eed2c",
+        "profile_id": "c17-release-prepared-input-package-v1"
+      },
+      "minute_count": 176,
+      "numerical_tolerance": {
+        "atol": 1e-12,
+        "reference": "REPLAYED",
+        "rtol": 1e-12
+      },
+      "profile_id": "c17-release-input-replay-v1",
+      "scope": "SAVED_PARAMETER_DERIVATION_REPLAY",
+      "status": "MATCHED",
+      "upstream_identity": {
+        "context_sha256": "683453b17c455b81d53c8501f0d6b8fd20f587f1d9b01d8c4d8388de16c661b7",
+        "manifest_byte_count": 5640,
+        "manifest_sha256": "e7098cd2ff0fb8568d07e52e000cc17a8dd7b0f2e0ded76016cc639b0725b085",
+        "profile_id": "c17-release-minute-package-v1"
+      }
+    },
+    "summary_and_saved_values": "EXACT_MATCH_TO_EXISTING_ARTIFICIAL_A_PROJECTION_NOT_NEW_NUMERIC_REFERENCE",
+    "probe_action_grid": {
+      "P1": {
+        "prepared_load": 1,
+        "raw_load": 0,
+        "prepare": 0,
+        "save": 0,
+        "verify": 0,
+        "upstream_bind": 0,
+        "fit_state": 0,
+        "fit_statistics": 0,
+        "transform": 0,
+        "history": 0
+      },
+      "P2": {
+        "prepared_load": 1,
+        "raw_load": 1,
+        "prepare": 0,
+        "save": 0,
+        "verify": 1,
+        "upstream_bind": 1,
+        "fit_state": 0,
+        "fit_statistics": 0,
+        "transform": 1,
+        "history": 2
+      }
+    },
+    "probe_guard_scope": "FROZEN_PYTHON_BINDINGS_AND_CODE_PROFILE_THROUGH_PRODUCT_ATEXIT",
+    "probe_attempts": [],
+    "ordinary_action_profile": "NOT_MONITORED",
+    "ordinary_preprocessing_fits": {
+      "expected_from_call_chain": 2,
+      "dynamically_observed": null
+    },
+    "source_data_operations": {
+      "new_csv_aggregation": 0,
+      "new_reference_calculation": 0,
+      "real_payload_read": "NOT_RUN",
+      "models": "NOT_RUN"
+    },
+    "wheel": {
+      "byte_count": 162347,
+      "sha256": "d6d85fb84e8095f530c3467f25059b6a7a7e66fc67a99e78f6aea819cf05743f",
+      "archive_entries": 68,
+      "package_files": 64,
+      "metadata_files": 4,
+      "uncompressed_bytes": 494652,
+      "source_files_including_pyproject": 65,
+      "installed_source_bytes": "EXACT_FROZEN_MATCH",
+      "dependencies": "EXISTING_LOCKED_ENVIRONMENT"
+    },
+    "preservation": {
+      "original_raw_packages": 2,
+      "original_members": 10,
+      "copied_raw_packages": 2,
+      "copied_raw_members": 10,
+      "output_members": 5,
+      "missing_complete_variant_members": 4,
+      "retained_marker_members": 1,
+      "source_files": 65,
+      "copied_source_files": 65,
+      "installed_files": 64,
+      "test_fixture_files": 72,
+      "protected_files": 25,
+      "private_scripts": 4,
+      "old_projection": "PRESERVED",
+      "complete_after_map": "ESTABLISHED_ON_SUCCESS",
+      "bad_variant_before_map": "IN_MEMORY_BEFORE_CHECK_NOT_INDEPENDENTLY_PERSISTED"
+    },
+    "observed_resources": {
+      "final_task_bytes": 2290889,
+      "largest_log_bytes": 16931,
+      "longest_case_seconds": 1.6861929000006057,
+      "build_seconds": 2.3831948,
+      "install_seconds": 1.0117999,
+      "build_warning_bytes": 123
+    },
+    "limits": {
+      "cli_output_bytes": 65536,
+      "task_directory_bytes": 268435456,
+      "single_log_bytes": 1048576,
+      "case_seconds": 60,
+      "case_cleanup_reserve_seconds": 10,
+      "build_install_seconds": 120,
+      "build_install_cleanup_reserve_seconds": 20
+    },
+    "limitations": [
+      "Parent has no dynamic file whitelist or OS isolation.",
+      "Ordinary eight module processes have no dynamic action profile.",
+      "Python guards and supervision do not certify native I/O, all filesystem events, unobserved descendants or all third-party initialization.",
+      "Observed timings and sizes are not online performance or OS/RSS hard limits."
+    ],
+    "independent_runtime_review_identity_scope": "FINAL_REVIEW_BOUND_BY_VERSIONED_ROOT_ACCEPTANCE",
+    "historical_independent_runtime_review_identity": {
+      "byte_count": 10998,
+      "sha256": "cbabc16d97eb846c64f59be5c72cadcf0351d944462b4f78e5b60418870cf12a"
+    },
+    "historical_independent_runtime_review_identity_scope": "HISTORICAL_PIN_RECORDED_IN_ROOT_ACCEPTANCE"
+  },
+  "research_boundary": {
+    "stage": "S2",
+    "data_gate": "BLOCKED",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+    "audit_policy_status": "AUDIT_ONLY",
+    "final_attempted_policy": "NOT_APPROVED",
+    "main_data_adoption": "NOT_APPROVED",
+    "real_pilot": "NOT_APPROVED",
+    "production_migration": "NOT_APPROVED",
+    "real_preprocessing": "NOT_RUN",
+    "real_models": "NOT_RUN",
+    "real_scoring": "NOT_RUN",
+    "real_q99_calibration": "NOT_RUN",
+    "formal_experiments": "NOT_RUN"
+  },
+  "documentation_checks_scope": "Existing evidence reviewed; no product execution, tests or installation performed during documentation maintenance.",
+  "initial_local_acceptance": {
+    "status": "LOCAL_ENGINEERING_ACCEPTED_PUBLICATION_PENDING_DESKTOP",
+    "recorded_at": "2026-11-07T07:37:23.016301+08:00",
+    "identity": {
+      "byte_count": 47239,
+      "sha256": "48b4ade954e08624c6a137a189a8182e806eb949b1b82dcbd590c4cfc8037032"
+    }
+  },
+  "review_finalization": {
+    "status": "RESOLVED_BY_VERSIONED_ROOT_ACCEPTANCE",
+    "scope": "READ_ONLY_REVALIDATION_NO_PRODUCT_TEST_INSTALL_REPLAY_OR_MODEL_EXECUTION",
+    "root_acceptance_identity": {
+      "byte_count": 49630,
+      "sha256": "b3852f818ab775cef208d73d48ad9aff18bd3c0e21be6ade18584d2a9a084ad9"
+    },
+    "note_identity": {
+      "byte_count": 3541,
+      "sha256": "af5be1e3b4107dcd91ce7883e1d7c7f92a27d28136d5cd692b04157198239c77"
+    },
+    "report_change": "Two report versions differ only by text compression and removal of repeated pins; runtime facts and the scoped conclusion are unchanged.",
+    "historical_review_reconstruction": {
+      "identity": {
+        "byte_count": 10998,
+        "sha256": "cbabc16d97eb846c64f59be5c72cadcf0351d944462b4f78e5b60418870cf12a"
+      },
+      "status": "RECONSTRUCTED_BYTES_VERIFIED_AGAINST_HISTORICAL_PIN",
+      "limitation": "Reconstructed byte copy, not a continuously retained physical original."
+    },
+    "installation_checksum_errata": {
+      "scope": "Transcription typo present in both report versions, corrected by the finalization note.",
+      "correct_actual_sha256": "9f7120fbb292ab8e4b3b1c56550e52736f8fba9417465b2e7957309940cb3a48",
+      "actual_receipt_and_existing_public_identity": "UNCHANGED_CORRECT"
+    },
+    "original_acceptance_and_reports": "PRESERVED_UNCHANGED",
+    "product_rerun": "NOT_RUN",
+    "publication": "PENDING_DESKTOP"
+  }
+}

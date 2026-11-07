@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-07**。当前阶段：**数据审计**；本轮主题：人工容量对照CLI/HTTP/网页验收通过；真实Gate仍BLOCKED。
+最近更新：**2026-11-07**。当前阶段：**数据审计**；本轮主题：原始分钟包、准备输入包与输入CLI本地验收通过；Desktop待发布，真实Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -47,7 +47,7 @@ flowchart TB
 |---|---|---|---|---|
 | 需求与研究问题 | 进行中 | 1/3 | [清单与证据](<docs/project/ROADMAP.md>) | 用户选择C可行性方向；具体主数据/表示与导师审阅仍待登记 |
 | 文献与方案 | 进行中 | 1/3 | [清单与证据](<docs/README.md>) | 精读并核对方法差异 |
-| 数据审计 | 阻塞 | 1/4 | [清单与证据](<docs/project/DATA-GATE-2026-10-21.md>) | 按C核查候选发行物及四段供给；原UGR阻塞保持，不把方向决定当Data Gate通过 |
+| 数据审计 | 阻塞 | 1/4 | [清单与证据](<docs/project/DATA-GATE-2026-10-21.md>) | G13U发布记录供应已获准审计；待D1—D6协议与具体真实执行决定，原UGR证据保留，工程验收不放行Data Gate |
 | 最小基线 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 合成核心已在W1交付；真实最小基线等待Data Gate |
 | 时间感知方法 | 未运行 NOT_RUN | 0/4 | [清单与证据](<src/README.md>) | 依基线证据确定窗口 |
 | 对比与消融 | 未运行 NOT_RUN | 0/4 | [清单与证据](<experiments/README.md>) | 冻结统一评价协议 |
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- 已有人工AE容量对照新增共享字节快照、隔离HTTP和中文四槽页面；不运行新模型，不迁移生产134/268。
-- 核心43项专项/196项相关、修复后后端435项、前端22项专项/147项全量及类型/契约/构建通过；范围重叠不合计。
-- 保留首次四次请求期源码读取导致的验收失败；锁定框架启动预热修复、冷进程回归和独立审查通过，守卫不放宽。
-- 修复后新安装59核心和20后端文件；完整组与492＋H15子集CLI/HTTP原字节、实际浏览器、正常停止和产物保持均通过。
-- 原人工包与旧安装保持；当前批提交/推送/CI待完成，真实拟合、训练、评分、校准和正式比较仍NOT_RUN。
+- raw13固定包及prepared13/26输入包均已本地人工验收；fit、common与标签资格分列，独立加载和保存参数重放分开。
+- prepared联合463通过/4跳过/2未选；A9原三次120秒预算失败保留，明确修订360秒后三形状通过；A10七成功准备及八负例限定通过。
+- 输入CLI最终源码118项通过；新安装第二轮10例通过。首轮断管实际exit120保留，修复后实际exit2、错误流25字节；普通命令与受控探针证据分列。
+- raw CLI继续分项开发，尚未整批接受；只读view仅设计/计划接受、实现未放行。旧G12/早期提示保留历史身份。
+- 本批Desktop提交推送仍待实际完成，新CI未运行；S2/Data Gate BLOCKED，真实拟合、模型与正式实验NOT_RUN。
 
 **当前阻塞或待验证事项**
 
@@ -81,6 +81,15 @@ flowchart TB
 
 **最新成果入口**
 
+- [准备输入三命令与实际退出](<docs/guides/release-input-cli.md>)
+- [准备输入CLI人工验收与首轮失败](<docs/research/2026-11-07-release-input-cli-verification.json>)
+- [准备输入CLI接口与退出边界](<docs/design/release-input-cli-v1.md>)
+- [准备输入包保存与重放](<docs/guides/release-input-package.md>)
+- [准备输入包实际人工验收](<docs/research/2026-11-07-release-input-package-verification.json>)
+- [准备输入包13/26维格式](<docs/design/release-input-package-v1.md>)
+- [原始分钟包保存与加载](<docs/guides/release-minute-package.md>)
+- [原始分钟包实际验收](<docs/research/2026-11-07-release-minute-package-verification.json>)
+- [原始分钟包格式](<docs/design/release-minute-package-v1.md>)
 - [容量对照页面与接口](<docs/guides/candidate-capacity-viewer.md>)
 - [容量页面实际验证](<docs/research/2026-11-07-candidate-capacity-viewer-verification.json>)
 - [AE参数数量对照](<docs/guides/candidate-ae-capacity.md>)
@@ -150,22 +159,22 @@ flowchart TB
 - [人工CLI产物与1404项独立数值验证](<docs/research/2026-10-29-candidate-inputs-verification.json>)
 - [G13U真实供应、标签分母与有限试点待决](<docs/research/2026-10-24-c17-g13u-audit.md>)
 - [G13U完整聚合、守恒/身份与历史资格证据](<docs/research/2026-10-24-c17-g13u-audit.json>)
-- [G13U独立运行、人工门与下一阶段提示](<docs/guides/c17-g13u-supply.md>)
-- [C17-I1实际获取、Protocol0阻塞与协议修订建议](<docs/research/2026-10-23-c17-i1-payload-audit.md>)
-- [实际字段/标签/四段/连续性与资源聚合证据](<docs/research/2026-10-23-c17-i1-payload-audit.json>)
-- [审计后的完整续接提示词与批准边界](<docs/guides/c17-i1-protocol-next.md>)
-- [作者修订版获取方案、字段时间适配与Attempted待决](<docs/research/2026-10-23-c17-improved-preparation.md>)
-- [隔离审计工具、合成验证和下一完整提示](<docs/guides/c17-improved-audit.md>)
+- [G13U获准供应审计与10月28日历史交接](<docs/guides/c17-g13u-supply.md>)
+- [C17-I1实际获取与旧G12失败证据](<docs/research/2026-10-23-c17-i1-payload-audit.md>)
+- [旧G12字段、标签、供应与资源聚合](<docs/research/2026-10-23-c17-i1-payload-audit.json>)
+- [10月23日G12审计后历史提示与当时批准边界](<docs/guides/c17-i1-protocol-next.md>)
+- [作者修订版获取准备历史与适配依据](<docs/research/2026-10-23-c17-improved-preparation.md>)
+- [C17-I1审计工具与早期阶段历史提示](<docs/guides/c17-improved-audit.md>)
 - [CICIDS2017适配性、样本风险与审计取舍](<docs/research/2026-10-23-cicids-suitability-analysis.md>)
 - [GitHub数据来源检索与可获取镜像元信息](<docs/research/2026-10-23-github-dataset-search.md>)
 - [C17官方入口、生成版本与C18-S本地一致性复核](<docs/research/2026-10-23-c17-source-metadata.md>)
 - [10月23日C方向具体数据与表示决定包](<docs/project/CANDIDATE-DATA-DECISION-2026-10-23.md>)
 - [CIC发行物、许可、时间与标签证据](<docs/research/2026-10-23-cic-candidate-evidence.md>)
-- [候选文件、资源上限与未审计计数清单](<docs/research/2026-10-23-candidate-manifest.json>)
+- [候选文件身份、资源与已登记审计状态](<docs/research/2026-10-23-candidate-manifest.json>)
 - [研究协议A/B/C对照与用户已选C方向](<docs/project/RESEARCH-PROTOCOL-OPTIONS.md>)
 - [10月22日增量证据与候选元数据](<docs/research/2026-10-22-data-gate-evidence-update.md>)
 - [Data Gate本轮分项判定与待决方案](<docs/project/DATA-GATE-2026-10-21.md>)
-- [真实短片段准备与下一阶段完整提示](<docs/guides/real-validation-preflight.md>)
+- [UGR与C方向早期验证准备记录（历史）](<docs/guides/real-validation-preflight.md>)
 - [标签、时间与来源许可核查](<docs/research/2026-10-21-data-gate-label-audit.md>)
 - [W0合成CLI/API/网页/导出联调证据](<docs/project/W0-SYNTHETIC-INTEGRATION-2026-10-21.md>)
 - [合成系统快速运行](<docs/guides/quickstart.md>)

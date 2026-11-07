@@ -1,5 +1,19 @@
 # 滚动项目路线图
 
+## 2026-11-07 后继工程：准备包与输入CLI本地接受
+
+在下方raw收口快照之后，[准备包](../guides/release-input-package.md)已完成13/26维、训练隔离、固定五文件及显式重放的本地人工验收；[输入CLI](../guides/release-input-cli.md)在首轮实际断管exit120失败后，经窄修、独审、新冻结和新安装，第二轮10例通过。原失败和原“A9/A10未放行”时点保留，当前结果分别见[包验证](../research/2026-11-07-release-input-package-verification.json)与[CLI验证](../research/2026-11-07-release-input-cli-verification.json)。本批仍待Desktop发布，新CI未运行。
+
+当前工程顺序：raw CLI继续分项开发，尚未整批接受，后续复审和实际安装验收仍按独立证据推进；准备输入只读view已接受设计/计划，实现未放行。仅有源码文件不算接受，不借旧candidate页面验收覆盖新链。公开文档统一维护后，由主控检查并经Desktop提交推送，不合并main。下方旧日期的下一接缝不再作为当前执行队列。
+
+研究顺序仍为D1—D6具体决定及相应真实证据门槛；本批不改变真实切分、参数、最终标签、主数据采用或生产契约。Data Gate BLOCKED，真实预处理拟合、模型、评分/Q99及正式实验NOT_RUN。
+
+## 2026-11-07 原始分钟包：本地接受、发布待恢复
+
+[原始13维分钟包](../guides/release-minute-package.md)已实现固定成员保存和独立加载，705项联合测试通过/10跳过，四个人工手算案例及安装后复制加载、五类拒绝完成独立复核。首次pip守卫失败原样保留；准确范围见[机读记录](../research/2026-11-07-release-minute-package-verification.json)。本批未提交、未推送，新CI未运行；Desktop交互恢复后由主控发布，不改用其他Git写入方式。
+
+下一工程接缝为原始13维到训练隔离的准备值和H15/H30输入。raw13验收快照时尚未实施；收口时主控已接受下一批精确设计与实施计划，三个work开始有界人工工程实现，安装和A9/A10实际验收仍未放行。该批依已接受的raw13本地冻结字节推进，无须以Desktop窗口可用作为本地工程依赖。最终Attempted、主数据采用、真实试点和生产迁移仍待独立决定，研究S2/Data Gate BLOCKED、真实拟合/模型/正式实验NOT_RUN。
+
 ## 2026-11-07 容量对照展示：完整组与子集通过
 
 [容量页面与HTTP](../guides/candidate-capacity-viewer.md)已实现共享字节输出和固定四槽，修复后新安装完整组通过CLI/HTTP、实际浏览器及正常停止核验；子集浏览器及服务最终守卫、正常退出、端口和身份检查也已通过。首次框架惰性读取源码的失败保留，未放宽请求守卫；详细数目和未执行项见[验证记录](../research/2026-11-07-candidate-capacity-viewer-verification.json)。

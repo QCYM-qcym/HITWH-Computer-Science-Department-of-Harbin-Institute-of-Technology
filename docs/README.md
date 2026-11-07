@@ -1,5 +1,15 @@
 # 文档导航
 
+## 2026-11-07 准备输入包与三命令本地接受
+
+[准备包指南](guides/release-input-package.md)、[精确格式](design/release-input-package-v1.md)、[包验收记录](research/2026-11-07-release-input-package-verification.json)；[CLI用法](guides/release-input-cli.md)、[CLI设计](design/release-input-cli-v1.md)、[实际退出与首轮失败](research/2026-11-07-release-input-cli-verification.json)、[实施记录](superpowers/plans/2026-11-07-release-input-cli.md)。raw/prepared及输入CLI均获本地人工工程接受，发布仍PENDING_DESKTOP、新CI NOT_RUN。
+
+CLI最终源码118项及第二轮10个实际案例通过；首轮断管exit120保留，修复后实际exit2且错误流无附加诊断。普通8次模块命令与2个受控main探针分列，不把main返回值或旧包测试代替实际进程证据。raw CLI继续分项开发、尚未整批接受；只读view仅设计/计划接受、实现未放行。下方各日期记录保留当时状态，S2/Data Gate BLOCKED及真实拟合/模型/正式实验NOT_RUN不变。
+
+## 2026-11-07 原始13维分钟包
+
+[保存与独立加载](guides/release-minute-package.md)、[五文件格式](design/release-minute-package-v1.md)、[实际验收记录](research/2026-11-07-release-minute-package-verification.json)。本地人工安装往返及独立复核通过；Desktop发布待实际完成，真实数据与模型阶段不升级。
+
 ## 2026-11-07 AE容量对照页面
 
 [运行与限制](guides/candidate-capacity-viewer.md)、[实际验证记录](research/2026-11-07-candidate-capacity-viewer-verification.json)。固定四槽和三政策保存结果；完整组与子集实际验收通过，不产生新模型或研究效果结论。
@@ -92,7 +102,7 @@
 
 最近开发：[候选13/26输入计算](guides/candidate-inputs.md)、[自主实施计划](superpowers/plans/2026-10-29-candidate-inputs.md)、[合成数值证据](research/2026-10-29-candidate-inputs-verification.json)。10月29日程序与人工验证完成；真实审计结果及其研究边界见下方，Data Gate仍BLOCKED。
 
-最近真实审计入口：[G13U获准发布记录供应复算](research/2026-10-24-c17-g13u-audit.md)、[完整聚合](research/2026-10-24-c17-g13u-audit.json)、[独立运行与续接](guides/c17-g13u-supply.md)。10月28日已完成本地真实复算：共同开发资格150/88/148、测试1831分钟，供应仍有限；最终标签政策、主数据采用和生产迁移未批准，真实模型及正式实验NOT_RUN。原G12失败证据逐字保留。
+最近真实审计入口：[G13U获准发布记录供应复算](research/2026-10-24-c17-g13u-audit.md)、[完整聚合](research/2026-10-24-c17-g13u-audit.json)、[获准审计与历史交接](guides/c17-g13u-supply.md)。10月28日已完成本地真实复算：共同开发资格150/88/148、测试1831分钟，供应仍有限；最终标签政策、主数据采用和生产迁移未批准，真实模型及正式实验NOT_RUN。原G12失败证据逐字保留。
 
 修订2026-10-30；用途：当前公开材料与版本对应。报告/答辩均为草稿，待审阅；没有最新稿确认记录。公开文本对应同版本本地原稿，私人路径映射保留本地。
 
@@ -108,7 +118,7 @@
 
 方向选择历史：[协议三路径与决定](project/RESEARCH-PROTOCOL-OPTIONS.md)、[增量证据与候选筛选](research/2026-10-22-data-gate-evidence-update.md)。C方向与G13U审计设计已获准，具体主数据/表示正式采用仍待决定。
 
-Data Gate最新判定：[阻塞核查](project/DATA-GATE-2026-10-21.md)。本轮之后的完整提示见[G13U续接指南](guides/c17-g13u-supply.md)；[preflight](guides/real-validation-preflight.md)保留早期真实验证准备记录。
+Data Gate当前判定见[Gate记录](project/DATA-GATE-2026-10-21.md)的2026-10-28 G13U条目及[决定记录](project/DECISIONS.md)的2026-11-06补录；下一步研究决定见[试点就绪复核](research/2026-11-06-pilot-readiness-review.md)D1—D6与[有限试点建议](research/2026-10-30-limited-pilot-proposal.md)。[G13U指南](guides/c17-g13u-supply.md)保留获准审计方法和10月28日交接；[早期preflight](guides/real-validation-preflight.md)仅作历史准备记录，不恢复旧下载、原UGR或G12阻塞为当前G13U结论。
 
 当前程序见[合成快速运行](guides/quickstart.md)、[W0联调记录](project/W0-SYNTHETIC-INTEGRATION-2026-10-21.md)和[UGR16v3证据核验](research/2026-10-21-UGR16v3-provenance.md)。
 

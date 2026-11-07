@@ -1,8 +1,10 @@
 # C17-I1 审计后的协议决定与续接
 
+> **G12审计后的历史提示，不再作为当前启动队列。** 本页保留2026-10-23失败与当时待批建议。后续G13U审计设计及本地复算已获准执行，旧G12的H15/H30共同资格全零不适用于G13U。见[G13U供应记录](../research/2026-10-24-c17-g13u-audit.md)、[审计指南](c17-g13u-supply.md)、[决定补录](../project/DECISIONS.md)及[试点就绪复核](../research/2026-11-06-pilot-readiness-review.md)。这不批准最终标签、真实试点或生产迁移。
+
 日期：2026-10-23。性质：下一阶段完整提示词，待用户启动。依据：[实际离线审计](../research/2026-10-23-c17-i1-payload-audit.md)、[完整聚合](../research/2026-10-23-c17-i1-payload-audit.json)、[只供审计的配置](../research/2026-10-23-c17-i1-audit-config.json)。本轮结论为需要调整协议后再审，优先待决C17-I1-G13U。本提示不自动批准新表示、最终标签政策、主数据采用、生产迁移或真实模型运行。
 
-## 可直接续接的完整提示词
+## 2026-10-23历史提示词（保留原文，不再直接执行）
 
 > 请继续本毕业设计“C17-I1载荷审计后的研究协议收敛与批准准备”。从本轮最终交付并与远端核对的codex/c17-improved-payload-audit提交续接，先核实际分支、提交、远端、worktree和未提交工作，不合并main、不创建新用户聊天。遵循项目AGENTS，先读取关联Vault的AGENTS及MOC、CURRENT_CONTEXT、DECISIONS、Milestones；读维护规范，再读仓库CONTRIBUTING、布局/隐私、status、当前需求/决定/计划、V0.40、Data Gate、C17-I1实际审计MD/JSON、审计配置和本指南。保留原稿和历史。
 >

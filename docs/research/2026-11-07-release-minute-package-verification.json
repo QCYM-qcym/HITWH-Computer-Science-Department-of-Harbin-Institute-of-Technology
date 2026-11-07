@@ -1,0 +1,543 @@
+{
+  "date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "status": "LOCAL_ENGINEERING_ACCEPTED_PUBLICATION_PENDING_DESKTOP",
+  "base_commit": "c3e4396032a2af46cd282690767ae1c998255400",
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "scope": "ARTIFICIAL_FULL91_RAW13_PERSISTENCE_AND_INDEPENDENT_LOAD_ONLY",
+  "package_profile": "c17-release-minute-package-v1",
+  "package_scope": "PACKAGE_INTERNAL_CONSISTENCY_ONLY",
+  "source_authentication": "NOT_AUTHENTICATED",
+  "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+  "tests": {
+    "joint": {
+      "status": "PASS",
+      "collected": 715,
+      "passed": 705,
+      "skipped": 10,
+      "seconds": 10.74,
+      "targets": [
+        "tests/core/test_release_minute_contract.py",
+        "tests/core/test_release_minute_package.py",
+        "tests/core/test_release_minute_hand_cases.py",
+        "tests/core/test_release_csv.py",
+        "tests/core/test_release_minutes.py",
+        "tests/core/test_release_file_reader.py",
+        "tests/core/test_release_disk.py",
+        "tests/core/test_release_audit_cli.py"
+      ],
+      "pytest_exit": 0,
+      "runner_exit": 0,
+      "runner": "private pre-import guarded pytest runner",
+      "runner_sha256": "88d8bd3cb5607f38ed2f20f07c6261887f454418e73bda514770afe321712e1f",
+      "receipt_identity": {
+        "byte_count": 22588,
+        "sha256": "77edafd0d51c0d2a4aeea3bb5a660ac2c114ff49df3d7349b14ff4afb8361a5a"
+      },
+      "forbidden_attempts": {},
+      "initial_forbidden_modules": [],
+      "loaded_forbidden_modules": [],
+      "spawn_events": {
+        "subprocess.Popen": 3
+      },
+      "guard_scope": "CURRENT_PYTEST_PROCESS_ONLY",
+      "child_guard_scope": "NOT_ESTABLISHED_BY_THIS_RUNNER"
+    },
+    "counts_overlap": "Earlier work-specific slices and joint reruns overlap; no additive total.",
+    "real_symlink_checks": "file/directory/ancestor creation skipped on Windows: errno22 winerror1314; rejection assertions not executed.",
+    "ten_joint_skips": "Includes platform-dependent legacy slices; not all ten are the three new symlink branches.",
+    "repository_checks": {
+      "status": "PASS",
+      "progress_write_exit": 0,
+      "progress_check_exit": 0,
+      "repository_unittest_passed": 13,
+      "repository_unittest_seconds": 3.02,
+      "worktree_files_checked": 600,
+      "worktree_issues": 0,
+      "author_check": "PASS",
+      "public_document_files": 10,
+      "local_markdown_links": 487,
+      "vault_files": 6,
+      "new_vault_links": 10,
+      "accepted_source_identities_checked": 8,
+      "research_stages": "UNCHANGED",
+      "original_untracked_plan": "UNCHANGED",
+      "git_diff_check": "PASS",
+      "git_writes": 0,
+      "scope": "Documentation finalization; existing product evidence was read, not re-executed.",
+      "followup_worktree_check": {
+        "files": 603,
+        "issues": 0,
+        "exit": 0,
+        "scope": "Point-in-time repository/privacy/author check after next-batch files appeared; not product validation of prepared files."
+      }
+    }
+  },
+  "maximum_structure_cases": {
+    "scope": "MANUAL_VALUE_OBJECT_CODEC_ONLY_NOT_LARGE_CSV_OR_MEMORY_BOUND",
+    "minutes": 10000,
+    "segments": 7,
+    "source_declarations": 5,
+    "valid_member_bytes": {
+      "minutes.json": 1810214,
+      "labels.json": 810386,
+      "diagnostics.json": 2160437,
+      "manifest.json": 9945,
+      "COMPLETE.json": 193
+    },
+    "invalid_member_bytes": {
+      "minutes.json": 970214,
+      "labels.json": 780386,
+      "diagnostics.json": 2120449,
+      "manifest.json": 9944,
+      "COMPLETE.json": 193
+    },
+    "valid_total_bytes": 4791175,
+    "invalid_total_bytes": 3881186,
+    "per_data_member_cap": 8388608,
+    "manifest_cap": 65536,
+    "complete_cap": 4096,
+    "total_cap": 20971520
+  },
+  "failure_history": [
+    {
+      "phase": "joint runner preparation",
+      "status": "RETAINED_FAILURES",
+      "detail": "First two joint runs exposed long generated parameter IDs and missing repository import root; not product fixes or successful joint runs."
+    },
+    {
+      "phase": "W3 test import",
+      "status": "RETAINED_SETUP_FAILURE",
+      "detail": "Four hand aggregation tests initially used an unqualified helper import; corrected package-relative import, without changing hand expectations."
+    },
+    {
+      "phase": "symlink coverage",
+      "status": "CORRECTED_TEST_SCOPE",
+      "detail": "Original ancestor case actually pointed at the package directory. Renamed directory and added an actual intermediate-ancestor case; three actual link creations remain permission skips."
+    },
+    {
+      "phase": "installation attempt 1",
+      "status": "FAILED_GUARD",
+      "forbidden_spawn_attempts": 1,
+      "wheel_produced": true,
+      "installation": "NOT_RUN",
+      "artificial_cases": "NOT_RUN",
+      "owned_processes": 3,
+      "all_owned_exited": true,
+      "cause": "Pinned pip optional compiler probe is source-consistent attribution; no runtime stack was captured in attempt 1.",
+      "original_failure_retained": true
+    }
+  ],
+  "installation": {
+    "status": "PASS",
+    "frozen_source_members": 62,
+    "frozen_source_bytes": 436322,
+    "installed_package_members": 61,
+    "wheel": {
+      "crc": "CHECKED_BY_COMPLETE_MEMBER_READ",
+      "metadata_members": [
+        "METADATA",
+        "RECORD",
+        "WHEEL",
+        "top_level.txt"
+      ],
+      "package_members": 61,
+      "source_bytes": "EXACT_FROZEN_MATCH"
+    },
+    "wheel_file": {
+      "byte_count": 147364,
+      "sha256": "8f5ba2f7685e5b33fa7c2ac2710b038bc6cfc775380c77d1f0ea50963b2ad920"
+    },
+    "dependencies": "EXISTING_LOCKED_VENV_NOT_FRESH_DEPENDENCY_ENVIRONMENT",
+    "network": "NO_INDEX_NO_DEPS_GUARDED_PYTHON_PROCESSES",
+    "os_isolation": false,
+    "processes": 4,
+    "normal_exit_zero_reaped": 4,
+    "forced": 0,
+    "offline_pip_adaptations": [
+      "Pinned import-time urllib3 IPv6 probe skipped with temporary socket flag; flag restored; per-process cached HAS_IPV6 remains false.",
+      "Pinned optional rustc metadata lookup skipped exactly once per pip process; module binding restored; ordinary user-agent cache retains metadata without compiler version."
+    ],
+    "adaptation_scope": "PIP_PROCESS_ONLY_NO_THIRD_PARTY_FILE_EDIT_OR_GUARD_RELAXATION",
+    "installed_product_bytes": 435846
+  },
+  "artificial_cases": [
+    {
+      "name": "A-variable-labels",
+      "status": "PASS",
+      "minute_count": 4,
+      "valid_minutes": 3,
+      "counts": {
+        "raw_records": 6,
+        "eligible_records": 6,
+        "excluded_records": 0,
+        "outside_records": 0,
+        "unplaced_invalid_rows": 0,
+        "duplicate_groups": 0
+      },
+      "source_count": 1,
+      "source_bytes_read": 2899,
+      "scratch_cleanup": "CLEANED",
+      "package_identity": {
+        "context_sha256": "fedae84dd828dad958546eb513fe404764d355aa59f1285e9b47ed26096e5873",
+        "manifest_byte_count": 5306,
+        "manifest_sha256": "35730a11c85795a7945190ef7b4f9c47af72f41b6ce056d4cb9ebe6c777dca19",
+        "profile_id": "c17-release-minute-package-v1"
+      },
+      "members": {
+        "COMPLETE.json": {
+          "byte_count": 193,
+          "sha256": "a8a1e5871de7eb2036546dfe869be4b86b81df27cc462042bcbecafdfebcef47"
+        },
+        "diagnostics.json": {
+          "byte_count": 1237,
+          "sha256": "a37e5b444d1fd9daec882d005635a2e64dd3533129aa2bb6faa325c24c162ddc"
+        },
+        "labels.json": {
+          "byte_count": 673,
+          "sha256": "4103527b66eb194baa8209ec0a17ae034af6c628bb811e453fffdde92c9a397c"
+        },
+        "manifest.json": {
+          "byte_count": 5306,
+          "sha256": "35730a11c85795a7945190ef7b4f9c47af72f41b6ce056d4cb9ebe6c777dca19"
+        },
+        "minutes.json": {
+          "byte_count": 569,
+          "sha256": "12778285303110bb605785f1d16c8bb5cee763d05ab6f477341e42972206f0fc"
+        }
+      },
+      "load_original_and_copy": "PASS",
+      "loaded_copy_move_and_value_access": "PASS",
+      "load_csv_open_count": 0,
+      "driver_explicit_calls": {
+        "aggregate": 1,
+        "save": 1,
+        "load": 2
+      }
+    },
+    {
+      "name": "B-global-unplaced",
+      "status": "PASS",
+      "minute_count": 4,
+      "valid_minutes": 0,
+      "counts": {
+        "raw_records": 2,
+        "eligible_records": 1,
+        "excluded_records": 1,
+        "outside_records": 0,
+        "unplaced_invalid_rows": 1,
+        "duplicate_groups": 0
+      },
+      "source_count": 1,
+      "source_bytes_read": 1881,
+      "scratch_cleanup": "CLEANED",
+      "package_identity": {
+        "context_sha256": "a7dc8332cb080b91c9ce0276ab04b4103285fe76b9e581346b8fc06248f9bc3a",
+        "manifest_byte_count": 5306,
+        "manifest_sha256": "df2e07be7e6f14233306b163395c99cf7def2dba94a454f2cf71a79dd89cb62e",
+        "profile_id": "c17-release-minute-package-v1"
+      },
+      "members": {
+        "COMPLETE.json": {
+          "byte_count": 193,
+          "sha256": "5984b12015fa064681a1e28e673d963a00a4ce2e70c16ea077200bac982363e0"
+        },
+        "diagnostics.json": {
+          "byte_count": 1237,
+          "sha256": "06dfb03351eb5951c67af4f41eec3434cdd8949bd886713cc70aa2c9b222902f"
+        },
+        "labels.json": {
+          "byte_count": 680,
+          "sha256": "e092f2b06f10145849984a525f5a1171424268162a276ea818e7ab60b74fa35b"
+        },
+        "manifest.json": {
+          "byte_count": 5306,
+          "sha256": "df2e07be7e6f14233306b163395c99cf7def2dba94a454f2cf71a79dd89cb62e"
+        },
+        "minutes.json": {
+          "byte_count": 602,
+          "sha256": "2640d366a9700b4e848ff2ff613ca471625fe9e0cc3ef26d69ca64610530718d"
+        }
+      },
+      "load_original_and_copy": "PASS",
+      "loaded_copy_move_and_value_access": "PASS",
+      "load_csv_open_count": 0,
+      "driver_explicit_calls": {
+        "aggregate": 1,
+        "save": 1,
+        "load": 2
+      }
+    },
+    {
+      "name": "C-duplicate-protocol",
+      "status": "PASS",
+      "minute_count": 4,
+      "valid_minutes": 1,
+      "counts": {
+        "raw_records": 5,
+        "eligible_records": 1,
+        "excluded_records": 4,
+        "outside_records": 1,
+        "unplaced_invalid_rows": 0,
+        "duplicate_groups": 1
+      },
+      "source_count": 2,
+      "source_bytes_read": 4010,
+      "scratch_cleanup": "CLEANED",
+      "package_identity": {
+        "context_sha256": "842aafd71f922992fcb89902c768adc3e09e7b9c7b157d696820d8e83c05e05a",
+        "manifest_byte_count": 5414,
+        "manifest_sha256": "8ed4c80a4661ebdccde28ada2f6b0b4509d415cbc40cfb5adc10f6ce4568af68",
+        "profile_id": "c17-release-minute-package-v1"
+      },
+      "members": {
+        "COMPLETE.json": {
+          "byte_count": 193,
+          "sha256": "e937e3b6a569f2007dd0fd35c262a1b4e6597a81e6bd1efc9db854d0489c9ad2"
+        },
+        "diagnostics.json": {
+          "byte_count": 1237,
+          "sha256": "ea7cab47d7f19fb84af8fc69b331848d61e89f25db5a159fae9e97a0e2f883c5"
+        },
+        "labels.json": {
+          "byte_count": 677,
+          "sha256": "8e64206fc6d28185a90c3fa829b0314d91b66bdb6ffe270324834953125cd69c"
+        },
+        "manifest.json": {
+          "byte_count": 5414,
+          "sha256": "8ed4c80a4661ebdccde28ada2f6b0b4509d415cbc40cfb5adc10f6ce4568af68"
+        },
+        "minutes.json": {
+          "byte_count": 590,
+          "sha256": "f9002043a3ad30ce26c1187c36e229897c6b1c56d32c4086747f49a9552e4f7b"
+        }
+      },
+      "load_original_and_copy": "PASS",
+      "loaded_copy_move_and_value_access": "PASS",
+      "load_csv_open_count": 0,
+      "driver_explicit_calls": {
+        "aggregate": 1,
+        "save": 1,
+        "load": 2
+      }
+    },
+    {
+      "name": "D-segment-gap",
+      "status": "PASS",
+      "minute_count": 6,
+      "valid_minutes": 1,
+      "counts": {
+        "raw_records": 4,
+        "eligible_records": 2,
+        "excluded_records": 2,
+        "outside_records": 1,
+        "unplaced_invalid_rows": 0,
+        "duplicate_groups": 0
+      },
+      "source_count": 1,
+      "source_bytes_read": 2374,
+      "scratch_cleanup": "CLEANED",
+      "package_identity": {
+        "context_sha256": "d02f622fe51df1c3a67f9142e4a14470ebbdb336cd5cc401dc0536ef4f7be2fb",
+        "manifest_byte_count": 5518,
+        "manifest_sha256": "cf057efe50f518ef481c5e7049060ba8a0a8389e25f09abd65e76c252978f666",
+        "profile_id": "c17-release-minute-package-v1"
+      },
+      "members": {
+        "COMPLETE.json": {
+          "byte_count": 193,
+          "sha256": "582f7b72eacc8ddac4bee086bebdf383d32812de54b05c01d6f7a501a79f4068"
+        },
+        "diagnostics.json": {
+          "byte_count": 1649,
+          "sha256": "90edf7dcc0d4412859c5af974abc670b8356e0d5e5e762bcdb5f429f00078fd3"
+        },
+        "labels.json": {
+          "byte_count": 833,
+          "sha256": "f929c185719b3137e0945be065c885b4e01ec57f70e1abf46e76c0e60a01e0b9"
+        },
+        "manifest.json": {
+          "byte_count": 5518,
+          "sha256": "cf057efe50f518ef481c5e7049060ba8a0a8389e25f09abd65e76c252978f666"
+        },
+        "minutes.json": {
+          "byte_count": 784,
+          "sha256": "8a360bcd8c420fe43b0d31c8cea681bd35cf2a3b537589df0f183681bc61c52e"
+        }
+      },
+      "load_original_and_copy": "PASS",
+      "loaded_copy_move_and_value_access": "PASS",
+      "load_csv_open_count": 0,
+      "driver_explicit_calls": {
+        "aggregate": 1,
+        "save": 1,
+        "load": 2
+      }
+    }
+  ],
+  "negative_cases": [
+    {
+      "name": "missing-complete",
+      "status": "PASS",
+      "error_code": "INVALID_PACKAGE"
+    },
+    {
+      "name": "changed-member",
+      "status": "PASS",
+      "error_code": "INTEGRITY_MISMATCH"
+    },
+    {
+      "name": "extra-member",
+      "status": "PASS",
+      "error_code": "INVALID_PACKAGE"
+    },
+    {
+      "name": "not-directory",
+      "status": "PASS",
+      "error_code": "INVALID_PACKAGE_PATH"
+    },
+    {
+      "name": "existing-empty",
+      "status": "PASS",
+      "error_code": "OUTPUT_EXISTS"
+    }
+  ],
+  "manual_acceptance": {
+    "status": "PASS",
+    "processes": 13,
+    "normal_exit_zero_reaped": 13,
+    "forced": 0,
+    "call_count_scope": "DRIVER_EXPLICIT_CALLS_ONLY",
+    "evidence_scope": [
+      "Python open",
+      "Python sqlite3.connect",
+      "Python import",
+      "Python network audit events",
+      "Python spawn audit events"
+    ],
+    "native_io": "NOT_CERTIFIED",
+    "other_filesystem_events": "NOT_GUARDED",
+    "complete_after_map": "CHECKED_ON_THIS_SUCCESS_PATH",
+    "controller_exit": "ZERO_REPORTED_TO_PARENT; REVIEW_CORROBORATED_RECORDS_NOT_RECONSTRUCTED_OS_EVENT",
+    "task_bytes_before_final_receipt": 1907532,
+    "preservation_scope": "SOURCE_MEMBERS_AND_FILES_PACKAGE_MEMBERS_AND_FILES_INSTALLED_PRODUCT_MEMBERS_AND_FILES_FIXTURE",
+    "source_unchanged": true,
+    "installation_unchanged": true,
+    "input_fixture_unchanged": true,
+    "private_scripts_unchanged": true,
+    "final_task_bytes": 1907904,
+    "final_task_files": 396,
+    "artificial_source_files": 5,
+    "artificial_records": 17,
+    "artificial_csv_bytes": 11164,
+    "owned_process_receipts": 17,
+    "all_owned_exit_zero_reaped": true,
+    "all_owned_guard_attempts": 0,
+    "driver_explicit_call_totals": {
+      "aggregate": 4,
+      "save": 5,
+      "load": 13
+    },
+    "call_total_note": "Four successful saves plus one rejected save; eight original/copy successful loads plus five explicit negative-path loads; not internal runtime call instrumentation."
+  },
+  "receipt_identities": {
+    "controller.json": {
+      "byte_count": 372,
+      "sha256": "2f05e8a9a832d34dcb6843c54d7c6aa09be07faff1cecb8f075a33a174e1a7de"
+    },
+    "installation.json": {
+      "byte_count": 13297,
+      "sha256": "f48ab98a741ee6c8ed02333ffa950b44cdf22e35753d6340f53a38c107009ad8"
+    },
+    "acceptance.json": {
+      "byte_count": 18180,
+      "sha256": "f910d5e9185e251ed4f1cd8b56b93a66cafe1b53caaf1f31229c5df90c2494e4"
+    },
+    "execution-freeze.json": {
+      "byte_count": 15478,
+      "sha256": "f1cdbb591e7a088763ee61908b127194c42be04297b6429c09e858757768c4a0"
+    }
+  },
+  "source_files": {
+    "src/core/traffic_anomaly/release_minute_contract.py": {
+      "byte_count": 26294,
+      "sha256": "a501300f65e27cbd6c9864b0598f54e888a41d441fa3dc85fcbab4a7d36c8f0e"
+    },
+    "src/core/traffic_anomaly/release_minute_package.py": {
+      "byte_count": 7522,
+      "sha256": "c8a91958e445b83dac15c3a4980f6d01c7b8ae589562db2f309d8ae4fc584c59"
+    },
+    "tests/core/test_release_minute_contract.py": {
+      "byte_count": 27467,
+      "sha256": "c0ac28a03838f4e27ad286363cf4cadd8bc7d10a03e66d1086aab46335ead290"
+    },
+    "tests/core/test_release_minute_package.py": {
+      "byte_count": 28857,
+      "sha256": "1eab78e6c156ceac6b3d1707f16a7ab8477e8b3746a8af75d0a3eae77468fbf9"
+    },
+    "tests/core/release_minute_package_cases.py": {
+      "byte_count": 3659,
+      "sha256": "636759e4b1096f77013466f19415e198f27165bf5c509f02e955b374dd187974"
+    },
+    "tests/core/test_release_minute_hand_cases.py": {
+      "byte_count": 9981,
+      "sha256": "410e7ddd13d59f1de5867de3cb0a4b7d35d88e00ead18afd0efdf899a6737b85"
+    },
+    "tests/fixtures/release-minute-hand-cases-v1.json": {
+      "byte_count": 51986,
+      "sha256": "fcbfb911a8d5ba5dc2c6f185bf94312c738c9ffde46f031cb73f5766f4d6dcf1"
+    },
+    "tests/fixtures/release-minute-protocol-v1.json": {
+      "byte_count": 4552,
+      "sha256": "e7224253cd93899dcfb32d36c1b792f5e9f5a14a43d58227fbd3e00a25d920f4"
+    }
+  },
+  "source_identity_note": "Local accepted worktree bytes; Git line-ending normalization may produce different blob bytes.",
+  "independent_runtime_review": {
+    "status": "PASS_WITH_STATED_SCOPE",
+    "identity": {
+      "byte_count": 10753,
+      "sha256": "f111828162525d1525052fdcb78b26a54978a9746a90f3659761dd4dfd41bf84"
+    }
+  },
+  "publication": {
+    "status": "PENDING_DESKTOP",
+    "commit": null,
+    "remote_sha": null,
+    "ci": "NOT_RUN_FOR_THIS_BATCH",
+    "note": "Controller reported Desktop activation failure; no CLI/API commit or push fallback. Base-commit CI does not cover this batch."
+  },
+  "not_run": [
+    "prepared_13_26_implementation",
+    "real_payload_read",
+    "real_preprocessing_fit",
+    "real_model_training",
+    "real_scoring",
+    "real_q99_calibration",
+    "formal_comparison",
+    "production_contract_migration",
+    "os_power_loss",
+    "unmodified_fresh_dependency_install"
+  ],
+  "research": {
+    "stage": "S2",
+    "data_gate": "BLOCKED",
+    "final_attempted_policy": "UNAPPROVED",
+    "primary_data_adoption": "UNAPPROVED",
+    "real_pilot": "UNAPPROVED"
+  },
+  "root_local_acceptance": {
+    "status": "LOCAL_ENGINEERING_ACCEPTED_PUBLICATION_PENDING_DESKTOP",
+    "identity": {
+      "byte_count": 13671,
+      "sha256": "08eb9b3be859a115dd1e6c1cdb1d72e1c5cfb060454156b845567ff37a09bcef"
+    }
+  },
+  "next_engineering_dependency": "Root accepted the reviewed prepared-input specification, implementation plan and frozen engineering scope. Three works may implement bounded artificial engineering against accepted local raw13 bytes while Desktop publication remains pending; actual A9/A10 installation acceptance is not released. No research authorization.",
+  "not_run_scope": "Raw13 acceptance snapshot; the prepared implementation item was NOT_RUN at that snapshot. Later next-batch engineering release is recorded separately below, with no acceptance claim.",
+  "next_batch_status_at_document_finalization": {
+    "status": "BOUNDED_ARTIFICIAL_ENGINEERING_IMPLEMENTATION_IN_PROGRESS",
+    "actual_installation_a9_a10": "NOT_RELEASED",
+    "not_included_in_raw_source_map_or_pass_counts": true
+  }
+}

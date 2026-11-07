@@ -1,0 +1,2014 @@
+{
+  "fixture_version": 1,
+  "evidence_kind": "SYNTHETIC_ONLY",
+  "cases": [
+    {
+      "name": "A-variable-labels",
+      "sources": [
+        [
+          {
+            "id": "1",
+            "Timestamp": "2026-01-01 00:00:00.000000",
+            "Protocol": "6",
+            "Flow Duration": "1000000",
+            "Total Fwd Packet": "1",
+            "Total Bwd packets": "0",
+            "Total Length of Fwd Packet": "10",
+            "Total Length of Bwd Packet": "0"
+          },
+          {
+            "id": "2",
+            "Timestamp": "2026-01-01 00:00:00.000000",
+            "Protocol": "17",
+            "Flow Duration": "2000000",
+            "Total Fwd Packet": "2",
+            "Total Bwd packets": "1",
+            "Total Length of Fwd Packet": "20",
+            "Total Length of Bwd Packet": "5"
+          },
+          {
+            "id": "3",
+            "Timestamp": "2026-01-01 00:00:00.000000",
+            "Protocol": "1",
+            "Flow Duration": "3000000",
+            "Total Fwd Packet": "3",
+            "Total Bwd packets": "2",
+            "Total Length of Fwd Packet": "30",
+            "Total Length of Bwd Packet": "10"
+          },
+          {
+            "id": "4",
+            "Timestamp": "2026-01-01 00:00:00.000000",
+            "Protocol": "0",
+            "Flow Duration": "4000000",
+            "Total Fwd Packet": "4",
+            "Total Bwd packets": "0",
+            "Total Length of Fwd Packet": "40",
+            "Total Length of Bwd Packet": "0",
+            "Label": "Portscan"
+          },
+          {
+            "id": "5",
+            "Timestamp": "2026-01-01 00:01:00.000000",
+            "Label": "FTP-Patator - Attempted",
+            "Attempted Category": "0"
+          },
+          {
+            "id": "6",
+            "Timestamp": "2026-01-01 00:02:00.000000",
+            "Label": "UNLISTED_ARTIFICIAL_LABEL"
+          }
+        ]
+      ],
+      "segments": [
+        {
+          "id": "A-train",
+          "role": "train",
+          "start": "2026-01-01T00:00:00",
+          "end": "2026-01-01T00:04:00"
+        }
+      ],
+      "expected": {
+        "schema_id": "c17-release-91-v1",
+        "source_authentication": "NOT_AUTHENTICATED",
+        "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+        "feature_names": [
+          "completed_source_record_count",
+          "fwd_packet_sum",
+          "bwd_packet_sum",
+          "fwd_source_length_sum",
+          "bwd_source_length_sum",
+          "tcp_source_record_count",
+          "udp_source_record_count",
+          "known_other_source_protocol_record_count",
+          "unresolved_source_protocol_record_count",
+          "duration_max_s",
+          "duration_median_s",
+          "duration_p95_s",
+          "no_backward_packet_source_record_count"
+        ],
+        "timestamps": [
+          "2026-01-01T00:00:00",
+          "2026-01-01T00:01:00",
+          "2026-01-01T00:02:00",
+          "2026-01-01T00:03:00"
+        ],
+        "segment_ids": [
+          "A-train",
+          "A-train",
+          "A-train",
+          "A-train"
+        ],
+        "roles": [
+          "train",
+          "train",
+          "train",
+          "train"
+        ],
+        "values": [
+          [
+            4.0,
+            10.0,
+            3.0,
+            100.0,
+            15.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            4.0,
+            2.5,
+            3.85,
+            2.0
+          ],
+          [
+            1.0,
+            2.0,
+            1.0,
+            20.0,
+            10.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            2.0,
+            1.0,
+            20.0,
+            10.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "source_valid": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "label_kinds": [
+          [
+            "attack",
+            "attack",
+            "attack"
+          ],
+          [
+            "unknown",
+            "normal",
+            "attack"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ]
+        ],
+        "raw_records": 6,
+        "eligible_records": 6,
+        "excluded_records": 0,
+        "outside_records": 0,
+        "unplaced_invalid_rows": 0,
+        "duplicate_groups": 0,
+        "reason_counts": {
+          "invalid_duration": 0,
+          "invalid_protocol": 0,
+          "invalid_fwd_packets": 0,
+          "invalid_bwd_packets": 0,
+          "invalid_fwd_length": 0,
+          "invalid_bwd_length": 0,
+          "invalid_unsupported_protocol": 0,
+          "invalid_timestamp": 0,
+          "duplicate_record": 0,
+          "cross_partition": 0,
+          "outside_registered_minutes": 0,
+          "unplaced_invalid_row": 0,
+          "empty_unconfirmed": 0
+        },
+        "raw_protocol_counts": {
+          "tcp": 3,
+          "udp": 1,
+          "known_other": 1,
+          "unresolved": 1,
+          "excluded_protocol": 0
+        },
+        "eligible_protocol_counts": {
+          "tcp": 3,
+          "udp": 1,
+          "known_other": 1,
+          "unresolved": 1
+        },
+        "label_kind_counts": [
+          [
+            3,
+            1,
+            2
+          ],
+          [
+            4,
+            1,
+            1
+          ],
+          [
+            3,
+            2,
+            1
+          ]
+        ],
+        "label_anomaly_counts": {
+          "unknown_label": 1,
+          "unknown_attempted_category": 0,
+          "label_category_conflict": 0
+        },
+        "bucket_counts": [
+          {
+            "raw_records": 4,
+            "eligible_records": 4,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 0
+            },
+            "raw_protocol_counts": {
+              "tcp": 1,
+              "udp": 1,
+              "known_other": 1,
+              "unresolved": 1,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 1,
+              "udp": 1,
+              "known_other": 1,
+              "unresolved": 1
+            },
+            "label_kind_counts": [
+              [
+                3,
+                1,
+                0
+              ],
+              [
+                3,
+                1,
+                0
+              ],
+              [
+                3,
+                1,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": true,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 1,
+            "eligible_records": 1,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 0
+            },
+            "raw_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": true,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 1,
+            "eligible_records": 1,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 0
+            },
+            "raw_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 1,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 0,
+            "eligible_records": 0,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 1
+            },
+            "raw_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "B-global-unplaced",
+      "sources": [
+        [
+          {
+            "id": "101",
+            "Timestamp": "2026-01-01 00:00:00.000000"
+          },
+          {
+            "id": "102",
+            "Timestamp": "invalid-artificial-time"
+          }
+        ]
+      ],
+      "segments": [
+        {
+          "id": "B-train",
+          "role": "train",
+          "start": "2026-01-01T00:00:00",
+          "end": "2026-01-01T00:04:00"
+        }
+      ],
+      "expected": {
+        "schema_id": "c17-release-91-v1",
+        "source_authentication": "NOT_AUTHENTICATED",
+        "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+        "feature_names": [
+          "completed_source_record_count",
+          "fwd_packet_sum",
+          "bwd_packet_sum",
+          "fwd_source_length_sum",
+          "bwd_source_length_sum",
+          "tcp_source_record_count",
+          "udp_source_record_count",
+          "known_other_source_protocol_record_count",
+          "unresolved_source_protocol_record_count",
+          "duration_max_s",
+          "duration_median_s",
+          "duration_p95_s",
+          "no_backward_packet_source_record_count"
+        ],
+        "timestamps": [
+          "2026-01-01T00:00:00",
+          "2026-01-01T00:01:00",
+          "2026-01-01T00:02:00",
+          "2026-01-01T00:03:00"
+        ],
+        "segment_ids": [
+          "B-train",
+          "B-train",
+          "B-train",
+          "B-train"
+        ],
+        "roles": [
+          "train",
+          "train",
+          "train",
+          "train"
+        ],
+        "values": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "source_valid": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "label_kinds": [
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ]
+        ],
+        "raw_records": 2,
+        "eligible_records": 1,
+        "excluded_records": 1,
+        "outside_records": 0,
+        "unplaced_invalid_rows": 1,
+        "duplicate_groups": 0,
+        "reason_counts": {
+          "invalid_duration": 0,
+          "invalid_protocol": 0,
+          "invalid_fwd_packets": 0,
+          "invalid_bwd_packets": 0,
+          "invalid_fwd_length": 0,
+          "invalid_bwd_length": 0,
+          "invalid_unsupported_protocol": 0,
+          "invalid_timestamp": 1,
+          "duplicate_record": 0,
+          "cross_partition": 0,
+          "outside_registered_minutes": 0,
+          "unplaced_invalid_row": 1,
+          "empty_unconfirmed": 0
+        },
+        "raw_protocol_counts": {
+          "tcp": 2,
+          "udp": 0,
+          "known_other": 0,
+          "unresolved": 0,
+          "excluded_protocol": 0
+        },
+        "eligible_protocol_counts": {
+          "tcp": 1,
+          "udp": 0,
+          "known_other": 0,
+          "unresolved": 0
+        },
+        "label_kind_counts": [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ]
+        ],
+        "label_anomaly_counts": {
+          "unknown_label": 0,
+          "unknown_attempted_category": 0,
+          "label_category_conflict": 0
+        },
+        "bucket_counts": [
+          {
+            "raw_records": 1,
+            "eligible_records": 1,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 1,
+              "empty_unconfirmed": 0
+            },
+            "raw_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 0,
+            "eligible_records": 0,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 1,
+              "empty_unconfirmed": 1
+            },
+            "raw_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 0,
+            "eligible_records": 0,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 1,
+              "empty_unconfirmed": 1
+            },
+            "raw_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 0,
+            "eligible_records": 0,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 1,
+              "empty_unconfirmed": 1
+            },
+            "raw_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "C-duplicate-protocol",
+      "sources": [
+        [
+          {
+            "id": "301",
+            "Timestamp": "2026-01-01 00:00:00.000000"
+          },
+          {
+            "id": "302",
+            "Timestamp": "2026-01-01 00:01:00.000000"
+          },
+          {
+            "id": "303",
+            "Timestamp": "2026-01-01 00:02:00.000000",
+            "Protocol": "4"
+          }
+        ],
+        [
+          {
+            "id": "301",
+            "Timestamp": "2026-01-01 00:00:00.000000"
+          },
+          {
+            "id": "304",
+            "Timestamp": "2026-01-01 00:08:00.000000"
+          }
+        ]
+      ],
+      "segments": [
+        {
+          "id": "C-train",
+          "role": "train",
+          "start": "2026-01-01T00:00:00",
+          "end": "2026-01-01T00:04:00"
+        }
+      ],
+      "expected": {
+        "schema_id": "c17-release-91-v1",
+        "source_authentication": "NOT_AUTHENTICATED",
+        "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+        "feature_names": [
+          "completed_source_record_count",
+          "fwd_packet_sum",
+          "bwd_packet_sum",
+          "fwd_source_length_sum",
+          "bwd_source_length_sum",
+          "tcp_source_record_count",
+          "udp_source_record_count",
+          "known_other_source_protocol_record_count",
+          "unresolved_source_protocol_record_count",
+          "duration_max_s",
+          "duration_median_s",
+          "duration_p95_s",
+          "no_backward_packet_source_record_count"
+        ],
+        "timestamps": [
+          "2026-01-01T00:00:00",
+          "2026-01-01T00:01:00",
+          "2026-01-01T00:02:00",
+          "2026-01-01T00:03:00"
+        ],
+        "segment_ids": [
+          "C-train",
+          "C-train",
+          "C-train",
+          "C-train"
+        ],
+        "roles": [
+          "train",
+          "train",
+          "train",
+          "train"
+        ],
+        "values": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            1.0,
+            2.0,
+            1.0,
+            20.0,
+            10.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "source_valid": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "label_kinds": [
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          [
+            "normal",
+            "normal",
+            "normal"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ]
+        ],
+        "raw_records": 5,
+        "eligible_records": 1,
+        "excluded_records": 4,
+        "outside_records": 1,
+        "unplaced_invalid_rows": 0,
+        "duplicate_groups": 1,
+        "reason_counts": {
+          "invalid_duration": 0,
+          "invalid_protocol": 0,
+          "invalid_fwd_packets": 0,
+          "invalid_bwd_packets": 0,
+          "invalid_fwd_length": 0,
+          "invalid_bwd_length": 0,
+          "invalid_unsupported_protocol": 1,
+          "invalid_timestamp": 0,
+          "duplicate_record": 2,
+          "cross_partition": 0,
+          "outside_registered_minutes": 1,
+          "unplaced_invalid_row": 0,
+          "empty_unconfirmed": 0
+        },
+        "raw_protocol_counts": {
+          "tcp": 4,
+          "udp": 0,
+          "known_other": 0,
+          "unresolved": 0,
+          "excluded_protocol": 1
+        },
+        "eligible_protocol_counts": {
+          "tcp": 1,
+          "udp": 0,
+          "known_other": 0,
+          "unresolved": 0
+        },
+        "label_kind_counts": [
+          [
+            5,
+            0,
+            0
+          ],
+          [
+            5,
+            0,
+            0
+          ],
+          [
+            5,
+            0,
+            0
+          ]
+        ],
+        "label_anomaly_counts": {
+          "unknown_label": 0,
+          "unknown_attempted_category": 0,
+          "label_category_conflict": 0
+        },
+        "bucket_counts": [
+          {
+            "raw_records": 2,
+            "eligible_records": 0,
+            "excluded_records": 2,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 2,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 0
+            },
+            "raw_protocol_counts": {
+              "tcp": 2,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 1,
+            "eligible_records": 1,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 0
+            },
+            "raw_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 1,
+            "eligible_records": 0,
+            "excluded_records": 1,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 1,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 0
+            },
+            "raw_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 1
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 0,
+            "eligible_records": 0,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 1
+            },
+            "raw_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "D-segment-gap",
+      "sources": [
+        [
+          {
+            "id": "401",
+            "Timestamp": "2026-01-01 00:01:59.000000",
+            "Flow Duration": "2000000"
+          },
+          {
+            "id": "402",
+            "Timestamp": "2026-01-01 00:02:00.000000"
+          },
+          {
+            "id": "403",
+            "Timestamp": "2026-01-01 00:04:00.000000"
+          },
+          {
+            "id": "404",
+            "Timestamp": "2026-01-01 00:06:00.000000"
+          }
+        ]
+      ],
+      "segments": [
+        {
+          "id": "D-train",
+          "role": "train",
+          "start": "2026-01-01T00:00:00",
+          "end": "2026-01-01T00:02:00"
+        },
+        {
+          "id": "D-validation",
+          "role": "validation",
+          "start": "2026-01-01T00:02:00",
+          "end": "2026-01-01T00:04:00"
+        },
+        {
+          "id": "D-test",
+          "role": "test",
+          "start": "2026-01-01T00:06:00",
+          "end": "2026-01-01T00:08:00"
+        }
+      ],
+      "expected": {
+        "schema_id": "c17-release-91-v1",
+        "source_authentication": "NOT_AUTHENTICATED",
+        "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+        "feature_names": [
+          "completed_source_record_count",
+          "fwd_packet_sum",
+          "bwd_packet_sum",
+          "fwd_source_length_sum",
+          "bwd_source_length_sum",
+          "tcp_source_record_count",
+          "udp_source_record_count",
+          "known_other_source_protocol_record_count",
+          "unresolved_source_protocol_record_count",
+          "duration_max_s",
+          "duration_median_s",
+          "duration_p95_s",
+          "no_backward_packet_source_record_count"
+        ],
+        "timestamps": [
+          "2026-01-01T00:00:00",
+          "2026-01-01T00:01:00",
+          "2026-01-01T00:02:00",
+          "2026-01-01T00:03:00",
+          "2026-01-01T00:06:00",
+          "2026-01-01T00:07:00"
+        ],
+        "segment_ids": [
+          "D-train",
+          "D-train",
+          "D-validation",
+          "D-validation",
+          "D-test",
+          "D-test"
+        ],
+        "roles": [
+          "train",
+          "train",
+          "validation",
+          "validation",
+          "test",
+          "test"
+        ],
+        "values": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            1.0,
+            2.0,
+            1.0,
+            20.0,
+            10.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "source_valid": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          false
+        ],
+        "label_kinds": [
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          [
+            "normal",
+            "normal",
+            "normal"
+          ],
+          [
+            "unknown",
+            "unknown",
+            "unknown"
+          ]
+        ],
+        "raw_records": 4,
+        "eligible_records": 2,
+        "excluded_records": 2,
+        "outside_records": 1,
+        "unplaced_invalid_rows": 0,
+        "duplicate_groups": 0,
+        "reason_counts": {
+          "invalid_duration": 0,
+          "invalid_protocol": 0,
+          "invalid_fwd_packets": 0,
+          "invalid_bwd_packets": 0,
+          "invalid_fwd_length": 0,
+          "invalid_bwd_length": 0,
+          "invalid_unsupported_protocol": 0,
+          "invalid_timestamp": 0,
+          "duplicate_record": 0,
+          "cross_partition": 1,
+          "outside_registered_minutes": 1,
+          "unplaced_invalid_row": 0,
+          "empty_unconfirmed": 0
+        },
+        "raw_protocol_counts": {
+          "tcp": 4,
+          "udp": 0,
+          "known_other": 0,
+          "unresolved": 0,
+          "excluded_protocol": 0
+        },
+        "eligible_protocol_counts": {
+          "tcp": 2,
+          "udp": 0,
+          "known_other": 0,
+          "unresolved": 0
+        },
+        "label_kind_counts": [
+          [
+            4,
+            0,
+            0
+          ],
+          [
+            4,
+            0,
+            0
+          ],
+          [
+            4,
+            0,
+            0
+          ]
+        ],
+        "label_anomaly_counts": {
+          "unknown_label": 0,
+          "unknown_attempted_category": 0,
+          "label_category_conflict": 0
+        },
+        "bucket_counts": [
+          {
+            "raw_records": 0,
+            "eligible_records": 0,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 1
+            },
+            "raw_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 0,
+            "eligible_records": 0,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 1
+            },
+            "raw_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 2,
+            "eligible_records": 1,
+            "excluded_records": 1,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 1,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 0
+            },
+            "raw_protocol_counts": {
+              "tcp": 2,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 0,
+            "eligible_records": 0,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 1
+            },
+            "raw_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 1,
+            "eligible_records": 1,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 0
+            },
+            "raw_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 1,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          },
+          {
+            "raw_records": 0,
+            "eligible_records": 0,
+            "excluded_records": 0,
+            "reason_counts": {
+              "invalid_duration": 0,
+              "invalid_protocol": 0,
+              "invalid_fwd_packets": 0,
+              "invalid_bwd_packets": 0,
+              "invalid_fwd_length": 0,
+              "invalid_bwd_length": 0,
+              "invalid_unsupported_protocol": 0,
+              "invalid_timestamp": 0,
+              "duplicate_record": 0,
+              "cross_partition": 0,
+              "outside_registered_minutes": 0,
+              "unplaced_invalid_row": 0,
+              "empty_unconfirmed": 1
+            },
+            "raw_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0,
+              "excluded_protocol": 0
+            },
+            "eligible_protocol_counts": {
+              "tcp": 0,
+              "udp": 0,
+              "known_other": 0,
+              "unresolved": 0
+            },
+            "label_kind_counts": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "label_anomaly_counts": {
+              "unknown_label": 0,
+              "unknown_attempted_category": 0,
+              "label_category_conflict": 0
+            },
+            "definite_attack_present": false,
+            "attempted_present": false,
+            "unused_field_issue_records": 0
+          }
+        ]
+      }
+    }
+  ]
+}

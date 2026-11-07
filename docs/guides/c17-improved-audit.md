@@ -2,6 +2,8 @@
 
 日期：2026-10-23。最新阶段：C17-I1已由用户明确批准并完成单对象获取；实际载荷审计见[获取与供应记录](../research/2026-10-23-c17-i1-payload-audit.md)及[机读证据](../research/2026-10-23-c17-i1-payload-audit.json)。正式采用、最终标签政策、四段冻结和生产迁移仍未批准。下方原工具准备/人工用法保留其阶段身份；合成验证不是实际载荷证据或研究效果。
 
+本页工具与载荷结果对应C17-I1/G12阶段；后继见[G13U指南](c17-g13u-supply.md)。当前研究决定以[11月6日就绪复核](../research/2026-11-06-pilot-readiness-review.md)和[决定记录](../project/DECISIONS.md)为准，下面获取前提示仅作历史。
+
 ## 实际载荷工具与运行
 
 [c17_payload.py](../../tools/data_audit/c17_payload.py)为百万流文件新增两遍流式入口：`profile_csv`只建全字段聚合与限额指纹索引，`audit_minutes`复用原索引并核对提取回执、原文件大小/SHA和核心配置；只用标准库，未导入模型。指纹包括全部源字段及id，只检查全行精确重复，不代表语义Flow ID唯一性。
@@ -22,7 +24,7 @@ foreach ($inputName in $inputs) { $auditArgs += @('--input', "$task/extracted/$i
 
 输出必须在指定audit目录内且不存在，失败exit2、安全错误不输出路径或原行。索引上限512MiB、临时与日志总1GiB、任务6GiB；SQLite创建前按剩余预算/输出预留限制页数，后续输出也先核预算。真实文件均只读，第二遍前后核SHA。当前临时SQLite不存IP/原行，仅存指纹、计数及聚合metadata。
 
-最新结果与限制见[实际报告](../research/2026-10-23-c17-i1-payload-audit.md)。下一步采用[审计后的完整续接提示](c17-i1-protocol-next.md)，下方获取前提示保留历史身份。
+本阶段实际结果与限制见[原G12报告](../research/2026-10-23-c17-i1-payload-audit.md)；[审计后的旧提示](c17-i1-protocol-next.md)及下方获取前提示保留历史身份，当前决定入口见页首。
 
 ## 原准备工具的边界
 
