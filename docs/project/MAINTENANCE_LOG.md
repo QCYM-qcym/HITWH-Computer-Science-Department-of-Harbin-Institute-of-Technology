@@ -1,5 +1,15 @@
 # 仓库维护复核记录
 
+## 2026-11-07 raw CLI实际接受及前序发布回执
+
+前序raw包、prepared包与输入CLI共39文件由GitHub Desktop提交推送`35461b9ccb964297a4a52a38dc37515c667ec237`，分支codex/candidate-flow-adapter，本地/远端及按文本规范化核对的Git blob一致，未合并main。文档[42317355086](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42317355086)、核心[42317355085](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42317355085)、合成[42317355068](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42317355068)三项实际completed/success。远端任务分别为仓库13项及613文件零隐私问题、契约21项、Python3194通过/12跳过/56子测试通过（224.69秒）、前端147项及类型/构建成功；范围有重叠，不累加。远端Linux/Python3.14.10与本地Windows/Python3.14.0分列，保留TestClient、Actions Node和既有前端包大小警告。该提交排除raw CLI两文件与旧Oct31计划；旧待发布回执保留为当时时点。
+
+本raw CLI源码最终377通过/4跳过，独审56重叠；首轮实际main/save后测试错误地要求DB占用至少65536，实际12288合法，获准只修测试后完整通过。源码两次人工CSV聚合共64行/save2，与另外12次人工值对象save/load分列。新安装固定八例一次通过，父进程实际exit0；5普通、3受控、4安装启动均正常回收。N3真实断管exit2、stderr25B，无stdout捕获；其残留由L1真实load通过。详细摘要、实际流身份、动作格、保存值和限制见[本批记录](../research/2026-11-07-release-minute-cli-verification.json)。
+
+65安装产品、66复制源前后保持，7生成metadata仅当前集合；20旧JSON包100成员保持。普通路径两聚合/64行/两raw save/一次人工fit是预期，未动态profile；三个受控probe不代表整个运行零拟合或零文件I/O。人工包只有训练段，零校准/测试资格不等于FPR=0。
+
+本次仅据已有接受整理三份新公开文档、六份共享维护文件和六篇既有知识页，保留修改前快照；文档检查/链接/隐私和progress生成另记，没有再运行产品、测试套件、安装或模型。最终仓库/作者/索引及Desktop由主控统一执行。本raw CLI批PENDING_DESKTOP、新CI NOT_RUN；view另批并行实现但整批/页面验收NOT_RUN，S2/Data Gate BLOCKED及真实各阶段NOT_RUN保持。
+
 ## 2026-11-07 准备包与输入CLI后继收口（本地接受、待发布）
 
 prepared联合469项收集，463通过/4跳过/2未选；A9三次原120秒预算失败保留，明确改360秒后三个人工10000分钟形状通过。A10七份准备/保存/独立加载/重放及一份无训练人口预期拒绝、八负例通过；44验收leaf加4构建安装启动分列，不累加为单元测试。准确数值和Python监督限制见[准备包记录](../research/2026-11-07-release-input-package-verification.json)。

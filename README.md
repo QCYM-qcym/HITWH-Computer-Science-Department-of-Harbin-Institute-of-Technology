@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-07**。当前阶段：**数据审计**；本轮主题：原始分钟包、准备输入包与输入CLI本地验收通过；Desktop待发布，真实Gate仍BLOCKED。
+最近更新：**2026-11-07**。当前阶段：**数据审计**；本轮主题：raw CLI人工安装链本地接受；前序39文件已发布，本批Desktop待发布，真实Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- raw13固定包及prepared13/26输入包均已本地人工验收；fit、common与标签资格分列，独立加载和保存参数重放分开。
-- prepared联合463通过/4跳过/2未选；A9原三次120秒预算失败保留，明确修订360秒后三形状通过；A10七成功准备及八负例限定通过。
-- 输入CLI最终源码118项通过；新安装第二轮10例通过。首轮断管实际exit120保留，修复后实际exit2、错误流25字节；普通命令与受控探针证据分列。
-- raw CLI继续分项开发，尚未整批接受；只读view仅设计/计划接受、实现未放行。旧G12/早期提示保留历史身份。
-- 本批Desktop提交推送仍待实际完成，新CI未运行；S2/Data Gate BLOCKED，真实拟合、模型与正式实验NOT_RUN。
+- raw CLI源码377通过/4跳过，独审56项重叠；首轮DB预算下限测试错误与修正保留，产品及配方不改。
+- 新安装八例一次通过：5普通、3受控及4安装启动分列；断管实际exit2/stderr25B，stdout不可捕获，残留包独立加载通过。
+- 实际32个raw分钟、H15为17/H30共同2、fit人口2；校准/验证/测试资格0不代表FPR=0，普通路径fit1等次数仅为未profile的预期。
+- 前序39文件已Desktop发布35461b9，文档/核心/合成三项CI实际SUCCESS；远端Python3194通过/12跳过/56子测试与前端147分列，不累加。
+- raw本批PENDING_DESKTOP、新CI NOT_RUN；view另批并行实现，尚未整批接受或页面验收。S2/Data Gate BLOCKED、真实模型/正式实验NOT_RUN。
 
 **当前阻塞或待验证事项**
 
@@ -81,6 +81,9 @@ flowchart TB
 
 **最新成果入口**
 
+- [原始分钟包CLI运行与验收](<docs/guides/release-minute-cli.md>)
+- [原始分钟包CLI实际验证记录](<docs/research/2026-11-07-release-minute-cli-verification.json>)
+- [原始分钟包CLI协议](<docs/design/release-minute-cli-v1.md>)
 - [准备输入三命令与实际退出](<docs/guides/release-input-cli.md>)
 - [准备输入CLI人工验收与首轮失败](<docs/research/2026-11-07-release-input-cli-verification.json>)
 - [准备输入CLI接口与退出边界](<docs/design/release-input-cli-v1.md>)

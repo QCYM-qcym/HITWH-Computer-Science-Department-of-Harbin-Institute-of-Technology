@@ -1,5 +1,13 @@
 # 公开决策与方案差异
 
+## 2026-11-07 raw CLI人工链接受与后续边界
+
+主控已根据源码接受和固定八例独审接受raw CLI本地工程：显式spec、一次聚合、正常关闭清理后一次独占save，失败保留现场；不修改旧数学、原134/268生产契约或研究协议。实际断管N3退出2后仍有可load包，由L1独立加载证明，不能把包完整当作命令成功。普通5例未profile；两聚合/64行/两raw save/一次人工fit仅为已审调用链预期，R1打开1次观测与N3预期1次分开。
+
+三个受控探针动作单列：L1 raw_load2；I1 prepared_load1；V1五类各1及history2，无refit。32分钟训练配方的fit人口2与零校准/测试资格仅属人工工程，没有Q99或FPR；不把0资格替代未定义指标。65安装产品与66复制源有前后保持，七生成metadata只核当前集合，20旧JSON包保持。
+
+前序39文件35461b9已Desktop推送、三项CI成功；本批发布仍PENDING_DESKTOP。后继view分项并行实现，不等于页面或运行接受。真实数据、最终Attempted、主数据、真实试点与生产迁移依旧待对应决定。详见[raw CLI验证](../research/2026-11-07-release-minute-cli-verification.json)。
+
 ## 2026-11-07 后继工程决定：独立准备包与输入CLI
 
 采用[准备包v1](../design/release-input-package-v1.md)的独立profile：当前13与一个H残差13拼接；H15/H30独立，raw拟合人口与prepared/common资格分列。epsilon和审计政策显式，无默认；load只检查保存内部一致性，verify用保存参数重放而不重新拟合。摘要不认证原始来源或拟合执行。既有生产134/268与研究政策不迁移。

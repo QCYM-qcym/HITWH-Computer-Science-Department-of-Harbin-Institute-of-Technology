@@ -2,14 +2,14 @@
   "schema_version": 1,
   "updated": "2026-11-07",
   "current_stage": "S2",
-  "theme": "原始分钟包、准备输入包与输入CLI本地验收通过；Desktop待发布，真实Gate仍BLOCKED",
+  "theme": "raw CLI人工安装链本地接受；前序39文件已发布，本批Desktop待发布，真实Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "raw13固定包及prepared13/26输入包均已本地人工验收；fit、common与标签资格分列，独立加载和保存参数重放分开。",
-    "prepared联合463通过/4跳过/2未选；A9原三次120秒预算失败保留，明确修订360秒后三形状通过；A10七成功准备及八负例限定通过。",
-    "输入CLI最终源码118项通过；新安装第二轮10例通过。首轮断管实际exit120保留，修复后实际exit2、错误流25字节；普通命令与受控探针证据分列。",
-    "raw CLI继续分项开发，尚未整批接受；只读view仅设计/计划接受、实现未放行。旧G12/早期提示保留历史身份。",
-    "本批Desktop提交推送仍待实际完成，新CI未运行；S2/Data Gate BLOCKED，真实拟合、模型与正式实验NOT_RUN。"
+    "raw CLI源码377通过/4跳过，独审56项重叠；首轮DB预算下限测试错误与修正保留，产品及配方不改。",
+    "新安装八例一次通过：5普通、3受控及4安装启动分列；断管实际exit2/stderr25B，stdout不可捕获，残留包独立加载通过。",
+    "实际32个raw分钟、H15为17/H30共同2、fit人口2；校准/验证/测试资格0不代表FPR=0，普通路径fit1等次数仅为未profile的预期。",
+    "前序39文件已Desktop发布35461b9，文档/核心/合成三项CI实际SUCCESS；远端Python3194通过/12跳过/56子测试与前端147分列，不累加。",
+    "raw本批PENDING_DESKTOP、新CI NOT_RUN；view另批并行实现，尚未整批接受或页面验收。S2/Data Gate BLOCKED、真实模型/正式实验NOT_RUN。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -35,6 +35,18 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "原始分钟包CLI运行与验收",
+      "path": "docs/guides/release-minute-cli.md"
+    },
+    {
+      "label": "原始分钟包CLI实际验证记录",
+      "path": "docs/research/2026-11-07-release-minute-cli-verification.json"
+    },
+    {
+      "label": "原始分钟包CLI协议",
+      "path": "docs/design/release-minute-cli-v1.md"
+    },
     {
       "label": "准备输入三命令与实际退出",
       "path": "docs/guides/release-input-cli.md"
@@ -2574,14 +2586,17 @@
     "owned_child_processes": 17,
     "first_attempt": "FAILED_GUARD_RETAINED",
     "independent_runtime_review": "PASS_WITH_STATED_SCOPE",
-    "synchronization": "PENDING_DESKTOP",
-    "commit": null,
-    "ci": "NOT_RUN_FOR_THIS_BATCH",
+    "synchronization": "PUBLISHED_DESKTOP",
+    "commit": "35461b9ccb964297a4a52a38dc37515c667ec237",
+    "ci": "SUCCESS_AT_EXACT_COMMIT",
     "prepared_13_26": "LOCAL_ENGINEERING_ACCEPTED_SEPARATE_BATCH",
     "real_preprocessing": "NOT_RUN",
     "real_models": "NOT_RUN",
     "data_gate": "BLOCKED",
-    "verification": "docs/research/2026-11-07-release-minute-package-verification.json"
+    "verification": "docs/research/2026-11-07-release-minute-package-verification.json",
+    "publication_scope": "PREDECESSOR_39_FILE_BUNDLE",
+    "publication_verification": "docs/research/2026-11-07-release-minute-cli-verification.json",
+    "publication_verification_section": "predecessor_publication"
   },
   "release_input_package": {
     "status": "LOCAL_ENGINEERING_ACCEPTED",
@@ -2596,13 +2611,16 @@
     "a9_amended_360_seconds": "PASS_WITH_STATED_SCOPE",
     "a10_acceptance_leaves": 44,
     "a10_owned_launches": 48,
-    "synchronization": "PENDING_DESKTOP",
-    "commit": null,
-    "ci": "NOT_RUN_FOR_THIS_BATCH",
+    "synchronization": "PUBLISHED_DESKTOP",
+    "commit": "35461b9ccb964297a4a52a38dc37515c667ec237",
+    "ci": "SUCCESS_AT_EXACT_COMMIT",
     "verification": "docs/research/2026-11-07-release-input-package-verification.json",
     "real_preprocessing": "NOT_RUN",
     "real_models": "NOT_RUN",
-    "data_gate": "BLOCKED"
+    "data_gate": "BLOCKED",
+    "publication_scope": "PREDECESSOR_39_FILE_BUNDLE",
+    "publication_verification": "docs/research/2026-11-07-release-minute-cli-verification.json",
+    "publication_verification_section": "predecessor_publication"
   },
   "release_input_cli": {
     "status": "LOCAL_ENGINEERING_ACCEPTED",
@@ -2643,29 +2661,146 @@
     },
     "local_acceptance": "ACCEPTED",
     "verification": "docs/research/2026-11-07-release-input-cli-verification.json",
+    "synchronization": "PUBLISHED_DESKTOP",
+    "commit": "35461b9ccb964297a4a52a38dc37515c667ec237",
+    "ci": "SUCCESS_AT_EXACT_COMMIT",
+    "real_preprocessing": "NOT_RUN",
+    "real_models": "NOT_RUN",
+    "data_gate": "BLOCKED",
+    "publication_scope": "PREDECESSOR_39_FILE_BUNDLE",
+    "publication_verification": "docs/research/2026-11-07-release-minute-cli-verification.json",
+    "publication_verification_section": "predecessor_publication"
+  },
+  "release_minute_cli": {
+    "status": "LOCAL_ENGINEERING_ACCEPTED",
+    "evidence_kind": "SYNTHETIC_ONLY",
+    "implementation": "COMPLETE_FOR_ACCEPTED_SCOPE",
+    "local_acceptance": "ACCEPTED",
+    "source_tests_passed": 377,
+    "source_tests_skipped": 4,
+    "independent_tests_passed": 56,
+    "test_counts_overlap": true,
+    "source_first_failure": "DB_BUDGET_LOWER_BOUND_ASSERTION_RETAINED",
+    "source_artificial_csv_aggregations": 2,
+    "source_artificial_csv_rows": 64,
+    "source_separate_value_save_load_cases": 12,
+    "runtime_acceptance": "PASS_WITH_STATED_SCOPE",
+    "runtime_attempts": 1,
+    "runtime_cases": 8,
+    "ordinary_module_processes": 5,
+    "controlled_leaves": 3,
+    "build_install_processes": 4,
+    "runtime_parent_exit": 0,
+    "ordinary_action_profile": "NOT_PROFILED",
+    "ordinary_expected_aggregations": 2,
+    "ordinary_expected_raw_saves": 2,
+    "ordinary_expected_reader_rows": 64,
+    "ordinary_expected_preprocessing_fits": 1,
+    "n3_exit": 2,
+    "n3_stderr_bytes": 25,
+    "n3_stdout": "UNAVAILABLE_BY_DESIGN",
+    "n3_content_open_count": "EXPECTED_1_NOT_OBSERVED",
+    "raw_valid_minutes": 32,
+    "h15_valid": 17,
+    "h30_common_valid": 2,
+    "fit_population": 2,
+    "calibration_qualification": 0,
+    "false_positive_rate": null,
+    "evaluation_status": "NOT_RUN_TRAIN_ONLY_ARTIFICIAL_PACKAGE",
+    "installed_product_files_before_after": 65,
+    "copied_source_files_before_after": 66,
+    "generated_metadata_files_current_only": 7,
+    "old_json_packages_preserved": 20,
+    "verification": "docs/research/2026-11-07-release-minute-cli-verification.json",
+    "scope": "RAW_PACKAGE_CLI_SEPARATE_BATCH",
     "synchronization": "PENDING_DESKTOP",
     "commit": null,
     "ci": "NOT_RUN_FOR_THIS_BATCH",
-    "real_preprocessing": "NOT_RUN",
+    "real_data": "NOT_RUN",
     "real_models": "NOT_RUN",
     "data_gate": "BLOCKED"
   },
-  "release_minute_cli": {
-    "status": "IN_PROGRESS_BATCH_NOT_ACCEPTED",
-    "implementation": "IN_PROGRESS",
-    "local_acceptance": "NOT_RUN",
-    "runtime_acceptance": "NOT_RUN",
-    "verification": null,
-    "scope": "RAW_PACKAGE_CLI_SEPARATE_BATCH",
-    "real_data": "NOT_RUN"
-  },
   "release_package_view": {
-    "status": "PLAN_ACCEPTED_IMPLEMENTATION_NOT_RUN",
-    "implementation": "NOT_RUN",
+    "status": "IMPLEMENTATION_IN_PROGRESS_NOT_ACCEPTED",
+    "implementation": "IN_PROGRESS_NOT_ACCEPTED",
     "local_acceptance": "NOT_RUN",
     "runtime_acceptance": "NOT_RUN",
     "verification": null,
     "scope": "PREPARED_INPUT_READONLY_VIEW_SEPARATE_BATCH",
-    "real_data": "NOT_RUN"
+    "real_data": "NOT_RUN",
+    "page_implementation": "IN_PROGRESS_NOT_ACCEPTED",
+    "page_acceptance": "NOT_RUN"
+  },
+  "release_package_publication": {
+    "status": "PUBLISHED_AND_REMOTE_CI_SUCCESS",
+    "commit": "35461b9ccb964297a4a52a38dc37515c667ec237",
+    "branch": "codex/candidate-flow-adapter",
+    "files": 39,
+    "ci_runs": [
+      {
+        "id": 42317355086,
+        "name": "文档与发布检查",
+        "head_sha": "35461b9ccb964297a4a52a38dc37515c667ec237",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42317355086"
+      },
+      {
+        "id": 42317355085,
+        "name": "核心契约检查",
+        "head_sha": "35461b9ccb964297a4a52a38dc37515c667ec237",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42317355085"
+      },
+      {
+        "id": 42317355068,
+        "name": "合成系统集成检查",
+        "head_sha": "35461b9ccb964297a4a52a38dc37515c667ec237",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42317355068"
+      }
+    ],
+    "job_results": {
+      "observed_utc": "2026-11-07T00:25:00Z",
+      "commit": "35461b9ccb964297a4a52a38dc37515c667ec237",
+      "repository": {
+        "job_id": 128233138210,
+        "passed": 13,
+        "privacy_files": 613,
+        "privacy_issues": 0
+      },
+      "contracts": {
+        "job_id": 128233138252,
+        "passed": 21
+      },
+      "python": {
+        "job_id": 128233138518,
+        "passed": 3194,
+        "skipped": 12,
+        "subtests_passed": 56,
+        "warnings": 1,
+        "elapsed_seconds": 224.69
+      },
+      "frontend": {
+        "job_id": 128233140058,
+        "files_passed": 6,
+        "tests_passed": 147,
+        "typecheck": "SUCCESS",
+        "build": "SUCCESS"
+      },
+      "notes": [
+        "Counts are separate job results; contract checks overlap Python scope and are not summed.",
+        "Warnings retained: TestClient deprecation, GitHub Actions Node runtime deprecation, existing frontend chunk-size notice.",
+        "Remote Linux/Python 3.14.10; local Windows/Python 3.14.0 evidence remains separate.",
+        "Raw CLI two new files were not in this commit. Research Gate remains BLOCKED."
+      ]
+    },
+    "test_count_policy": "SEPARATE_JOB_RESULTS_WITH_OVERLAP_NOT_SUMMED",
+    "verification": "docs/research/2026-11-07-release-minute-cli-verification.json",
+    "excluded_raw_cli_source_and_test": true,
+    "excluded_old_oct31_plan": true,
+    "main_merge": "NOT_RUN"
   }
 }

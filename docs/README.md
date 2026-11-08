@@ -1,5 +1,11 @@
 # 文档导航
 
+## 2026-11-07 原始分钟包CLI：人工安装链本地接受
+
+[运行指南](guides/release-minute-cli.md)、[接口与边界](design/release-minute-cli-v1.md)、[实际验证](research/2026-11-07-release-minute-cli-verification.json)。源码377通过/4跳过、独审56重叠；新安装固定八例一次通过，5普通/3受控与4安装启动分列。N3断管exit2、stderr25B且无附加诊断，stdout不可捕获；L1独立重开残留包通过。普通动作次数仅预期，受控动作格另列。
+
+前序raw包/prepared包/input CLI共39文件已由Desktop发布`35461b9ccb964297a4a52a38dc37515c667ec237`，三项CI实际SUCCESS；该提交不包含当前raw CLI两文件。本批仍PENDING_DESKTOP，新CI NOT_RUN。view另批并行实现，尚无整批接受或页面验收。下方旧时点记录保留；真实S2/Data Gate BLOCKED、真实拟合/模型/正式实验NOT_RUN不变。
+
 ## 2026-11-07 准备输入包与三命令本地接受
 
 [准备包指南](guides/release-input-package.md)、[精确格式](design/release-input-package-v1.md)、[包验收记录](research/2026-11-07-release-input-package-verification.json)；[CLI用法](guides/release-input-cli.md)、[CLI设计](design/release-input-cli-v1.md)、[实际退出与首轮失败](research/2026-11-07-release-input-cli-verification.json)、[实施记录](superpowers/plans/2026-11-07-release-input-cli.md)。raw/prepared及输入CLI均获本地人工工程接受，发布仍PENDING_DESKTOP、新CI NOT_RUN。

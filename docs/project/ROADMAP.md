@@ -1,5 +1,13 @@
 # 滚动项目路线图
 
+## 2026-11-07 raw CLI固定人工链完成本地接受
+
+[raw CLI](../guides/release-minute-cli.md)已完成源码及新安装八例，输出失败可保留完整包的行为经实际断管和独立重开分别验证。32分钟人工训练包的H15为17、H30/common为2、fit人口2，其余校准/验证/测试资格0；没有阈值校准或效果结论。源码阶段首次错误断言与后续获准修正保留，准确次数与限制见[记录](../research/2026-11-07-release-minute-cli-verification.json)。
+
+前序39文件已发布35461b9且三项CI成功，本raw CLI批仍待Desktop发布。下一接缝为准备输入只读view，分项实现已放行；可复用已有人工A/Z输入包，无须再次prepare。新view代码尚未整批接受或完成页面验收，不借raw通过升级view。旧日期“下一步”只代表当时进度。
+
+研究仍依D1—D6和既有真实门槛推进，原研究next_tasks与验收标准不变。Data Gate BLOCKED，真实处理/拟合/训练/评分/Q99及正式实验NOT_RUN；发布和工程链通过不构成研究批准。
+
 ## 2026-11-07 后继工程：准备包与输入CLI本地接受
 
 在下方raw收口快照之后，[准备包](../guides/release-input-package.md)已完成13/26维、训练隔离、固定五文件及显式重放的本地人工验收；[输入CLI](../guides/release-input-cli.md)在首轮实际断管exit120失败后，经窄修、独审、新冻结和新安装，第二轮10例通过。原失败和原“A9/A10未放行”时点保留，当前结果分别见[包验证](../research/2026-11-07-release-input-package-verification.json)与[CLI验证](../research/2026-11-07-release-input-cli-verification.json)。本批仍待Desktop发布，新CI未运行。
