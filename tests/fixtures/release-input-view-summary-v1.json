@@ -1,0 +1,179 @@
+{
+  "fixture_version": 1,
+  "cases": {
+    "general": {
+      "version": 1,
+      "command": "inspect",
+      "status": "INTERNAL_CONSISTENCY_CHECKED",
+      "summary": {
+        "identity": {
+          "profile_id": "c17-release-prepared-input-package-v1",
+          "context_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+          "manifest_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+          "manifest_byte_count": 1024
+        },
+        "upstream_identity": {
+          "profile_id": "c17-release-minute-package-v1",
+          "context_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "manifest_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+          "manifest_byte_count": 2048
+        },
+        "source_authentication": "NOT_AUTHENTICATED",
+        "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+        "configuration": {
+          "schema_version": 1,
+          "numeric_rules_id": "c17-release-log1p-mad-input-rules-v1",
+          "windows": [15, 30],
+          "fit_window": 30,
+          "epsilon": 0.000001,
+          "audit_fit_policy": "P_U",
+          "policy_status": "AUDIT_ONLY",
+          "feature_count": 13
+        },
+        "configuration_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+        "minute_counts": {
+          "total": 176,
+          "raw_valid": 176,
+          "prepared_valid": 176,
+          "common_valid": 56,
+          "history_h15_valid": 116,
+          "history_h30_valid": 56
+        },
+        "fit": {
+          "count": 18,
+          "mask_sha256": "6666666666666666666666666666666666666666666666666666666666666666",
+          "rows_sha256": "7777777777777777777777777777777777777777777777777777777777777777"
+        },
+        "qualification_counts": {
+          "P_U": {
+            "train_full_history_normal": 18,
+            "calibration_full_history_normal": 10,
+            "validation_current_normal": 10,
+            "validation_current_attack": 0,
+            "validation_current_unknown": 0,
+            "test_current_normal": 15,
+            "test_current_attack": 1,
+            "test_current_unknown": 2
+          },
+          "P_B": {
+            "train_full_history_normal": 18,
+            "calibration_full_history_normal": 10,
+            "validation_current_normal": 10,
+            "validation_current_attack": 0,
+            "validation_current_unknown": 0,
+            "test_current_normal": 16,
+            "test_current_attack": 1,
+            "test_current_unknown": 1
+          },
+          "P_A": {
+            "train_full_history_normal": 18,
+            "calibration_full_history_normal": 10,
+            "validation_current_normal": 10,
+            "validation_current_attack": 0,
+            "validation_current_unknown": 0,
+            "test_current_normal": 15,
+            "test_current_attack": 2,
+            "test_current_unknown": 1
+          }
+        },
+        "package_checks": {
+          "status": "INTERNAL_CONSISTENCY_CHECKED",
+          "scope": "SAVED_INPUT_INTERNAL_CONSISTENCY_ONLY",
+          "byte_integrity": "CHECKED",
+          "structure": "CHECKED",
+          "upstream_replay": "NOT_PERFORMED",
+          "transform_history_replay": "NOT_PERFORMED",
+          "fit_parameters": "NOT_REESTIMATED"
+        }
+      },
+      "replay": null
+    },
+    "zero_calibration": {
+      "version": 1,
+      "command": "inspect",
+      "status": "INTERNAL_CONSISTENCY_CHECKED",
+      "summary": {
+        "identity": {
+          "profile_id": "c17-release-prepared-input-package-v1",
+          "context_sha256": "8888888888888888888888888888888888888888888888888888888888888888",
+          "manifest_sha256": "9999999999999999999999999999999999999999999999999999999999999999",
+          "manifest_byte_count": 1536
+        },
+        "upstream_identity": {
+          "profile_id": "c17-release-minute-package-v1",
+          "context_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "manifest_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "manifest_byte_count": 2560
+        },
+        "source_authentication": "NOT_AUTHENTICATED",
+        "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+        "configuration": {
+          "schema_version": 1,
+          "numeric_rules_id": "c17-release-log1p-mad-input-rules-v1",
+          "windows": [15, 30],
+          "fit_window": 30,
+          "epsilon": 0.000001,
+          "audit_fit_policy": "P_U",
+          "policy_status": "AUDIT_ONLY",
+          "feature_count": 13
+        },
+        "configuration_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "minute_counts": {
+          "total": 32,
+          "raw_valid": 32,
+          "prepared_valid": 32,
+          "common_valid": 2,
+          "history_h15_valid": 17,
+          "history_h30_valid": 2
+        },
+        "fit": {
+          "count": 2,
+          "mask_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "rows_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        },
+        "qualification_counts": {
+          "P_U": {
+            "train_full_history_normal": 2,
+            "calibration_full_history_normal": 0,
+            "validation_current_normal": 0,
+            "validation_current_attack": 0,
+            "validation_current_unknown": 0,
+            "test_current_normal": 0,
+            "test_current_attack": 0,
+            "test_current_unknown": 0
+          },
+          "P_B": {
+            "train_full_history_normal": 2,
+            "calibration_full_history_normal": 0,
+            "validation_current_normal": 0,
+            "validation_current_attack": 0,
+            "validation_current_unknown": 0,
+            "test_current_normal": 0,
+            "test_current_attack": 0,
+            "test_current_unknown": 0
+          },
+          "P_A": {
+            "train_full_history_normal": 2,
+            "calibration_full_history_normal": 0,
+            "validation_current_normal": 0,
+            "validation_current_attack": 0,
+            "validation_current_unknown": 0,
+            "test_current_normal": 0,
+            "test_current_attack": 0,
+            "test_current_unknown": 0
+          }
+        },
+        "package_checks": {
+          "status": "INTERNAL_CONSISTENCY_CHECKED",
+          "scope": "SAVED_INPUT_INTERNAL_CONSISTENCY_ONLY",
+          "byte_integrity": "CHECKED",
+          "structure": "CHECKED",
+          "upstream_replay": "NOT_PERFORMED",
+          "transform_history_replay": "NOT_PERFORMED",
+          "fit_parameters": "NOT_REESTIMATED"
+        }
+      },
+      "replay": null
+    }
+  }
+}

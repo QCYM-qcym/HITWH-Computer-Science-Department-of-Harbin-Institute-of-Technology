@@ -668,3 +668,16 @@ Visio V8.0重绘报告的10张配图，按报告图号保持对应，核对历�
 提交39e94164f91940de4fe54fdff475d2470239200a已通过Desktop推送，但Linux集成检查因仅预声明本机CRLF源身份而失败（26 failed、66 errors、2316 passed）。已证实Git LF与本机CRLF只差换行，修复为两组字面量大小和SHA配对，报告及来源必须严格命中同一组；不规范化输入，不动态扩展白名单，不混合两版上游。生产仅改共享身份helper与容量报告契约，配置、训练和评分未改。
 
 17项定向、原字节及LF模拟各165项、独立19项检查通过；原实际CRLF包只读验算和四模型比较完全一致，旧产物/安装保持，没有再次运行模型。两次LF模拟准备问题保留记录。历史15:11安装回执不改成修复后重装证明。修复提交和新CI待实际发布核对，S2/Data Gate BLOCKED及真实NOT_RUN不变。详见[容量验证记录](../research/2026-11-06-candidate-ae-capacity-verification.json)。
+
+
+## 2026-11-09 输入包查看源码交付与首次安装后检查失败收尾
+
+新增[查看协议](../design/release-input-view-v1.md)、[运行指南](../guides/release-input-viewer.md)和[验证记录](../research/2026-11-09-release-input-view-verification.json)，同步导航、状态与路线图。公开记录只含14个接受源码/测试文件的字节/SHA及脱敏事实，不复制完整私有收据；保留历史状态。核心118通过/37未选、后端最终201通过/1旧警告、前端单文件DOM71及类型检查通过，各切片不相加；201替代前序200，核心/前端保留既有收据，本次未重跑。
+
+首轮实际core-build/core-install/backend-build/backend-install四阶段各成功，8个受管直接Python子进程均exit0并回收，无强制、超时或清理错误；范围不外推到未观测的原生后代。整轮FAIL停于install-backend安装后身份检查：Windows控制台文件路径0777、句柄0666的执行位差异触发PRIVATE_HANDLE_CHANGED。父进程自然退出1来自主控观察；completed_cases为空，应用/实际HTTP/浏览器均0，完整after-map未建立。没有观测到产品运行失败，不能称安装独立验收通过。
+
+补充只读核对当前107安装文件，91源码字节/摘要、7个wheel元数据字节及两项direct_url关系匹配；RECORD名单core73/backend34行一致，hash/size列未核验。这些检查不补足完整after-map或整轮PASS。私有比较器仅修正指定Windows控制台文件的执行位比较，经13项只读回归及独立审查接受；第二轮NOT_STARTED，RELEASED=False、COMPONENTS_PIN为空，无新freeze、结果或验收目录。旧发布意图仅为意图。
+
+补记raw CLI前序批：GitHub Desktop已提交推送0f030142735028aaf27f4bc56501d8dfc1a4d0b4，远端核对及三项实际CI成功。文档run42497013334/job128781414665为13项、618文件隐私零问题；契约run42497013298/job128781414697为21项；合成run42497013306的Python job128781414998为3517通过/70跳过/1警告/56子测试，前端job128781415140为147项及类型/构建成功。各job存在重叠，不合并总数，且精确提交不含本批未提交的查看页。
+
+本查看页批次Desktop PENDING、新CI NOT_RUN，主控后续统一生成首页、执行维护检查并处理Desktop同步。当前仅核对已有收据与文件，没有新增产品运行、构建、安装或测试。研究阶段、计数和next_tasks保持；S2/Data Gate BLOCKED、D1—D6待决、真实拟合/训练/评分/Q99/正式比较NOT_RUN。来源未认证、时间仍源钟面完成代理，不认证UTC。后继输入与模型成对核验仅私有设计/计划无实现；没有新增研究批准或结论。

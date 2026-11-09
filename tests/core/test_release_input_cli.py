@@ -403,7 +403,7 @@ def test_prepare_serialization_precedes_save(monkeypatch,capfdbinary,command_cas
     def prepare(raw,config):calls.append('prepare');return cases['P_U']
     def summary(saved):calls.append('summary');return {'bad':float('nan')} if kind=='nan' else {'text':'中'+'x'*65536}
     monkeypatch.setattr(m,'load_release_minute_package',raw_load)
-    monkeypatch.setattr(m,'prepare_release_inputs',prepare);monkeypatch.setattr(m,'_summary',summary)
+    monkeypatch.setattr(m,'prepare_release_inputs',prepare);monkeypatch.setattr(m,'summarize_release_inputs',summary)
     monkeypatch.setattr(m,'save_release_input_package',_forbidden(attempts,'save'))
     assert m.main(_PREPARE_BASE)==2
     out,err=capfdbinary.readouterr()
@@ -537,7 +537,7 @@ def _shutdown_streams(m,monkeypatch,*,broken_stdout,broken_stderr):
     fake_sys=SimpleNamespace(stdout=stdout,stderr=stderr,argv=['fixed-cli','inspect','--prepared-package','C:/unopened'])
     monkeypatch.setattr(m,'sys',fake_sys);monkeypatch.setattr(m,'os',FakeOS(),raising=False)
     monkeypatch.setattr(m,'load_release_input_package',lambda path:object())
-    monkeypatch.setattr(m,'_summary',lambda value:{})
+    monkeypatch.setattr(m,'summarize_release_inputs',lambda value:{})
     return stdout,stderr,events
 
 

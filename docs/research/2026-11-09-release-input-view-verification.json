@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-09",
+  "status": "SOURCE_ACCEPTED_RUNTIME_ACCEPTANCE_INCOMPLETE",
+  "scope": "FIXED_ARTIFICIAL_PREPARED_INPUT_READONLY_VIEW_ONLY",
+  "documentation": {
+    "design": "docs/design/release-input-view-v1.md",
+    "guide": "docs/guides/release-input-viewer.md",
+    "evidence_policy": "Sanitized summary of retained private receipts; no private paths, payloads, weights or full receipts published.",
+    "closure_only": true,
+    "new_product_runs_builds_installs_or_tests_during_closure": 0,
+    "deadline": "2026-11-09T12:00:00+08:00",
+    "deadline_status": "ELAPSED_CLOSURE_ONLY_NOT_CLAIMED_ON_TIME"
+  },
+  "source_acceptance": {
+    "status": "VIEW_SOURCE_ACCEPTED_PENDING_INSTALLED_VALIDATION",
+    "revision": 2,
+    "accepted_receipt_sha256": "9a2f0ce36a7540cdf0085f3d45fc05d44f4ada1749584ff9c48434d503797f71",
+    "file_count": 14,
+    "manifest_kind": "ACCEPTED_WORKING_BYTES_NOT_GIT_NORMALIZED_BLOBS",
+    "manifest": {
+      "src/backend/pyproject.toml": {
+        "byte_count": 870,
+        "sha256": "3a820e27fcaa7fda41360d76425e98e1547cc5f28d967a80ac83c8f820a85e06"
+      },
+      "src/core/traffic_anomaly/release_input_cli.py": {
+        "byte_count": 8690,
+        "sha256": "46dd9f5852a3540590e0e24f043bc258690fef68cdd969d02c75b033b1dcf50b"
+      },
+      "src/core/traffic_anomaly/release_input_summary.py": {
+        "byte_count": 2224,
+        "sha256": "448b43491ceb107e3a725cc24fd43035cee14b0bb215bc2d098fa1e50514944e"
+      },
+      "src/backend/traffic_api/release_input_serve_cli.py": {
+        "byte_count": 10553,
+        "sha256": "bc4fec7bdea0f10aa9354a06c3a87a87bde87de299374945daa84dc99ed98386"
+      },
+      "src/backend/traffic_api/release_input_view.py": {
+        "byte_count": 4809,
+        "sha256": "36d08e0b3edc0d48a3b78c25f72ad497755a02364f1a93e730693c2ad7ee81b9"
+      },
+      "src/backend/traffic_api/release_static/inputs.html": {
+        "byte_count": 659,
+        "sha256": "52a9792013fa031968d39eba767ce96e3f02c66f4b7e3ab8f5d28b019730d1c3"
+      },
+      "src/backend/traffic_api/release_static/inputs.css": {
+        "byte_count": 3559,
+        "sha256": "be077e2d4a73e6188410d166939f231a71ac8503ec117a9fd644713c1ca2d6b7"
+      },
+      "src/backend/traffic_api/release_static/inputs.mjs": {
+        "byte_count": 15881,
+        "sha256": "772a8ff02213884ad6b6f99f02930d65b9bd1c36acb2f98cee283a5b39a55d8d"
+      },
+      "tests/core/test_release_input_cli.py": {
+        "byte_count": 34892,
+        "sha256": "4b704e693e406bba3d9f02ac0a99e3d61777c1d5b704f5cf33df31bbb5fa6e54"
+      },
+      "tests/core/test_release_input_summary.py": {
+        "byte_count": 18903,
+        "sha256": "5df2073fb2d585c883e4c25658a6654da9b25ca6c8dbb5f5846c3f501544e19e"
+      },
+      "tests/backend/test_release_input_serve_cli.py": {
+        "byte_count": 19809,
+        "sha256": "b190ad7e98bcbac1d85041d0d0e90e25f55848e81cfedd736638a804f6cda556"
+      },
+      "tests/backend/test_release_input_view.py": {
+        "byte_count": 19462,
+        "sha256": "134b8a3f5da79c5d7b7e2c6aa163daa9bf125f81882286216419b95925ad452f"
+      },
+      "src/frontend/src/__tests__/release-input-viewer.test.ts": {
+        "byte_count": 20452,
+        "sha256": "9a311d4db0fb88d96dc635d21126c7179df26a845b7e337e66faf0a5e28a5cb4"
+      },
+      "tests/fixtures/release-input-view-summary-v1.json": {
+        "byte_count": 6800,
+        "sha256": "d9c0bb48bd8e7b67693408dda63011435f839af80a6b1823085cdb2092ae7bce"
+      }
+    },
+    "accepted_components": [
+      "Pure saved-field summary shared with CLI inspect",
+      "Frozen read-only HTTP app with async transport delta",
+      "Foreground loopback launcher with complete-write event marker delta",
+      "Three packaged static assets and DOM validation with reviewed copy delta",
+      "Backend package resource inclusion"
+    ],
+    "test_results": {
+      "core": {
+        "passed": 118,
+        "deselected": 37,
+        "scope": "New pure summary tests and explicit existing pure CLI selector"
+      },
+      "backend": {
+        "passed": 201,
+        "warnings": 1,
+        "scope": "Final relevant app and launcher regression after async transport delta",
+        "prior_backend_200": "SUPERSEDED_NOT_ADDED"
+      },
+      "frontend": {
+        "passed": 71,
+        "typecheck_exit": 0,
+        "scope": "Single DOM test file; no actual browser"
+      },
+      "counting": "SCOPED_RESULTS_NOT_SUMMED_CORE_AND_FRONTEND_RETAINED_NOT_RERUN"
+    }
+  },
+  "first_runtime_attempt": {
+    "status": "FAIL",
+    "phase": "install-backend",
+    "failure_type": "RuntimeError",
+    "failure_code": "PRIVATE_HANDLE_CHANGED",
+    "failure_scope": "PRIVATE_INSTALLATION_IDENTITY_HELPER_AFTER_BACKEND_INSTALL_BEFORE_APPLICATION_CASES",
+    "reason": "Windows console path stat and open-handle fstat differed only in execute-mode bits; retained diagnostic had identical other signature fields.",
+    "console_relative_path": "installed/bin/traffic-api.exe",
+    "permission_modes_octal": {
+      "path": "0777",
+      "handle": "0666",
+      "difference": "0111"
+    },
+    "failure_receipt": {
+      "byte_count": 150900,
+      "sha256": "a6894b43ec4555a7359bc483a0dda2da1407216a13de46db60b0c4ed6ca3b13c"
+    },
+    "parent_exit": 1,
+    "parent_exit_provenance": "ROOT_OBSERVED_NATURAL_EXIT_SEPARATE_FROM_CHILD_RECEIPTS",
+    "stages": [
+      {"name": "core-build", "status": "PASS"},
+      {"name": "core-install", "status": "PASS"},
+      {"name": "backend-build", "status": "PASS"},
+      {"name": "backend-install", "status": "PASS"}
+    ],
+    "direct_child_processes": {
+      "count": 8,
+      "all_exit_zero": true,
+      "all_reaped": true,
+      "forced": 0,
+      "deadline_exceeded": 0,
+      "cleanup_errors": 0,
+      "registered_guard_receipts_passed": 8,
+      "guard_attempts": 0,
+      "scope": "OWNED_DIRECT_PYTHON_CHILDREN_ONLY",
+      "native_or_unobserved_descendants": "NOT_CERTIFIED",
+      "os_isolation": false
+    },
+    "completed_cases": [],
+    "application_cases": 0,
+    "actual_http": 0,
+    "actual_browser": 0,
+    "automatic_retry": false,
+    "complete_after_map": "NOT_ESTABLISHED_ON_FAILURE",
+    "product_runtime_failure": "NOT_OBSERVED_APPLICATION_CASES_NOT_STARTED"
+  },
+  "retained_artifact_readonly_checks": {
+    "installed_files_current_count": 107,
+    "source_files_byte_hash_match": 91,
+    "wheel_metadata_files_byte_match": 7,
+    "direct_url_and_wheel_sha256_matches": 2,
+    "record_names_unique_and_matched": {"core": 73, "backend": 34},
+    "record_hash_size_columns": "NOT_VERIFIED",
+    "wheels": [
+      {
+        "name": "traffic_anomaly_api-0.1.0-py3-none-any.whl",
+        "byte_count": 77923,
+        "sha256": "4cab4c4ec954a3574289974d7a60c09242f78451dcd38ded025e01f379c11d8e"
+      },
+      {
+        "name": "traffic_anomaly_core-0.1.0-py3-none-any.whl",
+        "byte_count": 168841,
+        "sha256": "fa3172ef5c549cf5a9dfd45b8f26d533f7988e32b92690a3b78c8c318f6447c7"
+      }
+    ],
+    "limit": "CURRENT_ARTIFACT_READS_DO_NOT_ESTABLISH_COMPLETE_AFTER_MAP_OR_WHOLE_ROUND_PASS"
+  },
+  "private_helper_correction": {
+    "status": "READONLY_REGRESSION_AND_INDEPENDENT_REVIEW_ACCEPTED",
+    "checks_passed": 13,
+    "scope": "Execute-bit comparison only for the exact Windows installed bin/traffic-api.exe console; other identity checks retained.",
+    "product_source_changed": false,
+    "installed_runtime_acceptance": "NOT_ESTABLISHED"
+  },
+  "second_runtime_attempt": {
+    "status": "NOT_STARTED",
+    "binding_state": "NOT_READY_ROOT_OBSERVATION",
+    "released": false,
+    "components_pin": null,
+    "new_freeze_exists": false,
+    "new_result_exists": false,
+    "new_acceptance_workspace_exists": false,
+    "child_processes": 0,
+    "application_cases": 0,
+    "actual_http": 0,
+    "actual_browser": 0,
+    "old_release_record": "INTENT_ONLY_NOT_EXECUTION_PROOF"
+  },
+  "view_publication": {
+    "desktop": "PENDING_DESKTOP",
+    "commit": null,
+    "push": "PENDING",
+    "ci": "NOT_RUN_FOR_THIS_BATCH",
+    "main_merge": "NOT_RUN"
+  },
+  "raw_cli_publication": {
+    "status": "DESKTOP_COMMITTED_PUSHED_REMOTE_AND_CI_VERIFIED",
+    "commit": "0f030142735028aaf27f4bc56501d8dfc1a4d0b4",
+    "branch": "codex/candidate-flow-adapter",
+    "scope": "PREDECESSOR_RAW_CLI_BATCH_EXCLUDES_THIS_UNCOMMITTED_VIEW",
+    "ci_job_results_observed_at": "2026-11-08T19:48:07Z",
+    "repository": {
+      "run_id": 42497013334,
+      "job_id": 128781414665,
+      "status": "SUCCESS",
+      "passed": 13,
+      "privacy_files": 618,
+      "privacy_issues": 0,
+      "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42497013334"
+    },
+    "contracts": {
+      "run_id": 42497013298,
+      "job_id": 128781414697,
+      "status": "SUCCESS",
+      "passed": 21,
+      "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42497013298"
+    },
+    "synthetic_integration": {
+      "run_id": 42497013306,
+      "status": "SUCCESS",
+      "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42497013306",
+      "python": {
+        "job_id": 128781414998,
+        "passed": 3517,
+        "skipped": 70,
+        "warnings": 1,
+        "subtests_passed": 56
+      },
+      "frontend": {
+        "job_id": 128781415140,
+        "files_passed": 6,
+        "tests_passed": 147,
+        "typecheck": "SUCCESS",
+        "build": "SUCCESS"
+      }
+    },
+    "counting": "SEPARATE_OVERLAPPING_JOB_RESULTS_NOT_SUMMED_NOT_VIEW_VALIDATION",
+    "previous_pending_text": "HISTORICAL_PREPUBLICATION_SNAPSHOT_SUPERSEDED_BY_THIS_PUBLICATION_OBSERVATION"
+  },
+  "research_boundary": {
+    "current_stage": "S2",
+    "data_gate": "BLOCKED",
+    "D1_D6": "FINAL_DECISIONS_PENDING",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+    "utc_authentication": "NOT_ESTABLISHED",
+    "policy_status": "AUDIT_ONLY",
+    "real_preprocessing_fit": "NOT_RUN",
+    "real_model_training": "NOT_RUN",
+    "real_scoring": "NOT_RUN",
+    "real_Q99_calibration": "NOT_RUN",
+    "formal_comparison": "NOT_RUN",
+    "production_migration": "NOT_APPROVED",
+    "successor_model_input_pair": "PRIVATE_DESIGN_AND_PLAN_ONLY_NO_IMPLEMENTATION"
+  }
+}

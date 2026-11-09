@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-07**。当前阶段：**数据审计**；本轮主题：raw CLI人工安装链本地接受；前序39文件已发布，本批Desktop待发布，真实Gate仍BLOCKED。
+最近更新：**2026-11-09**。当前阶段：**数据审计**；本轮主题：输入包查看页源码与单测接受；首轮安装后检查失败、运行验收未完成，真实Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- raw CLI源码377通过/4跳过，独审56项重叠；首轮DB预算下限测试错误与修正保留，产品及配方不改。
-- 新安装八例一次通过：5普通、3受控及4安装启动分列；断管实际exit2/stderr25B，stdout不可捕获，残留包独立加载通过。
-- 实际32个raw分钟、H15为17/H30共同2、fit人口2；校准/验证/测试资格0不代表FPR=0，普通路径fit1等次数仅为未profile的预期。
-- 前序39文件已Desktop发布35461b9，文档/核心/合成三项CI实际SUCCESS；远端Python3194通过/12跳过/56子测试与前端147分列，不累加。
-- raw本批PENDING_DESKTOP、新CI NOT_RUN；view另批并行实现，尚未整批接受或页面验收。S2/Data Gate BLOCKED、真实模型/正式实验NOT_RUN。
+- 输入包只读摘要、HTTP、前台启动与静态页面源码已接受；核心118通过/37未选、后端最终201通过/1警告、DOM71及类型检查通过，分范围不累加。
+- 首轮四个构建/安装阶段成功、8个直接Python子进程退出0并回收；整轮FAIL停于Windows控制台路径/句柄执行位检查，应用/实际HTTP/浏览器均0。
+- 当前107安装文件补充只读核对不能补足完整after-map；私有比较器13项回归及独立审查接受，修复后第二轮NOT_STARTED，未新增运行/安装/测试。
+- raw CLI已Desktop发布0f03014，实际CI为仓库13、契约21、Python3517通过/70跳过/1警告/56子测试、前端147及类型/构建成功，各job不相加且不覆盖本页。
+- view本批PENDING_DESKTOP、新CI NOT_RUN；S2/Data Gate BLOCKED、D1—D6待决，真实拟合/训练/评分/Q99/正式比较NOT_RUN；输入模型成对核验仅私有设计/计划无实现。
 
 **当前阻塞或待验证事项**
 
@@ -81,6 +81,9 @@ flowchart TB
 
 **最新成果入口**
 
+- [输入包检查页入口与未完成验收](<docs/guides/release-input-viewer.md>)
+- [输入包查看源码与首次安装后检查失败](<docs/research/2026-11-09-release-input-view-verification.json>)
+- [输入包只读查看协议](<docs/design/release-input-view-v1.md>)
 - [原始分钟包CLI运行与验收](<docs/guides/release-minute-cli.md>)
 - [原始分钟包CLI实际验证记录](<docs/research/2026-11-07-release-minute-cli-verification.json>)
 - [原始分钟包CLI协议](<docs/design/release-minute-cli-v1.md>)
@@ -199,6 +202,7 @@ flowchart TB
 
 ## 从哪里开始
 
+- [输入包检查页](docs/guides/release-input-viewer.md)：源码与单测已接受；[实际安装链尚未完成](docs/research/2026-11-09-release-input-view-verification.json)，首次安装后检查失败，修复后第二轮未启动。
 - [文档导航](docs/README.md)：最新报告、答辩稿、设计基线及研究资料。
 - [项目规划](docs/project/ROADMAP.md)：两周任务、中期里程碑与半年以上滚动路线。
 - [状态源](docs/project/status.json)：阶段验收条件、已满足项与证据；首页进度由此生成。

@@ -1,5 +1,11 @@
 # 文档导航
 
+## 2026-11-09 输入包检查页：源码接受，实际运行验收未完成
+
+[运行入口与限制](guides/release-input-viewer.md)、[接口协议](design/release-input-view-v1.md)、[源码与首轮失败记录](research/2026-11-09-release-input-view-verification.json)。核心118通过/37未选、后端最终201通过/1警告、前端DOM71及类型检查通过，分范围保留。首轮四个构建/安装阶段成功、8个直接Python子进程退出0并回收；整轮FAIL停于安装后Windows控制台路径/句柄执行位比较，应用案例、实际HTTP和浏览器均0，完整after-map未建立。13项窄范围比较器回归及独立审查不替代实际验收，修复后第二轮NOT_STARTED。
+
+raw CLI已由Desktop提交推送`0f030142735028aaf27f4bc56501d8dfc1a4d0b4`，精确CI三工作流成功；仓库13、契约21、Python3517通过/70跳过/1警告/56子测试、前端147及类型/构建按job分列，不相加，也不覆盖本页。本页本批Desktop仍PENDING、新CI NOT_RUN。下方旧记录保留当时状态；研究S2/Data Gate BLOCKED、D1—D6待决，真实拟合/训练/评分/Q99/正式比较NOT_RUN。后继输入与模型成对核验仅有私有设计/计划，无实现。
+
 ## 2026-11-07 原始分钟包CLI：人工安装链本地接受
 
 [运行指南](guides/release-minute-cli.md)、[接口与边界](design/release-minute-cli-v1.md)、[实际验证](research/2026-11-07-release-minute-cli-verification.json)。源码377通过/4跳过、独审56重叠；新安装固定八例一次通过，5普通/3受控与4安装启动分列。N3断管exit2、stderr25B且无附加诊断，stdout不可捕获；L1独立重开残留包通过。普通动作次数仅预期，受控动作格另列。

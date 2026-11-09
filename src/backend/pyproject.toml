@@ -22,4 +22,4 @@ where = ["."]
 include = ["traffic_api*"]
 
 [tool.setuptools.package-data]
-traffic_api = ["candidate_static/index.html", "candidate_static/viewer.css", "candidate_static/viewer.mjs", "candidate_demo/g13u-records-v1.json", "candidate_static/capacity.html", "candidate_static/capacity.mjs"]
+traffic_api = ["candidate_static/index.html", "candidate_static/viewer.css", "candidate_static/viewer.mjs", "candidate_demo/g13u-records-v1.json", "candidate_static/capacity.html", "candidate_static/capacity.mjs", "release_static/inputs.html", "release_static/inputs.mjs", "release_static/inputs.css"]
