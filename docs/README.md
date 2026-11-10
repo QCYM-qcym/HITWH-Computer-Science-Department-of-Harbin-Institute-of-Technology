@@ -1,5 +1,15 @@
 # 文档导航
 
+## 2026-11-11 当前工程：IF 结果保存、独立重载与只读页面
+
+[运行入口](guides/release-if-result-package.md)、[结果包协议](design/release-if-result-package-v1.md)、[展示协议](design/release-if-result-view-v1.md)、[实施计划](superpowers/plans/2026-11-10-release-if-results.md)及[验证与失败保留记录](research/2026-11-11-release-if-results-verification.json)。两个保存视图可独立重载，固定本地服务展示保存分数、阈值、共同有效分钟和分页全轴；浏览时不训练或评分。
+
+源码独审通过，完整 Python 回归 4360 通过/23 跳过/1 旧警告/56 子测试；前端 318 项、类型检查及构建通过。新安装两个 wheel 为 75/35 成员，安装 117 文件；两个实际人工 IF 结果、独立新进程重建、20 次 HTTP/133690 字节和 W0 实际浏览器均有证据，经单独运行后核对及独立复审接受。原控制器在正常服务完成后的全局 bind 数断言处退出 1，原整轮 FAIL 和缺失的原成功收据保持，没有重跑安装、模型或服务。
+
+保存包成员与字节独立一致，正包初始 mtime 基线未落盘，故其独立 mtime 验证为 null；父进程精确总耗时为 null。额外 loopback 端口 0 的用途仅为来源支持的推断。完整限制见验证记录，不将人工工程接受当作真实效果通过。当前发布快照 `PENDING_AFTER_PUSH`，准确 Desktop 提交与远端 CI 另核；S2/Data Gate BLOCKED，真实 C17 fit/train/score/Q99 和正式比较 NOT_RUN，生产 134/268 未迁移。
+
+下文为各日期历史交付范围与当时状态；当前结果保存和页面进度以上述入口为准。
+
 ## 2026-11-10 下一阶段工程：安装、浏览器与候选IF
 
 本轮按[开发计划](superpowers/plans/2026-11-10-release-if-engineering.md)完成三项工程：新core安装后的四例配对CLI、两例输入页实际浏览器、13/26维保存输入到隔离森林的内存消费者。新IF源码独审通过，最终117专项包含在281相关中；最终源完整本地回归4067通过、20跳过、1既有TestClient警告、56子测试，范围不累加。

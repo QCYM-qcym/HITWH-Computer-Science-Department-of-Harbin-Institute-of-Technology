@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "current_stage": "S2",
-  "theme": "配对独立安装、输入页浏览器及保存13/26维输入到IF的人工工程链路已接受，真实Data Gate保持BLOCKED",
+  "theme": "IF结果保存、独立重载、只读API与网页的人工功能链后验接受；原控制器失败保留，真实Data Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "输入配对新core独立安装与四例人工CLI已接受：wheel72/安装75成员，7进程自然回收，四例退出0/0/2/2，原包保持；复用既有锁定依赖。",
-    "新输入查看页两例实际浏览器、窄屏操作与零校准提示补验通过，两服务正常计时退出；独审通过后合并接受，旧INCOMPLETE_BROWSER和失败收据保留。",
-    "独立13/26维IF消费者已实现，异常索引长度预检及三项末审修订通过；最终新安装两视图与独立Q99/严格比较验收通过，原始输入身份保持。",
-    "最终源完整本地回归4067通过/20跳过/1旧警告/56子测试，含281相关与117专项；真实C17 fit/train/score/Q99和正式比较NOT_RUN，S2/Data Gate BLOCKED。",
-    "已由Desktop发布工程与主题导航校正；补齐首页静态入口、仓库分区和研究方案的当前说明，区分人工工程接受与真实研究NOT_RUN。原失败和历史证据保留，本次发布快照待远端检查。"
+    "自包含IF结果包与双视图只读页已实现并独审通过：current13/H30_26各存三文件，新进程独立重载，保留分数、阈值、预测、人口及源钟面。",
+    "新core/API wheel75/35成员、安装117文件；九子进程均预期退出，服务正常300秒停止。原控制器因额外本机临时端口绑定退出1，原FAIL保留，独立后验对账接受已观察功能。",
+    "实际20次HTTP共133690字节及双图、分页、未评分行、身份披露、窄屏键盘操作通过；浏览器流量单列，输入176/共同56/未评分120，原输入及安装保全。",
+    "最终完整Python4360通过/23跳过/1既有警告/56子测试，前端318及类型/构建、OpenAPI和前端契约通过；初次资源打包规则失败与显式清单修复保留。",
+    "S2/Data Gate BLOCKED；真实C17模型、Q99与正式比较NOT_RUN。下一步补公开生成/检查/绑定命令；本次Desktop与准确远端CI在发布快照时待核对。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -19,14 +19,14 @@
   ],
   "next_tasks": [
     {
-      "id": "C-I5",
-      "text": "依据真实分母决定最终Attempted口径和有限试点约束；接受或修订小样本/短高计数组结论范围，先固定协议。",
-      "path": "docs/research/2026-10-24-c17-g13u-audit.md"
+      "id": "ENG-R4",
+      "text": "补齐公开run、inspect、verify命令，直接串联已保存输入、IF结果包与只读页；执行仅使用已知人工输入，真实研究另按Gate判定。",
+      "path": "docs/guides/release-if-result-package.md"
     },
     {
-      "id": "C-I6",
-      "text": "协议决定后分别处理主数据正式采用与生产契约迁移；G13U审计批准不自动包含二者。",
-      "path": "docs/guides/c17-g13u-supply.md"
+      "id": "C-I5",
+      "text": "依据真实分母决定最终Attempted口径和有限试点约束；先固定协议，随后分别处理主数据正式采用与生产契约迁移。",
+      "path": "docs/research/2026-10-24-c17-g13u-audit.md"
     },
     {
       "id": "C-I7",
@@ -35,6 +35,22 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "IF保存结果与独立重载、双视图只读页",
+      "path": "docs/guides/release-if-result-package.md"
+    },
+    {
+      "label": "人工安装功能后验接受及原控制器失败",
+      "path": "docs/research/2026-11-11-release-if-results-verification.json"
+    },
+    {
+      "label": "自包含结果包格式和信任边界",
+      "path": "docs/design/release-if-result-package-v1.md"
+    },
+    {
+      "label": "启动前冻结的结果只读展示协议",
+      "path": "docs/design/release-if-result-view-v1.md"
+    },
     {
       "label": "保存输入到隔离森林：实际人工安装运行及边界",
       "path": "docs/guides/release-iforest-engineering.md"
@@ -2994,5 +3010,92 @@
     "publication_at_verification": "AWAITING_DESKTOP_AND_CURRENT_BATCH_CI",
     "failed_v2": "PRIVATE_LIST_TUPLE_COMPARATOR_FAIL_NOT_ACCEPTED",
     "v3_exact_v1_values_and_identity": true
+  },
+  "release_if_result_package": {
+    "status": "LOCAL_FUNCTIONAL_ACCEPTED_AFTER_POSTRUN_RECONCILIATION",
+    "scope": "ARTIFICIAL_ENGINEERING_ONLY",
+    "views": [
+      "current13",
+      "h30_26"
+    ],
+    "source_reviews": "SPEC_PASS_QUALITY_PASS",
+    "full_python": {
+      "passed": 4360,
+      "skipped": 23,
+      "warnings": 1,
+      "subtests": 56,
+      "count_policy": "OVERLAPPING_SCOPES_NOT_SUMMED"
+    },
+    "frontend": {
+      "passed": 318,
+      "files": 8,
+      "typecheck": "PASS",
+      "build": "PASS",
+      "warning": "EXISTING_VITE_CHUNK_WARNING"
+    },
+    "openapi_and_frontend_contracts": "PASS",
+    "original_controller": {
+      "status": "FAIL",
+      "physical_parent_exit": 1,
+      "code": "ONE_ACTUAL_LOOPBACK_BIND",
+      "exact_parent_elapsed_seconds": null,
+      "failure_retained": true
+    },
+    "functional_acceptance": "INDEPENDENT_POSTRUN_RECONCILIATION_ACCEPTED_NO_BUSINESS_RERUN",
+    "installed": {
+      "core_wheel_members": 75,
+      "api_wheel_members": 35,
+      "files": 117,
+      "dependency_environment": "REUSED_LOCKED_VENV",
+      "direct_children": 9,
+      "physical_child_exits": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "server_seconds": 300,
+      "server_child_exit": 0,
+      "original_port_closed_observation": true,
+      "observed_loopback_bind_ports": [
+        8768,
+        0
+      ]
+    },
+    "artificial_population": {
+      "total": 176,
+      "scored": 56,
+      "unscored": 120,
+      "training": 18,
+      "calibration": 10,
+      "preprocessing_fit": 18
+    },
+    "producer_observed_operations": {
+      "fit": 2,
+      "score_samples": 2,
+      "model_threshold_q99": 2,
+      "saved_score_q99_verification": 8
+    },
+    "manual_http": {
+      "requests": 20,
+      "body_bytes": 133690,
+      "browser_network": "SEPARATE_UNMONITORED"
+    },
+    "browser": "W0_OBSERVED_PASS",
+    "independent_positive_mtime_validation": null,
+    "original_controller_positive_mtime_bytes_guard": true,
+    "new_download_bytes": 0,
+    "real_C17_models": "NOT_RUN",
+    "formal_comparison": "NOT_RUN",
+    "data_gate": "BLOCKED",
+    "verification": "docs/research/2026-11-11-release-if-results-verification.json",
+    "guide": "docs/guides/release-if-result-package.md",
+    "publication_at_verification": "AWAITING_DESKTOP_AND_CURRENT_BATCH_CI",
+    "next_public_cli": "PLANNED_NOT_IMPLEMENTED"
   }
 }
