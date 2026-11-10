@@ -1,5 +1,9 @@
 # 公开决策与方案差异
 
+## 2026-11-10 发布补记
+
+13文件业务提交已通过GitHub Desktop提交推送，官方远端、跟踪分支与已冻结Git字节核对一致，旧10月31日草稿未纳入。实际CI与精确提交见[发布回执](../research/2026-11-10-release-model-input-pair-publication.json)；三项精确提交CI已完成并成功。下方PENDING_DESKTOP和CI NOT_RUN保留为提交前时点，不代表当前未推送；输入配对独立安装、查看页浏览器及真实模型实验仍未完成。未合并main，研究Gate保持BLOCKED。
+
 ## 2026-11-10 保存输入成对核对与验收范围
 
 采用[配对协议](../design/release-model-input-pair-v1.md)实现只读raw/prepared核对及薄CLI：借用保存值、保留全轴、标签sidecar、预处理fit与模型人口分列，不接模型。源码最终合跑145通过、核心与CLI独审PASS；两例joint使用加载器替身及真实pair/summary，追加独审PASS。源码环境四例实际人工双包CLI及97源/测试、20个原包JSON成员保全通过，独立构建安装和四例安装后CLI仍未执行，不将源码完成写成研究或模型链路接受。

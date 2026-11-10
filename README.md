@@ -64,7 +64,7 @@ flowchart TB
 - 查看页新完整安装运行10应用、24HTTP/49912字节、3受控守卫PASS且0尝试、两次120秒关闭及完整保全通过；实际浏览器0，原收据保持INCOMPLETE_BROWSER。
 - 旧Windows句柄比较失败与今日N6插件扫描失败均保留；依赖RED/GREEN定位可选插件扫描，受控子进程显式关闭该扫描。
 - BA/BZ浏览器补充启动被时间门拒绝，无新目录、应用或页面观察；成对核对独立构建安装及4例安装后CLI仍NOT_RUN，3个源码smoke、4个双包数据例和单测分列。
-- 本批PENDING_DESKTOP、CI NOT_RUN；S2/Data Gate BLOCKED，D1—D6未最终采用或迁移，真实fit/train/score/Q99及正式实验NOT_RUN；新IF未实现。
+- 成对输入13文件已通过Desktop提交推送，官方远端一致，三项精确提交CI成功；Linux Python3900通过/70跳过、前端218及类型/构建成功。S2/Data Gate BLOCKED，独立安装配对、查看页浏览器和真实实验仍未完成。
 
 **当前阻塞或待验证事项**
 

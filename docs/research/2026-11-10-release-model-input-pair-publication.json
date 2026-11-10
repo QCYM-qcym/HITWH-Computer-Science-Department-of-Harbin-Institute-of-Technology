@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-10T12:30:45.511936+08:00",
+  "scope": "PUBLICATION_OF_13_FILE_SOURCE_AND_EVIDENCE_BATCH",
+  "business_commit": "f1a588b17a3adddb15b88f0afb843bf698958fd9",
+  "branch": "codex/candidate-flow-adapter",
+  "commit_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/commit/f1a588b17a3adddb15b88f0afb843bf698958fd9",
+  "desktop_commit": "OBSERVED_COMPLETE",
+  "desktop_push": "OBSERVED_PUSH_COMPLETE",
+  "official_remote_ref": "MATCHES_BUSINESS_COMMIT",
+  "local_remote_tracking": "MATCHES_BUSINESS_COMMIT",
+  "remote_readme": "VERIFIED_AT_BUSINESS_COMMIT",
+  "file_identity": {
+    "files": 13,
+    "normalized_git_lf_blobs_match_frozen_delivery": true,
+    "excluded_old_oct31_draft_unchanged": true,
+    "generic_repository_author": "VERIFIED"
+  },
+  "ci_runs": [
+    {
+      "id": 42755623267,
+      "name": "文档与发布检查",
+      "head_sha": "f1a588b17a3adddb15b88f0afb843bf698958fd9",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42755623267"
+    },
+    {
+      "id": 42755623276,
+      "name": "核心契约检查",
+      "head_sha": "f1a588b17a3adddb15b88f0afb843bf698958fd9",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42755623276"
+    },
+    {
+      "id": 42755623266,
+      "name": "合成系统集成检查",
+      "head_sha": "f1a588b17a3adddb15b88f0afb843bf698958fd9",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42755623266"
+    }
+  ],
+  "job_results": {
+    "repository": {
+      "job_id": 129629201272,
+      "passed": 13,
+      "privacy_files": 639,
+      "privacy_issues": 0
+    },
+    "contracts": {
+      "job_id": 129629201427,
+      "passed": 21
+    },
+    "frontend": {
+      "job_id": 129629201213,
+      "passed": 218,
+      "typecheck": "SUCCESS",
+      "build": "SUCCESS"
+    },
+    "python": {
+      "job_id": 129629201301,
+      "passed": 3900,
+      "skipped": 70,
+      "warnings": 1,
+      "subtests_passed": 56,
+      "elapsed_seconds": 259.67,
+      "environment": "REMOTE_LINUX_PYTHON_3_14_10"
+    }
+  },
+  "test_count_policy": "SEPARATE_SCOPED_JOB_RESULTS_WITH_OVERLAP_NOT_SUMMED",
+  "prior_verification": "docs/research/2026-11-10-release-model-input-pair-verification.json",
+  "prior_pending_fields": "RETAINED_AS_PREPUBLICATION_OBSERVATION",
+  "limitations": {
+    "independent_pair_build_install": "NOT_RUN",
+    "four_installed_pair_cli_cases": "NOT_RUN",
+    "input_view_actual_browser_observations": 0,
+    "input_view_acceptance": "INCOMPLETE_BROWSER",
+    "data_gate": "BLOCKED",
+    "real_fit_train_score_Q99": "NOT_RUN",
+    "formal_comparison": "NOT_RUN"
+  },
+  "receipt_commit_policy": "References the already verified business commit only; later receipt-commit publication is checked in the final handoff without self-referential commit cycles.",
+  "main_merge": "NOT_RUN",
+  "ci_status": "SUCCESS_AT_BUSINESS_COMMIT",
+  "notes": [
+    "Business code and evidence were prepared before noon; Desktop publication resumed after the user unlocked the session.",
+    "The prior local Windows regression was 3950 passed,20 skipped,1 warning,56 subtests in274.50s; remote Linux results are separate and not summed.",
+    "Retained existing TestClient and GitHub Actions runtime deprecation warnings.",
+    "This receipt does not certify its own later documentation commit or unrun installed/browser/research acceptance."
+  ]
+}

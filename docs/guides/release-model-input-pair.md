@@ -20,3 +20,5 @@ python -m traffic_anomaly.release_model_input_cli --help
 输入查看页另有一次完整安装运行：10应用、24HTTP与完整保全通过，但实际浏览器0，收据保持`INCOMPLETE_BROWSER`。两个900秒浏览器补充服务只准备和短审，启动尝试因时间门拒绝，无新目录、应用或页面观察。旧Windows句柄比较失败和今日N6插件扫描失败均保留。它们与本成对核对模块的源码测试分开登记。
 
 本批发布PENDING_DESKTOP，CI NOT_RUN。主控已接受源码环境四例；下一步为独立构建安装、四例安装后CLI及页面验收，本轮尚未完成。S2/Data Gate BLOCKED，真实fit/train/score/Q99及正式实验NOT_RUN；新IF尚未实现。
+
+发布补记：13文件业务提交已通过Desktop推送并核对官方远端；最新实际CI及提交见[发布回执](../research/2026-11-10-release-model-input-pair-publication.json)。上段PENDING_DESKTOP/CI NOT_RUN保留提交前时点，不将发布视为安装、页面或研究验收通过。

@@ -9,7 +9,7 @@
     "查看页新完整安装运行10应用、24HTTP/49912字节、3受控守卫PASS且0尝试、两次120秒关闭及完整保全通过；实际浏览器0，原收据保持INCOMPLETE_BROWSER。",
     "旧Windows句柄比较失败与今日N6插件扫描失败均保留；依赖RED/GREEN定位可选插件扫描，受控子进程显式关闭该扫描。",
     "BA/BZ浏览器补充启动被时间门拒绝，无新目录、应用或页面观察；成对核对独立构建安装及4例安装后CLI仍NOT_RUN，3个源码smoke、4个双包数据例和单测分列。",
-    "本批PENDING_DESKTOP、CI NOT_RUN；S2/Data Gate BLOCKED，D1—D6未最终采用或迁移，真实fit/train/score/Q99及正式实验NOT_RUN；新IF未实现。"
+    "成对输入13文件已通过Desktop提交推送，官方远端一致，三项精确提交CI成功；Linux Python3900通过/70跳过、前端218及类型/构建成功。S2/Data Gate BLOCKED，独立安装配对、查看页浏览器和真实实验仍未完成。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -2753,7 +2753,7 @@
     "implementation": "SOURCE_ACCEPTED_FOR_REVIEWED_SCOPE",
     "source_acceptance_revision": 2,
     "accepted_source_test_files": 14,
-    "local_acceptance": "SOURCE_ONLY_RUNTIME_NOT_ACCEPTED",
+    "local_acceptance": "SOURCE_AND_INSTALLED_HTTP_ACCEPTED_BROWSER_PENDING",
     "runtime_acceptance": "COMPLETE_ENGINEERING_ROUND_BROWSER_INCOMPLETE",
     "source_core_passed": 118,
     "source_core_deselected": 37,
@@ -2786,9 +2786,9 @@
     "second_runtime": "NOT_STARTED",
     "second_runtime_released": false,
     "second_runtime_components_pin": null,
-    "synchronization": "PENDING_DESKTOP",
-    "commit": null,
-    "ci": "NOT_RUN_FOR_THIS_BATCH",
+    "synchronization": "PUBLISHED_DESKTOP",
+    "commit": "f1a588b17a3adddb15b88f0afb843bf698958fd9",
+    "ci": "SUCCESS_AT_EXACT_BUSINESS_COMMIT",
     "verification": "docs/research/2026-11-09-release-input-view-verification.json",
     "source_authentication": "NOT_AUTHENTICATED",
     "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
@@ -2800,7 +2800,7 @@
     "formal_comparison": "NOT_RUN",
     "data_gate": "BLOCKED",
     "D1_D6": "FINAL_DECISIONS_PENDING",
-    "successor_model_input_pair": "PRIVATE_DESIGN_AND_PLAN_ONLY_NO_IMPLEMENTATION",
+    "successor_model_input_pair": "SOURCE_AND_ARTIFICIAL_SOURCE_ENV_CASES_ACCEPTED_INSTALL_PENDING",
     "second_runtime_scope": "HISTORICAL_2026_11_09_CLOSED_PREPARATION",
     "latest_runtime": {
       "date": "2026-11-10",
@@ -2812,7 +2812,10 @@
       "actual_browser_observations": 0,
       "supplement_start": "REJECTED_BY_TIME_GATE",
       "verification": "docs/research/2026-11-10-release-model-input-pair-verification.json"
-    }
+    },
+    "publication_scope": "VIEW_SOURCE_AT_PARENT_NOV10_RUNTIME_EVIDENCE_AT_SUCCESSOR",
+    "publication_verification": "docs/research/2026-11-10-release-model-input-pair-publication.json",
+    "view_source_commit": "7346c3998daea4c63a974f8888a77aee17311077"
   },
   "release_package_publication": {
     "status": "PUBLISHED_AND_REMOTE_CI_SUCCESS",
@@ -2904,8 +2907,8 @@
     "independent_build_install": "NOT_RUN",
     "four_installed_cli_cases": "NOT_RUN",
     "verification": "docs/research/2026-11-10-release-model-input-pair-verification.json",
-    "synchronization": "PENDING_DESKTOP",
-    "ci": "NOT_RUN_FOR_THIS_BATCH",
+    "synchronization": "PUBLISHED_DESKTOP",
+    "ci": "SUCCESS_AT_EXACT_BUSINESS_COMMIT",
     "real_models": "NOT_RUN",
     "data_gate": "BLOCKED",
     "source_env_pair_processes": 4,
@@ -2914,6 +2917,8 @@
       0,
       2,
       2
-    ]
+    ],
+    "commit": "f1a588b17a3adddb15b88f0afb843bf698958fd9",
+    "publication_verification": "docs/research/2026-11-10-release-model-input-pair-publication.json"
   }
 }
