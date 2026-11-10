@@ -5,11 +5,11 @@
   "theme": "保存输入成对核对与薄CLI源码完成；查看页运行保全通过、浏览器仍未验收，真实Gate保持BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "保存raw/prepared配对与薄CLI源码已接受，最终145单测/0.23秒及独审PASS；源码环境4例人工双包CLI退出0/0/2/2、完整期望字节与97源/测试、20原包JSON成员保全通过。",
-    "查看页新完整安装运行10应用、24HTTP/49912字节、3受控守卫PASS且0尝试、两次120秒关闭及完整保全通过；实际浏览器0，原收据保持INCOMPLETE_BROWSER。",
-    "旧Windows句柄比较失败与今日N6插件扫描失败均保留；依赖RED/GREEN定位可选插件扫描，受控子进程显式关闭该扫描。",
-    "BA/BZ浏览器补充启动被时间门拒绝，无新目录、应用或页面观察；成对核对独立构建安装及4例安装后CLI仍NOT_RUN，3个源码smoke、4个双包数据例和单测分列。",
-    "成对输入13文件已通过Desktop提交推送，官方远端一致，三项精确提交CI成功；Linux Python3900通过/70跳过、前端218及类型/构建成功。S2/Data Gate BLOCKED，独立安装配对、查看页浏览器和真实实验仍未完成。"
+    "输入配对新core独立安装与四例人工CLI已接受：wheel72/安装75成员，7进程自然回收，四例退出0/0/2/2，原包保持；复用既有锁定依赖。",
+    "新输入查看页两例实际浏览器、窄屏操作与零校准提示补验通过，两服务正常计时退出；独审通过后合并接受，旧INCOMPLETE_BROWSER和失败收据保留。",
+    "独立13/26维IF消费者已实现，异常索引长度预检及三项末审修订通过；最终新安装两视图与独立Q99/严格比较验收通过，原始输入身份保持。",
+    "最终源完整本地回归4067通过/20跳过/1旧警告/56子测试，含281相关与117专项；真实C17 fit/train/score/Q99和正式比较NOT_RUN，S2/Data Gate BLOCKED。",
+    "修后首次私有比较器失败原样保留；纯比较RED/GREEN、新V3完整验收及独立复核通过。仓库13项、进度、隐私作者、OpenAPI和差异检查通过；发布快照待Desktop及本批远端CI。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -506,6 +506,10 @@
     {
       "label": "W3前端安装、验证与NOT_RUN清单",
       "path": "src/frontend/README.md"
+    },
+    {
+      "label": "保存输入IF工程入口",
+      "path": "docs/guides/release-iforest-engineering.md"
     }
   ],
   "stages": [
@@ -2747,14 +2751,14 @@
     "publication_verification_section": "raw_cli_publication"
   },
   "release_package_view": {
-    "status": "INSTALLED_HTTP_VERIFIED_BROWSER_NOT_RUN",
+    "status": "LOCAL_ENGINEERING_ACCEPTED_COMBINED_EVIDENCE",
     "scope": "PREPARED_INPUT_READONLY_VIEW_SEPARATE_BATCH",
     "evidence_kind": "FIXED_ARTIFICIAL_INPUTS_ONLY",
     "implementation": "SOURCE_ACCEPTED_FOR_REVIEWED_SCOPE",
     "source_acceptance_revision": 2,
     "accepted_source_test_files": 14,
-    "local_acceptance": "SOURCE_AND_INSTALLED_HTTP_ACCEPTED_BROWSER_PENDING",
-    "runtime_acceptance": "COMPLETE_ENGINEERING_ROUND_BROWSER_INCOMPLETE",
+    "local_acceptance": "SOURCE_INSTALLED_HTTP_AND_BROWSER_ACCEPTED_WITH_STATED_SCOPE",
+    "runtime_acceptance": "OLD_INSTALLED_HTTP_PLUS_SEPARATE_BROWSER_SUPPLEMENT_ACCEPTED",
     "source_core_passed": 118,
     "source_core_deselected": 37,
     "source_backend_passed": 201,
@@ -2763,7 +2767,7 @@
     "source_frontend_typecheck": "PASS",
     "test_count_policy": "SCOPED_RESULTS_NOT_SUMMED_BACKEND_201_SUPERSEDES_200",
     "page_implementation": "SOURCE_ACCEPTED",
-    "page_acceptance": "NOT_RUN",
+    "page_acceptance": "PASS_TWO_ARTIFICIAL_CASES",
     "first_runtime": {
       "status": "FAIL",
       "phase": "install-backend",
@@ -2800,7 +2804,7 @@
     "formal_comparison": "NOT_RUN",
     "data_gate": "BLOCKED",
     "D1_D6": "FINAL_DECISIONS_PENDING",
-    "successor_model_input_pair": "SOURCE_AND_ARTIFICIAL_SOURCE_ENV_CASES_ACCEPTED_INSTALL_PENDING",
+    "successor_model_input_pair": "INSTALLED_FOUR_ARTIFICIAL_PAIRS_ACCEPTED",
     "second_runtime_scope": "HISTORICAL_2026_11_09_CLOSED_PREPARATION",
     "latest_runtime": {
       "date": "2026-11-10",
@@ -2815,7 +2819,21 @@
     },
     "publication_scope": "VIEW_SOURCE_AT_PARENT_NOV10_RUNTIME_EVIDENCE_AT_SUCCESSOR",
     "publication_verification": "docs/research/2026-11-10-release-model-input-pair-publication.json",
-    "view_source_commit": "7346c3998daea4c63a974f8888a77aee17311077"
+    "view_source_commit": "7346c3998daea4c63a974f8888a77aee17311077",
+    "browser_supplement": {
+      "date": "2026-11-10",
+      "status": "PASS",
+      "actual_browser_cases": 2,
+      "service_processes": 2,
+      "scripted_http_requests": 0,
+      "total_elapsed_seconds": 604.0125705,
+      "installed_files_preserved": 107,
+      "input_json_members_preserved": 20,
+      "independent_review": "PASS",
+      "verification": "docs/research/2026-11-10-release-input-browser-verification.json",
+      "publication": "LOCAL_ONLY_AWAITING_DESKTOP"
+    },
+    "latest_runtime_scope": "HISTORICAL_INSTALL_HTTP_ROUND_BROWSER_PENDING_AT_THAT_TIME"
   },
   "release_package_publication": {
     "status": "PUBLISHED_AND_REMOTE_CI_SUCCESS",
@@ -2890,7 +2908,7 @@
     "main_merge": "NOT_RUN"
   },
   "release_model_input_pair": {
-    "status": "SOURCE_ACCEPTED_INSTALLED_PAIR_VALIDATION_PENDING",
+    "status": "INSTALLED_FOUR_ARTIFICIAL_PAIRS_ACCEPTED",
     "source_test_files": 4,
     "source_tests_passed": 145,
     "core_tests": 45,
@@ -2904,8 +2922,8 @@
       2
     ],
     "actual_package_loader_joint": "PASS_SOURCE_ENV_ONLY",
-    "independent_build_install": "NOT_RUN",
-    "four_installed_cli_cases": "NOT_RUN",
+    "independent_build_install": "PASS_NEW_CORE_TARGET_REUSED_DEPENDENCIES",
+    "four_installed_cli_cases": "PASS",
     "verification": "docs/research/2026-11-10-release-model-input-pair-verification.json",
     "synchronization": "PUBLISHED_DESKTOP",
     "ci": "SUCCESS_AT_EXACT_BUSINESS_COMMIT",
@@ -2919,6 +2937,50 @@
       2
     ],
     "commit": "f1a588b17a3adddb15b88f0afb843bf698958fd9",
-    "publication_verification": "docs/research/2026-11-10-release-model-input-pair-publication.json"
+    "publication_verification": "docs/research/2026-11-10-release-model-input-pair-publication.json",
+    "installed_runtime_verification": "docs/research/2026-11-10-release-pair-installed-verification.json",
+    "installed_runtime_independent_review": "PASS",
+    "wheel_members": 72,
+    "installed_members": 75,
+    "installed_product_files": 68,
+    "installed_cli_processes": 4,
+    "installed_owned_processes": 7,
+    "installed_acceptance_publication": "LOCAL_ONLY_AWAITING_DESKTOP"
+  },
+  "release_iforest_engineering": {
+    "status": "LOCAL_ACCEPTED_FINAL_SOURCE_AND_INSTALLED_V3",
+    "scope": "ARTIFICIAL_ENGINEERING_ONLY",
+    "views": [
+      "current13",
+      "h30_26"
+    ],
+    "source_tests": "PASS",
+    "installed_model_smoke": "PASS_V3_WITH_FAILED_V2_RETAINED",
+    "summary_authenticates_execution": false,
+    "real_C17_models": "NOT_RUN",
+    "formal_comparison": "NOT_RUN",
+    "data_gate": "BLOCKED",
+    "design": "docs/design/release-iforest-engineering-v1.md",
+    "plan": "docs/superpowers/plans/2026-11-10-release-if-engineering.md",
+    "source_tests_passed": 117,
+    "related_tests_passed": 281,
+    "full_local_passed": 4067,
+    "full_local_skipped": 20,
+    "full_local_warnings": 1,
+    "full_local_subtests": 56,
+    "installed_wheel_members": 73,
+    "installed_members": 76,
+    "actual_controlled_fit_score_Q99": [
+      2,
+      2,
+      2
+    ],
+    "source_review": "PASS_INITIAL_AND_NARROW_FIX_REVIEW",
+    "runtime_independent_review": "SPEC_PASS_QUALITY_PASS",
+    "verification": "docs/research/2026-11-10-release-iforest-engineering-verification.json",
+    "guide": "docs/guides/release-iforest-engineering.md",
+    "publication_at_verification": "AWAITING_DESKTOP_AND_CURRENT_BATCH_CI",
+    "failed_v2": "PRIVATE_LIST_TUPLE_COMPARATOR_FAIL_NOT_ACCEPTED",
+    "v3_exact_v1_values_and_identity": true
   }
 }

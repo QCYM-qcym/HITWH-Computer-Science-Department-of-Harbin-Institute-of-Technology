@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "status": "INSTALLED_FOUR_ARTIFICIAL_PAIRS_ACCEPTED",
+  "scope": "Fresh core wheel and target installation with four existing artificial saved-package CLI cases; engineering acceptance only",
+  "documentation": {
+    "design": "docs/design/release-model-input-pair-v1.md",
+    "guide": "docs/guides/release-model-input-pair.md",
+    "historical_source_verification": "docs/research/2026-11-10-release-model-input-pair-verification.json"
+  },
+  "source_manifest_kind": "REVIEWED_WORKING_FILE_BYTES",
+  "source_manifest": {
+    "src/core/traffic_anomaly/release_model_inputs.py": {
+      "byte_count": 16734,
+      "sha256": "d2b52bf851f52956b0ad6a91a1413897c9b952c40ce6e81f558eeeb7c4c2b9a2"
+    },
+    "src/core/traffic_anomaly/release_model_input_cli.py": {
+      "byte_count": 5769,
+      "sha256": "9d954cc7ac726b7f14314845091263b8bd2cde0d07828bc5156f9cb5ef7d7dca"
+    },
+    "tests/core/test_release_model_inputs.py": {
+      "byte_count": 29334,
+      "sha256": "2e3cab28928a0076f7f89d76de52964550970b84fc461e8bb45cd110b40c4828"
+    },
+    "tests/core/test_release_model_input_cli.py": {
+      "byte_count": 12948,
+      "sha256": "8076c19a212aace549c337a256f1508c8f3369b85d379a988d93eae95fd54420"
+    }
+  },
+  "environment": {
+    "platform": "Windows",
+    "python": "3.14.0",
+    "pip": "25.2",
+    "setuptools": "84.2.1",
+    "runtime_dependencies": {
+      "numpy": "2.5.4",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "annotated-types": "0.8.0",
+      "typing_extensions": "4.16.0",
+      "typing-inspection": "0.4.4"
+    },
+    "fresh_core_target": true,
+    "existing_build_and_runtime_dependencies_reused": true,
+    "fresh_dependency_environment_proven": false,
+    "build": "One owned Python process calls the declared setuptools.build_meta backend in the copied source directory",
+    "install": "Local wheel only; no index, dependencies, bytecode compilation or cache",
+    "source_copy": "68 product Python files and pyproject.toml; no copied bytecode"
+  },
+  "installation": {
+    "status": "PASS",
+    "wheel": {
+      "name": "traffic_anomaly_core-0.1.0-py3-none-any.whl",
+      "byte_count": 175577,
+      "sha256": "6452aab5790591ab1b2a0d67d50af922aa38723815ff14f99f4e20893485cf9d",
+      "actual_members": 72,
+      "product_python_files": 68,
+      "dist_info_files": 4,
+      "zip_crc": "PASS",
+      "product_bytes_match_frozen_source_and_copy": true,
+      "record_rows": 72,
+      "nonself_record_hashes_and_sizes_verified": 71,
+      "record_self_entry_empty": true
+    },
+    "installed": {
+      "actual_members": 75,
+      "product_python_files": 68,
+      "membership": "Wheel members plus INSTALLER, REQUESTED and direct_url.json",
+      "wheel_bytes_preserved_except_rewritten_record": true,
+      "installer": "pip with LF",
+      "requested": "EMPTY",
+      "direct_url_matches_new_wheel_and_both_sha256_fields": true,
+      "record_rows": 75,
+      "nonself_record_hashes_and_sizes_verified": 74,
+      "record_self_entry_empty": true
+    },
+    "metadata": {
+      "name": "traffic-anomaly-core",
+      "version": "0.1.0",
+      "requires_python": "<3.15,>=3.14",
+      "requires_dist_entries_matched": 8,
+      "wheel_tag": "py3-none-any",
+      "purelib": true
+    },
+    "origin_probe": {
+      "status": "PASS",
+      "imported_product_modules": 10,
+      "all_reported_product_modules_from_new_target": true,
+      "reported_distribution_root_is_new_target": true,
+      "reported_product_bytes_match_frozen_source": true,
+      "per_cli_dynamic_import_tracing": false
+    }
+  },
+  "processes": {
+    "direct_children": 7,
+    "stages": [
+      "B1-build",
+      "B2-install",
+      "B3-origin",
+      "P1",
+      "P2",
+      "P3",
+      "P4"
+    ],
+    "actual_returncodes": [0, 0, 0, 0, 0, 2, 2],
+    "all_naturally_exited_and_reaped": true,
+    "forced_termination": false,
+    "cleanup_errors": [],
+    "single_attempt": true,
+    "retry": false,
+    "receipt_elapsed_seconds": [
+      0.8101014000130817,
+      1.6870637999963947,
+      0.22776420001173392,
+      0.22529299999587238,
+      0.2249569999985397,
+      0.22653430001810193,
+      0.22606719995383173
+    ],
+    "runner_elapsed_seconds": 4.8059562999987975,
+    "outer_command_observed_exit": 0,
+    "outer_command_observed_wall_seconds": 5.0958541,
+    "outer_observation_basis": "Recorded execution observation; not reobserved by the later independent reviewer"
+  },
+  "four_installed_cli_cases": {
+    "status": "PASS",
+    "expected_output_basis": "Unchanged older independent expected summaries, saved artificial package fields and protocol literals; no new summary call generated expectations",
+    "all_four_actual_outputs_independently_byte_verified": true,
+    "cases": [
+      {
+        "case": "P1",
+        "input": "Araw + Aprep",
+        "returncode": 0,
+        "stdout": {
+          "byte_count": 5250,
+          "sha256": "ca71afe60d56acf15fd78e84c131bcb488354daa12dcc9a4e2b5d8c9a9926165"
+        },
+        "stderr_bytes": 0,
+        "population_total_common_fit_train_calibration": [176, 56, 18, 18, 10],
+        "full_stdout_equals_old_independent_expected": true
+      },
+      {
+        "case": "P2",
+        "input": "Zraw + Zprep",
+        "returncode": 0,
+        "stdout": {
+          "byte_count": 5229,
+          "sha256": "c58bd6e759c2d5703c0e3e0d4dc50bc95bba983745424282277f2111e2a2837c"
+        },
+        "stderr_bytes": 0,
+        "population_total_common_fit_train_calibration": [32, 2, 2, 2, 0],
+        "full_stdout_equals_old_independent_expected": true
+      },
+      {
+        "case": "P3",
+        "input": "Araw + Zprep",
+        "returncode": 2,
+        "stdout_bytes": 0,
+        "stderr": {
+          "byte_count": 39,
+          "sha256": "1adef1e0d1a7ebceef9cf111d7eda30a8919d3c6b65272480414cb39e4d509bd"
+        },
+        "error": "UPSTREAM_IDENTITY_MISMATCH",
+        "stderr_exact_safe_json_with_lf": true
+      },
+      {
+        "case": "P4",
+        "input": "Zraw + existing Zprep copy missing COMPLETE.json",
+        "returncode": 2,
+        "stdout_bytes": 0,
+        "stderr": {
+          "byte_count": 28,
+          "sha256": "12bbfe7b82f3f83037dd0c2eecae481122e54ac7e212570ac4b922128f3bc1d7"
+        },
+        "error": "INVALID_PACKAGE",
+        "stderr_exact_safe_json_with_lf": true
+      }
+    ]
+  },
+  "preservation": {
+    "status": "PASS_WITH_STATED_EVIDENCE_GRANULARITY",
+    "protected_source_and_test_files": 97,
+    "scope_is_all_repository_tests": false,
+    "original_artificial_package_json_files": 20,
+    "existing_negative_copy_files": 4,
+    "original_inputs_members_bytes_sha256_mtime_unchanged": true,
+    "protected_source_test_bytes_sha256_mtime_unchanged": true,
+    "old_receipts_unchanged": true,
+    "frozen_build_tool_files": 1438,
+    "build_tool_files_are_business_tests": false,
+    "copied_source_bytes_match_frozen_source": true,
+    "copied_source_initial_mtime_snapshot": "IN_MEMORY_ONLY_NOT_INDEPENDENTLY_PERSISTED",
+    "copied_source_unchanged_flag": "PASS_FROM_CONTROLLED_RUNNER_COMPARISON",
+    "independent_copy_initial_to_final_persisted_mtime_comparison": "NOT_AVAILABLE",
+    "wheel_and_installed_initial_persisted_snapshots_independently_verified": true,
+    "new_product_bytes_match_source_copy_wheel_and_installation": true
+  },
+  "resource_observations": {
+    "total_budget_seconds": 600,
+    "per_direct_child_work_budget_seconds": 115,
+    "per_direct_child_total_budget_seconds": 120,
+    "directory_budget_bytes": 67108864,
+    "per_stream_budget_bytes": 1048576,
+    "final_observed_new_files_bytes": 3314603,
+    "final_observation_includes": "Temporary outputs plus private preparation, execution and index files at the reviewed observation time",
+    "continuous_disk_peak_recorded": false,
+    "max_observed_stdout_or_stderr_bytes": 17904,
+    "polling_size_checks_used": true,
+    "all_resource_samples_persisted": false,
+    "os_disk_quota_or_hard_timeout_proven": false,
+    "interpretation": "Observed ordinary execution stayed within the configured budgets; final disk value is not a continuous peak or instantaneous nonexceedance proof"
+  },
+  "review": {
+    "spec_compliance": "PASS",
+    "quality": "PASS",
+    "blocking_findings": 0,
+    "root_acceptance": "ACCEPTED",
+    "basis": "Independent read-only review of existing scripts, full receipts, current wheel, installed files, package inputs and source identities",
+    "product_build_install_cli_or_tests_rerun_during_review": false,
+    "complete_private_receipts_retained_locally": true,
+    "public_evidence": "Sanitized facts and hashes only; personal paths, process identifiers and package payloads omitted"
+  },
+  "limits": {
+    "ordinary_cli_action_monitoring": "NOT_DYNAMICALLY_INSTRUMENTED",
+    "forbidden_action_interpretation": "Reviewed entry calls saved-package loaders, pair validation and bounded summary; no dynamic prepare, replay, fit, aggregation or model action counts claimed",
+    "new_artificial_fixture_or_fit": "NOT_RUN",
+    "prior_source_tests_rerun": false,
+    "prior_source_environment_cases_rerun": false,
+    "counting": "Seven process stages and four CLI cases are distinct from and not added to prior source unit-test or source-environment counts",
+    "browser_acceptance_advanced_by_this_work": false,
+    "historical_failures_and_not_run_snapshots": "RETAINED_UNMODIFIED"
+  },
+  "research_boundary": {
+    "stage": "S2",
+    "data_gate": "BLOCKED",
+    "real_prepare_replay": "NOT_RUN",
+    "real_fit": "NOT_RUN",
+    "real_train": "NOT_RUN",
+    "real_score": "NOT_RUN",
+    "real_q99": "NOT_RUN",
+    "formal_experiments": "NOT_RUN",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+    "research_admission_granted": false
+  }
+}

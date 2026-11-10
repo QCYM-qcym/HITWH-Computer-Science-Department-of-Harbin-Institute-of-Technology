@@ -1,5 +1,15 @@
 # 文档导航
 
+## 2026-11-10 下一阶段工程：安装、浏览器与候选IF
+
+本轮按[开发计划](superpowers/plans/2026-11-10-release-if-engineering.md)完成三项工程：新core安装后的四例配对CLI、两例输入页实际浏览器、13/26维保存输入到隔离森林的内存消费者。新IF源码独审通过，最终117专项包含在281相关中；最终源完整本地回归4067通过、20跳过、1既有TestClient警告、56子测试，范围不累加。
+
+配对四例在新安装target退出0/0/2/2；浏览器两例及窄屏/零校准提示完成，两服务正常退出，旧失败和原INCOMPLETE_BROWSER保留。新IF在另一个新安装target对已有人工A包运行两视图，透明observer实际记录2fit/2score/2Q99，训练18、独立校准10、共同56，原输入与安装保持。详见[配对安装](research/2026-11-10-release-pair-installed-verification.json)、[浏览器补验](research/2026-11-10-release-input-browser-verification.json)、[IF工程入口](guides/release-iforest-engineering.md)及[实际验证](research/2026-11-10-release-iforest-engineering-verification.json)。
+
+新模块的两个入口函数只给分数、报警、阈值和身份，未增加模型持久化、任务API或结果网页。后续工程先保存并独立加载新结果，再接后端只读接口与页面。真实C17数据训练、评分、阈值和正式比较仍NOT_RUN，S2/Data Gate BLOCKED；固定工程参数不代表最终研究选择或性能优势，生产134/268未迁移。
+
+整体源码、三项修订及最终安装运行的独立复核均为spec/quality PASS。最终源修后首次私有比较器失败保留，V3仅修正比较表示并完整验收通过。本轮Desktop提交/推送和实际CI在发布快照时尚待执行；旧已发布fa6cd63不覆盖新改动。下文保留先前时点，提交自身的准确远端与CI由最终交付及工作流核对，不循环回填。
+
 ## 2026-11-10 发布补记
 
 13文件业务提交已通过GitHub Desktop提交推送，官方远端、跟踪分支与已冻结Git字节核对一致，旧10月31日草稿未纳入。实际CI与精确提交见[发布回执](research/2026-11-10-release-model-input-pair-publication.json)；三项精确提交CI已完成并成功。下方PENDING_DESKTOP和CI NOT_RUN保留为提交前时点，不代表当前未推送；输入配对独立安装、查看页浏览器及真实模型实验仍未完成。未合并main，研究Gate保持BLOCKED。

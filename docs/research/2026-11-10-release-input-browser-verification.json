@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "status": "INPUT_VIEW_ENGINEERING_ACCEPTED_WITH_SEPARATE_BROWSER_SUPPLEMENT",
+  "scope": "EXISTING_ARTIFICIAL_PREPARED_INPUT_READONLY_VIEW_ONLY",
+  "documentation": {
+    "design": "docs/design/release-input-view-v1.md",
+    "guide": "docs/guides/release-input-viewer.md",
+    "historical_verification": "docs/research/2026-11-09-release-input-view-verification.json",
+    "evidence_policy": "Sanitized facts from locally retained receipts and independent review; personal paths, process identifiers, screenshots and complete private receipts are not published."
+  },
+  "acceptance": {
+    "independent_spec_compliance": "PASS",
+    "independent_quality": "PASS",
+    "blocking_findings": 0,
+    "root_combined_acceptance": "ACCEPTED",
+    "basis": "Prior installation, application and HTTP evidence combined by a separate decision with two newly observed browser cases and service lifecycles.",
+    "historical_receipts_rewritten": false,
+    "review_reran_product_or_browser": false
+  },
+  "prior_runtime_evidence": {
+    "original_status": "INCOMPLETE_BROWSER",
+    "receipt_retained_unmodified": true,
+    "application_cases": 10,
+    "http_requests": 24,
+    "http_bytes": 49912,
+    "guarded_cases": 3,
+    "guard_receipts_passed": true,
+    "guard_attempts": 0,
+    "actual_browser_cases": 0,
+    "installed_files": 107,
+    "source_installation_and_input_preservation": "PASS",
+    "separate_expired_900_second_supplement": {
+      "status": "CLOSING_DEADLINE_REJECTED",
+      "service_starts": 0,
+      "receipt_retained_unmodified": true
+    }
+  },
+  "new_browser_supplement": {
+    "status": "PASS",
+    "actual_browser_cases": 2,
+    "service_cases": 2,
+    "scripted_http_acceptance_requests": 0,
+    "browser": "Actual in-app browser pages, accessibility observations and locally retained original screenshots",
+    "installation": {
+      "existing_independent_installation_reused": true,
+      "new_builds": 0,
+      "new_installs": 0,
+      "installed_files": 107,
+      "installed_members_and_bytes_match_prior_frozen_manifest": true,
+      "protected_source_files_match_prior_frozen_manifest": 93,
+      "identity_scope": "Reused artifact and the source frozen for this accepted run; later development is outside this sealed before/after comparison."
+    },
+    "minute_count_order": [
+      "total",
+      "raw_valid",
+      "prepared_valid",
+      "common_valid",
+      "history_h15_valid",
+      "history_h30_valid"
+    ],
+    "policy_order": ["P_U", "P_B", "P_A"],
+    "qualification_row_order": [
+      "train_full_history_normal",
+      "calibration_full_history_normal",
+      "validation_current_normal",
+      "validation_current_attack",
+      "validation_current_unknown",
+      "test_current_normal",
+      "test_current_attack",
+      "test_current_unknown"
+    ],
+    "cases": [
+      {
+        "case": "A",
+        "status": "PASS",
+        "input_identity": {
+          "manifest_byte_count": 2070,
+          "manifest_sha256": "7abab46441d921e8513b772294a9d8b7e8d7bb5b243bb8d5a8363920be8eed2c",
+          "context_sha256": "fc2ed75521869dfb69e02aaec3c375c645bc67ddc75cfb5555985e87b93d5835"
+        },
+        "upstream_identity": {
+          "manifest_byte_count": 5640,
+          "manifest_sha256": "e7098cd2ff0fb8568d07e52e000cc17a8dd7b0f2e0ded76016cc639b0725b085",
+          "context_sha256": "683453b17c455b81d53c8501f0d6b8fd20f587f1d9b01d8c4d8388de16c661b7"
+        },
+        "minute_counts": [176, 176, 176, 56, 116, 56],
+        "saved_fit_count": 18,
+        "qualification_rows": [
+          [18, 18, 18],
+          [10, 10, 10],
+          [10, 10, 10],
+          [0, 0, 0],
+          [0, 0, 0],
+          [15, 16, 15],
+          [1, 1, 2],
+          [2, 1, 1]
+        ],
+        "observations_match_saved_independent_summary": true,
+        "observation_within_live_service_window": true,
+        "service_elapsed_seconds_observed": 301.0489333999576
+      },
+      {
+        "case": "Z",
+        "status": "PASS",
+        "input_identity": {
+          "manifest_byte_count": 1750,
+          "manifest_sha256": "deb4e2790f30d6651b91cbec3147b6da7ee861aa150c2e5c73af45f41976ef32",
+          "context_sha256": "5f6fc049e18946dcd866366a30cbdf522bfc6279b7658bd24e3ad0ef98210d58"
+        },
+        "upstream_identity": {
+          "manifest_byte_count": 5318,
+          "manifest_sha256": "b817e5b2cf8db2f14b92665f5a54083e9c9a5efcd2eefd284d5e561f234a9925",
+          "context_sha256": "1bef4557cf8ad880962e1727b83c31f4fd351563579ac4a59447a3b3e0803783"
+        },
+        "minute_counts": [32, 32, 32, 2, 17, 2],
+        "saved_fit_count": 2,
+        "qualification_rows": [
+          [2, 2, 2],
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0]
+        ],
+        "observations_match_saved_independent_summary": true,
+        "observation_within_live_service_window": true,
+        "zero_calibration_notice_observed": "0 只表示符合该条件的分钟数为零；零校准不表示评价比率为零。",
+        "no_previous_case_residue_observed": true,
+        "service_elapsed_seconds_observed": 300.79518750001444
+      }
+    ],
+    "shared_display_observations": {
+      "input_and_upstream_protocols_and_full_identities_checked": true,
+      "feature_count": 13,
+      "history_windows": [15, 30],
+      "fit_window": 30,
+      "source_authentication": "NOT_AUTHENTICATED",
+      "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+      "policy_status": "AUDIT_ONLY",
+      "saved_internal_consistency_and_no_replay_or_refit_limits_observed": true,
+      "no_error_or_blank_success_page_observed": true,
+      "input_width_26": "NOT_A_PAGE_FIELD; package or pair evidence is not a browser observation"
+    },
+    "narrow_keyboard_observation": {
+      "case": "A",
+      "viewport_width": 390,
+      "viewport_height": 844,
+      "table_client_width": 308,
+      "table_scroll_width": 540,
+      "keyboard_focus_observed": true,
+      "arrow_right_scroll_left_before": 0,
+      "arrow_right_scroll_left_after": 11.199999809265137,
+      "viewport_restored": true,
+      "scope": "One tested viewport and keyboard horizontal-scroll action; not all dimensions or keyboard paths"
+    },
+    "service_lifecycle": {
+      "host": "127.0.0.1",
+      "ready_and_stopped_event_pairs_checked": 2,
+      "returncodes": [0, 0],
+      "all_naturally_exited_and_reaped": true,
+      "forced_termination": false,
+      "stderr_bytes": [0, 0],
+      "ports_closed_by_single_post_exit_connection_probe_each": true,
+      "parent_exit_code_observed": 0,
+      "configured_timer_seconds_per_service": 300,
+      "per_case_budget_seconds": 360,
+      "total_budget_seconds": 720,
+      "total_elapsed_seconds_observed": 604.0125705000246,
+      "timing_basis": "Parent monotonic elapsed observations and ordinary CLI READY/STOPPED events",
+      "timer_callback_directly_observed": false
+    }
+  },
+  "preservation": {
+    "status": "PASS_AT_SEALED_BEFORE_AND_AFTER_SAMPLES",
+    "protected_files": 100,
+    "installed_files": 107,
+    "input_directories": 4,
+    "input_files_per_directory": 5,
+    "input_files": 20,
+    "complete_source_member_counts": {"backend": 44, "core": 138},
+    "complete_member_and_identity_maps_equal": true,
+    "before_and_after_receipt_sha256": "6f6b92f3a2fd320b95fcc1dbd1ea7ac580aaab6f6ef340c87b9c68b6aa18aedd",
+    "old_receipts_and_saved_independent_summaries_unchanged": true,
+    "scope": "Recorded member sets, bytes, SHA256, mtime and file identity at the sealed sampling points; not continuous filesystem monitoring"
+  },
+  "limits": {
+    "new_run_action_monitoring": "ORDINARY_CLI_NOT_DYNAMIC_ACTION_GUARDED",
+    "dynamic_zero_action_or_zero_io_proof_claimed": false,
+    "error_states": "NOT_TRIGGERED; no artificial response injection",
+    "port_probe": "One failed loopback connection after each exit; not long-term network monitoring",
+    "failure_cleanup_dynamically_exercised": false,
+    "screenshots_and_accessibility_artifacts": "RETAINED_LOCALLY_NOT_PUBLISHED",
+    "counting": "Prior 10 application cases and 24 HTTP requests remain a separate scope from this two-case browser/service supplement; they are not a summed test total.",
+    "earlier_failed_and_not_started_receipts": "RETAINED_UNMODIFIED"
+  },
+  "research_boundary": {
+    "data_gate": "BLOCKED",
+    "real_preprocessing_fit": "NOT_RUN",
+    "real_model_training": "NOT_RUN",
+    "real_scoring": "NOT_RUN",
+    "real_Q99_calibration": "NOT_RUN",
+    "formal_comparison": "NOT_RUN",
+    "research_admission_granted": false
+  }
+}

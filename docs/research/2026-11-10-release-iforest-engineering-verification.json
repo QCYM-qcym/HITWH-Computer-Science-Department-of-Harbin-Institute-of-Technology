@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "status": "LOCAL_ACCEPTED_FINAL_GUARD_SOURCE_V3_INSTALLED_RUNTIME_REVIEW_PASS",
+  "baseline_commit": "fa6cd630befab70c3d4c142266199fca05bc81e7",
+  "scope": "ARTIFICIAL_RELEASE_IF_ENGINEERING_ONLY",
+  "source_manifest_kind": "POST_FIX_WORKING_FILE_BYTES_LF",
+  "source_manifest": {
+    "src/core/traffic_anomaly/release_iforest.py": {
+      "byte_count": 15293,
+      "sha256": "b4741229ac940a87be0812fa72cc112c2e8ee10c771939b1e4bb343c4acafa09"
+    },
+    "tests/core/test_release_iforest.py": {
+      "byte_count": 32395,
+      "sha256": "6fdf248d0dfd6cd6c236ad0e649c85a9e01ae7756e72d9d2e8cc6366a9b038ae"
+    }
+  },
+  "source_tests": {
+    "new_if_passed": 114,
+    "related_passed": 278,
+    "seconds": 2.95,
+    "overlap": "NEW_IF_114_INCLUDED_IN_RELATED_278",
+    "fixture_kind": "INDEPENDENT_HAND_VALUES_AND_ESTIMATOR_SPIES",
+    "new_release_actual_sklearn_package_smoke": "PASS_SEPARATE_INSTALLED_CONTROLLED_RUN",
+    "evidence_phase": "PRE_FIX_SOURCE_ACCEPTANCE",
+    "source_manifest_reference": "pre_fix_source_manifest"
+  },
+  "source_review": {
+    "spec_compliance": "PASS",
+    "code_quality": "PASS",
+    "evidence_phase": "PRE_FIX_SOURCE_ACCEPTANCE",
+    "source_manifest_reference": "pre_fix_source_manifest"
+  },
+  "full_local_regression": {
+    "status": "PASS",
+    "passed": 4064,
+    "skipped": 20,
+    "warnings": 1,
+    "subtests_passed": 56,
+    "pytest_seconds": 255.67,
+    "parent_elapsed_seconds": 257.9058132999926,
+    "source_before_after": "UNCHANGED",
+    "overlap": "INCLUDES_TARGETED_278_AND_NEW_IF_114",
+    "warning": "EXISTING_STARLETTE_TESTCLIENT_DEPRECATION",
+    "evidence_phase": "PRE_FIX_SOURCE_ACCEPTANCE",
+    "source_manifest_reference": "pre_fix_source_manifest"
+  },
+  "installed_model_smoke": {
+    "status": "PASS",
+    "independent_runtime_review": "PASS_PRE_FIX_SOURCE_ACCEPTANCE",
+    "scope": "NEW_CORE_TARGET_EXISTING_VENV_DEPENDENCIES",
+    "wheel_members": 73,
+    "installed_members": 76,
+    "product_files": 69,
+    "owned_direct_processes": 3,
+    "physical_exits": [
+      0,
+      0,
+      0
+    ],
+    "all_natural_reaped_no_force": true,
+    "runner_seconds": 5.7028945999918506,
+    "observed_task_bytes_final": 3439403,
+    "continuous_disk_peak_measured": false,
+    "observation": "CONTROLLED_ACTUAL_SKLEARN_OBSERVATION",
+    "actual_counts": {
+      "calibrate": 2,
+      "fit": 2,
+      "score_samples": 2
+    },
+    "explicit_api_calls": {
+      "consumer": 2,
+      "pair": 1,
+      "prepared_load": 1,
+      "raw_load": 1,
+      "summary": 2
+    },
+    "views": [
+      {
+        "view": "current13",
+        "width": 13,
+        "minutes": 176,
+        "scored": 56,
+        "invalid_none": 120,
+        "train_count": 18,
+        "calibration_count": 10,
+        "preprocessing_fit_count": 18,
+        "threshold": 0.5634703452851734,
+        "independent_linear_q99": 0.5634703452851734,
+        "q99_matches": true,
+        "calibration_equal_threshold_count": 4,
+        "calibration_above_threshold_count": 0
+      },
+      {
+        "view": "h30_26",
+        "width": 26,
+        "minutes": 176,
+        "scored": 56,
+        "invalid_none": 120,
+        "train_count": 18,
+        "calibration_count": 10,
+        "preprocessing_fit_count": 18,
+        "threshold": 0.5734566900037,
+        "independent_linear_q99": 0.5734566900037,
+        "q99_matches": true,
+        "calibration_equal_threshold_count": 4,
+        "calibration_above_threshold_count": 0
+      }
+    ],
+    "source_input_copy_wheel_install_preservation": "PASS",
+    "copied_source_initial_mtime_record": "PERSISTED",
+    "product_module_origins": "VERIFIED_NEW_TARGET",
+    "retry": false,
+    "no_model_persistence": "NO_SAVE_IN_REVIEWED_ENTRY",
+    "limitations": [
+      "EXISTING_DEPENDENCIES_REUSED_NOT_FRESH_DEPENDENCY_ENVIRONMENT",
+      "TRANSPARENT_OBSERVERS_FORWARD_REAL_MODEL_AND_CALIBRATION",
+      "FORBIDDEN_ACTIONS_NOT_CALLED_BY_REVIEWED_ENTRY_NOT_DYNAMIC_ZERO_PROOF",
+      "FINAL_DISK_OBSERVATION_NOT_CONTINUOUS_PEAK",
+      "NO_EFFECTIVENESS_OR_GENERALIZATION_CLAIM"
+    ],
+    "evidence_phase": "PRE_FIX_SOURCE_ACCEPTANCE",
+    "source_manifest_reference": "pre_fix_source_manifest"
+  },
+  "numerical_contract": {
+    "views": [
+      "current13",
+      "h30_26"
+    ],
+    "n_estimators": 16,
+    "max_samples": "min(32,n_train)",
+    "random_state": 42,
+    "n_jobs": 1,
+    "score_direction": "NEGATIVE_SCORE_SAMPLES",
+    "quantile": 0.99,
+    "quantile_method": "linear",
+    "alarm_comparison": "STRICT_GREATER",
+    "invalid_score_and_prediction": null,
+    "model_population": "COMMON_VALID_TRAIN_AND_INDEPENDENT_CALIBRATION_NORMAL",
+    "preprocessing_population": "PRESERVED_SEPARATELY"
+  },
+  "limitations": [
+    "ENGINEERING_DEFAULTS_ONLY",
+    "AUDIT_ONLY",
+    "NOT_AUTHENTICATED",
+    "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+    "DERIVATION_REPLAY_NOT_PERFORMED",
+    "NOT_REESTIMATED",
+    "SUMMARY_IS_STRUCTURAL_NOT_EXECUTION_AUTHENTICATION",
+    "NO_NEW_PERSISTENCE_HTTP_OR_CLI"
+  ],
+  "research": {
+    "stage": "S2",
+    "data_gate": "BLOCKED",
+    "real_C17_fit_train_score_Q99": "NOT_RUN",
+    "formal_comparison": "NOT_RUN",
+    "production_134_268_migration": "NOT_RUN"
+  },
+  "publication_at_verification": "AWAITING_DESKTOP_AND_CURRENT_BATCH_CI",
+  "pre_fix_source_manifest_kind": "REVIEWED_WORKING_FILE_BYTES_LF",
+  "pre_fix_source_manifest": {
+    "src/core/traffic_anomaly/release_iforest.py": {
+      "byte_count": 15141,
+      "sha256": "e2a8f9b663accb2d824252a9a7be6a29699bd7c626bee0c938555ca8d85e9d02"
+    },
+    "tests/core/test_release_iforest.py": {
+      "byte_count": 31474,
+      "sha256": "2187f0c9f22f52a8b2f2d179e66441d889d4c08c15e0cb96a96f65b32c86e4d5"
+    }
+  },
+  "tdd_history": {
+    "scope": "SOURCE_IMPLEMENTATION_AND_FINAL_BOUNDARY_HARDENING",
+    "preparation_error": {
+      "kind": "DEFAULT_INTERPRETER_MISSING_PYTEST",
+      "test_collection": "NOT_RUN",
+      "counts_as_red": false,
+      "resolution": "REUSED_EXISTING_PROJECT_VENV_NO_INSTALL"
+    },
+    "input_validation_1a": {
+      "red": {
+        "failed": 62,
+        "reason": "CONSUMER_NOT_IMPLEMENTED"
+      },
+      "green": {
+        "passed": 62,
+        "seconds": 0.34
+      }
+    },
+    "model_and_summary_1b": {
+      "red": {
+        "failed": 46,
+        "passed": 63,
+        "reason": "MODEL_AND_SUMMARY_BEHAVIOR_NOT_IMPLEMENTED"
+      },
+      "green": {
+        "passed": 109,
+        "seconds": 0.66
+      }
+    },
+    "error_mapping": {
+      "red": {
+        "failed": 1,
+        "passed": 113,
+        "reason": "SAVED_STATE_SAMPLE_COUNT_MISCLASSIFIED_AS_RESOURCE_LIMIT"
+      },
+      "targeted_green": {
+        "passed": 278,
+        "seconds": 2.95
+      },
+      "overlap": "NEW_IF_114_INCLUDED_IN_TARGETED_278"
+    },
+    "fixture_corrections": [
+      {
+        "kind": "RAW_IDENTITY_CONSTRUCTOR_REJECTED_MUTATION_BEFORE_CONSUMER",
+        "intermediate": {
+          "failed": 6,
+          "passed": 56
+        },
+        "correction": "TEST_ONLY_EXACT_TYPE_ADVERSARIAL_OBJECT_BYPASSES_CONSTRUCTOR_TO_EXERCISE_CONSUMER",
+        "old_identity_contract_changed": false
+      },
+      {
+        "kind": "INITIAL_HUGE_SCORE_FIXTURE_DID_NOT_OVERFLOW_Q99",
+        "intermediate": {
+          "failed": 1,
+          "passed": 108
+        },
+        "correction": "NINE_NEGATIVE_EXTREMES_AND_ONE_POSITIVE_EXTREME_FORCE_NONFINITE_LINEAR_INTERPOLATION",
+        "product_logic_changed_for_fixture": false
+      }
+    ],
+    "final_boundary_hardening": {
+      "reason": "BOUND_SAVED_FIT_INDICES_BEFORE_SHARED_VALIDATOR_TRAVERSAL",
+      "red": {
+        "failed": 3,
+        "passed": 114,
+        "pytest_exit": 1
+      },
+      "regression": "EXACT_LABEL_TYPE_TUPLE_TYPE_AND_N_PLUS_ONE_REPEATED_VALID_INDICES_WITH_FORBIDDEN_SHARED_HELPER",
+      "green": {
+        "passed": 117,
+        "seconds": 1.48,
+        "pytest_exit": 0
+      },
+      "targeted_green": {
+        "passed": 281,
+        "seconds": 4.35,
+        "pytest_exit": 0
+      },
+      "overlap": "NEW_IF_117_INCLUDED_IN_TARGETED_281"
+    }
+  },
+  "post_fix_validation": {
+    "source_manifest_reference": "source_manifest",
+    "source_tests": {
+      "status": "PASS",
+      "new_if_passed": 117,
+      "new_if_seconds": 1.48,
+      "related_passed": 281,
+      "related_seconds": 4.35,
+      "pytest_exit": 0,
+      "overlap": "NEW_IF_117_INCLUDED_IN_RELATED_281"
+    },
+    "full_local_regression": {
+      "status": "PASS",
+      "passed": 4067,
+      "skipped": 20,
+      "warnings": 1,
+      "subtests_passed": 56,
+      "pytest_seconds": 263.07,
+      "parent_elapsed_seconds": 265.49908420001157,
+      "source_before_after": "UNCHANGED",
+      "overlap": "INCLUDES_TARGETED_281_AND_NEW_IF_117"
+    },
+    "installed_model_smoke": {
+      "status": "PASS",
+      "independent_runtime_review": "SPEC_PASS_QUALITY_PASS",
+      "scope": "NEW_CORE_TARGET_EXISTING_VENV_DEPENDENCIES",
+      "wheel_members": 73,
+      "installed_members": 76,
+      "product_files": 69,
+      "owned_direct_processes": 3,
+      "physical_exits": [
+        0,
+        0,
+        0
+      ],
+      "all_natural_reaped_no_force": true,
+      "runner_seconds": 4.935349699982908,
+      "observed_task_bytes_final": 3856996,
+      "continuous_disk_peak_measured": false,
+      "observation": "CONTROLLED_ACTUAL_SKLEARN_OBSERVATION",
+      "actual_counts": {
+        "calibrate": 2,
+        "fit": 2,
+        "score_samples": 2
+      },
+      "explicit_api_calls": {
+        "consumer": 2,
+        "pair": 1,
+        "prepared_load": 1,
+        "raw_load": 1,
+        "summary": 2
+      },
+      "views": [
+        {
+          "view": "current13",
+          "width": 13,
+          "minutes": 176,
+          "scored": 56,
+          "invalid_none": 120,
+          "train_count": 18,
+          "calibration_count": 10,
+          "preprocessing_fit_count": 18,
+          "threshold": 0.5634703452851734,
+          "independent_linear_q99": 0.5634703452851734,
+          "q99_matches": true
+        },
+        {
+          "view": "h30_26",
+          "width": 26,
+          "minutes": 176,
+          "scored": 56,
+          "invalid_none": 120,
+          "train_count": 18,
+          "calibration_count": 10,
+          "preprocessing_fit_count": 18,
+          "threshold": 0.5734566900037,
+          "independent_linear_q99": 0.5734566900037,
+          "q99_matches": true
+        }
+      ],
+      "source_input_copy_wheel_install_preservation": "PASS",
+      "copied_source_initial_mtime_record": "PERSISTED",
+      "product_module_origins": "VERIFIED_12_MODULES_NEW_TARGET",
+      "retry": false,
+      "no_model_persistence": "NO_SAVE_IN_REVIEWED_ENTRY",
+      "limitations": [
+        "EXISTING_DEPENDENCIES_REUSED_NOT_FRESH_DEPENDENCY_ENVIRONMENT",
+        "TRANSPARENT_OBSERVERS_FORWARD_REAL_MODEL_AND_CALIBRATION",
+        "FORBIDDEN_ACTIONS_NOT_CALLED_BY_REVIEWED_ENTRY_NOT_DYNAMIC_ZERO_PROOF",
+        "FINAL_DISK_OBSERVATION_NOT_CONTINUOUS_PEAK",
+        "NO_EFFECTIVENESS_OR_GENERALIZATION_CLAIM"
+      ],
+      "runtime_revision": "V3_CANONICAL_COMPARATOR_REPAIR",
+      "v1_complete_view_equivalence": "STRICT_CANONICAL_JSON_BYTES_ALL_FIELDS_INCLUDING_OBSERVATION",
+      "v1_v2_original_artifacts_preserved": 496,
+      "product_source": "FINAL_GUARD_REVISION_NO_FURTHER_CHANGE",
+      "full_current_values_and_origin_persisted_before_comparison": true,
+      "private_comparison_tests": {
+        "methods": 3,
+        "checks": 29,
+        "equivalent_container_checks": 2,
+        "single_value_differences_rejected": 26,
+        "nan_rejected": true,
+        "product_import_or_model_execution_in_comparison_tests": false
+      }
+    },
+    "narrow_independent_review": {
+      "status": "PASS",
+      "spec_compliance": "PASS",
+      "code_quality": "PASS",
+      "findings_addressed": 3,
+      "product_numeric_logic": "UNCHANGED"
+    },
+    "failed_runtime_v2": {
+      "status": "FAIL_NOT_ACCEPTED",
+      "product_source_reference": "source_manifest",
+      "physical_exits": [
+        0,
+        0,
+        1
+      ],
+      "all_natural_reaped_no_force": true,
+      "cause": "PRIVATE_COMPARATOR_DIRECT_JSON_LIST_VS_IN_MEMORY_TUPLE",
+      "observed_model_counts": {
+        "fit": 2,
+        "score_samples": 2,
+        "calibrate": 2
+      },
+      "readonly_numerical_support": "RAW_SCORES_AND_CALIBRATION_EQUAL_TO_V1_ONLY",
+      "incomplete": [
+        "FULL_RETURNED_RESULTS_NOT_PERSISTED",
+        "FINAL_IMPORT_ORIGIN_CHECK_NOT_REACHED"
+      ],
+      "original_failure_and_diagnostics": "RETAINED_UNMODIFIED",
+      "not_relabelled_as_pass": true
+    },
+    "counting_policy": "PRE_FIX_SUCCESS_FAILED_V2_AND_SUCCESSFUL_V3_ARE_SEPARATE_ENGINEERING_RUNS_NOT_RESEARCH_REPLICATIONS",
+    "runtime_independent_review": {
+      "status": "PASS",
+      "spec_compliance": "PASS",
+      "quality": "PASS",
+      "scope": "V3_EXACT_FINAL_SOURCE_RUNTIME_AND_PRESERVATION",
+      "artifacts_verified": 238,
+      "v2_status_unchanged": "FAIL_NOT_ACCEPTED",
+      "real_research_gate_unchanged": true
+    }
+  },
+  "maintenance_checks": {
+    "repository_unittest_passed": 13,
+    "progress_consistency": "PASS",
+    "worktree_privacy_author": "PASS_652_FILES_ZERO_ISSUES",
+    "openapi": "UNCHANGED_MATCHES_CONTRACTS",
+    "git_diff_check": "PASS",
+    "publication_snapshot": "BEFORE_DESKTOP_COMMIT_PUSH_AND_CURRENT_BATCH_CI"
+  }
+}
