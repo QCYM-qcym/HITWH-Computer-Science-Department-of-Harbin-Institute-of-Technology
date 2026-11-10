@@ -1,5 +1,16 @@
 # 文档导航
 
+## 2026-11-11 当前工程：固定人工CSV到保存结果完整复现
+
+[运行入口](guides/release-example.md)、[固定配方设计](design/release-example-v1.md)、[实施计划](superpowers/plans/2026-11-11-release-example.md)及[验证记录](research/2026-11-11-release-example-verification.json)。create生成实际人工源、spec和recipe，后续显式使用既有raw、prepare、两IF、独立核验与只读数据服务。
+
+完整Python4577通过／23跳过／1既有警告／56子测试，源码和实际产物独立复核通过。core/API wheel78／35成员安装120文件；一次14子进程均按预期退出、父进程0。新源47,631字节／176行，共同56、train18／cal10；预处理fit1、两IF fit／score／模型Q99各2与18次保存分数复核分列。3HTTP共49,536字节核176全轴，服务正常结束，292项及首次mtime前值保持。
+
+初始审查失败和工具修正保留。UI未改，本轮前端／浏览器未重验；安装后wrong-valid-pair及physical broken-pipe未执行。前批16文件的准确Desktop发布与三CI成功见[回执](research/2026-11-11-release-if-result-cli-publication.json)，不覆盖本批；本批Desktop／准确新CI为PENDING_AT_SNAPSHOT。
+
+下一只读保存预测评价当前仅私有候选与builder核对，无实现或运行。研究S2／Data Gate BLOCKED、真实C17拟合／评分／Q99及正式比较NOT_RUN，最终政策、主数据和134／268迁移不变。下文“当前／待发布”保留各轮原时点，本轮状态以上述入口为准。
+
+
 ## 2026-11-11 当前工程：IF 结果 CLI
 
 [命令用法](guides/release-if-result-cli.md)、[接口协议](design/release-if-result-cli-v1.md)、[实施计划](superpowers/plans/2026-11-11-release-if-result-cli.md)与[实际验证](research/2026-11-11-release-if-result-cli-verification.json)。两条单视图 run 生成结果，独立 inspect/verify 检查保存内容与输入声明，随后复用双视图只读页面。

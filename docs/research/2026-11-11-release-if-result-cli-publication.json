@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-11",
+  "status": "PREVIOUS_RESULT_CLI_PHASE_PUBLISHED_DESKTOP_EXACT_REMOTE_AND_CI_SUCCESS",
+  "scope": "PREVIOUS_16_FILE_RESULT_CLI_PHASE_ONLY",
+  "commit": "b588448c754dc1a53495dd6593a09675992e548a",
+  "parent": "bc276bb3ea4ba57f53a773b9bdc14ad72d753d72",
+  "commit_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/commit/b588448c754dc1a53495dd6593a09675992e548a",
+  "published_by": "GITHUB_DESKTOP",
+  "frozen_files": 16,
+  "all_frozen_git_blob_identities_match": true,
+  "official_ref_verified": true,
+  "local_and_remote_tracking_match": true,
+  "remote_readme": {
+    "status": "EXACT_REMOTE_GIT_BLOB_MATCH",
+    "byte_count": 24614,
+    "git_blob_sha1": "7d28e448171317988da845a4ac86a7eaa1dd4676"
+  },
+  "original_draft_excluded_and_unchanged": true,
+  "desktop_first_receipt_scope": "LOCAL_COMMIT_BEFORE_LATER_PUSH_OBSERVATION",
+  "later_remote_and_ci_evidence_recorded_separately": true,
+  "runs": [
+    {
+      "id": 42910077763,
+      "name": "文档与发布检查",
+      "head_sha": "b588448c754dc1a53495dd6593a09675992e548a",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42910077763"
+    },
+    {
+      "id": 42910077240,
+      "name": "核心契约检查",
+      "head_sha": "b588448c754dc1a53495dd6593a09675992e548a",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42910077240"
+    },
+    {
+      "id": 42910077388,
+      "name": "合成系统集成检查",
+      "head_sha": "b588448c754dc1a53495dd6593a09675992e548a",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42910077388"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 130158122838,
+      "run": 42910077763,
+      "name": "check",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 130158121035,
+      "run": 42910077240,
+      "name": "contracts",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 130158121716,
+      "run": 42910077388,
+      "name": "frontend",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 130158122383,
+      "run": 42910077388,
+      "name": "python",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "actual_log_observations": {
+    "repository_unittest": {
+      "passed": 13,
+      "seconds": 0.936
+    },
+    "privacy": {
+      "files": 674,
+      "issues": 0,
+      "verification": "Exact job130158122838 log line"
+    },
+    "contracts": {
+      "passed": 21,
+      "seconds": 0.95
+    },
+    "frontend": {
+      "test_files": 8,
+      "passed": 318,
+      "contracts_check": "PASS",
+      "typecheck": "PASS",
+      "build": "PASS",
+      "existing_chunk_size_warning": true
+    },
+    "python": {
+      "passed": 4415,
+      "skipped": 77,
+      "warnings": 1,
+      "subtests_passed": 56,
+      "seconds": 298.63,
+      "warning": "Existing Starlette TestClient deprecation"
+    }
+  },
+  "job_log_identities": {
+    "job-130158121035.log": {
+      "bytes": 23514,
+      "sha256": "d0865e7ebdf96e0b38d39d96e2ef45fc03f17cc81ddad1002ddbefd829a6b5d8"
+    },
+    "job-130158121716.log": {
+      "bytes": 20267,
+      "sha256": "f8ecd6b7a8f0dd72ac3ef33d5644ff74539a2f147e170050d897c5b26c1a6951"
+    },
+    "job-130158122383.log": {
+      "bytes": 44180,
+      "sha256": "a3ff46700a1987ee91e68a7a0a619954fefe7f42d3e3902bb0f5ba91c91b73ab"
+    },
+    "job-130158122838.log": {
+      "bytes": 14340,
+      "sha256": "7eb41640e7590f48caf41519133dbbf19b2481461a9fafeab7370dde942a0a08"
+    }
+  },
+  "job_count_policy": "SEPARATE_OVERLAPPING_RESULTS_NOT_SUMMED",
+  "main_merge": "NOT_RUN",
+  "engineering_runtime_status": "FIXED_INSTALLED_ARTIFICIAL_A_RESULT_CLI_AND_API_COMPATIBILITY_PASS",
+  "physical_parent_exit": 0,
+  "direct_children": 13,
+  "previous_engineering_verification": "docs/research/2026-11-11-release-if-result-cli-verification.json",
+  "new_artificial_csv_example_changes_covered_by_this_commit_or_ci": false,
+  "research_gate": "BLOCKED",
+  "real_study": "NOT_RUN",
+  "source": "PREVIOUS_EXACT_SHA_DESKTOP_COMMIT_OFFICIAL_REF_REMOTE_README_AND_FOUR_ACTUAL_JOB_LOG_RECEIPTS"
+}

@@ -275,6 +275,8 @@ def _error(code):
 
 def _safe_code(error):
     allowed = _CLI_CODES if type(error) is _CLIError else _ERROR_CODES.get(type(error), ())
+    if not allowed:
+        return 'INTERNAL_ERROR'
     try:
         code = getattr(error, 'code', None)
         return code if type(code) is str and code in allowed else 'INTERNAL_ERROR'
@@ -295,7 +297,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     except KeyboardInterrupt:
         return _error('INTERRUPTED')
     except Exception as error:
-        return _error(_safe_code(error))
+        try:
+            code = _safe_code(error)
+        except KeyboardInterrupt:
+            return _error('INTERRUPTED')
+        return _error(code)
     return 0
 
 

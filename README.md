@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-11**。当前阶段：**数据审计**；本轮主题：公开IF生成、独立检查与输入绑定命令经新安装人工链接受；真实Data Gate仍BLOCKED。
+最近更新：**2026-11-11**。当前阶段：**数据审计**；本轮主题：固定人工CSV到IF保存结果及只读HTTP已在新安装目录完成；真实Data Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增run/inspect/verify三个公开IF结果命令，单视图生成保存、搬迁后独立检查和显式输入绑定；路径预检在fit前拒绝已有或重叠目标，失败产物保留。
-- 新core wheel76成员、复用API wheel35成员，118文件新安装目标；13实际进程按预期退出，父进程0，完整模型返回及新六文件字节与旧人工A基准一致。
-- 两实际人工view共2fit/2score/2模型阈值Q99，受控保存分数Q99复核18次另计；3HTTP47818字节覆盖全部176行，30秒服务正常关闭，正包mtime前值已落盘并独立核对。
-- 源码203专项及邻接、6项真实磁盘集成通过；完整Python4469通过/23跳过/1既有警告/56子测试。UI未改，本轮不重复前端和浏览器，前阶段已接受证据单列。
-- 前阶段26文件bc已Desktop同步、准确README及三项CI成功。当前CLI批发布与CI在快照时待核；下一步补新release人工CSV/spec公开造例，研究S2/BLOCKED/真实C17数据训练NOT_RUN。
+- 新增固定人工91列CSV/spec/recipe创建入口，真实字节与SHA绑定，显式串联既有raw、prepare、两IF及保存结果检查；生成器本身不运行后续流程。
+- 一次新安装14子进程均按预期退出，父进程0；core/API wheel78/35成员、installed120文件，3次HTTP49536字节核对完整176行，30秒服务正常关闭。
+- 新源47631字节、176有效分钟，H15为116、H30/common56；训练与预处理fit18、独立校准10。两IF fit/score/模型Q99各2，另18次保存分数Q99复核分列。
+- 完整Python4577通过/23跳过/1既有警告/56子测试，275选定文件运行前后不变；独审及292项产物保全通过。已按失败测试窄修错误出口，原失败和草稿均保留。
+- 前批B的16文件已Desktop同步且准确三CI成功；本批提交及新CI待核。下一工程为保存预测的只读标签敏感性评价，当前仅私有候选builder检查通过；S2/BLOCKED与真实研究NOT_RUN保持。
 
 **当前阻塞或待验证事项**
 
@@ -75,12 +75,16 @@ flowchart TB
 
 **接下来最重要的三项任务**
 
-1. [ENG-R5](<docs/guides/release-if-result-cli.md>)：补新release链的固定人工91列CSV/spec生成入口，让新环境可显式复现raw、prepare、IF及只读页；不引入研究政策或训练编排。
+1. [ENG-R6](<docs/guides/release-example.md>)：采用并实现保存预测的只读测试分钟评价入口，报告三政策固定预测敏感性、有效分母及null原因；当前仅私有候选可实现性核对通过，未实现。
 2. [C-I5](<docs/research/2026-10-24-c17-g13u-audit.md>)：依据真实分母决定最终Attempted口径和有限试点约束；先固定协议，随后分别处理主数据正式采用与生产契约迁移。
 3. [C-I7](<docs/project/DATA-GATE-2026-10-21.md>)：仅在相应批准和Gate证据满足后安排真实IF最小工程链路；本阶段训练/评分/阈值校准和正式实验继续NOT_RUN。
 
 **最新成果入口**
 
+- [固定人工CSV到IF与只读数据的完整复现入口](<docs/guides/release-example.md>)
+- [新安装14阶段、数值与产物身份验收](<docs/research/2026-11-11-release-example-verification.json>)
+- [人工CSV固定配方与排他创建协议](<docs/design/release-example-v1.md>)
+- [前批IF命令的准确Desktop发布与CI回执](<docs/research/2026-11-11-release-if-result-cli-publication.json>)
 - [公开IF结果生成、检查与输入绑定命令](<docs/guides/release-if-result-cli.md>)
 - [13实际进程、新安装与完整数值保全验证](<docs/research/2026-11-11-release-if-result-cli-verification.json>)
 - [公开IF命令接口与错误边界](<docs/design/release-if-result-cli-v1.md>)
@@ -217,6 +221,7 @@ flowchart TB
 
 ## 从哪里开始
 
+- [从固定人工CSV复现完整release链](docs/guides/release-example.md)：创建实际源与摘要配置，再显式运行raw、prepare、两个IF及只读数据服务；[14阶段验收](docs/research/2026-11-11-release-example-verification.json)已完成，新安装目录复用既有锁定依赖。
 - [公开IF生成、检查与绑定命令](docs/guides/release-if-result-cli.md)：新安装后的两个实际人工视图、独立inspect/verify及有限API兼容检查已接受；[完整验证](docs/research/2026-11-11-release-if-result-cli-verification.json)区分模型、源码测试和研究范围。
 - [保存结果与双视图只读页](docs/guides/release-if-result-package.md)：自包含结果、独立重载、API和实际浏览器功能经后验对账接受；原控制器失败及证据限制见[验证记录](docs/research/2026-11-11-release-if-results-verification.json)。
 - [保存输入到隔离森林](docs/guides/release-iforest-engineering.md)：固定13/26维IF内存接口及前阶段人工双视图运行，结果保存与展示由上方新入口接续。
@@ -250,7 +255,7 @@ tools/                仓库检查与维护工具
 .githooks/            GitHub Desktop 提交前检查
 ```
 
-`src/` 已有检测核心、后端和前端实现，合成CLI/API/网页与导出已形成最小闭环；本轮补齐公开IF生成、检查与输入绑定命令，在新安装目标完成13进程人工链和API兼容检查；前阶段原控制器失败及后验接受仍分别保留。首页阶段清单和真实业务交付的 `NOT_RUN` 指真实数据研究验收，不能用人工工程通过替代。历史文档保留当时状态；当前事实以状态源、对应运行指南和验证记录为准。
+`src/` 已有检测核心、后端和前端实现，合成CLI/API/网页与导出已形成最小闭环。本轮补齐固定人工CSV及摘要配置入口，在新安装目录完成14阶段的raw、prepare、两个IF、保存检查与HTTP兼容链；前阶段原控制器失败及后验接受分别保留。首页阶段清单和真实业务交付的 `NOT_RUN` 指真实数据研究验收，不能用人工工程通过替代。历史文档保留当时状态；当前事实以状态源、对应运行指南和验证记录为准。
 
 ## 当前研究方案
 
@@ -258,7 +263,7 @@ tools/                仓库检查与维护工具
 
 当前特征与过去窗口的中位数/MAD偏离仍是候选历史增强设计。IF、当前AE、历史增强AE已有人工工程实现；保存输入的IF消费者已接续自包含结果包、双视图只读页和公开run/inspect/verify命令。真实研究中的窗口、人口、校准及比较条件须按冻结协议执行；训练、验证、独立校准、测试保持时间顺序，测试不参与参数选择，历史先评分后更新。真实C17模型训练、评分、Q99校准和正式比较仍为NOT_RUN。
 
-项目已有Python检测核心、FastAPI后端及Vue 3/TypeScript/ECharts前端。IF结果保存、独立重载、后端只读消费与结果页面已有实际人工功能证据，范围和原失败见[运行指南](docs/guides/release-if-result-package.md)。公开生成、检查及显式输入绑定命令已完成新安装人工验收。下一步为新release格式补公开人工CSV/spec造例入口，方便新环境显式复现；人工工程和真实研究继续分别验收。
+项目已有Python检测核心、FastAPI后端及Vue 3/TypeScript/ECharts前端。IF结果保存、独立重载、后端只读消费与结果页面已有实际人工功能证据，范围和原失败见[运行指南](docs/guides/release-if-result-package.md)。公开生成、检查及显式输入绑定命令已完成新安装人工验收。[固定人工CSV入口](docs/guides/release-example.md)现已接通完整显式链；CSV与配方可复现，spec绑定实际源路径。下一工程为保存预测的只读测试分钟评价，目前仅私有候选与可实现性核对，尚未实现；人工工程和真实研究分别验收。
 
 ## 本地维护
 

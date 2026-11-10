@@ -2,14 +2,14 @@
   "schema_version": 1,
   "updated": "2026-11-11",
   "current_stage": "S2",
-  "theme": "公开IF生成、独立检查与输入绑定命令经新安装人工链接受；真实Data Gate仍BLOCKED",
+  "theme": "固定人工CSV到IF保存结果及只读HTTP已在新安装目录完成；真实Data Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增run/inspect/verify三个公开IF结果命令，单视图生成保存、搬迁后独立检查和显式输入绑定；路径预检在fit前拒绝已有或重叠目标，失败产物保留。",
-    "新core wheel76成员、复用API wheel35成员，118文件新安装目标；13实际进程按预期退出，父进程0，完整模型返回及新六文件字节与旧人工A基准一致。",
-    "两实际人工view共2fit/2score/2模型阈值Q99，受控保存分数Q99复核18次另计；3HTTP47818字节覆盖全部176行，30秒服务正常关闭，正包mtime前值已落盘并独立核对。",
-    "源码203专项及邻接、6项真实磁盘集成通过；完整Python4469通过/23跳过/1既有警告/56子测试。UI未改，本轮不重复前端和浏览器，前阶段已接受证据单列。",
-    "前阶段26文件bc已Desktop同步、准确README及三项CI成功。当前CLI批发布与CI在快照时待核；下一步补新release人工CSV/spec公开造例，研究S2/BLOCKED/真实C17数据训练NOT_RUN。"
+    "新增固定人工91列CSV/spec/recipe创建入口，真实字节与SHA绑定，显式串联既有raw、prepare、两IF及保存结果检查；生成器本身不运行后续流程。",
+    "一次新安装14子进程均按预期退出，父进程0；core/API wheel78/35成员、installed120文件，3次HTTP49536字节核对完整176行，30秒服务正常关闭。",
+    "新源47631字节、176有效分钟，H15为116、H30/common56；训练与预处理fit18、独立校准10。两IF fit/score/模型Q99各2，另18次保存分数Q99复核分列。",
+    "完整Python4577通过/23跳过/1既有警告/56子测试，275选定文件运行前后不变；独审及292项产物保全通过。已按失败测试窄修错误出口，原失败和草稿均保留。",
+    "前批B的16文件已Desktop同步且准确三CI成功；本批提交及新CI待核。下一工程为保存预测的只读标签敏感性评价，当前仅私有候选builder检查通过；S2/BLOCKED与真实研究NOT_RUN保持。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -19,9 +19,9 @@
   ],
   "next_tasks": [
     {
-      "id": "ENG-R5",
-      "text": "补新release链的固定人工91列CSV/spec生成入口，让新环境可显式复现raw、prepare、IF及只读页；不引入研究政策或训练编排。",
-      "path": "docs/guides/release-if-result-cli.md"
+      "id": "ENG-R6",
+      "text": "采用并实现保存预测的只读测试分钟评价入口，报告三政策固定预测敏感性、有效分母及null原因；当前仅私有候选可实现性核对通过，未实现。",
+      "path": "docs/guides/release-example.md"
     },
     {
       "id": "C-I5",
@@ -35,6 +35,22 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "固定人工CSV到IF与只读数据的完整复现入口",
+      "path": "docs/guides/release-example.md"
+    },
+    {
+      "label": "新安装14阶段、数值与产物身份验收",
+      "path": "docs/research/2026-11-11-release-example-verification.json"
+    },
+    {
+      "label": "人工CSV固定配方与排他创建协议",
+      "path": "docs/design/release-example-v1.md"
+    },
+    {
+      "label": "前批IF命令的准确Desktop发布与CI回执",
+      "path": "docs/research/2026-11-11-release-if-result-cli-publication.json"
+    },
     {
       "label": "公开IF结果生成、检查与输入绑定命令",
       "path": "docs/guides/release-if-result-cli.md"
@@ -3195,7 +3211,109 @@
     "formal_comparison": "NOT_RUN",
     "guide": "docs/guides/release-if-result-cli.md",
     "verification": "docs/research/2026-11-11-release-if-result-cli-verification.json",
-    "publication_at_verification": "AWAITING_DESKTOP_AND_CURRENT_BATCH_CI",
-    "next_artificial_csv_generator": "PRIVATE_DESIGN_ONLY_NOT_IMPLEMENTED"
+    "publication_at_verification": "PENDING_AT_ORIGINAL_SNAPSHOT_LATER_EXACT_DESKTOP_AND_CI_SUCCESS",
+    "next_artificial_csv_generator": "IMPLEMENTED_AND_INSTALLED_ACCEPTED_SEPARATE_RELEASE_EXAMPLE_PHASE",
+    "publication_receipt": "docs/research/2026-11-11-release-if-result-cli-publication.json"
+  },
+  "release_example": {
+    "status": "LOCAL_ACCEPTED_SOURCE_AND_INSTALLED_ARTIFICIAL_CHAIN",
+    "profile_id": "release-artificial-example-v1",
+    "scope": "ARTIFICIAL_ENGINEERING_ONLY",
+    "commands": [
+      "create"
+    ],
+    "source_reviews": "SPEC_PASS_QUALITY_PASS_C0_I0_M0",
+    "pure_builder_cases": 23,
+    "create_cli_cases": 81,
+    "disk_integration_cases": 2,
+    "adjacent_cli_compatibility_cases": {
+      "new": 2,
+      "unchanged_neighbor": 103,
+      "combined": 105
+    },
+    "full_python": {
+      "passed": 4577,
+      "skipped": 23,
+      "warnings": 1,
+      "subtests": 56,
+      "pytest_seconds": 294.0,
+      "guarded_files_unchanged": 275
+    },
+    "installed": {
+      "physical_parent_exit": 0,
+      "direct_children": 14,
+      "parent_seconds_to_receipt_assembly": 43.742104000004474,
+      "core_wheel_members": 78,
+      "reused_api_wheel_members": 35,
+      "installed_files": 120,
+      "copied_core_source_members": 75,
+      "dependency_environment": "NEW_TARGET_REUSED_LOCKED_VENV_NOT_OTHER_MACHINE",
+      "retry": false
+    },
+    "source": {
+      "columns": 91,
+      "rows": 176,
+      "byte_count": 47631,
+      "sha256": "e11538582584118e8d0e94605d8136ee09de9485e5a9420853f1cd9b57af11da",
+      "new_download_bytes": 0
+    },
+    "population": {
+      "raw_valid": 176,
+      "history_h15": 116,
+      "history_h30_and_common": 56,
+      "training": 18,
+      "preprocessing_fit": 18,
+      "independent_calibration": 10,
+      "test_common": 18
+    },
+    "controlled_operations": {
+      "builder": 1,
+      "aggregate": 1,
+      "preprocessing_fit_statistics": 1,
+      "transform": 1,
+      "history_h15": 1,
+      "history_h30": 1,
+      "if_fit": 2,
+      "if_score_samples": 2,
+      "model_threshold_q99": 2,
+      "saved_score_q99_verification": 18,
+      "source_content_open": 1,
+      "verified_eof": 1,
+      "observer_callback_actions_separate": true
+    },
+    "manual_http": {
+      "requests": 3,
+      "body_bytes": 49536,
+      "whole_axis_rows": 176
+    },
+    "server": {
+      "configured_seconds": 30,
+      "observed_seconds": 31.116297300031874,
+      "physical_exit": 0,
+      "port_closed": true,
+      "extra_literal_loopback_port0_role": "INFERENCE_ONLY"
+    },
+    "protection": {
+      "files": 292,
+      "first_saved_members_bytes_sha_mtime_persisted_and_revalidated": true,
+      "original_baseline_retained": 269,
+      "original_unchanged": 268,
+      "intentional_existing_source_change": "ONLY_ADJACENT_RESULT_CLI_SAFE_ERROR_EXIT"
+    },
+    "source_environment_closed_stdout": "PHYSICAL_EXIT2_COMPLETE_THREE_FILES_RETAINED_NOT_INSTALLED_CASE",
+    "installed_wrong_valid_pair": "NOT_RUN",
+    "installed_broken_pipe": "NOT_RUN",
+    "frontend_and_browser": "NOT_RERUN_NO_UI_CHANGE",
+    "historical_failures": "RETAINED_WITH_CORRECTIONS_SEPARATE_FROM_CURRENT_ONE_ATTEMPT_PASS",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+    "policy_status": "AUDIT_ONLY",
+    "data_gate": "BLOCKED",
+    "real_C17_models": "NOT_RUN",
+    "formal_comparison": "NOT_RUN",
+    "guide": "docs/guides/release-example.md",
+    "verification": "docs/research/2026-11-11-release-example-verification.json",
+    "publication_at_verification": "PENDING_GITHUB_DESKTOP_AND_CURRENT_COMMIT_CI",
+    "next_evaluation": "PRIVATE_PROPOSED_BUILDER_CHECK_PASS_NOT_ADOPTED_NOT_IMPLEMENTED"
   }
 }

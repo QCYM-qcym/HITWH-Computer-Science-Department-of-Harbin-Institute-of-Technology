@@ -1,5 +1,16 @@
 # 公开决策与方案差异
 
+## 2026-11-11 工程决定：固定人工源与完整显式复现
+
+采用[固定人工CSV设计](../design/release-example-v1.md)：pure builder只返回三个有界bytes成员，create排他保存、读回并形成实际摘要；raw、prepare、两IF及服务仍由既有命令显式运行。CSV／recipe固定，aggregate spec绑定实际源路径，旧candidate_demo入口保留。
+
+独立复核确认源码和一次14阶段新安装人工链满足已定范围，主控据持续开发授权接受，详见[验证记录](../research/2026-11-11-release-example-verification.json)。原269基线不重写；相邻旧结果CLI同类错误getter中断出口有明确窄修和独立回归，其他268项及原草稿保持，模型数值、阈值、参数和格式不变。
+
+人工P_U／epsilon1e-6仅作工程审计，配方、切分及政策未按报警效果修改。主数据正式采用、最终Attempted口径、真实试点和生产迁移仍依D1—D6决定，S2／Gate BLOCKED。后继保存预测评价当前仅私有候选可实现性核对，尚未采用／实施。
+
+原源码／私有快照FAIL和工具修正保留；已审10文件在保全窗口关闭前归档，当前文档不替换运行证据。前批B准确发布／CI见[回执](../research/2026-11-11-release-if-result-cli-publication.json)，本批Desktop／新CI待核，下文为各轮原时点决定。
+
+
 ## 2026-11-11 工程决定：单视图结果命令与显式绑定
 
 采用[结果 CLI](../design/release-if-result-cli-v1.md)的单视图 run、独立 inspect 和显式输入 verify。每条 run 拥有一个新输出和独立退出状态，避免新增双输出部分成功协议；inspect/verify 不重放预处理或模型，保存分数 Q99 校验不等同重新选择阈值。回执区分本次 operations 与包的历史执行认证，run 执行过真实模型也不把包的 NOT_AUTHENTICATED 改成认证成功。

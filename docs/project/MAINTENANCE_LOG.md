@@ -1,5 +1,22 @@
 # 仓库维护复核记录
 
+## 2026-11-11 固定人工CSV及14阶段安装链
+
+新增pure人工CSV／spec／recipe builder与create命令，实际CSV47,631字节／91列／176行，源SHA为e1153858…11da，与实际raw身份独立一致，scratch正常清理。pure23、create81、真实CSV磁盘集成2通过；相邻结果CLI仅窄修安全getter中断出口，新2项＋原103项合计105通过。完整Python4577通过／23跳过／1既有Starlette TestClient警告／56子测试，pytest294.00秒，父子物理退出0，275项期间哈希不变，局部与完整范围不相加。
+
+core wheel78与复用API wheel35经CRC／RECORD及源字节核对，installed120文件，复制core源含pyproject为75。依赖复用既有锁定venv。本次14直接子进程唯重复create为2／OUTPUT_EXISTS，其余0，全部回收无强停或重试；父物理0，43.742104秒计到最终收据组装。普通help、build／install与11个透明观察业务阶段分列。
+
+新源有效176，H15为116、H30／common56，四段common18／10／10／18、训练及预处理fit18／独立校准10，测试资格P_U=15／1／2、P_B=16／1／1、P_A=15／2／1。aggregate、源内容open、verified EOF各1；prepare fit统计与transform各1、H15／H30各1；两IF fit／score／模型Q99各2，另18保存分数复核。观察器回调load／pair与公开命令动作分账。
+
+完整模型返回在make前保存，176分数／预测／mask和保存身份独立核对；结果、HTTP和binary64 Q99严格一致。独立预处理均值／总体标准差以1e-12容差核对，最大差8.88e-16，变换及median／MAD最大差0。3HTTP共49,536字节覆盖176行，30秒服务实际31.116297秒／退出0并记录端口关闭，额外127:0角色仅推断。
+
+292保护项和五类正产物首次成员／字节／SHA／mtime均独立fresh复证。原观察4,606,604字节／386任务文件范围为Task递归加准备顶层，非嵌套归档、OS配额或连续峰值；后测Task388／4,149,635字节等另时点值见[验证记录](../research/2026-11-11-release-example-verification.json)。build stderr123字节为两条bytecompile disabled提示，预期负例另记，其余12阶段空。
+
+原raw五／eligible四通道测试oracle失败后仅改期望；缺slot／fileno映射先失败后窄修；源码双审同一getter缺口经新／旧CLI窄修闭合；私有快照1项而非10项绑定FAIL经19纯内存回归和独审修复。一例harness目录setup错误不算有效RED，只读reader误把histories字典当数组的KeyError也保留，修工具未重跑业务。当前一次实际controller为PASS且无failure.json，与旧A父FAIL分开。
+
+指南、设计／计划、白名单验证、首页／状态及导航已同步。前端／浏览器未重跑；源码环境closed-stdout物理exit2不冒充installed断管，安装后wrong-valid-pair及physical broken-pipe仍NOT_RUN。前批B准确Desktop及三CI成功见[回执](../research/2026-11-11-release-if-result-cli-publication.json)；本C提交／推送／准确新CI仍PENDING_AT_SNAPSHOT。本次文档收束实际完成仓库13项测试、进度生成及一致性、隐私作者689文件0问题、9份Markdown的646个本地链接和diff检查；仅有旧指南CRLF归一提示，不新增模型或全量复验。S2／Gate BLOCKED，真实C17研究和正式比较NOT_RUN；后继评价仅私有候选，原决策及草稿保留。
+
+
 ## 2026-11-11 IF 结果 CLI 与前阶段发布补记
 
 新增结果 run/inspect/verify core 命令及两份测试。新 CLI 103 项与既有相邻 100 项合跑 203 通过、0.93 秒；W2 六项真实磁盘集成通过、1.72 秒，其中两项 `_compute` 为手工数值替身、真实 estimator 0，不计为模型运行。完整 Python 4469 通过/23 跳过/1 既有 TestClient 警告/56 子测试、277.00 秒；268 项受保护源/测试前后不变。源码范围/质量和实际运行证据独审通过，重叠计数不累加。UI 未改，未重复前端或浏览器；旧 318 项和浏览器接受另列。

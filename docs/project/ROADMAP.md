@@ -1,5 +1,16 @@
 # 滚动项目路线图
 
+## 2026-11-11 当前工程增量：人工源到IF与只读数据
+
+- [固定人工CSV入口](../guides/release-example.md)及raw／prepare／两IF／保存核验／HTTP显式链已在新安装目录接受；[验证记录](../research/2026-11-11-release-example-verification.json)分列源码、实际14阶段和研究范围。
+- 完整Python4577通过／23跳过／1既有警告／56子测试。实际预处理fit1，两IF fit／score／模型Q99各2，保存分数Q99另18次。新source176行、共同56、train18／cal10；测试共同18与全角色56分母分开，未形成研究FPR／FNR结论。
+- core/API wheel78／35、installed120；14子进程按预期退出、父进程0。3HTTP共49,536字节核全176行，30秒服务正常退出，292项及首次成员／mtime前值独立保持，原失败及窄修闭环保留。
+- 前批B的16文件准确发布及三CI成功见[回执](../research/2026-11-11-release-if-result-cli-publication.json)。本批Desktop／准确新CI仍PENDING_AT_SNAPSHOT。
+- 下一工程为保存预测的只读测试分钟评价，先采用已有私有候选和builder核对再实现；当前未实现，不重训模型选择政策或改变D1—D6等待事项。
+
+研究仍S2／Data Gate BLOCKED，真实C17预处理、训练、评分、Q99及正式比较NOT_RUN，生产134／268未迁移。下文保留各阶段旧范围，当前队列以上述记录和status为准。
+
+
 ## 2026-11-11 当前工程增量：IF 结果 CLI
 
 - 完成单视图 run、独立 inspect、显式输入 verify 的实现、独立源码复核和完整 Python 回归；入口与范围见[指南](../guides/release-if-result-cli.md)。

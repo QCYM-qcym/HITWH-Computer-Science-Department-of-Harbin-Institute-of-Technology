@@ -1,5 +1,10 @@
 # IF 结果命令行：生成、检查与输入绑定
 
+## 2026-11-11 人工源复现入口补记
+
+[固定人工CSV指南](release-example.md)已接通create→raw→prepare→两个IF→inspect／verify→只读数据链，新安装14阶段范围见[本轮记录](../research/2026-11-11-release-example-verification.json)。本CLI同步窄修错误类型code getter短路及中断安全出口，模型数值、参数和结果格式保持。下文保留前批13阶段接受范围，其准确同步与三CI见[发布回执](../research/2026-11-11-release-if-result-cli-publication.json)。
+
+
 日期：2026-11-11。状态：命令实现、独立源码复核、完整 Python 回归及新安装人工验收已接受。实际 13 个子进程、两条模型 run、独立 inspect/verify 和既有 API 兼容检查见[本阶段验证记录](../research/2026-11-11-release-if-result-cli-verification.json)。接口与范围分别见[冻结协议](../design/release-if-result-cli-v1.md)和[实施计划](../superpowers/plans/2026-11-11-release-if-result-cli.md)。此前结果包/网页及其原控制器失败属于[上一阶段](../research/2026-11-11-release-if-results-verification.json)，原失败保持；其真实发布与 CI 见[前阶段发布回执](../research/2026-11-11-release-if-results-publication.json)。
 
 本入口提供三个命令：`run` 从一对保存输入计算一个视图并保存结果；`inspect` 单独检查结果包；`verify` 再提供原输入核对声明绑定。当前验收只安排已知人工输入。真实数据研究仍处于 S2 / Data Gate `BLOCKED`，真实 C17 拟合、训练、评分、Q99 和正式比较保持 `NOT_RUN`。

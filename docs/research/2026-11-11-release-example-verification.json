@@ -1,0 +1,434 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-11",
+  "status": "LOCAL_ACCEPTED_INSTALLED_FIXED_ARTIFICIAL_SOURCE_TO_IF_AND_HTTP",
+  "scope": "ARTIFICIAL_ENGINEERING_ONLY",
+  "implementation_baseline": "b588448c754dc1a53495dd6593a09675992e548a",
+  "guide": "docs/guides/release-example.md",
+  "design": "docs/design/release-example-v1.md",
+  "source_authentication": "NOT_AUTHENTICATED",
+  "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+  "policy_status": "AUDIT_ONLY",
+  "profile_id": "release-artificial-example-v1",
+  "source_code_identities": {
+    "src/core/traffic_anomaly/release_example.py": {
+      "byte_count": 7014,
+      "sha256": "a0f70d76ac3acf096a782c522560d7b50ddd90c1d4f6c45a13bd219b9c4ca8cf"
+    },
+    "src/core/traffic_anomaly/release_example_cli.py": {
+      "byte_count": 10999,
+      "sha256": "fabdf3f0007eb8daecd44938496d0644f4d59b2ac27c953963c0eb18064952ef"
+    },
+    "src/core/traffic_anomaly/release_if_result_cli.py": {
+      "byte_count": 14742,
+      "sha256": "4090f29dd6266c477fa2f037e2b9da017e8a2293fe6b151005c711d0f104c31d"
+    }
+  },
+  "source_tests": {
+    "pure_builder": {
+      "passed": 23,
+      "seconds": 0.17
+    },
+    "create_cli_final": {
+      "passed": 81,
+      "seconds": 0.73
+    },
+    "real_csv_raw_prepare_disk": {
+      "passed": 2,
+      "seconds": 0.62,
+      "estimator_execution": "FORBIDDEN"
+    },
+    "adjacent_result_cli_compatibility": {
+      "new_cases": 2,
+      "unchanged_cases": 103,
+      "combined_passed": 105,
+      "seconds": 0.97
+    },
+    "source_environment_closed_stdout": {
+      "physical_exit": 2,
+      "safe_error": "OUTPUT_ERROR",
+      "complete_three_members_retained": true,
+      "scope": "SOURCE_IMPORT_ENVIRONMENT_NOT_INSTALLED_CASE"
+    },
+    "counts_overlap": true
+  },
+  "full_python": {
+    "passed": 4577,
+    "skipped": 23,
+    "warnings": 1,
+    "subtests_passed": 56,
+    "pytest_seconds": 294.0,
+    "controller_seconds": 296.7004072999698,
+    "physical_parent_exit": 0,
+    "physical_child_exit": 0,
+    "reaped": true,
+    "forced": false,
+    "guarded_files": 275,
+    "guarded_files_unchanged": true,
+    "warning": "EXISTING_STARLETTE_TESTCLIENT_DEPRECATION",
+    "scope": "CORE_BACKEND_INTEGRATION_DATA_AUDIT"
+  },
+  "source_review": {
+    "final_spec": "PASS_C0_I0_M0",
+    "final_quality": "PASS_C0_I0_M0",
+    "original_failures_retained": true,
+    "original_baseline_files": 269,
+    "unchanged_original_files": 268,
+    "intentional_old_source_change": "src/core/traffic_anomaly/release_if_result_cli.py",
+    "change_scope": "ONLY_EXACT_EXCEPTION_CLASS_SHORT_CIRCUIT_AND_SAFE_INTERRUPT_EXIT_NO_NUMERIC_OR_FORMAT_CHANGE",
+    "original_draft_unchanged_and_excluded": true,
+    "reviewed_source_and_document_archive_files": 10
+  },
+  "installed": {
+    "attempts": 1,
+    "retry": false,
+    "physical_parent_exit": 0,
+    "parent_seconds_to_final_receipt_assembly": 43.742104000004474,
+    "original_acceptance_parent_exit_field": "PENDING_CALLER_OBSERVATION_RETAINED",
+    "external_caller_exit_verified_separately": true,
+    "direct_children": 14,
+    "phases": [
+      {
+        "phase": "build",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "install",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "help",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "create",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "raw",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "prepare",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "run-current",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "run-h30",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "inspect-current",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "inspect-h30",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "verify-current",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "verify-h30",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "create-existing",
+        "physical_exit": 2,
+        "reaped": true,
+        "forced": false
+      },
+      {
+        "phase": "server",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false
+      }
+    ],
+    "ordinary_help": "ACTUAL_UNINSTRUMENTED_MODULE",
+    "observed_business_phases": 11,
+    "observed_module_scope": "TRANSPARENT_RUNPY_ACTUAL_MODULES_WITH_PHYSICAL_EXIT_RECEIPTS",
+    "copied_core_source_members_including_pyproject": 75,
+    "core_wheel_members": 78,
+    "core_product_members": 74,
+    "reused_api_wheel_members": 35,
+    "api_product_members": 30,
+    "reused_api_wheel": {
+      "byte_count": 98032,
+      "sha256": "194ffaa4dfe1d54e47e03bbbae0d7ab5d05ae5b67d1d29701c603ca34ae47938",
+      "crc": "MATCHED",
+      "record": "MATCHED",
+      "current_product_bytes": "MATCHED"
+    },
+    "installed_files": 120,
+    "record_union_files": 120,
+    "dependency_environment": "NEW_TARGET_REUSING_EXISTING_LOCKED_VENV_NOT_NEW_VENV_OR_OTHER_MACHINE",
+    "build_stderr": {
+      "byte_count": 123,
+      "meaning": "TWO_EXPECTED_BYTECOMPILATION_DISABLED_INFORMATION_MESSAGES"
+    },
+    "expected_create_existing_error": "OUTPUT_EXISTS",
+    "other_twelve_expected_success_stage_stderr": "EMPTY_FOR_TWELVE_OTHER_STAGES"
+  },
+  "artificial_source": {
+    "member": "artificial.csv",
+    "columns": 91,
+    "rows": 176,
+    "byte_count": 47631,
+    "sha256": "e11538582584118e8d0e94605d8136ee09de9485e5a9420853f1cd9b57af11da",
+    "source_content_open_count": 1,
+    "verified_eof_count": 1,
+    "size_hash_and_spec_binding": "MATCHED",
+    "csv_and_recipe_path_independent": true,
+    "aggregate_spec_contains_actual_path": true,
+    "aggregate_spec_bytes_path_dependent": true,
+    "recipe_is_completion_marker": false,
+    "new_download_bytes": 0
+  },
+  "population": {
+    "raw_valid": 176,
+    "prepared_valid": 176,
+    "total_minutes": 176,
+    "history_h15_valid": 116,
+    "history_h30_valid": 56,
+    "common_all_roles": 56,
+    "unscored_all_roles": 120,
+    "segment_common": {
+      "train": 18,
+      "validation": 10,
+      "calibration": 10,
+      "test": 18
+    },
+    "training": 18,
+    "preprocessing_fit": 18,
+    "independent_calibration": 10,
+    "raw_protocol_counts": {
+      "tcp": 59,
+      "udp": 57,
+      "unresolved": 60,
+      "known_other": 0,
+      "excluded": 0
+    },
+    "test_common_label_counts": {
+      "P_U": {
+        "normal": 15,
+        "attack": 1,
+        "unknown": 2
+      },
+      "P_B": {
+        "normal": 16,
+        "attack": 1,
+        "unknown": 1
+      },
+      "P_A": {
+        "normal": 15,
+        "attack": 2,
+        "unknown": 1
+      }
+    },
+    "test_metric_denominator_note": "ALL_ROLE_COMMON_56_IS_NOT_TEST_DENOMINATOR_TEST_COMMON_IS_18",
+    "fpr_fnr_or_model_advantage_claims": "NOT_PRODUCED"
+  },
+  "controlled_manual_operations": {
+    "builder": 1,
+    "aggregate": 1,
+    "prepare": 1,
+    "preprocessing_fit_statistics": 1,
+    "transform": 1,
+    "history_h15": 1,
+    "history_h30": 1,
+    "if_fit": 2,
+    "if_score_samples": 2,
+    "model_threshold_q99": 2,
+    "saved_score_q99_verification": 18,
+    "saved_score_q99_by_phase": {
+      "run_current": 4,
+      "run_h30": 4,
+      "inspect_current": 1,
+      "inspect_h30": 1,
+      "verify_current": 2,
+      "verify_h30": 2,
+      "server": 4
+    },
+    "count_scope": "ELEVEN_CONTROLLED_PHASES_INCLUDING_OBSERVER_POST_CLI_RELOAD_AND_PAIR_CALLBACKS_NOT_ALL_ACTIONS_ATTRIBUTED_TO_PUBLIC_CLI"
+  },
+  "independent_validation": {
+    "status": "PASS_C0_I0_M0",
+    "stdlib_assertions": 3115,
+    "packaging_origin_records": 377,
+    "counts_overlap_not_summed": true,
+    "actual_model_return_persisted_before_make": true,
+    "complete_results_176_rows": "EXACT_PREMAKE_RETURN_AND_RELOAD_MATCH",
+    "score_samples_negation": "EXACT_FLOAT64_MATCH",
+    "all_twenty_model_and_saved_q99_events": "EXACT_BINARY64_LINEAR_Q99_MATCH",
+    "model_matrix_values": "RUNTIME_FLOAT32_ROW_SELECTION_GUARD_NOT_INDEPENDENTLY_SERIALIZED",
+    "preprocessing_mean_std_absolute_tolerance": 1e-12,
+    "preprocessing_mean_std_max_difference": 8.881784197001252e-16,
+    "saved_state_transform_max_difference": 0.0,
+    "median_mad_history_max_difference": 0.0
+  },
+  "manual_http": {
+    "requests": 3,
+    "body_bytes": 49536,
+    "whole_axis_rows": 176,
+    "routes": [
+      "summary",
+      "series?page=0",
+      "series?page=1"
+    ],
+    "whole_response_bytes": "EXACT_THIS_RUN_INDEPENDENT_EXPECTED_MATCH",
+    "snapshot_sha256": "90392df3fab51b125b0ae054520136fd33de4c9f3ab59df5edf9a7ca50683254",
+    "headers": "HTTP_200_NO_STORE_NOSNIFF"
+  },
+  "server": {
+    "configured_seconds": 30,
+    "observed_seconds": 31.116297300031874,
+    "physical_exit": 0,
+    "reaped": true,
+    "configured_port_closed": true,
+    "port_closed_evidence": "ORIGINAL_CONTROLLER_TERMINAL_OBSERVATION_RECHECKED_NO_NEW_NETWORK_PROBE",
+    "observed_literal_loopback_ports": [
+      8769,
+      0
+    ],
+    "extra_port0_role": "INFERENCE_ONLY_NO_CALL_STACK_AUTHENTICATION"
+  },
+  "preservation": {
+    "protected_files": 292,
+    "members_bytes_sha_mtime_unchanged": true,
+    "first_positive_initial_baselines_persisted": true,
+    "initial_members_by_artifact": {
+      "source": 3,
+      "raw": 5,
+      "prepared": 5,
+      "current13_result": 3,
+      "h30_26_result": 3
+    },
+    "initial_positive_mtime_fresh_independently_revalidated": true,
+    "copied_sources_wheels_and_installed_members_unchanged": true,
+    "original_acceptance_and_failures_not_rewritten": true
+  },
+  "resource_observations": {
+    "controller_observed_bytes": 4606604,
+    "controller_observed_task_files": 386,
+    "scope": "TASK_RECURSIVE_FILE_TREE_PLUS_PREPARATION_TOP_LEVEL_FILES_ONLY_EXCLUDES_NESTED_PREPARATION_ARCHIVES",
+    "continuous_peak": false,
+    "os_quota": false,
+    "postrun_task": {
+      "files": 388,
+      "bytes": 4149635
+    },
+    "postrun_preparation_top_level": {
+      "files": 17,
+      "bytes": 479020
+    },
+    "postrun_preparation_recursive_including_archives": {
+      "files": 26,
+      "bytes": 739704
+    },
+    "postrun_values_not_retroactively_substituted_for_original_peak": true
+  },
+  "retained_failures_and_corrections": [
+    {
+      "kind": "W3_TEST_ORACLE_SHAPE",
+      "initial": "ONE_PASS_ONE_FAIL_RAW_FIVE_VS_ELIGIBLE_FOUR_CHANNEL_EXPECTATION",
+      "correction": "TEST_ONLY_EXPECTATION_FIXED_ORIGINAL_RETAINED"
+    },
+    {
+      "kind": "NEW_CLI_SHAPE_AND_FILENO_BOUNDARIES",
+      "correction": "RED_BEFORE_NARROW_FIX_GREEN"
+    },
+    {
+      "kind": "SOURCE_REVIEW_CODE_GETTER_INTERRUPT",
+      "initial": "SPEC_AND_QUALITY_FAIL_SAME_ONE_IMPORTANT",
+      "correction": "NEW_CLI_AND_ADJACENT_RESULT_CLI_NARROW_FIX_FINAL_BOTH_REVIEW_PASS"
+    },
+    {
+      "kind": "PRIVATE_SNAPSHOT_REVIEW_BINDING",
+      "initial": "FAIL_ONLY_ONE_OF_TEN_REVIEWED_FILES_BOUND",
+      "correction": "EXACT_TEN_BINDINGS_NINETEEN_PURE_MEMORY_REGRESSIONS_PASS_AND_INDEPENDENT_REVIEW_PASS"
+    },
+    {
+      "kind": "STATIC_REGRESSION_HARNESS_SETUP",
+      "initial": "PARENT_PATH_FILE_NOT_FOUND",
+      "correction": "SETUP_FIXED_NOT_COUNTED_AS_VALID_RED"
+    },
+    {
+      "kind": "POSTRUN_READER_SCHEMA_ASSUMPTION",
+      "initial": "HISTORIES_DICT_AS_ARRAY_KEY_ERROR",
+      "correction": "READONLY_REVIEW_TOOL_FIXED_NO_BUSINESS_RERUN"
+    },
+    {
+      "kind": "EARLIER_RESULT_VIEW_PARENT_FAIL",
+      "status": "RETAINED_UNCHANGED_SEPARATE_FROM_CURRENT_ONE_ATTEMPT_PASS"
+    }
+  ],
+  "current_actual_controller_failure_json": "ABSENT_CURRENT_ONE_ATTEMPT_PASS",
+  "not_run": {
+    "browser": "NOT_RUN_NO_UI_CHANGE",
+    "frontend": "NOT_RERUN_NO_UI_CHANGE",
+    "installed_wrong_valid_pair_binding": "NOT_RUN",
+    "installed_physical_broken_pipe": "NOT_RUN",
+    "real_C17_preprocessing_fit_train_score_q99": "NOT_RUN",
+    "formal_comparison": "NOT_RUN",
+    "final_attempted_policy": "NOT_ADOPTED",
+    "primary_data_adoption": "NOT_APPROVED",
+    "production_134_268_migration": "NOT_RUN",
+    "main_merge": "NOT_RUN"
+  },
+  "previous_exact_cli_publication": "docs/research/2026-11-11-release-if-result-cli-publication.json",
+  "publication_at_snapshot": "PENDING_GITHUB_DESKTOP_EXACT_REMOTE_AND_CURRENT_COMMIT_CI",
+  "current_commit_and_ci": "NOT_YET_OBSERVED_DO_NOT_REUSE_PREVIOUS_CI",
+  "data_gate": "BLOCKED",
+  "research_stage": "S2",
+  "evidence_identities": {
+    "w0-acceptance.json": {
+      "byte_count": 1250,
+      "sha256": "62e1ad5684079c262ac49e5079669e867b3b8ac1f3785b4c898d5f2872ea6baa"
+    },
+    "runtime-evidence-independent-review.md": {
+      "byte_count": 9275,
+      "sha256": "092b5e618d291b83191c2431e1ac98fc66aa80cdeb5d3b14791c78b43e9cef02"
+    },
+    "postrun-review-evidence.json": {
+      "byte_count": 127699,
+      "sha256": "a6b8005ab9a8496f31a6844a7d21e8faa5911c6a161ee7caff665cd13cc2bb93"
+    },
+    "full-python-summary.json": {
+      "byte_count": 1369,
+      "sha256": "c396d803e6bca321a081d45979743c6ac2f740ee41f14035952d9edb7e4d46f0"
+    },
+    "runtime-script-fix-review.md": {
+      "byte_count": 4382,
+      "sha256": "cac1720ed1f1252af1dd3eac29e947d4f3fb2beff9b7156f2640652d1a43088b"
+    }
+  }
+}
