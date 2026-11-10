@@ -1,6 +1,16 @@
 # 文档导航
 
-## 2026-11-11 当前工程：IF 结果保存、独立重载与只读页面
+## 2026-11-11 当前工程：IF 结果 CLI
+
+[命令用法](guides/release-if-result-cli.md)、[接口协议](design/release-if-result-cli-v1.md)、[实施计划](superpowers/plans/2026-11-11-release-if-result-cli.md)与[实际验证](research/2026-11-11-release-if-result-cli-verification.json)。两条单视图 run 生成结果，独立 inspect/verify 检查保存内容与输入声明，随后复用双视图只读页面。
+
+103 项新 CLI 单测、6 项磁盘集成与独立源码复核完成；完整 Python 4469 通过/23 跳过/1 旧警告/56 子测试。新 core wheel 76 成员、复用 API wheel 35 成员，在新 target 安装 118 文件；13 子进程实际退出符合预期，父进程 0。两条真实人工 run 的完整模型返回和六个保存文件与旧 A 基准一致，独立 inspect/verify 及 3 次 HTTP/47818 字节全部 176 行核对通过。模型 2fit/2score/2模型Q99 与另 18 次保存分数复核分开记录，受保护文件及正包已落盘初始 mtime 均保持。
+
+前阶段结果包/网页的 26 文件已由 Desktop 发布为 `bc276bb3ea4ba57f53a773b9bdc14ad72d753d72`，准确远端和三项 CI 成功见[发布回执](research/2026-11-11-release-if-results-publication.json)；原控制器 FAIL 未擦除。该 CI 不覆盖新 CLI，本批发布为 `PENDING_AT_SNAPSHOT`。UI 未改、前端/浏览器未重复，其旧 318 项和实际浏览器证据只属于前阶段。S2/Data Gate BLOCKED，真实 C17 及正式实验 NOT_RUN，最终政策、主数据采用与生产 134/268 迁移未完成。
+
+下文保留各轮历史范围与当时状态；新 CLI 当前进度以上述入口为准。
+
+## 2026-11-11 前阶段工程：IF 结果保存、独立重载与只读页面
 
 [运行入口](guides/release-if-result-package.md)、[结果包协议](design/release-if-result-package-v1.md)、[展示协议](design/release-if-result-view-v1.md)、[实施计划](superpowers/plans/2026-11-10-release-if-results.md)及[验证与失败保留记录](research/2026-11-11-release-if-results-verification.json)。两个保存视图可独立重载，固定本地服务展示保存分数、阈值、共同有效分钟和分页全轴；浏览时不训练或评分。
 

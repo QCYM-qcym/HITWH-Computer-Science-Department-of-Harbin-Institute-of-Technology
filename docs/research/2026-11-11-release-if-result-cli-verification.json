@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-11",
+  "status": "LOCAL_ACCEPTED_INSTALLED_ARTIFICIAL_RESULT_CLI_AND_UNCHANGED_API_COMPATIBILITY",
+  "scope": "ARTIFICIAL_ENGINEERING_ONLY",
+  "baseline_commit": "bc276bb3ea4ba57f53a773b9bdc14ad72d753d72",
+  "source_manifest_kind": "ACCEPTED_CLI_AND_TEST_BYTES_UNCHANGED_DURING_SOURCE_AND_INSTALLED_CHECKS",
+  "source_manifest": {
+    "src/core/traffic_anomaly/release_if_result_cli.py": {
+      "byte_count": 14578,
+      "sha256": "25c6d031d97ab5d9408bdadc99381d13714ab0c5fc07dbe0e03697d9b4255abb"
+    },
+    "tests/core/test_release_if_result_cli.py": {
+      "byte_count": 23657,
+      "sha256": "e235092864bcea9e4f5d916ccdf7b373d754ecb71eb58e0420fced825d06adfe"
+    },
+    "tests/integration/test_release_if_result_cli.py": {
+      "byte_count": 12927,
+      "sha256": "43f4a78706792921759e3da2240795fa0eae949a0ce447695941ea9151001b23"
+    }
+  },
+  "independent_reviews": {
+    "source_spec": "PASS",
+    "source_quality": "PASS",
+    "installed_evidence": "PASS",
+    "open_critical": 0,
+    "open_important": 0,
+    "open_minor": 0
+  },
+  "source_tests": {
+    "new_cli_unit_cases": 103,
+    "unchanged_adjacent_cli_cases": 100,
+    "combined_passed": 203,
+    "combined_seconds": 0.93,
+    "actual_disk_integration_cases": 6,
+    "integration_seconds": 1.72,
+    "integration_model_boundary_stub_calls": 2,
+    "integration_real_estimator_calls": 0,
+    "stream_failure_preserved_package": "SOURCE_MAIN_AND_REAL_DISK_CASES_NOT_INSTALLED_PHYSICAL_BROKEN_PIPE",
+    "full_python": {
+      "status": "PASS",
+      "passed": 4469,
+      "skipped": 23,
+      "warnings": 1,
+      "subtests_passed": 56,
+      "pytest_seconds": 277.0,
+      "protected_source_test_files": 268,
+      "before_after": "UNCHANGED"
+    },
+    "warning": "EXISTING_STARLETTE_TESTCLIENT_HTTPX_DEPRECATION",
+    "overlapping_counts_not_summed": true
+  },
+  "installed_run": {
+    "acceptance": {
+      "byte_count": 15927,
+      "sha256": "184b1d18266346cf58c7652e0975c2f8ec3c4f68893d002123a10e6df8981133"
+    },
+    "status": "FIXED_INSTALLED_ARTIFICIAL_A_RESULT_CLI_AND_API_COMPATIBILITY_PASS",
+    "parent_pid": 34956,
+    "parent_elapsed_seconds": 40.08821210003225,
+    "parent_elapsed_scope": "MONOTONIC_THROUGH_FINAL_RECEIPT_ASSEMBLY_NOT_EXTERNAL_EXIT_DURATION",
+    "external_caller": {
+      "session_id": 25989,
+      "physical_parent_exit": 0,
+      "acceptance_hash_bound": true,
+      "receipt_byte_count": 316,
+      "receipt_sha256": "7b515202254705179a545daf82b365812544814146cf924230ae17ef6f455cf9"
+    },
+    "original_acceptance_future_exit_field": "PENDING_CALLER_OBSERVATION_PRESERVED_WITH_SEPARATE_EXTERNAL_COMPLETION",
+    "new_core_wheel_members": 76,
+    "reused_api_wheel_members": 35,
+    "reused_api_product_members": 30,
+    "reused_api_wheel": {
+      "byte_count": 98032,
+      "sha256": "194ffaa4dfe1d54e47e03bbbae0d7ab5d05ae5b67d1d29701c603ca34ae47938"
+    },
+    "core_copy_members_including_pyproject": 73,
+    "new_installed_members": 118,
+    "wheel_crc_member_hashes_record": "INDEPENDENTLY_MATCHED",
+    "installed_record_and_within_target_console_relocation": "INDEPENDENTLY_MATCHED",
+    "existing_locked_dependencies_reused": true,
+    "fresh_dependency_environment_proven": false,
+    "direct_executable": "NATIVE_BASE_PYTHON_WITH_FROZEN_VENV_CONTEXT_NO_WINDOWS_VENV_REDIRECTOR",
+    "recorded_product_module_origins": "VERIFIED_NEW_INSTALLATION_MATCHED_BYTES_AND_MTIME",
+    "actual_direct_children": 13,
+    "process_order": [
+      "build",
+      "install",
+      "ordinary-help",
+      "run-current",
+      "run-h30",
+      "inspect-current",
+      "inspect-h30",
+      "verify-current",
+      "verify-h30",
+      "output-exists",
+      "invalid-view",
+      "corrupt-inspect",
+      "compatibility-server"
+    ],
+    "physical_exits": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      2,
+      0
+    ],
+    "all_reaped": true,
+    "forced_termination": false,
+    "cleanup_errors": 0,
+    "automatic_retry": false,
+    "help_invocation": "ORDINARY_PUBLIC_MODULE_COMMAND_UNINSTRUMENTED",
+    "other_product_invocations": "CONTROLLED_ACTUAL_RUNPY_PUBLIC_MODULES_PRESERVING_SYSTEMEXIT_AND_STREAMS"
+  },
+  "actual_model_observation": {
+    "fit": 2,
+    "score_samples": 2,
+    "model_threshold_q99": 2,
+    "fit_shapes": {
+      "current13": [
+        18,
+        13
+      ],
+      "h30_26": [
+        18,
+        26
+      ]
+    },
+    "score_shapes": {
+      "current13": [
+        56,
+        13
+      ],
+      "h30_26": [
+        56,
+        26
+      ]
+    },
+    "complete_model_returns_before_make": "MATCH_OLD_ACCEPTED_COMPLETE_RETURN_VALUES",
+    "six_saved_member_bytes_and_full_identity_context_values": "EXACT_MATCH_TO_OLD_ACCEPTED_A_RESULTS",
+    "float32_matrix_selection": "CHECKED_IN_OBSERVER_NOT_PERSISTED_FOR_INDEPENDENT_MATRIX_REPLAY",
+    "model_calls_in_readonly_negative_server_phases": 0,
+    "model_execution_authentication": "NOT_AUTHENTICATED"
+  },
+  "saved_score_q99_checks": {
+    "scope": "SAVED_SCORE_CONSISTENCY_ARITHMETIC_SEPARATE_FROM_MODEL_THRESHOLD_SELECTION",
+    "controlled_phases": 10,
+    "run_current": 4,
+    "run_h30": 4,
+    "inspect_current": 1,
+    "inspect_h30": 1,
+    "verify_current": 2,
+    "verify_h30": 2,
+    "output_exists": 0,
+    "invalid_view": 0,
+    "corrupt_inspect": 0,
+    "compatibility_server_prebind": 4,
+    "total": 18,
+    "saved_vectors_aliases_thresholds_and_permitted_stages": "INDEPENDENTLY_MATCHED"
+  },
+  "population_per_view": {
+    "total": 176,
+    "scored": 56,
+    "unscored": 120,
+    "training": 18,
+    "calibration": 10,
+    "preprocessing_fit": 18
+  },
+  "views": {
+    "current13": {
+      "input_width": 13,
+      "threshold": 0.5634703452851734,
+      "independent_saved_score_q99": "MATCHED",
+      "strict_predictions": "MATCHED"
+    },
+    "h30_26": {
+      "input_width": 26,
+      "threshold": 0.5734566900037,
+      "independent_saved_score_q99": "MATCHED",
+      "strict_predictions": "MATCHED"
+    }
+  },
+  "readonly": {
+    "independent_inspect_children": 2,
+    "independent_verify_children": 2,
+    "canonical_success_receipts": "MATCHED_DECLARED_RESULT_INPUT_IDENTITIES_COUNTS_OPERATIONS_AND_CHECKS",
+    "inspect_input_pair_binding": "NOT_PERFORMED",
+    "verify_input_pair_binding": "MATCHED",
+    "model_fit_score": "NOT_PERFORMED"
+  },
+  "negative_cases": {
+    "output_exists": {
+      "physical_exit": 2,
+      "safe_error": "OUTPUT_EXISTS",
+      "business_calls": 0,
+      "bind_attempts": 0
+    },
+    "invalid_view": {
+      "physical_exit": 2,
+      "safe_error": "INVALID_ARGUMENTS",
+      "business_calls": 0,
+      "bind_attempts": 0,
+      "output_created": false
+    },
+    "corrupt_inspect": {
+      "physical_exit": 2,
+      "safe_error": "INTEGRITY_MISMATCH",
+      "only_business_entry": "RESULT_LOAD",
+      "stdout_empty": true,
+      "owned_residue_and_positives_preserved": true
+    },
+    "installed_wrong_valid_if_input_binding": {
+      "status": "NOT_RUN",
+      "reason": "ACCEPTED_ALTERNATIVE_Z_HAS_ZERO_CALIBRATION_NO_NEW_INPUT_CONSTRUCTED",
+      "source_hand_valued_disk_integration": "PASS_DISTINCT_EVIDENCE"
+    },
+    "installed_physical_stdout_broken_pipe": {
+      "status": "NOT_RUN",
+      "source_main_stream_and_retained_package_cases": "PASS_NOT_PHYSICAL_PROCESS_EVIDENCE"
+    }
+  },
+  "api_compatibility": {
+    "api_and_static_resources_changed": false,
+    "manual_http_requests": 3,
+    "body_bytes": 47818,
+    "routes": [
+      "/release-if/v1/summary",
+      "/release-if/v1/series?page=0",
+      "/release-if/v1/series?page=1"
+    ],
+    "independent_saved_json_vs_summary_all_rows_and_breaks": "MATCHED",
+    "full_axis_rows": 176,
+    "snapshot_sha256": "47e229ade982b3a913a4d197ff6bd0350b1c98551c9f3cc6c2ba7e77cf885041",
+    "cold_get_zero_work_scope": "SEPARATE_ACCEPTED_SOURCE_COLD_GUARDS_NOT_UNIVERSAL_RUNTIME_PROOF",
+    "server_pid": 25168,
+    "configured_seconds": 30,
+    "recorded_child_seconds": 30.872800200013444,
+    "physical_exit": 0,
+    "events": [
+      "SERVER_READY",
+      "SERVER_STOPPED"
+    ],
+    "stderr_empty": true,
+    "reaped": true,
+    "configured_port_closed_observation": true,
+    "recorded_bind_attempts": [
+      {
+        "host": "127.0.0.1",
+        "port": 8769
+      },
+      {
+        "host": "127.0.0.1",
+        "port": 0
+      }
+    ],
+    "port0_role": "SOURCE_SUPPORTED_INFERENCE_ONLY_NO_RUNTIME_STACK_AUTHENTICATION"
+  },
+  "frontend_and_browser": {
+    "changed_this_phase": false,
+    "repeated_this_phase": false,
+    "current_phase_browser": "NOT_RUN",
+    "previous_frontend318_typecheck_build": "ACCEPTED_PRIOR_PHASE_ONLY",
+    "previous_actual_browser": "ACCEPTED_PRIOR_PHASE_ONLY",
+    "prior_verification": "docs/research/2026-11-11-release-if-results-verification.json"
+  },
+  "preservation": {
+    "protected_entries": 306,
+    "original_input_members": 10,
+    "old_result_members": 6,
+    "copied_source_members": 73,
+    "installed_members": 118,
+    "original_draft_inputs_results_scripts_sources_wheels_installation": "BYTES_AND_NANOSECOND_MTIME_INDEPENDENTLY_MATCHED_PERSISTED_BEFORE_AND_AFTER",
+    "new_positive_package_initial_byte_hash_mtime_baselines": "PERSISTED_IMMEDIATELY_AFTER_EACH_RUN",
+    "new_positive_final_and_independent_current_comparison": "MATCHED_ALL_SIX_MEMBERS",
+    "owned_corrupt_residue": "MATCHED_PERSISTED_BASELINE",
+    "final_preservation_flags_true": 7,
+    "window": "ENDED_BY_W0_AFTER_INDEPENDENT_REVIEW_BEFORE_DOCUMENTATION_EDITS"
+  },
+  "prior_failure": {
+    "status": "RETAINED_UNCHANGED",
+    "physical_parent_exit": 1,
+    "failure_sha256": "14fea9db6471cc88c5dc5681fd651d502229f1f4cb14b1b95b71957c029463e9",
+    "new_success_does_not_rewrite_old_run": true
+  },
+  "resource_claim": "APPLICATION_BOUNDS_AND_OBSERVED_VALUES_NOT_OS_QUOTAS_OR_CONTINUOUS_PEAKS",
+  "current_cli_publication_at_snapshot": {
+    "status": "PENDING_AT_SNAPSHOT",
+    "commit": null,
+    "exact_remote_ci": "NOT_RUN_AT_SNAPSHOT",
+    "no_self_referential_sha_backfill": true
+  },
+  "previous_result_phase_publication": "docs/research/2026-11-11-release-if-results-publication.json",
+  "research": {
+    "stage": "S2",
+    "data_gate": "BLOCKED",
+    "real_c17_fit_train_score_q99_formal_comparison": "NOT_RUN",
+    "final_label_policy": "NOT_APPROVED",
+    "main_dataset_adoption": "NOT_APPROVED",
+    "production134_268_migration": "NOT_RUN",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+    "policy_status": "AUDIT_ONLY"
+  }
+}

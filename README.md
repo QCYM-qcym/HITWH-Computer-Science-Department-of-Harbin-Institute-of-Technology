@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-11**。当前阶段：**数据审计**；本轮主题：IF结果保存、独立重载、只读API与网页的人工功能链后验接受；原控制器失败保留，真实Data Gate仍BLOCKED。
+最近更新：**2026-11-11**。当前阶段：**数据审计**；本轮主题：公开IF生成、独立检查与输入绑定命令经新安装人工链接受；真实Data Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- 自包含IF结果包与双视图只读页已实现并独审通过：current13/H30_26各存三文件，新进程独立重载，保留分数、阈值、预测、人口及源钟面。
-- 新core/API wheel75/35成员、安装117文件；九子进程均预期退出，服务正常300秒停止。原控制器因额外本机临时端口绑定退出1，原FAIL保留，独立后验对账接受已观察功能。
-- 实际20次HTTP共133690字节及双图、分页、未评分行、身份披露、窄屏键盘操作通过；浏览器流量单列，输入176/共同56/未评分120，原输入及安装保全。
-- 最终完整Python4360通过/23跳过/1既有警告/56子测试，前端318及类型/构建、OpenAPI和前端契约通过；初次资源打包规则失败与显式清单修复保留。
-- S2/Data Gate BLOCKED；真实C17模型、Q99与正式比较NOT_RUN。下一步补公开生成/检查/绑定命令；本次Desktop与准确远端CI在发布快照时待核对。
+- 新增run/inspect/verify三个公开IF结果命令，单视图生成保存、搬迁后独立检查和显式输入绑定；路径预检在fit前拒绝已有或重叠目标，失败产物保留。
+- 新core wheel76成员、复用API wheel35成员，118文件新安装目标；13实际进程按预期退出，父进程0，完整模型返回及新六文件字节与旧人工A基准一致。
+- 两实际人工view共2fit/2score/2模型阈值Q99，受控保存分数Q99复核18次另计；3HTTP47818字节覆盖全部176行，30秒服务正常关闭，正包mtime前值已落盘并独立核对。
+- 源码203专项及邻接、6项真实磁盘集成通过；完整Python4469通过/23跳过/1既有警告/56子测试。UI未改，本轮不重复前端和浏览器，前阶段已接受证据单列。
+- 前阶段26文件bc已Desktop同步、准确README及三项CI成功。当前CLI批发布与CI在快照时待核；下一步补新release人工CSV/spec公开造例，研究S2/BLOCKED/真实C17数据训练NOT_RUN。
 
 **当前阻塞或待验证事项**
 
@@ -75,12 +75,16 @@ flowchart TB
 
 **接下来最重要的三项任务**
 
-1. [ENG-R4](<docs/guides/release-if-result-package.md>)：补齐公开run、inspect、verify命令，直接串联已保存输入、IF结果包与只读页；执行仅使用已知人工输入，真实研究另按Gate判定。
+1. [ENG-R5](<docs/guides/release-if-result-cli.md>)：补新release链的固定人工91列CSV/spec生成入口，让新环境可显式复现raw、prepare、IF及只读页；不引入研究政策或训练编排。
 2. [C-I5](<docs/research/2026-10-24-c17-g13u-audit.md>)：依据真实分母决定最终Attempted口径和有限试点约束；先固定协议，随后分别处理主数据正式采用与生产契约迁移。
 3. [C-I7](<docs/project/DATA-GATE-2026-10-21.md>)：仅在相应批准和Gate证据满足后安排真实IF最小工程链路；本阶段训练/评分/阈值校准和正式实验继续NOT_RUN。
 
 **最新成果入口**
 
+- [公开IF结果生成、检查与输入绑定命令](<docs/guides/release-if-result-cli.md>)
+- [13实际进程、新安装与完整数值保全验证](<docs/research/2026-11-11-release-if-result-cli-verification.json>)
+- [公开IF命令接口与错误边界](<docs/design/release-if-result-cli-v1.md>)
+- [前阶段结果包和只读页的准确发布回执](<docs/research/2026-11-11-release-if-results-publication.json>)
 - [IF保存结果与独立重载、双视图只读页](<docs/guides/release-if-result-package.md>)
 - [人工安装功能后验接受及原控制器失败](<docs/research/2026-11-11-release-if-results-verification.json>)
 - [自包含结果包格式和信任边界](<docs/design/release-if-result-package-v1.md>)
@@ -213,6 +217,7 @@ flowchart TB
 
 ## 从哪里开始
 
+- [公开IF生成、检查与绑定命令](docs/guides/release-if-result-cli.md)：新安装后的两个实际人工视图、独立inspect/verify及有限API兼容检查已接受；[完整验证](docs/research/2026-11-11-release-if-result-cli-verification.json)区分模型、源码测试和研究范围。
 - [保存结果与双视图只读页](docs/guides/release-if-result-package.md)：自包含结果、独立重载、API和实际浏览器功能经后验对账接受；原控制器失败及证据限制见[验证记录](docs/research/2026-11-11-release-if-results-verification.json)。
 - [保存输入到隔离森林](docs/guides/release-iforest-engineering.md)：固定13/26维IF内存接口及前阶段人工双视图运行，结果保存与展示由上方新入口接续。
 - [输入包检查页](docs/guides/release-input-viewer.md)：安装与保全、两例实际浏览器补验已接受；[早期安装后失败](docs/research/2026-11-09-release-input-view-verification.json)保留为历史，当前证据见[浏览器补验记录](docs/research/2026-11-10-release-input-browser-verification.json)。
@@ -245,15 +250,15 @@ tools/                仓库检查与维护工具
 .githooks/            GitHub Desktop 提交前检查
 ```
 
-`src/` 已有检测核心、后端和前端实现，合成CLI/API/网页与导出已形成最小闭环；本轮接续IF结果保存、独立重载、只读API和双视图网页的人工功能验收；原控制器失败保留，后验接受范围单独列明。首页阶段清单和真实业务交付的 `NOT_RUN` 指真实数据研究验收，不能用人工工程通过替代。历史文档保留当时状态；当前事实以状态源、对应运行指南和验证记录为准。
+`src/` 已有检测核心、后端和前端实现，合成CLI/API/网页与导出已形成最小闭环；本轮补齐公开IF生成、检查与输入绑定命令，在新安装目标完成13进程人工链和API兼容检查；前阶段原控制器失败及后验接受仍分别保留。首页阶段清单和真实业务交付的 `NOT_RUN` 指真实数据研究验收，不能用人工工程通过替代。历史文档保留当时状态；当前事实以状态源、对应运行指南和验证记录为准。
 
 ## 当前研究方案
 
 核心问题仍是近期历史信息如何影响网络流量异常检测的误报、漏报与运行成本。原UGR16v3测试段没有正常候选，不能估计正常误报率；已选择优先核查替换主数据。作者修订CICIDS2017的G13U发布记录及候选13/26维表示已有审计，主数据正式采用、Attempted最终标签政策和真实有限试点协议仍待明确，详见[Data Gate](docs/project/DATA-GATE-2026-10-21.md)。候选实现不等于生产134/268维契约已迁移。
 
-当前特征与过去窗口的中位数/MAD偏离仍是候选历史增强设计。IF、当前AE、历史增强AE已有人工工程实现；保存输入的IF消费者现已接续自包含结果包与双视图只读页。真实研究中的窗口、人口、校准及比较条件须按冻结协议执行；训练、验证、独立校准、测试保持时间顺序，测试不参与参数选择，历史先评分后更新。真实C17模型训练、评分、Q99校准和正式比较仍为NOT_RUN。
+当前特征与过去窗口的中位数/MAD偏离仍是候选历史增强设计。IF、当前AE、历史增强AE已有人工工程实现；保存输入的IF消费者已接续自包含结果包、双视图只读页和公开run/inspect/verify命令。真实研究中的窗口、人口、校准及比较条件须按冻结协议执行；训练、验证、独立校准、测试保持时间顺序，测试不参与参数选择，历史先评分后更新。真实C17模型训练、评分、Q99校准和正式比较仍为NOT_RUN。
 
-项目已有Python检测核心、FastAPI后端及Vue 3/TypeScript/ECharts前端。IF结果保存、独立重载、后端只读消费与结果页面已有实际人工功能证据，范围和原失败见[运行指南](docs/guides/release-if-result-package.md)。下一步补公开生成、检查及显式输入绑定命令；人工工程和真实研究继续分别验收。
+项目已有Python检测核心、FastAPI后端及Vue 3/TypeScript/ECharts前端。IF结果保存、独立重载、后端只读消费与结果页面已有实际人工功能证据，范围和原失败见[运行指南](docs/guides/release-if-result-package.md)。公开生成、检查及显式输入绑定命令已完成新安装人工验收。下一步为新release格式补公开人工CSV/spec造例入口，方便新环境显式复现；人工工程和真实研究继续分别验收。
 
 ## 本地维护
 

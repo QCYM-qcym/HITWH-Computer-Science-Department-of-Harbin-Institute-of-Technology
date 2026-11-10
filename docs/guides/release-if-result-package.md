@@ -4,6 +4,8 @@
 
 本入口将已产生的 `current13`、`h30_26` 隔离森林结果保存为两个独立结果包，随后可在新进程中加载并查看。查看阶段消费保存分数、阈值、预测和时间轴，不重新训练或评分。当前用途为人工工程验证；S2 / Data Gate 仍为 `BLOCKED`，真实 C17 拟合、训练、评分、Q99 和正式比较仍为 `NOT_RUN`。
 
+当前还可使用新增的[结果 CLI](release-if-result-cli.md)，通过两条单视图 run 生成包，再在独立进程 inspect 或显式 verify，随后接入本页既有服务。新 CLI 的人工安装与 3 次 HTTP 兼容验收见[独立记录](../research/2026-11-11-release-if-result-cli-verification.json)，不重写下方结果包/网页阶段的原控制器失败。结果包阶段 26 文件已由 Desktop 发布并核对准确远端及 CI，见[发布回执](../research/2026-11-11-release-if-results-publication.json)；下文各数量和运行限制保留该阶段原范围。
+
 当前完整 Python 回归为 4,360 通过、23 跳过、1 项既有 TestClient 警告和 56 个子测试；前端 8 个文件共 318 项通过，类型检查与构建通过，保留既有 Vite 分块体积警告。初次完整回归发现资源清单不符合既有显式打包规则，改为逐个列出三个页面资源后重跑通过。各专项计数包含在相应完整范围内，不累加。
 
 ## 保存已产生的结果
@@ -120,4 +122,4 @@ python -m traffic_api.release_if_result_serve_cli --current-dir ABS_CURRENT_RESU
 
 受保护源码、原输入、复制源、wheel 和安装文件的字节与保留时间基线均独立核对。正向结果包的成员、字节和哈希也独立一致；其初始 mtime 树仅在原控制器内存中，原 guard 为 true，但留存材料不能独立重验该时间对照，故独立 mtime 验证为 null。原父进程精确总耗时同样为 null，不由子进程耗时相加推算。限额与观测不代表 OS 配额或连续峰值监控。
 
-本批发布快照为 `PENDING_AFTER_PUSH`，Desktop 提交/推送及准确远端 CI 由主控在实际完成后核对，不用旧提交 CI 替代。真实研究准入仍以[统一 Data Gate](../project/DATA-GATE-2026-10-21.md)和当前协议决定为准，生产 134/268 维契约未迁移。
+本结果包阶段的原发布快照为 `PENDING_AFTER_PUSH`；后续已完成 Desktop 提交/推送及准确远端 CI，详见上述发布回执。新增 CLI 的本批发布仍另行核对，不用旧提交 CI 替代。真实研究准入仍以[统一 Data Gate](../project/DATA-GATE-2026-10-21.md)和当前协议决定为准，生产 134/268 维契约未迁移。

@@ -1,5 +1,11 @@
 # 保存输入的隔离森林工程入口
 
+## 2026-11-11 当前入口：结果 CLI
+
+新增[结果命令行](release-if-result-cli.md)把本页内存调用串为单视图 run→保存，再提供独立 inspect 和显式输入 verify；两个输出继续交给既有只读服务。本 CLI 源码和实际新安装人工链路已接受，详见[独立验证](../research/2026-11-11-release-if-result-cli-verification.json)。它复用本页固定 IF，不改变真实研究准入；当前 CLI 发布仍待准确远端核对。
+
+下文结果包/网页阶段已通过 Desktop 发布为 `bc276bb3ea4ba57f53a773b9bdc14ad72d753d72`，[发布回执](../research/2026-11-11-release-if-results-publication.json)给出准确 CI。该阶段原控制器 FAIL 与运行后功能接受保持；再下方 2026-11-10 内存接口继续保留原日期和范围，不因后继 CLI 成功而改写历史。
+
 ## 2026-11-11 当前补记：结果保存与独立查看
 
 内存结果现在可通过新增的[保存与只读查看入口](release-if-result-package.md)落盘，并在新进程中重载、接入固定双视图 HTTP 和结果页面。本轮已观察人工功能经独立复核及单独运行后核对接受；原验收控制器因服务后的全局 bind 数断言退出 1，原整轮 FAIL 保留，没有重跑模型或把失败改写成成功。具体范围、限制和本批待发布状态见[新验证记录](../research/2026-11-11-release-if-results-verification.json)。真实 C17 研究仍 NOT_RUN，S2/Data Gate BLOCKED，生产 134/268 未迁移。

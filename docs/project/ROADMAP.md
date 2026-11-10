@@ -1,5 +1,14 @@
 # 滚动项目路线图
 
+## 2026-11-11 当前工程增量：IF 结果 CLI
+
+- 完成单视图 run、独立 inspect、显式输入 verify 的实现、独立源码复核和完整 Python 回归；入口与范围见[指南](../guides/release-if-result-cli.md)。
+- 新 core/API target 的 13 子进程人工验收已接受：两条真实 run、两项 inspect、两项 verify、三负例、既有 API 30 秒兼容服务及 3 次 HTTP。模型完整返回/全部保存文件与旧 A 精确一致；306 保护项和正包持久初始 mtime 核对通过，见[实际记录](../research/2026-11-11-release-if-result-cli-verification.json)。错误合法输入绑定与物理断管的安装案例保持 NOT_RUN，不扩大为已验证范围。
+- 前阶段 26 文件、准确远端和三项 CI 已完成，见[发布回执](../research/2026-11-11-release-if-results-publication.json)。本 CLI 批次 Desktop/精确远端 CI 仍为 PENDING_AT_SNAPSHOT，不能沿用前阶段 CI。
+- 后继 release 人工 91 列输入构建接缝仍为私有设计候选，未实施；旧 candidate_demo 仍保留。继续工程规划不等于采用主数据、冻结最终政策或启动真实研究。S2/Data Gate BLOCKED，真实 C17 fit/train/score/Q99 及正式比较 NOT_RUN，生产 134/268 未迁移。
+
+下文保留各阶段原范围和发布前快照；当前 CLI 状态以上述记录为准。
+
 ## 2026-11-11 当前工程增量：保存结果到只读页面
 
 - 已实现并完成独立源码复核：三文件 IF 结果包、独立重载、显式配对核对、双视图只读后端、有限前台 CLI 和分页结果页面。
