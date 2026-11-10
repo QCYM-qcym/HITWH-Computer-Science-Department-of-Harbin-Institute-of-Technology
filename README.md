@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-10**。当前阶段：**数据审计**；本轮主题：保存输入成对核对与薄CLI源码完成；查看页运行保全通过、浏览器仍未验收，真实Gate保持BLOCKED。
+最近更新：**2026-11-10**。当前阶段：**数据审计**；本轮主题：配对独立安装、输入页浏览器及保存13/26维输入到IF的人工工程链路已接受，真实Data Gate保持BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -64,7 +64,7 @@ flowchart TB
 - 新输入查看页两例实际浏览器、窄屏操作与零校准提示补验通过，两服务正常计时退出；独审通过后合并接受，旧INCOMPLETE_BROWSER和失败收据保留。
 - 独立13/26维IF消费者已实现，异常索引长度预检及三项末审修订通过；最终新安装两视图与独立Q99/严格比较验收通过，原始输入身份保持。
 - 最终源完整本地回归4067通过/20跳过/1旧警告/56子测试，含281相关与117专项；真实C17 fit/train/score/Q99和正式比较NOT_RUN，S2/Data Gate BLOCKED。
-- 修后首次私有比较器失败原样保留；纯比较RED/GREEN、新V3完整验收及独立复核通过。仓库13项、进度、隐私作者、OpenAPI和差异检查通过；发布快照待Desktop及本批远端CI。
+- 本地工程验收和维护检查通过，工程提交已由Desktop推送；同步修正首页主题与最新成果导航，保留历史失败。当前发布快照待本次远端检查，研究Gate保持。
 
 **当前阻塞或待验证事项**
 
@@ -81,10 +81,14 @@ flowchart TB
 
 **最新成果入口**
 
+- [保存输入到隔离森林：实际人工安装运行及边界](<docs/guides/release-iforest-engineering.md>)
+- [最终源回归、独立复核及失败保留记录](<docs/research/2026-11-10-release-iforest-engineering-verification.json>)
+- [输入查看页两例实际浏览器与保全验收](<docs/research/2026-11-10-release-input-browser-verification.json>)
+- [配对CLI独立安装四例验收](<docs/research/2026-11-10-release-pair-installed-verification.json>)
 - [保存输入成对核对用法与验收限制](<docs/guides/release-model-input-pair.md>)
-- [成对输入源码及查看页未完成浏览器验收记录](<docs/research/2026-11-10-release-model-input-pair-verification.json>)
+- [历史配对源码及当时浏览器未完成记录](<docs/research/2026-11-10-release-model-input-pair-verification.json>)
 - [保存输入13/26维成对核对协议](<docs/design/release-model-input-pair-v1.md>)
-- [输入包检查页入口与未完成验收](<docs/guides/release-input-viewer.md>)
+- [输入包检查页入口、当前接受及历史失败](<docs/guides/release-input-viewer.md>)
 - [输入包查看源码与首次安装后检查失败](<docs/research/2026-11-09-release-input-view-verification.json>)
 - [输入包只读查看协议](<docs/design/release-input-view-v1.md>)
 - [原始分钟包CLI运行与验收](<docs/guides/release-minute-cli.md>)
@@ -199,7 +203,6 @@ flowchart TB
 - [滚动路线图、任务验收与依赖](<docs/project/ROADMAP.md>)
 - [W2-01后端运行与验证说明（SYNTHETIC_ONLY）](<src/backend/README.md>)
 - [W3前端安装、验证与NOT_RUN清单](<src/frontend/README.md>)
-- [保存输入IF工程入口](<docs/guides/release-iforest-engineering.md>)
 
 业务可运行版本与演示：**尚无，NOT_RUN**。仓库维护工具的可运行入口见[工具说明](tools/README.md)。远端自动检查以工作流徽章和实际运行记录为准；本轮提交前为**待远端检查**。
 <!-- PROJECT-PROGRESS:END -->

@@ -2,14 +2,14 @@
   "schema_version": 1,
   "updated": "2026-11-10",
   "current_stage": "S2",
-  "theme": "保存输入成对核对与薄CLI源码完成；查看页运行保全通过、浏览器仍未验收，真实Gate保持BLOCKED",
+  "theme": "配对独立安装、输入页浏览器及保存13/26维输入到IF的人工工程链路已接受，真实Data Gate保持BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
     "输入配对新core独立安装与四例人工CLI已接受：wheel72/安装75成员，7进程自然回收，四例退出0/0/2/2，原包保持；复用既有锁定依赖。",
     "新输入查看页两例实际浏览器、窄屏操作与零校准提示补验通过，两服务正常计时退出；独审通过后合并接受，旧INCOMPLETE_BROWSER和失败收据保留。",
     "独立13/26维IF消费者已实现，异常索引长度预检及三项末审修订通过；最终新安装两视图与独立Q99/严格比较验收通过，原始输入身份保持。",
     "最终源完整本地回归4067通过/20跳过/1旧警告/56子测试，含281相关与117专项；真实C17 fit/train/score/Q99和正式比较NOT_RUN，S2/Data Gate BLOCKED。",
-    "修后首次私有比较器失败原样保留；纯比较RED/GREEN、新V3完整验收及独立复核通过。仓库13项、进度、隐私作者、OpenAPI和差异检查通过；发布快照待Desktop及本批远端CI。"
+    "本地工程验收和维护检查通过，工程提交已由Desktop推送；同步修正首页主题与最新成果导航，保留历史失败。当前发布快照待本次远端检查，研究Gate保持。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -36,11 +36,27 @@
   ],
   "entrypoints": [
     {
+      "label": "保存输入到隔离森林：实际人工安装运行及边界",
+      "path": "docs/guides/release-iforest-engineering.md"
+    },
+    {
+      "label": "最终源回归、独立复核及失败保留记录",
+      "path": "docs/research/2026-11-10-release-iforest-engineering-verification.json"
+    },
+    {
+      "label": "输入查看页两例实际浏览器与保全验收",
+      "path": "docs/research/2026-11-10-release-input-browser-verification.json"
+    },
+    {
+      "label": "配对CLI独立安装四例验收",
+      "path": "docs/research/2026-11-10-release-pair-installed-verification.json"
+    },
+    {
       "label": "保存输入成对核对用法与验收限制",
       "path": "docs/guides/release-model-input-pair.md"
     },
     {
-      "label": "成对输入源码及查看页未完成浏览器验收记录",
+      "label": "历史配对源码及当时浏览器未完成记录",
       "path": "docs/research/2026-11-10-release-model-input-pair-verification.json"
     },
     {
@@ -48,7 +64,7 @@
       "path": "docs/design/release-model-input-pair-v1.md"
     },
     {
-      "label": "输入包检查页入口与未完成验收",
+      "label": "输入包检查页入口、当前接受及历史失败",
       "path": "docs/guides/release-input-viewer.md"
     },
     {
@@ -506,10 +522,6 @@
     {
       "label": "W3前端安装、验证与NOT_RUN清单",
       "path": "src/frontend/README.md"
-    },
-    {
-      "label": "保存输入IF工程入口",
-      "path": "docs/guides/release-iforest-engineering.md"
     }
   ],
   "stages": [
