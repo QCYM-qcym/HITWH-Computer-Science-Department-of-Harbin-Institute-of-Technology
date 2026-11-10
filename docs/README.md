@@ -1,5 +1,11 @@
 # 文档导航
 
+## 2026-11-10 保存输入成对核对源码完成，查看页浏览器仍未验收
+
+[配对入口](guides/release-model-input-pair.md)、[协议](design/release-model-input-pair-v1.md)、[验证记录](research/2026-11-10-release-model-input-pair-verification.json)。raw/prepared只读配对和薄CLI已实现，核心45与CLI100组成最终合跑145通过，两项独审PASS；两例joint使用加载器替身及真实pair/summary，追加独审PASS。源码环境四例实际人工双包CLI与97源/测试、20个原包JSON成员保全通过；独立构建安装及四例安装后CLI仍NOT_RUN，新IF未实现。
+
+查看页新完整轮10应用、24HTTP/49912字节、3受控guard PASS/0尝试及完整保全通过，但浏览器0，原收据INCOMPLETE_BROWSER不改。旧Windows比较与今日N6插件扫描失败保留；BA/BZ补充启动被时间门拒绝，0应用/0浏览器。本批Desktop PENDING、CI NOT_RUN；S2/Gate及研究清单保持。下文为历史时点。
+
 ## 2026-11-09 输入包检查页：源码接受，实际运行验收未完成
 
 [运行入口与限制](guides/release-input-viewer.md)、[接口协议](design/release-input-view-v1.md)、[源码与首轮失败记录](research/2026-11-09-release-input-view-verification.json)。核心118通过/37未选、后端最终201通过/1警告、前端DOM71及类型检查通过，分范围保留。首轮四个构建/安装阶段成功、8个直接Python子进程退出0并回收；整轮FAIL停于安装后Windows控制台路径/句柄执行位比较，应用案例、实际HTTP和浏览器均0，完整after-map未建立。13项窄范围比较器回归及独立审查不替代实际验收，修复后第二轮NOT_STARTED。

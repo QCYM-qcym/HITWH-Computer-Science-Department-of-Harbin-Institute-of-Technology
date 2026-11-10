@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "status": "SOURCE_ACCEPTED_INSTALLED_PAIR_VALIDATION_PENDING",
+  "scope": "Saved raw/prepared input pairing and thin CLI; source engineering evidence only",
+  "documentation": {
+    "design": "docs/design/release-model-input-pair-v1.md",
+    "guide": "docs/guides/release-model-input-pair.md"
+  },
+  "source_manifest": {
+    "src/core/traffic_anomaly/release_model_inputs.py": {
+      "byte_count": 16734,
+      "sha256": "d2b52bf851f52956b0ad6a91a1413897c9b952c40ce6e81f558eeeb7c4c2b9a2"
+    },
+    "src/core/traffic_anomaly/release_model_input_cli.py": {
+      "byte_count": 5769,
+      "sha256": "9d954cc7ac726b7f14314845091263b8bd2cde0d07828bc5156f9cb5ef7d7dca"
+    },
+    "tests/core/test_release_model_inputs.py": {
+      "byte_count": 29334,
+      "sha256": "2e3cab28928a0076f7f89d76de52964550970b84fc461e8bb45cd110b40c4828"
+    },
+    "tests/core/test_release_model_input_cli.py": {
+      "byte_count": 12948,
+      "sha256": "8076c19a212aace549c337a256f1508c8f3369b85d379a988d93eae95fd54420"
+    }
+  },
+  "source_tests": {
+    "root_two_file_run": {
+      "passed": 145,
+      "seconds": 0.23
+    },
+    "components": {
+      "core": 45,
+      "cli": 100
+    },
+    "counting": "45 core (including two stub-loader joint cases) plus 100 CLI form the final 145; prior 143 and earlier slices are not added",
+    "additional_stub_loader_joint": {
+      "status": "PASS",
+      "passed": 2,
+      "loaders": "TWO_INDEPENDENT_STUBS",
+      "pair_and_summary": "ACTUAL_FUNCTIONS",
+      "actual_package_loaders": "NOT_RUN",
+      "independent_review": "PASS_NOT_INDEPENDENTLY_RERUN"
+    },
+    "core_review": "PASS",
+    "cli_review": "PASS",
+    "test_limits": [
+      "CLI loader/pair/summary are independent stubs",
+      "Core fixtures and execution-phase guards do not establish actual package loading or provenance"
+    ],
+    "previous_root_two_file_run": {
+      "passed": 143,
+      "seconds": 0.21
+    },
+    "root_source_acceptance": "SOURCE_ACCEPTED_INSTALLED_PAIR_VALIDATION_PENDING"
+  },
+  "acceptance": {
+    "actual_loader_joint": "PASS_SOURCE_ENV_NOT_INSTALLED",
+    "independent_build_install": "NOT_RUN",
+    "model_bridge": "NOT_IMPLEMENTED",
+    "new_if": "NOT_IMPLEMENTED",
+    "four_installed_cli_cases": "NOT_RUN"
+  },
+  "input_view_runtime": {
+    "historical_windows_handle_failure": {
+      "status": "FAIL",
+      "phase": "install-backend",
+      "application_cases": 0,
+      "http_requests": 0,
+      "browser_observations": 0,
+      "complete_after_map": "NOT_ESTABLISHED"
+    },
+    "today_first_round": {
+      "status": "FAIL",
+      "phase": "N6",
+      "completed_application_cases": 7,
+      "negative_output": "EXPECTED_VIEWER_ASSETS_UNAVAILABLE",
+      "guard_failure": "BOOTSTRAP_CSV_OR_ZIP_OPEN",
+      "browser_observations": 0
+    },
+    "dependency_diagnosis": {
+      "red": {
+        "numpy_import_attempts": 0,
+        "fastapi_import_attempts": 1,
+        "target": "Nonexistent interpreter standard-library ZIP path",
+        "open": "DENIED"
+      },
+      "green": {
+        "process_local_environment": {
+          "PYDANTIC_DISABLE_PLUGINS": "__all__"
+        },
+        "imports": [
+          "numpy",
+          "fastapi"
+        ],
+        "attempts": 0,
+        "product_modules": 0,
+        "model_modules": 0
+      },
+      "scope": "Dependency diagnosis only; not product acceptance"
+    },
+    "complete_pluginfix_round": {
+      "status": "INCOMPLETE_BROWSER",
+      "application_cases": 10,
+      "ordinary_applications": 7,
+      "controlled_applications": 3,
+      "http_requests": 24,
+      "http_script_bytes": 49912,
+      "controlled_guards_passed": 3,
+      "guard_attempts": 0,
+      "ready_to_stopped_seconds": [
+        120.16768300003605,
+        120.18952929996885
+      ],
+      "preservation": "PASS",
+      "installed_files": 107,
+      "browser_observations": 0,
+      "outer_shell": "NONZERO_NOT_EXACT_PYTHON_EXIT_CODE",
+      "python_exit": {
+        "expected_from_receipt_path": 3,
+        "independently_recorded": false
+      },
+      "original_acceptance": "RETAINED_UNMODIFIED"
+    },
+    "browser_supplement": {
+      "status": "START_REJECTED_BY_TIME_GATE",
+      "prepared_cases": [
+        "BA",
+        "BZ"
+      ],
+      "timer_seconds": 900,
+      "workspace_created": false,
+      "application_cases": 0,
+      "browser_observations": 0,
+      "root_observed_shell_exit": 1,
+      "root_observed_stdout": "EMPTY",
+      "retry": false
+    },
+    "evidence_publication": "Sanitized summary only; complete private receipts and personal paths retained locally"
+  },
+  "publication": {
+    "desktop": "PENDING_DESKTOP",
+    "ci": "NOT_RUN",
+    "new_commit": "NOT_YET_CREATED"
+  },
+  "research_boundary": {
+    "stage": "S2",
+    "data_gate": "BLOCKED",
+    "decisions": "D1-D6_NOT_FINALLY_ADOPTED_OR_MIGRATED",
+    "real_fit": "NOT_RUN",
+    "real_train": "NOT_RUN",
+    "real_score": "NOT_RUN",
+    "real_q99": "NOT_RUN",
+    "formal_experiments": "NOT_RUN",
+    "production_contract": "134_268_UNCHANGED",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY"
+  },
+  "source_env_module_smoke": {
+    "status": "SOURCE_ENV_MODULE_SMOKE_PASS",
+    "scope": "Three actual source-environment module processes; distinct from source unit tests and installed-pair acceptance",
+    "cases": [
+      {
+        "case": "help",
+        "returncode": 0,
+        "reaped": true,
+        "forced": false,
+        "elapsed_seconds": 0.16875090001849458,
+        "stdout_bytes": 219,
+        "stdout_capture": "PIPE",
+        "stderr_bytes": 0
+      },
+      {
+        "case": "invalid",
+        "returncode": 2,
+        "reaped": true,
+        "forced": false,
+        "elapsed_seconds": 0.1613363999640569,
+        "stdout_bytes": 0,
+        "stdout_capture": "PIPE",
+        "stderr_bytes": 30
+      },
+      {
+        "case": "broken_help",
+        "returncode": 2,
+        "reaped": true,
+        "forced": false,
+        "elapsed_seconds": 0.15683849999913946,
+        "stdout_bytes": null,
+        "stdout_capture": "NOT_AVAILABLE_BROKEN_PIPE",
+        "stderr_bytes": 25
+      }
+    ],
+    "package_loads": "NOT_INVOKED_BY_REVIEWED_HELP_AND_ARGUMENT_PATHS_NOT_DYNAMICALLY_INSTRUMENTED",
+    "installed_pair_acceptance": "NOT_RUN",
+    "data_payload_broken_output": "NOT_RUN",
+    "evidence": "Private process receipt retained locally; personal paths and complete receipt not published"
+  },
+  "local_synthetic_regression": {
+    "status": "PASS",
+    "passed": 3950,
+    "skipped": 20,
+    "warnings": 1,
+    "subtests_passed": 56,
+    "seconds": 274.5,
+    "scope": "Complete local core/backend/integration/data-audit synthetic test command; overlaps targeted145, not additive",
+    "platform": "Windows Python3.14.0",
+    "warning": "Existing Starlette TestClient httpx deprecation",
+    "remote_ci": "NOT_RUN_FOR_THIS_BATCH"
+  },
+  "source_env_four_cases": {
+    "status": "SOURCE_ENV_FOUR_ARTIFICIAL_PAIRS_PASS",
+    "scope": "Four actual source-environment artificial raw/prepared package commands; no new installation",
+    "parent_exit": 0,
+    "cases": [
+      {
+        "case": "P1",
+        "returncode": 0,
+        "reaped": true,
+        "forced": false,
+        "elapsed_seconds": 0.2111466999631375,
+        "stdout": {
+          "byte_count": 5250,
+          "sha256": "ca71afe60d56acf15fd78e84c131bcb488354daa12dcc9a4e2b5d8c9a9926165"
+        },
+        "stderr": {
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "PASS",
+        "population": {
+          "total": 176,
+          "common_valid": 56,
+          "fit": 18,
+          "train": 18,
+          "calibration": 10
+        },
+        "complete_summary_bytes_exact_match": true
+      },
+      {
+        "case": "P2",
+        "returncode": 0,
+        "reaped": true,
+        "forced": false,
+        "elapsed_seconds": 0.18893270002445206,
+        "stdout": {
+          "byte_count": 5229,
+          "sha256": "c58bd6e759c2d5703c0e3e0d4dc50bc95bba983745424282277f2111e2a2837c"
+        },
+        "stderr": {
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "status": "PASS",
+        "population": {
+          "total": 32,
+          "common_valid": 2,
+          "fit": 2,
+          "train": 2,
+          "calibration": 0
+        },
+        "complete_summary_bytes_exact_match": true
+      },
+      {
+        "case": "P3",
+        "returncode": 2,
+        "reaped": true,
+        "forced": false,
+        "elapsed_seconds": 0.1906827000202611,
+        "stdout": {
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "byte_count": 39,
+          "sha256": "1adef1e0d1a7ebceef9cf111d7eda30a8919d3c6b65272480414cb39e4d509bd"
+        },
+        "status": "PASS",
+        "error": "UPSTREAM_IDENTITY_MISMATCH"
+      },
+      {
+        "case": "P4",
+        "returncode": 2,
+        "reaped": true,
+        "forced": false,
+        "elapsed_seconds": 0.17150799999944866,
+        "stdout": {
+          "byte_count": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "byte_count": 28,
+          "sha256": "12bbfe7b82f3f83037dd0c2eecae481122e54ac7e212570ac4b922128f3bc1d7"
+        },
+        "status": "PASS",
+        "error": "INVALID_PACKAGE"
+      }
+    ],
+    "expected_output_basis": "Previously accepted inspect summaries, saved artificial JSON fields and protocol literals; no new business summary function used to create expectations",
+    "full_success_output_checks": [
+      "Both package identities",
+      "INPUTS_PAIRED and fixed execution limitations",
+      "Exact 13/26 feature column order",
+      "A total/common/fit/train/calibration=176/56/18/18/10",
+      "Z total/common/fit/train/calibration=32/2/2/2/0",
+      "All three policy qualification tables",
+      "Complete canonical UTF-8 output bytes"
+    ],
+    "preservation": {
+      "status": "PASS",
+      "source_and_test_files": 97,
+      "existing_artificial_package_json_members": 20,
+      "negative_copy": "PASS"
+    },
+    "action_monitoring": "NOT_DYNAMICALLY_INSTRUMENTED",
+    "forbidden_actions": "Not invoked by reviewed call chain; not a dynamic zero-attempt proof",
+    "real_data_payloads": "NOT_READ",
+    "new_csv_aggregation_preparation_replay_fit_history_models": "NOT_RUN",
+    "independent_build_install": "NOT_RUN",
+    "four_installed_cli_cases": "NOT_RUN",
+    "counting": "Separate from 3 source-module smoke processes, 145 source unit tests and full synthetic regression; not summed",
+    "evidence": "Complete private receipt retained locally; no personal paths or package payload published"
+  },
+  "source_manifest_kind": "REVIEWED_WORKING_FILE_BYTES"
+}

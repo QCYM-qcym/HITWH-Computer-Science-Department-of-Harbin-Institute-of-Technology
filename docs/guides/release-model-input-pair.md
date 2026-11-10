@@ -1,0 +1,22 @@
+# 保存输入成对核对入口
+
+日期：2026-11-10。状态：源码与限定单测完成；核心与CLI及两例joint追加独审均PASS，主控已接受源码，安装配对验收待完成。源码环境四例实际人工双包CLI已通过；独立构建安装及四例安装后CLI仍NOT_RUN。详见[协议](../design/release-model-input-pair-v1.md)与[验证记录](../research/2026-11-10-release-model-input-pair-verification.json)。
+
+模块入口如下，两个参数填写既有原始分钟包和对应准备包的绝对目录；此处是用法，不是本轮实际执行记录：
+
+```text
+python -m traffic_anomaly.release_model_input_cli --raw-package ABS_RAW_DIR --prepared-package ABS_PREPARED_DIR
+python -m traffic_anomaly.release_model_input_cli --help
+```
+
+两个参数支持空格或等号形式，不接受未知、重复、缩写参数或响应文件形式。`run=@daily`作为普通目录值保留。help必须独立使用。加载要求由既有包加载器执行，CLI不扫描来源或解析CSV。
+
+成功输出一行`INPUTS_PAIRED`摘要，包含两包身份、配置身份、13/26列序、六类有效分钟计数及攻击存在计数、预处理fit人口、模型训练/校准人口、三政策八类资格和未执行声明。零校准人口不等于已经校准；内部对齐不认证来源或真实模型执行。错误仅输出安全代码，返回2；输出失败不重试。
+
+最终源码合跑145项通过/0.23秒，核心45（含两例加载器替身、真实pair/summary联合测试）与CLI100为组成分项，旧143不累计。源码环境四例实际人工双包CLI已通过：A/Z完整输出与旧独立保存期望逐字节相等，人口分别为176/56/18/18/10及32/2/2/2/0（总/common/fit/train/校准）；身份错配与缺COMPLETE分别安全退出2。97源/测试和20个既有人工JSON成员及负例副本前后保持。普通命令未动态插桩，禁动作未调用仅按已审调用链预期。
+
+另有help、未知参数、help破管3个源码环境smoke进程，实际退出0/2/2并自然回收。它们与四个双包数据例、145单测及完整合成回归分别记录，不相加；数据载荷输出破管、独立构建安装及四例安装后CLI仍NOT_RUN。
+
+输入查看页另有一次完整安装运行：10应用、24HTTP与完整保全通过，但实际浏览器0，收据保持`INCOMPLETE_BROWSER`。两个900秒浏览器补充服务只准备和短审，启动尝试因时间门拒绝，无新目录、应用或页面观察。旧Windows句柄比较失败和今日N6插件扫描失败均保留。它们与本成对核对模块的源码测试分开登记。
+
+本批发布PENDING_DESKTOP，CI NOT_RUN。主控已接受源码环境四例；下一步为独立构建安装、四例安装后CLI及页面验收，本轮尚未完成。S2/Data Gate BLOCKED，真实fit/train/score/Q99及正式实验NOT_RUN；新IF尚未实现。

@@ -1,5 +1,13 @@
 # 公开决策与方案差异
 
+## 2026-11-10 保存输入成对核对与验收范围
+
+采用[配对协议](../design/release-model-input-pair-v1.md)实现只读raw/prepared核对及薄CLI：借用保存值、保留全轴、标签sidecar、预处理fit与模型人口分列，不接模型。源码最终合跑145通过、核心与CLI独审PASS；两例joint使用加载器替身及真实pair/summary，追加独审PASS。源码环境四例实际人工双包CLI及97源/测试、20个原包JSON成员保全通过，独立构建安装和四例安装后CLI仍未执行，不将源码完成写成研究或模型链路接受。
+
+保留旧Windows控制台比较失败及今日N6 BOOTSTRAP ZIP探测拒绝。依赖诊断确认可选Pydantic插件发现尝试不存在的解释器ZIP；受控子进程显式设PYDANTIC_DISABLE_PLUGINS=__all__，不放宽CSV/ZIP或attempt守卫。新完整查看轮10应用、24HTTP及保全通过，但浏览器0，原收据保持INCOMPLETE_BROWSER。补充双服务因时间门未启动，不能补写PASS。
+
+此为工程边界登记；不选择D1—D6、主数据、有限真实试点或生产迁移。S2/Data Gate BLOCKED、真实fit/train/score/Q99/正式实验NOT_RUN；134/268契约保持，新IF未实现。发布PENDING_DESKTOP、CI NOT_RUN。完整范围见[验证记录](../research/2026-11-10-release-model-input-pair-verification.json)。
+
 ## 2026-11-07 raw CLI人工链接受与后续边界
 
 主控已根据源码接受和固定八例独审接受raw CLI本地工程：显式spec、一次聚合、正常关闭清理后一次独占save，失败保留现场；不修改旧数学、原134/268生产契约或研究协议。实际断管N3退出2后仍有可load包，由L1独立加载证明，不能把包完整当作命令成功。普通5例未profile；两聚合/64行/两raw save/一次人工fit仅为已审调用链预期，R1打开1次观测与N3预期1次分开。

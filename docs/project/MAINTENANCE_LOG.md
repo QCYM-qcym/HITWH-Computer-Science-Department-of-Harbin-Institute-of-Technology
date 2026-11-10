@@ -1,5 +1,13 @@
 # 仓库维护复核记录
 
+## 2026-11-10 成对核对源码与查看运行证据收口
+
+新增配对协议、指南和[脱敏验证记录](../research/2026-11-10-release-model-input-pair-verification.json)，同步导航、状态、路线图和决定。保存输入配对与薄CLI四文件源码完成，主控最终合跑145通过/0.23秒，核心45、CLI100是组成分项，不与旧切片相加；两项独审PASS。两例joint使用加载器替身及真实pair/summary，追加独审PASS；源码环境四例实际人工双包CLI已接受：A/Z完整期望字节匹配，错配/缺COMPLETE安全拒绝，物理退出0/0/2/2且均自然回收；97源/测试及20个既有人工JSON成员、负例副本前后保持。普通命令未动态插桩；独立构建安装与四例安装后CLI仍NOT_RUN；另有源码环境help/未知参数/help破管3真实进程，退出0/2/2且自然回收，与四个双包数据例、145单测及完整合成回归分列，不相加。
+
+旧Windows比较失败保留。今日首轮完成7普通应用，N6安全负例输出及exit2符合预期，但启动期ZIP审计attempt使整轮FAIL；依赖RED/GREEN仅定位可选插件发现。显式关闭受控进程插件扫描后，新完整轮10应用、24HTTP/49912字节、3受控守卫PASS且0尝试、两次120.167683/120.189529秒关闭及全保全通过，107安装文件保持。浏览器0，原acceptance为INCOMPLETE_BROWSER；外层shell非零不认证Python1，源码该收据路径应返回3但实际Python码未独立留存。
+
+BA/BZ补充脚本准备与短审后，补足时间门、四输入目录成员集复核及时钟对应值；唯一启动尝试被时间门拒绝，无新目录、0应用/0浏览器，不再重试。公开仅保留脱敏事实和源码身份，不提交私人收据、路径、payload或权重。原研究stages/blockers/next_tasks/counting_scope对HEAD保持；S2/Gate及真实NOT_RUN未改变。本批Desktop PENDING、新CI NOT_RUN，首页生成及最终维护检查、Desktop提交推送由主控统一处理，不预填新提交哈希。
+
 ## 2026-11-07 raw CLI实际接受及前序发布回执
 
 前序raw包、prepared包与输入CLI共39文件由GitHub Desktop提交推送`35461b9ccb964297a4a52a38dc37515c667ec237`，分支codex/candidate-flow-adapter，本地/远端及按文本规范化核对的Git blob一致，未合并main。文档[42317355086](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42317355086)、核心[42317355085](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42317355085)、合成[42317355068](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42317355068)三项实际completed/success。远端任务分别为仓库13项及613文件零隐私问题、契约21项、Python3194通过/12跳过/56子测试通过（224.69秒）、前端147项及类型/构建成功；范围有重叠，不累加。远端Linux/Python3.14.10与本地Windows/Python3.14.0分列，保留TestClient、Actions Node和既有前端包大小警告。该提交排除raw CLI两文件与旧Oct31计划；旧待发布回执保留为当时时点。
@@ -681,3 +689,5 @@ Visio V8.0重绘报告的10张配图，按报告图号保持对应，核对历�
 补记raw CLI前序批：GitHub Desktop已提交推送0f030142735028aaf27f4bc56501d8dfc1a4d0b4，远端核对及三项实际CI成功。文档run42497013334/job128781414665为13项、618文件隐私零问题；契约run42497013298/job128781414697为21项；合成run42497013306的Python job128781414998为3517通过/70跳过/1警告/56子测试，前端job128781415140为147项及类型/构建成功。各job存在重叠，不合并总数，且精确提交不含本批未提交的查看页。
 
 本查看页批次Desktop PENDING、新CI NOT_RUN，主控后续统一生成首页、执行维护检查并处理Desktop同步。当前仅核对已有收据与文件，没有新增产品运行、构建、安装或测试。研究阶段、计数和next_tasks保持；S2/Data Gate BLOCKED、D1—D6待决、真实拟合/训练/评分/Q99/正式比较NOT_RUN。来源未认证、时间仍源钟面完成代理，不认证UTC。后继输入与模型成对核验仅私有设计/计划无实现；没有新增研究批准或结论。
+
+本轮主控最终本地合成回归：3950通过、20跳过、1项既有TestClient警告、56子测试，274.50秒；该完整范围包含145定向项，不重复累计。远端CI须本批实际发布后另核，不能用本地结果替代。

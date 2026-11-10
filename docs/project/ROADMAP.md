@@ -1,5 +1,11 @@
 # 滚动项目路线图
 
+## 2026-11-10 成对输入源码完成，独立安装及浏览器验收未完成
+
+[成对核对模块](../guides/release-model-input-pair.md)已实现保存身份/轴检查、独立H15/H30全轴26维视图、人口分列和薄CLI；最终145源码单测通过，两项独审PASS。两例joint使用加载器替身及真实pair/summary，追加独审PASS，源码环境四例实际人工双包CLI及97源/测试、20个原包JSON成员保全通过；独立构建安装及四例安装后CLI仍NOT_RUN，不能称模型链路验收完成；新IF未实现。
+
+查看页10应用与24HTTP及完整保全通过，浏览器0，保持INCOMPLETE_BROWSER。补充900秒双服务启动被时间门拒绝，未创建新运行。下一工程工作为独立构建安装、四例安装后CLI与页面验收；研究next_tasks、阶段分母及阻塞原样保留，D1—D6未最终采用或迁移，真实fit/train/score/Q99/正式实验NOT_RUN。详见[本轮记录](../research/2026-11-10-release-model-input-pair-verification.json)。
+
 ## 2026-11-07 raw CLI固定人工链完成本地接受
 
 [raw CLI](../guides/release-minute-cli.md)已完成源码及新安装八例，输出失败可保留完整包的行为经实际断管和独立重开分别验证。32分钟人工训练包的H15为17、H30/common为2、fit人口2，其余校准/验证/测试资格0；没有阈值校准或效果结论。源码阶段首次错误断言与后续获准修正保留，准确次数与限制见[记录](../research/2026-11-07-release-minute-cli-verification.json)。

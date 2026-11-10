@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-09**。当前阶段：**数据审计**；本轮主题：输入包查看页源码与单测接受；首轮安装后检查失败、运行验收未完成，真实Gate仍BLOCKED。
+最近更新：**2026-11-10**。当前阶段：**数据审计**；本轮主题：保存输入成对核对与薄CLI源码完成；查看页运行保全通过、浏览器仍未验收，真实Gate保持BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- 输入包只读摘要、HTTP、前台启动与静态页面源码已接受；核心118通过/37未选、后端最终201通过/1警告、DOM71及类型检查通过，分范围不累加。
-- 首轮四个构建/安装阶段成功、8个直接Python子进程退出0并回收；整轮FAIL停于Windows控制台路径/句柄执行位检查，应用/实际HTTP/浏览器均0。
-- 当前107安装文件补充只读核对不能补足完整after-map；私有比较器13项回归及独立审查接受，修复后第二轮NOT_STARTED，未新增运行/安装/测试。
-- raw CLI已Desktop发布0f03014，实际CI为仓库13、契约21、Python3517通过/70跳过/1警告/56子测试、前端147及类型/构建成功，各job不相加且不覆盖本页。
-- view本批PENDING_DESKTOP、新CI NOT_RUN；S2/Data Gate BLOCKED、D1—D6待决，真实拟合/训练/评分/Q99/正式比较NOT_RUN；输入模型成对核验仅私有设计/计划无实现。
+- 保存raw/prepared配对与薄CLI源码已接受，最终145单测/0.23秒及独审PASS；源码环境4例人工双包CLI退出0/0/2/2、完整期望字节与97源/测试、20原包JSON成员保全通过。
+- 查看页新完整安装运行10应用、24HTTP/49912字节、3受控守卫PASS且0尝试、两次120秒关闭及完整保全通过；实际浏览器0，原收据保持INCOMPLETE_BROWSER。
+- 旧Windows句柄比较失败与今日N6插件扫描失败均保留；依赖RED/GREEN定位可选插件扫描，受控子进程显式关闭该扫描。
+- BA/BZ浏览器补充启动被时间门拒绝，无新目录、应用或页面观察；成对核对独立构建安装及4例安装后CLI仍NOT_RUN，3个源码smoke、4个双包数据例和单测分列。
+- 本批PENDING_DESKTOP、CI NOT_RUN；S2/Data Gate BLOCKED，D1—D6未最终采用或迁移，真实fit/train/score/Q99及正式实验NOT_RUN；新IF未实现。
 
 **当前阻塞或待验证事项**
 
@@ -81,6 +81,9 @@ flowchart TB
 
 **最新成果入口**
 
+- [保存输入成对核对用法与验收限制](<docs/guides/release-model-input-pair.md>)
+- [成对输入源码及查看页未完成浏览器验收记录](<docs/research/2026-11-10-release-model-input-pair-verification.json>)
+- [保存输入13/26维成对核对协议](<docs/design/release-model-input-pair-v1.md>)
 - [输入包检查页入口与未完成验收](<docs/guides/release-input-viewer.md>)
 - [输入包查看源码与首次安装后检查失败](<docs/research/2026-11-09-release-input-view-verification.json>)
 - [输入包只读查看协议](<docs/design/release-input-view-v1.md>)
