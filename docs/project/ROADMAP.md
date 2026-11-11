@@ -1,5 +1,14 @@
 # 滚动项目路线图
 
+## 2026-11-11 当前工程增量：固定保存预测的只读标签报告
+
+- [评价入口](../guides/release-if-evaluation.md)已实现并完成源码和七阶段新安装实际运行，两视图报告与独立预期一致；独立规格和质量后验复核后已由主控实际接受，发布待核，见[验证](../research/2026-11-11-release-if-evaluation-verification.json)。
+- test48中scored18/unscored30分列，不能把所有角色共同56当测试分母；四个受控业务过程无模型/prepare，6次保存分数复核另记。完整4746回归可能包含旧人工模型fixture，范围不混合。
+- [前批C准确发布回执](../research/2026-11-11-release-example-publication.json)记录19文件/16082f7e787de162d1aa63050108a11a2388da50/三CI；E新提交/CI仍PENDING。
+- 下一工程仅核对数值状态接缝与复现预算，当前私有候选未采用/未实现；不恢复旧结果中不存在的历史树，不把已有candidate AE写成缺失。
+
+研究三项任务仍按status固定队列推进；S2/Data Gate BLOCKED及全部真实C17模型/正式比较NOT_RUN不变，无验收分母或总体百分比调整。下文保留各轮当时状态。
+
 ## 2026-11-11 当前工程增量：人工源到IF与只读数据
 
 - [固定人工CSV入口](../guides/release-example.md)及raw／prepare／两IF／保存核验／HTTP显式链已在新安装目录接受；[验证记录](../research/2026-11-11-release-example-verification.json)分列源码、实际14阶段和研究范围。

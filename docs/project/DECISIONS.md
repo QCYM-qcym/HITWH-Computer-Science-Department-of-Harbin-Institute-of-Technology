@@ -1,5 +1,13 @@
 # 公开决策与方案差异
 
+## 2026-11-11 保存预测标签审计的工程执行
+
+采用独立pure evaluator与只读evaluate命令，复用保存结果/输入绑定和原confusion，不改旧Metrics或生产134/268。按固定预测报告P_U/P_B/P_A标签敏感性，fit政策随身份保留；未知和未评分不计混淆分母，零分母保留null原因。详见[设计](../design/release-if-evaluation-v1.md)与[验证](../research/2026-11-11-release-if-evaluation-verification.json)。
+
+源码独审和完整4746回归通过，七阶段新安装实际运行父0；四个受控业务过程无模型/prepare，6次保存分数复核单列。监督器原V1失败、诊断partial与V2成功分开保留，不能把Job强停的exit0称自然退出。独立规格和质量后验复核后主控已实际接受；公开更新与E准确CI待核。
+
+前批C的准确Desktop发布/三CI见[回执](../research/2026-11-11-release-example-publication.json)；不覆盖E。本决定仅工程，不放行真实数据研究、最终标签、主数据采用或生产迁移；后继数值状态工作仅私有候选，未采用。下文保留各时点原决定。
+
 ## 2026-11-11 工程决定：固定人工源与完整显式复现
 
 采用[固定人工CSV设计](../design/release-example-v1.md)：pure builder只返回三个有界bytes成员，create排他保存、读回并形成实际摘要；raw、prepare、两IF及服务仍由既有命令显式运行。CSV／recipe固定，aggregate spec绑定实际源路径，旧candidate_demo入口保留。

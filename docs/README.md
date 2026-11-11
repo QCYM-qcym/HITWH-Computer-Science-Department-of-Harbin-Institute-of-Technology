@@ -1,5 +1,13 @@
 # 文档导航
 
+## 2026-11-11 当前工程：保存预测的只读标签评价
+
+[运行入口](guides/release-if-evaluation.md)、[分母与字段设计](design/release-if-evaluation-v1.md)、[实施计划](superpowers/plans/2026-11-11-release-if-evaluation.md)及[实际验证](research/2026-11-11-release-if-evaluation-verification.json)。固定保存预测显式绑定原输入，分列三政策test有效分母与null原因，不重新训练或选择政策。
+
+完整Python4746通过/23跳过/1既有警告/56子测试；新core wheel80成员、新target83文件，七阶段按预期退出且父进程0。两个完整报告与双独立stdlib预期一致；325保护项与29原成员含初始mtime保持。四个受控业务阶段模型0、保存分数Q99复核6次，人工测试setup和全回归模型活动另记。
+
+前批人工源链的准确19文件Desktop提交16082f7e787de162d1aa63050108a11a2388da50及三CI成功见[回执](research/2026-11-11-release-example-publication.json)。本E已由主控依据独立规格和质量后验复核实际接受；新提交/CI待核；真实S2/Data Gate BLOCKED，主数据/最终政策/134迁移不变。后继工程仅私有候选未采用。下文旧“当前/未实现/待发布”保留当时时点。
+
 ## 2026-11-11 当前工程：固定人工CSV到保存结果完整复现
 
 [运行入口](guides/release-example.md)、[固定配方设计](design/release-example-v1.md)、[实施计划](superpowers/plans/2026-11-11-release-example.md)及[验证记录](research/2026-11-11-release-example-verification.json)。create生成实际人工源、spec和recipe，后续显式使用既有raw、prepare、两IF、独立核验与只读数据服务。

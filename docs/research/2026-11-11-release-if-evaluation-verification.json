@@ -1,0 +1,702 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-11",
+  "status": "ACCEPTED_SOURCE_AND_INSTALLED_READONLY_SAVED_PREDICTION_LABEL_AUDIT",
+  "scope": "FIXED_SAVED_PREDICTION_LABEL_AUDIT_ENGINEERING_ONLY",
+  "implementation_baseline": "16082f7e787de162d1aa63050108a11a2388da50",
+  "guide": "docs/guides/release-if-evaluation.md",
+  "design": "docs/design/release-if-evaluation-v1.md",
+  "plan": "docs/superpowers/plans/2026-11-11-release-if-evaluation.md",
+  "profile_id": "c17-release-iforest-fixed-prediction-label-audit-v1",
+  "source_authentication": "NOT_AUTHENTICATED",
+  "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+  "policy_status": "AUDIT_ONLY",
+  "source_code_identities": {
+    "src/core/traffic_anomaly/release_if_evaluation.py": {
+      "bytes": 7453,
+      "sha256": "9bab94c00486eb4af66615ee230ed6157bc28b7d2105dee3f618d944db21fb5a"
+    },
+    "src/core/traffic_anomaly/release_if_evaluation_cli.py": {
+      "bytes": 6437,
+      "sha256": "0c7aa4971d7568868625bda9f3ff42bf2593969bd6dac93ea735f1be860f8076"
+    },
+    "tests/core/release_if_evaluation_cases.py": {
+      "bytes": 3623,
+      "sha256": "9f0e726a24a24aa053486d62662350b33706b942566dca9d3ce24d26bd7c9ffd"
+    },
+    "tests/core/test_release_if_evaluation.py": {
+      "bytes": 18029,
+      "sha256": "22eea42ed299ee9bb37bdcde3d3acc40c213d738e8e7c63ec00e3dbc005cc5ed"
+    },
+    "tests/core/test_release_if_evaluation_cli.py": {
+      "bytes": 18945,
+      "sha256": "da1932115c980e033304aa17f2b82af7f555e173c93d7f3f38c207a7529005f4"
+    },
+    "tests/integration/test_release_if_evaluation.py": {
+      "bytes": 14878,
+      "sha256": "2abdf8b7a160f9e15da01ccbd1531b77f644b21c4eb3b8e9cbc131f14aae6295"
+    }
+  },
+  "reviewed_original_nine_files": {
+    "count": 9,
+    "archived_before_runtime": true,
+    "note": "Source reviews bind the archived pre-runtime bytes; guide/design/plan factual updates are reviewed separately."
+  },
+  "source_tests": {
+    "pure_unit": 46,
+    "readonly_cli_unit": 117,
+    "real_disk_main_integration": 6,
+    "counts_included_in_full": true,
+    "source_environment_physical_cli_cases": {
+      "count": 2,
+      "exits": [
+        2,
+        2
+      ],
+      "cases": [
+        "INVALID_ARGUMENTS",
+        "PRECLOSED_HELP_STDOUT_OUTPUT_ERROR"
+      ],
+      "installed": false
+    },
+    "setup_preprocessing": {
+      "pure_unit_last_run": 47,
+      "disk_integration_last_run": 7,
+      "cli_unit_total": "NOT_MEASURED",
+      "note": "Scoped artificial test setup only. Not a whole-regression or cross-run operation total."
+    },
+    "real_disk_model_execution": "FORBIDDEN",
+    "installed_zero_denominator_case": "NOT_RUN_SOURCE_EDGE_CASES_ONLY"
+  },
+  "full_python": {
+    "passed": 4746,
+    "skipped": 23,
+    "warnings": 1,
+    "subtests_passed": 56,
+    "seconds": 302.11,
+    "controller_seconds": 304.473234300036,
+    "physical_parent_exit": 0,
+    "physical_child_exit": 0,
+    "reaped": true,
+    "forced": false,
+    "protected_files": 284,
+    "source_unchanged": true,
+    "warning": "Existing Starlette TestClient deprecation warning",
+    "model_operation_totals": "NOT_MEASURED_EXISTING_ARTIFICIAL_FIXTURES_MAY_RUN",
+    "elapsed_is_model_latency": false,
+    "elapsed_is_research_cost_comparison": false
+  },
+  "source_review": {
+    "spec": "PASS",
+    "quality": "PASS",
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  },
+  "installed": {
+    "execution_status": "FIXED_INSTALLED_READONLY_SAVED_PREDICTION_LABEL_EVALUATION_PASS",
+    "root_acceptance": "ACCEPTED_AFTER_INDEPENDENT_SPEC_AND_QUALITY_ACTUAL_REVIEWS",
+    "physical_parent_exit": 0,
+    "direct_children": 7,
+    "expected_and_actual_exits": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2
+    ],
+    "all_reaped": true,
+    "all_unforced": true,
+    "normal_job_drains": true,
+    "parent_seconds_to_receipt_assembly": 7.462044600048102,
+    "elapsed_excludes_outer_exit": true,
+    "core_wheel_members": 80,
+    "installed_members": 83,
+    "copied_core_source_members": 77,
+    "dependency_environment": "NEW_TARGET_REUSED_LOCKED_ENVIRONMENT_NOT_FRESH_VENV_OR_OTHER_MACHINE",
+    "phases": [
+      {
+        "phase": "build",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "seconds": 2.8455244000069797
+      },
+      {
+        "phase": "install",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "seconds": 1.449082000006456
+      },
+      {
+        "phase": "help",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "seconds": 0.35103970003547147
+      },
+      {
+        "phase": "evaluate-current",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "seconds": 0.5187126999953762
+      },
+      {
+        "phase": "evaluate-h30",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "seconds": 0.4640804000082426
+      },
+      {
+        "phase": "invalid-arguments",
+        "physical_exit": 2,
+        "reaped": true,
+        "forced": false,
+        "seconds": 0.4656272999709472
+      },
+      {
+        "phase": "valid-mismatch",
+        "physical_exit": 2,
+        "reaped": true,
+        "forced": false,
+        "seconds": 0.46190360002219677
+      }
+    ],
+    "ordinary_help": "ACTUAL_UNINSTRUMENTED_MODULE",
+    "controlled_business": "FOUR_TRANSPARENT_RUNPY_ACTUAL_MODULES_PHYSICAL_EXITS_RECORDED",
+    "retry": false,
+    "files_removed_by_controller": false
+  },
+  "controlled_business_operations": {
+    "scope": "FOUR_CONTROLLED_BUSINESS_PROCESSES_ONLY_NOT_HELP_BUILD_INSTALL_OR_PYTEST",
+    "model_fit": 0,
+    "model_score": 0,
+    "model_q99": 0,
+    "model_imports": 0,
+    "new_source_pipeline": 0,
+    "preprocessing_fit": 0,
+    "replay": 0,
+    "source_csv_content_reads": 0,
+    "saved_score_q99_verifications": 6,
+    "cases": {
+      "evaluate-current": {
+        "calls": {
+          "result_load": 1,
+          "raw_load": 1,
+          "prepared_load": 1,
+          "pair": 1,
+          "evaluate": 1,
+          "verify": 1,
+          "confusion": 3
+        },
+        "saved_score_q99": 2,
+        "owned_failed_module_fd_redirects": 0,
+        "model_modules": [],
+        "violations": [],
+        "physical_exit": 0
+      },
+      "evaluate-h30": {
+        "calls": {
+          "result_load": 1,
+          "raw_load": 1,
+          "prepared_load": 1,
+          "pair": 1,
+          "evaluate": 1,
+          "verify": 1,
+          "confusion": 3
+        },
+        "saved_score_q99": 2,
+        "owned_failed_module_fd_redirects": 0,
+        "model_modules": [],
+        "violations": [],
+        "physical_exit": 0
+      },
+      "invalid-arguments": {
+        "calls": {
+          "result_load": 0,
+          "raw_load": 0,
+          "prepared_load": 0,
+          "pair": 0,
+          "evaluate": 0,
+          "verify": 0,
+          "confusion": 0
+        },
+        "saved_score_q99": 0,
+        "owned_failed_module_fd_redirects": 2,
+        "model_modules": [],
+        "violations": [],
+        "physical_exit": 2
+      },
+      "valid-mismatch": {
+        "calls": {
+          "result_load": 1,
+          "raw_load": 1,
+          "prepared_load": 1,
+          "pair": 1,
+          "evaluate": 1,
+          "verify": 1,
+          "confusion": 0
+        },
+        "saved_score_q99": 2,
+        "owned_failed_module_fd_redirects": 2,
+        "model_modules": [],
+        "violations": [],
+        "physical_exit": 2
+      }
+    },
+    "q99_value_check": "EVENT_COUNT10_AND_RETURNED_THRESHOLD_BOUND_TO_FROZEN_C_SAVED_RESULT",
+    "independent_q99_math_repeated_in_E": false,
+    "earlier_C_exact_q99_validation_retained": true,
+    "file_guard_scope": "High-level producer/open/mutation guards; not complete OS syscall mediation.",
+    "owned_module_devnull_fd_guard": "Two descriptor redirects per expected failure, no artifact writes."
+  },
+  "fixed_artificial_saved_outputs": {
+    "current13": {
+      "stdout": {
+        "byte_count": 2616,
+        "sha256": "3e1edf3ef19038593acc1d14729ca8a34a3b76b8aae42fd06a23c6e11c7ec417"
+      },
+      "report": {
+        "audit_fit_policy": "P_U",
+        "configuration_sha256": "2b5534d3b6762d6916bbb549e8a596f67484fe6562cfb5f0fdffbee509aa4b24",
+        "input_references": {
+          "prepared": {
+            "context_sha256": "dc3102442d885167ce01b7ca9e697bc635a2c2b31fbf22aeac855ab0b065ef40",
+            "manifest_byte_count": 2106,
+            "manifest_sha256": "d69dd939cc19ef4094e146644050977f407e5079de2790864be084131421c92c",
+            "profile_id": "c17-release-prepared-input-package-v1"
+          },
+          "raw": {
+            "context_sha256": "3013cb61cc7a3794364b956079978a8415c00c25ba2be860ef0cef93ca2c76c2",
+            "manifest_byte_count": 5676,
+            "manifest_sha256": "e96cc05ff014d1ea50c90a87f35d684391e0715b293e440957ab713ab4f11dbb",
+            "profile_id": "c17-release-minute-package-v1"
+          }
+        },
+        "model_execution": "NOT_AUTHENTICATED",
+        "policies": {
+          "P_A": {
+            "calendar_by_kind": {
+              "attack": 2,
+              "normal": 45,
+              "unknown": 1
+            },
+            "calendar_test_minutes": 48,
+            "confusion_counts": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 14,
+              "tp": 1
+            },
+            "excluded_unscored_test_minutes": 30,
+            "metrics": {
+              "f1": 0.5,
+              "fnr": 0.5,
+              "fpr": 0.06666666666666667,
+              "precision": 0.5,
+              "recall": 0.5
+            },
+            "scored_by_kind": {
+              "attack": 2,
+              "normal": 15,
+              "unknown": 1
+            },
+            "scored_test_minutes": 18,
+            "undefined_reasons": {},
+            "unscored_by_kind": {
+              "attack": 0,
+              "normal": 30,
+              "unknown": 0
+            }
+          },
+          "P_B": {
+            "calendar_by_kind": {
+              "attack": 1,
+              "normal": 46,
+              "unknown": 1
+            },
+            "calendar_test_minutes": 48,
+            "confusion_counts": {
+              "fn": 1,
+              "fp": 2,
+              "tn": 14,
+              "tp": 0
+            },
+            "excluded_unscored_test_minutes": 30,
+            "metrics": {
+              "f1": 0.0,
+              "fnr": 1.0,
+              "fpr": 0.125,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "scored_by_kind": {
+              "attack": 1,
+              "normal": 16,
+              "unknown": 1
+            },
+            "scored_test_minutes": 18,
+            "undefined_reasons": {},
+            "unscored_by_kind": {
+              "attack": 0,
+              "normal": 30,
+              "unknown": 0
+            }
+          },
+          "P_U": {
+            "calendar_by_kind": {
+              "attack": 1,
+              "normal": 45,
+              "unknown": 2
+            },
+            "calendar_test_minutes": 48,
+            "confusion_counts": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 14,
+              "tp": 0
+            },
+            "excluded_unscored_test_minutes": 30,
+            "metrics": {
+              "f1": 0.0,
+              "fnr": 1.0,
+              "fpr": 0.06666666666666667,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "scored_by_kind": {
+              "attack": 1,
+              "normal": 15,
+              "unknown": 2
+            },
+            "scored_test_minutes": 18,
+            "undefined_reasons": {},
+            "unscored_by_kind": {
+              "attack": 0,
+              "normal": 30,
+              "unknown": 0
+            }
+          }
+        },
+        "policy_status": "AUDIT_ONLY",
+        "prediction_basis": "FIXED_SAVED_PREDICTIONS_NO_REFIT",
+        "profile_id": "c17-release-iforest-fixed-prediction-label-audit-v1",
+        "result_identity": {
+          "context_sha256": "550a58c284f61af78a241ce24a66119df12012ef139571410b7fc6d63ffb946e",
+          "manifest_byte_count": 2011,
+          "manifest_sha256": "96ba0c428481244e90573d02029db5bd1205f2b4b91ad275e9ffef3fe6bf236a",
+          "profile_id": "c17-release-iforest-result-package-v1"
+        },
+        "scope": "SAVED_RESULT_LABEL_SENSITIVITY_INTERNAL_CONSISTENCY_ONLY",
+        "source_authentication": "NOT_AUTHENTICATED",
+        "status": "SAVED_PREDICTION_LABEL_AUDIT",
+        "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+        "unit": "minute",
+        "version": 1,
+        "view": "current13"
+      }
+    },
+    "h30_26": {
+      "stdout": {
+        "byte_count": 2613,
+        "sha256": "89d9ce77d660c4068dbee30daf5d4e48cf8ab6e6e58f3c20a96b1a5514815198"
+      },
+      "report": {
+        "audit_fit_policy": "P_U",
+        "configuration_sha256": "2b5534d3b6762d6916bbb549e8a596f67484fe6562cfb5f0fdffbee509aa4b24",
+        "input_references": {
+          "prepared": {
+            "context_sha256": "dc3102442d885167ce01b7ca9e697bc635a2c2b31fbf22aeac855ab0b065ef40",
+            "manifest_byte_count": 2106,
+            "manifest_sha256": "d69dd939cc19ef4094e146644050977f407e5079de2790864be084131421c92c",
+            "profile_id": "c17-release-prepared-input-package-v1"
+          },
+          "raw": {
+            "context_sha256": "3013cb61cc7a3794364b956079978a8415c00c25ba2be860ef0cef93ca2c76c2",
+            "manifest_byte_count": 5676,
+            "manifest_sha256": "e96cc05ff014d1ea50c90a87f35d684391e0715b293e440957ab713ab4f11dbb",
+            "profile_id": "c17-release-minute-package-v1"
+          }
+        },
+        "model_execution": "NOT_AUTHENTICATED",
+        "policies": {
+          "P_A": {
+            "calendar_by_kind": {
+              "attack": 2,
+              "normal": 45,
+              "unknown": 1
+            },
+            "calendar_test_minutes": 48,
+            "confusion_counts": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 14,
+              "tp": 1
+            },
+            "excluded_unscored_test_minutes": 30,
+            "metrics": {
+              "f1": 0.5,
+              "fnr": 0.5,
+              "fpr": 0.06666666666666667,
+              "precision": 0.5,
+              "recall": 0.5
+            },
+            "scored_by_kind": {
+              "attack": 2,
+              "normal": 15,
+              "unknown": 1
+            },
+            "scored_test_minutes": 18,
+            "undefined_reasons": {},
+            "unscored_by_kind": {
+              "attack": 0,
+              "normal": 30,
+              "unknown": 0
+            }
+          },
+          "P_B": {
+            "calendar_by_kind": {
+              "attack": 1,
+              "normal": 46,
+              "unknown": 1
+            },
+            "calendar_test_minutes": 48,
+            "confusion_counts": {
+              "fn": 1,
+              "fp": 2,
+              "tn": 14,
+              "tp": 0
+            },
+            "excluded_unscored_test_minutes": 30,
+            "metrics": {
+              "f1": 0.0,
+              "fnr": 1.0,
+              "fpr": 0.125,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "scored_by_kind": {
+              "attack": 1,
+              "normal": 16,
+              "unknown": 1
+            },
+            "scored_test_minutes": 18,
+            "undefined_reasons": {},
+            "unscored_by_kind": {
+              "attack": 0,
+              "normal": 30,
+              "unknown": 0
+            }
+          },
+          "P_U": {
+            "calendar_by_kind": {
+              "attack": 1,
+              "normal": 45,
+              "unknown": 2
+            },
+            "calendar_test_minutes": 48,
+            "confusion_counts": {
+              "fn": 1,
+              "fp": 1,
+              "tn": 14,
+              "tp": 0
+            },
+            "excluded_unscored_test_minutes": 30,
+            "metrics": {
+              "f1": 0.0,
+              "fnr": 1.0,
+              "fpr": 0.06666666666666667,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "scored_by_kind": {
+              "attack": 1,
+              "normal": 15,
+              "unknown": 2
+            },
+            "scored_test_minutes": 18,
+            "undefined_reasons": {},
+            "unscored_by_kind": {
+              "attack": 0,
+              "normal": 30,
+              "unknown": 0
+            }
+          }
+        },
+        "policy_status": "AUDIT_ONLY",
+        "prediction_basis": "FIXED_SAVED_PREDICTIONS_NO_REFIT",
+        "profile_id": "c17-release-iforest-fixed-prediction-label-audit-v1",
+        "result_identity": {
+          "context_sha256": "4895d56c77740e6936681efe5a68522e58716dd9a3edbcd850c152b601fe137f",
+          "manifest_byte_count": 2008,
+          "manifest_sha256": "a752a9da46c1d6003892f4a033cf5d76ee02ee944e9fb136c3c3fc0bde1f0c0d",
+          "profile_id": "c17-release-iforest-result-package-v1"
+        },
+        "scope": "SAVED_RESULT_LABEL_SENSITIVITY_INTERNAL_CONSISTENCY_ONLY",
+        "source_authentication": "NOT_AUTHENTICATED",
+        "status": "SAVED_PREDICTION_LABEL_AUDIT",
+        "time_basis": "SOURCE_WALL_CLOCK_COMPLETION_PROXY",
+        "unit": "minute",
+        "version": 1,
+        "view": "h30_26"
+      }
+    }
+  },
+  "label_report": {
+    "full_axis_minutes": 176,
+    "all_role_scored_minutes": 56,
+    "test_calendar_minutes": 48,
+    "test_scored_minutes": 18,
+    "test_unscored_minutes": 30,
+    "prediction_policy_interpretation": "ONE_FIXED_SAVED_VECTOR_PER_VIEW_THREE_LABEL_MAPPINGS_NO_REFIT",
+    "audit_fit_policy": "P_U",
+    "effectiveness_or_generalization_claim": false,
+    "exact_full_report_matches_two_independent_stdlib_oracles": true,
+    "independent_oracles_do_not_call_product_confusion_or_evaluator": true
+  },
+  "preservation": {
+    "protected_files": 325,
+    "original_input_members": 29,
+    "persisted_initial_member_bytes_hash_mtime": true,
+    "results_inputs_source_unchanged": true,
+    "copied_original_sources_unchanged": true,
+    "wheel_and_install_unchanged": true,
+    "source_roles": "Previously accepted C source/raw/prepared/two result packages plus accepted A raw/prepared for a later binding negative."
+  },
+  "resources": {
+    "continuous_peak": false,
+    "observed_bytes_including_preparation": 2858813,
+    "os_quota": false,
+    "owned_files": 275,
+    "limits": {
+      "total_seconds": 180,
+      "child_seconds": 45,
+      "task_bytes": 67108864,
+      "each_log_bytes": 1048576,
+      "cli_output_bytes": 16384
+    }
+  },
+  "wrong_valid_pair": {
+    "status": "ACTUAL_EXIT2_INPUT_BINDING_MISMATCH",
+    "source": "C current result with different accepted A raw/prepared; both legal total176/common56/train18/cal10.",
+    "extra_preprocessing_or_model": false,
+    "old_B_not_run_history_preserved": true
+  },
+  "supervision": {
+    "scope": "PRIVATE_CONTROLLER_ONLY_NOT_PRODUCT_PIPELINE",
+    "first_probe": "FAIL_RETAINED_NO_ACTUAL_LEAK_EVIDENCE",
+    "diagnostic": {
+      "status": "PARTIAL_CAPTURE",
+      "raw_accounting_queries": 41,
+      "raw_accounting_error": 24,
+      "raw_returned_bytes": 0,
+      "fixed_size_method_and_pid_list_queries": "OBSERVED",
+      "initial_job_list_pid_role": "UNRESOLVED_DISTINCT_FROM_DIRECT_PID",
+      "retained_handle_alone_causality": "NOT_ESTABLISHED_NO_AUTOMATIC_RERUN"
+    },
+    "second_probe": {
+      "status": "ROOT_ACCEPTED",
+      "normal_exit": 0,
+      "normal_forced": false,
+      "intentional_job_close_direct_exit": 0,
+      "intentional_job_close_grandchild_exit": 0,
+      "intentional_case_is_natural_exit": false,
+      "known_descendant_exit_confirmed": true
+    },
+    "cleanup_failure_stubs": "RED_THEN_GREEN_NO_PRODUCTS",
+    "all_original_failures_and_receipts_retained": true
+  },
+  "not_run": {
+    "new_source_generation": "NOT_RUN_THIS_E",
+    "new_raw_aggregation": "NOT_RUN_THIS_E",
+    "new_input_preparation": "NOT_RUN_THIS_E_INSTALLED_OPERATION",
+    "new_model_training_scoring_threshold_selection": "NOT_RUN_THIS_E_INSTALLED_OPERATION",
+    "fresh_environment_or_other_machine": "NOT_RUN",
+    "installed_physical_broken_pipe": "NOT_RUN",
+    "frontend": "NOT_RUN_NO_UI_CHANGE",
+    "api": "NOT_RUN",
+    "server": "NOT_RUN",
+    "http": "NOT_RUN",
+    "browser": "NOT_RUN",
+    "real_C17_preprocessing": "NOT_RUN",
+    "real_C17_models": "NOT_RUN",
+    "formal_comparison": "NOT_RUN"
+  },
+  "previous_exact_publication": {
+    "commit": "16082f7e787de162d1aa63050108a11a2388da50",
+    "files": 19,
+    "desktop": true,
+    "exact_remote_and_three_ci": "SUCCESS",
+    "verification": "docs/research/2026-11-11-release-example-publication.json"
+  },
+  "publication_at_snapshot": "PENDING_DESKTOP_EXACT_NEW_REMOTE_AND_CI",
+  "current_commit_and_ci": "PENDING_NOT_BORROWED_FROM_C",
+  "future_engineering": {
+    "status": "PRIVATE_NOT_ADOPTED_NOT_IMPLEMENTED",
+    "public_private_path_links": false
+  },
+  "research_stage": "S2",
+  "data_gate": "BLOCKED",
+  "D1_D6": "UNCHANGED",
+  "evidence_identities": {
+    "installed_acceptance": {
+      "byte_count": 57193,
+      "sha256": "703da1113805e1cdefa2dcdbafeb0771338c60b7d27acd281aa0e8fcda189616"
+    },
+    "installed_caller": {
+      "byte_count": 581,
+      "sha256": "98fd3693c1560cb946f9eadfd140c75f51e8eadb29418b9dfc9c427f648f7600"
+    },
+    "full_source_summary": {
+      "byte_count": 1210,
+      "sha256": "34f2be1fa051f4363925d7951b3e85ae781cb35f1d81097e025b3d8c322b71be"
+    },
+    "source_review_manifest": {
+      "byte_count": 1432,
+      "sha256": "48f5ac8a486851f7f23d36407d14472162df230764d91185aa8fe77df7feb1c8"
+    },
+    "root_pre_product_oracle": {
+      "byte_count": 11347,
+      "sha256": "969506490da1797d7375c7eea16cec26422960e819712b33f6e45ae83cf1dccd"
+    },
+    "new_core_wheel": {
+      "byte_count": 204190,
+      "sha256": "8d18108314bc88f7efbc79b648d22c2c4c8bf4316328f7068111904f3435d6e6"
+    }
+  },
+  "postrun_acceptance": {
+    "status": "ACCEPTED_AFTER_INDEPENDENT_SPEC_AND_QUALITY_ACTUAL_REVIEWS",
+    "at_utc": "2026-11-11T00:34:02.778270+00:00",
+    "protection_window": "ENDED_AFTER_FRESH_INDEPENDENT_SPEC_AND_QUALITY_ACTUAL_REVIEWS",
+    "protected_files_rechecked": 325,
+    "original_input_members_rechecked": 29,
+    "initial_bytes_sha_mtime_unchanged": true,
+    "independent_review_evidence_identities": {
+      "spec_markdown": {
+        "byte_count": 9689,
+        "sha256": "27079820fc87e6b5cf9e98065e0da32c12ceb78fb66e3ec8e23ddca9d1fd977d"
+      },
+      "spec_json": {
+        "byte_count": 178235,
+        "sha256": "a697c9a4f686d66a98f1a26c43669c72e148890d50134f45def0c78ac7cdb965"
+      },
+      "quality_markdown": {
+        "byte_count": 10607,
+        "sha256": "4a2bbe76980cbb038d4d25031d12a17d82f6efa84aabb3611c3401c8859aa0b0"
+      },
+      "quality_json": {
+        "byte_count": 37601,
+        "sha256": "fec311242c446098eb306a5ce10accf9cd9667d280e924d729081b36d96bb1cc"
+      }
+    },
+    "acceptance_evidence_identity": {
+      "byte_count": 2282,
+      "sha256": "0bf07da05a81ceeddbb2c19be469efd92ad2e33f2cc9f5edde32901a32d51b9c"
+    }
+  }
+}
