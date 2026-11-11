@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-11",
+  "status": "PREVIOUS_SEVENTEEN_FILE_SAVED_PREDICTION_LABEL_EVALUATION_DESKTOP_REMOTE_AND_CI_SUCCESS",
+  "scope": "PREVIOUS_E_PHASE_ONLY_NOT_NEW_NUMERIC_STATE_LAYER",
+  "commit": "746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb",
+  "parent": "16082f7e787de162d1aa63050108a11a2388da50",
+  "commit_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/commit/746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb",
+  "published_by": "GITHUB_DESKTOP",
+  "frozen_files": 17,
+  "all_frozen_git_blob_identities_match": true,
+  "official_ref_verified": true,
+  "local_and_remote_tracking_match": true,
+  "remote_readme": {
+    "byte_count": 26646,
+    "git_blob_oid": "31cf5b66de963c6b1f611420e97a7693e6b74f34",
+    "sha256": "9ddcd2e416d64a9544ef3bbbf2c86caaccf205d24a718d234d1a65fbb1c989ca"
+  },
+  "original_draft_excluded_and_unchanged": true,
+  "runs": [
+    {
+      "id": 42934534560,
+      "name": "文档与发布检查",
+      "head_sha": "746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42934534560"
+    },
+    {
+      "id": 42934534491,
+      "name": "核心契约检查",
+      "head_sha": "746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42934534491"
+    },
+    {
+      "id": 42934534627,
+      "name": "合成系统集成检查",
+      "head_sha": "746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42934534627"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 130241200795,
+      "name": "repository",
+      "passed": 13,
+      "seconds": 0.862,
+      "checked_files": 696,
+      "issues": 0
+    },
+    {
+      "id": 130241200941,
+      "name": "contracts",
+      "passed": 21,
+      "seconds": 0.49,
+      "openapi": "PASS"
+    },
+    {
+      "id": 130241200840,
+      "name": "frontend",
+      "passed": 318,
+      "test_files": 8,
+      "typecheck": "PASS",
+      "contracts": "PASS",
+      "build": "PASS",
+      "warning": "EXISTING_VITE_CHUNK_WARNING"
+    },
+    {
+      "id": 130241201114,
+      "name": "python",
+      "passed": 4687,
+      "skipped": 82,
+      "warnings": 1,
+      "subtests_passed": 56,
+      "seconds": 226.34,
+      "warning": "EXISTING_STARLETTE_TESTCLIENT_DEPRECATION"
+    }
+  ],
+  "job_log_identities": {
+    "job-130241200795.log": {
+      "byte_count": 14338,
+      "sha256": "4ab61aaa8a37df8831463f7e0c094b13556233309534eb82371e6fde93291c14"
+    },
+    "job-130241200840.log": {
+      "byte_count": 20268,
+      "sha256": "3a1f8dd83f02b592c8aed231c487aba2946c5c21a677ca547301cf27e890096a"
+    },
+    "job-130241200941.log": {
+      "byte_count": 23512,
+      "sha256": "09ba919fcc1af59c2c42b38436ad9f089b6d7bef68ea4450246937d7738e1ee3"
+    },
+    "job-130241201114.log": {
+      "byte_count": 44683,
+      "sha256": "8c576587f87cb5996769d28e9285f55d8cea0055148057e0d82f56d4383b4274"
+    }
+  },
+  "job_count_policy": "SEPARATE_OVERLAPPING_RESULTS_NOT_SUMMED",
+  "previous_engineering_verification": "docs/research/2026-11-11-release-if-evaluation-verification.json",
+  "actual_installed_parent_exit": 0,
+  "actual_direct_children": 7,
+  "new_numeric_state_changes_covered_by_this_commit_or_ci": false,
+  "new_numeric_state_publication_at_snapshot": "PENDING",
+  "main_merge": "NOT_RUN",
+  "research_stage": "S2",
+  "data_gate": "BLOCKED",
+  "real_study": "NOT_RUN",
+  "source": "EXACT_SHA_DESKTOP_COMMIT_OFFICIAL_REF_REMOTE_README_AND_FOUR_ACTUAL_JOB_LOG_RECEIPTS"
+}

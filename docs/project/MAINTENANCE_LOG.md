@@ -1,5 +1,12 @@
 # 仓库维护复核记录
 
+## 2026-11-11 P1人工数值状态：维护与验证
+
+P1已采用并实现固定7字段JSON codec和13/26宽数值评分；仅内存数学，无fit/export、learned-state包、CLI或页面。四阶段新安装实际运行退出0/0/0/0，12个人工case含2例zero-row，共20个分数严格核对。完整5112通过，212/110/44切片不累加；首次full41项共享进程setup前提失败及sentinel修复保留。详见[指南](../guides/iforest-numeric-state.md)与[验证](../research/2026-11-11-iforest-numeric-state-verification.json)。
+
+775保护项与12人工fixture完整初值保持，wheel82/target85，原源79与最终build162成员分列。两个被观察API进程无模型/prepare，完整回归可能包含旧人工模型fixture。主控后验接受已完成，F发布尚待完成，前批E准确746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb及三CI见[回执](../research/2026-11-11-release-if-evaluation-publication.json)。研究stage/criteria/分母/blockers和D1—D6不改；G/P2候选未采用、未实施，不链接私有提案。下文保留历史决定与旧快照。
+
+
 ## 2026-11-11 保存预测只读评价的实际运行
 
 新增两产品模块及封印测试fixture；源码46/117/6切片和双独审通过，完整Python4746通过/23跳过/1既有警告/56子测试，284原件保持。源码环境两项物理退出与安装后七阶段分别登记，未重复未改UI/浏览器。

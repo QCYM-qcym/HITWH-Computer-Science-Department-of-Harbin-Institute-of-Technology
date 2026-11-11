@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-11",
+  "status": "ACCEPTED_SOURCE_AND_INSTALLED_MANUAL_NUMERIC_STATE_CODEC_API",
+  "scope": "P1_MANUAL_NUMERIC_STATE_ENGINEERING_ONLY_NO_LEARNED_EXPORT",
+  "implementation_baseline": "746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb",
+  "guide": "docs/guides/iforest-numeric-state.md",
+  "design": "docs/design/iforest-numeric-state-v1.md",
+  "plan": "docs/superpowers/plans/2026-11-11-iforest-numeric-state.md",
+  "profile_id": "iforest-numeric-state-v1",
+  "algorithm_id": "iforest16-m32-f32route-f64path-numpy254-v1",
+  "source_code_identities": {
+    "src/core/traffic_anomaly/iforest_numeric_state.py": {
+      "bytes": 12680,
+      "sha256": "3a287a0e5f7dfafcac55bb2940a8685a1da5fefa4c67c1b101f2e0c743a0849e"
+    },
+    "src/core/traffic_anomaly/_iforest_numeric_score.py": {
+      "bytes": 4665,
+      "sha256": "47f35f484420d4c1601f017f1e632aa9e3dac7be30fd2df851b0592134b6e5f3"
+    },
+    "tests/core/iforest_numeric_state_cases.py": {
+      "bytes": 2408,
+      "sha256": "13167e7023daf3598029a58c8eeb2a5a6226ec86275447667780f7afcbb6f962"
+    },
+    "tests/core/test_iforest_numeric_state_codec.py": {
+      "bytes": 31554,
+      "sha256": "2670b5602df0ea1008755c498656fdcd5780adce17937ecce8e8105ecc1c1522"
+    },
+    "tests/core/test_iforest_numeric_score.py": {
+      "bytes": 20228,
+      "sha256": "0220cac8f1e1b05d40eab233472fa2c95fc006d1b38575fc8f87b47a5e4f75e6"
+    },
+    "tests/integration/test_iforest_numeric_state.py": {
+      "bytes": 20219,
+      "sha256": "dc22e46d0ec934263a47af99d147451b2fce75d3b4dda69a84af107ce4d8bd4e"
+    }
+  },
+  "original_nine_reviewed_bytes_archived": true,
+  "source_tests": {
+    "codec_final": 212,
+    "scorer": 110,
+    "in_memory_integration_final": 44,
+    "counts_overlap_full": true
+  },
+  "initial_full": {
+    "status": "FAIL_RETAINED",
+    "failed": 41,
+    "passed": 5068,
+    "skipped": 23,
+    "warnings": 1,
+    "subtests_passed": 56,
+    "seconds": 291.65,
+    "physical_parent_exit": 1,
+    "physical_child_exit": 1,
+    "source706_unchanged": true,
+    "cause": "New integration incorrectly required no existing model modules in the whole shared pytest process.",
+    "product_numeric_defect": "NOT_ESTABLISHED_BY_THIS_FAILURE",
+    "fix": "Preserve preloaded modules; check setup import delta and reject fresh or cached model import attempts. No removal or real model import for sentinel reproduction.",
+    "sentinel_red": {
+      "failed": 1,
+      "deselected": 41,
+      "seconds": 0.13,
+      "physical_exit": 1
+    },
+    "related_green": {
+      "passed": 44,
+      "seconds": 0.24,
+      "physical_exit": 0
+    }
+  },
+  "full_python": {
+    "state": "PASS",
+    "passed": 5112,
+    "skipped": 23,
+    "warnings": 1,
+    "subtests_passed": 56,
+    "pytest_seconds": 295.46,
+    "controller_seconds": 298.2268945000251,
+    "physical_parent_exit": 0,
+    "physical_child_exit": 0,
+    "reaped": true,
+    "forced": false,
+    "source_unchanged": true,
+    "protected_files": 706
+  },
+  "full_model_operation_totals": "NOT_MEASURED_EXISTING_ARTIFICIAL_FIXTURES_MAY_RUN",
+  "source_review": {
+    "status": "ROOT_ACCEPTED_FINAL_V3",
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "independent_report_identities": {
+      "spec-review.md": {
+        "bytes": 6820,
+        "sha256": "c268dcf525cb4624bc581d7488a5a157a433b7cee122a7747d33c5edf8d0501e"
+      },
+      "quality-review.md": {
+        "bytes": 9200,
+        "sha256": "ea2481a876c55c5b33c905ce946de27ae9329449f5c0b862375fa157f2c6d07f"
+      },
+      "spec-fix1-review.md": {
+        "bytes": 3646,
+        "sha256": "dc29d60d70aeb8a8fc001be09aadff4ee7bfabc11619e699fb6064c6b319e41c"
+      },
+      "quality-fix1-review.md": {
+        "bytes": 5153,
+        "sha256": "f35cf066d606dedd594d05423e7fb1eb140ee449f6671ff5d4ff2fee1df8cfdc"
+      },
+      "spec-integration-fix-review.md": {
+        "bytes": 4137,
+        "sha256": "334ea50ef76d50aa44fb7e2ca572232c500f82b09a889fb50f4228a60dad30f6"
+      },
+      "quality-integration-fix-review.md": {
+        "bytes": 5945,
+        "sha256": "d7b5b93131d86b6c2ab6a63610bbc5c80582075cab9f2d1ff1ca4717548c42a0"
+      }
+    }
+  },
+  "installed": {
+    "execution_status": "INSTALLED_MANUAL_NUMERIC_STATE_CODEC_API_PASS",
+    "root_acceptance": "ACCEPTED_AFTER_INDEPENDENT_POSTRUN_SPEC_AND_QUALITY_REVIEWS",
+    "physical_parent_exit": 0,
+    "direct_children": 4,
+    "physical_child_exits": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "all_reaped": true,
+    "all_unforced": true,
+    "parent_seconds_to_receipt_assembly": 6.524811199982651,
+    "elapsed_excludes_outer_exit": true,
+    "core_wheel_members": 82,
+    "installed_target_files": 85,
+    "copied_original_source_files": 79,
+    "final_build_source_members": 162,
+    "wheel_identity": {
+      "byte_count": 209565,
+      "sha256": "42454e8675115d80678b20ec2e767f9d0604eba69c00f8be463adab4fce7eaeb"
+    },
+    "dependency_environment": "NEW_TARGET_REUSED_LOCKED_DEPENDENCIES_NOT_FRESH_VENV_OR_OTHER_MACHINE",
+    "phases": [
+      {
+        "phase": "build",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "seconds": 3.1028944999561645,
+        "process_handle_closed": true,
+        "drained": true
+      },
+      {
+        "phase": "install",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "seconds": 1.8817734000040218,
+        "process_handle_closed": true,
+        "drained": true
+      },
+      {
+        "phase": "manual-both-widths",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "seconds": 0.3487370000220835,
+        "process_handle_closed": true,
+        "drained": true
+      },
+      {
+        "phase": "invalid-inputs",
+        "physical_exit": 0,
+        "reaped": true,
+        "forced": false,
+        "seconds": 0.2950188999529928,
+        "process_handle_closed": true,
+        "drained": true
+      }
+    ],
+    "product_cli": false,
+    "private_negative_runner_success_exit": 0,
+    "retries": 0
+  },
+  "artificial_cases": {
+    "case_count": 12,
+    "zero_row_cases": 2,
+    "total_scored_rows": 20,
+    "widths": [
+      13,
+      26
+    ],
+    "legal_stdout": {
+      "byte_count": 3469,
+      "sha256": "d9b61a7e3d12405c2c10469a28ecef0c1843e95b40be9c2e5a85abbeb92a3d53"
+    },
+    "negative_stdout": {
+      "byte_count": 133,
+      "sha256": "6ca986cd09d9fa1931553ef91d3f9c205b6869c73c937bd8e881fa65b3dfef41"
+    },
+    "complete_legal_report": {
+      "case_count": 12,
+      "cases": {
+        "alternating-13": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 1,
+          "scores_hex": [
+            "0x1.18e6616710a0ep-1"
+          ],
+          "state_payload": {
+            "byte_count": 3908,
+            "sha256": "f22fb0abfa8233b0ad665af123dc5185d53622a2d5797f21c2ae5e1d9676346e"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 13
+        },
+        "alternating-26": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 1,
+          "scores_hex": [
+            "0x1.18e6616710a0ep-1"
+          ],
+          "state_payload": {
+            "byte_count": 3947,
+            "sha256": "9227f1ff1ea659ae900849f0d721459c483a46a88d2b531beed5c58f8d32ddf5"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 26
+        },
+        "asymmetric-13": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 3,
+          "scores_hex": [
+            "0x1.c029e83c3a48ap-2",
+            "0x1.c029e83c3a48ap-2",
+            "0x1.601ff02248482p-1"
+          ],
+          "state_payload": {
+            "byte_count": 4140,
+            "sha256": "3185d69652ff8663e3a6e411cfcab44b7819d28b7bb0ec624a8deb45099ed0fa"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 13
+        },
+        "asymmetric-26": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 3,
+          "scores_hex": [
+            "0x1.c029e83c3a48ap-2",
+            "0x1.c029e83c3a48ap-2",
+            "0x1.601ff02248482p-1"
+          ],
+          "state_payload": {
+            "byte_count": 4179,
+            "sha256": "b72a4c00cd49bebb68cded0dae1857ce89367680b5fd376b40ea762d253723c1"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 26
+        },
+        "grouped-13": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 1,
+          "scores_hex": [
+            "0x1.18e6616710a0fp-1"
+          ],
+          "state_payload": {
+            "byte_count": 3908,
+            "sha256": "f2a284ae91f28a207e2304b645a8c24d8cb5eeeaa59399b2482cdbb961fbffa2"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 13
+        },
+        "grouped-26": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 1,
+          "scores_hex": [
+            "0x1.18e6616710a0fp-1"
+          ],
+          "state_payload": {
+            "byte_count": 3947,
+            "sha256": "cdf5084dab3b74a4d8f46af4e0000d7d5ef5099bfda6acab670adbfe02de172e"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 26
+        },
+        "root-13": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 3,
+          "scores_hex": [
+            "0x1.0000000000000p-1",
+            "0x1.0000000000000p-1",
+            "0x1.0000000000000p-1"
+          ],
+          "state_payload": {
+            "byte_count": 1612,
+            "sha256": "4c8833ddf7be067083832972b4178de39cb9580823b97c329f42513be3a69bd8"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 13
+        },
+        "root-26": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 3,
+          "scores_hex": [
+            "0x1.0000000000000p-1",
+            "0x1.0000000000000p-1",
+            "0x1.0000000000000p-1"
+          ],
+          "state_payload": {
+            "byte_count": 1651,
+            "sha256": "7d57cdbe8f639b975631ceec4aaa1442aa4d42d04672a7db9ac25d9d2fef38fe"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 26
+        },
+        "tie-13": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 2,
+          "scores_hex": [
+            "0x1.601ff02248482p-1",
+            "0x1.c029e83c3a48ap-2"
+          ],
+          "state_payload": {
+            "byte_count": 3900,
+            "sha256": "7f95c433a45e201c04f19006fa16caa5b140a1a49617453b4c2e92f5dbee4a80"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 13
+        },
+        "tie-26": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 2,
+          "scores_hex": [
+            "0x1.601ff02248482p-1",
+            "0x1.c029e83c3a48ap-2"
+          ],
+          "state_payload": {
+            "byte_count": 3939,
+            "sha256": "22d4c9c28c6831f51381dd27741383389a0aa5dcb8f7c9b20ed900048ed82378"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 26
+        },
+        "zero-13": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 0,
+          "scores_hex": [],
+          "state_payload": {
+            "byte_count": 1612,
+            "sha256": "4c8833ddf7be067083832972b4178de39cb9580823b97c329f42513be3a69bd8"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 13
+        },
+        "zero-26": {
+          "input_unchanged": true,
+          "roundtrip": true,
+          "rows": 0,
+          "scores_hex": [],
+          "state_payload": {
+            "byte_count": 1651,
+            "sha256": "7d57cdbe8f639b975631ceec4aaa1442aa4d42d04672a7db9ac25d9d2fef38fe"
+          },
+          "state_unchanged": true,
+          "tuple_result": true,
+          "width": 26
+        }
+      },
+      "status": "MANUAL_NUMERIC_INSTALLED_API_PASS"
+    },
+    "complete_negative_report": {
+      "codes": [
+        "INVALID_STATE",
+        "INVALID_STATE",
+        "INVALID_MATRIX"
+      ],
+      "runner_success_exit": 0,
+      "status": "EXPECTED_NUMERIC_API_ERRORS_OBSERVED"
+    },
+    "expected_basis": "FROZEN_PREPRODUCT_HAND_PATH_LITERALS_PLUS_INDEPENDENT_LOCAL_NUMPY_FORMULA_NO_PRODUCT_ORACLE",
+    "portability": "CURRENT_LOCKED_WINDOWS_NUMPY254_ONLY_NOT_CROSS_PLATFORM_BITWISE_SKLEARN_EQUIVALENCE"
+  },
+  "observed_api_operations": {
+    "scope": "TWO_ORDINARY_PRIVATE_API_CHILDREN_ONLY_NOT_BUILD_INSTALL_OR_FULL_SUITE",
+    "codec_import_numpy_modules": 0,
+    "model_modules": 0,
+    "model_fit": 0,
+    "model_score_samples": 0,
+    "tree_apply": 0,
+    "preprocessing_fit": 0,
+    "export_checkpoint": 0,
+    "source_csv_content_access": 0,
+    "legal_direct_harness_calls": {
+      "decode": 12,
+      "encode": 12,
+      "score": 12
+    },
+    "negative_direct_harness_calls": {
+      "decode": 3,
+      "encode": 0,
+      "score_attempt": 1
+    },
+    "legal_state_roundtrip_and_input_flags_unchanged": true,
+    "guard_scope": "High-level pure-operation I/O/network/process and model import guards; imports and receipt I/O separate; not OS syscall mediation."
+  },
+  "preservation": {
+    "protected_files": 775,
+    "manual_fixture_members": 12,
+    "initial_member_names_bytes_sha_mtime_persisted": true,
+    "flags": {
+      "copied_original_members_unchanged": true,
+      "manual_initial_names_bytes_sha_mtime_unchanged": true,
+      "persisted_copied_initial_unchanged": true,
+      "persisted_initial_identity_map_unchanged": true,
+      "persisted_initial_receipt_bytes_mtime_unchanged": true,
+      "persisted_manual_initial_unchanged": true,
+      "persisted_protected_initial_unchanged": true,
+      "persisted_target_initial_unchanged": true,
+      "persisted_wheel_initial_unchanged": true,
+      "protected_unchanged": true,
+      "source_member_map_unchanged": true,
+      "target_initial_unchanged": true,
+      "wheels_initial_unchanged": true
+    },
+    "copied_source_original_members_unchanged": true,
+    "complete_final_build_members_persisted": true,
+    "legitimate_extra_build_members": 83,
+    "source_wheel_target_initial_receipts_read_back": true,
+    "initial_receipt_file_identity_map_persisted": true
+  },
+  "resources": {
+    "continuous_peak": false,
+    "observed_bytes_including_preparation": 3354302,
+    "os_quota": false,
+    "owned_files": 271
+  },
+  "not_run": {
+    "learned_tree_fit_export_compatibility": "NOT_ADOPTED_NOT_RUN",
+    "P2_learned_state_package": "NOT_ADOPTED_NOT_IMPLEMENTED",
+    "file_package_cli_http_api_server_browser": "NOT_RUN_NOT_IN_P1_SCOPE",
+    "fresh_venv_other_machine": "NOT_RUN",
+    "real_C17_models": "NOT_RUN",
+    "formal_comparison": "NOT_RUN"
+  },
+  "previous_exact_publication": {
+    "commit": "746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb",
+    "files": 17,
+    "three_exact_ci": "SUCCESS",
+    "verification": "docs/research/2026-11-11-release-if-evaluation-publication.json"
+  },
+  "publication_at_snapshot": "PENDING_GITHUB_DESKTOP_EXACT_F_REMOTE_AND_CI",
+  "research_stage": "S2",
+  "data_gate": "BLOCKED",
+  "D1_D6": "UNCHANGED",
+  "evidence_identities": {
+    "installed_acceptance": {
+      "byte_count": 44531,
+      "sha256": "cb897d5f292e29c3d897c29bdf32862d81bfc4aff5f9d88f73fa4507a06c81f2"
+    },
+    "installed_caller": {
+      "byte_count": 820,
+      "sha256": "dfdfa80df7fc1d755492701cfb41ae64ea624f1a36da8668dbd337a1096b565d"
+    },
+    "full_v2_summary": {
+      "byte_count": 1664,
+      "sha256": "a2c16816ef80a0b6043b47473713a1fa77aec3b64a6918c2b739fe187054bb80"
+    },
+    "full_v2_caller": {
+      "byte_count": 839,
+      "sha256": "1d6e894ffbdbe88f9da0ffc87939decb371675fd50802f58908224b70fb30231"
+    },
+    "initial_full_failure": {
+      "byte_count": 3533,
+      "sha256": "fbd7365b6b1be621804c94a4a53905ecafb2621867f47efc601bf3127100c39c"
+    },
+    "source_v3_acceptance": {
+      "byte_count": 3285,
+      "sha256": "3f72335976ce243ed7662869925804320ba89fe177ff6b357ac2df97c9dff081"
+    },
+    "source_v3_manifest": {
+      "byte_count": 1432,
+      "sha256": "bd3a010714095d088e9eae8fa48dd1c7d5e1db3ea0357efb87749df7d574e77c"
+    }
+  },
+  "postrun_acceptance": {
+    "status": "ACCEPTED_AFTER_INDEPENDENT_POSTRUN_SPEC_AND_QUALITY_REVIEWS",
+    "at_utc": "2026-11-11T03:22:28.297778+00:00",
+    "current_protection_window": "ENDED",
+    "protected_files_rechecked": 775,
+    "acceptance_evidence_identity": {
+      "byte_count": 3186,
+      "sha256": "31800f74276fb4e5c190e26d281133453b33c42b690a149e1451addf6dcf2c34"
+    },
+    "independent_review_evidence_identities": {
+      "installed-spec-review.md": {
+        "byte_count": 7268,
+        "sha256": "d90402e5dfcf902e91a1a6ea890487566e32f0328276ba250b334d7aa38b2a73"
+      },
+      "installed-quality-review.md": {
+        "byte_count": 8471,
+        "sha256": "17b199daae0cc169a9df9fb7c1f323938679787c76d760cb8b9c7c861fecdab9"
+      }
+    }
+  }
+}

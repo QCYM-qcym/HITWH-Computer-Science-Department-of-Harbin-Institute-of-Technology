@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-11**。当前阶段：**数据审计**；本轮主题：保存IF预测的只读测试标签评价已在新安装目录运行通过；真实Data Gate仍BLOCKED。
+最近更新：**2026-11-11**。当前阶段：**数据审计**；本轮主题：P1人工数值状态codec与双宽评分已通过新安装后验接受；真实Data Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增保存预测只读评价与独立evaluate命令，显式绑定结果和原输入，按共同有效测试分钟报告三政策固定预测敏感性及null原因。
-- 一次新core安装7子进程均按预期退出，父进程0；wheel80成员、installed83文件，两个完整报告与两份独立stdlib预期逐字节一致。
-- 仅四个受控业务进程观察到0次模型fit/score/模型Q99和0次prepare，另6次保存分数Q99复核；实际合法输入绑定反例退出2，325保护项和29原成员含初始mtime保持。
-- 完整Python4746通过/23跳过/1既有警告/56子测试，284冻结文件保持；新源码46/117/6包含其中，人工测试setup拟合与安装操作分列，不称全回归零模型。
-- 前批C的19文件已Desktop同步至16082f7e787de162d1aa63050108a11a2388da50且准确三CI成功；E已通过独立规格和质量后验复核并由主控实际接受，发布待核，后继工程仅私有候选未采用。S2/BLOCKED保持。
+- 新增P1安全JSON森林状态codec与惰性NumPy评分，13/26宽、16树及m1..32；仅内存数学，不包含模型拟合、导出或checkpoint。
+- 一次新core安装4个直接子进程均退出0；双宽12人工case含2个zero-row，共20个分数严格匹配独立手路径预期；错误API runner成功观测三个有限code后退出0。
+- 最终源码codec212/scorer110/integration44均包含于完整5112通过/23跳过/1既有警告/56子测试；首次full的41个共享进程前提失败及sentinel修复保留，不把失败写成通过。
+- 775保护项与12人工fixture完整初始成员/字节/SHA/mtime保持，wheel82/target85；仅两个被观察API进程无模型/prepare，完整回归可能运行旧人工模型fixture。
+- 前批E的17文件已Desktop发布746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb且准确三CI成功；F已后验接受，新提交与CI待核。后继学习树比较仅私有候选，P2未采用；S2/BLOCKED不变。
 
 **当前阻塞或待验证事项**
 
@@ -75,12 +75,16 @@ flowchart TB
 
 **接下来最重要的三项任务**
 
-1. [ENG-R7](<docs/guides/release-if-evaluation.md>)：核对只读数值状态接缝的复现条件，区分手写样例和实际训练产物，明确预算及验收后再决定是否采用；当前仅私有候选，未实施。
+1. [ENG-R8](<docs/guides/iforest-numeric-state.md>)：完成P1发布与准确新CI核对；后继人工学习树导出和数值等价方案仅保留候选，未采用或运行。
 2. [C-I5](<docs/research/2026-10-24-c17-g13u-audit.md>)：依据真实分母决定最终Attempted口径和有限试点约束；先固定协议，随后分别处理主数据正式采用与生产契约迁移。
 3. [C-I7](<docs/project/DATA-GATE-2026-10-21.md>)：仅在相应批准和Gate证据满足后安排真实IF最小工程链路；本阶段训练/评分/阈值校准和正式实验继续NOT_RUN。
 
 **最新成果入口**
 
+- [P1人工数值状态内存API及范围](<docs/guides/iforest-numeric-state.md>)
+- [P1新安装四阶段与完整数值证据](<docs/research/2026-11-11-iforest-numeric-state-verification.json>)
+- [P1固定JSON/矩阵/错误设计](<docs/design/iforest-numeric-state-v1.md>)
+- [前批E准确Desktop发布与三CI回执](<docs/research/2026-11-11-release-if-evaluation-publication.json>)
 - [保存预测的测试标签审计与null指标入口](<docs/guides/release-if-evaluation.md>)
 - [只读新安装七阶段与完整标签报告验证](<docs/research/2026-11-11-release-if-evaluation-verification.json>)
 - [固定预测三政策分母和错误边界](<docs/design/release-if-evaluation-v1.md>)
@@ -225,7 +229,8 @@ flowchart TB
 
 ## 从哪里开始
 
-- [保存IF预测的只读测试标签审计](docs/guides/release-if-evaluation.md)：显式绑定保存结果和原输入，三种标签口径使用同一份预测；[七阶段新安装与完整验证](docs/research/2026-11-11-release-if-evaluation-verification.json)已通过独立后验复核并由主控接受，E准确发布与CI待核。
+- [P1人工数值状态内存API](docs/guides/iforest-numeric-state.md)：安全JSON往返与双宽数学评分；[四阶段新安装验证](docs/research/2026-11-11-iforest-numeric-state-verification.json)已由主控后验接受，学习树导出/checkpoint仍未实施。
+- [保存IF预测的只读测试标签审计](docs/guides/release-if-evaluation.md)：显式绑定保存结果和原输入，三种标签口径使用同一份预测；[七阶段新安装与完整验证](docs/research/2026-11-11-release-if-evaluation-verification.json)已通过独立后验复核并由主控接受，[E准确Desktop发布及三CI回执](docs/research/2026-11-11-release-if-evaluation-publication.json)已核对。
 - [从固定人工CSV复现完整release链](docs/guides/release-example.md)：创建实际源与摘要配置，再显式运行raw、prepare、两个IF及只读数据服务；[14阶段验收](docs/research/2026-11-11-release-example-verification.json)已完成，新安装目录复用既有锁定依赖。
 - [公开IF生成、检查与绑定命令](docs/guides/release-if-result-cli.md)：新安装后的两个实际人工视图、独立inspect/verify及有限API兼容检查已接受；[完整验证](docs/research/2026-11-11-release-if-result-cli-verification.json)区分模型、源码测试和研究范围。
 - [保存结果与双视图只读页](docs/guides/release-if-result-package.md)：自包含结果、独立重载、API和实际浏览器功能经后验对账接受；原控制器失败及证据限制见[验证记录](docs/research/2026-11-11-release-if-results-verification.json)。
@@ -260,7 +265,7 @@ tools/                仓库检查与维护工具
 .githooks/            GitHub Desktop 提交前检查
 ```
 
-`src/` 已有检测核心、后端和前端实现，合成CLI/API/网页与导出已形成最小闭环。前批固定人工CSV及摘要配置入口已在新安装目录完成14阶段的raw、prepare、两个IF、保存检查与HTTP兼容链。本轮新增保存预测只读标签审计，在新core安装目录完成七阶段验收；四个受控业务进程观察到模型fit/score/模型Q99均为0，另有6次保存分数Q99复核，完整回归的旧人工模型fixture另计。前阶段原控制器失败及后验接受分别保留。首页阶段清单和真实业务交付的 `NOT_RUN` 指真实数据研究验收，不能用人工工程通过替代。历史文档保留当时状态；当前事实以状态源、对应运行指南和验证记录为准。
+`src/` 已有检测核心、后端和前端实现，合成CLI/API/网页与导出已形成最小闭环。前批固定人工CSV及摘要配置入口已在新安装目录完成14阶段的raw、prepare、两个IF、保存检查与HTTP兼容链。本轮新增保存预测只读标签审计，在新core安装目录完成七阶段验收；四个受控业务进程观察到模型fit/score/模型Q99均为0，另有6次保存分数Q99复核，完整回归的旧人工模型fixture另计。前阶段原控制器失败及后验接受分别保留。P1数值状态层现已完成新安装四阶段验收和12个人工case；775保护项与12fixture保持，首次完整回归41项setup前提失败及修复保留，新完整5112通过。首页阶段清单和真实业务交付的 `NOT_RUN` 指真实数据研究验收，不能用人工工程通过替代。历史文档保留当时状态；当前事实以状态源、对应运行指南和验证记录为准。
 
 ## 当前研究方案
 
@@ -268,7 +273,7 @@ tools/                仓库检查与维护工具
 
 当前特征与过去窗口的中位数/MAD偏离仍是候选历史增强设计。IF、当前AE、历史增强AE已有人工工程实现；保存输入的IF消费者已接续自包含结果包、双视图只读页和公开run/inspect/verify命令。真实研究中的窗口、人口、校准及比较条件须按冻结协议执行；训练、验证、独立校准、测试保持时间顺序，测试不参与参数选择，历史先评分后更新。真实C17模型训练、评分、Q99校准和正式比较仍为NOT_RUN。
 
-项目已有Python检测核心、FastAPI后端及Vue 3/TypeScript/ECharts前端。IF结果保存、独立重载、后端只读消费与结果页面已有实际人工功能证据，范围和原失败见[运行指南](docs/guides/release-if-result-package.md)。公开生成、检查及显式输入绑定命令已完成新安装人工验收。[固定人工CSV入口](docs/guides/release-example.md)现已接通完整显式链；CSV与配方可复现，spec绑定实际源路径。[保存预测的只读测试分钟评价](docs/guides/release-if-evaluation.md)已实现并通过新安装验收；三种标签口径按同一份保存预测分列误报、漏报和空指标原因。后继数值状态接缝仅为私有候选，未采用或实施；人工工程和真实研究分别验收。
+项目已有Python检测核心、FastAPI后端及Vue 3/TypeScript/ECharts前端。IF结果保存、独立重载、后端只读消费与结果页面已有实际人工功能证据，范围和原失败见[运行指南](docs/guides/release-if-result-package.md)。公开生成、检查及显式输入绑定命令已完成新安装人工验收。[固定人工CSV入口](docs/guides/release-example.md)现已接通完整显式链；CSV与配方可复现，spec绑定实际源路径。[保存预测的只读测试分钟评价](docs/guides/release-if-evaluation.md)已实现并通过新安装验收；三种标签口径按同一份保存预测分列误报、漏报和空指标原因。[P1数值状态层](docs/guides/iforest-numeric-state.md)已实现并通过新安装后验接受，仅处理手写森林状态；学习树导出、checkpoint和P2仍未采用或实施。人工工程和真实研究分别验收。
 
 ## 本地维护
 

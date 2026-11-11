@@ -1,5 +1,12 @@
 # 文档导航
 
+## 2026-11-11 P1人工数值状态
+
+新增[P1内存指南](guides/iforest-numeric-state.md)、[设计](design/iforest-numeric-state-v1.md)和[完整验证](research/2026-11-11-iforest-numeric-state-verification.json)。安全JSON codec及惰性NumPy评分已有源码和四阶段新安装运行证据，12个人工case含两例零行，20个分数与独立手路径预期严格一致。它不包含学习树导出或checkpoint。
+
+最终5112完整回归通过；首次41个共享进程前提失败与sentinel修复保留。775项保护及12个人工fixture保持。两个被观察API进程没有模型/prepare，不据此称全回归零模型。前批E准确746ad0f及三CI见[发布回执](research/2026-11-11-release-if-evaluation-publication.json)；F主控后验接受已完成，新提交/CI待核。P2及后继人工学习树比较未采用，研究S2/Data Gate BLOCKED不变。下文各轮旧状态保留当时时点。
+
+
 ## 2026-11-11 当前工程：保存预测的只读标签评价
 
 [运行入口](guides/release-if-evaluation.md)、[分母与字段设计](design/release-if-evaluation-v1.md)、[实施计划](superpowers/plans/2026-11-11-release-if-evaluation.md)及[实际验证](research/2026-11-11-release-if-evaluation-verification.json)。固定保存预测显式绑定原输入，分列三政策test有效分母与null原因，不重新训练或选择政策。
