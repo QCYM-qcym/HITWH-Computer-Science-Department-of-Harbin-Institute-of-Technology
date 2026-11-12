@@ -2,14 +2,14 @@
   "schema_version": 1,
   "updated": "2026-11-13",
   "current_stage": "S2",
-  "theme": "学习状态CLI与查看页人工安装验收已接受，发布待核；研究仍S2/BLOCKED",
+  "theme": "AE内存接口及双视图人工工程验证已接受；研究仍S2/BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增标准库摘要和inspect/replay/fit-save；独立R2与CLI人工安装分别经后验复核接受。",
-    "六包只读查看页独立v2验收通过：55项HTTP核对全176分钟，实际桌面、320像素窄屏和第二页显示一致。",
-    "完整Python回归5624通过/26跳过/1项既有警告/56子测试；前端374项广泛回归与此前实际字节桥接分列，类型和构建通过。",
-    "首次安装观察失败、查看页v1启动模板校验失败及历史G父原始流缺口均保留；本次查看无新模型拟合或评分。",
-    "本批Desktop、准确远端和新CI待核；研究S2/Data Gate BLOCKED、真实模型和正式比较NOT_RUN保持。"
+    "新增固定CPU自编码器内存接口，支持current13与h30_26，保留完整分钟轴和独立模型阈值。",
+    "175项专项替身测试及源码审查通过；原始人工A的两模型、十次更新、十二次前向验证经独立复核接受。",
+    "同一176分钟轴、56共同分钟、18训练及10独立校准；两表示的112分数、误差通道、严格预测及三类随机状态匹配。",
+    "本批未重复本地完整套件，安装态、保存重载和AE命令/页面尚未验收；源码快照的新CI待远端核对。",
+    "前批74ca91b已通过Desktop同步及三项准确CI；研究S2/Data Gate BLOCKED、真实训练及正式比较NOT_RUN保持。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -19,9 +19,9 @@
   ],
   "next_tasks": [
     {
-      "id": "ENG-R9",
-      "text": "完成本批Desktop同步与准确新CI核对，再决定已评审的人工输入AE数值接缝；目前未采用该后继方案或放行新模型运行。",
-      "path": "docs/guides/release-if-learned.md"
+      "id": "ENG-R10",
+      "text": "完成本批Desktop同步和准确新CI，再决定AE结果包及只读inspect；已有两视图JSON可用于无拟合桥接，方案尚未采用。",
+      "path": "docs/guides/release-autoencoder.md"
     },
     {
       "id": "C-I5",
@@ -35,6 +35,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "AE内存接口与固定数值规则",
+      "path": "docs/guides/release-autoencoder.md"
+    },
+    {
+      "label": "AE源码、专项测试和人工两视图验证",
+      "path": "docs/research/2026-11-13-release-autoencoder-verification.json"
+    },
     {
       "label": "学习状态命令与只读查看接口设计",
       "path": "docs/design/release-if-learned-workflows-v1.md"
@@ -4069,7 +4077,7 @@
     "model_origin": "NOT_AUTHENTICATED",
     "real_study": "NOT_RUN",
     "research_gate": "BLOCKED",
-    "publication": "PENDING_DESKTOP_EXACT_COMMIT_AND_NEW_CI",
+    "publication": "DESKTOP_PUSHED_EXACT_REMOTE_AND_THREE_CI_PASS",
     "prior_source_publication": {
       "commit": "2f5082fe0f1edc88750a24cae7280bdc0a5892c6",
       "exact_CI": "THREE_WORKFLOWS_SUCCESS",
@@ -4083,8 +4091,9 @@
     "guide": "docs/guides/release-if-learned.md",
     "verification": "docs/research/2026-11-12-release-if-learned-verification.json",
     "next_observer_work": [
-      "EXACT_DESKTOP_REMOTE_AND_NEW_CI_PUBLICATION",
-      "REVIEWED_RELEASE_AE_DESIGN_NOT_ADOPTED_NO_SOURCE_OR_MODEL_RELEASE"
+      "PRIOR_PUBLICATION_VERIFIED_74CA91B",
+      "AE_SUCCESSOR_ACCEPTED_SEE_RELEASE_AUTOENCODER",
+      "AE_RESULT_PACKAGE_PROPOSED_NOT_ADOPTED"
     ],
     "installed_view": {
       "status": "PASS_ROOT_ACCEPTED_DISTINCT_V2_READONLY_CONTRACT",
@@ -4093,6 +4102,61 @@
       "http_requests": 55,
       "browser": "BOUNDED_DESKTOP_320PX_PAGE2_ACCEPTED",
       "prior_v1": "FAILED_NO_RETRY_RETAINED"
+    },
+    "publication_evidence": {
+      "commit": "74ca91b4c3ceb1dd08f4ecf0cb1a6e3600b13253",
+      "branch": "codex/candidate-flow-adapter",
+      "remote_matches": true,
+      "main_merged": false,
+      "core_workflow": 43285172582,
+      "docs_workflow": 43285172341,
+      "synthetic_workflow": 43285172364,
+      "core_tests": 21,
+      "repository_tests": 13,
+      "Linux_python": "3.14.10",
+      "synthetic_python_passed": 5564,
+      "synthetic_python_skipped": 86,
+      "synthetic_python_subtests": 56,
+      "frontend_passed": 375,
+      "all_three_CI": "SUCCESS",
+      "scope": "PRIOR_CLI_AND_VIEW_BATCH_NOT_NEW_AE_ACCEPTANCE"
     }
+  },
+  "release_autoencoder": {
+    "status": "SOURCE_AND_ORIGINAL_A_NUMERICAL_ACCEPTED",
+    "scope": "ARTIFICIAL_IN_MEMORY_ENGINEERING_ONLY",
+    "guide": "docs/guides/release-autoencoder.md",
+    "verification": "docs/research/2026-11-13-release-autoencoder-verification.json",
+    "source_review": "PASS_SPEC_AND_QUALITY",
+    "manual_unique_cases": 175,
+    "manual_model_kind": "CLOSED_FAKES_ONLY",
+    "final_hand_calibration_calls": 24,
+    "final_hand_calibration_values": 96,
+    "actual_views": [
+      "current13",
+      "h30_26"
+    ],
+    "actual_models": 2,
+    "actual_updates": 10,
+    "actual_top_level_forwards": 12,
+    "actual_model_q99_calls": 2,
+    "actual_common_minutes": 56,
+    "actual_score_values_across_views": 112,
+    "independent_actual_reviews": "SPEC_AND_QUALITY_C0_I0_M0",
+    "rng_domains_restored_each_view": 3,
+    "runtime_equal_across_views": true,
+    "dedicated_cold_import": "NOT_RUN",
+    "installed_AE": "NOT_RUN",
+    "persistence": "NOT_RUN",
+    "CLI": "NOT_RUN",
+    "HTTP_and_UI": "NOT_RUN",
+    "full_local_regression": "NOT_RUN_NO_NEW_INTERACTION_CONCERN",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "derivation_replay": "NOT_PERFORMED",
+    "research_gate": "BLOCKED",
+    "real_study": "NOT_RUN",
+    "formal_comparison": "NOT_RUN",
+    "publication": "PENDING_AT_SNAPSHOT_DESKTOP_EXACT_COMMIT_AND_NEW_CI",
+    "future_result_package": "PROPOSED_NOT_ADOPTED"
   }
 }

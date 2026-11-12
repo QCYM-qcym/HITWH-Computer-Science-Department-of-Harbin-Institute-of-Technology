@@ -1,5 +1,11 @@
 # 测试
 
+## 2026-11-13 AE内存接口验证
+
+[AE验证记录](../docs/research/2026-11-13-release-autoencoder-verification.json)分开登记175项手工用例与一次真实人工双视图观察。手工组为60项准入和115项数值/错误交互，模型使用闭合替身；最终一轮另有24次真实校准算术、96个选值断言。七次手工pytest观察含两次保留的围栏/环境配置失败，重叠用例不累加。实际双视图为2模型/10更新/12前向，独立后验规格和质量审查均C0/I0/M0。
+
+本批未重复完整本地回归，新提交CI待核对；下文5624项完整回归属于AE新增前的独立批次。专门冷导入、安装、持久化、CLI和页面仍NOT_RUN，研究S2/Data Gate BLOCKED保持。API用法见[AE指南](../docs/guides/release-autoencoder.md)。
+
 ## 2026-11-13 学习状态工作流验证
 
 新增测试分别覆盖标准库摘要、三类命令的路径与输出失败、六包注册、前台服务生命周期，以及独立页面的请求清理和规范字节。源码、人工安装命令链、真实服务及浏览器证据分别登记，入口见[学习状态指南](../docs/guides/release-if-learned.md)和[CLI 验证](../docs/research/2026-11-13-release-if-learned-cli-verification.json)。

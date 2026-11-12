@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-13**。当前阶段：**数据审计**；本轮主题：学习状态CLI与查看页人工安装验收已接受，发布待核；研究仍S2/BLOCKED。
+最近更新：**2026-11-13**。当前阶段：**数据审计**；本轮主题：AE内存接口及双视图人工工程验证已接受；研究仍S2/BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增标准库摘要和inspect/replay/fit-save；独立R2与CLI人工安装分别经后验复核接受。
-- 六包只读查看页独立v2验收通过：55项HTTP核对全176分钟，实际桌面、320像素窄屏和第二页显示一致。
-- 完整Python回归5624通过/26跳过/1项既有警告/56子测试；前端374项广泛回归与此前实际字节桥接分列，类型和构建通过。
-- 首次安装观察失败、查看页v1启动模板校验失败及历史G父原始流缺口均保留；本次查看无新模型拟合或评分。
-- 本批Desktop、准确远端和新CI待核；研究S2/Data Gate BLOCKED、真实模型和正式比较NOT_RUN保持。
+- 新增固定CPU自编码器内存接口，支持current13与h30_26，保留完整分钟轴和独立模型阈值。
+- 175项专项替身测试及源码审查通过；原始人工A的两模型、十次更新、十二次前向验证经独立复核接受。
+- 同一176分钟轴、56共同分钟、18训练及10独立校准；两表示的112分数、误差通道、严格预测及三类随机状态匹配。
+- 本批未重复本地完整套件，安装态、保存重载和AE命令/页面尚未验收；源码快照的新CI待远端核对。
+- 前批74ca91b已通过Desktop同步及三项准确CI；研究S2/Data Gate BLOCKED、真实训练及正式比较NOT_RUN保持。
 
 **当前阻塞或待验证事项**
 
@@ -75,12 +75,14 @@ flowchart TB
 
 **接下来最重要的三项任务**
 
-1. [ENG-R9](<docs/guides/release-if-learned.md>)：完成本批Desktop同步与准确新CI核对，再决定已评审的人工输入AE数值接缝；目前未采用该后继方案或放行新模型运行。
+1. [ENG-R10](<docs/guides/release-autoencoder.md>)：完成本批Desktop同步和准确新CI，再决定AE结果包及只读inspect；已有两视图JSON可用于无拟合桥接，方案尚未采用。
 2. [C-I5](<docs/research/2026-10-24-c17-g13u-audit.md>)：依据真实分母决定最终Attempted口径和有限试点约束；先固定协议，随后分别处理主数据正式采用与生产契约迁移。
 3. [C-I7](<docs/project/DATA-GATE-2026-10-21.md>)：仅在相应批准和Gate证据满足后安排真实IF最小工程链路；本阶段训练/评分/阈值校准和正式实验继续NOT_RUN。
 
 **最新成果入口**
 
+- [AE内存接口与固定数值规则](<docs/guides/release-autoencoder.md>)
+- [AE源码、专项测试和人工两视图验证](<docs/research/2026-11-13-release-autoencoder-verification.json>)
 - [学习状态命令与只读查看接口设计](<docs/design/release-if-learned-workflows-v1.md>)
 - [学习状态工作流源码及分项验证](<docs/research/2026-11-13-release-if-learned-workflow-verification.json>)
 - [学习状态CLI独立人工安装验收](<docs/research/2026-11-13-release-if-learned-cli-verification.json>)

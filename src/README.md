@@ -1,5 +1,9 @@
 # 程序入口
 
+## 2026-11-13 保存输入的AE内存消费者
+
+[自编码器指南](../docs/guides/release-autoencoder.md)给出 `fit_release_autoencoder(pair, *, view)`：消费既有保存输入，固定CPU current13/H30_26设置，返回不可变分数、通道、损失与独立校准结果。源码、175项手工用例及一次原始人工 A 的真实双视图观察已接受，详见[验证记录](../docs/research/2026-11-13-release-autoencoder-verification.json)。本接口没有保存/重载、CLI或页面入口，专门冷导入与安装态仍NOT_RUN；发布和新提交CI待核对，研究S2/Data Gate BLOCKED保持。
+
 ## 2026-11-13 学习状态命令与只读查看
 
 [学习状态使用指南](../docs/guides/release-if-learned.md)包含 `inspect`、显式四包 `replay` 和两个独立输出的 `fit-save`。标准库摘要与命令已实现，原始人工 A 的独立安装命令链已接受；六包只读查看工厂、前台启动器及页面的独立v2人工安装验收也已接受，覆盖55项HTTP、全部176分钟和实际桌面/320像素窄屏/第二页。查看页不拟合、评分或复算模型；此前v1模板校验失败保留。

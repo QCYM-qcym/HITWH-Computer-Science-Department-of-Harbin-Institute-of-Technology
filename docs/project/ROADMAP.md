@@ -1,5 +1,13 @@
 # 滚动项目路线图
 
+## 2026-11-13 当前工程：AE数值接口已验收，ENG-R10待发布
+
+新增AE内存接口及对应测试，共2个文件，既有业务源码保持。175项受控替身测试通过，原人工A的两视图实际运行及规格、质量后验复核均为C0/I0/M0，主控已接受。用法与范围见[AE指南](../guides/release-autoencoder.md)和[验证记录](../research/2026-11-13-release-autoencoder-verification.json)。
+
+当前先完成ENG-R10的Desktop提交、推送与准确新CI，再考虑尚未采用的AE结果包/inspect方案。本批未重复旧完整本地回归；独立冷导入、AE安装、持久化和CLI/UI均为NOT_RUN。C-I5/C-I7及S2/Data Gate BLOCKED保持，真实研究与正式比较NOT_RUN，既有492固定源限制不扩展到原始A，生产134/268不迁移。
+
+前批CLI/查看页已发布到[`74ca91b4c3ceb1dd08f4ecf0cb1a6e3600b13253`](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/commit/74ca91b4c3ceb1dd08f4ecf0cb1a6e3600b13253)，其[核心契约CI](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/43285172582)、[文档CI](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/43285172341)与[合成CI](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/43285172364)已接受，证据范围止于前批。新AE的Desktop/CI仍待完成；原始失败与历史G缺口保留，下方为各时点旧队列。
+
 ## 2026-11-13 当前工程队列
 
 [学习状态命令](../guides/release-if-learned.md)的标准库摘要、inspect、显式 replay 和 fit-save 已完成，独立 R2 与后继 CLI 人工安装各有接受记录。六包只读查看页独立v2已完成安装、55项HTTP、全176分钟与实际浏览器验收，本轮5624项完整 Python 回归也已接受。先完成 Desktop 同步与准确新CI，再决定已评审的人工输入AE数值接缝；该后继方案当前未采用或执行。具体结果见[项目状态](status.json)，不借用历史全量或旧 CI，首次安装失败、查看页v1失败及历史G缺口保持原记录。研究 C-I5/C-I7 与 S2/BLOCKED 不变，真实模型及正式比较 NOT_RUN。下方保留旧队列的当时记录。
