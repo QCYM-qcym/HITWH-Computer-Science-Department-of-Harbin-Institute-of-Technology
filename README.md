@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-11**。当前阶段：**数据审计**；本轮主题：P1人工数值状态codec与双宽评分已通过新安装后验接受；真实Data Gate仍BLOCKED。
+最近更新：**2026-11-12**。当前阶段：**数据审计**；本轮主题：G十例170项人工数值兼容观察已有限接受；完整控制器原始父流条件未核定，真实Data Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增P1安全JSON森林状态codec与惰性NumPy评分，13/26宽、16树及m1..32；仅内存数学，不包含模型拟合、导出或checkpoint。
-- 一次新core安装4个直接子进程均退出0；双宽12人工case含2个zero-row，共20个分数严格匹配独立手路径预期；错误API runner成功观测三个有限code后退出0。
-- 最终源码codec212/scorer110/integration44均包含于完整5112通过/23跳过/1既有警告/56子测试；首次full的41个共享进程前提失败及sentinel修复保留，不把失败写成通过。
-- 775保护项与12人工fixture完整初始成员/字节/SHA/mtime保持，wheel82/target85；仅两个被观察API进程无模型/prepare，完整回归可能运行旧人工模型fixture。
-- 前批E的17文件已Desktop发布746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb且准确三CI成功；F已后验接受，新提交与CI待核。后继学习树比较仅私有候选，P2未采用；S2/BLOCKED不变。
+- G仅接受固定十个新人工模型导出到未改P1的数值观察：160树/2198节点，170/170 binary64 hex精确匹配，max_abs0.0/max_ulp0；无生产代码变更。
+- 父进程及两个直接子进程均实际退出0，无重试；生产端fit/score_samples/encode及核对端decode/reencode/score的attempt/completed各10。
+- 完整冻结控制器契约仍INCOMPLETE（C0/I1/M0）：原生父stdout/stderr未分开捕获，只有CRLF文本单逻辑标记，精确LF/空stderr条件UNVERIFIED；子原始流已核定，不重建或重跑覆盖。
+- 913保护原件、core153含73既有缓存、target85、fixture10、终态20完整初值保持，保护窗口已结束；内部10.3251232秒到收据排除父退出，外层108秒仅保守上界。
+- F准确17文件已Desktop发布248848c88b1d353039e26a9b62d526c5422f736a且三CI成功；G发布/新CI待核。P2私有设计NOT_ADOPTED，研究S2/BLOCKED及真实研究NOT_RUN不变。
 
 **当前阻塞或待验证事项**
 
@@ -75,12 +75,15 @@ flowchart TB
 
 **接下来最重要的三项任务**
 
-1. [ENG-R8](<docs/guides/iforest-numeric-state.md>)：完成P1发布与准确新CI核对；后继人工学习树导出和数值等价方案仅保留候选，未采用或运行。
+1. [ENG-R8](<docs/guides/iforest-export-compatibility.md>)：完成G有限数值观察文档发布与准确新CI核对；任何下一实际观察先准备独立有界的父原始流捕获。P2仍私有设计未采用，真实研究不放行。
 2. [C-I5](<docs/research/2026-10-24-c17-g13u-audit.md>)：依据真实分母决定最终Attempted口径和有限试点约束；先固定协议，随后分别处理主数据正式采用与生产契约迁移。
 3. [C-I7](<docs/project/DATA-GATE-2026-10-21.md>)：仅在相应批准和Gate证据满足后安排真实IF最小工程链路；本阶段训练/评分/阈值校准和正式实验继续NOT_RUN。
 
 **最新成果入口**
 
+- [G十例人工数值观察与父原始流证据缺口](<docs/guides/iforest-export-compatibility.md>)
+- [G十例170项完整hex与有限接受证据](<docs/research/2026-11-12-iforest-export-compatibility-verification.json>)
+- [前批F准确17文件Desktop发布与三CI回执](<docs/research/2026-11-11-iforest-numeric-state-publication.json>)
 - [P1人工数值状态内存API及范围](<docs/guides/iforest-numeric-state.md>)
 - [P1新安装四阶段与完整数值证据](<docs/research/2026-11-11-iforest-numeric-state-verification.json>)
 - [P1固定JSON/矩阵/错误设计](<docs/design/iforest-numeric-state-v1.md>)

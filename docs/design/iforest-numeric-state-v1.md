@@ -1,6 +1,6 @@
 # P1 有界 IF 数值状态层：设计 v1
 
-日期：2026-11-11。状态：W0按持续自主工程授权采用P1，独立builder检查PASS。起点`746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb`已Desktop发布并核对官方远端及README；准确CI分别记录。本P1实现、源码测试和新安装实际运行已通过；主控后验接受已完成，新发布待核。研究S2/Data Gate BLOCKED、真实模型与正式实验NOT_RUN不变。
+日期：2026-11-11。状态：W0按持续自主工程授权采用P1，独立builder检查PASS。起点`746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb`已Desktop发布并核对官方远端及README；准确CI分别记录。本P1实现、源码测试和新安装实际运行已通过；主控后验接受已完成，F准确17文件已Desktop发布并核对三CI，见[发布回执](../research/2026-11-11-iforest-numeric-state-publication.json)。研究S2/Data Gate BLOCKED、真实模型与正式实验NOT_RUN不变。
 
 本P1只定义安全JSON森林状态的encode/decode，以及对有限二维数值矩阵评分的纯函数。状态只描述推理数学，不包含raw/prepared/result身份、语义特征名称、源认证、view、标签、policy、训练/校准分钟、threshold或Q99。无fit、sklearn导出、文件包、CLI、save/load路径、网络或I/O。P2才接真实新人工fit/export、pair绑定和新三成员包；P1通过不能称checkpoint完成。
 
@@ -142,4 +142,4 @@ W0已冻结本设计、实施计划、API和owner。本P1是工程采用，不�
 
 ## 实际工程快照
 
-212/110/44源码切片与完整5112回归重叠，首次full41项setup前提失败保留；新安装四阶段0/0/0/0和双宽12个人工case见[验证](../research/2026-11-11-iforest-numeric-state-verification.json)。原九文件接受字节已归档，后续文档状态更新不替代原源码审查身份。P1仍无fit/export、文件包或CLI，主控后验接受已完成，F准确发布待核，P2/G候选未采用。
+212/110/44源码切片与完整5112回归重叠，首次full41项setup前提失败保留；新安装四阶段0/0/0/0和双宽12个人工case见[验证](../research/2026-11-11-iforest-numeric-state-verification.json)。原九文件接受字节已归档，后续文档状态更新不替代原源码审查身份。P1仍无fit/export、文件包或CLI。F准确发布与三CI已完成；G另有十例/170项人工数值观察获有限接受，未改P1生产代码，完整控制器契约仍INCOMPLETE（C0/I1/M0），父进程原始stdout/stderr条件UNVERIFIED。详见[G观察边界](../guides/iforest-export-compatibility.md)。G不等同P2包实现；P2在本发布快照仍为私有设计NOT_ADOPTED。

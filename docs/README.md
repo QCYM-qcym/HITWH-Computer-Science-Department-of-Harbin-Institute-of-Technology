@@ -1,5 +1,13 @@
 # 文档导航
 
+## 2026-11-12 G人工学习树导出的数值观察
+
+[范围与父进程流缺口](guides/iforest-export-compatibility.md)、[十例完整人工hex证据](research/2026-11-12-iforest-export-compatibility-verification.json)及[前批F准确发布回执](research/2026-11-11-iforest-numeric-state-publication.json)。十个固定新人工模型共160棵树/2,198节点，170/170分数逐位一致；父及两个子进程均实际退出0，无重试，本轮无生产代码变更。
+
+仅数值观察获接受；完整冻结控制器契约仍INCOMPLETE（C0/I1/M0），原生父进程stdout/stderr未单独捕获，工具CRLF文本的单逻辑标记不能证明精确LF/空stderr。内部10.3251232秒排除父退出，外层108秒仅保守上界。913保护原件及core153/target85/fixture10/终态20保持，窗口已结束。未重建缺失流或重跑覆盖。
+
+F的17文件已Desktop发布248848c88b1d353039e26a9b62d526c5422f736a，准确远端/三CI成功；G文档发布与准确新CI为PENDING_AT_SNAPSHOT。P2仍私有设计NOT_ADOPTED，研究S2/Data Gate BLOCKED及真实研究NOT_RUN保持。下文保留各轮当时状态。
+
 ## 2026-11-11 P1人工数值状态
 
 新增[P1内存指南](guides/iforest-numeric-state.md)、[设计](design/iforest-numeric-state-v1.md)和[完整验证](research/2026-11-11-iforest-numeric-state-verification.json)。安全JSON codec及惰性NumPy评分已有源码和四阶段新安装运行证据，12个人工case含两例零行，20个分数与独立手路径预期严格一致。它不包含学习树导出或checkpoint。

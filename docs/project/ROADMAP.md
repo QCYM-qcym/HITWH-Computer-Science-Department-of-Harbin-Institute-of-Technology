@@ -1,5 +1,15 @@
 # 滚动项目路线图
 
+## 2026-11-12 当前工程：G数值观察有限接受
+
+仅接受固定十个人工新模型导出到未改动P1的数值兼容观察：160棵树/2,198节点，170/170 binary64 hex逐项一致，max_abs0.0/max_ulp0；父进程与两个直接子进程均实际退出0，无重试。生产端fit/score_samples/encode与核对端decode/reencode/score的attempt/completed均10。详见[范围与限制](../guides/iforest-export-compatibility.md)和[完整人工数值证据](../research/2026-11-12-iforest-export-compatibility-verification.json)。本轮无生产代码变更。
+
+完整冻结控制器契约仍为INCOMPLETE（C0/I1/M0）：原生父进程stdout/stderr没有单独捕获，工具只保留CRLF文本的一个逻辑标记；精确LF/空stderr条件UNVERIFIED，不推断通过或原始字节失配。子进程原始流条件已核定。内部10.3251232秒到收据、排除父退出；外层108秒仅保守上界。913保护原件、完整core153（含73既有缓存）、target85、fixture10及终态20原初值保持，窗口已结束；未重建缺失流或重跑覆盖。
+
+前批F的17文件已Desktop发布248848c88b1d353039e26a9b62d526c5422f736a，准确远端/三CI成功见[回执](../research/2026-11-11-iforest-numeric-state-publication.json)，不覆盖G。本轮发布与准确新CI为PENDING_AT_SNAPSHOT。P2仍为私有设计NOT_ADOPTED；S2/Data Gate BLOCKED、真实研究及正式比较NOT_RUN，研究验收条件/分母、D1—D6及后续研究任务保持。下文保留各轮原时点记录。
+
+当前工程队列先完成本快照发布和准确新CI核对；任何后续实际观察须先准备独立有界的父进程原始流捕获，并另行采用与放行。G不构成P2包或真实数据Gate放行。
+
 ## 2026-11-11 P1人工数值状态：当前工程队列
 
 P1已采用并实现固定7字段JSON codec和13/26宽数值评分；仅内存数学，无fit/export、learned-state包、CLI或页面。四阶段新安装实际运行退出0/0/0/0，12个人工case含2例zero-row，共20个分数严格核对。完整5112通过，212/110/44切片不累加；首次full41项共享进程setup前提失败及sentinel修复保留。详见[指南](../guides/iforest-numeric-state.md)与[验证](../research/2026-11-11-iforest-numeric-state-verification.json)。

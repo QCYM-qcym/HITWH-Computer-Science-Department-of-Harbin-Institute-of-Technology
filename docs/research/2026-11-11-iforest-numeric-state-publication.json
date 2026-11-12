@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-12",
+  "phase_date": "2026-11-11",
+  "status": "PREVIOUS_SEVENTEEN_FILE_P1_NUMERIC_STATE_DESKTOP_REMOTE_AND_THREE_CI_SUCCESS",
+  "scope": "PREVIOUS_F_P1_ONLY_NOT_G_NUMERIC_OBSERVATION_OR_P2",
+  "commit": "248848c88b1d353039e26a9b62d526c5422f736a",
+  "parent": "746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb",
+  "commit_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/commit/248848c88b1d353039e26a9b62d526c5422f736a",
+  "published_by": "GITHUB_DESKTOP",
+  "branch": "codex/candidate-flow-adapter",
+  "frozen_files": 17,
+  "all_frozen_git_blob_identities_match": true,
+  "official_ref_verified": true,
+  "local_and_remote_tracking_match": true,
+  "remote_readme": {
+    "byte_count": 27633,
+    "git_blob_oid": "efccd7a018ee8d91cbb6c94b240f7506d9ccf7dd",
+    "sha256": "f3460ccb532b26aceebc7e108b3ee2e4839480bc9cf71fb060197a9592d6744b"
+  },
+  "original_draft_excluded_and_unchanged": true,
+  "runs": [
+    {
+      "id": 42953851134,
+      "name": "核心契约检查",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "248848c88b1d353039e26a9b62d526c5422f736a",
+      "html_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42953851134"
+    },
+    {
+      "id": 42953850832,
+      "name": "文档与发布检查",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "248848c88b1d353039e26a9b62d526c5422f736a",
+      "html_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42953850832"
+    },
+    {
+      "id": 42953850858,
+      "name": "合成系统集成检查",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "248848c88b1d353039e26a9b62d526c5422f736a",
+      "html_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/42953850858"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 130304178228,
+      "name": "repository",
+      "passed": 13,
+      "seconds": 0.781,
+      "checked_files": 707,
+      "issues": 0
+    },
+    {
+      "id": 130304178865,
+      "name": "contracts",
+      "passed": 21,
+      "seconds": 0.94,
+      "openapi": "MATCHED"
+    },
+    {
+      "id": 130304178105,
+      "name": "frontend",
+      "passed": 318,
+      "test_files": 8,
+      "typecheck": "PASS",
+      "build": "PASS",
+      "contracts": "PASS"
+    },
+    {
+      "id": 130304178497,
+      "name": "python",
+      "passed": 5053,
+      "skipped": 82,
+      "warnings": 1,
+      "subtests_passed": 56,
+      "seconds": 292.43
+    }
+  ],
+  "job_log_identities": {
+    "job-130304178105.log": {
+      "byte_count": 20347,
+      "sha256": "d8a818ed874bb7ddbf5119ad7a80c54a926cb1987335dbf8f5acf2c1f0f127ab"
+    },
+    "job-130304178228.log": {
+      "byte_count": 14337,
+      "sha256": "8d1a3ee54cd938bed0c44724e80789778ff7b266dfe029c12e10426a23f269bb"
+    },
+    "job-130304178497.log": {
+      "byte_count": 45149,
+      "sha256": "605396339dbe12fc8a58f73ceb19387b878572b0c9441df16f6e28460c3ff691"
+    },
+    "job-130304178865.log": {
+      "byte_count": 23511,
+      "sha256": "8b161ca9fec5520917b26f658615444b1c21acb12abf9107aabef79a91be1a26"
+    }
+  },
+  "job_count_policy": "SEPARATE_OVERLAPPING_RESULTS_NOT_SUMMED",
+  "local_full": {
+    "passed": 5112,
+    "skipped": 23,
+    "warnings": 1,
+    "subtests_passed": 56,
+    "seconds": 295.46,
+    "physical_parent_exit": 0
+  },
+  "retained_warnings": [
+    "Existing Starlette TestClient/httpx deprecation",
+    "Vite chunk-size notice and GitHub Actions Node deprecation messages in raw logs"
+  ],
+  "previous_engineering_verification": "docs/research/2026-11-11-iforest-numeric-state-verification.json",
+  "private_receipt_identities": {
+    "root-approval": {
+      "byte_count": 4740,
+      "sha256": "a83934da0cd26e2dec7554e7aacfba749bf31001ff724ae863a2a9fa83992341"
+    },
+    "desktop-commit": {
+      "byte_count": 634,
+      "sha256": "c2b0cdbf4611de8c23de2d6db14f87365720e81eb53b7f2ce0eb3d0c3eae88aa"
+    },
+    "official-remote-sync": {
+      "byte_count": 1740,
+      "sha256": "111281f7260d49663457362bcdaae7b998f681c653b80fc28834bb4541600388"
+    },
+    "exact-CI": {
+      "byte_count": 3271,
+      "sha256": "48794b1ca94fdce84b1538f6469b16d73de493fd9a9c9781581a9387640fbfd2"
+    }
+  },
+  "new_G_observation_covered_by_this_commit_or_ci": false,
+  "new_G_publication_at_snapshot": "PENDING_GITHUB_DESKTOP_EXACT_G_REMOTE_AND_CI",
+  "commit_time_pending_fields": "RETAINED_AS_HISTORICAL_SNAPSHOT_NO_RECURSIVE_SELF_HASH_FILL",
+  "main_merge": "NOT_RUN",
+  "research_stage": "S2",
+  "data_gate": "BLOCKED",
+  "real_study": "NOT_RUN",
+  "source": "EXACT_SHA_DESKTOP_COMMIT_OFFICIAL_REF_REMOTE_README_AND_FOUR_ACTUAL_JOB_LOG_RECEIPTS"
+}

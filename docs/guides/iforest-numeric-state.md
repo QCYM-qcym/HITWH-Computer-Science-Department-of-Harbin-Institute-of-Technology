@@ -1,6 +1,6 @@
 # 有界 IF 人工数值状态的内存接口
 
-日期：2026-11-11。状态：P1 源码与新安装运行通过；独立规格和质量后验复核后已由主控实际接受，公开发布待核。设计见[数值状态 v1](../design/iforest-numeric-state-v1.md)，分工见[实施计划](../superpowers/plans/2026-11-11-iforest-numeric-state.md)。
+日期：2026-11-11。状态：P1 源码与新安装运行通过；独立规格和质量后验复核后已由主控实际接受，F的17文件已Desktop发布并核对准确远端及三CI，见[发布回执](../research/2026-11-11-iforest-numeric-state-publication.json)。设计见[数值状态 v1](../design/iforest-numeric-state-v1.md)，分工见[实施计划](../superpowers/plans/2026-11-11-iforest-numeric-state.md)。
 
 本层接受手写森林状态与二维数值矩阵，完成规范 JSON 字节往返和纯数学评分。它没有模型拟合、sklearn 树导出或 checkpoint，也不提供文件包、CLI、HTTP API 或页面。P2 的训练产物导出与输入、结果绑定尚未采用。研究阶段保持 S2 / Data Gate `BLOCKED`，真实数据模型及正式比较仍为 `NOT_RUN`。
 
@@ -106,4 +106,4 @@ score 先检查 state，再检查运行时，最后检查矩阵。`KeyboardInter
 
 775保护项和12个人工fixture的初始完整名称/字节/SHA/mtime保持。原复制源79成员保持，构建后完整162成员另存，新增build产物没有冒充原件未变；wheel/target及持久initial收据从盘读回核对。控制器6.5248112秒记录到最终收据组装，3,354,302字节含准备，均不是模型延迟、内存峰值或研究成本。详见[完整验证](../research/2026-11-11-iforest-numeric-state-verification.json)。
 
-前批E准确17文件Desktop发布及三CI见[回执](../research/2026-11-11-release-if-evaluation-publication.json)，不能替代F新提交/CI。本F已由主控后验接受，新提交与准确CI仍待核；学习树导出比较仅私有候选，P2未采用，真实研究Gate不变。
+前批E准确17文件Desktop发布及三CI见[回执](../research/2026-11-11-release-if-evaluation-publication.json)。本F已发布为248848c88b1d353039e26a9b62d526c5422f736a，准确远端与三CI见[F回执](../research/2026-11-11-iforest-numeric-state-publication.json)。后续G只接受十个固定新人工模型的170项数值兼容观察；完整控制器契约仍INCOMPLETE（C0/I1/M0），原生父进程原始流未捕获，详见[G范围与限制](iforest-export-compatibility.md)。G无生产代码变更，也未采用P2；真实研究Gate不变。

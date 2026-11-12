@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "current_stage": "S2",
-  "theme": "P1人工数值状态codec与双宽评分已通过新安装后验接受；真实Data Gate仍BLOCKED",
+  "theme": "G十例170项人工数值兼容观察已有限接受；完整控制器原始父流条件未核定，真实Data Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增P1安全JSON森林状态codec与惰性NumPy评分，13/26宽、16树及m1..32；仅内存数学，不包含模型拟合、导出或checkpoint。",
-    "一次新core安装4个直接子进程均退出0；双宽12人工case含2个zero-row，共20个分数严格匹配独立手路径预期；错误API runner成功观测三个有限code后退出0。",
-    "最终源码codec212/scorer110/integration44均包含于完整5112通过/23跳过/1既有警告/56子测试；首次full的41个共享进程前提失败及sentinel修复保留，不把失败写成通过。",
-    "775保护项与12人工fixture完整初始成员/字节/SHA/mtime保持，wheel82/target85；仅两个被观察API进程无模型/prepare，完整回归可能运行旧人工模型fixture。",
-    "前批E的17文件已Desktop发布746ad0fc3ef2f3e8ef808d6a553ae479e5d387fb且准确三CI成功；F已后验接受，新提交与CI待核。后继学习树比较仅私有候选，P2未采用；S2/BLOCKED不变。"
+    "G仅接受固定十个新人工模型导出到未改P1的数值观察：160树/2198节点，170/170 binary64 hex精确匹配，max_abs0.0/max_ulp0；无生产代码变更。",
+    "父进程及两个直接子进程均实际退出0，无重试；生产端fit/score_samples/encode及核对端decode/reencode/score的attempt/completed各10。",
+    "完整冻结控制器契约仍INCOMPLETE（C0/I1/M0）：原生父stdout/stderr未分开捕获，只有CRLF文本单逻辑标记，精确LF/空stderr条件UNVERIFIED；子原始流已核定，不重建或重跑覆盖。",
+    "913保护原件、core153含73既有缓存、target85、fixture10、终态20完整初值保持，保护窗口已结束；内部10.3251232秒到收据排除父退出，外层108秒仅保守上界。",
+    "F准确17文件已Desktop发布248848c88b1d353039e26a9b62d526c5422f736a且三CI成功；G发布/新CI待核。P2私有设计NOT_ADOPTED，研究S2/BLOCKED及真实研究NOT_RUN不变。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -20,8 +20,8 @@
   "next_tasks": [
     {
       "id": "ENG-R8",
-      "text": "完成P1发布与准确新CI核对；后继人工学习树导出和数值等价方案仅保留候选，未采用或运行。",
-      "path": "docs/guides/iforest-numeric-state.md"
+      "text": "完成G有限数值观察文档发布与准确新CI核对；任何下一实际观察先准备独立有界的父原始流捕获。P2仍私有设计未采用，真实研究不放行。",
+      "path": "docs/guides/iforest-export-compatibility.md"
     },
     {
       "id": "C-I5",
@@ -35,6 +35,18 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "G十例人工数值观察与父原始流证据缺口",
+      "path": "docs/guides/iforest-export-compatibility.md"
+    },
+    {
+      "label": "G十例170项完整hex与有限接受证据",
+      "path": "docs/research/2026-11-12-iforest-export-compatibility-verification.json"
+    },
+    {
+      "label": "前批F准确17文件Desktop发布与三CI回执",
+      "path": "docs/research/2026-11-11-iforest-numeric-state-publication.json"
+    },
     {
       "label": "P1人工数值状态内存API及范围",
       "path": "docs/guides/iforest-numeric-state.md"
@@ -3768,7 +3780,7 @@
       "verification": "docs/research/2026-11-11-release-if-evaluation-publication.json"
     },
     "publication_at_snapshot": "PENDING_GITHUB_DESKTOP_EXACT_F_REMOTE_AND_CI",
-    "learned_state_export": "NOT_ADOPTED_NOT_RUN",
+    "learned_state_export": "G_FIXED_ARTIFICIAL_NUMERIC_OBSERVATION_ONLY_FULL_CONTROLLER_CONTRACT_INCOMPLETE",
     "P2": "NOT_ADOPTED",
     "research_stage": "S2",
     "data_gate": "BLOCKED",
@@ -3792,6 +3804,104 @@
           "sha256": "17b199daae0cc169a9df9fb7c1f323938679787c76d760cb8b9c7c861fecdab9"
         }
       }
+    },
+    "publication_receipt": "docs/research/2026-11-11-iforest-numeric-state-publication.json",
+    "published_commit": "248848c88b1d353039e26a9b62d526c5422f736a",
+    "current_export_observation": "docs/research/2026-11-12-iforest-export-compatibility-verification.json"
+  },
+  "iforest_export_compatibility": {
+    "status": "ACCEPT_NUMERIC_COMPATIBILITY_OBSERVATION_ONLY",
+    "scope": "TEN_FRESH_FIXED_ARTIFICIAL_ESTIMATORS_EXPORTED_TO_UNCHANGED_P1_IN_LOCKED_ENVIRONMENT_ONLY",
+    "production_code_changes": false,
+    "numeric_scope_review": {
+      "status": "ACCEPTED",
+      "critical": 0,
+      "important": 0,
+      "minor": 0
+    },
+    "full_frozen_controller_contract": {
+      "status": "INCOMPLETE",
+      "critical": 0,
+      "important": 1,
+      "minor": 0,
+      "native_parent_stdout_stderr_raw_bytes": "NOT_SEPARATELY_CAPTURED",
+      "parent_exact_LF_stdout_and_empty_raw_stderr": "UNVERIFIED_NO_PASS_OR_MISMATCH_INFERRED",
+      "tool_observed_text": "G_ARTIFICIAL_COMPATIBILITY_PASS_CALLER_EXIT_PENDING\r\n",
+      "logical_single_marker_matches": true,
+      "child_raw_streams": "EXACT_CANONICAL_LF_STDOUT_AND_EMPTY_STDERR_VERIFIED",
+      "missing_parent_bytes_reconstructed": false
+    },
+    "case_count": 10,
+    "compared_values": 170,
+    "matched_values": 170,
+    "tree_count": 160,
+    "node_count": 2198,
+    "max_abs": 0.0,
+    "max_ulp": 0,
+    "actual_direct_counts": {
+      "checker": {
+        "decode_attempt": 10,
+        "decode_completed": 10,
+        "reencode_attempt": 10,
+        "reencode_completed": 10,
+        "score_attempt": 10,
+        "score_completed": 10
+      },
+      "producer": {
+        "encode_attempt": 10,
+        "encode_completed": 10,
+        "fit_attempt": 10,
+        "fit_completed": 10,
+        "score_samples_attempt": 10,
+        "score_samples_completed": 10
+      }
+    },
+    "timing": {
+      "controller_seconds_to_receipt": 10.325123200076632,
+      "excludes_native_parent_exit": true,
+      "external_duration": "NOT_MEASURED_EXACTLY",
+      "conservative_external_upper_bound_seconds": 108,
+      "whole_observation_limit_seconds": 120,
+      "upper_bound_is_exact_runtime": false,
+      "model_latency_or_research_cost_claim": false
+    },
+    "preservation": {
+      "window": "ENDED_AFTER_FINAL_ORIGINAL_CHECK_BEFORE_PUBLICATION_OR_P2_CHANGES",
+      "protected_original_members": 913,
+      "complete_core_disk_members": 153,
+      "preexisting_core_caches_included": 73,
+      "accepted_installed_target_members": 85,
+      "fixtures": 10,
+      "runtime_terminal_members": 20,
+      "initial_receipt_bindings": 15,
+      "supplementary_members": 25,
+      "tracked_repository_members": 707,
+      "named_baseline_members_including_original_draft": 708,
+      "all_original_names_bytes_sha_mtime_match": true,
+      "unrelated_original_draft_unchanged": true,
+      "counts_are_distinct_scopes_not_summed": true
+    },
+    "P2": "NOT_ADOPTED_PRIVATE_DESIGN_ONLY_AT_THIS_PUBLICATION_SNAPSHOT",
+    "research_stage": "S2",
+    "data_gate": "BLOCKED",
+    "real_study": "NOT_RUN",
+    "formal_comparison": "NOT_RUN",
+    "network_detection_performance_claim": false,
+    "main_merge": "NOT_RUN",
+    "publication_at_snapshot": "PENDING_GITHUB_DESKTOP_EXACT_G_REMOTE_AND_CI",
+    "guide": "docs/guides/iforest-export-compatibility.md",
+    "P1_publication_receipt": "docs/research/2026-11-11-iforest-numeric-state-publication.json",
+    "verification": "docs/research/2026-11-12-iforest-export-compatibility-verification.json",
+    "physical_parent_exit": 0,
+    "physical_child_exits": [
+      0,
+      0
+    ],
+    "direct_children": 2,
+    "no_retry": true,
+    "root_acceptance_identity": {
+      "byte_count": 3641,
+      "sha256": "4ef875b3bbaf201389fedd42c0109bb36f7e4e1e55bd45e314e7a252dd552c80"
     }
   }
 }
