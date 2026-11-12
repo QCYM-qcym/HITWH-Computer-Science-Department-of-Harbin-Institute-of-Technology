@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-12",
+  "feature": "release-if-learned-v1",
+  "publication_state": "SOURCE_VERIFIED_INSTALLED_OBSERVER_FAILED_PUBLICATION_PENDING",
+  "implementation": "IMPLEMENTED",
+  "new_product_modules": [
+    "src/core/traffic_anomaly/release_if_learned_contract.py",
+    "src/core/traffic_anomaly/release_if_learned.py",
+    "src/core/traffic_anomaly/release_if_learned_package.py"
+  ],
+  "cli": "NOT_IMPLEMENTED",
+  "ui": "NOT_IMPLEMENTED",
+  "source_reviews": {
+    "independent_spec": "C0/I0/M0",
+    "independent_quality": "C0/I0/M0",
+    "root_acceptance": "ACCEPTED_SOURCE_SCOPE",
+    "independent_full_regression_harness": "C0/I0/M0"
+  },
+  "targeted_tests": {
+    "contract_and_P1": {
+      "passed": 347,
+      "skipped": 0
+    },
+    "operation_and_existing_IF_result": {
+      "passed": 250,
+      "skipped": 0
+    },
+    "disk_and_existing_result_input": {
+      "passed": 254,
+      "skipped": 10
+    },
+    "counting_rule": "OVERLAPPING_SCOPES_DO_NOT_SUM",
+    "skip_scope": "HOST_SYMLINK_PERMISSION_AND_PLATFORM_SPECIFIC_SEMANTICS"
+  },
+  "source_integration": {
+    "status": "ACCEPTED_SOFTWARE_TEST_SCOPE_ONLY",
+    "test": "tests/integration/test_release_if_learned.py",
+    "views": [
+      "current13",
+      "h30_26"
+    ],
+    "minutes": 176,
+    "common": 55,
+    "train": 17,
+    "calibration": 4,
+    "preprocessing_fit": 18,
+    "fresh_constructions": 2,
+    "fresh_fits": 2,
+    "original_score_calls": 2,
+    "original_score_values": 110,
+    "fit_P1_values": 110,
+    "independent_replay_P1_values": 110,
+    "full_hex_arrays_match": true,
+    "moved_packages_replayed": true,
+    "native_parent_stdout_captured": true,
+    "native_parent_stderr_captured": true,
+    "native_replay_child_stdout_captured": true,
+    "native_replay_child_stderr_captured": true,
+    "replay_model_imports": 0,
+    "replay_model_calls": 0,
+    "numpy_bootstrap": "STDLIB_PICKLE_DEPENDENCY_IMPORT_OBSERVED_SEPARATELY",
+    "post_bootstrap_pickle_operations": 0,
+    "raw_prepared_package_loading": "NOT_EXERCISED_HAND_DECLARED_SOURCE_PAIR",
+    "fit_input_kind": "ARTIFICIAL_HAND_DECLARED_INPUT_NOT_REAL_DATA"
+  },
+  "full_regression": {
+    "status": "PASS_ROOT_ACCEPTED_SOURCE_SCOPE",
+    "passed": 5375,
+    "skipped": 26,
+    "warnings": 1,
+    "warning": "EXISTING_STARLETTE_TESTCLIENT_HTTPX_DEPRECATION",
+    "subtests_passed": 56,
+    "pytest_seconds": 314.42,
+    "native_parent_exit": 0,
+    "native_parent_raw_stdout_captured": true,
+    "native_parent_raw_stderr_captured": true,
+    "reaped": true,
+    "forced": false,
+    "process_handle_closed": true,
+    "source_preserved": true,
+    "scope": "ARTIFICIAL_SOURCE_REGRESSION_ONLY"
+  },
+  "installed_original_artificial_A": {
+    "status": "FAILED_OBSERVER_CONTRACT",
+    "input_selection": "ORIGINAL_ACCEPTED_A_NOT_LATER_GENERATED_EXAMPLE_OR_HAND_SOURCE_PAIR",
+    "required_counts": {
+      "minutes": 176,
+      "common": 56,
+      "offmask": 120,
+      "train": 18,
+      "calibration": 10,
+      "preprocessing_fit": 18
+    },
+    "required_segment_common": [
+      18,
+      10,
+      10,
+      18
+    ],
+    "planned_fresh_fits": 2,
+    "planned_original_score_values": 112,
+    "planned_fit_P1_values": 112,
+    "planned_replay_P1_values": 112,
+    "planned_model_calibration_rows": 20,
+    "planned_replay_calibration_rows": 20,
+    "actual_result": {
+      "numerical_status": "ACCEPTED_SCOPED_NUMERICAL_DISK_OBSERVATION_NOT_FULL_OBSERVER",
+      "fresh_fits": 2,
+      "original_score_calls": 2,
+      "fit_P1_values": 112,
+      "replay_P1_values": 112,
+      "full_hex_match": true,
+      "model_calibration_rows": 20,
+      "replay_calibration_rows": 20,
+      "cold_codec_disk_observed": true,
+      "binding_semantic_negatives_observed": 6,
+      "internal_phases": 5,
+      "internal_phase_exits": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal_phase_unforced": true,
+      "internal_phase_reaped": true,
+      "controller_exit": 0,
+      "outer_caller_exit": 1,
+      "caller_completion_receipt": "ABSENT",
+      "outer_job_native_total": 20,
+      "inner_job_native_total_sum": 18,
+      "frozen_expected_total": 19,
+      "native_total_assertion": "OUTER_NATIVE_TOTAL_EXACT_SUM_FAILED",
+      "persistent_wheel_cache_write_outside_task": true,
+      "outside_cache_footprint": "UNKNOWN",
+      "full_timing_resource_write_scope_pass": false,
+      "retry": false,
+      "frozen_runtime_and_residue_preserved": true
+    },
+    "observer_independent_reviews": {
+      "spec": "C0/I2/M0",
+      "quality": "C0/I2/M0",
+      "disposition": "FULL_OBSERVER_FAILED_SCOPED_NUMERICAL_AND_DISK_EVIDENCE_SUPPORTED"
+    },
+    "root_decision": "ACCEPT_SCOPED_NUMERICAL_DISK_OBSERVATION_FULL_OBSERVER_FAILED"
+  },
+  "purity_contract": {
+    "module_import_codec_learned_disk": "STDLIB_PLUS_STDLIB_P1_CODEC_NUMPY_PICKLE_MODELS_FENCED",
+    "replay": "EXPLICIT_NUMPY_BOOTSTRAP_THEN_MODEL_AND_PICKLE_OPERATION_FENCES",
+    "syscall_complete_mediation": false
+  },
+  "limits": {
+    "numeric_state_bytes": 262144,
+    "manifest_bytes": 8192,
+    "complete_bytes": 4096,
+    "total_bytes": 274432
+  },
+  "original_G_controller": "INCOMPLETE_PARENT_RAW_STREAM_CRITERION_STILL_UNVERIFIED",
+  "source_authentication": "NOT_AUTHENTICATED",
+  "model_origin": "NOT_AUTHENTICATED",
+  "derivation_replay": "NOT_PERFORMED",
+  "full_end_to_end_causal_origin_proof": "NOT_CLAIMED",
+  "real_study": "NOT_RUN",
+  "research_gate": "BLOCKED",
+  "training_on_real_inputs": "NOT_RUN",
+  "new_data_download": "NOT_RUN",
+  "next_observer_work": [
+    "REVISE_NATIVE_COUNT_POLICY_TO_OBSERVED_BOUNDED_COUNTS_WITHOUT_FIXED_ONE_CONTROLLER_ASSUMPTION",
+    "PIP_NO_CACHE_DIR_AND_TASK_LOCAL_TEMP",
+    "NO_FIT_HARNESS_REGRESSIONS_AND_INDEPENDENT_REVIEW_BEFORE_SEPARATE_RUN_RELEASE"
+  ]
+}

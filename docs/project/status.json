@@ -2,14 +2,14 @@
   "schema_version": 1,
   "updated": "2026-11-12",
   "current_stage": "S2",
-  "theme": "G十例170项人工数值兼容观察已有限接受；完整控制器原始父流条件未核定，真实Data Gate仍BLOCKED",
+  "theme": "IF学习状态源码/完整回归已接受；安装态观察器契约失败，真实Data Gate仍BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "G仅接受固定十个新人工模型导出到未改P1的数值观察：160树/2198节点，170/170 binary64 hex精确匹配，max_abs0.0/max_ulp0；无生产代码变更。",
-    "父进程及两个直接子进程均实际退出0，无重试；生产端fit/score_samples/encode及核对端decode/reencode/score的attempt/completed各10。",
-    "完整冻结控制器契约仍INCOMPLETE（C0/I1/M0）：原生父stdout/stderr未分开捕获，只有CRLF文本单逻辑标记，精确LF/空stderr条件UNVERIFIED；子原始流已核定，不重建或重跑覆盖。",
-    "913保护原件、core153含73既有缓存、target85、fixture10、终态20完整初值保持，保护窗口已结束；内部10.3251232秒到收据排除父退出，外层108秒仅保守上界。",
-    "F准确17文件已Desktop发布248848c88b1d353039e26a9b62d526c5422f736a且三CI成功；G发布/新CI待核。P2私有设计NOT_ADOPTED，研究S2/BLOCKED及真实研究NOT_RUN不变。"
+    "学习状态新增三个模块及标准库包格式；源码规格/质量双独立审查C0/I0/M0与根审查接受，没有新增CLI/UI。",
+    "完整源码回归5375通过/26跳过/1项既有TestClient警告/56子测试，314.42秒；父原始流已捕获，源码保持。",
+    "源码人工输入两次新拟合，原始与拟合侧P1各110值、独立复算110值精确匹配；定向347/250/254通过及10跳过范围重叠，不相加。",
+    "安装态观察器契约FAILED_OBSERVER_CONTRACT：112+112值与20+20校准行仅OBSERVED_NOT_FULL_ACCEPTED；外层原生计数假设失败且构建写入任务外pip缓存，未重跑。",
+    "G准确Desktop提交be9d04ea55e1b090809e9539b7f43095616915dc及三CI已成功；历史G完整控制器父原始流缺口仍UNVERIFIED，研究S2/BLOCKED及真实NOT_RUN不变。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -20,8 +20,8 @@
   "next_tasks": [
     {
       "id": "ENG-R8",
-      "text": "完成G有限数值观察文档发布与准确新CI核对；任何下一实际观察先准备独立有界的父原始流捕获。P2仍私有设计未采用，真实研究不放行。",
-      "path": "docs/guides/iforest-export-compatibility.md"
+      "text": "保留首次完整安装观测失败与双后验记录；独立复核计数和禁缓存的私有修订版及无模型回归，再另行冻结放行新安装运行。",
+      "path": "docs/guides/release-if-learned.md"
     },
     {
       "id": "C-I5",
@@ -35,6 +35,18 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "IF学习状态保存与显式复算",
+      "path": "docs/guides/release-if-learned.md"
+    },
+    {
+      "label": "学习状态源码/完整回归与安装态分列验证",
+      "path": "docs/research/2026-11-12-release-if-learned-verification.json"
+    },
+    {
+      "label": "学习状态三模块和固定包设计",
+      "path": "docs/design/release-if-learned-v1.md"
+    },
     {
       "label": "G十例人工数值观察与父原始流证据缺口",
       "path": "docs/guides/iforest-export-compatibility.md"
@@ -3903,5 +3915,125 @@
       "byte_count": 3641,
       "sha256": "4ef875b3bbaf201389fedd42c0109bb36f7e4e1e55bd45e314e7a252dd552c80"
     }
+  },
+  "release_if_learned": {
+    "status": "SOURCE_IMPLEMENTED_FULL_SOURCE_PASS_INSTALLED_OBSERVER_FAILED",
+    "design": "ADOPTED",
+    "implementation": "IMPLEMENTED",
+    "source_reviews": {
+      "spec": "C0/I0/M0",
+      "quality": "C0/I0/M0",
+      "root": "ACCEPTED"
+    },
+    "source_integration": {
+      "status": "ACCEPTED_ARTIFICIAL_SOURCE_SCOPE",
+      "fresh_fits": 2,
+      "original_values": 110,
+      "fit_P1_values": 110,
+      "replay_P1_values": 110,
+      "common": 55,
+      "train": 17,
+      "calibration": 4
+    },
+    "full_regression": {
+      "status": "PASS_ROOT_ACCEPTED_SOURCE_SCOPE",
+      "passed": 5375,
+      "skipped": 26,
+      "warnings": 1,
+      "warning": "EXISTING_STARLETTE_TESTCLIENT_HTTPX_DEPRECATION",
+      "subtests_passed": 56,
+      "pytest_seconds": 314.42,
+      "native_parent_exit": 0,
+      "native_parent_raw_stdout_captured": true,
+      "native_parent_raw_stderr_captured": true,
+      "reaped": true,
+      "forced": false,
+      "process_handle_closed": true,
+      "source_preserved": true,
+      "scope": "ARTIFICIAL_SOURCE_REGRESSION_ONLY"
+    },
+    "installed_original_A": {
+      "status": "FAILED_OBSERVER_CONTRACT",
+      "input_selection": "ORIGINAL_ACCEPTED_A_NOT_LATER_GENERATED_EXAMPLE_OR_HAND_SOURCE_PAIR",
+      "required_counts": {
+        "minutes": 176,
+        "common": 56,
+        "offmask": 120,
+        "train": 18,
+        "calibration": 10,
+        "preprocessing_fit": 18
+      },
+      "required_segment_common": [
+        18,
+        10,
+        10,
+        18
+      ],
+      "planned_fresh_fits": 2,
+      "planned_original_score_values": 112,
+      "planned_fit_P1_values": 112,
+      "planned_replay_P1_values": 112,
+      "planned_model_calibration_rows": 20,
+      "planned_replay_calibration_rows": 20,
+      "actual_result": {
+        "numerical_status": "ACCEPTED_SCOPED_NUMERICAL_DISK_OBSERVATION_NOT_FULL_OBSERVER",
+        "fresh_fits": 2,
+        "original_score_calls": 2,
+        "fit_P1_values": 112,
+        "replay_P1_values": 112,
+        "full_hex_match": true,
+        "model_calibration_rows": 20,
+        "replay_calibration_rows": 20,
+        "cold_codec_disk_observed": true,
+        "binding_semantic_negatives_observed": 6,
+        "internal_phases": 5,
+        "internal_phase_exits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "internal_phase_unforced": true,
+        "internal_phase_reaped": true,
+        "controller_exit": 0,
+        "outer_caller_exit": 1,
+        "caller_completion_receipt": "ABSENT",
+        "outer_job_native_total": 20,
+        "inner_job_native_total_sum": 18,
+        "frozen_expected_total": 19,
+        "native_total_assertion": "OUTER_NATIVE_TOTAL_EXACT_SUM_FAILED",
+        "persistent_wheel_cache_write_outside_task": true,
+        "outside_cache_footprint": "UNKNOWN",
+        "full_timing_resource_write_scope_pass": false,
+        "retry": false,
+        "frozen_runtime_and_residue_preserved": true
+      },
+      "observer_independent_reviews": {
+        "spec": "C0/I2/M0",
+        "quality": "C0/I2/M0",
+        "disposition": "FULL_OBSERVER_FAILED_SCOPED_NUMERICAL_AND_DISK_EVIDENCE_SUPPORTED"
+      },
+      "root_decision": "ACCEPT_SCOPED_NUMERICAL_DISK_OBSERVATION_FULL_OBSERVER_FAILED"
+    },
+    "cli": "NOT_IMPLEMENTED",
+    "ui": "NOT_IMPLEMENTED",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "model_origin": "NOT_AUTHENTICATED",
+    "real_study": "NOT_RUN",
+    "research_gate": "BLOCKED",
+    "publication": "PENDING_DESKTOP_EXACT_COMMIT_AND_NEW_CI",
+    "prior_G_publication": {
+      "commit": "be9d04ea55e1b090809e9539b7f43095616915dc",
+      "exact_CI": "THREE_WORKFLOWS_SUCCESS",
+      "original_controller_gap": "UNVERIFIED_UNCHANGED"
+    },
+    "guide": "docs/guides/release-if-learned.md",
+    "verification": "docs/research/2026-11-12-release-if-learned-verification.json",
+    "next_observer_work": [
+      "REVISE_NATIVE_COUNT_POLICY_TO_OBSERVED_BOUNDED_COUNTS_WITHOUT_FIXED_ONE_CONTROLLER_ASSUMPTION",
+      "PIP_NO_CACHE_DIR_AND_TASK_LOCAL_TEMP",
+      "NO_FIT_HARNESS_REGRESSIONS_AND_INDEPENDENT_REVIEW_BEFORE_SEPARATE_RUN_RELEASE"
+    ]
   }
 }

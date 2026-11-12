@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-12**。当前阶段：**数据审计**；本轮主题：G十例170项人工数值兼容观察已有限接受；完整控制器原始父流条件未核定，真实Data Gate仍BLOCKED。
+最近更新：**2026-11-12**。当前阶段：**数据审计**；本轮主题：IF学习状态源码/完整回归已接受；安装态观察器契约失败，真实Data Gate仍BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- G仅接受固定十个新人工模型导出到未改P1的数值观察：160树/2198节点，170/170 binary64 hex精确匹配，max_abs0.0/max_ulp0；无生产代码变更。
-- 父进程及两个直接子进程均实际退出0，无重试；生产端fit/score_samples/encode及核对端decode/reencode/score的attempt/completed各10。
-- 完整冻结控制器契约仍INCOMPLETE（C0/I1/M0）：原生父stdout/stderr未分开捕获，只有CRLF文本单逻辑标记，精确LF/空stderr条件UNVERIFIED；子原始流已核定，不重建或重跑覆盖。
-- 913保护原件、core153含73既有缓存、target85、fixture10、终态20完整初值保持，保护窗口已结束；内部10.3251232秒到收据排除父退出，外层108秒仅保守上界。
-- F准确17文件已Desktop发布248848c88b1d353039e26a9b62d526c5422f736a且三CI成功；G发布/新CI待核。P2私有设计NOT_ADOPTED，研究S2/BLOCKED及真实研究NOT_RUN不变。
+- 学习状态新增三个模块及标准库包格式；源码规格/质量双独立审查C0/I0/M0与根审查接受，没有新增CLI/UI。
+- 完整源码回归5375通过/26跳过/1项既有TestClient警告/56子测试，314.42秒；父原始流已捕获，源码保持。
+- 源码人工输入两次新拟合，原始与拟合侧P1各110值、独立复算110值精确匹配；定向347/250/254通过及10跳过范围重叠，不相加。
+- 安装态观察器契约FAILED_OBSERVER_CONTRACT：112+112值与20+20校准行仅OBSERVED_NOT_FULL_ACCEPTED；外层原生计数假设失败且构建写入任务外pip缓存，未重跑。
+- G准确Desktop提交be9d04ea55e1b090809e9539b7f43095616915dc及三CI已成功；历史G完整控制器父原始流缺口仍UNVERIFIED，研究S2/BLOCKED及真实NOT_RUN不变。
 
 **当前阻塞或待验证事项**
 
@@ -75,12 +75,15 @@ flowchart TB
 
 **接下来最重要的三项任务**
 
-1. [ENG-R8](<docs/guides/iforest-export-compatibility.md>)：完成G有限数值观察文档发布与准确新CI核对；任何下一实际观察先准备独立有界的父原始流捕获。P2仍私有设计未采用，真实研究不放行。
+1. [ENG-R8](<docs/guides/release-if-learned.md>)：保留首次完整安装观测失败与双后验记录；独立复核计数和禁缓存的私有修订版及无模型回归，再另行冻结放行新安装运行。
 2. [C-I5](<docs/research/2026-10-24-c17-g13u-audit.md>)：依据真实分母决定最终Attempted口径和有限试点约束；先固定协议，随后分别处理主数据正式采用与生产契约迁移。
 3. [C-I7](<docs/project/DATA-GATE-2026-10-21.md>)：仅在相应批准和Gate证据满足后安排真实IF最小工程链路；本阶段训练/评分/阈值校准和正式实验继续NOT_RUN。
 
 **最新成果入口**
 
+- [IF学习状态保存与显式复算](<docs/guides/release-if-learned.md>)
+- [学习状态源码/完整回归与安装态分列验证](<docs/research/2026-11-12-release-if-learned-verification.json>)
+- [学习状态三模块和固定包设计](<docs/design/release-if-learned-v1.md>)
 - [G十例人工数值观察与父原始流证据缺口](<docs/guides/iforest-export-compatibility.md>)
 - [G十例170项完整hex与有限接受证据](<docs/research/2026-11-12-iforest-export-compatibility-verification.json>)
 - [前批F准确17文件Desktop发布与三CI回执](<docs/research/2026-11-11-iforest-numeric-state-publication.json>)
