@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "current_stage": "S2",
-  "theme": "IF学习状态源码/完整回归已接受；安装态观察器契约失败，真实Data Gate仍BLOCKED",
+  "theme": "学习状态CLI与查看页人工安装验收已接受，发布待核；研究仍S2/BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "学习状态新增三个模块及标准库包格式；源码规格/质量双独立审查C0/I0/M0与根审查接受，没有新增CLI/UI。",
-    "完整源码回归5375通过/26跳过/1项既有TestClient警告/56子测试，314.42秒；父原始流已捕获，源码保持。",
-    "源码人工输入两次新拟合，原始与拟合侧P1各110值、独立复算110值精确匹配；定向347/250/254通过及10跳过范围重叠，不相加。",
-    "安装态观察器契约FAILED_OBSERVER_CONTRACT：112+112值与20+20校准行仅OBSERVED_NOT_FULL_ACCEPTED；外层原生计数假设失败且构建写入任务外pip缓存，未重跑。",
-    "G准确Desktop提交be9d04ea55e1b090809e9539b7f43095616915dc及三CI已成功；历史G完整控制器父原始流缺口仍UNVERIFIED，研究S2/BLOCKED及真实NOT_RUN不变。"
+    "新增标准库摘要和inspect/replay/fit-save；独立R2与CLI人工安装分别经后验复核接受。",
+    "六包只读查看页独立v2验收通过：55项HTTP核对全176分钟，实际桌面、320像素窄屏和第二页显示一致。",
+    "完整Python回归5624通过/26跳过/1项既有警告/56子测试；前端374项广泛回归与此前实际字节桥接分列，类型和构建通过。",
+    "首次安装观察失败、查看页v1启动模板校验失败及历史G父原始流缺口均保留；本次查看无新模型拟合或评分。",
+    "本批Desktop、准确远端和新CI待核；研究S2/Data Gate BLOCKED、真实模型和正式比较NOT_RUN保持。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -19,8 +19,8 @@
   ],
   "next_tasks": [
     {
-      "id": "ENG-R8",
-      "text": "保留首次完整安装观测失败与双后验记录；独立复核计数和禁缓存的私有修订版及无模型回归，再另行冻结放行新安装运行。",
+      "id": "ENG-R9",
+      "text": "完成本批Desktop同步与准确新CI核对，再决定已评审的人工输入AE数值接缝；目前未采用该后继方案或放行新模型运行。",
       "path": "docs/guides/release-if-learned.md"
     },
     {
@@ -35,6 +35,22 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "学习状态命令与只读查看接口设计",
+      "path": "docs/design/release-if-learned-workflows-v1.md"
+    },
+    {
+      "label": "学习状态工作流源码及分项验证",
+      "path": "docs/research/2026-11-13-release-if-learned-workflow-verification.json"
+    },
+    {
+      "label": "学习状态CLI独立人工安装验收",
+      "path": "docs/research/2026-11-13-release-if-learned-cli-verification.json"
+    },
+    {
+      "label": "独立R2修订安装验收与旧失败分列",
+      "path": "docs/research/2026-11-12-release-if-learned-installed-r2.json"
+    },
     {
       "label": "IF学习状态保存与显式复算",
       "path": "docs/guides/release-if-learned.md"
@@ -3917,7 +3933,7 @@
     }
   },
   "release_if_learned": {
-    "status": "SOURCE_IMPLEMENTED_FULL_SOURCE_PASS_INSTALLED_OBSERVER_FAILED",
+    "status": "CLI_AND_VIEW_V2_ARTIFICIAL_INSTALLED_ROOT_ACCEPTED_PUBLICATION_PENDING",
     "design": "ADOPTED",
     "implementation": "IMPLEMENTED",
     "source_reviews": {
@@ -4016,13 +4032,49 @@
       },
       "root_decision": "ACCEPT_SCOPED_NUMERICAL_DISK_OBSERVATION_FULL_OBSERVER_FAILED"
     },
-    "cli": "NOT_IMPLEMENTED",
-    "ui": "NOT_IMPLEMENTED",
+    "installed_R2": {
+      "status": "PASS_ROOT_ACCEPTED_DISTINCT_ARTIFICIAL_CONTRACT",
+      "verification": "docs/research/2026-11-12-release-if-learned-installed-r2.json",
+      "original_failure_retroactively_repaired": false
+    },
+    "cli": "IMPLEMENTED_ARTIFICIAL_INSTALLED_ACCEPTED",
+    "cli_verification": "docs/research/2026-11-13-release-if-learned-cli-verification.json",
+    "ui": "ARTIFICIAL_INSTALLED_HTTP_BROWSER_ROOT_ACCEPTED_DISTINCT_V2",
+    "workflow_design": "docs/design/release-if-learned-workflows-v1.md",
+    "current_frontend": {
+      "first_actual_bridge_file_tests": 57,
+      "first_actual_bridge_exit": 0,
+      "subsequent_typecheck": "PASS_AFTER_NARROW_TEST_ONLY_STRING_ADMISSION",
+      "subsequent_independent_tests": 56,
+      "broad_regression_passed": 374,
+      "broad_regression_explicitly_filtered_prior_bridge": 1,
+      "counts_overlap_not_additive": true,
+      "contracts": "PASS",
+      "build": "PASS_EXISTING_CHUNK_WARNING"
+    },
+    "successor_full_python_regression": {
+      "status": "PASS_ROOT_ACCEPTED_ARTIFICIAL_SOURCE_SCOPE",
+      "passed": 5624,
+      "skipped": 26,
+      "warnings": 1,
+      "subtests_passed": 56,
+      "pytest_seconds": 318.04,
+      "physical_test_parent_exit": 0,
+      "physical_external_caller_exit": 0,
+      "sources_preserved": true,
+      "verification": "docs/research/2026-11-13-release-if-learned-workflow-verification.json",
+      "installed_view_browser_covered": false
+    },
     "source_authentication": "NOT_AUTHENTICATED",
     "model_origin": "NOT_AUTHENTICATED",
     "real_study": "NOT_RUN",
     "research_gate": "BLOCKED",
     "publication": "PENDING_DESKTOP_EXACT_COMMIT_AND_NEW_CI",
+    "prior_source_publication": {
+      "commit": "2f5082fe0f1edc88750a24cae7280bdc0a5892c6",
+      "exact_CI": "THREE_WORKFLOWS_SUCCESS",
+      "scope": "BEFORE_CLI_AND_VIEW_ADDITIONS"
+    },
     "prior_G_publication": {
       "commit": "be9d04ea55e1b090809e9539b7f43095616915dc",
       "exact_CI": "THREE_WORKFLOWS_SUCCESS",
@@ -4031,9 +4083,16 @@
     "guide": "docs/guides/release-if-learned.md",
     "verification": "docs/research/2026-11-12-release-if-learned-verification.json",
     "next_observer_work": [
-      "REVISE_NATIVE_COUNT_POLICY_TO_OBSERVED_BOUNDED_COUNTS_WITHOUT_FIXED_ONE_CONTROLLER_ASSUMPTION",
-      "PIP_NO_CACHE_DIR_AND_TASK_LOCAL_TEMP",
-      "NO_FIT_HARNESS_REGRESSIONS_AND_INDEPENDENT_REVIEW_BEFORE_SEPARATE_RUN_RELEASE"
-    ]
+      "EXACT_DESKTOP_REMOTE_AND_NEW_CI_PUBLICATION",
+      "REVIEWED_RELEASE_AE_DESIGN_NOT_ADOPTED_NO_SOURCE_OR_MODEL_RELEASE"
+    ],
+    "installed_view": {
+      "status": "PASS_ROOT_ACCEPTED_DISTINCT_V2_READONLY_CONTRACT",
+      "verification": "docs/research/2026-11-13-release-if-learned-workflow-verification.json",
+      "rows": 176,
+      "http_requests": 55,
+      "browser": "BOUNDED_DESKTOP_320PX_PAGE2_ACCEPTED",
+      "prior_v1": "FAILED_NO_RETRY_RETAINED"
+    }
   }
 }

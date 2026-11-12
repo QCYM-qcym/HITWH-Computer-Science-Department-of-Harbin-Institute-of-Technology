@@ -1,5 +1,9 @@
 # 滚动项目路线图
 
+## 2026-11-13 当前工程队列
+
+[学习状态命令](../guides/release-if-learned.md)的标准库摘要、inspect、显式 replay 和 fit-save 已完成，独立 R2 与后继 CLI 人工安装各有接受记录。六包只读查看页独立v2已完成安装、55项HTTP、全176分钟与实际浏览器验收，本轮5624项完整 Python 回归也已接受。先完成 Desktop 同步与准确新CI，再决定已评审的人工输入AE数值接缝；该后继方案当前未采用或执行。具体结果见[项目状态](status.json)，不借用历史全量或旧 CI，首次安装失败、查看页v1失败及历史G缺口保持原记录。研究 C-I5/C-I7 与 S2/BLOCKED 不变，真实模型及正式比较 NOT_RUN。下方保留旧队列的当时记录。
+
 ## 2026-11-12 当前工程：IF学习状态源码与完整回归已接受
 
 [学习状态设计](../design/release-if-learned-v1.md)、[保存与复算指南](../guides/release-if-learned.md)和[验证记录](../research/2026-11-12-release-if-learned-verification.json)说明三个新增模块。一次人工输入新拟合保留同一估计器，完整比较后返回既有结果包及数值学习状态包；独立进程显式绑定输入和结果复算。没有新增CLI或UI，也未迁移生产宽度。

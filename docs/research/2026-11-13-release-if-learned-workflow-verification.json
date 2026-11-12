@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-13",
+  "feature": "release-if-learned-workflows-v1",
+  "status": "SOURCE_INSTALLED_CLI_AND_DISTINCT_VIEW_V2_ACCEPTED_ARTIFICIAL_ONLY",
+  "source_reviews": {
+    "summary_CLI": "ACCEPTED_SCOPED_SPEC_QUALITY_C0_I0_M0",
+    "backend_view": "ACCEPTED_AFTER_DELTA_C0_I0_M0",
+    "frontend_view": "ACCEPTED_AFTER_DELTA_C0_I0_M0",
+    "test_only_type_guard": "ACCEPTED_NO_PRODUCT_OR_BRIDGE_LOGIC_CHANGE"
+  },
+  "scoped_source_tests": {
+    "summary_CLI_passed": 121,
+    "backend_author_passed": 128,
+    "backend_root_passed": 127,
+    "backend_root_explicitly_excluded_prior_physical_help_case": 1,
+    "counts_overlap_with_full_regression": true
+  },
+  "full_source_regression": {
+    "status": "PASS_ROOT_ACCEPTED_ARTIFICIAL_SOURCE_SCOPE",
+    "passed": 5624,
+    "skipped": 26,
+    "warnings": 1,
+    "warning": "EXISTING_STARLETTE_TESTCLIENT_HTTPX_DEPRECATION",
+    "subtests_passed": 56,
+    "pytest_seconds": 318.04,
+    "physical_test_parent_exit": 0,
+    "physical_external_caller_exit": 0,
+    "reaped": true,
+    "forced": false,
+    "drained": true,
+    "process_handle_closed": true,
+    "source_maps_byte_identical": true,
+    "final_current_file_identities": 483,
+    "final_runtime_metadata_identities": 103,
+    "complete_inventory_groups": 8,
+    "named_old_immutable_groups": 11,
+    "raw_stdout_bytes": 6976,
+    "raw_stdout_sha256": "a8be084cfcdd33aea8c56511ec190e7aff9383f517420553f17b414bf4e471f8",
+    "raw_stderr_bytes": 0,
+    "final_files_including_receipt": 13118,
+    "final_logical_bytes_including_receipt": 599287730,
+    "file_cap": 40000,
+    "logical_byte_cap": 2147483648,
+    "observed_work_seconds": 321.408656100044,
+    "elapsed_through_receipt_observations_seconds": 323.0351303999778,
+    "continuous_peak_or_OS_quota": "NOT_CLAIMED",
+    "aggregate_model_calls": "NOT_CLAIMED_FOR_BROAD_ARTIFICIAL_SUITE",
+    "installed_view_or_browser_covered": false
+  },
+  "frontend": {
+    "first_exact_byte_bridge_file": {
+      "passed": 57,
+      "exit": 0,
+      "scope": "SOURCE_ACTUAL_FACTORY_TESTCLIENT_BYTES_NOT_INSTALLED_SERVICE_OR_ORIGINAL_A",
+      "test_sha256": "1213bb2343e2236164c766f0b20279df046f8c232059c40f64812763fe9bca46"
+    },
+    "typecheck_initial": "FAILED_TS2345_TEST_HELPER_INDEXED_STRING_ADMISSION",
+    "typecheck_after_narrow_test_correction": "PASS",
+    "final_test_sha256": "19926176f2b130886bcab43f0a6bfd8a41de20d3884d9304891264245769f434",
+    "after_correction_independent_passed": 56,
+    "after_correction_bridge_filtered": 1,
+    "broad_regression_passed": 374,
+    "broad_regression_deliberately_filtered_prior_bridge": 1,
+    "broad_test_files": 9,
+    "broad_seconds": 13.14,
+    "contracts": "PASS",
+    "build": "PASS_EXISTING_CHUNK_SIZE_WARNING",
+    "new_bridge_repeated_by_root": false,
+    "counts_overlap_not_additive": true
+  },
+  "installed_CLI": {
+    "status": "ACCEPTED_SEPARATE_OBSERVATION",
+    "evidence": "2026-11-13-release-if-learned-cli-verification.json"
+  },
+  "installed_view": {
+    "status": "PASS_ROOT_ACCEPTED_DISTINCT_V2_READONLY_CONTRACT",
+    "v1": {
+      "status": "FAILED_NO_RETRY",
+      "failure_code": "EXACT_CONSOLE_SCRIPT_BODY",
+      "backend_build_exit": 0,
+      "backend_install_exit": 0,
+      "controller_exit": 1,
+      "external_caller_exit": 1,
+      "phase_native_counts": [
+        8,
+        4
+      ],
+      "outer_native_total": 14,
+      "unattributed_remainder": 2,
+      "normal_shutdown": null,
+      "reaped": true,
+      "forced": false,
+      "process_handle_closed": true,
+      "job_handle_closed": true,
+      "final_files": 134,
+      "final_logical_bytes": 2345717,
+      "captured_raw_streams": 6,
+      "frozen_identities_unchanged": 361,
+      "protected_files_unchanged": 1463,
+      "named_cache_objects_unchanged": 2,
+      "service": "NOT_RUN",
+      "HTTP": "NOT_RUN",
+      "browser": "NOT_RUN",
+      "diagnosis": "VERIFIER_EXPECTED_BASE_DISTLIB_TEMPLATE_INSTEAD_OF_PINNED_PIP_OVERRIDE"
+    },
+    "v2": {
+      "status": "PASS_ROOT_ACCEPTED_DISTINCT_ARTIFICIAL_READONLY",
+      "source_reviews": "SPEC_AND_QUALITY_C0_I0_M0_ROOT_READ_COMPLETE",
+      "input_selection": "ORIGINAL_ACCEPTED_ARTIFICIAL_A_AND_PRIOR_SAVED_SIX_PACKAGES",
+      "populations": {
+        "total": 176,
+        "common": 56,
+        "unscored": 120,
+        "test_total": 48,
+        "test_common": 18,
+        "training": 18,
+        "calibration": 10,
+        "preprocessing_fit": 18
+      },
+      "full_axis_rows_checked": 176,
+      "score_binary64_values_checked": 112,
+      "offmask_null_pairs_per_view": 120,
+      "series_page_sizes": [
+        100,
+        76
+      ],
+      "saved_projection": {
+        "explicit_replay": "NOT_RUN",
+        "fresh_fits": 0,
+        "full_axis_rows": 176,
+        "learned_references": {
+          "current13": {
+            "context_sha256": "36910ef5294ca0d1713616865e3cc2ae4409f51ac8aa3d3327252c7fa33763b5",
+            "manifest_byte_count": 2203,
+            "manifest_sha256": "9769c2169a1e762186125e99658b8261c759a0b28c632d798b1597ef31c2abad",
+            "profile_id": "c17-release-iforest-learned-package-v1"
+          },
+          "h30_26": {
+            "context_sha256": "1420830cd2854c0cd0c580ca54605bfa08bf6fbbc18ca58cfc058fbeb15fa3da",
+            "manifest_byte_count": 2715,
+            "manifest_sha256": "9e1dbddb8c1a14e4b5f1d0c47aec95e33f3955fcfa13841cc01c59cd3c8ce716",
+            "profile_id": "c17-release-iforest-learned-package-v1"
+          }
+        },
+        "new_snapshot": "19259c4fc88c4e544681bbb8f4b97c97ca04990028c240d4582811e6698a5f07",
+        "null_per_view": 120,
+        "old_snapshot": "47e229ade982b3a913a4d197ff6bd0350b1c98551c9f3cc6c2ba7e77cf885041",
+        "p1_scores": 0,
+        "result_references": {
+          "current13": {
+            "context_sha256": "ee7d0140f9ceecd2ec5772f352423391ac6ea57c4a2ba98a06e4da2079aec505",
+            "manifest_byte_count": 1975,
+            "manifest_sha256": "3e76c5e6b6b1b0c52c975cbcce9aa898619118f4509488cfbcc67d69b41540d2",
+            "profile_id": "c17-release-iforest-result-package-v1"
+          },
+          "h30_26": {
+            "context_sha256": "4cb070be5fbae7d34f5206b69c5142c2b5d64ce097319415d79ee6e405d6730a",
+            "manifest_byte_count": 1972,
+            "manifest_sha256": "3bdb265d52a5cfe0b9a15ea3295e43273fd4d87ca47120fa7d039e54362272e7",
+            "profile_id": "c17-release-iforest-result-package-v1"
+          }
+        },
+        "scored_per_view": 56
+      },
+      "registration_calls": {
+        "content": 3,
+        "eligible": 12,
+        "fit_selection": 3,
+        "history_structure": 6,
+        "learned_decode": 2,
+        "learned_encode": 2,
+        "numeric_decode": 2,
+        "numeric_encode": 2,
+        "numeric_validate": 4,
+        "old_factory": 1,
+        "pair": 1,
+        "population": 2,
+        "prepared_decode": 1,
+        "qualifications": 3,
+        "raw_decode": 1,
+        "result_decode": 2,
+        "result_encode": 4,
+        "saved_q99": 6,
+        "source_context": 14,
+        "summary": 2,
+        "validated_inputs": 2,
+        "verify": 2
+      },
+      "saved_q99_selected_values": 60,
+      "admitted_matrices": {
+        "shapes": [
+          [
+            176,
+            13
+          ],
+          [
+            176,
+            26
+          ]
+        ],
+        "dtype": "float32",
+        "read_only": true,
+        "common_rows_per_view": 56,
+        "full_matrix_payload_capture": "NOT_CLAIMED"
+      },
+      "new_model_fit_calls": 0,
+      "new_model_or_P1_score_calls": 0,
+      "new_preparation_calls": 0,
+      "explicit_replay": "NOT_RUN",
+      "numerical_bootstrap": {
+        "numpy_version": "2.5.4",
+        "pickle_operations_during_bootstrap": "NOT_MEASURED",
+        "named_post_bootstrap_pickle_fences": 18,
+        "cached_alias_or_host_confinement": "NOT_CLAIMED",
+        "loaded_DLL_mapping": "NOT_INSPECTED"
+      },
+      "actual_phase_exits": [
+        0,
+        0,
+        0
+      ],
+      "controller_exit": 0,
+      "external_caller_exit": 0,
+      "native_phase_counts": [
+        8,
+        4,
+        2
+      ],
+      "native_child_sum": 14,
+      "native_outer": 16,
+      "native_unattributed_remainder": 2,
+      "attribution": "NOT_IDENTIFIED_BY_PID_OR_CAUSE",
+      "unforced": true,
+      "reaped": true,
+      "normal_drained": true,
+      "handles_closed": true,
+      "cooperative_seconds_after_READY": 180,
+      "standalone_hard_physical_deadline": "NOT_PROMISED",
+      "lifecycle": {
+        "cli_exit": 0,
+        "connections": 0,
+        "drain_attempted": true,
+        "force_exit": false,
+        "lifespan_flags": [
+          false,
+          false,
+          false
+        ],
+        "listener_closed": true,
+        "loggers_restored": true,
+        "ready_sent": true,
+        "shutdown_completed": true,
+        "started": true,
+        "tasks": 0,
+        "timer_cleared": true,
+        "wait_completed": true,
+        "wait_failed": false
+      },
+      "HTTP": {
+        "programmatic_requests": 55,
+        "entity_bytes": 264958,
+        "status_counts": {
+          "200": 21,
+          "422": 12,
+          "405": 18,
+          "404": 4
+        },
+        "body_capture": "HTTP_ENTITY_NOT_RAW_TCP",
+        "browser_requests": "SEPARATE_NOT_INCLUDED_IN_55",
+        "exact_saved_bytes": true
+      },
+      "backend": {
+        "wheel_members": 40,
+        "installed_members": 44,
+        "copied_source_members": 36,
+        "explicit_assets": 15,
+        "wheel_sha256": "b7ae2293b236e6395edf4f6e7d4cb959d9d17cf34009a57d15aa83291294fb41",
+        "wheel_bytes": 117353,
+        "core": "REUSED_PRIOR_ACCEPTED_INSTALLED_CORE_90_MEMBERS_NO_REBUILD"
+      },
+      "final_files": 265,
+      "final_logical_bytes": 2855111,
+      "raw_streams": 8,
+      "frozen_identities_unchanged": 388,
+      "protected_groups_unchanged": 14,
+      "protected_file_entries_unchanged": 1597,
+      "named_cache_objects_unchanged": 2,
+      "continuous_peak_RSS_OS_quota_or_global_write_absence": "NOT_CLAIMED",
+      "first_passive_checker": "FAILED_TUPLE_VS_JSON_LIST_COMPARISON_RETAINED",
+      "corrected_passive_checker": "CANONICAL_COMPARISON_PASS_NO_BUSINESS_RERUN",
+      "root_observation_sha256": "77de45a04391ffaf9ddafa7a1e185860ad615e1f491aa84d703ba667505fa535",
+      "actual_review_sha256": {
+        "spec": "9c180be6917c6176acd641e2f19b57d1f01df8179b3f9432305f877f491a8571",
+        "quality": "17139a8ccff5da3cd07ef223dfaae3700e660a2a8e941e75d31db483cc2b866c"
+      }
+    }
+  },
+  "actual_browser": {
+    "status": "ROOT_ACCEPTED_BOUNDED_INSTALLED_VIEW_V2",
+    "target_navigations": 2,
+    "pagination_actions": 1,
+    "screenshots": 3,
+    "private_artifact_files": 5,
+    "private_artifact_bytes": 183989,
+    "desktop_width": 1280,
+    "desktop_scroll_width": 1265,
+    "narrow_width": 320,
+    "narrow_scroll_width": 305,
+    "narrow_horizontal_overflow": false,
+    "page2_rows": 76,
+    "page2_indices": [
+      100,
+      175
+    ],
+    "next_disabled": true,
+    "observed_console_issues": 0,
+    "viewport_restored": true,
+    "tab_closed": true,
+    "extension_or_restart": false,
+    "exhaustive_visual_or_accessibility_audit": "NOT_CLAIMED"
+  },
+  "publication": "PENDING_DESKTOP_EXACT_COMMIT_REMOTE_AND_NEW_CI",
+  "old_failed_installed_observation": "RETAINED_NOT_RETROACTIVELY_REPAIRED",
+  "distinct_R2": "ACCEPTED_SEPARATE_OBSERVATION",
+  "old_G_parent_native_stream_gap": "UNVERIFIED_UNCHANGED",
+  "source_authentication": "NOT_AUTHENTICATED",
+  "model_origin": "NOT_AUTHENTICATED",
+  "derivation_replay": "NOT_PERFORMED",
+  "production_134_268_contract": "UNCHANGED",
+  "research_stage": "S2",
+  "research_gate": "BLOCKED",
+  "real_study": "NOT_RUN",
+  "formal_comparison": "NOT_RUN",
+  "new_dataset_download": "NOT_RUN"
+}

@@ -1,5 +1,11 @@
 # 程序入口
 
+## 2026-11-13 学习状态命令与只读查看
+
+[学习状态使用指南](../docs/guides/release-if-learned.md)包含 `inspect`、显式四包 `replay` 和两个独立输出的 `fit-save`。标准库摘要与命令已实现，原始人工 A 的独立安装命令链已接受；六包只读查看工厂、前台启动器及页面的独立v2人工安装验收也已接受，覆盖55项HTTP、全部176分钟和实际桌面/320像素窄屏/第二页。查看页不拟合、评分或复算模型；此前v1模板校验失败保留。
+
+接口、摘要字节规则和流程图见[工作流设计](../docs/design/release-if-learned-workflows-v1.md)，实际状态见[CLI 验证](../docs/research/2026-11-13-release-if-learned-cli-verification.json)及[项目进度](../docs/project/status.json)。真实研究仍 S2/Data Gate BLOCKED；入口存在不代表真实模型获准运行。下文保留此前各轮入口记录。
+
 ## 2026-10-31 候选查看页的前台启动命令
 
 新增[traffic_api.candidate_serve_cli启动入口](../docs/guides/candidate-viewer-launcher.md)，仅python -m，未新增依赖或包脚本。受信终端指定匹配包，网页只消费固定内存快照；不改原生产任务/134与268维契约。

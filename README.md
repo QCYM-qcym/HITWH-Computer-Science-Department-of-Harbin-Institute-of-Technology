@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-12**。当前阶段：**数据审计**；本轮主题：IF学习状态源码/完整回归已接受；安装态观察器契约失败，真实Data Gate仍BLOCKED。
+最近更新：**2026-11-13**。当前阶段：**数据审计**；本轮主题：学习状态CLI与查看页人工安装验收已接受，发布待核；研究仍S2/BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- 学习状态新增三个模块及标准库包格式；源码规格/质量双独立审查C0/I0/M0与根审查接受，没有新增CLI/UI。
-- 完整源码回归5375通过/26跳过/1项既有TestClient警告/56子测试，314.42秒；父原始流已捕获，源码保持。
-- 源码人工输入两次新拟合，原始与拟合侧P1各110值、独立复算110值精确匹配；定向347/250/254通过及10跳过范围重叠，不相加。
-- 安装态观察器契约FAILED_OBSERVER_CONTRACT：112+112值与20+20校准行仅OBSERVED_NOT_FULL_ACCEPTED；外层原生计数假设失败且构建写入任务外pip缓存，未重跑。
-- G准确Desktop提交be9d04ea55e1b090809e9539b7f43095616915dc及三CI已成功；历史G完整控制器父原始流缺口仍UNVERIFIED，研究S2/BLOCKED及真实NOT_RUN不变。
+- 新增标准库摘要和inspect/replay/fit-save；独立R2与CLI人工安装分别经后验复核接受。
+- 六包只读查看页独立v2验收通过：55项HTTP核对全176分钟，实际桌面、320像素窄屏和第二页显示一致。
+- 完整Python回归5624通过/26跳过/1项既有警告/56子测试；前端374项广泛回归与此前实际字节桥接分列，类型和构建通过。
+- 首次安装观察失败、查看页v1启动模板校验失败及历史G父原始流缺口均保留；本次查看无新模型拟合或评分。
+- 本批Desktop、准确远端和新CI待核；研究S2/Data Gate BLOCKED、真实模型和正式比较NOT_RUN保持。
 
 **当前阻塞或待验证事项**
 
@@ -75,12 +75,16 @@ flowchart TB
 
 **接下来最重要的三项任务**
 
-1. [ENG-R8](<docs/guides/release-if-learned.md>)：保留首次完整安装观测失败与双后验记录；独立复核计数和禁缓存的私有修订版及无模型回归，再另行冻结放行新安装运行。
+1. [ENG-R9](<docs/guides/release-if-learned.md>)：完成本批Desktop同步与准确新CI核对，再决定已评审的人工输入AE数值接缝；目前未采用该后继方案或放行新模型运行。
 2. [C-I5](<docs/research/2026-10-24-c17-g13u-audit.md>)：依据真实分母决定最终Attempted口径和有限试点约束；先固定协议，随后分别处理主数据正式采用与生产契约迁移。
 3. [C-I7](<docs/project/DATA-GATE-2026-10-21.md>)：仅在相应批准和Gate证据满足后安排真实IF最小工程链路；本阶段训练/评分/阈值校准和正式实验继续NOT_RUN。
 
 **最新成果入口**
 
+- [学习状态命令与只读查看接口设计](<docs/design/release-if-learned-workflows-v1.md>)
+- [学习状态工作流源码及分项验证](<docs/research/2026-11-13-release-if-learned-workflow-verification.json>)
+- [学习状态CLI独立人工安装验收](<docs/research/2026-11-13-release-if-learned-cli-verification.json>)
+- [独立R2修订安装验收与旧失败分列](<docs/research/2026-11-12-release-if-learned-installed-r2.json>)
 - [IF学习状态保存与显式复算](<docs/guides/release-if-learned.md>)
 - [学习状态源码/完整回归与安装态分列验证](<docs/research/2026-11-12-release-if-learned-verification.json>)
 - [学习状态三模块和固定包设计](<docs/design/release-if-learned-v1.md>)
@@ -279,7 +283,7 @@ tools/                仓库检查与维护工具
 
 当前特征与过去窗口的中位数/MAD偏离仍是候选历史增强设计。IF、当前AE、历史增强AE已有人工工程实现；保存输入的IF消费者已接续自包含结果包、双视图只读页和公开run/inspect/verify命令。真实研究中的窗口、人口、校准及比较条件须按冻结协议执行；训练、验证、独立校准、测试保持时间顺序，测试不参与参数选择，历史先评分后更新。真实C17模型训练、评分、Q99校准和正式比较仍为NOT_RUN。
 
-项目已有Python检测核心、FastAPI后端及Vue 3/TypeScript/ECharts前端。IF结果保存、独立重载、后端只读消费与结果页面已有实际人工功能证据，范围和原失败见[运行指南](docs/guides/release-if-result-package.md)。公开生成、检查及显式输入绑定命令已完成新安装人工验收。[固定人工CSV入口](docs/guides/release-example.md)现已接通完整显式链；CSV与配方可复现，spec绑定实际源路径。[保存预测的只读测试分钟评价](docs/guides/release-if-evaluation.md)已实现并通过新安装验收；三种标签口径按同一份保存预测分列误报、漏报和空指标原因。[P1数值状态层](docs/guides/iforest-numeric-state.md)已实现并通过新安装后验接受，仅处理手写森林状态；学习树导出、checkpoint和P2仍未采用或实施。人工工程和真实研究分别验收。
+项目已有Python检测核心、FastAPI后端及Vue 3/TypeScript/ECharts前端。IF结果保存、独立重载、后端只读消费与结果页面已有实际人工功能证据，范围和原失败见[运行指南](docs/guides/release-if-result-package.md)。公开生成、检查及显式输入绑定命令已完成新安装人工验收。[固定人工CSV入口](docs/guides/release-example.md)现已接通完整显式链；CSV与配方可复现，spec绑定实际源路径。[保存预测的只读测试分钟评价](docs/guides/release-if-evaluation.md)已实现并通过新安装验收；三种标签口径按同一份保存预测分列误报、漏报和空指标原因。[P1数值状态层](docs/guides/iforest-numeric-state.md)已实现并通过新安装后验接受，仅处理手写森林状态；[IF学习状态保存与显式复算](docs/guides/release-if-learned.md)及其三类命令、六包只读页面均已通过分项人工安装验收，首次失败与后继成功分别记录。人工工程和真实研究分别验收。
 
 ## 本地维护
 

@@ -1,5 +1,9 @@
 # 仓库维护复核记录
 
+## 2026-11-13 学习状态使用入口与验收推进
+
+补齐三类命令、标准库摘要、六包只读工厂、前台启动器和查看资源；维护[工作流设计](../design/release-if-learned-workflows-v1.md)、[指南](../guides/release-if-learned.md)、[CLI 验证](../research/2026-11-13-release-if-learned-cli-verification.json)及独立 R2 记录。源码审查、CLI 人工安装和5624项完整 Python 回归已接受。页面首次安装在启动文件校验处失败，保留该次未启动服务的记录；独立v2仅修正私有模板预期，55项HTTP、全176分钟和实际桌面/320像素/第二页核对通过，双后验审查C0/I0/M0及主控接受完成。八份原生流、最终265文件/2855111字节、388冻结项及1597保护项一致，未新增模型运行。知识库按相同范围分项维护；Desktop/准确新 CI 仍待完成，当前事实见[status](status.json)。原始失败、证据和无关草稿保留，研究准入未升级。
+
 ## 2026-11-12 当前工程：IF学习状态源码与完整回归已接受
 
 [学习状态设计](../design/release-if-learned-v1.md)、[保存与复算指南](../guides/release-if-learned.md)和[验证记录](../research/2026-11-12-release-if-learned-verification.json)说明三个新增模块。一次人工输入新拟合保留同一估计器，完整比较后返回既有结果包及数值学习状态包；独立进程显式绑定输入和结果复算。没有新增CLI或UI，也未迁移生产宽度。

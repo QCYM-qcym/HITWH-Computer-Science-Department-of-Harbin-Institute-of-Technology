@@ -20,6 +20,15 @@ jobs:
         working-directory: src/frontend
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Prepare pinned Python environment for the backend byte bridge
+        working-directory: .
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -r src/backend/requirements-lock.txt --extra-index-url https://download.pytorch.org/whl/cpu
+          .venv/bin/python -m pip install --no-deps -e src/core -e src/backend
       - uses: actions/setup-node@v4
         with:
           node-version: '24.18.0'
