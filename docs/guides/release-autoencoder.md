@@ -1,6 +1,6 @@
 # 保存输入的自编码器内存接口
 
-更新：2026-11-13。源码审查、175项最终手工用例和一次原始人工 A 双视图数值观察已接受；本页快照时，本批发布与新提交 CI 待核对。依据：[验证记录](../research/2026-11-13-release-autoencoder-verification.json)。研究仍为S2，Data Gate `BLOCKED`，真实研究 `NOT_RUN`。
+更新：2026-11-13。源码审查、175项最终手工用例和一次原始人工 A 双视图数值观察已接受；该内存接口前批已通过Desktop发布及准确提交CI。本轮结果包与inspect另按伴随记录登记，发布状态不混用。依据：[验证记录](../research/2026-11-13-release-autoencoder-verification.json)。研究仍为S2，Data Gate `BLOCKED`，真实研究 `NOT_RUN`。
 
 该接口消费既有原始包与预处理包配成的 `ReleaseModelInputPair`，一次调用拟合一个固定CPU自编码器，返回不可变数值结果。它不生成输入、不重新拟合预处理，也不认证输入来源或重放输入推导。
 
@@ -57,7 +57,7 @@ current13也沿用保存输入的共同有效资格，不扩大成所有当前�
 | `raw_identity`、`prepared_identity`、`configuration_sha256` | 既有输入及预处理配置的身份引用 |
 | `configuration`、`runtime` | 固定模型设置、运行版本和CPU线程信息 |
 
-结果profile为 `c17-release-ae-engineering-v1`，scope为 `IN_MEMORY_ENGINEERING_NUMERICAL_RESULT_ONLY`。返回值不暴露网络、权重或优化器，不能据此恢复模型、续训或重新推理。当前没有AE结果包、保存/重载、inspect、CLI或HTTP/页面入口；[既有IF保存命令与页面](release-if-learned.md)不接收这个结果。
+结果profile为 `c17-release-ae-engineering-v1`，scope为 `IN_MEMORY_ENGINEERING_NUMERICAL_RESULT_ONLY`。返回值不暴露网络、权重或优化器，不能据此恢复模型、续训或重新推理。已有结果现可通过[AE结果包与inspect](release-ae-result-package.md)保存为三文件包、移动后独立读取；对应396项手工用例、v1保存产物的有限接受及独立v2冷源/断管结果见[新验证记录](../research/2026-11-13-release-ae-result-verification.json)。下方175项、双模型观察及未执行项保留内存接口阶段的历史范围；新保存/CLI范围以新记录为准。AE HTTP/页面仍为NOT_RUN，[既有IF命令与页面](release-if-learned.md)不接收AE包。
 
 接口错误使用 `ReleaseAEError.code`，不提供外部异常详情。有限代码为 `INVALID_AE_ARGUMENTS`、`INVALID_AE_INPUT`、`RESOURCE_LIMIT`、`NO_TRAINING_NORMAL`、`NO_CALIBRATION_NORMAL`、`INVALID_INPUT_NUMERIC`、`INCOMPATIBLE_RUNTIME`、`MODEL_UNAVAILABLE`、`MODEL_ERROR`、`INVALID_MODEL_STATE`、`NONFINITE_TRAINING`、`INVALID_MODEL_SCORES`、`RNG_RESTORATION_FAILED`、`AE_ERROR`。包加载/配对步骤仍使用各自异常。真实 `KeyboardInterrupt`、`SystemExit` 继续传播；内存不足转换为资源错误。失败不返回部分结果，也不自动重试；异常不表示此前没有模型操作。数值上下文恢复调用前的Python、NumPy和Torch RNG状态，本次双视图已逐项核对保存的完整状态。
 

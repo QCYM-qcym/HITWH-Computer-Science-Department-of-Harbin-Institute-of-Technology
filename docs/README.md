@@ -1,5 +1,13 @@
 # 文档导航
 
+## 2026-11-13 AE结果包与冷源inspect已接受
+
+[保存与inspect指南](guides/release-ae-result-package.md)、[分项验证与失败保留](research/2026-11-13-release-ae-result-verification.json)。新增结果codec、三成员保存/独立加载和只读inspect；源码与396项手工用例已接受。它承接[AE内存入口](guides/release-autoencoder.md)的保存结果，不执行新模型，也不认证历史模型来源。
+
+人工A的v1整轮FAIL保留，双包保存/移动和Q8/80作为部分产物证据单列；新v2仅三次冷源检查，原生退出0/0/2、Q3/30，含真实缓冲断管，已完成独立审查及最终被动保全。前批175项内存接口、5739项远端Python CI以及IF安装/浏览器证据各有独立范围，不替代本批验证。
+
+本批17文件的Desktop与精确新CI为PENDING_AT_SNAPSHOT，最新发布状态见[项目进度](project/status.json)。AE安装态及结果页面仍NOT_RUN；研究S2/Data Gate BLOCKED、真实训练和正式比较NOT_RUN保持，生产134/268与既有492固定源限制不扩大。下文保留各轮历史时点。
+
 ## 2026-11-13 学习状态显式命令与查看页
 
 [使用指南](guides/release-if-learned.md)、[接口与流程图](design/release-if-learned-workflows-v1.md)、[人工 CLI 安装验收](research/2026-11-13-release-if-learned-cli-verification.json)及[独立 R2 验证](research/2026-11-12-release-if-learned-installed-r2.json)。三类命令和六包只读查看页均已接受各自人工安装范围；页面独立v2的55项HTTP、全176分钟和实际桌面/窄屏/第二页核对通过，首次模板校验失败保留。完整 Python 回归5624项通过，见[分项验证](research/2026-11-13-release-if-learned-workflow-verification.json)。本批 Desktop/准确新 CI 待核，当前状态见[项目进度](project/status.json)。研究仍 S2/Data Gate BLOCKED，真实实验 NOT_RUN。下文为各轮历史时点。

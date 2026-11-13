@@ -1,8 +1,16 @@
 # 程序入口
 
+## 2026-11-13 AE结果包与只读inspect
+
+[结果包指南](../docs/guides/release-ae-result-package.md)说明公开结果codec、三成员目录保存/独立加载，以及 `python -m traffic_anomaly.release_ae_result_cli inspect --result-package <目录>`。它消费已保存分数和声明，复核保存分数Q99，不重新训练、评分或加载模型权重；接口及实际边界见[验证记录](../docs/research/2026-11-13-release-ae-result-verification.json)。
+
+源码与396项手工用例已接受。人工A的首次v1整轮FAIL保留，已完成的双包保存/移动及8次保存Q99/80次重复选值单独核验；后继v2仅做三次冷源检查，实际退出0/0/2，含真实缓冲断管，新增3次保存Q99/30次重复选值，已获工程接受。两轮不合并为成功的v1，也不新增模型。
+
+本批17文件的Desktop发布与精确新CI为PENDING_AT_SNAPSHOT。AE安装态和结果页面仍NOT_RUN；前批IF页面的安装/浏览器证据独立登记。研究S2/Data Gate BLOCKED、真实训练和正式比较NOT_RUN，生产134/268与既有492固定源限制保持。
+
 ## 2026-11-13 保存输入的AE内存消费者
 
-[自编码器指南](../docs/guides/release-autoencoder.md)给出 `fit_release_autoencoder(pair, *, view)`：消费既有保存输入，固定CPU current13/H30_26设置，返回不可变分数、通道、损失与独立校准结果。源码、175项手工用例及一次原始人工 A 的真实双视图观察已接受，详见[验证记录](../docs/research/2026-11-13-release-autoencoder-verification.json)。本接口没有保存/重载、CLI或页面入口，专门冷导入与安装态仍NOT_RUN；发布和新提交CI待核对，研究S2/Data Gate BLOCKED保持。
+[自编码器指南](../docs/guides/release-autoencoder.md)给出 `fit_release_autoencoder(pair, *, view)`：消费既有保存输入，固定CPU current13/H30_26设置，返回不可变分数、通道、损失与独立校准结果。源码、175项手工用例及一次原始人工 A 的真实双视图观察已接受，详见[验证记录](../docs/research/2026-11-13-release-autoencoder-verification.json)。该内存入口已在前批Desktop发布并完成精确提交CI；保存与inspect使用上方新增伴随入口，AE安装态和页面仍NOT_RUN。175项及前批CI不替代本批结果包验证，研究S2/Data Gate BLOCKED保持。
 
 ## 2026-11-13 学习状态命令与只读查看
 

@@ -1,6 +1,14 @@
 # 滚动项目路线图
 
-## 2026-11-13 当前工程：AE数值接口已验收，ENG-R10待发布
+## 2026-11-13 当前工程：AE结果保存及inspect已接受
+
+[结果包与命令](../guides/release-ae-result-package.md)已完成三模块及三份测试，最终396项专项通过。已有人工A的两份数值结果完成保存、移动与完整字节/人口核对；首轮在观察器PID假设处失败，保留整轮失败及已验证的部分产物。后继只读取原包，两个独立检查和一次真实断管按0/0/2退出，完整19键摘要、保存分数及输入引用通过独立复核，见[分项验证](../research/2026-11-13-release-ae-result-verification.json)。本批没有新模型、前向、准备或重放。
+
+ENG-R10的内存接口已由Desktop发布到[`2e2c4f751ab3dca876b7b5ad2187ae227fa2d28b`](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/commit/2e2c4f751ab3dca876b7b5ad2187ae227fa2d28b)，其三项准确CI已接受；本批结果包的Desktop与新CI为发布时待核快照。下一项ENG-R11推进保存AE双视图只读页面及安装态验收，页面当前尚未实施，方案中的源钟面、共同人口和零新模型边界须保持。当前实际检查为源码环境的guarded module-main，不冒充安装或浏览器结果。
+
+C-I5/C-I7、S2/Data Gate BLOCKED、真实拟合/评分/校准和正式比较NOT_RUN不变；生产134/268及492固定源限制不迁移。下文保留各阶段原时点记录。
+
+## 2026-11-13 前阶段记录：AE数值接口已验收，ENG-R10当时待发布
 
 新增AE内存接口及对应测试，共2个文件，既有业务源码保持。175项受控替身测试通过，原人工A的两视图实际运行及规格、质量后验复核均为C0/I0/M0，主控已接受。用法与范围见[AE指南](../guides/release-autoencoder.md)和[验证记录](../research/2026-11-13-release-autoencoder-verification.json)。
 

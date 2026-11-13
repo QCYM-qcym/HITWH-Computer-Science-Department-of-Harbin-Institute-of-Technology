@@ -2,14 +2,14 @@
   "schema_version": 1,
   "updated": "2026-11-13",
   "current_stage": "S2",
-  "theme": "AE内存接口及双视图人工工程验证已接受；研究仍S2/BLOCKED",
+  "theme": "AE结果包及只读inspect人工验证已接受；研究仍S2/BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增固定CPU自编码器内存接口，支持current13与h30_26，保留完整分钟轴和独立模型阈值。",
-    "175项专项替身测试及源码审查通过；原始人工A的两模型、十次更新、十二次前向验证经独立复核接受。",
-    "同一176分钟轴、56共同分钟、18训练及10独立校准；两表示的112分数、误差通道、严格预测及三类随机状态匹配。",
-    "本批未重复本地完整套件，安装态、保存重载和AE命令/页面尚未验收；源码快照的新CI待远端核对。",
-    "前批74ca91b已通过Desktop同步及三项准确CI；研究S2/Data Gate BLOCKED、真实训练及正式比较NOT_RUN保持。"
+    "新增三文件AE结果包与只读inspect，支持current13及h30_26的完整保存值，不提供权重重建。",
+    "契约231、磁盘55、CLI110共396项专项通过；独立源码及实际审查接受，重叠测试不累加。",
+    "已有人工A两结果完成保存和移动核对；首次观察器PID失败保留，后继三次冷源检查按0/0/2退出并正常回收。",
+    "本批无新增模型，完整摘要、浮点位值、空位、人口及输入身份均匹配；AE安装态和页面仍NOT_RUN。",
+    "前批2e2c4f7及三CI已同步接受；本批准确CI待推送后核对，研究S2/BLOCKED及真实正式实验NOT_RUN保持。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -19,9 +19,9 @@
   ],
   "next_tasks": [
     {
-      "id": "ENG-R10",
-      "text": "完成本批Desktop同步和准确新CI，再决定AE结果包及只读inspect；已有两视图JSON可用于无拟合桥接，方案尚未采用。",
-      "path": "docs/guides/release-autoencoder.md"
+      "id": "ENG-R11",
+      "text": "推进保存AE结果的只读页面及安装态验收；先冻结双视图绑定、源钟面、资源和生命周期范围，当前页面尚未实施。",
+      "path": "docs/guides/release-ae-result-package.md"
     },
     {
       "id": "C-I5",
@@ -35,6 +35,14 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "AE结果包保存、移动与只读inspect",
+      "path": "docs/guides/release-ae-result-package.md"
+    },
+    {
+      "label": "AE结果包396项专项与分列人工验收",
+      "path": "docs/research/2026-11-13-release-ae-result-verification.json"
+    },
     {
       "label": "AE内存接口与固定数值规则",
       "path": "docs/guides/release-autoencoder.md"
@@ -4093,7 +4101,8 @@
     "next_observer_work": [
       "PRIOR_PUBLICATION_VERIFIED_74CA91B",
       "AE_SUCCESSOR_ACCEPTED_SEE_RELEASE_AUTOENCODER",
-      "AE_RESULT_PACKAGE_PROPOSED_NOT_ADOPTED"
+      "AE_RESULT_PACKAGE_ACCEPTED_SEE_RELEASE_AE_RESULT_PACKAGE",
+      "AE_RESULT_VIEWER_AND_INSTALLED_NOT_RUN"
     ],
     "installed_view": {
       "status": "PASS_ROOT_ACCEPTED_DISTINCT_V2_READONLY_CONTRACT",
@@ -4147,8 +4156,8 @@
     "runtime_equal_across_views": true,
     "dedicated_cold_import": "NOT_RUN",
     "installed_AE": "NOT_RUN",
-    "persistence": "NOT_RUN",
-    "CLI": "NOT_RUN",
+    "persistence": "ACCEPTED_COMPANION_SEE_RELEASE_AE_RESULT_PACKAGE",
+    "CLI": "INSPECT_ACCEPTED_COMPANION_SEE_RELEASE_AE_RESULT_PACKAGE",
     "HTTP_and_UI": "NOT_RUN",
     "full_local_regression": "NOT_RUN_NO_NEW_INTERACTION_CONCERN",
     "source_authentication": "NOT_AUTHENTICATED",
@@ -4156,7 +4165,80 @@
     "research_gate": "BLOCKED",
     "real_study": "NOT_RUN",
     "formal_comparison": "NOT_RUN",
+    "publication": "DESKTOP_PUSHED_EXACT_REMOTE_AND_THREE_CI_PASS",
+    "publication_evidence": {
+      "commit": "2e2c4f751ab3dca876b7b5ad2187ae227fa2d28b",
+      "branch": "codex/candidate-flow-adapter",
+      "document_run": 43321857047,
+      "contract_run": 43321857087,
+      "synthetic_run": 43321857235,
+      "python_passed": 5739,
+      "python_skipped": 86,
+      "frontend_passed": 375,
+      "scope": "PRIOR_AE_MEMORY_SOURCE_SNAPSHOT_ONLY"
+    },
+    "future_result_package": "IMPLEMENTED_AND_ACCEPTED_SEE_RELEASE_AE_RESULT_PACKAGE"
+  },
+  "release_ae_result_package": {
+    "status": "SOURCE_MANUAL_AND_SAVED_ARTIFACTS_PLUS_DISTINCT_COLD_V2_ACCEPTED",
+    "scope": "ARTIFICIAL_SAVED_AE_RESULT_ENGINEERING_ONLY",
+    "guide": "docs/guides/release-ae-result-package.md",
+    "verification": "docs/research/2026-11-13-release-ae-result-verification.json",
+    "source_review": "PASS_SPEC_AND_QUALITY",
+    "new_source_and_test_files": 6,
+    "manual_unique_cases": 396,
+    "manual_cases_by_area": {
+      "contract": 231,
+      "disk": 55,
+      "CLI": 110
+    },
+    "manual_saved_q99_all_phases": {
+      "calls": 130,
+      "repeated_selected_values": 466,
+      "includes_failed_phase": true
+    },
+    "saved_bridge_v1": {
+      "whole_invocation": "FAILED_RETAINED_NOT_ACCEPTED",
+      "partial_saved_artifacts": "ROOT_ACCEPTED_AFTER_PASSIVE_CHECK",
+      "saved_q99_calls": 8,
+      "repeated_selected_values": 80,
+      "moves": 2,
+      "cold_and_pipe": "NOT_RUN_IN_V1"
+    },
+    "cold_v2": {
+      "status": "ROOT_ACCEPTED",
+      "execution_style": "FRESH_SOURCE_GUARDED_RUNPY_MODULE_MAIN_NOT_INSTALLED",
+      "child_exits": [0, 0, 2],
+      "external_and_native_owner_exits": [0, 0],
+      "saved_q99_calls": 3,
+      "repeated_selected_values": 30,
+      "new_models_or_forwards": 0,
+      "same_job_worker_membership": "OBSERVED",
+      "normal_drain_reap_handles_closed_unforced": true,
+      "full_19_key_summaries_float_bits_and_inputs": "MATCHED",
+      "raw_files": 7,
+      "raw_bytes": 8743,
+      "pipe_stdout": "UNAVAILABLE_BY_DESIGN",
+      "final_files": 22,
+      "final_logical_bytes": 57601
+    },
+    "final_protection_checkpoint": {
+      "frozen_files": 1186,
+      "runtime_files": 103,
+      "named_caches": 2,
+      "protected_trees": 31,
+      "protected_logical_members": 2256,
+      "source_and_test_membership": "MATCHED"
+    },
+    "installed_AE": "NOT_RUN",
+    "HTTP_and_UI": "NOT_RUN",
+    "full_local_regression": "NOT_RUN_NO_NEW_INTERACTION_CONCERN",
     "publication": "PENDING_AT_SNAPSHOT_DESKTOP_EXACT_COMMIT_AND_NEW_CI",
-    "future_result_package": "PROPOSED_NOT_ADOPTED"
+    "next_engineering_scope": "READ_ONLY_AE_VIEWER_AND_INSTALLED_ACCEPTANCE_NOT_YET_IMPLEMENTED",
+    "source_authentication": "NOT_AUTHENTICATED",
+    "model_execution_authentication": "NOT_AUTHENTICATED",
+    "research_gate": "BLOCKED",
+    "real_study": "NOT_RUN",
+    "formal_comparison": "NOT_RUN"
   }
 }
