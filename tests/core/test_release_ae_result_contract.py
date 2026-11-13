@@ -1147,8 +1147,15 @@ class TestContract:
         _exact(_wire(loaded.result), hand_projection())
         assert attempts == []
 
-    def test_module_reload_is_in_process_stdlib_fenced_not_cold_process(self, monkeypatch):
+    def test_fenced_import_preserves_existing_contract_and_disk_bindings(self, monkeypatch):
         api = _api()
+        namespace_before = dict(vars(api))
+        package = sys.modules['traffic_anomaly']
+        disk_name = 'traffic_anomaly.release_ae_result_package'
+        disk = sys.modules.get(disk_name)
+        disk_before = None if disk is None else dict(vars(disk))
+        if disk is not None:
+            assert disk.ReleaseAEResultPackageError is api.ReleaseAEResultPackageError
         old_import, old_dynamic = builtins.__import__, importlib.import_module
         attempts = []
         def check(name):
@@ -1174,10 +1181,28 @@ class TestContract:
             return old_dynamic(name, package)
         product_before = {n: m for n, m in sys.modules.items() if n.startswith('traffic_anomaly.')}
         with monkeypatch.context() as guard:
+            # A fresh temporary import leaves the live module dictionary and
+            # its consumers' by-value bindings intact; this is not a cold process.
+            guard.setattr(package, 'release_ae_result_contract', api)
+            guard.delitem(sys.modules, MODULE)
             guard.setattr(sys, 'meta_path', [Fence(), *sys.meta_path])
             guard.setattr(builtins, '__import__', guarded)
             guard.setattr(importlib, 'import_module', dynamic)
-            assert importlib.reload(api) is api
+            imported = importlib.import_module(MODULE)
+            assert imported is not api and sys.modules[MODULE] is imported
+            assert package.release_ae_result_contract is imported
+            assert imported.ReleaseAEResultPackageError is not namespace_before['ReleaseAEResultPackageError']
+            assert callable(imported.decode_release_ae_result_package)
+        assert sys.modules[MODULE] is api and package.release_ae_result_contract is api
+        namespace_after = dict(vars(api))
+        assert namespace_after.keys() == namespace_before.keys()
+        assert all(namespace_after[name] is value for name, value in namespace_before.items())
+        assert sys.modules.get(disk_name) is disk
+        if disk is not None:
+            disk_after = dict(vars(disk))
+            assert disk_after.keys() == disk_before.keys()
+            assert all(disk_after[name] is value for name, value in disk_before.items())
+            assert disk.ReleaseAEResultPackageError is api.ReleaseAEResultPackageError
         product_after = {n: m for n, m in sys.modules.items() if n.startswith('traffic_anomaly.')}
         assert product_after.keys() == product_before.keys()
         assert all(product_after[n] is m for n, m in product_before.items())

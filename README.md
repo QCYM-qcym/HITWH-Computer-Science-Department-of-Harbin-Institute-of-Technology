@@ -7,7 +7,7 @@
 <!-- PROJECT-PROGRESS:START -->
 ## 项目当前进度
 
-最近更新：**2026-11-13**。当前阶段：**数据审计**；本轮主题：AE结果包及只读inspect人工验证已接受；研究仍S2/BLOCKED。
+最近更新：**2026-11-13**。当前阶段：**数据审计**；本轮主题：AE结果包准确CI失败已定位并完成test-only修复；新发布与准确CI待核，研究仍S2/BLOCKED。
 
 ```mermaid
 flowchart TB
@@ -60,11 +60,11 @@ flowchart TB
 
 **本次完成事项**
 
-- 新增三文件AE结果包与只读inspect，支持current13及h30_26的完整保存值，不提供权重重建。
-- 契约231、磁盘55、CLI110共396项专项通过；独立源码及实际审查接受，重叠测试不累加。
-- 已有人工A两结果完成保存和移动核对；首次观察器PID失败保留，后继三次冷源检查按0/0/2退出并正常回收。
-- 本批无新增模型，完整摘要、浮点位值、空位、人口及输入身份均匹配；AE安装态和页面仍NOT_RUN。
-- 前批2e2c4f7及三CI已同步接受；本批准确CI待推送后核对，研究S2/BLOCKED及真实正式实验NOT_RUN保持。
+- 17文件已由Desktop发布至6b1650ab275bce05b97d128743d0c94f0737b35b；其准确合成CI失败，原记录保留。
+- 该CI为45失败、6086通过、90跳过；文档13、契约21与前端375通过，不能据此写三项CI全绿。
+- 三用例按CLI→contract→disk复现2通过/1失败、Q0；只隔离contract测试的临时导入，不改业务源码或45项负例断言。
+- 修复后三用例3通过、Q0；同顺序396项通过，保存Q99为47次/164重复选值，新提交与准确远端CI仍待核。
+- 旧396专项与分列人工验收保持；先完成修复同步再考虑AE安装/UI，研究S2/BLOCKED及真实正式实验NOT_RUN不变。
 
 **当前阻塞或待验证事项**
 
@@ -75,12 +75,13 @@ flowchart TB
 
 **接下来最重要的三项任务**
 
-1. [ENG-R11](<docs/guides/release-ae-result-package.md>)：推进保存AE结果的只读页面及安装态验收；先冻结双视图绑定、源钟面、资源和生命周期范围，当前页面尚未实施。
+1. [ENG-R11](<docs/research/2026-11-13-release-ae-result-ci-repair.json>)：先完成AE结果包测试隔离修复的Desktop同步与精确新CI核对；再推进独立安装及只读页面，当前两者未实施或验收。
 2. [C-I5](<docs/research/2026-10-24-c17-g13u-audit.md>)：依据真实分母决定最终Attempted口径和有限试点约束；先固定协议，随后分别处理主数据正式采用与生产契约迁移。
 3. [C-I7](<docs/project/DATA-GATE-2026-10-21.md>)：仅在相应批准和Gate证据满足后安排真实IF最小工程链路；本阶段训练/评分/阈值校准和正式实验继续NOT_RUN。
 
 **最新成果入口**
 
+- [AE结果包准确CI失败与测试隔离修复](<docs/research/2026-11-13-release-ae-result-ci-repair.json>)
 - [AE结果包保存、移动与只读inspect](<docs/guides/release-ae-result-package.md>)
 - [AE结果包396项专项与分列人工验收](<docs/research/2026-11-13-release-ae-result-verification.json>)
 - [AE内存接口与固定数值规则](<docs/guides/release-autoencoder.md>)

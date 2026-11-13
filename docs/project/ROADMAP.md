@@ -1,5 +1,13 @@
 # 滚动项目路线图
 
+## 2026-11-13 当前优先：测试隔离修复已验证，先完成重新同步
+
+结果包17文件已由Desktop发布至[`6b1650ab275bce05b97d128743d0c94f0737b35b`](https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/commit/6b1650ab275bce05b97d128743d0c94f0737b35b)。该提交的合成CI为45失败/6086通过/90跳过，文档13、契约21和前端375通过；整轮CI失败保留，详见[测试隔离修复记录](../research/2026-11-13-release-ae-result-ci-repair.json)。历史396专项及已接受的保存/冷源检查不替代完整CI。
+
+问题定位到contract测试重载现用模块后改变异常类身份，影响已加载disk模块的按值绑定。只改该测试的临时导入及恢复检查，业务源码和45项负例断言保持。指定顺序先复现2通过/1失败、Q0，修复后3通过、Q0；再按CLI→contract→disk运行396项通过，保存Q99为47次/164重复选值，未运行新模型或重复完整本地套件。
+
+下一步先完成修复批Desktop提交、推送和精确新CI，不预测新SHA或测试总数；之后再考虑AE安装态与只读页面。v1整轮FAIL、部分桥接8/80及独立冷源v2的3/30继续分列。C-I5/C-I7、S2/Data Gate BLOCKED、真实研究NOT_RUN与134/268/492既有边界保持。下文保留各轮原时点。
+
 ## 2026-11-13 当前工程：AE结果保存及inspect已接受
 
 [结果包与命令](../guides/release-ae-result-package.md)已完成三模块及三份测试，最终396项专项通过。已有人工A的两份数值结果完成保存、移动与完整字节/人口核对；首轮在观察器PID假设处失败，保留整轮失败及已验证的部分产物。后继只读取原包，两个独立检查和一次真实断管按0/0/2退出，完整19键摘要、保存分数及输入引用通过独立复核，见[分项验证](../research/2026-11-13-release-ae-result-verification.json)。本批没有新模型、前向、准备或重放。

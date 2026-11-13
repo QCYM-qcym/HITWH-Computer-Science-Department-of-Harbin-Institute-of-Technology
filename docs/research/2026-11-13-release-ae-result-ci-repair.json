@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-13",
+  "status": "SOURCE_ORDER_REPRODUCED_AND_TEST_ISOLATION_REPAIRED_EXACT_CI_PENDING",
+  "scope": "AE_RESULT_PACKAGE_SOURCE_TEST_ISOLATION_REPAIR_ONLY",
+  "draft": false,
+  "historical_publication": {
+    "commit": "6b1650ab275bce05b97d128743d0c94f0737b35b",
+    "status": "PUBLISHED_EXACT_SYNTHETIC_CI_FAILED_RETAINED",
+    "python": {
+      "run_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/43351818100",
+      "status": "FAILURE",
+      "passed": 6086,
+      "failed": 45,
+      "skipped": 90,
+      "warnings": 1,
+      "subtests": 56,
+      "elapsed_seconds": 266.30,
+      "runtime": "Linux CPython 3.14.10",
+      "failed_test_file": "tests/core/test_release_ae_result_package.py",
+      "complete_skip_cause_accounting": "NOT_PERFORMED",
+      "decoded_log_sha256": "4a6bfa062101bb1696b3795318242d516b639ad14fee8bd5d31165a0c23b4b54"
+    },
+    "other_completed_jobs": {
+      "repository_docs": {
+        "run_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/43351818081",
+        "status": "SUCCESS",
+        "passed": 13
+      },
+      "contracts": {
+        "run_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/43351818151",
+        "status": "SUCCESS",
+        "passed": 21
+      },
+      "frontend": {
+        "run_url": "https://github.com/QCYM-qcym/HITWH-Computer-Science-Department-of-Harbin-Institute-of-Technology/actions/runs/43351818100",
+        "status": "SUCCESS",
+        "passed": 375,
+        "typecheck_and_build": "PASSED",
+        "ae_viewer_evidence": "NOT_PROVIDED"
+      }
+    },
+    "original_engineering_record": "2026-11-13-release-ae-result-verification.json",
+    "original_engineering_record_sha256": "0266b7d88d21d3565535ce82d8768136e80df030ac09b494e220a6cfaff854b3",
+    "original_record_rewritten": false
+  },
+  "diagnosis": {
+    "status": "REPRESENTATIVE_SOURCE_ORDER_FAILURE_REPRODUCED",
+    "mechanism": "A contract import test reloaded the live module after the CLI had imported disk aliases. Reload recreated the owned exception class while disk consumers retained the earlier class binding. Exact-owner negative assertions could then observe a stale-class exception.",
+    "prior_manual_file_order": ["contract", "package", "cli"],
+    "reproduced_file_order": ["cli", "contract", "package"],
+    "representative_disk_case": "test_bad_native_package_rejects_before_output_or_math[identity]",
+    "limits": "The three-case reproduction covers the representative identity case. The old full-CI result retains all 45 failures; a new full-CI success is not inferred from local related tests."
+  },
+  "repair": {
+    "kind": "ONE_TEST_ISOLATION_CHANGE",
+    "changed_file": "tests/core/test_release_ae_result_contract.py",
+    "before": {
+      "byte_count": 63214,
+      "sha256": "b437aa04ad530289f56e5eb7c1fc60c8fc773b076a9b5a9c78b7ce90bdaa127a"
+    },
+    "after": {
+      "byte_count": 64847,
+      "sha256": "12941ca73e0404364d801c4857ad08ef88bdc27e274007e903ec138c9a379097"
+    },
+    "test": "test_fenced_import_preserves_existing_contract_and_disk_bindings",
+    "behavior": "A temporary fresh import is removed on leaving the monkeypatch context. The original sys.modules entry, parent-package binding, contract namespace, existing disk namespace and owned exception identity are explicitly preserved.",
+    "existing_disk_error_assertions_weakened": false,
+    "business_source_changes": 0,
+    "dependency_changes": 0,
+    "production_sources_unchanged": {
+      "src/core/traffic_anomaly/release_ae_result_contract.py": {
+        "byte_count": 31000,
+        "sha256": "b9839b61a802b03675d3ec23f280895bbb04f7842c2409cd69137fb327c05cfd"
+      },
+      "src/core/traffic_anomaly/release_ae_result_package.py": {
+        "byte_count": 9722,
+        "sha256": "2ea12cc5e92d0d99bd69847743914716271250e66452878e566ab5d4611c80ca"
+      },
+      "src/core/traffic_anomaly/release_ae_result_cli.py": {
+        "byte_count": 14224,
+        "sha256": "2597c862af5a73bf176d0fa8f83020d53b034e17fb23e04d114b68fc6f1dfec6"
+      }
+    }
+  },
+  "source_test_observations": {
+    "scope": "THREE_ORDINARY_SOURCE_PYTEST_OBSERVATIONS_NOT_NATIVE_TREE_OR_BUSINESS_RAW_CAPTURE",
+    "invocations": 3,
+    "retry": false,
+    "red": {
+      "status": "EXPECTED_FAILURE_REPRODUCED",
+      "collected": 3,
+      "passed": 2,
+      "failed": 1,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_exit": 1,
+      "elapsed_seconds": 0.8195134000852704,
+      "actual_saved_q99_calls": 0,
+      "repeated_selected_values": 0,
+      "receipt": {
+        "byte_count": 3771,
+        "sha256": "6de2828074d837368c20a4d3c6a339b2b3c50aef0ab9c0eb20318b778202d6ef"
+      }
+    },
+    "green": {
+      "status": "PASSED",
+      "collected": 3,
+      "passed": 3,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_exit": 0,
+      "elapsed_seconds": 0.7400984999258071,
+      "actual_saved_q99_calls": 0,
+      "repeated_selected_values": 0,
+      "receipt": {
+        "byte_count": 3777,
+        "sha256": "642781dbaa478af104bf36dda5ce66a1200781deeb568f522dc6d192fb3518f1"
+      }
+    },
+    "related": {
+      "status": "PASSED",
+      "file_order": ["cli", "contract", "package"],
+      "collected": 396,
+      "passed": 396,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_exit": 0,
+      "elapsed_seconds": 3.0394248000811785,
+      "actual_saved_q99_calls": 47,
+      "repeated_selected_values": 164,
+      "receipt": {
+        "byte_count": 3858,
+        "sha256": "df9d410194f5e505c575d770f511345528e2be49fee44df7cea9037978dfab94"
+      }
+    },
+    "all_three": {
+      "guard_attempt_count": 0,
+      "model_modules": [],
+      "guards_retained": true,
+      "profile_retained": true,
+      "source_origins_valid": true,
+      "calibration_source_sha256": "7113f2d9aaf432bb88336fd7b1f6e26ee06322d3306b2b063b309dcff28b66c7",
+      "calibration_accounting": "Calls to the accepted defining calibrator only; no additional oracle Q99 is generated. Repeated selections are not independent minutes.",
+      "models_or_training_run": false
+    },
+    "relation_to_prior_manual": "Separate repair scope. The prior eight manual observations and their 130 saved-Q99 calls/466 repeated selections remain historical; this related run contributes its own 47/164 and does not increase unique coverage beyond the same 396 tests."
+  },
+  "not_run": {
+    "new_exact_commit_full_ci": "PENDING_AT_SNAPSHOT",
+    "installed_core_inspect": "NOT_RUN",
+    "ae_http_or_viewer": "NOT_RUN",
+    "new_full_local_regression": "NOT_RUN",
+    "new_real_model_execution": "NOT_RUN",
+    "real_study_or_formal_if_ae_comparison": "NOT_RUN"
+  },
+  "research_boundaries": {
+    "s2_data_gate": "BLOCKED",
+    "production_134_268": "UNCHANGED",
+    "fixed_source_492_gate": "ADOPTED_UNCHANGED",
+    "original_a_492_extension": "NOT_ADOPTED",
+    "accuracy_or_performance_claim": false
+  },
+  "publication": {
+    "status": "PENDING_AT_SNAPSHOT",
+    "commit": null,
+    "exact_ci": "PENDING_AT_SNAPSHOT"
+  }
+}

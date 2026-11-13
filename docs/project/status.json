@@ -2,14 +2,14 @@
   "schema_version": 1,
   "updated": "2026-11-13",
   "current_stage": "S2",
-  "theme": "AE结果包及只读inspect人工验证已接受；研究仍S2/BLOCKED",
+  "theme": "AE结果包准确CI失败已定位并完成test-only修复；新发布与准确CI待核，研究仍S2/BLOCKED",
   "counting_scope": "2026-10-11阶段验收清单v1；按证据是否满足计数，维护工具测试不计入研究或业务验收",
   "recent_changes": [
-    "新增三文件AE结果包与只读inspect，支持current13及h30_26的完整保存值，不提供权重重建。",
-    "契约231、磁盘55、CLI110共396项专项通过；独立源码及实际审查接受，重叠测试不累加。",
-    "已有人工A两结果完成保存和移动核对；首次观察器PID失败保留，后继三次冷源检查按0/0/2退出并正常回收。",
-    "本批无新增模型，完整摘要、浮点位值、空位、人口及输入身份均匹配；AE安装态和页面仍NOT_RUN。",
-    "前批2e2c4f7及三CI已同步接受；本批准确CI待推送后核对，研究S2/BLOCKED及真实正式实验NOT_RUN保持。"
+    "17文件已由Desktop发布至6b1650ab275bce05b97d128743d0c94f0737b35b；其准确合成CI失败，原记录保留。",
+    "该CI为45失败、6086通过、90跳过；文档13、契约21与前端375通过，不能据此写三项CI全绿。",
+    "三用例按CLI→contract→disk复现2通过/1失败、Q0；只隔离contract测试的临时导入，不改业务源码或45项负例断言。",
+    "修复后三用例3通过、Q0；同顺序396项通过，保存Q99为47次/164重复选值，新提交与准确远端CI仍待核。",
+    "旧396专项与分列人工验收保持；先完成修复同步再考虑AE安装/UI，研究S2/BLOCKED及真实正式实验NOT_RUN不变。"
   ],
   "blockers": [
     "最终Attempted标签政策与有限试点协议尚未冻结；P_U相对P_B排除144个共同攻击分钟和293个正常候选，须先决定评价端点与敏感性范围。",
@@ -20,8 +20,8 @@
   "next_tasks": [
     {
       "id": "ENG-R11",
-      "text": "推进保存AE结果的只读页面及安装态验收；先冻结双视图绑定、源钟面、资源和生命周期范围，当前页面尚未实施。",
-      "path": "docs/guides/release-ae-result-package.md"
+      "text": "先完成AE结果包测试隔离修复的Desktop同步与精确新CI核对；再推进独立安装及只读页面，当前两者未实施或验收。",
+      "path": "docs/research/2026-11-13-release-ae-result-ci-repair.json"
     },
     {
       "id": "C-I5",
@@ -35,6 +35,10 @@
     }
   ],
   "entrypoints": [
+    {
+      "label": "AE结果包准确CI失败与测试隔离修复",
+      "path": "docs/research/2026-11-13-release-ae-result-ci-repair.json"
+    },
     {
       "label": "AE结果包保存、移动与只读inspect",
       "path": "docs/guides/release-ae-result-package.md"
@@ -4232,9 +4236,37 @@
     },
     "installed_AE": "NOT_RUN",
     "HTTP_and_UI": "NOT_RUN",
-    "full_local_regression": "NOT_RUN_NO_NEW_INTERACTION_CONCERN",
-    "publication": "PENDING_AT_SNAPSHOT_DESKTOP_EXACT_COMMIT_AND_NEW_CI",
-    "next_engineering_scope": "READ_ONLY_AE_VIEWER_AND_INSTALLED_ACCEPTANCE_NOT_YET_IMPLEMENTED",
+    "full_local_regression": "NOT_RUN_NARROW_CI_ORDER_REPAIR_VERIFIED_396",
+    "publication": "DESKTOP_PUSHED_6B1650_EXACT_CI_FAILED_REPAIR_PUBLICATION_PENDING",
+    "published_commit": "6b1650ab275bce05b97d128743d0c94f0737b35b",
+    "published_exact_ci": {
+      "status": "FAILED_RETAINED",
+      "synthetic_run": 43351818100,
+      "python_failed": 45,
+      "python_passed": 6086,
+      "python_skipped": 90,
+      "python_warnings": 1,
+      "python_subtests_passed": 56,
+      "python_seconds": 266.3,
+      "docs_tests_passed": 13,
+      "privacy_files": 750,
+      "privacy_issues": 0,
+      "contracts_tests_passed": 21,
+      "frontend_tests_passed": 375
+    },
+    "ci_isolation_repair": {
+      "status": "TEST_ONLY_FIX_SOURCE_REVIEW_AND_ORDERED_GROUP_ACCEPTED_NEW_EXACT_CI_PENDING",
+      "verification": "docs/research/2026-11-13-release-ae-result-ci-repair.json",
+      "business_source_changed": false,
+      "disk_negative_assertions_weakened": false,
+      "red": {"passed": 2, "failed": 1, "pytest_exit": 1, "saved_q99_calls": 0},
+      "green": {"passed": 3, "failed": 0, "pytest_exit": 0, "saved_q99_calls": 0},
+      "ordered_related": {"passed": 396, "failed": 0, "pytest_exit": 0, "saved_q99_calls": 47, "repeated_selected_values": 164},
+      "order": ["CLI", "contract", "disk"],
+      "new_models_or_forwards": 0,
+      "new_desktop_and_exact_ci": "PENDING_AT_SNAPSHOT"
+    },
+    "next_engineering_scope": "REPAIR_PUBLICATION_AND_EXACT_CI_BEFORE_INSTALLED_OR_VIEWER",
     "source_authentication": "NOT_AUTHENTICATED",
     "model_execution_authentication": "NOT_AUTHENTICATED",
     "research_gate": "BLOCKED",
